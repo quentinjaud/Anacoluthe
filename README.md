@@ -108,11 +108,11 @@ Ce projet est sous licence **Creative Commons BY-NC-SA 4.0**.
 [![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 Vous êtes libres de :
-- **Partager** — copier, distribuer et communiquer le matériel
-- **Adapter** — remixer, transformer et créer à partir du matériel
+- **Partager** -> copier, distribuer et communiquer le matériel
+- **Adapter** -> remixer, transformer et créer à partir du matériel
 
 Selon les conditions suivantes :
-- **Attribution** — Vous devez créditer l'œuvre
+- **Attribution** -> Vous devez créditer l'œuvre
 - **Pas d'utilisation commerciale**
 - **Partage dans les mêmes conditions**
 
@@ -120,7 +120,7 @@ Selon les conditions suivantes :
 
 ## 👤 Auteur
 
-**Quentin Jaud** — Designer & animateur éducation populaire et sportive.
+**Quentin Jaud** - Designer & animateur éducation populaire et sportive.
 
 Développé dans le cadre d'un apprentissage de BPJEPS aux Glénans (base de Marseillan).
 
@@ -128,8 +128,8 @@ Développé dans le cadre d'un apprentissage de BPJEPS aux Glénans (base de Mar
 
 ## 📜 Historique
 
-- **V5** (nov. 2025) — Version actuelle : 15 cartes + 3 affiches, greffe sur routines existantes
-- **V4** (oct. 2025) — 19 cartes en 5 paquets thématiques, 6 archétypes fictifs
-- **V1-V3** (2024-2025) — Explorations initiales
+- **V5** (nov. 2025) -> Version actuelle : 15 cartes + 3 affiches, greffe sur routines existantes
+- **V4** (oct. 2025) -> 19 cartes en 5 paquets thématiques, 6 archétypes fictifs
+- **V1-V3** (2024-2025) -> Explorations initiales
 
 Voir [CHANGELOG.md](./CHANGELOG.md) pour le détail.

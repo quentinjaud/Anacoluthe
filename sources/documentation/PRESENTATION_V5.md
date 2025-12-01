@@ -12,21 +12,21 @@ Ainsi, sans consommer de l'énergie et du temps supplémentaire et sans provoque
 
 ## ALORS, QUELS SONT LES OBJECTIFS ?
 
-### OS1 — Réduire les dysfonctionnements d'équipage
+### OS1 -> Réduire les dysfonctionnements d'équipage
 
 **Constat** : Analyse des rapports de mer et retours moniteurs → les dysfonctionnements relationnels apparaissent comme facteur récurrent dans les incidents, réclamations et situations nécessitant intervention RTQ ou +.
 
 **Finalité** : Équipages qui fonctionnent mieux collectivement → moins d'incidents → meilleure qualité des stages pour stagiaires ET moniteurices.
 
-### OS2 — Contribuer à la mission d'éducation populaire
+### OS2 -> Contribuer à la mission d'éducation populaire
 
 **Ancrage statutaire** : Les Glénans = "école de formation à la mer et par elle à la vie collective". Anacoluthe opérationnalise cette mission en développant des compétences relationnelles (écoute, assertivité, régulation) explicitement transférables à terre (travail, famille, associations).
 
 **Finalité** : Stagiaires qui progressent en savoir-être et prennent conscience du transfert possible hors voile.
 
-### OS3 — Améliorer la progression technique
+### OS3 -> Améliorer la progression technique
 
-**Constat** : Les items "organisation collective", "vie à bord" et "sens marin" du référentiel croisière sont difficiles à travailler sans outillage ni méthodologie — et plus encore quand les tensions relationnelles parasitent l'apprentissage.
+**Constat** : Les items "organisation collective", "vie à bord" et "sens marin" du référentiel croisière sont difficiles à travailler sans outillage ni méthodologie -> et plus encore quand les tensions relationnelles parasitent l'apprentissage.
 
 **Finalité** : Un équipage qui coopère bien progresse mieux techniquement. L'ambiance saine facilite la prise de risque pédagogique et l'autonomisation.
 
@@ -113,9 +113,9 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 
 | Objectif | Éléments mobilisés | Mécanisme |
 |----------|-------------------|-----------|
-| **OS1 — Réduire dysfonctionnements** | Cartes SOS, Tableau équipage (météo perso), Débrief soir | Tensions nommées tôt, régulation outillée, charge mono allégée |
-| **OS2 — Éducation populaire** | Cartes rôles (section "à terre"), Débrief final J6, Marins inspirants | Compétences explicitement transférables, modèles accessibles |
-| **OS3 — Progression technique** | Routines quotidiennes, Brief/débrief structurés, Rotation rôles | Organisation collective travaillée, sens marin développé |
+| **OS1 -> Réduire dysfonctionnements** | Cartes SOS, Tableau équipage (météo perso), Débrief soir | Tensions nommées tôt, régulation outillée, charge mono allégée |
+| **OS2 -> Éducation populaire** | Cartes rôles (section "à terre"), Débrief final J6, Marins inspirants | Compétences explicitement transférables, modèles accessibles |
+| **OS3 -> Progression technique** | Routines quotidiennes, Brief/débrief structurés, Rotation rôles | Organisation collective travaillée, sens marin développé |
 
 ---
 
@@ -152,7 +152,7 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 | Kit cartes (15 cartes A6 plastifiées) | 1 | 10 | ~50€ |
 | Kit affiches (3 A4 plastifiées) | 1 | 10 | ~30€ |
 | Notice équipage | 1 | 10 | ~10€ |
-| **TOTAL MATÉRIEL DISPOSITIF** | — | — | **~90€** |
+| **TOTAL MATÉRIEL DISPOSITIF** | -> | -> | **~90€** |
 
 ### Diffusion aux parties-prenantes
 

@@ -1,4 +1,4 @@
-# SYNTHÈSE REFONTE ANACOLUTHE V5 — 251106
+# SYNTHÈSE REFONTE ANACOLUTHE V5 - 251106
 
 ## DIAGNOSTIC
 
@@ -31,7 +31,7 @@
 ### AFFICHAGES A4 PLASTIFIÉS (3 supports permanents)
 
 1. **Routines techniques** (préparation bateau, appareillage, navigation, atterrissage)
-2. **Tableau de bord** (équipage, météos perso, rôles du jour, programme) — SANS archétypes
+2. **Tableau de bord** (équipage, météos perso, rôles du jour, programme) - SANS archétypes
 3. **Marque-page livre de bord** 
    - Recto : Échelles Beaufort/Douglas
    - Verso : Mémo sécu-coop (vérifications pont : état équipage, bonne entente, sécurité)

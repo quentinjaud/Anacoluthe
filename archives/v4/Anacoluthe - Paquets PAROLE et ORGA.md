@@ -49,7 +49,7 @@ Notez dans le livre de bord : "On a ouvert un espace de parole aujourd'hui."
 
 Cette compétence d'ouvrir un espace pour la parole qui peine à sortir, vous la retrouverez partout : au boulot lors d'une réunion tendue, en famille quand quelqu'un·e se tait, en asso quand une tension flotte.
 
-*"Les silences aussi ont quelque chose à dire." — Proverbe marin*
+*"Les silences aussi ont quelque chose à dire." - Proverbe marin*
 
 # 💬 P2  		   COMMENT CIRCULE  LA PAROLE ?
 

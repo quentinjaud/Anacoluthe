@@ -60,7 +60,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 |---|---------|---------|
 | A1 | Routines quotidiennes | 5 phases chrono (préparation → départ → navigation → approche → arrivée) |
 | A2 | Tableau d'équipage | Météo perso + 6 compétences + rôles du jour + programme |
-| A3 | Marque-page LDB | Recto: Beaufort/Douglas — Verso: 5 piliers coopératifs + guidance brief/débrief |
+| A3 | Marque-page LDB | Recto: Beaufort/Douglas - Verso: 5 piliers coopératifs + guidance brief/débrief |
 
 ---
 
@@ -108,13 +108,13 @@ Structure validée par carte :
 - **VERSO** : Déroulé (étapes numérotées) / Questions guides / Ancrage
 
 Ordre de production suggéré :
-1. M3 — Introduction rôles (lance le système)
-2. M4 — Brief matin (rituel quotidien)
-3. M5 — Débrief soir (rituel quotidien)
-4. M2 — Accords d'équipage
-5. M1 — Accueil & attentes
-6. M6 — Mi-parcours
-7. M7 — Débrief final
+1. M3 - Introduction rôles (lance le système)
+2. M4 - Brief matin (rituel quotidien)
+3. M5 - Débrief soir (rituel quotidien)
+4. M2 - Accords d'équipage
+5. M1 - Accueil & attentes
+6. M6 - Mi-parcours
+7. M7 - Débrief final
 
 ---
 
@@ -213,5 +213,5 @@ Ordre de production suggéré :
 
 ---
 
-*Document vivant — Mis à jour à chaque avancement significatif*  
-*Anacoluthe V5 — CC-BY-NC-SA*
+*Document vivant - Mis à jour à chaque avancement significatif*  
+*Anacoluthe V5 - CC-BY-NC-SA*

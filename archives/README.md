@@ -22,11 +22,11 @@ La V4 était organisée autour de :
 
 ### Fichiers conservés
 
-- `guide_equipage_v4.md` — Guide stagiaires
-- `guide_mono_v4.md` — Guide moniteur·rices
-- `paquet_parole_orga.md` — Cartes Parole + Organisation
-- `paquet_equilibre_energie.md` — Cartes Équilibre + Énergie + Miroir
-- `paquet_lien.md` — Cartes Lien + Miroir
+- `guide_equipage_v4.md` - Guide stagiaires
+- `guide_mono_v4.md` - Guide moniteur·rices
+- `paquet_parole_orga.md` - Cartes Parole + Organisation
+- `paquet_equilibre_energie.md` - Cartes Équilibre + Énergie + Miroir
+- `paquet_lien.md` - Cartes Lien + Miroir
 
 ---
 

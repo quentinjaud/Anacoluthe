@@ -45,7 +45,7 @@ Ces compétences ne sont pas un "plus" sympathique de la voile habitable. Ce son
 | **Cartes SOS** | 4 | A6 R/V plastifié | Régulation tensions |
 | **Affiches permanentes** | 3 | A4 plastifié | Routines, tableau, livre de bord |
 | **Formations moniteur·ices** | - | - | Appropriation du dispositif |
-| **Topos-séances** | - | - | Séances vivre-ensemble dédiées |
+| **Topos-séances** | 4 | - | Séances vivre-ensemble dédiées |
 
 ### Les 4 rôles quotidiens
 
@@ -72,8 +72,7 @@ Chaque rôle est incarné par un·e marin·e inspirant·e du monde nautique rée
 Anacoluthe/
 ├── docs/                    # 🌐 Site web GitHub Pages
 │   ├── index.html
-│   ├── assets/css/
-│   └── pdfs/                # PDFs téléchargeables (à venir)
+│   └── assets/css/
 ├── sources/                 # 📝 Fichiers sources Markdown
 │   ├── cartes/
 │   │   ├── roles/
@@ -83,6 +82,7 @@ Anacoluthe/
 │   └── documentation/
 │       └── work-in-progress/
 ├── archives/                # 📦 Versions V1-V4
+├── print/                   # 📄 PDFs prêts à imprimer
 └── README.md
 ```
 
@@ -92,10 +92,6 @@ Anacoluthe/
 
 **Prochainement** : PDFs prêts à imprimer disponibles sur le site web.
 
-**Recommandations d'impression** :
-- Cartes : papier 200-250g, plastification conseillée
-- Affiches : A4 plastifié pour usage maritime (résistance eau, sel, humidité)
-
 ---
 
 ## 🏫 Contexte de création
@@ -104,7 +100,7 @@ Anacoluthe est un projet-support d'apprentissage développé dans le cadre d'une
 
 Le dispositif a été co-conçu avec l'équipe pédagogique de la base et enrichi par les contributions de collectifs au-delà des Glénans : praticien·nes de l'éducation populaire, formateur·ices en coopération, chercheur·ses en pédagogie des groupes.
 
-**Ancrage dans la mission des Glénans** : Dans ses statuts, l'association se décrit comme une *"École de formation à la mer, et, par elle, à la vie collective"*. Anacoluthe opérationnalise cette mission historique.
+**Ancrage dans la mission des Glénans** : Dans ses statuts, l'association se décrit comme une *"École de formation à la mer, et, par elle, à la vie collective"*. Anacoluthe contribue à cette mission historique.
 
 ---
 
@@ -114,22 +110,20 @@ Le dispositif a été co-conçu avec l'équipe pédagogique de la base et enrich
 - **Communication NonViolente** : sentiments/besoins, dépersonnalisation des tensions
 - **Modèle ICE** (Isolated, Confined, Extreme - Palinkas & Suedfeld) : phases prévisibles de la vie de groupe
 - **Transfert d'apprentissage** (Tardif) : Contextualisation → Décontextualisation → Recontextualisation
-- **Coopération** : horizontalité progressive, décision par consentement
+- **Coopération** : horizontalité progressive, décision à zéro objection
 
 ---
 
 ## 🤝 Contribuer
 
-Les contributions sont bienvenues ! 
+Les contributions sont bienvenues :
 
-**Types de contributions recherchées** :
 - Retours d'expérience terrain (moniteur·ices, stagiaires)
-- Traductions
-- Adaptations à d'autres contextes (colocs, équipes projet, camps scouts, résidences...)
+- Adaptations à d'autres contextes (colocs, équipes projet, camps, résidences...)
 - Améliorations graphiques et ergonomiques
 - Enrichissements pédagogiques
 
-**Pour contribuer** : Ouvrez une issue sur GitHub ou contactez directement le mainteneur.
+**Pour contribuer** : Ouvrez une issue sur GitHub ou contactez moi directement !
 
 ---
 
@@ -144,8 +138,8 @@ Vous êtes libres de :
 - **Adapter** : remixer, transformer et créer à partir du matériel
 
 Selon les conditions suivantes :
-- **Attribution** : vous devez créditer l'œuvre (Quentin Jaud / Les Glénans)
-- **Pas d'utilisation commerciale**
+- **Attribution** : vous devez créditer l'œuvre (Quentin Jaud)
+- **Pas d'utilisation commerciale** : OK dans des contextes associatifs et collectifs, mais pas sans demande dans un contexte "entreprise"
 - **Partage dans les mêmes conditions** : redistribution sous même licence
 
 Ce partage ouvert s'inscrit dans la volonté des Glénans de contribuer à la construction de **savoirs ouverts autour de la voile**.
@@ -155,9 +149,8 @@ Ce partage ouvert s'inscrit dans la volonté des Glénans de contribuer à la co
 ## 👤 Auteur & Contact
 
 **Quentin Jaud**
-- Game designer & animateur éducation populaire
-- [Origami Aventures](https://origami-aventures.org)
-- Dépôt GitHub : [github.com/quentinjaud/Anacoluthe](https://github.com/quentinjaud/Anacoluthe)
+- Designer & animateur éducation populaire et sportive
+- Animateur d'[Origami Aventures](https://origami-aventures.org)
 
 ---
 
@@ -165,10 +158,8 @@ Ce partage ouvert s'inscrit dans la volonté des Glénans de contribuer à la co
 
 - **V5** (nov. 2025) → **Version actuelle** : 15 cartes + 3 affiches, greffe sur routines existantes, 4 marins·ères inspirant·es réel·les
 - **V4** (oct. 2025) → 19 cartes en 5 paquets thématiques, 6 archétypes fictifs
-- **V1-V3** (2024-2025) → Explorations initiales
-
-Voir [`SUIVI_PRODUCTION_V5.md`](./sources/documentation/work-in-progress/SUIVI_PRODUCTION_V5.md) pour le détail de la production en cours.
+- **V1-V3** (2024-2025) → Explorations initiales, variation des supports des animations collectives et des personnages/archetypes.
 
 ---
 
-*Faire équipage, ça s'apprend - ça se travaille - ensemble* 🌊
+*Faire équipage, ça s'apprend, ça se travaille, ensemble* 🌊

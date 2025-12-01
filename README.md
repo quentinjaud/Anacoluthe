@@ -120,9 +120,9 @@ Selon les conditions suivantes :
 
 ## 👤 Auteur
 
-**Quentin Jaud** — Game designer & animateur éducation populaire
+**Quentin Jaud** — Designer & animateur éducation populaire et sportive.
 
-Développé dans le cadre d'un engagement bénévole aux Glénans (base de Marseillan).
+Développé dans le cadre d'un apprentissage de BPJEPS aux Glénans (base de Marseillan).
 
 ---
 

@@ -1,279 +1,175 @@
-/* ANACOLUTHE V5 - Site web */
-/* Inspiré de Gauthier Roussilhe + Les Glénans */
-
-/* ============================================
-   FONTS : Merriweather Sans + Merriweather Serif
-   ============================================ */
-
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* ============================================
-   VARIABLES
-   ============================================ */
-
-:root {
-  /* Couleurs Glénans officielles */
-  --bleu-glenans: #0066AD;
-  --gris-glenans: #454545;
-  --rouge-glenans: #F04839;
-  --blanc: #FFFFFF;
-  --blanc-casse: #F9F9F9;
-  --gris-clair: #CCCCCC;
-  
-  /* Typographie */
-  --font-sans: 'Merriweather Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Merriweather', Georgia, serif;
-  
-  /* Espacements */
-  --space-xs: 0.5rem;
-  --space-s: 1rem;
-  --space-m: 2rem;
-  --space-l: 3rem;
-  --space-xl: 4rem;
-  
-  /* Tailles */
-  --text-base: 1.125rem;
-  --text-small: 0.9rem;
-  --line-height: 1.7;
-}
-
-/* ============================================
-   RESET & BASE
-   ============================================ */
-
+/* Reset et base */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Couleurs officielles Les Glénans */
+:root {
+    --bleu-glenans: #0066AD;
+    --gris-glenans: #454545;
+    --rouge-glenans: #F04839;
+    --fond: #F9F9F9;
+    --blanc: #FFFFFF;
 }
 
+/* Typographie */
 body {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  line-height: var(--line-height);
-  color: var(--gris-glenans);
-  background-color: var(--blanc-casse);
-  max-width: 800px;
-  margin: 0 auto;
-  padding: var(--space-l) var(--space-m);
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--gris-glenans);
+    background-color: var(--fond);
 }
 
-/* ============================================
-   TYPOGRAPHIE
-   ============================================ */
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--space-s);
-  color: var(--bleu-glenans);
+h1, h2, h3 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 700;
+    color: var(--bleu-glenans);
+    margin-bottom: 1.5rem;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-m);
+    font-size: 2.5rem;
+    line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.8rem;
-  margin-top: var(--space-l);
-  margin-bottom: var(--space-m);
+    font-size: 2rem;
+    margin-top: 3rem;
 }
 
 h3 {
-  font-size: 1.3rem;
-  margin-top: var(--space-m);
+    font-size: 1.5rem;
+    margin-top: 2rem;
 }
 
-p {
-  margin-bottom: var(--space-s);
-}
-
-p + p {
-  margin-top: var(--space-s);
-}
-
-strong {
-  font-weight: 700;
-  color: var(--gris-glenans);
-}
-
-em {
-  font-style: italic;
-}
-
-/* ============================================
-   LIENS
-   ============================================ */
-
-a {
-  color: var(--bleu-glenans);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
-}
-
-a:hover,
-a:focus {
-  border-bottom-color: var(--bleu-glenans);
-}
-
-/* ============================================
-   HEADER
-   ============================================ */
-
+/* Layout */
 header {
-  margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-m);
-  border-bottom: 2px solid var(--gris-glenans);
-}
-
-.site-title {
-  font-size: 2.5rem;
-  color: var(--bleu-glenans);
-  margin-bottom: var(--space-xs);
+    background-color: var(--blanc);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-bottom: 4px solid var(--bleu-glenans);
+    margin-bottom: 3rem;
 }
 
 .site-subtitle {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  font-style: italic;
-  color: var(--gris-glenans);
-  font-weight: 400;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--gris-glenans);
+    font-weight: 400;
+    margin-top: 0.5rem;
 }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
-
-nav {
-  margin: var(--space-l) 0;
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-m);
-}
-
-nav a {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--gris-glenans);
-  border-bottom: 2px solid transparent;
-}
-
-nav a:hover,
-nav a:focus {
-  border-bottom-color: var(--bleu-glenans);
-}
-
-/* ============================================
-   SECTIONS
-   ============================================ */
 
 section {
-  margin-bottom: var(--space-xl);
+    margin-bottom: 3rem;
 }
 
-.intro {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  margin-bottom: var(--space-l);
-  color: var(--gris-glenans);
+/* Texte */
+p {
+    margin-bottom: 1.5rem;
 }
 
-/* ============================================
-   LISTES
-   ============================================ */
+strong {
+    font-weight: 700;
+    color: var(--bleu-glenans);
+}
 
-ul, ol {
-  margin-left: var(--space-m);
-  margin-bottom: var(--space-s);
+em {
+    font-style: italic;
+}
+
+/* Liens */
+a {
+    color: var(--bleu-glenans);
+    text-decoration: none;
+    border-bottom: 1px solid var(--bleu-glenans);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--rouge-glenans);
+    border-bottom-color: var(--rouge-glenans);
+}
+
+/* Listes */
+ul {
+    margin: 1.5rem 0 1.5rem 2rem;
 }
 
 li {
-  margin-bottom: var(--space-xs);
+    margin-bottom: 0.75rem;
 }
 
-/* ============================================
-   CARDS / BLOCKS
-   ============================================ */
-
+/* Cartes dispositif */
 .card {
-  background: var(--blanc);
-  padding: var(--space-m);
-  margin-bottom: var(--space-m);
-  border-left: 4px solid var(--rouge-glenans);
+    background-color: var(--blanc);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--rouge-glenans);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .card h3 {
-  margin-top: 0;
-  color: var(--gris-glenans);
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+.card p {
+    margin-bottom: 0;
+}
 
+/* Footer */
 footer {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-m);
-  border-top: 1px solid var(--gris-clair);
-  font-family: var(--font-sans);
-  font-size: var(--text-small);
-  color: var(--gris-glenans);
+    background-color: var(--blanc);
+    border-top: 4px solid var(--bleu-glenans);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gris-glenans);
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media (max-width: 640px) {
-  :root {
-    --text-base: 1rem;
-  }
-  
-  body {
-    padding: var(--space-m) var(--space-s);
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    gap: var(--space-s);
-  }
+footer p {
+    margin-bottom: 0;
 }
 
-/* ============================================
-   UTILITIES
-   ============================================ */
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
 
-.text-center {
-  text-align: center;
-}
+    h1 {
+        font-size: 2rem;
+    }
 
-.mt-l {
-  margin-top: var(--space-l);
-}
+    h2 {
+        font-size: 1.75rem;
+    }
 
-.mb-l {
-  margin-bottom: var(--space-l);
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .site-subtitle {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 0 1.5rem 3rem;
+    }
+
+    header {
+        padding: 2rem 1.5rem;
+    }
 }

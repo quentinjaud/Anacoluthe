@@ -1,6 +1,6 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
-## État d'avancement après travail cartes moments
-*Dernière mise à jour : 251128 (28 novembre 2025)*
+## État d'avancement après travail cartes SOS
+*Dernière mise à jour : 251203 (3 décembre 2025)*
 
 ---
 
@@ -26,7 +26,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 |---------|--------|----------|--------|
 | **Cartes rôles** | A6 R/V | 4 | ✅ COMPLET |
 | **Cartes moments-clés** | A6 R/V | 7 | 🟡 INTENTIONS VALIDÉES |
-| **Cartes SOS coopératives** | A6 R/V | 4 | ⬜ À faire |
+| **Cartes SOS coopératives** | A6 R/V | 4 | 🟡 INTENTIONS VALIDÉES |
 | **Affiches permanentes** | A4 | 3 | ✅ COMPLET |
 | **Guide équipage** | À définir | ? | ⬜ À définir |
 | **Guide mono** | À définir | ? | ⬜ À définir |
@@ -39,7 +39,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ### 🧭 Cartes rôles (4/4) - COMPLET
 
-**Version finalisée** : `cartes_roles_4_consolidees_v251106.md`
+**Version finalisée** : `sources/cartes/roles/cartes_roles_4_consolidees_v251106.md`
 
 | # | Rôle | Marin·e inspirant·e | Focus |
 |---|------|---------------------|-------|
@@ -64,9 +64,11 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ---
 
+## 🟡 INTENTIONS VALIDÉES - À PRODUIRE
+
 ### 📋 Cartes moments-clés (0/7 produites, intentions validées)
 
-**Document de référence** : `CARTES_MOMENTS_INTENTIONS_V251128c.md`
+**Document de référence** : `sources/documentation/CARTES_MOMENTS_INTENTIONS.md`
 
 | # | Moment | Timing | Durée | Statut intentions |
 |---|--------|--------|-------|-------------------|
@@ -87,51 +89,54 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 6. Premier repas ensemble
 7. M3 Introduction rôles + tableau d'équipage
 
-**Décisions clés prises (28 nov)** :
+**Décisions clés (28 nov)** :
 - Cartes destinées à l'équipage entier (pas juste mono)
 - M2 = accords relationnels uniquement (orga quotidienne = routines séparées)
 - Rotation des rôles = à la discrétion du·de la mono
 - 2 brise-glaces proposés dans M1 (prénom+inattendu, bout qui relie)
-- M3 : présentation complète des 4 rôles maintenue
-- Lien avec cartes SOS : traité lors de la production des SOS
+
+---
+
+### 🆘 Cartes SOS coopératives (0/4 produites, intentions validées)
+
+**Document de référence** : `sources/documentation/CARTES_SOS_INTENTIONS.md`
+
+**Nature** : Outils **curatifs** - interviennent quand les cartes moments n'ont pas suffi.
+
+**Déclencheur** : Équipage ou mono, souvent à l'initiative d'un stagiaire (parfois le second soigneux du jour).
+
+| # | Carte SOS | Situation | Rôles impliqués | Source V4 |
+|---|-----------|-----------|-----------------|-----------|
+| S1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective qui bloque | Mono (facilitateur) + 🤲 Second soigneux | P3 |
+| S2 | Organiser un temps sans navigation | Pétole ou temps trop fort - frustration + surprise | Mono (arrangeur) + tous les rôles | O2 |
+| S3 | Rediscuter accords/programme | Accord non respecté ou frustration technique | Mono (garant) + 🤲 Seconds soigneux passés + 🧭 Navigateurice | L1 + O3 |
+| S4 | Faire une demande/feedback au mono | Feedback positif / ajustement / inconfort | Mono (destinataire) + 🤲 Second soigneux | P4 |
+
+**Décisions clés (3 déc)** :
+- Une seule carte S1 couvre conflits interpersonnels ET collectifs
+- S2 couvre pétole ET temps trop fort (même dynamique émotionnelle)
+- S3 couvre accords d'équipage ET programme (même constat : rediscuter ce qui nous lie)
+- S4 garde les 3 cas (positif/ajustement/inconfort) + "formule magique"
+- Pas de méthode de décision formelle dans les SOS (trop lourd en crise)
+- Triptyque S2 maintenu : collectif obligatoire / collectif optionnel / solo respecté
 
 ---
 
 ## 🔜 PRODUCTION À VENIR
 
-### Sprint 1 : Cartes moments-clés (7 cartes) - PRIORITÉ HAUTE
+### Sprint 1 : Rédaction cartes moments + SOS - PRIORITÉ HAUTE
 
 **Prochaine étape** : Rédaction des cartes en format A6 (~900 car/face)
 
-Structure validée par carte :
-- **RECTO** : Titre + emoji + timing / Contexte / Intentions fusionnées
-- **VERSO** : Déroulé (étapes numérotées) / Questions guides / Ancrage
+**Structure commune validée** :
+- **RECTO** : Titre + emoji / Contexte situationnel / Intentions / Rôles impliqués
+- **VERSO** : Déroulé (étapes numérotées avec durées) / Questions guides / Ancrage
 
-Ordre de production suggéré :
-1. M3 - Introduction rôles (lance le système)
-2. M4 - Brief matin (rituel quotidien)
-3. M5 - Débrief soir (rituel quotidien)
-4. M2 - Accords d'équipage
-5. M1 - Accueil & attentes
-6. M6 - Mi-parcours
-7. M7 - Débrief final
+**11 cartes à produire** : 7 moments + 4 SOS
 
 ---
 
-### Sprint 2 : Cartes SOS (4 cartes) - PRIORITÉ MOYENNE
-
-| # | Situation | Focus |
-|---|-----------|-------|
-| S1 | Conflit ouvert | Désamorcer tension relationnelle |
-| S2 | Décision bloquée | Sortir impasse décisionnelle |
-| S3 | Fatigue collective | Adapter rythme/charge |
-| S4 | Exclusion/isolement | Réintégrer membre équipage |
-
-**Note pour production** : Pour dépersonnaliser les tensions avec V5, passer par les rôles/focus techniques pour expliquer un comportement, puis extrapoler la tension et trouver une résolution. Les rôles V5 aident moins que les archétypes V4 à la dépersonnalisation directe → compenser dans les cartes SOS.
-
----
-
-### Sprint 3 : Guides - PRIORITÉ BASSE
+### Sprint 2 : Guides - PRIORITÉ BASSE
 
 - Guide mono : format à définir
 - Guide équipage : format à définir
@@ -146,7 +151,7 @@ Ordre de production suggéré :
 |-----------|------|-------|---|--------|
 | Cartes rôles | 4 | 4 | 100% | ✅ COMPLET |
 | Cartes moments-clés | 0* | 7 | 0% | 🟡 Intentions OK |
-| Cartes SOS | 0 | 4 | 0% | ⬜ À faire |
+| Cartes SOS | 0* | 4 | 0% | 🟡 Intentions OK |
 | Affiches A4 | 3 | 3 | 100% | ✅ COMPLET |
 | Guide équipage | 0 | ? | 0% | ⬜ À définir |
 | Guide mono | 0 | ? | 0% | ⬜ À définir |
@@ -161,8 +166,9 @@ Ordre de production suggéré :
 - ✅ Parité 1H/3F validée
 - ✅ Affiches A4 complètes
 - ✅ Intentions cartes moments validées (28 nov)
+- ✅ Intentions cartes SOS validées (3 déc)
 - 🟡 Rédaction cartes moments à faire
-- ⬜ Cartes SOS à concevoir
+- 🟡 Rédaction cartes SOS à faire
 - ⬜ Guides à définir
 
 ---
@@ -171,7 +177,8 @@ Ordre de production suggéré :
 
 | Version | Date | Contenu |
 |---------|------|---------|
-| v251128 | 28 nov. 2025 | Intégration travail intentions cartes moments |
+| v251203 | 3 déc. 2025 | Intégration intentions cartes SOS |
+| v251128 | 28 nov. 2025 | Intégration intentions cartes moments |
 | v251114 | 14 nov. 2025 | Intégration affiches A4 |
 | v251106 | 6 nov. 2025 | Cartes rôles complètes |
 | v251105 | 5 nov. 2025 | Pivot majeur V4→V5 |
@@ -181,11 +188,18 @@ Ordre de production suggéré :
 ## 📚 DOCUMENTS DE RÉFÉRENCE
 
 ### Production V5 (dans ce repo)
+
+**Cartes**
 - `sources/cartes/roles/cartes_roles_4_consolidees_v251106.md`
-- `sources/cartes/moments/CARTES_MOMENTS_INTENTIONS_V251128c.md`
+
+**Affiches**
 - `sources/affiches/AFFICHE_A1_ROUTINES_QUOTIDIENNES_V251110.md`
 - `sources/affiches/AFFICHE_A2_TABLEAU_EQUIPAGE_V251110.md`
 - `sources/affiches/AFFICHE_A3_MARQUE_PAGE_LDB_V251110.md`
+
+**Documentation**
+- `sources/documentation/CARTES_MOMENTS_INTENTIONS.md`
+- `sources/documentation/CARTES_SOS_INTENTIONS.md`
 - `sources/documentation/SYNTHESE_REFONTE_V5.md`
 - `sources/documentation/PRESENTATION_V5.md`
 

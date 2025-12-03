@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anacoluthe - Consulter les cartes du dispositif pédagogique">
+    <title>Cartes - Anacoluthe V5</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-link">
+            <h1 class="site-title"><span class="punctuation">?!</span> Anacoluthe <span class="punctuation">?!</span></h1>
+        </a>
+        <p class="site-subtitle">Les cartes du dispositif</p>
+    </header>
+
+    <main>
+        <!-- Filtres -->
+        <section class="filters">
+            <button class="filter-btn active" data-filter="all">Toutes</button>
+            <button class="filter-btn" data-filter="role">🔧 Rôles</button>
+            <button class="filter-btn" data-filter="moment">📅 Moments</button>
+            <button class="filter-btn" data-filter="sos">🆘 SOS</button>
+        </section>
+
+        <!-- Galerie de cartes -->
+        <section class="cards-gallery" id="cards-gallery">
+            <p class="loading">Chargement des cartes...</p>
+        </section>
+
+        <!-- Modale pour afficher une carte -->
+        <div class="card-modal" id="card-modal">
+            <div class="card-modal-backdrop" onclick="closeModal()"></div>
+            <div class="card-modal-content">
+                <button class="card-modal-close" onclick="closeModal()" aria-label="Fermer">×</button>
+                <div class="card-modal-body" id="card-modal-body">
+                    <p class="loading">Chargement...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <a href="index.html">← Retour à l'accueil</a><br><br>
+            Anacoluthe V5 - Licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>
+        </p>
+    </footer>
+
+    <!-- marked.js pour parser le markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="assets/js/cards-loader.js"></script>
+</body>
+</html>

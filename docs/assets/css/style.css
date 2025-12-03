@@ -34,7 +34,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     line-height: 1.2;
 }
 
@@ -51,7 +51,7 @@ h3 {
 /* Layout */
 header {
     background-color: var(--blanc);
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     text-align: center;
     border-bottom: 4px solid var(--bleu-glenans);
     margin-bottom: 3rem;
@@ -59,10 +59,28 @@ header {
 
 .site-subtitle {
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1.2rem;
-    color: var(--gris-glenans);
+    font-size: 1.6rem;
+    color: var(--rouge-glenans);
     font-weight: 400;
     margin-top: 0.5rem;
+    text-align: center;
+}
+
+.punctuation {
+    color: var(--rouge-glenans);
+    font-weight: 800;
+}
+
+.slash {
+    color: var(--rouge-glenans);
+    font-weight: 800;
+    margin-right: 0.5rem;
+}
+
+.highlight {
+    background-color: var(--bleu-glenans);
+    color: var(--blanc);
+    padding: 0.1rem 0.1rem;
 }
 
 main {
@@ -78,6 +96,7 @@ section {
 /* Texte */
 p {
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 strong {
@@ -141,6 +160,7 @@ footer {
 
 footer p {
     margin-bottom: 0;
+    text-align: center;
 }
 
 /* Responsive */

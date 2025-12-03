@@ -1,5 +1,5 @@
 # CARTES MOMENTS-CLÉS - INTENTIONS & ANIMATION
-## Notice de production V251128c
+## Notice de production
 
 ---
 
@@ -11,15 +11,15 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 **Format** : A6 recto-verso, ±900 caractères/face.
 
-| # | Moment | Timing | Durée |
-|---|--------|--------|-------|
-| M1 | Accueil & attentes | J1 après-midi | 20-30 min |
-| M2 | Accords d'équipage | J1 soir | 30-45 min |
-| M3 | Introduction rôles | J1 soir (après M2) | 15-20 min |
-| M4 | Brief matin | J2-J6 quotidien | 5-10 min |
-| M5 | Débrief soir | J2-J6 quotidien | 10-20 min |
-| M6 | Mi-parcours | J3 ou J4 | 20-30 min |
-| M7 | Débrief final | J6 après-midi | 45 min |
+| # | Moment | Timing | Durée | Statut |
+|---|--------|--------|-------|--------|
+| M1 | Accueil & attentes | J1 après-midi | 20-30 min | ✅ Produit |
+| M2 | Accords d'équipage | J1 soir | 30-45 min | ⬜ À faire |
+| M3 | Introduction rôles | J1 soir (après M2) | 15-20 min | ⬜ À faire |
+| M4 | Brief matin | J2-J6 quotidien | 5-10 min | ⬜ À faire |
+| M5 | Débrief soir | J2-J6 quotidien | 10-20 min | ⬜ À faire |
+| M6 | Mi-parcours | J3 ou J4 | 20-30 min | ⬜ À faire |
+| M7 | Débrief final | J6 après-midi | 45 min | ⬜ À faire |
 
 **Séquencement J1** :
 1. Administratif (accueil base)
@@ -32,7 +32,41 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 ---
 
+## PRINCIPES DE RÉDACTION DES CARTES
+
+### Adresse et ton
+
+- **Adresse directe à l'équipage** : "Vous êtes...", "Vos attentes...", pas de formulation distante
+- **Consignes en "nous"** : "Faisons...", "Notons...", "On y reviendra..." - crée l'inclusion
+- **Supprimer les métadonnées froides** : Pas de "Pour qui" / "Animé par" sur les cartes (c'est dans ce document d'intentions, pas sur la carte elle-même)
+
+### Structure recto
+
+- **Accroche contextuelle** : Poser la situation concrète (le "vous êtes là")
+- **Problème/enjeu** : Pourquoi ce moment est important
+- **Intention(s)** : Ce qu'on vise (organisation + coopération fusionnés)
+- **Invitation Anacoluthe** (si pertinent) : Le "meta" sur l'exploration de soi
+
+### Structure verso
+
+- **Étapes numérotées** avec durées indicatives
+- **Questions précises** plutôt que génériques - plusieurs petits tours valent mieux qu'un gros tour flou
+- **Emojis de repérage** pour les questions/thèmes (lecture rapide en conditions dégradées)
+- **Ancrage en "nous"** : Ce qu'on note, où, et pourquoi on y reviendra
+- **Transition** : Lien vers l'étape suivante du stage
+
+### Principes généraux
+
+- **Permission > injonction** : "C'est une occasion rare" plutôt que "Vous devez"
+- **Vocabulaire maritime** naturel : "tenir le cap", "naviguer à l'aveugle"
+- **Lien terre** : Rappeler subtilement la transposabilité
+- **Cohérence séquentielle** : Chaque carte annonce la suivante et rappelle les précédentes quand pertinent
+
+---
+
 ## M1 - ACCUEIL & ATTENTES
+
+**Statut : ✅ Produit** → `sources/cartes/moments/M1_ACCUEIL_ATTENTES.md`
 
 ### 📍 Contexte d'usage
 
@@ -42,43 +76,32 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 **Problème adressé** : Sans expression des attentes individuelles, le·la mono navigue à l'aveugle. Les déceptions de fin de stage viennent souvent d'attentes non formulées.
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Permettre au·à la mono d'ajuster le programme aux attentes réelles
 - Identifier les contraintes individuelles (mal de mer, régimes, limitations)
 - Poser les bases d'une semaine où chacun·e sait ce que les autres espèrent
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Créer un premier espace de parole équitable
 - Légitimer la diversité des motivations (performance, détente, découverte, lien)
 - Amorcer la dynamique "on construit ensemble"
+- Poser l'invitation Anacoluthe : permission d'explorer une autre version de soi
 
 ### 🎬 Animation proposée
 
-**Étape 1 - Cadrage (2 min)**
-"Avant de continuer la journée, prenons 15 minutes pour que chacun·e partage ce qu'iel attend de cette semaine. Il n'y a pas de mauvaise réponse."
+**Brise-glace (5 min)**
+Deux options : prénom + inattendu, ou passage du bout.
 
-**Étape 1bis - Brise-glace (5 min)**
-Choisir l'une des deux options :
+**Tours de parole (15-20 min)**
+Plusieurs petits tours avec questions précises :
+- 🧭 "Qu'est-ce qui t'a amené·e ici ?"
+- ⛵ "Qu'est-ce que tu aimerais vraiment apprendre techniquement ?"
+- 🤝 "Qu'est-ce que tu penses pouvoir apporter à l'équipage côté vivre-ensemble ?"
+- 💡 "Y a-t-il un petit truc en plus qu'on doit savoir sur toi ?"
 
-*Option A - "Le prénom + l'inattendu"*
-Tour de table : "Ton prénom + quelque chose que personne ici ne peut deviner sur toi."
-
-*Option B - "Le fil de l'équipage"*
-Avec un bout du bord. Celui·celle qui le tient dit son prénom + pourquoi iel est là, puis le passe à quelqu'un d'autre. Visualise le lien qui se tisse.
-
-**Étape 2 - Tour de parole (15-20 min)**
-Chacun·e répond à 2-3 questions :
-- "Qu'est-ce qui t'a amené·e ici ?"
-- "Qu'est-ce que tu espères vivre ou apprendre cette semaine ?"
-- "Y a-t-il quelque chose qu'on doit collectivement savoir sur toi ?"
-
-**Étape 3 - Synthèse (3 min)**
-Le·la mono reformule les grandes tendances.
-
-**Étape 4 - Ancrage**
-Noter les attentes (feuille affichée ou livre de bord). Annoncer le programme de fin de J1.
+**Ancrage** : Feuille A4 affichée au carré. On y reviendra en M6 et M7.
 
 ### 📚 Sources
 
@@ -97,15 +120,15 @@ Noter les attentes (feuille affichée ou livre de bord). Annoncer le programme d
 
 **Problème adressé** : Sans accords explicites, chacun·e fonctionne avec ses propres normes implicites. "Tout le monde sait que..." → non, justement.
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Créer un document de référence affiché dans le carré
 - Clarifier les 3 niveaux d'autorité : 🔴 Sécurité (mono seul·e) / 🟡 Technique (mono + consultation) / 🟢 Collectif (consentement)
 - Poser les règles de vie commune
 - Nommer le·la gardien·ne des accords (rôle tournant)
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Faire l'expérience d'une décision collective à zéro objection
 - Légitimer l'expression des besoins individuels
 - Créer un sentiment d'engagement mutuel
@@ -154,15 +177,15 @@ Chacun·e signe. Afficher dans le carré. Nommer le·la premier·ère gardien·n
 
 **Problème adressé** : Les rôles techniques existent mais sont vécus comme des corvées. Anacoluthe V5 les transforme en opportunités d'apprentissage transposable.
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Présenter les 4 rôles et leurs missions quotidiennes
 - Expliquer le système de rotation
 - Distribuer les cartes rôles
 - Présenter le tableau d'équipage
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Créer de l'inspiration via les marin·es modèles
 - Montrer que chaque rôle développe des compétences transposables à terre
 - Légitimer l'exploration ("tu peux tester un rôle qui te challenge")
@@ -207,15 +230,15 @@ Créer le tableau historique des rôles dans le livre de bord.
 
 **Problème adressé** : Sans rituel, l'équipage démarre "à froid" sans savoir comment chacun·e va, qui fait quoi, ce qu'on vise.
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Attribuer les 4 rôles du jour (rotation)
 - Partager le programme de navigation prévu
 - Identifier les contraintes/besoins du jour
 - Remplir le tableau d'équipage
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Météo perso : chacun·e dit comment iel va
 - Repérer les signaux faibles
 - Créer un moment d'attention mutuelle avant l'action
@@ -259,14 +282,14 @@ Le·la mono (ou navigateurice) présente : météo, points CQ, séances techniqu
 
 **Problème adressé** : Le débrief technique seul ne traite pas de ce qui s'est passé humainement. Les tensions non nommées s'accumulent.
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Faire le point sur la journée technique
 - Identifier les ajustements pour demain
 - Remplir le livre de bord (ligne technique + ligne coopération)
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Nommer les réussites collectives (célébrer)
 - Nommer les tensions ou difficultés (réguler)
 - Faire circuler la parole équitablement
@@ -310,14 +333,15 @@ Noter dans "Observations" : ligne technique + ligne coopération.
 
 **Problème adressé** : Selon le modèle ICE, J3-J4 = moment où les tensions émergent. Sans point d'étape, les frustrations s'accumulent.
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Faire le point sur le programme (ce qui a été fait, ce qui reste)
 - Identifier les ajustements nécessaires
 - Revoir les accords si besoin
+- Revenir sur les attentes exprimées en M1
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Célébrer les réussites collectives du début de stage
 - Nommer les tensions accumulées
 - Vérifier que chacun·e trouve sa place
@@ -367,19 +391,20 @@ Chacun·e répond à :
 
 **Problème adressé** : Sans débrief structuré, les apprentissages restent flous. Le transfert vers la vie à terre ne se fait pas (<15% sans travail explicite).
 
-### 🗂️ Intentions "organisation"
+### 🎯 Intentions
 
+**Organisation** :
 - Clôturer officiellement le stage
 - Faire le bilan (progression individuelle et collective)
 - Permettre les feedbacks équipage → mono
 - Préparer les debriefs individuels
 
-### 🤝 Intentions "coopération"
-
+**Coopération** :
 - Ancrer les apprentissages coopératifs
 - Permettre le transfert explicite vers la vie à terre
 - Célébrer l'équipage
 - Se dire au revoir proprement
+- Boucler sur les attentes M1
 
 ### 🎬 Animation proposée
 
@@ -422,39 +447,21 @@ Pendant rangements/prépa repas midi : debriefs individuels stagiaire ↔ mono (
 
 ---
 
-## NOTES POUR PRODUCTION DES CARTES
-
-### Contraintes format A6
-- Densité : ±900 caractères/face
-- Lisibilité conditions dégradées
-- Écriture inclusive systématique
-- Vocabulaire maritime
-- Ton : permission d'explorer, pas injonction
-
-### Structure suggérée par carte
-
-**RECTO**
-- Titre + emoji + timing
-- Contexte/situation (pourquoi ce moment)
-- Intentions (organisation + coopération, fusionnées)
-
-**VERSO**
-- Déroulé (étapes numérotées, actionnables)
-- Questions guides
-- Ancrage (ce qu'on note/garde)
-
-### Articulation avec autres éléments
+## ARTICULATION AVEC AUTRES ÉLÉMENTS
 
 - **Tableau d'équipage** : utilisé par M3, M4
 - **Livre de bord** : utilisé par M4, M5, M7
 - **Cartes rôles** : introduites par M3
 - **Cartes SOS** : mobilisables depuis M5, M6
+- **Feuille attentes M1** : revisitée en M6, M7
 
-### Note pour cartes SOS (futur)
+---
+
+## NOTE POUR CARTES SOS (futur)
 
 Pour dépersonnaliser les tensions avec V5 : passer par les rôles/focus techniques pour expliquer un comportement, puis extrapoler la tension et trouver une résolution. Les rôles V5 aident moins que les archétypes V4 à la dépersonnalisation directe → compenser dans les cartes SOS.
 
 ---
 
-*Document de travail - Version 251128c*
+*V_251201*
 *Anacoluthe V5 - CC-BY-NC-SA*

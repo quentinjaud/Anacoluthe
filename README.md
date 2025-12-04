@@ -4,7 +4,7 @@
 
 Anacoluthe transforme l'apprentissage accidentel du "vivre-ensemble" en apprentissage structuré. Le dispositif se greffe sur les routines existantes des stages de voile pour développer des compétences de coopération transposables à terre.
 
-🌐 **Site web** : [quentinjaud.github.io/Anacoluthe](https://quentinjaud.github.io/Anacoluthe/)
+🌐 **Site web** : [anacoluthe.org](https://anacoluthe.org)
 
 ---
 
@@ -70,19 +70,25 @@ Chaque rôle est incarné par un·e marin·e inspirant·e du monde nautique rée
 
 ```
 Anacoluthe/
-├── docs/                    # 🌐 Site web GitHub Pages
-│   ├── index.html
-│   └── assets/css/
+├── index.html               # 🌐 Page d'accueil du site
+├── anacoluthe.html          # 🃏 Afficheur de cartes interactif
+├── assets/                  # 🎨 Ressources web
+│   ├── css/                 # Styles (style.css, cards.css)
+│   ├── js/                  # Scripts (cards-loader.js)
+│   ├── data/                # Données JSON (cards-index.json)
+│   └── images/              # Images
 ├── sources/                 # 📝 Fichiers sources Markdown
 │   ├── cartes/
-│   │   ├── roles/
-│   │   ├── moments/
-│   │   └── sos/
-│   ├── affiches/
-│   └── documentation/
-│       └── work-in-progress/
+│   │   ├── roles/           # R1-R4
+│   │   ├── moments/         # M1-M7
+│   │   └── sos/             # S1-S4
+│   ├── affiches/            # A1-A3
+│   ├── documentation/       # Synthèses, intentions, présentations
+│   │   └── work-in-progress/
+│   └── guides-seances-topos/
 ├── archives/                # 📦 Versions V1-V4
 ├── print/                   # 📄 PDFs prêts à imprimer
+├── pdfs/                    # 📄 PDFs générés
 └── README.md
 ```
 

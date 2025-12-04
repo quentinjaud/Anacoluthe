@@ -1,5 +1,5 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
-## État d'avancement après travail cartes SOS
+## État d'avancement après travail site web
 *Dernière mise à jour : 251204 (4 décembre 2025)*
 
 ---
@@ -25,9 +25,10 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 | Élément | Format | Quantité | Statut |
 |---------|--------|----------|--------|
 | **Cartes rôles** | A6 R/V | 4 | ✅ COMPLET |
-| **Cartes moments-clés** | A6 R/V | 7 | 🟡 INTENTIONS VALIDÉES |
+| **Cartes moments-clés** | A6 R/V | 7 | 🟡 PROTOS CRÉÉS |
 | **Cartes SOS coopératives** | A6 R/V | 4 | 🟠 PROTOS CRÉÉS |
 | **Affiches permanentes** | A4 | 3 | ✅ COMPLET |
+| **Site web** | GitHub Pages | 1 | ✅ EN LIGNE |
 | **Guide équipage** | À définir | ? | ⬜ À définir |
 | **Guide mono** | À définir | ? | ⬜ À définir |
 
@@ -39,7 +40,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ### 🧭 Cartes rôles (4/4) - COMPLET
 
-**Version finalisée** : `sources/cartes/roles/cartes_roles_4_consolidees_v251106.md`
+**Version finalisée** : `sources/cartes/roles/`
 
 | # | Rôle | Marin·e inspirant·e | Focus |
 |---|------|---------------------|-------|
@@ -54,7 +55,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ### 📌 Affiches A4 permanentes (3/3) - COMPLET
 
-**Version finalisée** : Conversation du 10 novembre 2025
+**Version finalisée** : `sources/affiches/`
 
 | # | Affiche | Contenu |
 |---|---------|---------|
@@ -64,21 +65,39 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ---
 
-## 🟡 INTENTIONS VALIDÉES - À PRODUIRE
+### 🌐 Site web - EN LIGNE
 
-### 📋 Cartes moments-clés (0/7 produites, intentions validées)
+**URL** : [anacoluthe.org](https://anacoluthe.org)
 
-**Document de référence** : `sources/documentation/CARTES_MOMENTS_INTENTIONS.md`
+**Structure** :
+- `index.html` : Page d'accueil (présentation du projet)
+- `anacoluthe.html` : Afficheur de cartes interactif
+- `assets/css/` : Styles (style.css, cards.css)
+- `assets/js/` : Scripts (cards-loader.js)
+- `assets/data/` : Index des cartes (cards-index.json)
 
-| # | Moment | Timing | Durée | Statut intentions |
-|---|--------|--------|-------|-------------------|
-| M1 | Accueil & attentes | J1 après-midi | 20-30 min | ✅ Validé |
-| M2 | Accords d'équipage | J1 soir | 30-45 min | ✅ Validé |
-| M3 | Introduction rôles | J1 soir (après M2) | 15-20 min | ✅ Validé |
-| M4 | Brief matin | J2-J6 quotidien | 5-10 min | ✅ Validé |
-| M5 | Débrief soir | J2-J6 quotidien | 10-20 min | ✅ Validé |
-| M6 | Mi-parcours | J3 ou J4 | 20-30 min | ✅ Validé |
-| M7 | Débrief final | J6 après-midi | 45 min | ✅ Validé |
+**Design** : Style pastel doux, typographie Merriweather (serif) + Merriweather Sans.
+Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
+
+**Référence design** : `sources/documentation/NOTE_DESIGN_CSS_V251204.md`
+
+---
+
+## 🟡 PROTOS CRÉÉS - À VALIDER
+
+### 📋 Cartes moments-clés (7/7 protos créés)
+
+**Fichiers** : `sources/cartes/moments/`
+
+| # | Moment | Timing | Durée | Fichier |
+|---|--------|--------|-------|---------|
+| M1 | Accueil & attentes | J1 après-midi | 20-30 min | `M1_accueil_attentes_proto.md` |
+| M2 | Accords d'équipage | J1 soir | 30-45 min | `M2_accords_equipage_proto.md` |
+| M3 | Introduction rôles | J1 soir (après M2) | 15-20 min | `M3_introduction_roles_proto.md` |
+| M4 | Brief matin | J2-J6 quotidien | 5-10 min | `M4_brief_matin_proto.md` |
+| M5 | Débrief soir | J2-J6 quotidien | 10-20 min | `M5_debrief_soir_proto.md` |
+| M6 | Mi-parcours | J3 ou J4 | 20-30 min | `M6_mi_parcours_proto.md` |
+| M7 | Débrief final | J6 après-midi | 45 min | `M7_debrief_final_proto.md` |
 
 **Séquencement J1 validé** :
 1. Administratif (accueil base)
@@ -97,22 +116,20 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ---
 
-### 🆘 Cartes SOS coopératives (4/4 protos créés, à relire)
+### 🆘 Cartes SOS coopératives (4/4 protos créés)
 
-**Document de référence** : `sources/documentation/CARTES_SOS_INTENTIONS.md`
+**Fichiers** : `sources/cartes/sos/`
 
 **Nature** : Outils **curatifs** - interviennent quand les cartes moments n'ont pas suffi.
 
 **Déclencheur** : Équipage ou mono, souvent à l'initiative d'un stagiaire (parfois le second soigneux du jour).
 
-| # | Carte SOS | Situation | Fichier proto |
-|---|-----------|-----------|---------------|
+| # | Carte SOS | Situation | Fichier |
+|---|-----------|-----------|---------|
 | S1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective | `S1_conflit_ouvert_proto.md` |
 | S2 | Organiser un temps sans navigation | Pétole ou temps trop fort | `S2_temps_sans_navigation_proto.md` |
 | S3 | Rediscuter accords/programme | Accord non respecté ou frustration technique | `S3_rediscuter_accords_programme_proto.md` |
 | S4 | Faire une demande/feedback au mono | Feedback positif / ajustement / inconfort | `S4_demande_feedback_mono_proto.md` |
-
-**Fichiers protos** : `sources/cartes/sos/`
 
 **Décisions clés (3-4 déc)** :
 - Une seule carte S1 couvre conflits interpersonnels ET collectifs
@@ -128,15 +145,15 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ## 🔜 PRODUCTION À VENIR
 
-### Sprint 1 : Rédaction cartes moments + SOS - PRIORITÉ HAUTE
+### Sprint 1 : Validation protos cartes - PRIORITÉ HAUTE
 
-**Prochaine étape** : Rédaction des cartes en format A6 (~900 car/face)
+**Prochaine étape** : Relecture et validation des 11 protos (7 moments + 4 SOS)
 
-**Structure commune validée** :
-- **RECTO** : Titre + emoji / Contexte situationnel / Intentions / Rôles impliqués
-- **VERSO** : Déroulé (étapes numérotées avec durées) / Questions guides / Ancrage
-
-**11 cartes à produire** : 7 moments + 4 SOS
+**Critères de validation** :
+- Densité ~900 car/face respectée
+- Écriture inclusive systématique
+- Ton bienveillant, non injonctif
+- Actions concrètes et réalistes
 
 ---
 
@@ -154,14 +171,15 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 | Catégorie | Fait | Total | % | Statut |
 |-----------|------|-------|---|--------|
 | Cartes rôles | 4 | 4 | 100% | ✅ COMPLET |
-| Cartes moments-clés | 0* | 7 | 0% | 🟡 Intentions OK |
+| Cartes moments-clés | 7* | 7 | 100%* | 🟡 Protos OK |
 | Cartes SOS | 4* | 4 | 100%* | 🟠 Protos OK |
 | Affiches A4 | 3 | 3 | 100% | ✅ COMPLET |
+| Site web | 1 | 1 | 100% | ✅ EN LIGNE |
 | Guide équipage | 0 | ? | 0% | ⬜ À définir |
 | Guide mono | 0 | ? | 0% | ⬜ À définir |
-| **TOTAL ÉLÉMENTS FIXES** | **7** | **18** | **39%** | 🔄 En cours |
+| **TOTAL ÉLÉMENTS FIXES** | **18*** | **18** | **100%*** | 🔄 Protos à valider |
 
-*\* Protos créés (cartes SOS), intentions validées (cartes moments) - relecture à faire*
+*\* Protos créés - relecture/validation à faire*
 
 ### Avancement qualitatif
 
@@ -172,8 +190,10 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 - ✅ Intentions cartes moments validées (28 nov)
 - ✅ Intentions cartes SOS validées (3 déc)
 - ✅ Protos cartes SOS créés (4 déc)
-- 🟡 Rédaction cartes moments à faire
-- 🟡 Relecture cartes SOS à faire
+- ✅ Protos cartes moments créés (4 déc)
+- ✅ Site web en ligne - anacoluthe.org (4 déc)
+- ✅ Design CSS finalisé (4 déc)
+- 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
 ---
@@ -182,7 +202,8 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 | Version | Date | Contenu |
 |---------|------|---------|
-| v251204 | 4 déc. 2025 | Création protos cartes SOS |
+| v251204b | 4 déc. 2025 | Site web en ligne anacoluthe.org, design CSS finalisé |
+| v251204 | 4 déc. 2025 | Création protos cartes SOS + moments |
 | v251203 | 3 déc. 2025 | Intégration intentions cartes SOS |
 | v251128 | 28 nov. 2025 | Intégration intentions cartes moments |
 | v251114 | 14 nov. 2025 | Intégration affiches A4 |
@@ -196,7 +217,19 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 ### Production V5 (dans ce repo)
 
 **Cartes rôles**
-- `sources/cartes/roles/cartes_roles_4_consolidees_v251106.md`
+- `sources/cartes/roles/R1_bosco.md`
+- `sources/cartes/roles/R2_navigateurice.md`
+- `sources/cartes/roles/R3_second_soigneux.md`
+- `sources/cartes/roles/R4_cambusiere.md`
+
+**Cartes moments (protos)**
+- `sources/cartes/moments/M1_accueil_attentes_proto.md`
+- `sources/cartes/moments/M2_accords_equipage_proto.md`
+- `sources/cartes/moments/M3_introduction_roles_proto.md`
+- `sources/cartes/moments/M4_brief_matin_proto.md`
+- `sources/cartes/moments/M5_debrief_soir_proto.md`
+- `sources/cartes/moments/M6_mi_parcours_proto.md`
+- `sources/cartes/moments/M7_debrief_final_proto.md`
 
 **Cartes SOS (protos)**
 - `sources/cartes/sos/S1_conflit_ouvert_proto.md`
@@ -214,6 +247,15 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 - `sources/documentation/CARTES_SOS_INTENTIONS.md`
 - `sources/documentation/SYNTHESE_REFONTE_V5.md`
 - `sources/documentation/PRESENTATION_V5.md`
+- `sources/documentation/NOTE_DESIGN_CSS_V251204.md`
+
+**Site web**
+- `index.html` - Page d'accueil
+- `anacoluthe.html` - Afficheur de cartes
+- `assets/css/style.css` - Styles généraux
+- `assets/css/cards.css` - Styles des cartes
+- `assets/js/cards-loader.js` - Chargement dynamique des cartes
+- `assets/data/cards-index.json` - Index des cartes
 
 ### Archives V4
 - `archives/v4/` (guides, cartes, personnages)

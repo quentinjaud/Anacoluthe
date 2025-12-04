@@ -79,7 +79,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 **Design** : Style pastel doux, typographie Merriweather (serif) + Merriweather Sans.
 Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
 
-**Référence design** : `sources/documentation/NOTE_DESIGN_CSS_V251204.md`
+**Référence design** : `sources/documentation/CHARTE_GRAPHIQUE_INTENTIONS.md`
 
 ---
 
@@ -247,7 +247,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
 - `sources/documentation/CARTES_SOS_INTENTIONS.md`
 - `sources/documentation/SYNTHESE_REFONTE_V5.md`
 - `sources/documentation/PRESENTATION_V5.md`
-- `sources/documentation/NOTE_DESIGN_CSS_V251204.md`
+- `sources/documentation/CHARTE_GRAPHIQUE_INTENTIONS.md`
 
 **Site web**
 - `index.html` - Page d'accueil

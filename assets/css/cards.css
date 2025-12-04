@@ -335,6 +335,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    height: 100dvh; /* Dynamic viewport height - tient compte des barres navigateur */
     z-index: 1000;
 }
 
@@ -342,6 +343,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Safe areas pour iPhone/Android avec encoches */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .card-modal-backdrop {
@@ -358,12 +361,19 @@
     background: var(--blanc);
     width: 90%;
     max-width: 700px;
-    max-height: 90vh;
+    max-height: 85dvh; /* dvh au lieu de vh */
+    max-height: 85vh; /* fallback navigateurs anciens */
     border-radius: var(--radius-card);
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
+}
+
+@supports (height: 100dvh) {
+    .card-modal-content {
+        max-height: 85dvh;
+    }
 }
 
 .card-modal-close {
@@ -626,8 +636,15 @@
     
     .card-modal-content {
         width: 95%;
-        max-height: 95vh;
+        max-height: 80dvh;
+        max-height: 80vh; /* fallback */
         border-radius: var(--radius-small);
+    }
+    
+    @supports (height: 100dvh) {
+        .card-modal-content {
+            max-height: 80dvh;
+        }
     }
     
     .card-modal-body {
@@ -740,6 +757,8 @@
     .card-section-nav {
         margin: 1rem -1.5rem -1.5rem -1.5rem;
         padding: 0.6rem 0.75rem;
+        /* Safe area pour barre de navigation mobile */
+        padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
     }
     
     .section-nav-link {

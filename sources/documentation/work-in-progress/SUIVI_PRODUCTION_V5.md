@@ -70,7 +70,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 **URL** : [anacoluthe.org](https://anacoluthe.org)
 
 **Structure** :
-- `index.html` : Page d'accueil (présentation du projet)
+- `index.html` : Page d'accueil (présentation du projet, origine du nom)
 - `anacoluthe.html` : Afficheur de cartes interactif
 - `assets/css/` : Styles (style.css, cards.css)
 - `assets/js/` : Scripts (cards-loader.js)
@@ -78,6 +78,11 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 **Design** : Style pastel doux, typographie Merriweather (serif) + Merriweather Sans.
 Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
+
+**Navigation** :
+- Nav bottom pills sur index.html (scroll spy, camaïeu rouge Glénans)
+- CTA "JOUER" accenté en teal
+- Nav bottom pills sur anacoluthe.html (filtres par type de carte)
 
 **Référence design** : `sources/documentation/CHARTE_GRAPHIQUE_INTENTIONS.md`
 
@@ -193,6 +198,9 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
 - ✅ Protos cartes moments créés (4 déc)
 - ✅ Site web en ligne - anacoluthe.org (4 déc)
 - ✅ Design CSS finalisé (4 déc)
+- ✅ Nav bottom pills + scroll spy sur index.html (4 déc)
+- ✅ CTA "JOUER" accenté teal (4 déc)
+- ✅ Paragraphe origine du nom (juron Haddock) (4 déc)
 - 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
@@ -202,6 +210,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251204c | 4 déc. 2025 | Nav bottom pills + scroll spy, CTA JOUER teal, paragraphe origine nom |
 | v251204b | 4 déc. 2025 | Site web en ligne anacoluthe.org, design CSS finalisé |
 | v251204 | 4 déc. 2025 | Création protos cartes SOS + moments |
 | v251203 | 3 déc. 2025 | Intégration intentions cartes SOS |

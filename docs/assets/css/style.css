@@ -1,5 +1,5 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+/* Import Google Fonts - avec tous les weights nécessaires */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap');
 
 /* Reset et base */
 * {
@@ -8,27 +8,64 @@
     box-sizing: border-box;
 }
 
-/* Couleurs officielles Les Glénans */
+/* ===========================================
+   VARIABLES CSS
+   =========================================== */
 :root {
+    /* Fond général Anacoluthe */
+    --bg-cream: #FFFDF9;
+    --text-dark: #2D3748;
+    --text-muted: #718096;
+    --border-light: #D1D5DB;
+    
+    /* Couleurs officielles Les Glénans */
     --bleu-glenans: #0066AD;
     --gris-glenans: #454545;
     --rouge-glenans: #F04839;
-    --fond: #F9F9F9;
+    
+    /* Couleurs Anacoluthe */
+    --anacoluthe-teal: #3d8b87;
+    --anacoluthe-corail: #ff8a5b;
+    
+    /* Teal - Moments clés */
+    --teal-50: #e8f4f3;
+    --teal-100: #c5e4e2;
+    --teal-700: #3d8b87;
+    
+    /* Ambre/Orange - Rôles */
+    --amber-50: #fff8f0;
+    --amber-100: #ffe8d4;
+    --amber-700: #c96a30;
+    
+    /* Corail - SOS */
+    --corail-50: #fff5f2;
+    --corail-100: #ffe4db;
+    --corail-700: #d9634a;
+    
+    /* Utilitaires */
+    --radius-card: 16px;
+    --radius-small: 8px;
+    
+    /* Legacy (compatibilité) */
+    --fond: var(--bg-cream);
     --blanc: #FFFFFF;
 }
 
-/* Typographie */
+/* ===========================================
+   TYPOGRAPHIE
+   =========================================== */
 body {
     font-family: 'Merriweather', serif;
+    font-weight: 300;
     font-size: 18px;
     line-height: 1.7;
-    color: var(--gris-glenans);
-    background-color: var(--fond);
+    color: var(--text-dark);
+    background-color: var(--bg-cream);
 }
 
 h1, h2, h3 {
     font-family: 'Merriweather Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--bleu-glenans);
     margin-bottom: 1.5rem;
 }
@@ -48,7 +85,9 @@ h3 {
     margin-top: 2rem;
 }
 
-/* Layout */
+/* ===========================================
+   LAYOUT
+   =========================================== */
 header {
     background-color: var(--blanc);
     padding: 2rem 2rem;
@@ -93,10 +132,13 @@ section {
     margin-bottom: 3rem;
 }
 
-/* Texte */
+/* ===========================================
+   TEXTE
+   =========================================== */
 p {
     margin-bottom: 1.5rem;
     text-align: justify;
+    font-weight: 300;
 }
 
 strong {
@@ -108,7 +150,9 @@ em {
     font-style: italic;
 }
 
-/* Liens */
+/* ===========================================
+   LIENS
+   =========================================== */
 a {
     color: var(--bleu-glenans);
     text-decoration: none;
@@ -121,7 +165,9 @@ a:hover {
     border-bottom-color: var(--rouge-glenans);
 }
 
-/* Boutons */
+/* ===========================================
+   BOUTONS
+   =========================================== */
 .button {
     display: inline-block;
     background-color: var(--bleu-glenans);
@@ -129,6 +175,7 @@ a:hover {
     padding: 0.75rem 1.5rem;
     border: none;
     border-bottom: none;
+    border-radius: var(--radius-small);
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
@@ -142,7 +189,9 @@ a:hover {
     border-bottom: none;
 }
 
-/* Listes */
+/* ===========================================
+   LISTES
+   =========================================== */
 ul {
     margin: 1.5rem 0 1.5rem 2rem;
 }
@@ -151,25 +200,33 @@ li {
     margin-bottom: 0.75rem;
 }
 
-/* Cartes dispositif */
+/* ===========================================
+   CARTES DISPOSITIF (page index)
+   =========================================== */
 .card {
+    position: relative;
     background-color: var(--blanc);
     padding: 1.5rem;
+    padding-top: 2rem;
     margin-bottom: 1.5rem;
-    border-left: 4px solid var(--rouge-glenans);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 1.5rem;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
 }
 
 .card h3 {
     margin-top: 0;
     margin-bottom: 1rem;
+    font-weight: 800;
 }
 
 .card p {
     margin-bottom: 0;
 }
 
-/* Footer */
+/* ===========================================
+   FOOTER
+   =========================================== */
 footer {
     background-color: var(--blanc);
     border-top: 4px solid var(--bleu-glenans);
@@ -184,7 +241,9 @@ footer p {
     text-align: center;
 }
 
-/* Responsive */
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
 @media (max-width: 768px) {
     body {
         font-size: 16px;

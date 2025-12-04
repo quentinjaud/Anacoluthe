@@ -1,6 +1,7 @@
 /**
  * Anacoluthe - Cards Loader
  * Charge et affiche les cartes depuis les fichiers markdown
+ * Design V251204 - Style pastel avec emoji débordant
  */
 
 // Configuration
@@ -71,6 +72,7 @@ function renderGallery() {
 
 /**
  * Crée le HTML d'une tuile de carte
+ * Design V251204 : emoji débordant en haut à gauche
  */
 function createCardTile(card) {
     const typeInfo = cardsData.types[card.type];
@@ -80,10 +82,10 @@ function createCardTile(card) {
     
     return `
         <article class="card-tile ${availableClass}" data-card-id="${card.id}" data-type="${card.type}">
-            <div class="card-tile-header" style="border-color: ${typeInfo.color}">
-                <span class="card-emoji">${card.emoji}</span>
+            <span class="card-emoji">${card.emoji}</span>
+            <div class="card-tile-header">
                 <div class="card-badges">
-                    <span class="card-type-badge" style="background-color: ${typeInfo.color}">${typeInfo.label}</span>
+                    <span class="card-type-badge">${typeInfo.label}</span>
                     ${protoBadge}
                 </div>
             </div>
@@ -126,7 +128,7 @@ async function openCard(cardId) {
     }
 
     if (!card.available) {
-        showModalMessage('Cette carte est en cours de production. Revenez bientôt !');
+        showModalMessage('Cette carte est en cours de production. Revenez bientôt !', card.type);
         return;
     }
 
@@ -135,6 +137,9 @@ async function openCard(cardId) {
     
     // Afficher la modale avec un état de chargement
     modal.classList.add('open');
+    
+    // Ajouter la classe de type pour la couleur de fond
+    modalBody.className = 'card-modal-body modal-' + card.type;
     modalBody.innerHTML = '<p class="loading">Chargement de la carte...</p>';
     document.body.style.overflow = 'hidden';
 
@@ -175,7 +180,11 @@ async function fetchCardMarkdown(path) {
  */
 function closeModal() {
     const modal = document.getElementById('card-modal');
+    const modalBody = document.getElementById('card-modal-body');
+    
     modal.classList.remove('open');
+    // Réinitialiser les classes du modal body
+    modalBody.className = 'card-modal-body';
     document.body.style.overflow = '';
     
     // Retirer le paramètre de l'URL
@@ -206,11 +215,13 @@ function setupModalClose() {
 /**
  * Affiche un message dans la modale
  */
-function showModalMessage(message) {
+function showModalMessage(message, cardType) {
     const modal = document.getElementById('card-modal');
     const modalBody = document.getElementById('card-modal-body');
     
     modal.classList.add('open');
+    // Ajouter la classe de type si fournie
+    modalBody.className = 'card-modal-body' + (cardType ? ' modal-' + cardType : '');
     modalBody.innerHTML = `<p class="modal-message">${message}</p>`;
     document.body.style.overflow = 'hidden';
 }

@@ -227,18 +227,74 @@
     font-size: 0.9rem;
     font-style: italic;
     color: var(--text-muted);
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.75rem 0;
     text-align: left;
 }
 
-.card-tile-marin {
+.card-tile-description {
     font-family: 'Merriweather', serif;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 300;
     color: var(--text-dark);
-    margin: 0;
+    margin: 0 0 1rem 0;
     text-align: left;
-    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Section tags */
+.card-tile-tags {
+    background: rgba(255,255,255,0.5);
+    border-radius: var(--radius-small);
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.card-tile-tags-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+/* Couleur du titre des tags par type */
+.card-tile[data-type="role"] .card-tile-tags-title {
+    color: var(--amber-700);
+}
+.card-tile[data-type="moment"] .card-tile-tags-title {
+    color: var(--teal-700);
+}
+.card-tile[data-type="sos"] .card-tile-tags-title {
+    color: var(--corail-700);
+}
+
+.card-tile-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.card-tile-tag {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+}
+
+/* Couleur des tags par type */
+.card-tile[data-type="role"] .card-tile-tag {
+    background-color: var(--amber-100);
+    color: var(--amber-700);
+}
+.card-tile[data-type="moment"] .card-tile-tag {
+    background-color: var(--teal-100);
+    color: var(--teal-700);
+}
+.card-tile[data-type="sos"] .card-tile-tag {
+    background-color: var(--corail-100);
+    color: var(--corail-700);
 }
 
 /* ===========================================
@@ -331,21 +387,12 @@
     background: var(--rouge-glenans);
 }
 
+/* Fond modale - crème uniforme */
 .card-modal-body {
     padding: 2rem;
     overflow-y: auto;
     flex: 1;
-}
-
-/* Couleurs modale selon type */
-.card-modal-body.modal-role {
-    background-color: var(--amber-50);
-}
-.card-modal-body.modal-moment {
-    background-color: var(--teal-50);
-}
-.card-modal-body.modal-sos {
-    background-color: var(--corail-50);
+    background-color: var(--bg-cream);
 }
 
 /* ===========================================
@@ -360,30 +407,43 @@
     color: var(--text-dark);
 }
 
-.card-content h1 {
+/* Tous les titres en Sans */
+.card-content h1,
+.card-content h2,
+.card-content h3,
+.card-content h4,
+.card-content h5,
+.card-content h6 {
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1.8rem;
+}
+
+.card-content h1 {
+    font-size: 2rem;
     font-weight: 800;
     margin: 0 0 0.5rem 0;
     padding-right: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 .card-content h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.1rem;
-    font-style: italic;
-    font-weight: 400;
+    font-size: 1.4rem;
+    font-weight: 700;
     margin: 0 0 1.5rem 0;
-    opacity: 0.8;
 }
 
 .card-content h3 {
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 1.5rem 0 0.75rem 0;
+}
+
+.card-content h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 1.25rem 0 0.5rem 0;
 }
 
 .card-content p {
@@ -415,30 +475,46 @@
 }
 
 .card-content blockquote {
-    background: rgba(255,255,255,0.5);
+    background: var(--blanc);
     border-radius: var(--radius-small);
-    border-left: 3px solid currentColor;
-    margin: 1rem 0;
-    padding: 1rem;
-    font-style: italic;
+    border-left: 4px solid currentColor;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem 1.25rem;
+    font-style: normal;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Couleur de la bordure blockquote selon type */
+.modal-role .card-content blockquote {
+    border-left-color: var(--amber-700);
+}
+.modal-moment .card-content blockquote {
+    border-left-color: var(--teal-700);
+}
+.modal-sos .card-content blockquote {
+    border-left-color: var(--corail-700);
 }
 
 /* Couleurs titres modale selon type */
 .modal-role .card-content h1,
+.modal-role .card-content h2,
 .modal-role .card-content h3,
-.modal-role .card-content strong {
+.modal-role .card-content h4 {
     color: var(--amber-700);
 }
 
 .modal-moment .card-content h1,
+.modal-moment .card-content h2,
 .modal-moment .card-content h3,
-.modal-moment .card-content strong {
+.modal-moment .card-content h4 {
     color: var(--teal-700);
 }
 
 .modal-sos .card-content h1,
+.modal-sos .card-content h2,
 .modal-sos .card-content h3,
-.modal-sos .card-content strong {
+.modal-sos .card-content h4 {
     color: var(--corail-700);
 }
 

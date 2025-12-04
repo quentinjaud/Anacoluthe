@@ -72,13 +72,23 @@ function renderGallery() {
 
 /**
  * Crée le HTML d'une tuile de carte
- * Design V251204 : emoji débordant en haut à gauche
+ * Design V251204 : emoji débordant + description + tags
  */
 function createCardTile(card) {
     const typeInfo = cardsData.types[card.type];
     const availableClass = card.available ? '' : 'card-unavailable';
     const unavailableBadge = card.available ? '' : '<span class="badge-unavailable">À venir</span>';
     const protoBadge = card.proto ? '<span class="badge-proto">🛠️ PROTO</span>' : '';
+    
+    // Générer les tags
+    const tagsHtml = card.tags && card.tags.length > 0 
+        ? `<div class="card-tile-tags">
+            <div class="card-tile-tags-title">${typeInfo.tagsIcon || '🌱'} ${card.tagsTitle || 'Compétences'}</div>
+            <div class="card-tile-tags-list">
+                ${card.tags.map(tag => `<span class="card-tile-tag">${tag}</span>`).join('')}
+            </div>
+           </div>`
+        : '';
     
     return `
         <article class="card-tile ${availableClass}" data-card-id="${card.id}" data-type="${card.type}">
@@ -92,7 +102,8 @@ function createCardTile(card) {
             <div class="card-tile-body">
                 <h3 class="card-tile-title">${card.title}</h3>
                 <p class="card-tile-subtitle">${card.subtitle}</p>
-                ${card.marin ? `<p class="card-tile-marin">Inspiré·e de ${card.marin}</p>` : ''}
+                ${card.description ? `<p class="card-tile-description">${card.description}</p>` : ''}
+                ${tagsHtml}
             </div>
             ${unavailableBadge}
         </article>

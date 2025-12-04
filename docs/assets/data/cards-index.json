@@ -7,6 +7,9 @@
       "subtitle": "Le·la gardien·ne du bateau",
       "emoji": "🔧",
       "marin": "Bernard Moitessier",
+      "description": "Le·la bosco veille à l'entretien et à la sécurité matérielle du bateau.",
+      "tags": ["Attention préventive", "Responsabilité partagée", "Autonomie technique"],
+      "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R1_bosco.md",
       "available": true
     },
@@ -17,6 +20,9 @@
       "subtitle": "La boussole de l'équipage",
       "emoji": "🧭",
       "marin": "Capucine Trochet",
+      "description": "Le·la navigateurice prépare les routes, suit la météo et anticipe les décisions.",
+      "tags": ["Vision stratégique", "Pédagogie", "Veille météo"],
+      "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R2_navigateurice.md",
       "available": true
     },
@@ -27,6 +33,9 @@
       "subtitle": "Le·la tisserand·e du collectif",
       "emoji": "🤲",
       "marin": "Isabelle Autissier",
+      "description": "Le·la second soigneux veille au bien-être de l'équipage et régule les tensions.",
+      "tags": ["Écoute active", "Facilitation", "Régulation collective"],
+      "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R3_second_soigneux.md",
       "available": true
     },
@@ -37,6 +46,9 @@
       "subtitle": "Le·la chef·fe d'orchestre du carré",
       "emoji": "🍳",
       "marin": "Tracy Edwards",
+      "description": "Le·la cambusier·ère organise l'approvisionnement, les repas et la convivialité.",
+      "tags": ["Créativité", "Attention aux besoins", "Organisation invisible"],
+      "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R4_cambusiere.md",
       "available": true
     },
@@ -44,8 +56,11 @@
       "id": "M1",
       "type": "moment",
       "title": "Accueil & Attentes",
-      "subtitle": "J1 après-midi",
+      "subtitle": "J1 après-midi - 20-30 min",
       "emoji": "🌅",
+      "description": "Poser les intentions individuelles et créer une première connexion d'équipage.",
+      "tags": ["Se présenter", "Partager ses attentes", "Écouter"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M1_ACCUEIL_ATTENTES.md",
       "available": true
     },
@@ -53,8 +68,11 @@
       "id": "M2",
       "type": "moment",
       "title": "Accords d'équipage",
-      "subtitle": "J1-J2",
+      "subtitle": "J1 soir - 30-45 min",
       "emoji": "🤝",
+      "description": "Créer un cadre partagé pour naviguer et vivre ensemble, en nommant besoins et limites.",
+      "tags": ["Poser le cadre", "Explorer les thèmes", "Formuler", "Valider"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M2_accords_equipage_proto.md",
       "available": true,
       "proto": true
@@ -63,8 +81,11 @@
       "id": "M3",
       "type": "moment",
       "title": "Introduction rôles",
-      "subtitle": "J1-J2",
+      "subtitle": "J1 soir - 15-20 min",
       "emoji": "👥",
+      "description": "Présenter les 4 rôles et leurs marins inspirants, distribuer les premières missions.",
+      "tags": ["Présenter", "Choisir", "Lancer"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M3_introduction_roles_proto.md",
       "available": true,
       "proto": true
@@ -73,8 +94,11 @@
       "id": "M4",
       "type": "moment",
       "title": "Brief matin",
-      "subtitle": "J2-J6 quotidien",
+      "subtitle": "J2-J6 quotidien - 5-10 min",
       "emoji": "☀️",
+      "description": "Lancer la journée avec météo perso, attribution des rôles et programme.",
+      "tags": ["Météo perso", "Rôles du jour", "Programme"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M4_brief_matin_proto.md",
       "available": true,
       "proto": true
@@ -83,8 +107,11 @@
       "id": "M5",
       "type": "moment",
       "title": "Débrief soir",
-      "subtitle": "J2-J6 quotidien",
+      "subtitle": "J2-J6 quotidien - 10-20 min",
       "emoji": "🌙",
+      "description": "Clore la journée en partageant réussites, apprentissages et points d'attention.",
+      "tags": ["Tour de parole", "Technique", "Coopération"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M5_debrief_soir_proto.md",
       "available": true,
       "proto": true
@@ -93,8 +120,11 @@
       "id": "M6",
       "type": "moment",
       "title": "Mi-parcours",
-      "subtitle": "J3-J4",
+      "subtitle": "J3-J4 - 20-30 min",
       "emoji": "⚓",
+      "description": "Faire un point d'étape collectif sur la dynamique d'équipage et ajuster si besoin.",
+      "tags": ["Bilan intermédiaire", "Ajuster", "Relancer"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M6_mi_parcours_proto.md",
       "available": true,
       "proto": true
@@ -103,8 +133,11 @@
       "id": "M7",
       "type": "moment",
       "title": "Débrief final",
-      "subtitle": "J6",
+      "subtitle": "J6 - 45 min",
       "emoji": "🎯",
+      "description": "Ancrer les apprentissages et nommer les compétences transposables à terre.",
+      "tags": ["Bilan personnel", "Compétences acquises", "Transfert à terre"],
+      "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M7_debrief_final_proto.md",
       "available": true,
       "proto": true
@@ -112,9 +145,12 @@
     {
       "id": "S1",
       "type": "sos",
-      "title": "Conflit ou désaccord",
-      "subtitle": "Nommer et traverser une tension",
+      "title": "Gérer un conflit",
+      "subtitle": "Quand la tension monte",
       "emoji": "⚡",
+      "description": "Désamorcer une tension relationnelle avant qu'elle ne s'enkyste ou n'explose.",
+      "tags": ["Pause", "Nommer", "Écouter", "Chercher ensemble"],
+      "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S1_conflit_ouvert_proto.md",
       "available": true,
       "proto": true
@@ -123,8 +159,11 @@
       "id": "S2",
       "type": "sos",
       "title": "Temps sans navigation",
-      "subtitle": "Transformer la contrainte en opportunité",
+      "subtitle": "Pétole ou coup de vent",
       "emoji": "⏸️",
+      "description": "Transformer la contrainte météo en opportunité collective.",
+      "tags": ["Accepter", "Proposer", "Respecter les besoins"],
+      "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S2_temps_sans_navigation_proto.md",
       "available": true,
       "proto": true
@@ -133,8 +172,11 @@
       "id": "S3",
       "type": "sos",
       "title": "Rediscuter le cadre",
-      "subtitle": "Ajuster accords ou programme",
+      "subtitle": "Quand ça coince",
       "emoji": "🔄",
+      "description": "Ajuster les accords d'équipage ou le programme quand ils ne fonctionnent plus.",
+      "tags": ["Constater", "Proposer", "Reformuler"],
+      "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S3_rediscuter_accords_programme_proto.md",
       "available": true,
       "proto": true
@@ -143,8 +185,11 @@
       "id": "S4",
       "type": "sos",
       "title": "Feedback au mono",
-      "subtitle": "Faire une demande ou un retour",
+      "subtitle": "Oser dire",
       "emoji": "💬",
+      "description": "Faire une demande ou un retour au·à la moniteur·ice, positif ou ajustement.",
+      "tags": ["Préparer", "Formuler", "Écouter la réponse"],
+      "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S4_demande_feedback_mono_proto.md",
       "available": true,
       "proto": true
@@ -152,18 +197,18 @@
   ],
   "types": {
     "role": {
-      "label": "Rôles",
-      "color": "#0066AD",
+      "label": "Rôle",
+      "tagsIcon": "🌱",
       "count": 4
     },
     "moment": {
-      "label": "Moments-clés",
-      "color": "#F04839",
+      "label": "Moment",
+      "tagsIcon": "📋",
       "count": 7
     },
     "sos": {
       "label": "SOS",
-      "color": "#454545",
+      "tagsIcon": "⚡",
       "count": 4
     }
   }

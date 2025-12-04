@@ -4,69 +4,83 @@
  */
 
 /* ===========================================
-   FILTRES
+   FILTRES - SWITCHER
    =========================================== */
 
 .filters {
     display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 2rem;
+    gap: 0.25rem;
+    width: fit-content;
+    margin: 0 auto 2rem auto;
+    background: #F3F4F6; /* gray-100 */
+    padding: 0.25rem;
+    border-radius: 2rem;
 }
 
 .filter-btn {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    padding: 0.6rem 1.2rem;
-    border: 2px solid var(--bleu-glenans);
-    background: var(--blanc);
-    color: var(--bleu-glenans);
-    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 1.5rem;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.filter-btn:hover {
-    background: var(--bleu-glenans);
-    color: var(--blanc);
+/* État inactif - couleurs légères */
+.filter-btn[data-filter="all"] {
+    color: #6B7280; /* gray-500 */
+}
+.filter-btn[data-filter="all"]:hover {
+    color: #374151; /* gray-700 */
+    background: rgba(255,255,255,0.5);
+}
+.filter-btn[data-filter="all"].active {
+    background: var(--blanc);
+    color: #1F2937; /* gray-800 */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.filter-btn.active {
-    background: var(--bleu-glenans);
-    color: var(--blanc);
-}
-
-/* Filtres par type avec couleurs */
 .filter-btn[data-filter="role"] {
-    border-color: var(--amber-700);
-    color: var(--amber-700);
+    color: var(--amber-100);
+    color: #D97706; /* amber-600 light */
 }
-.filter-btn[data-filter="role"]:hover,
+.filter-btn[data-filter="role"]:hover {
+    color: var(--amber-700);
+    background: rgba(255,255,255,0.5);
+}
 .filter-btn[data-filter="role"].active {
-    background: var(--amber-700);
-    color: var(--blanc);
+    background: var(--blanc);
+    color: var(--amber-700);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .filter-btn[data-filter="moment"] {
-    border-color: var(--teal-700);
-    color: var(--teal-700);
+    color: #5EADA8; /* teal-400 */
 }
-.filter-btn[data-filter="moment"]:hover,
+.filter-btn[data-filter="moment"]:hover {
+    color: var(--teal-700);
+    background: rgba(255,255,255,0.5);
+}
 .filter-btn[data-filter="moment"].active {
-    background: var(--teal-700);
-    color: var(--blanc);
+    background: var(--blanc);
+    color: var(--teal-700);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .filter-btn[data-filter="sos"] {
-    border-color: var(--corail-700);
-    color: var(--corail-700);
+    color: #F87171; /* red-400 */
 }
-.filter-btn[data-filter="sos"]:hover,
+.filter-btn[data-filter="sos"]:hover {
+    color: var(--corail-700);
+    background: rgba(255,255,255,0.5);
+}
 .filter-btn[data-filter="sos"].active {
-    background: var(--corail-700);
-    color: var(--blanc);
+    background: var(--blanc);
+    color: var(--corail-700);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* ===========================================

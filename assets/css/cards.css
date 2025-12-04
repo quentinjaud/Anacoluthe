@@ -427,7 +427,7 @@
 }
 
 .card-content h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin: 0 0 1.5rem 0;
 }
@@ -444,6 +444,25 @@
     font-size: 1rem;
     font-weight: 800;
     margin: 1.25rem 0 0.5rem 0;
+}
+
+/* H6 = sous-titre de carte */
+.card-content h6 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Couleurs opposées pour H6 */
+.modal-role .card-content h6 {
+    color: var(--teal-700);
+}
+.modal-moment .card-content h6 {
+    color: var(--amber-700);
+}
+.modal-sos .card-content h6 {
+    color: var(--teal-700);
 }
 
 .card-content p {
@@ -480,9 +499,13 @@
     border-left: 4px solid currentColor;
     margin: 0 0 1.5rem 0;
     padding: 1rem 1.25rem;
-    font-style: normal;
+    font-style: italic;
     font-size: 1.05rem;
     line-height: 1.6;
+}
+
+.card-content blockquote p {
+    margin: 0;
 }
 
 /* Couleur de la bordure blockquote selon type */
@@ -616,7 +639,112 @@
     }
     
     .card-content h2 {
-        font-size: 1rem;
+        font-size: 1.3rem;
+    }
+    
+    .card-content h6 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===========================================
+   NAVIGATION SECTIONS (fil d'ariane)
+   =========================================== */
+
+.card-section-nav {
+    background: var(--blanc);
+    border-top: 1px solid var(--border-light);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+}
+
+.section-nav-inner {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-bottom: 0.25rem;
+}
+
+.section-nav-inner::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.section-nav-link {
+    flex-shrink: 0;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+/* Couleurs selon type */
+.nav-role .section-nav-link {
+    background: var(--amber-100);
+    color: var(--amber-700);
+}
+.nav-role .section-nav-link:hover {
+    background: var(--amber-700);
+    color: var(--blanc);
+}
+
+.nav-moment .section-nav-link {
+    background: var(--teal-100);
+    color: var(--teal-700);
+}
+.nav-moment .section-nav-link:hover {
+    background: var(--teal-700);
+    color: var(--blanc);
+}
+
+.nav-sos .section-nav-link {
+    background: var(--corail-100);
+    color: var(--corail-700);
+}
+.nav-sos .section-nav-link:hover {
+    background: var(--corail-700);
+    color: var(--blanc);
+}
+
+/* État actif (scroll spy) */
+.section-nav-link.active {
+    font-weight: 700;
+}
+
+.nav-role .section-nav-link.active {
+    background-color: var(--amber-700);
+    color: var(--blanc);
+}
+
+.nav-moment .section-nav-link.active {
+    background-color: var(--teal-700);
+    color: var(--blanc);
+}
+
+.nav-sos .section-nav-link.active {
+    background-color: var(--corail-700);
+    color: var(--blanc);
+}
+
+/* Masquer sur grand écran si souhaité */
+/* Pour l'instant on le laisse visible partout */
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .card-section-nav {
+        margin: 1rem -1.5rem -1.5rem -1.5rem;
+        padding: 0.6rem 0.75rem;
+    }
+    
+    .section-nav-link {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.6rem;
     }
 }
 

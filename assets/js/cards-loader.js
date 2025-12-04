@@ -4,10 +4,6 @@
  * Design V251204 - Style pastel avec emoji débordant
  */
 
-// Configuration
-const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/quentinjaud/Anacoluthe/main/';
-const LOCAL_BASE = '../'; // Pour test local
-
 // État de l'application
 let cardsData = null;
 let currentFilter = 'all';
@@ -162,6 +158,9 @@ async function openCard(cardId) {
         const html = marked.parse(markdown);
         modalBody.innerHTML = `<div class="card-content">${html}</div>`;
         
+        // Ajouter les IDs aux H2 et générer la navigation
+        generateSectionNav(modalBody, card.type);
+        
         // Mettre à jour l'URL sans recharger
         history.pushState({cardId}, '', `?card=${cardId}`);
         
@@ -172,17 +171,95 @@ async function openCard(cardId) {
 }
 
 /**
+ * Génère la navigation entre sections H2 avec scroll spy
+ */
+function generateSectionNav(modalBody, cardType) {
+    // Nettoyer la nav existante
+    const existingNav = document.querySelector('.card-section-nav');
+    if (existingNav) existingNav.remove();
+    
+    const h2Elements = modalBody.querySelectorAll('.card-content h2');
+    
+    if (h2Elements.length < 2) return; // Pas de nav si moins de 2 sections
+    
+    // Ajouter des IDs aux H2
+    const sections = [];
+    h2Elements.forEach((h2, index) => {
+        const id = 'section-' + index;
+        h2.id = id;
+        // Extraire le texte sans l'emoji du début
+        const text = h2.textContent.replace(/^[\u{1F300}-\u{1F9FF}\s]+/u, '').trim();
+        // Raccourcir si trop long
+        const shortText = text.length > 20 ? text.substring(0, 18) + '...' : text;
+        sections.push({ id, text: shortText, emoji: h2.textContent.match(/^[\u{1F300}-\u{1F9FF}]/u)?.[0] || '' });
+    });
+    
+    // Créer la barre de navigation
+    const nav = document.createElement('nav');
+    nav.className = 'card-section-nav nav-' + cardType;
+    nav.innerHTML = `
+        <div class="section-nav-inner">
+            ${sections.map(s => `<a href="#${s.id}" class="section-nav-link" data-section="${s.id}">${s.emoji ? s.emoji + ' ' : ''}${s.text}</a>`).join('')}
+        </div>
+    `;
+    
+    // Ajouter la nav au modal-content (parent du modalBody) pour qu'elle soit hors du scroll
+    const modalContent = modalBody.parentElement;
+    modalContent.appendChild(nav);
+    
+    // Scroll smooth vers la section au clic
+    nav.querySelectorAll('.section-nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // Scroll spy avec Intersection Observer
+    const observerOptions = {
+        root: modalBody,
+        rootMargin: '-20% 0px -70% 0px', // Zone de détection en haut
+        threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Retirer la classe active de tous les liens
+                nav.querySelectorAll('.section-nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                // Ajouter la classe active au lien correspondant
+                const activeLink = nav.querySelector(`[data-section="${entry.target.id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    // Scroll horizontal pour voir le lien actif
+                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observer tous les H2
+    h2Elements.forEach(h2 => observer.observe(h2));
+    
+    // Activer le premier par défaut
+    const firstLink = nav.querySelector('.section-nav-link');
+    if (firstLink) firstLink.classList.add('active');
+}
+
+/**
  * Récupère le markdown d'une carte
  */
 async function fetchCardMarkdown(path) {
-    // Essayer d'abord GitHub raw
-    const url = GITHUB_RAW_BASE + path;
-    
-    const response = await fetch(url);
+    const response = await fetch(path);
     if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
     }
-    
     return await response.text();
 }
 

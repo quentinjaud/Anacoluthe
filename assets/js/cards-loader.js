@@ -164,6 +164,7 @@ async function openCard(cardId) {
         
         // Parser et afficher
         const html = marked.parse(markdown);
+        const htmlWithVideos = embedYouTubeLinks(html);
         
         // Pour les affiches, ajouter un bouton de téléchargement PDF
         const pdfButton = card.pdfPath 
@@ -174,7 +175,13 @@ async function openCard(cardId) {
                </div>`
             : '';
         
-        modalBody.innerHTML = `<div class="card-content">${html}</div>${pdfButton}`;
+        modalBody.innerHTML = `<div class="card-content">${htmlWithVideos}</div>${pdfButton}`;
+        
+        // Forcer les liens externes à s'ouvrir dans un nouvel onglet
+        modalBody.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
         
         // Ajouter les IDs aux H2 et générer la navigation
         generateSectionNav(modalBody, card.type);
@@ -340,4 +347,25 @@ function showError(message) {
     if (gallery) {
         gallery.innerHTML = `<p class="error">${message}</p>`;
     }
+}
+
+/**
+ * Transforme les liens YouTube en iframes embarquées
+ */
+function embedYouTubeLinks(html) {
+    // Pattern pour liens YouTube (watch et youtu.be)
+    const youtubeRegex = /<a[^>]*href="https?:\/\/(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})"[^>]*>([^<]*)<\/a>/g;
+    
+    return html.replace(youtubeRegex, (match, www, path, videoId, linkText) => {
+        return `
+            <div class="video-embed">
+                <iframe 
+                    src="https://www.youtube.com/embed/${videoId}" 
+                    title="${linkText}"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>`;
+    });
 }

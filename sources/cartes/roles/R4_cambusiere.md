@@ -84,6 +84,9 @@ Celui·celle qui nourrit voit tout, sait qui va bien, qui décroche, qui a besoi
 *Maiden* (2018) - Alex Holmes  
 L'histoire du premier équipage féminin du Whitbread
 
+**Vidéo recommandée :**  
+[Portrait de Tracy Edwards](https://www.youtube.com/watch?v=klroP1mToFA)
+
 ---
 
 *Anacoluthe - CC-BY-NC-SA*

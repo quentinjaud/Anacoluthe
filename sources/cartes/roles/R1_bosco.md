@@ -65,6 +65,9 @@ Le soin préventif du matériel collectif (voiture, outils, vélos, matériel pa
 **Livre recommandé :**  
 *La Longue Route* - Bernard Moitessier
 
+**Vidéo recommandée :**  
+[Portrait de Bernard Moitessier](https://www.youtube.com/watch?v=Vg8lzaY7TsI)
+
 ---
 
 *Anacoluthe - CC-BY-NC-SA*

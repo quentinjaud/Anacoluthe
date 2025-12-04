@@ -66,6 +66,9 @@ Tenir le cap d'un projet, anticiper les obstacles, communiquer la stratégie à 
 - *L'Appel de l'océan* - Capucine Trochet  
 - *Naviguer en solitaire* - Capucine Trochet
 
+**Vidéo recommandée :**  
+[Portrait de Capucine Trochet](https://www.youtube.com/watch?v=fDKBvl8Tl2w)
+
 ---
 
 *Anacoluthe - CC-BY-NC-SA*

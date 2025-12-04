@@ -76,12 +76,16 @@ function createCardTile(card) {
     const typeInfo = cardsData.types[card.type];
     const availableClass = card.available ? '' : 'card-unavailable';
     const unavailableBadge = card.available ? '' : '<span class="badge-unavailable">À venir</span>';
+    const protoBadge = card.proto ? '<span class="badge-proto">🛠️ PROTO</span>' : '';
     
     return `
         <article class="card-tile ${availableClass}" data-card-id="${card.id}" data-type="${card.type}">
             <div class="card-tile-header" style="border-color: ${typeInfo.color}">
                 <span class="card-emoji">${card.emoji}</span>
-                <span class="card-type-badge" style="background-color: ${typeInfo.color}">${typeInfo.label}</span>
+                <div class="card-badges">
+                    <span class="card-type-badge" style="background-color: ${typeInfo.color}">${typeInfo.label}</span>
+                    ${protoBadge}
+                </div>
             </div>
             <div class="card-tile-body">
                 <h3 class="card-tile-title">${card.title}</h3>

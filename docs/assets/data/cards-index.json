@@ -52,92 +52,102 @@
     {
       "id": "M2",
       "type": "moment",
-      "title": "🧪 Accords d'équipage",
+      "title": "Accords d'équipage",
       "subtitle": "J1-J2",
       "emoji": "🤝",
       "path": "sources/cartes/moments/M2_accords_equipage_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "M3",
       "type": "moment",
-      "title": "🧪 Introduction rôles",
+      "title": "Introduction rôles",
       "subtitle": "J1-J2",
       "emoji": "👥",
       "path": "sources/cartes/moments/M3_introduction_roles_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "M4",
       "type": "moment",
-      "title": "🧪 Brief matin",
+      "title": "Brief matin",
       "subtitle": "J2-J6 quotidien",
       "emoji": "☀️",
       "path": "sources/cartes/moments/M4_brief_matin_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "M5",
       "type": "moment",
-      "title": "🧪 Débrief soir",
+      "title": "Débrief soir",
       "subtitle": "J2-J6 quotidien",
       "emoji": "🌙",
       "path": "sources/cartes/moments/M5_debrief_soir_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "M6",
       "type": "moment",
-      "title": "🧪 Mi-parcours",
+      "title": "Mi-parcours",
       "subtitle": "J3-J4",
       "emoji": "⚓",
       "path": "sources/cartes/moments/M6_mi_parcours_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "M7",
       "type": "moment",
-      "title": "🧪 Débrief final",
+      "title": "Débrief final",
       "subtitle": "J6",
       "emoji": "🎯",
       "path": "sources/cartes/moments/M7_debrief_final_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "S1",
       "type": "sos",
-      "title": "🧪 Conflit ou désaccord",
+      "title": "Conflit ou désaccord",
       "subtitle": "Nommer et traverser une tension",
       "emoji": "⚡",
       "path": "sources/cartes/sos/S1_conflit_ouvert_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "S2",
       "type": "sos",
-      "title": "🧪 Temps sans navigation",
+      "title": "Temps sans navigation",
       "subtitle": "Transformer la contrainte en opportunité",
       "emoji": "⏸️",
       "path": "sources/cartes/sos/S2_temps_sans_navigation_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "S3",
       "type": "sos",
-      "title": "🧪 Rediscuter le cadre",
+      "title": "Rediscuter le cadre",
       "subtitle": "Ajuster accords ou programme",
       "emoji": "🔄",
       "path": "sources/cartes/sos/S3_rediscuter_accords_programme_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     },
     {
       "id": "S4",
       "type": "sos",
-      "title": "🧪 Feedback au mono",
+      "title": "Feedback au mono",
       "subtitle": "Faire une demande ou un retour",
       "emoji": "💬",
       "path": "sources/cartes/sos/S4_demande_feedback_mono_proto.md",
-      "available": true
+      "available": true,
+      "proto": true
     }
   ],
   "types": {

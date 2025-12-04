@@ -1,6 +1,6 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## État d'avancement après travail cartes SOS
-*Dernière mise à jour : 251203 (3 décembre 2025)*
+*Dernière mise à jour : 251204 (4 décembre 2025)*
 
 ---
 
@@ -26,7 +26,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 |---------|--------|----------|--------|
 | **Cartes rôles** | A6 R/V | 4 | ✅ COMPLET |
 | **Cartes moments-clés** | A6 R/V | 7 | 🟡 INTENTIONS VALIDÉES |
-| **Cartes SOS coopératives** | A6 R/V | 4 | 🟡 INTENTIONS VALIDÉES |
+| **Cartes SOS coopératives** | A6 R/V | 4 | 🟠 PROTOS CRÉÉS |
 | **Affiches permanentes** | A4 | 3 | ✅ COMPLET |
 | **Guide équipage** | À définir | ? | ⬜ À définir |
 | **Guide mono** | À définir | ? | ⬜ À définir |
@@ -97,7 +97,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ---
 
-### 🆘 Cartes SOS coopératives (0/4 produites, intentions validées)
+### 🆘 Cartes SOS coopératives (4/4 protos créés, à relire)
 
 **Document de référence** : `sources/documentation/CARTES_SOS_INTENTIONS.md`
 
@@ -105,20 +105,24 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 **Déclencheur** : Équipage ou mono, souvent à l'initiative d'un stagiaire (parfois le second soigneux du jour).
 
-| # | Carte SOS | Situation | Rôles impliqués | Source V4 |
-|---|-----------|-----------|-----------------|-----------|
-| S1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective qui bloque | Mono (facilitateur) + 🤲 Second soigneux | P3 |
-| S2 | Organiser un temps sans navigation | Pétole ou temps trop fort - frustration + surprise | Mono (arrangeur) + tous les rôles | O2 |
-| S3 | Rediscuter accords/programme | Accord non respecté ou frustration technique | Mono (garant) + 🤲 Seconds soigneux passés + 🧭 Navigateurice | L1 + O3 |
-| S4 | Faire une demande/feedback au mono | Feedback positif / ajustement / inconfort | Mono (destinataire) + 🤲 Second soigneux | P4 |
+| # | Carte SOS | Situation | Fichier proto |
+|---|-----------|-----------|---------------|
+| S1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective | `S1_conflit_ouvert_proto.md` |
+| S2 | Organiser un temps sans navigation | Pétole ou temps trop fort | `S2_temps_sans_navigation_proto.md` |
+| S3 | Rediscuter accords/programme | Accord non respecté ou frustration technique | `S3_rediscuter_accords_programme_proto.md` |
+| S4 | Faire une demande/feedback au mono | Feedback positif / ajustement / inconfort | `S4_demande_feedback_mono_proto.md` |
 
-**Décisions clés (3 déc)** :
+**Fichiers protos** : `sources/cartes/sos/`
+
+**Décisions clés (3-4 déc)** :
 - Une seule carte S1 couvre conflits interpersonnels ET collectifs
 - S2 couvre pétole ET temps trop fort (même dynamique émotionnelle)
 - S3 couvre accords d'équipage ET programme (même constat : rediscuter ce qui nous lie)
 - S4 garde les 3 cas (positif/ajustement/inconfort) + "formule magique"
 - Pas de méthode de décision formelle dans les SOS (trop lourd en crise)
 - Triptyque S2 maintenu : collectif obligatoire / collectif optionnel / solo respecté
+
+**Statut protos (4 déc)** : Créés, à relire pour validation densité texte et pertinence
 
 ---
 
@@ -151,13 +155,13 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 |-----------|------|-------|---|--------|
 | Cartes rôles | 4 | 4 | 100% | ✅ COMPLET |
 | Cartes moments-clés | 0* | 7 | 0% | 🟡 Intentions OK |
-| Cartes SOS | 0* | 4 | 0% | 🟡 Intentions OK |
+| Cartes SOS | 4* | 4 | 100%* | 🟠 Protos OK |
 | Affiches A4 | 3 | 3 | 100% | ✅ COMPLET |
 | Guide équipage | 0 | ? | 0% | ⬜ À définir |
 | Guide mono | 0 | ? | 0% | ⬜ À définir |
 | **TOTAL ÉLÉMENTS FIXES** | **7** | **18** | **39%** | 🔄 En cours |
 
-*\* Intentions validées, rédaction A6 à faire*
+*\* Protos créés (cartes SOS), intentions validées (cartes moments) - relecture à faire*
 
 ### Avancement qualitatif
 
@@ -167,8 +171,9 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 - ✅ Affiches A4 complètes
 - ✅ Intentions cartes moments validées (28 nov)
 - ✅ Intentions cartes SOS validées (3 déc)
+- ✅ Protos cartes SOS créés (4 déc)
 - 🟡 Rédaction cartes moments à faire
-- 🟡 Rédaction cartes SOS à faire
+- 🟡 Relecture cartes SOS à faire
 - ⬜ Guides à définir
 
 ---
@@ -177,6 +182,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251204 | 4 déc. 2025 | Création protos cartes SOS |
 | v251203 | 3 déc. 2025 | Intégration intentions cartes SOS |
 | v251128 | 28 nov. 2025 | Intégration intentions cartes moments |
 | v251114 | 14 nov. 2025 | Intégration affiches A4 |
@@ -189,8 +195,14 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 
 ### Production V5 (dans ce repo)
 
-**Cartes**
+**Cartes rôles**
 - `sources/cartes/roles/cartes_roles_4_consolidees_v251106.md`
+
+**Cartes SOS (protos)**
+- `sources/cartes/sos/S1_conflit_ouvert_proto.md`
+- `sources/cartes/sos/S2_temps_sans_navigation_proto.md`
+- `sources/cartes/sos/S3_rediscuter_accords_programme_proto.md`
+- `sources/cartes/sos/S4_demande_feedback_mono_proto.md`
 
 **Affiches**
 - `sources/affiches/AFFICHE_A1_ROUTINES_QUOTIDIENNES_V251110.md`

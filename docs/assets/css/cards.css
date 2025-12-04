@@ -85,6 +85,12 @@
     font-size: 2rem;
 }
 
+.card-badges {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
 .card-type-badge {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 0.7rem;
@@ -93,6 +99,18 @@
     color: var(--blanc);
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
+}
+
+.badge-proto {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #FCD34D;
+    color: #78350F;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: 2px solid #F59E0B;
 }
 
 .card-tile-body {

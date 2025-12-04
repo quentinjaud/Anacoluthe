@@ -46,8 +46,8 @@ function renderGallery() {
     const gallery = document.getElementById('cards-gallery');
     if (!gallery || !cardsData) return;
 
-    // Combiner cartes et affiches
-    const allItems = [...cardsData.cards, ...(cardsData.affiches || [])];
+    // Combiner affiches d'abord, puis cartes (affiches en premier)
+    const allItems = [...(cardsData.affiches || []), ...cardsData.cards];
     
     const filteredCards = currentFilter === 'all' 
         ? allItems 
@@ -76,7 +76,7 @@ function renderGallery() {
 function createCardTile(card) {
     const typeInfo = cardsData.types[card.type];
     const availableClass = card.available ? '' : 'card-unavailable';
-    const unavailableBadge = card.available ? '' : '<span class="badge-unavailable">À venir</span>';
+    const unavailableBadge = card.available ? '' : '<span class="badge-unavailable">⌛ À VENIR</span>';
     const protoBadge = card.proto ? '<span class="badge-proto">🛠️ PROTO</span>' : '';
     
     // Générer les tags
@@ -92,19 +92,19 @@ function createCardTile(card) {
     return `
         <article class="card-tile ${availableClass}" data-card-id="${card.id}" data-type="${card.type}">
             <span class="card-emoji">${card.emoji}</span>
+            <div class="card-badges">
+                ${protoBadge}
+                ${unavailableBadge}
+                <span class="card-type-badge">${typeInfo.label}</span>
+            </div>
             <div class="card-tile-header">
-                <div class="card-badges">
-                    <span class="card-type-badge">${typeInfo.label}</span>
-                    ${protoBadge}
-                </div>
+                <h3 class="card-tile-title">${card.title}</h3>
             </div>
             <div class="card-tile-body">
-                <h3 class="card-tile-title">${card.title}</h3>
                 <p class="card-tile-subtitle">${card.subtitle}</p>
                 ${card.description ? `<p class="card-tile-description">${card.description}</p>` : ''}
                 ${tagsHtml}
             </div>
-            ${unavailableBadge}
         </article>
     `;
 }

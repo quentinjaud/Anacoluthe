@@ -1,6 +1,6 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## État d'avancement après travail site web
-*Dernière mise à jour : 251204 (4 décembre 2025)*
+*Dernière mise à jour : 251204 soir (4 décembre 2025)*
 
 ---
 
@@ -77,12 +77,22 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 - `assets/data/` : Index des cartes (cards-index.json)
 
 **Design** : Style pastel doux, typographie Merriweather (serif) + Merriweather Sans.
-Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
+Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate (affiches).
 
 **Navigation** :
 - Nav bottom pills sur index.html (scroll spy, camaïeu rouge Glénans)
 - CTA "JOUER" accenté en teal
 - Nav bottom pills sur anacoluthe.html (filtres par type de carte)
+
+**Évolutions 251204 soir** :
+- Section "Contenu du jeu" : format texte court + tags colorés, affiches en premier
+- Section "Objectifs pédagogiques" : grille 3 colonnes (Technique, Dysfonctionnements, Émancipation)
+- Galerie cartes : badges (PROTO, À VENIR, type) tous alignés à droite en débordement
+- Subtitles humanisés : "Le premier soir", "Tous les matins", "À mi-semaine"...
+- Renommages : "Retour moniteurice" (ex-Feedback), "Marque-page livre de bord" (ex-LDB)
+- Emoji routines : 🔂
+- Bold stratégiques dans "Genèse et partage"
+- Nav : MISSION (ex-ANCRAGE), OBJECTIFS ajouté
 
 **Référence design** : `sources/documentation/CHARTE_GRAPHIQUE_INTENTIONS.md`
 
@@ -201,6 +211,11 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
 - ✅ Nav bottom pills + scroll spy sur index.html (4 déc)
 - ✅ CTA "JOUER" accenté teal (4 déc)
 - ✅ Paragraphe origine du nom (juron Haddock) (4 déc)
+- ✅ Refonte section contenu index.html : grille tags colorés (4 déc)
+- ✅ Section objectifs pédagogiques en 3 colonnes (4 déc)
+- ✅ Badges galerie repositionnés : tous alignés droite en débordement (4 déc)
+- ✅ Subtitles moments humanisés : "Le premier soir", "Tous les matins"... (4 déc)
+- ✅ Renommages : "Retour moniteurice", "Marque-page livre de bord" (4 déc)
 - 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
@@ -210,6 +225,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS).
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251204d | 4 déc. 2025 | Refonte section contenu (grille tags), objectifs en 3 colonnes, badges alignés droite, subtitles humanisés |
 | v251204c | 4 déc. 2025 | Nav bottom pills + scroll spy, CTA JOUER teal, paragraphe origine nom |
 | v251204b | 4 déc. 2025 | Site web en ligne anacoluthe.org, design CSS finalisé |
 | v251204 | 4 déc. 2025 | Création protos cartes SOS + moments |

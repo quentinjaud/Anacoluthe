@@ -783,3 +783,106 @@
 .header-link:hover .site-title {
     color: var(--rouge-glenans);
 }
+
+/* ===========================================
+   TYPE AFFICHE (Bleu-gris/Slate)
+   =========================================== */
+
+/* Filtre bouton */
+.filter-btn[data-filter="affiche"] {
+    color: #64748B; /* slate-500 */
+}
+.filter-btn[data-filter="affiche"]:hover {
+    color: #475569; /* slate-600 */
+    background: rgba(255,255,255,0.5);
+}
+.filter-btn[data-filter="affiche"].active {
+    background: var(--blanc);
+    color: #334155; /* slate-700 */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Tuile carte affiche */
+.card-tile[data-type="affiche"] {
+    background-color: #F1F5F9; /* slate-100 */
+}
+.card-tile[data-type="affiche"]:hover {
+    box-shadow: 0 6px 16px rgba(71, 85, 105, 0.15);
+}
+.card-tile[data-type="affiche"] .card-tile-title {
+    color: #334155; /* slate-700 */
+}
+.card-tile[data-type="affiche"] .card-type-badge {
+    background-color: #E2E8F0; /* slate-200 */
+    color: #334155; /* slate-700 */
+}
+.card-tile[data-type="affiche"] .card-tile-tags-title {
+    color: #475569; /* slate-600 */
+}
+.card-tile[data-type="affiche"] .card-tile-tag {
+    background-color: #E2E8F0; /* slate-200 */
+    color: #334155; /* slate-700 */
+}
+
+/* Modale affiche */
+.modal-affiche .card-content h1,
+.modal-affiche .card-content h2,
+.modal-affiche .card-content h3,
+.modal-affiche .card-content h4 {
+    color: #334155; /* slate-700 */
+}
+
+.modal-affiche .card-content h6 {
+    color: #64748B; /* slate-500 */
+}
+
+.modal-affiche .card-content blockquote {
+    border-left-color: #334155; /* slate-700 */
+}
+
+/* Navigation affiche */
+.nav-affiche .section-nav-link {
+    background: #E2E8F0; /* slate-200 */
+    color: #334155; /* slate-700 */
+}
+.nav-affiche .section-nav-link:hover {
+    background: #334155; /* slate-700 */
+    color: var(--blanc);
+}
+.nav-affiche .section-nav-link.active {
+    background-color: #334155; /* slate-700 */
+    color: var(--blanc);
+}
+
+/* ===========================================
+   BOUTON TÉLÉCHARGEMENT PDF
+   =========================================== */
+
+.pdf-download-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.pdf-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.875rem 1.5rem;
+    background: #334155; /* slate-700 */
+    color: var(--blanc);
+    border-radius: var(--radius-small);
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pdf-download-btn:hover {
+    background: #1E293B; /* slate-800 */
+    transform: translateY(-2px);
+    color: var(--blanc);
+    border-color: transparent;
+}

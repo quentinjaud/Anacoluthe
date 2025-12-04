@@ -46,9 +46,12 @@ function renderGallery() {
     const gallery = document.getElementById('cards-gallery');
     if (!gallery || !cardsData) return;
 
+    // Combiner cartes et affiches
+    const allItems = [...cardsData.cards, ...(cardsData.affiches || [])];
+    
     const filteredCards = currentFilter === 'all' 
-        ? cardsData.cards 
-        : cardsData.cards.filter(card => card.type === currentFilter);
+        ? allItems 
+        : allItems.filter(card => card.type === currentFilter);
 
     if (filteredCards.length === 0) {
         gallery.innerHTML = '<p class="no-cards">Aucune carte dans cette catégorie.</p>';
@@ -128,7 +131,9 @@ function setupFilters() {
  * Ouvre une carte dans la modale
  */
 async function openCard(cardId) {
-    const card = cardsData.cards.find(c => c.id === cardId);
+    // Chercher dans cartes ET affiches
+    const allItems = [...cardsData.cards, ...(cardsData.affiches || [])];
+    const card = allItems.find(c => c.id === cardId);
     if (!card) {
         console.error('Carte non trouvée:', cardId);
         return;
@@ -151,12 +156,25 @@ async function openCard(cardId) {
     document.body.style.overflow = 'hidden';
 
     try {
+        // Déterminer le chemin (path pour cartes, memoPath pour affiches)
+        const contentPath = card.memoPath || card.path;
+        
         // Charger le markdown
-        const markdown = await fetchCardMarkdown(card.path);
+        const markdown = await fetchCardMarkdown(contentPath);
         
         // Parser et afficher
         const html = marked.parse(markdown);
-        modalBody.innerHTML = `<div class="card-content">${html}</div>`;
+        
+        // Pour les affiches, ajouter un bouton de téléchargement PDF
+        const pdfButton = card.pdfPath 
+            ? `<div class="pdf-download-section">
+                <a href="${card.pdfPath}" class="pdf-download-btn" target="_blank" download>
+                    📄 Télécharger le PDF
+                </a>
+               </div>`
+            : '';
+        
+        modalBody.innerHTML = `<div class="card-content">${html}</div>${pdfButton}`;
         
         // Ajouter les IDs aux H2 et générer la navigation
         generateSectionNav(modalBody, card.type);

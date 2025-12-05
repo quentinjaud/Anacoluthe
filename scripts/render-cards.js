@@ -138,6 +138,22 @@ async function renderCardFace(page, cardId, face, baseUrl) {
   // Petit délai pour le rendu final
   await new Promise(r => setTimeout(r, 200));
   
+  // DEBUG: Capturer le contenu visible
+  const debugInfo = await page.evaluate(() => {
+    const content = document.querySelector('.print-card-content');
+    const body = document.body;
+    return {
+      bodyClasses: body.className,
+      hasContent: !!content,
+      contentHTML: content ? content.innerHTML.substring(0, 300) : 'NO CONTENT ELEMENT',
+      contentVisible: content ? getComputedStyle(content).display !== 'none' : false,
+      bodyWidth: body.offsetWidth,
+      bodyHeight: body.offsetHeight
+    };
+  });
+  console.log(`  📊 Debug ${cardId} (${face}): body=${debugInfo.bodyClasses}, hasContent=${debugInfo.hasContent}, visible=${debugInfo.contentVisible}, size=${debugInfo.bodyWidth}x${debugInfo.bodyHeight}`);
+  console.log(`     Content preview: ${debugInfo.contentHTML.substring(0, 150)}...`);
+  
   // Générer le PDF
   const pdfBuffer = await page.pdf({
     width: `${CONFIG.pageWidth}mm`,

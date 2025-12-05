@@ -56,17 +56,17 @@
     
     /* === FONT SIZING === */
     /* Base et limites pour auto-fit */
-    --print-base-font-size: 9pt;
-    --print-font-size-min: 6.5pt;
-    --print-font-size-max: 9pt;
+    --print-base-font-size: 10pt;
+    --print-font-size-min: 6pt;
+    --print-font-size-max: 10pt;
     --print-font-size-step: 0.25pt;
     
     /* Ratios pour les titres (en em, relatifs à --print-base-font-size) */
-    --print-h1-size: 1.556em;   /* ~14pt à base 9pt */
-    --print-h2-size: 1.111em;   /* ~10pt à base 9pt */
-    --print-h3-size: 1em;       /* ~9pt */
-    --print-h6-size: 1em;       /* ~9pt */
-    --print-small-size: 0.778em; /* ~7pt */
+    --print-h1-size: 1.556em;   /* ~15.5pt à base 10pt */
+    --print-h2-size: 1.111em;   /* ~11pt à base 10pt */
+    --print-h3-size: 1em;       /* ~10pt */
+    --print-h6-size: 1em;       /* ~10pt */
+    --print-small-size: 0.778em; /* ~7.8pt */
 }
 
 /* ========================================

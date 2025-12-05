@@ -72,7 +72,8 @@ Chaque rôle est incarné par un·e marin·e inspirant·e du monde nautique rée
 Anacoluthe/
 ├── index.html               # 🌐 Page d'accueil du site
 ├── anacoluthe.html          # 🃏 Afficheur de cartes interactif
-├── afficheur-cartes.html    # 🖨️ Preview print format A6
+├── afficheur-cartes.html    # 🖨️ Atelier à cartes (preview multi-vues)
+├── print-render.html        # 🖨️ Page dédiée Puppeteer (render PDF)
 ├── assets/                  # 🎨 Ressources web
 │   ├── css/                 # Styles (style.css, cards.css)
 │   ├── js/                  # Scripts (cards-loader.js)
@@ -133,6 +134,8 @@ npm run print:sos
 - **Impression** : Recto-verso bord long, portrait, 100%, sans marges
 - **Découpe** : Coupe croisée unique au centre de la feuille A4
 - **Finition** : Plastification 80-125 microns recommandée pour usage maritime
+
+> **Auto-fit** : Le texte est automatiquement ajusté entre 6pt et 10pt pour éviter les débordements.
 
 ### Stack technique
 

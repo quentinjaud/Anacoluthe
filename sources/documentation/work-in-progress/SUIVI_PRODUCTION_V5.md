@@ -1,6 +1,6 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## État d'avancement après travail site web
-*Dernière mise à jour : 251205d (5 décembre 2025)*
+*Dernière mise à jour : 251205e (5 décembre 2025)*
 
 ---
 
@@ -115,6 +115,12 @@ print/
 - Impression : Recto-verso bord long, portrait, 100%, sans marges
 - Découpe : Coupe croisée unique au centre de l'A4
 - Finition : Plastification 80-125 microns pour usage maritime
+
+**Auto-fit texte** :
+- Taille de base : 10pt (max)
+- Taille minimale : 6pt
+- Pas de réduction : 0.25pt
+- Le contenu est automatiquement réduit si débordement détecté
 
 **Stack technique** :
 | Composant | Technologie | Version |
@@ -325,6 +331,10 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - ✅ Gestion statut proto via cards-index.json (pas de suffixe _proto dans noms fichiers)
 - ✅ Suppression logique `available` dans cards-loader.js : si dans JSON = disponible (5 déc)
 - ✅ Fusion DESIGN_NOTES + CHARTE_GRAPHIQUE → DESIGN_INTENTIONS.md (5 déc)
+- ✅ Page print-render.html dédiée pour Puppeteer (5 déc)
+- ✅ Support affiches mémos (A1-A3) dans render-cards.js (5 déc)
+- ✅ Boutons "🖨️ Vérifier rendu" dans l'atelier pour comparer avec Puppeteer (5 déc)
+- ✅ Auto-fit élargi : 6pt-10pt (était 6.5pt-9pt) (5 déc)
 - 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
@@ -334,6 +344,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251205e | 5 déc. 2025 | Print-render.html dédié Puppeteer, boutons vérifier rendu, auto-fit 6-10pt, support affiches mémos |
 | v251205d | 5 déc. 2025 | Mémos affiches protos (A1-A3), simplification available, fusion DESIGN_INTENTIONS.md |
 | v251205c | 5 déc. 2025 | Site web : bouton suggestion mailto dans footer modale (desktop + mobile) |
 | v251205b | 5 déc. 2025 | Site web : CSS print autonomisé, fonds blancs, footers 2 colonnes, marqueurs SKIP-PRINT/SKIP-WEB |
@@ -397,7 +408,8 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 **Site web**
 - `index.html` - Page d'accueil
 - `anacoluthe.html` - Afficheur de cartes
-- `afficheur-cartes.html` - Preview print A6
+- `afficheur-cartes.html` - Atelier à cartes (preview multi-vues)
+- `print-render.html` - Page minimaliste pour Puppeteer (render PDF)
 - `assets/css/style.css` - Styles généraux
 - `assets/css/cards.css` - Styles des cartes
 - `assets/js/cards-loader.js` - Chargement dynamique des cartes

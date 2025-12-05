@@ -52,6 +52,10 @@ const CONFIG = {
       cards: ['S1_conflit-desaccord', 'S2_temps-sans-navigation', 
               'S3_rediscuter-accords', 'S4_feedback-mono'],
       title: 'Cartes SOS'
+    },
+    memos: {
+      cards: ['A1_routines', 'A2_tableau', 'A3_marque-page'],
+      title: 'Mémos Affiches'
     }
   }
 };

@@ -80,6 +80,42 @@
          *   &face=recto  recto ou verso
          */
         
+        /**
+         * Auto-fit : réduit la taille de police si le contenu déborde
+         */
+        async function autoFit(cardEl, contentEl) {
+            // Paramètres (cohérents avec cards-print.css)
+            const MIN_SIZE = 6;     // pt
+            const MAX_SIZE = 10;    // pt
+            const STEP = 0.25;      // pt
+            
+            let currentSize = MAX_SIZE;
+            
+            // Vérifier si débordement
+            const checkOverflow = () => {
+                return contentEl.scrollHeight > cardEl.clientHeight;
+            };
+            
+            // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)
+            while (checkOverflow() && currentSize > MIN_SIZE) {
+                currentSize -= STEP;
+                contentEl.style.fontSize = `${currentSize}pt`;
+                
+                // Attendre le re-layout
+                await new Promise(r => setTimeout(r, 10));
+            }
+            
+            // Log si on a dû réduire
+            if (currentSize < MAX_SIZE) {
+                console.log(`Auto-fit: taille réduite à ${currentSize}pt`);
+            }
+            
+            // Avertir si toujours en débordement
+            if (checkOverflow()) {
+                console.warn(`⚠️ Contenu déborde même à ${MIN_SIZE}pt`);
+            }
+        }
+        
         async function init() {
             const params = new URLSearchParams(window.location.search);
             const cardId = params.get('card');
@@ -150,7 +186,10 @@
                 // 10. Attendre les fonts
                 await document.fonts.ready;
                 
-                // 11. Signaler que c'est prêt
+                // 11. Auto-fit : réduire la taille si débordement
+                await autoFit(cardEl, contentEl);
+                
+                // 12. Signaler que c'est prêt
                 document.body.classList.add('card-ready');
                 
             } catch (err) {

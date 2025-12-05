@@ -34,10 +34,11 @@ const CONFIG = {
 
 // Types à traiter selon le target
 const TYPE_FILTERS = {
-  all: ['role', 'moment', 'sos'],
+  all: ['role', 'moment', 'sos', 'affiche'],
   roles: ['role'],
   moments: ['moment'],
-  sos: ['sos']
+  sos: ['sos'],
+  affiches: ['affiche']
 };
 
 /**
@@ -96,8 +97,11 @@ function getCardsToProcess(target) {
   
   const allowedTypes = TYPE_FILTERS[target] || TYPE_FILTERS.all;
   
-  return index.cards.filter(card => 
-    allowedTypes.includes(card.type)
+  // Combiner cartes et affiches (mémos A6)
+  const allItems = [...index.cards, ...(index.affiches || [])];
+  
+  return allItems.filter(item => 
+    allowedTypes.includes(item.type) && item.path
   );
 }
 

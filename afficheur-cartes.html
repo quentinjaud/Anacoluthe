@@ -600,6 +600,39 @@
             display: none;
         }
         
+        /* Bouton vérifier rendu Puppeteer */
+        .verify-render-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.3rem 0.6rem;
+            margin-top: 6px;
+            border: 1px dashed var(--border-light);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.6);
+            transition: all 0.2s ease;
+        }
+        
+        .verify-render-btn:hover {
+            color: var(--bleu-glenans);
+            border-color: var(--bleu-glenans);
+            background: white;
+        }
+        
+        .verify-render-btn.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        body.mode-print .verify-render-btn {
+            display: none;
+        }
+        
         /* ========================================
            LOADING & ERROR
            ======================================== */
@@ -965,6 +998,7 @@
                 <span class="caption-source" id="caption-source-recto">Source: -</span>
             </div>
             <div class="font-size-indicator" id="font-indicator-recto"></div>
+            <a href="#" class="verify-render-btn disabled" id="verify-recto-btn" target="_blank" title="Ouvrir le rendu Puppeteer dans un nouvel onglet">🖨️ Vérifier rendu recto</a>
         </div>
         <div class="viewer-group">
             <div class="print-card-face" data-face="verso" id="card-verso">
@@ -979,6 +1013,7 @@
                 <span class="caption-source" id="caption-source-verso">Source: -</span>
             </div>
             <div class="font-size-indicator" id="font-indicator-verso"></div>
+            <a href="#" class="verify-render-btn disabled" id="verify-verso-btn" target="_blank" title="Ouvrir le rendu Puppeteer dans un nouvel onglet">🖨️ Vérifier rendu verso</a>
         </div>
     </div>
     
@@ -1043,13 +1078,13 @@
         // Configuration auto-fit (lit les variables CSS de cards-print.css)
         const AUTOFIT = {
             get baseSize() {
-                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-base-font-size')) || 9;
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-base-font-size')) || 10;
             },
             get minSize() {
-                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-min')) || 6.5;
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-min')) || 6;
             },
             get maxSize() {
-                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-max')) || 9;
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-max')) || 10;
             },
             get step() {
                 return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-step')) || 0.25;
@@ -1319,6 +1354,26 @@
         }
         
         /**
+         * Met à jour les boutons de vérification du rendu Puppeteer
+         */
+        function updateVerifyButtons(cardId) {
+            const verifyRectoBtn = document.getElementById('verify-recto-btn');
+            const verifyVersoBtn = document.getElementById('verify-verso-btn');
+            
+            if (cardId) {
+                verifyRectoBtn.href = `print-render.html?card=${cardId}&face=recto`;
+                verifyVersoBtn.href = `print-render.html?card=${cardId}&face=verso`;
+                verifyRectoBtn.classList.remove('disabled');
+                verifyVersoBtn.classList.remove('disabled');
+            } else {
+                verifyRectoBtn.href = '#';
+                verifyVersoBtn.href = '#';
+                verifyRectoBtn.classList.add('disabled');
+                verifyVersoBtn.classList.add('disabled');
+            }
+        }
+        
+        /**
          * Met à jour les boutons PDF en fonction de la carte sélectionnée
          */
         function updatePdfButtons(card) {
@@ -1386,8 +1441,9 @@
                 return;
             }
             
-            // Mettre à jour les boutons PDF
+            // Mettre à jour les boutons PDF et vérification
             updatePdfButtons(card);
+            updateVerifyButtons(cardId);
             
             // Charger le markdown
             let markdown = '';

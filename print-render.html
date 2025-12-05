@@ -175,21 +175,29 @@
                 content = content.replace('<!-- HEAD -->', '');
                 
                 // 7. Retirer les blocs SKIP-PRINT
-                content = content.replace(/<!-- SKIP-PRINT -->[\s\S]*?(?=##|---|$)/gi, '');
+                // Pattern: marqueur + whitespace + optionnellement le H2 de section + contenu jusqu'au prochain délimiteur
+                content = content.replace(
+                    /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
+                    ''
+                );
                 
-                // 8. Parser le markdown
+                // 8. Retirer les blocs SKIP-WEB (garder pour print)
+                // On les laisse visibles en print, donc on retire juste le marqueur
+                content = content.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
+                
+                // 9. Parser le markdown
                 contentEl.innerHTML = marked.parse(content);
                 
-                // 9. Twemoji
+                // 10. Twemoji
                 twemoji.parse(contentEl, { folder: 'svg', ext: '.svg' });
                 
-                // 10. Attendre les fonts
+                // 11. Attendre les fonts
                 await document.fonts.ready;
                 
-                // 11. Auto-fit : réduire la taille si débordement
+                // 12. Auto-fit : réduire la taille si débordement
                 await autoFit(cardEl, contentEl);
                 
-                // 12. Signaler que c'est prêt
+                // 13. Signaler que c'est prêt
                 document.body.classList.add('card-ready');
                 
             } catch (err) {

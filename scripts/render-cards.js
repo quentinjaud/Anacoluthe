@@ -124,6 +124,10 @@ async function renderCardFace(page, cardId, face, baseUrl) {
     if (hasError) {
       throw new Error(`Erreur de chargement pour ${cardId} (${face})`);
     }
+    // Debug : récupérer le contenu de la page
+    const bodyClasses = await page.evaluate(() => document.body.className);
+    const content = await page.evaluate(() => document.querySelector('.print-card-content')?.innerHTML?.substring(0, 200) || 'NO CONTENT');
+    console.log(`  ⚠️ Timeout pour ${cardId} (${face}) - body classes: "${bodyClasses}" - content: "${content}"`);
     // Sinon attendre un peu et continuer
     await new Promise(r => setTimeout(r, 1000));
   }
@@ -150,6 +154,19 @@ async function renderCardFace(page, cardId, face, baseUrl) {
  */
 async function renderCard(browser, card, baseUrl) {
   const page = await browser.newPage();
+  
+  // Capturer les erreurs de la page
+  page.on('console', msg => {
+    if (msg.type() === 'error') {
+      console.log(`  🚨 Console error: ${msg.text()}`);
+    }
+  });
+  page.on('pageerror', err => {
+    console.log(`  🚨 Page error: ${err.message}`);
+  });
+  page.on('requestfailed', req => {
+    console.log(`  🚨 Request failed: ${req.url()} - ${req.failure()?.errorText}`);
+  });
   
   // Viewport A6 en pixels (96 DPI)
   await page.setViewport({

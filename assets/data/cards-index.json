@@ -61,7 +61,8 @@
       "description": "Poser les intentions individuelles et créer une première connexion d'équipage.",
       "tags": ["Se présenter", "Partager ses attentes", "Écouter"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M1_ACCUEIL_ATTENTES.md"
+      "path": "sources/cartes/moments/M1_ACCUEIL_ATTENTES.md",
+      "pdfPath": "print/cartes/M1_ACCUEIL_ATTENTES.pdf"
     },
     {
       "id": "M2",
@@ -73,6 +74,7 @@
       "tags": ["Poser le cadre", "Explorer les thèmes", "Formuler", "Valider"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M2_accords_equipage_proto.md",
+      "pdfPath": "print/cartes/M2_accords_equipage_proto.pdf",
       "proto": true
     },
     {
@@ -85,6 +87,7 @@
       "tags": ["Présenter", "Choisir", "Lancer"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M3_introduction_roles_proto.md",
+      "pdfPath": "print/cartes/M3_introduction_roles_proto.pdf",
       "proto": true
     },
     {
@@ -97,6 +100,7 @@
       "tags": ["Météo perso", "Rôles du jour", "Programme"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M4_brief_matin_proto.md",
+      "pdfPath": "print/cartes/M4_brief_matin_proto.pdf",
       "proto": true
     },
     {
@@ -109,6 +113,7 @@
       "tags": ["Tour de parole", "Technique", "Coopération"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M5_debrief_soir_proto.md",
+      "pdfPath": "print/cartes/M5_debrief_soir_proto.pdf",
       "proto": true
     },
     {
@@ -121,6 +126,7 @@
       "tags": ["Bilan intermédiaire", "Ajuster", "Relancer"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M6_mi_parcours_proto.md",
+      "pdfPath": "print/cartes/M6_mi_parcours_proto.pdf",
       "proto": true
     },
     {
@@ -133,6 +139,7 @@
       "tags": ["Bilan personnel", "Compétences acquises", "Transfert à terre"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M7_debrief_final_proto.md",
+      "pdfPath": "print/cartes/M7_debrief_final_proto.pdf",
       "proto": true
     },
     {
@@ -145,6 +152,7 @@
       "tags": ["Pause", "Nommer", "Écouter", "Chercher ensemble"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S1_conflit_ouvert_proto.md",
+      "pdfPath": "print/cartes/S1_conflit_ouvert_proto.pdf",
       "proto": true
     },
     {
@@ -157,6 +165,7 @@
       "tags": ["Accepter", "Proposer", "Respecter les besoins"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S2_temps_sans_navigation_proto.md",
+      "pdfPath": "print/cartes/S2_temps_sans_navigation_proto.pdf",
       "proto": true
     },
     {
@@ -169,6 +178,7 @@
       "tags": ["Constater", "Proposer", "Reformuler"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S3_rediscuter_accords_programme_proto.md",
+      "pdfPath": "print/cartes/S3_rediscuter_accords_programme_proto.pdf",
       "proto": true
     },
     {
@@ -181,6 +191,7 @@
       "tags": ["Préparer", "Formuler", "Écouter la réponse"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S4_demande_feedback_mono_proto.md",
+      "pdfPath": "print/cartes/S4_demande_feedback_mono_proto.pdf",
       "proto": true
     }
   ],

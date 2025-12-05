@@ -221,11 +221,12 @@ async function renderCard(browser, card, baseUrl) {
     
     const pdfBytes = await mergedPdf.save();
     
-    // Sauvegarder
-    const outputPath = path.join(CONFIG.outputDir, `${card.id}.pdf`);
+    // Sauvegarder - utiliser le nom du fichier source (sans extension)
+    const baseName = path.basename(card.path, '.md');
+    const outputPath = path.join(CONFIG.outputDir, `${baseName}.pdf`);
     fs.writeFileSync(outputPath, pdfBytes);
     
-    console.log(`  ✅ ${card.id}.pdf`);
+    console.log(`  ✅ ${baseName}.pdf`);
     
   } catch (err) {
     console.log(`  ❌ ${card.id}: ${err.message}`);

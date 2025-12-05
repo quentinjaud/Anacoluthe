@@ -268,62 +268,81 @@
             margin: 0 5px;
         }
         
-        /* Options print - ligne compacte */
-        .print-options {
+        /* Options print - ligne complète */
+        .print-row {
             display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border-light);
         }
         
-        body.view-print .print-options {
-            display: contents;
-        }
-        
-        /* Mini switcher pour recto/verso */
-        .mini-switcher {
+        body.view-print .print-row {
             display: flex;
-            gap: 2px;
-            background: #F3F4F6;
-            padding: 2px;
-            border-radius: 4px;
-            border: 1px solid var(--border-light);
         }
         
-        .mini-btn {
+        /* Boutons ligne 2 (tous identiques) */
+        .tool-btn,
+        .download-btn {
             font-family: 'Merriweather Sans', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            padding: 3px 8px;
-            border: none;
-            background: transparent;
-            border-radius: 3px;
-            cursor: pointer;
-            color: #6B7280;
-            transition: all 0.15s ease;
-        }
-        
-        .mini-btn:hover {
-            color: #374151;
-            background: rgba(255,255,255,0.5);
-        }
-        
-        .mini-btn.active {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--bleu-glenans);
+            border-radius: 0.5rem;
             background: white;
             color: var(--bleu-glenans);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .tool-btn:hover,
+        .download-btn:hover {
+            background: var(--bleu-glenans);
+            color: white;
+        }
+        
+        .tool-btn.spinning {
+            animation: spin 0.5s linear;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .download-btn.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+            cursor: not-allowed;
         }
         
         /* Checkbox compact */
         .controls .checkbox-label {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             cursor: pointer;
+            font-family: 'Merriweather Sans', sans-serif;
             font-size: 0.8rem;
+            font-weight: 600;
+            color: #6B7280;
+            padding: 0.4rem 0.6rem;
+            border-radius: 0.4rem;
+            transition: all 0.15s ease;
+        }
+        
+        .controls .checkbox-label:hover {
+            background: rgba(0,0,0,0.03);
+            color: #374151;
         }
         
         .controls .checkbox-label input {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             cursor: pointer;
+            accent-color: var(--bleu-glenans);
         }
         
         /* ========================================
@@ -782,24 +801,32 @@
                 <option value="">Choisir une carte...</option>
             </select>
             <div class="view-switcher" id="mode-buttons">
-                <button class="view-btn active" data-mode="print" title="Vue impression A6">🖨️ Print</button>
+                <button class="view-btn active" data-mode="print" title="Vue impression A6">🖨️ Impression</button>
                 <button class="view-btn" data-mode="web" title="Vue desktop">🖥️ Web</button>
                 <button class="view-btn" data-mode="mobile" title="Vue mobile + tuile">📱 Mobile</button>
-                <button class="view-btn" data-mode="tech" title="Infos techniques">⚙️ Tech</button>
+                <button class="view-btn" data-mode="tech" title="Infos techniques">⚙️ Technique</button>
             </div>
-            <span class="print-options">
-                <div class="mini-switcher" id="face-buttons">
-                    <button class="mini-btn active" data-face="both" title="Recto et verso">◫</button>
-                    <button class="mini-btn" data-face="recto" title="Recto seul">R</button>
-                    <button class="mini-btn" data-face="verso" title="Verso seul">V</button>
-                </div>
-            </span>
-            <span class="print-options">
-                <label class="checkbox-label" title="Ajuster automatiquement la taille du texte">
-                    <input type="checkbox" id="autofit-toggle" checked>
-                    Auto-fit
-                </label>
-            </span>
+        </div>
+        
+        <!-- Ligne 2 : Options Print + PDF -->
+        <div class="controls-row print-row">
+            <label class="checkbox-label" title="Réduit automatiquement le texte si la carte déborde">
+                <input type="checkbox" id="autofit-toggle" checked>
+                Ajuster le texte
+            </label>
+            <button class="tool-btn" id="reload-btn" title="Recharger la carte (vide le cache)">
+                🔄 Actualiser
+            </button>
+            <span class="controls-separator"></span>
+            <a href="#" class="download-btn" id="pdf-card-btn" title="Télécharger le PDF de cette carte" target="_blank">
+                📥 Télécharger la carte
+            </a>
+            <a href="#" class="download-btn" id="pdf-livret-btn" title="Télécharger le livret complet de ce type" target="_blank">
+                📖 Télécharger le livret
+            </a>
+            <a href="#" class="download-btn" id="pdf-affiche-btn" style="display: none;" title="Télécharger l'affiche A4" target="_blank">
+                📄 Télécharger l'affiche A4
+            </a>
         </div>
     </div>
     
@@ -1053,7 +1080,8 @@
          * Transforme les blocs marqués en divs avec classes pour masquage conditionnel
          * 
          * Syntaxe : <!-- SKIP-PRINT --> ou <!-- SKIP-WEB -->
-         * Le bloc s'étend jusqu'au prochain titre H2 (## ) ou jusqu'à la fin du fichier
+         * Le bloc inclut le H2 qui suit immédiatement (s'il y en a un)
+         * et s'étend jusqu'au prochain H2, divider (---) ou fin du fichier
          */
         function preprocessSkipMarkers(markdown) {
             // Pattern pour détecter les marqueurs
@@ -1070,16 +1098,42 @@
                     const startPos = match.index;
                     const markerEnd = startPos + match[0].length;
                     
-                    // Chercher le prochain H2 après le marqueur
+                    // Chercher les délimiteurs après le marqueur
                     const afterMarker = md.substring(markerEnd);
-                    const nextH2Match = afterMarker.match(/\n##\s/);
                     
-                    let endPos;
-                    if (nextH2Match) {
-                        endPos = markerEnd + nextH2Match.index;
-                    } else {
-                        // Pas de H2 après, aller jusqu'à la fin
-                        endPos = md.length;
+                    // Chercher le premier H2 (en sautant celui immédiatement après le marqueur)
+                    const h2Regex = /\n##\s/g;
+                    let h2Match;
+                    let h2EndPos = null;
+                    let foundFirstH2 = false;
+                    
+                    while ((h2Match = h2Regex.exec(afterMarker)) !== null) {
+                        const textBefore = afterMarker.substring(0, h2Match.index);
+                        const isImmediate = /^\s*$/.test(textBefore);
+                        
+                        if (isImmediate && !foundFirstH2) {
+                            // C'est le H2 de titre de section, il fait partie du bloc à masquer
+                            foundFirstH2 = true;
+                            continue;
+                        }
+                        
+                        // Ce H2 marque la fin
+                        h2EndPos = h2Match.index;
+                        break;
+                    }
+                    
+                    // Chercher le premier divider ---
+                    const dividerMatch = afterMarker.match(/\n---\s*\n/);
+                    let dividerEndPos = dividerMatch ? dividerMatch.index : null;
+                    
+                    // Prendre le plus proche des deux (H2 ou divider)
+                    let endPos = md.length;
+                    if (h2EndPos !== null && dividerEndPos !== null) {
+                        endPos = markerEnd + Math.min(h2EndPos, dividerEndPos);
+                    } else if (h2EndPos !== null) {
+                        endPos = markerEnd + h2EndPos;
+                    } else if (dividerEndPos !== null) {
+                        endPos = markerEnd + dividerEndPos;
                     }
                     
                     // Extraire le contenu à wrapper
@@ -1144,7 +1198,12 @@
                     });
                     
                     setupModeButtons();
-                    setupFaceButtons();
+                    setupReloadButton();
+                    
+                    // Désactiver les boutons PDF par défaut
+                    document.getElementById('pdf-card-btn').classList.add('disabled');
+                    document.getElementById('pdf-livret-btn').classList.add('disabled');
+                    document.getElementById('pdf-affiche-btn').classList.add('disabled');
                 }
                 
                 if (paramCard) {
@@ -1180,28 +1239,20 @@
             });
         }
         
-        function setupFaceButtons() {
-            const buttons = document.querySelectorAll('#face-buttons .mini-btn');
-            
-            buttons.forEach(btn => {
-                if (btn.dataset.face === currentFace) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+        function setupReloadButton() {
+            const btn = document.getElementById('reload-btn');
+            btn.addEventListener('click', async () => {
+                const cardId = document.getElementById('card-select').value;
+                if (!cardId) return;
                 
-                btn.addEventListener('click', () => {
-                    currentFace = btn.dataset.face;
-                    document.body.classList.remove('face-recto', 'face-verso');
-                    if (currentFace === 'recto') {
-                        document.body.classList.add('face-recto');
-                    } else if (currentFace === 'verso') {
-                        document.body.classList.add('face-verso');
-                    }
-                    buttons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    updateUrl();
-                });
+                // Animation de rotation
+                btn.classList.add('spinning');
+                
+                // Recharger avec cache-busting
+                await loadCard(cardId, true);
+                
+                // Retirer l'animation après un délai
+                setTimeout(() => btn.classList.remove('spinning'), 500);
             });
         }
         
@@ -1212,9 +1263,6 @@
             let url = `?card=${cardId}`;
             if (currentMode !== 'print') {
                 url += `&view=${currentMode}`;
-            }
-            if (currentMode === 'print' && currentFace !== 'both') {
-                url += `&face=${currentFace}`;
             }
             
             history.replaceState({}, '', url);
@@ -1270,7 +1318,66 @@
             }
         }
         
-        async function loadCard(cardId) {
+        /**
+         * Met à jour les boutons PDF en fonction de la carte sélectionnée
+         */
+        function updatePdfButtons(card) {
+            const pdfCardBtn = document.getElementById('pdf-card-btn');
+            const pdfLivretBtn = document.getElementById('pdf-livret-btn');
+            const pdfAfficheBtn = document.getElementById('pdf-affiche-btn');
+            
+            const isAffiche = card.type === 'affiche';
+            
+            // Adapter le texte du premier bouton selon le type
+            if (isAffiche) {
+                pdfCardBtn.innerHTML = '📥 Télécharger le mémo';
+                pdfCardBtn.title = 'Télécharger le mémo A6 de cette affiche';
+            } else {
+                pdfCardBtn.innerHTML = '📥 Télécharger la carte';
+                pdfCardBtn.title = 'Télécharger le PDF de cette carte';
+            }
+            
+            // PDF carte/mémo individuel
+            if (card.pdfPath) {
+                pdfCardBtn.href = card.pdfPath;
+                pdfCardBtn.classList.remove('disabled');
+            } else {
+                pdfCardBtn.href = '#';
+                pdfCardBtn.classList.add('disabled');
+            }
+            
+            // PDF livret par type
+            const livretPaths = {
+                'role': 'print/livrets/livret_roles.pdf',
+                'moment': 'print/livrets/livret_moments.pdf',
+                'sos': 'print/livrets/livret_sos.pdf',
+                'affiche': 'print/livrets/livret_divers.pdf'
+            };
+            
+            const livretPath = livretPaths[card.type];
+            if (livretPath) {
+                pdfLivretBtn.href = livretPath;
+                pdfLivretBtn.classList.remove('disabled');
+            } else {
+                pdfLivretBtn.href = '#';
+                pdfLivretBtn.classList.add('disabled');
+            }
+            
+            // PDF affiche A4 (uniquement pour les affiches)
+            if (isAffiche && card.affichePath) {
+                pdfAfficheBtn.href = card.affichePath;
+                pdfAfficheBtn.classList.remove('disabled');
+                pdfAfficheBtn.style.display = '';
+            } else if (isAffiche) {
+                pdfAfficheBtn.href = '#';
+                pdfAfficheBtn.classList.add('disabled');
+                pdfAfficheBtn.style.display = '';
+            } else {
+                pdfAfficheBtn.style.display = 'none';
+            }
+        }
+        
+        async function loadCard(cardId, forceReload = false) {
             // Chercher dans cartes ET affiches
             const allItems = [...cardsIndex.cards, ...(cardsIndex.affiches || [])];
             const card = allItems.find(c => c.id === cardId);
@@ -1279,11 +1386,20 @@
                 return;
             }
             
+            // Mettre à jour les boutons PDF
+            updatePdfButtons(card);
+            
             // Charger le markdown
             let markdown = '';
-            const contentPath = card.path;
+            let contentPath = card.path;
             
             if (contentPath) {
+                // Cache-busting si forceReload
+                if (forceReload) {
+                    const separator = contentPath.includes('?') ? '&' : '?';
+                    contentPath += separator + '_t=' + Date.now();
+                }
+                
                 try {
                     const response = await fetch(contentPath);
                     if (response.ok) {

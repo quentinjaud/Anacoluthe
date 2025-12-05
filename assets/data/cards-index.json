@@ -11,6 +11,7 @@
       "tags": ["Attention préventive", "Responsabilité partagée", "Autonomie technique"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R1_bosco.md",
+      "pdfPath": "print/cartes/R1_bosco.pdf",
       "available": true
     },
     {
@@ -24,6 +25,7 @@
       "tags": ["Vision stratégique", "Pédagogie", "Veille météo"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R2_navigateurice.md",
+      "pdfPath": "print/cartes/R2_navigateurice.pdf",
       "available": true
     },
     {
@@ -37,6 +39,7 @@
       "tags": ["Écoute active", "Facilitation", "Régulation collective"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R3_second_soigneux.md",
+      "pdfPath": "print/cartes/R3_second_soigneux.pdf",
       "available": true
     },
     {
@@ -50,6 +53,7 @@
       "tags": ["Créativité", "Attention aux besoins", "Organisation invisible"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R4_cambusiere.md",
+      "pdfPath": "print/cartes/R4_cambusiere.pdf",
       "available": true
     },
     {
@@ -206,7 +210,8 @@
       "tags": ["Préparation", "Départ", "Navigation", "Approche", "Arrivée"],
       "tagsTitle": "5 phases",
       "path": "sources/affiches/A1_routines_memo.md",
-      "pdfPath": "print/A1_routines_quotidiennes.pdf",
+      "pdfPath": "print/cartes/A1_routines_memo.pdf",
+      "affichePath": "print/affiches/A1_routines_quotidiennes.pdf",
       "available": false
     },
     {
@@ -219,7 +224,8 @@
       "tags": ["Météo perso", "Compétences", "Rôles", "Programme"],
       "tagsTitle": "Sections",
       "path": "sources/affiches/A2_tableau_memo.md",
-      "pdfPath": "print/A2_tableau_equipage.pdf",
+      "pdfPath": "print/cartes/A2_tableau_memo.pdf",
+      "affichePath": "print/affiches/A2_tableau_equipage.pdf",
       "available": true
     },
     {
@@ -232,7 +238,8 @@
       "tags": ["Beaufort", "Douglas", "5 piliers", "Brief/Débrief"],
       "tagsTitle": "Contenu",
       "path": "sources/affiches/A3_marque_page_memo.md",
-      "pdfPath": "print/A3_marque_page_ldb.pdf",
+      "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
+      "affichePath": "print/affiches/A3_marque_page_ldb.pdf",
       "available": false
     }
   ],

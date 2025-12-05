@@ -60,15 +60,18 @@ Développer la capacité à diagnostiquer et réparer.
 **Au travail, en famille, en coloc :**  
 Le soin préventif du matériel collectif (voiture, outils, vélos, matériel partagé) évite les pannes et crée de la sécurité. Observer, anticiper, réparer plutôt que remplacer = autonomie et sobriété.
 
----
+<!-- SKIP-PRINT -->
 
 ## 📚 Pour aller plus loin
 
 **Livre recommandé :**  
 *La Longue Route* - Bernard Moitessier
 
-**Vidéo recommandée :**  
-[Portrait de Bernard Moitessier](https://www.youtube.com/watch?v=Vg8lzaY7TsI)
+**Vidéo recommandée :**
+
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/Vg8lzaY7TsI" title="Portrait de Bernard Moitessier" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 

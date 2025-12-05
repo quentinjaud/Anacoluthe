@@ -74,7 +74,7 @@ Celui·celle qui nourrit voit tout, sait qui va bien, qui décroche, qui a besoi
 
 **Comme Tracy Edwards l'a prouvé** : ce rôle de "soutien" est en réalité un **tremplin vers le leadership**, car il développe une compréhension fine des dynamiques humaines et des besoins collectifs.
 
----
+<!-- SKIP-PRINT -->
 
 ## 📚 Pour aller plus loin
 
@@ -86,8 +86,11 @@ Celui·celle qui nourrit voit tout, sait qui va bien, qui décroche, qui a besoi
 *Maiden* (2018) - Alex Holmes  
 L'histoire du premier équipage féminin du Whitbread
 
-**Vidéo recommandée :**  
-[Portrait de Tracy Edwards](https://www.youtube.com/watch?v=klroP1mToFA)
+**Vidéo recommandée :**
+
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/klroP1mToFA" title="Portrait de Tracy Edwards" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 

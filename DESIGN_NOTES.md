@@ -89,27 +89,149 @@ Le contenu Markdown reste lisible et éditable sans tooling.
 
 ## 📝 Marqueurs Markdown
 
-Les fichiers cartes utilisent des commentaires HTML comme marqueurs de structure :
+Les fichiers cartes utilisent des commentaires HTML comme marqueurs de structure. Invisibles au rendu standard, ils permettent à l'afficheur web et au générateur PDF de parser les différentes sections.
+
+### `<!-- HEAD -->` - Entête sticky
+
+Sépare l'entête (H1 titre + H6 sous-titre) du corps de la carte.
 
 ```markdown
-# Titre
+# 🔧 BOSCO
+###### Le·la gardien·ne du bateau
+
+<!-- HEAD -->
+
+> Description de la carte...
+
+## ✨ Section suivante
+```
+
+- **Avant** le marqueur = `nav-head` (sticky sur desktop, scroll sur mobile)
+- **Après** le marqueur = `card-content` (corps scrollable)
+- Un seul par fichier
+
+---
+
+### `<!-- FLIP -->` - Recto/verso
+
+Indique où couper entre les faces pour la génération PDF A6.
+
+```markdown
+<!-- HEAD -->
+
+Contenu recto...
+
+<!-- FLIP -->
+
+## 🔧 TES MISSIONS
+
+Contenu verso...
+```
+
+- **Avant** = recto (page 1)
+- **Après** = verso (page 2)
+- Un seul par fichier
+
+---
+
+### `<!-- SKIP-PRINT -->` - Masquer en impression
+
+Masque une section dans le PDF, mais l'affiche sur le web.
+
+```markdown
+## 💡 Transposable à terre
+
+**Au travail, en famille...**
+
+<!-- SKIP-PRINT -->
+
+## 📚 Pour aller plus loin
+
+**Livre** : *La Longue Route* - Bernard Moitessier
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*
+```
+
+**Portée** : Du marqueur jusqu'au premier rencontré parmi :
+- Prochain H2 (`## `) - en sautant celui immédiatement après le marqueur
+- Divider (`---`)
+- Fin de fichier
+
+| Contexte | Visible ? |
+|----------|----------|
+| Web (anacoluthe.html) | ✅ Oui |
+| Atelier vue Web/Mobile | ✅ Oui |
+| Atelier vue Print | ❌ Non |
+| PDF Puppeteer | ❌ Non |
+
+**Cas d'usage** : vidéos YouTube, liens externes, contenus enrichis web-only.
+
+---
+
+### `<!-- SKIP-WEB -->` - Masquer sur le web
+
+Masque une section sur le web, mais l'affiche en PDF.
+
+```markdown
+## 💡 Transposable à terre
+
+**Au travail, en famille...**
+
+<!-- SKIP-WEB -->
+
+## 📱 Version numérique
+
+*Scannez le QR code pour la version interactive avec vidéos.*
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*
+```
+
+**Portée** : Du marqueur jusqu'au premier rencontré parmi :
+- Prochain H2 (`## `) - en sautant celui immédiatement après le marqueur
+- Divider (`---`)
+- Fin de fichier
+
+| Contexte | Visible ? |
+|----------|----------|
+| Web (anacoluthe.html) | ❌ Non |
+| Atelier vue Web/Mobile | ❌ Non |
+| Atelier vue Print | ✅ Oui |
+| PDF Puppeteer | ✅ Oui |
+
+**Cas d'usage** : instructions print-only, QR codes, mentions "voir en ligne".
+
+---
+
+### Ordre typique dans un fichier
+
+```markdown
+# 🔧 TITRE
 ###### Sous-titre
 
 <!-- HEAD -->
 
-## Section 1
-Contenu...
+Intro recto...
+
+<!-- SKIP-PRINT -->
+[Vidéo web-only]
 
 <!-- FLIP -->
 
-## Section 2 (verso)
+## Verso
 Contenu verso...
+
+<!-- SKIP-PRINT -->
+## 📚 Pour aller plus loin
+[Ressources web-only]
 ```
 
-| Marqueur | Fonction |
-|----------|----------|
-| `<!-- HEAD -->` | Sépare l'entête (H1+H6) du corps pour le nav-head sticky |
-| `<!-- FLIP -->` | Sépare recto/verso pour l'impression A6 |
+**Notes** :
+- `HEAD` et `FLIP` : un seul de chaque par fichier
+- `SKIP-*` : plusieurs possibles, chacun s'étend jusqu'au prochain H2
 
 ---
 

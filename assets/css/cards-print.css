@@ -233,6 +233,11 @@ body.mode-print .print-card-face {
     text-decoration: none;
 }
 
+/* Video embed - masqué en print */
+.video-embed {
+    display: none;
+}
+
 /* ========================================
    TWEMOJI - Emojis en SVG
    ======================================== */

@@ -59,6 +59,12 @@ function preprocessSkipMarkers(markdown) {
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
+    // Configurer marked pour autoriser le HTML brut (iframes vidéo, etc.)
+    marked.setOptions({
+        breaks: true,
+        gfm: true
+    });
+    
     try {
         await loadCardsIndex();
         renderGallery();
@@ -226,25 +232,20 @@ async function openCard(cardId) {
         }
         
         // Parser et afficher le body
-        const bodyHtml = embedYouTubeLinks(marked.parse(bodyMarkdown));
+        const bodyHtml = marked.parse(bodyMarkdown);
         
-        // Boutons d'action en bas de carte
-        const pdfButton = card.pdfPath 
-            ? `<a href="${card.pdfPath}" class="pdf-download-btn" target="_blank" download>
-                    📄 Télécharger le PDF
-                </a>`
-            : '';
+        // Bouton vers l'atelier (desktop uniquement, masqué en mobile via CSS)
+        const atelierButton = `<a href="afficheur-cartes.html?card=${card.id}&view=print" class="atelier-link-btn" target="_blank">
+                🪄 Voir dans l'atelier à cartes
+            </a>`;
         
-        // Bouton prévisualisation print (pour cartes, pas affiches)
-        const previewButton = card.path && !card.memoPath
-            ? `<a href="afficheur-cartes.html?card=${card.id}" class="print-preview-btn" target="_blank">
-                    🖨️ Prévisualiser A6
-                </a>`
-            : '';
+        // Bouton suggestion (visible desktop ET mobile)
+        const mailSubject = encodeURIComponent(`Suggestion de modification de la carte ${card.title}`);
+        const suggestionButton = `<a href="mailto:contact@anacoluthe.org?subject=${mailSubject}" class="suggestion-link-btn">
+                💌 Suggérer une modification
+            </a>`;
         
-        const actionsSection = (pdfButton || previewButton)
-            ? `<div class="card-actions-section">${pdfButton}${previewButton}</div>`
-            : '';
+        const actionsSection = `<div class="card-actions-section">${atelierButton}${suggestionButton}</div>`;
         
         // Construire le HTML final avec nav-head si présent
         const navHeadHtml = headHtml 
@@ -430,23 +431,3 @@ function showError(message) {
     }
 }
 
-/**
- * Transforme les liens YouTube en iframes embarquées
- */
-function embedYouTubeLinks(html) {
-    // Pattern pour liens YouTube (watch et youtu.be)
-    const youtubeRegex = /<a[^>]*href="https?:\/\/(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})"[^>]*>([^<]*)<\/a>/g;
-    
-    return html.replace(youtubeRegex, (match, www, path, videoId, linkText) => {
-        return `
-            <div class="video-embed">
-                <iframe 
-                    src="https://www.youtube.com/embed/${videoId}" 
-                    title="${linkText}"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>`;
-    });
-}

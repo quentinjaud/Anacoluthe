@@ -60,7 +60,7 @@ Nommer les tensions avant qu'elles ne s'enkystent, proposer des outils.
 **Dans un projet, en famille, entre ami·es :**  
 Faciliter la parole, nommer les non-dits, réguler les tensions avant qu'elles n'explosent = compétences clés de la coopération.
 
----
+<!-- SKIP-PRINT -->
 
 ## 📚 Pour aller plus loin
 
@@ -68,8 +68,11 @@ Faciliter la parole, nommer les non-dits, réguler les tensions avant qu'elles n
 - *Seule* - Isabelle Autissier  
 - *Passer par le Nord* - Isabelle Autissier
 
-**Vidéo recommandée :**  
-[Portrait d'Isabelle Autissier](https://www.youtube.com/watch?v=3KwLaB5xC1I)
+**Vidéo recommandée :**
+
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/3KwLaB5xC1I" title="Portrait d'Isabelle Autissier" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 

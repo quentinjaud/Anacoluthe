@@ -60,7 +60,7 @@ Développer une lecture fine des prévisions et du ciel.
 **Dans un projet collectif :**  
 Tenir le cap d'un projet, anticiper les obstacles, communiquer la stratégie à l'équipe pour que chacun·e comprenne la direction et les décisions.
 
----
+<!-- SKIP-PRINT -->
 
 ## 📚 Pour aller plus loin
 
@@ -68,8 +68,11 @@ Tenir le cap d'un projet, anticiper les obstacles, communiquer la stratégie à 
 - *L'Appel de l'océan* - Capucine Trochet  
 - *Naviguer en solitaire* - Capucine Trochet
 
-**Vidéo recommandée :**  
-[Portrait de Capucine Trochet](https://www.youtube.com/watch?v=fDKBvl8Tl2w)
+**Vidéo recommandée :**
+
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/fDKBvl8Tl2w" title="Portrait de Capucine Trochet" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 

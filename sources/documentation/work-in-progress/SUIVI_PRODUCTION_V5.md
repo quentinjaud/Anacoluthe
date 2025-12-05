@@ -287,6 +287,49 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 ---
 
+## 🔧 CONVENTIONS TECHNIQUES
+
+### Marqueur recto/verso pour impression
+
+**Contexte** : Les cartes A6 sont recto-verso. Pour permettre à un outil de génération PDF de savoir où couper entre les faces, on utilise un commentaire HTML invisible.
+
+**Convention** : `<!-- FLIP -->`
+
+**Usage dans les fichiers markdown** :
+```markdown
+# 🔧 BOSCO
+**Le·la gardien·ne du bateau**
+
+Contenu recto...
+
+<!-- FLIP -->
+
+## 🔧 TES MISSIONS DE BOSCO
+
+Contenu verso...
+```
+
+**Règles** :
+- Un seul marqueur par fichier carte
+- Tout avant `<!-- FLIP -->` = recto
+- Tout après `<!-- FLIP -->` = verso
+- Le commentaire est invisible au rendu markdown standard
+- Regex de parsing : `/<!--\s*FLIP\s*-->/i`
+
+**Applicable à** : Cartes rôles (R1-R4), cartes moments (M1-M7), cartes SOS (S1-S4)
+
+### Formatage markdown des titres
+
+**Règle** : Pas de `**bold**` dans les titres markdown (h1 à h6)
+
+**Raison** : Le bold dans les titres (`## **Titre**`) génère un `<strong>` qui bloque l'héritage de couleur CSS. Les titres ont déjà `font-weight: 700` dans le CSS, le bold est donc redondant et problématique.
+
+**Exemples** :
+- ❌ `## 🤝 **ACCORDS D'ÉQUIPAGE**`
+- ✅ `## 🤝 ACCORDS D'ÉQUIPAGE`
+
+---
+
 ## 🌊 PHILOSOPHIE V5 (rappel)
 
 ### Ce que V5 N'est PAS

@@ -1,13 +1,12 @@
 # 📋 TABLEAU D'ÉQUIPAGE
-
 ###### Support quotidien pour le brief matin
 
----
+<!-- HEAD -->
 
 ## 🎯 À QUOI ÇA SERT ?
 
 Le tableau d'équipage est le **cœur visuel de votre coopération**. Affiché dans le carré, il permet à chacun·e de :
-
+    
 - Visualiser l'état du groupe chaque matin
 - Savoir qui fait quoi aujourd'hui
 - Suivre la progression de la semaine

@@ -1,6 +1,8 @@
 # 🍳 CAMBUSIER·ÈRE
 ###### Le·la chef·fe d'orchestre du carré
 
+<!-- HEAD -->
+
 > Le·la cambusier·ère organise l'approvisionnement, les repas et la convivialité au carré. Ce rôle développe la créativité dans la contrainte, l'attention aux besoins du groupe et l'organisation logistique invisible qui fait tourner le quotidien.
 
 ---
@@ -32,7 +34,7 @@ Nourrir les corps et le moral de l'équipage, créer du lien autour de la table.
 **L'observation stratégique**  
 La cambuse offre une vue privilégiée sur l'état réel de l'équipage.
 
----
+<!-- FLIP -->
 
 ## 🍳 Tes missions de Cambusier·ère
 

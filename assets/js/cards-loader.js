@@ -162,9 +162,21 @@ async function openCard(cardId) {
         // Charger le markdown
         const markdown = await fetchCardMarkdown(contentPath);
         
-        // Parser et afficher
-        const html = marked.parse(markdown);
-        const htmlWithVideos = embedYouTubeLinks(html);
+        // Séparer le head du reste du contenu (si marqueur présent)
+        const headMarker = '<!-- HEAD -->';
+        let headHtml = '';
+        let bodyMarkdown = markdown;
+        
+        if (markdown.includes(headMarker)) {
+            const parts = markdown.split(headMarker);
+            if (parts.length >= 2) {
+                headHtml = marked.parse(parts[0].trim());
+                bodyMarkdown = parts.slice(1).join(headMarker).trim();
+            }
+        }
+        
+        // Parser et afficher le body
+        const bodyHtml = embedYouTubeLinks(marked.parse(bodyMarkdown));
         
         // Pour les affiches, ajouter un bouton de téléchargement PDF
         const pdfButton = card.pdfPath 
@@ -175,7 +187,17 @@ async function openCard(cardId) {
                </div>`
             : '';
         
-        modalBody.innerHTML = `<div class="card-content">${htmlWithVideos}</div>${pdfButton}`;
+        // Construire le HTML final avec nav-head si présent
+        const navHeadHtml = headHtml 
+            ? `<div class="nav-head">${headHtml}</div>` 
+            : '';
+        
+        modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>${pdfButton}`;
+        
+        // Ajouter classe si nav-head présent
+        if (headHtml) {
+            modalBody.classList.add('has-nav-head');
+        }
         
         // Forcer les liens externes à s'ouvrir dans un nouvel onglet
         modalBody.querySelectorAll('a[href^="http"]').forEach(link => {
@@ -296,7 +318,7 @@ function closeModal() {
     const modalBody = document.getElementById('card-modal-body');
     
     modal.classList.remove('open');
-    // Réinitialiser les classes du modal body
+    // Réinitialiser les classes du modal body (dont has-nav-head)
     modalBody.className = 'card-modal-body';
     document.body.style.overflow = '';
     

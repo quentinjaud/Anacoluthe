@@ -1,6 +1,8 @@
 # 🔧 BOSCO
 ###### Le·la gardien·ne du bateau
 
+<!-- HEAD -->
+
 > Le·la bosco veille à l'entretien et à la sécurité matérielle du bateau. Ce rôle développe l'observation préventive, la responsabilité collective sur le matériel et l'autonomie technique. C'est un poste stratégique qui permet à l'équipage de naviguer sereinement.
 
 ---
@@ -24,7 +26,7 @@ Mobiliser l'équipage sur l'entretien quotidien.
 **L'autonomie technique**  
 Développer la capacité à diagnostiquer et réparer.
 
----
+<!-- FLIP -->
 
 ## 🔧 Tes missions de Bosco
 

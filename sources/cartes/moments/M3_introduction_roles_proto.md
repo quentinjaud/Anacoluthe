@@ -1,13 +1,7 @@
-# 🧭 M3 - INTRODUCTION DES RÔLES [PROTO]
+# 👥 INTRODUCTION RÔLES
+###### Le premier soir - 15-20 min
 
-## J1-J2 - Présenter les 4 rôles et leurs marins·ères inspirant·es
-
----
-
-## RECTO
-
-### 🧭 INTRODUCTION DES RÔLES
-**J1-J2 - Après les accords d'équipage**
+<!-- HEAD -->
 
 Sur un bateau, chacun·e a un poste. Bosco, navigateurice, second soigneux, cambusier·ère : ces rôles structurent la vie à bord depuis des siècles.
 
@@ -15,43 +9,40 @@ Cette semaine, vous allez incarner ces rôles à tour de rôle. Pas pour jouer u
 
 Chaque rôle est inspiré d'un·e marin·e qui l'a incarné de façon remarquable. Ces navigateur·ices vous montrent ce que ce rôle peut devenir quand on le porte vraiment.
 
-**INTENTION** : Comprendre les 4 rôles, découvrir les marins·ères inspirant·es, et voir comment ces compétences se transfèrent dans la vie quotidienne.
+## ✨ UNE INVITATION
 
-**POUR** : Équipage entier (le·la mono présente)
+Osez le rôle qui vous intimide. C'est souvent celui qui vous fera le plus grandir. Et rappelez-vous : les rôles tournent chaque jour, vous les explorerez tous.
 
----
+<!-- FLIP -->
 
-## VERSO
+## 👥 DÉROULÉ INTRODUCTION DES RÔLES
 
-### 🧭 DÉROULÉ (20-30 min)
+#### 1. PRÉSENTER LE PRINCIPE (2 min)
 
-#### 1. PRÉSENTER LE PRINCIPE
 Le·la mono explique : "Chaque jour, vous incarnerez un rôle différent. Ces rôles développent des compétences utiles bien au-delà du bateau."
 
-#### 2. DISTRIBUER LES 4 CARTES RÔLES
-Faites circuler les cartes. Chacun·e lit silencieusement (5 min).
+#### 2. DISTRIBUER LES 4 CARTES RÔLES (5 min)
 
-**Les 4 rôles :**
-- 🔧 **Bosco** (Bernard Moitessier) - Entretien, anticipation matérielle
-- 🧭 **Navigateurice** (Capucine Trochet) - Route, météo, vision d'ensemble
-- 🤲 **Second soigneux** (Isabelle Autissier) - Bien-être équipage, régulation
-- 🍳 **Cambusier·ère** (Tracy Edwards) - Repas, convivialité, observation
+Faites circuler les cartes. Chacun·e lit silencieusement.
 
-#### 3. TOUR DE DÉCOUVERTE
+Les 4 rôles :
+- 🔧 Bosco (Bernard Moitessier) - Entretien, anticipation matérielle
+- 🧭 Navigateurice (Capucine Trochet) - Route, météo, vision d'ensemble
+- 🤲 Second soigneux (Isabelle Autissier) - Bien-être équipage, régulation
+- 🍳 Cambusier·ère (Tracy Edwards) - Repas, convivialité, observation
+
+#### 3. TOUR DE DÉCOUVERTE (10-15 min)
+
 Chacun·e partage : "Quel rôle m'attire ? Lequel m'intimide ?"
 
 ⚠️ Pas de choix définitif - les rôles tournent chaque jour
 
-#### 4. FAIRE LE LIEN AVEC LA VIE À TERRE
+#### 4. FAIRE LE LIEN AVEC LA VIE À TERRE (5 min)
+
 Le·la mono conclut : "Ces compétences servent partout - au travail, en famille, en asso. On en reparlera en fin de semaine."
 
----
+#### ⚓ ANCRAGE
 
-### 🗣️ QUESTIONS POUR T'AIDER
-*Quel rôle me ressemble le plus naturellement ?*
-*Lequel me ferait sortir de ma zone de confort ?*
+Les cartes rôles restent accessibles dans le carré. Demain matin (M4), vous attribuerez vos premiers rôles.
 
----
-
-*Carte moment-clé M3 - Anacoluthe V5 - PROTOTYPE*
-*CC-BY-NC-SA*
+→ Prochaine étape : M4 Brief du matin (dès J2)

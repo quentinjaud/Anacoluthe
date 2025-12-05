@@ -1,5 +1,7 @@
-# 🤝 SECOND SOIGNEUX
+# 🤲 SECOND SOIGNEUX
 ###### Le·la tisserand·e du collectif
+
+<!-- HEAD -->
 
 > Le·la second soigneux veille au bien-être de l'équipage, facilite la parole et régule les tensions. Ce rôle développe l'écoute, le courage de nommer les difficultés et la capacité à créer des espaces de coopération bienveillante.
 
@@ -24,7 +26,7 @@ Créer des espaces où chacun·e peut s'exprimer sans jugement.
 **La régulation collective**  
 Nommer les tensions avant qu'elles ne s'enkystent, proposer des outils.
 
----
+<!-- FLIP -->
 
 ## 🤝 Tes missions de Second soigneux
 

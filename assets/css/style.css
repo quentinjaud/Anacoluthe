@@ -1,6 +1,18 @@
 /* Import Google Fonts - avec tous les weights nécessaires */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap');
 
+/* ===========================================
+   BREAKPOINTS ANACOLUTHE (référence)
+   ===========================================
+   Mobile :    max-width: 768px   (1 colonne)
+   Tablette :  max-width: 1024px  (2 colonnes)
+   Desktop :   > 1024px           (3 colonnes)
+   
+   Note : Les variables CSS ne fonctionnent pas 
+   dans les media queries. Utiliser ces valeurs
+   comme convention dans tout le projet.
+   =========================================== */
+
 /* Reset et base */
 * {
     margin: 0;

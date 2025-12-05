@@ -95,13 +95,28 @@
 }
 
 /* ===========================================
+   GALERIE DE CARTES - WRAPPER FULLWIDTH
+   =========================================== */
+
+.cards-gallery-container {
+    /* Sortir du conteneur main (800px) pour full-width avec padding 2rem */
+    max-width: none;
+    margin-left: calc(-50vw + 50% + 4rem);
+    margin-right: calc(-50vw + 50% + 4rem);
+}
+
+/* ===========================================
    GALERIE DE CARTES
    =========================================== */
 
 .cards-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem 1.5rem; /* Plus d'espace vertical pour l'emoji débordant */
+    
+    /* Limiter la largeur max et centrer */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ===========================================
@@ -637,6 +652,12 @@
    RESPONSIVE
    =========================================== */
 
+@media (max-width: 1024px) {
+    .cards-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .filters {
         gap: 0.4rem;
@@ -647,9 +668,16 @@
         padding: 0.5rem 0.8rem;
     }
     
+    .cards-gallery-container {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding: 0 1rem;
+    }
+    
     .cards-gallery {
         grid-template-columns: 1fr;
         gap: 2rem 1rem;
+        max-width: none;
     }
     
     .card-emoji {
@@ -689,6 +717,96 @@
     
     .card-content h6 {
         font-size: 1.1rem;
+    }
+}
+
+/* ===========================================
+   NAV-HEAD (Entête de carte)
+   - Mobile/Tablette : scroll avec le contenu
+   - Desktop : fixe en haut
+   =========================================== */
+
+.nav-head {
+    background: var(--bg-cream);
+    padding: 1.5rem 2rem 1rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+    margin: -2rem -2rem 1.5rem -2rem; /* Compense le padding du modal-body */
+    width: calc(100% + 4rem);
+}
+
+/* H1 dans nav-head */
+.nav-head h1 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.25rem 0;
+    padding-right: 3rem; /* Espace pour le bouton close */
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* H6 sous-titre dans nav-head */
+.nav-head h6 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Couleurs selon type - fond accent-50 */
+.modal-role .nav-head {
+    background: var(--amber-50);
+}
+.modal-role .nav-head h1 { color: var(--amber-700); }
+.modal-role .nav-head h6 { color: var(--teal-700); }
+
+.modal-moment .nav-head {
+    background: var(--teal-50);
+}
+.modal-moment .nav-head h1 { color: var(--teal-700); }
+.modal-moment .nav-head h6 { color: var(--amber-700); }
+
+.modal-sos .nav-head {
+    background: var(--corail-50);
+}
+.modal-sos .nav-head h1 { color: var(--corail-700); }
+.modal-sos .nav-head h6 { color: var(--teal-700); }
+
+.modal-affiche .nav-head {
+    background: #F1F5F9; /* slate-100 */
+}
+.modal-affiche .nav-head h1 { color: #334155; }
+.modal-affiche .nav-head h6 { color: #64748B; }
+
+/* ===========================================
+   DESKTOP : Nav-head sticky
+   =========================================== */
+@media (min-width: 1025px) {
+    .card-modal-body.has-nav-head .nav-head {
+        position: sticky;
+        top: -2rem; /* Compense le padding négatif */
+        z-index: 5;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+}
+
+/* ===========================================
+   MOBILE/TABLETTE : Nav-head scroll normal
+   =========================================== */
+@media (max-width: 1024px) {
+    .nav-head {
+        margin: -1.25rem -1.25rem 1.25rem -1.25rem;
+        width: calc(100% + 2.5rem);
+        padding: 1rem 1.25rem 0.75rem 1.25rem;
+    }
+    
+    .nav-head h1 {
+        font-size: 1.4rem;
+    }
+    
+    .nav-head h6 {
+        font-size: 1rem;
     }
 }
 

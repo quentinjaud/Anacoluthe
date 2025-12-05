@@ -1,6 +1,8 @@
 # 🧭 NAVIGATEURICE
 ###### La boussole de l'équipage
 
+<!-- HEAD -->
+
 > Le·la navigateurice prépare les routes, suit la météo et anticipe les décisions de navigation. Ce rôle développe la vision d'ensemble, la planification et la communication des informations essentielles pour que l'équipage comprenne où iel va et pourquoi.
 
 ---
@@ -24,7 +26,7 @@ Expliquer clairement les choix de route à l'équipage.
 **La veille météo**  
 Développer une lecture fine des prévisions et du ciel.
 
----
+<!-- FLIP -->
 
 ## 🧭 Tes missions de Navigateurice
 

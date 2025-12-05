@@ -188,6 +188,8 @@ body.mode-print .print-card-face {
 .print-card-content p {
     margin: 0 0 2mm 0;
     padding: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Citations */

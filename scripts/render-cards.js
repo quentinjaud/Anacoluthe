@@ -105,7 +105,7 @@ function getCardsToProcess(target) {
  * Génère un PDF A6 pour une face de carte
  */
 async function renderCardFace(page, cardId, face, baseUrl) {
-  const url = `${baseUrl}/afficheur-cartes.html?card=${cardId}&mode=print&face=${face}`;
+  const url = `${baseUrl}/print-render.html?card=${cardId}&face=${face}`;
   
   // Naviguer
   await page.goto(url, { 
@@ -153,6 +153,11 @@ async function renderCardFace(page, cardId, face, baseUrl) {
   });
   console.log(`  📊 Debug ${cardId} (${face}): body=${debugInfo.bodyClasses}, hasContent=${debugInfo.hasContent}, visible=${debugInfo.contentVisible}, size=${debugInfo.bodyWidth}x${debugInfo.bodyHeight}`);
   console.log(`     Content preview: ${debugInfo.contentHTML.substring(0, 150)}...`);
+  
+  // DEBUG: Screenshot pour voir ce qui est capturé
+  const screenshotPath = `print/debug-${cardId}-${face}.png`;
+  await page.screenshot({ path: screenshotPath, fullPage: false });
+  console.log(`     Screenshot saved: ${screenshotPath}`);
   
   // Générer le PDF
   const pdfBuffer = await page.pdf({

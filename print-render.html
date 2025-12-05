@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=105mm, height=148mm">
+    <title>Anacoluthe - Print Render</title>
+    
+    <!-- CSS Print uniquement -->
+    <link rel="stylesheet" href="assets/css/cards-print.css">
+    
+    <!-- Twemoji -->
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"></script>
+    
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <style>
+        /* Reset complet */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 105mm;
+            height: 148mm;
+            margin: 0;
+            padding: 0;
+            background: white;
+            overflow: hidden;
+        }
+        
+        /* La carte prend tout l'espace */
+        .print-card-face {
+            width: 105mm;
+            height: 148mm;
+            margin: 0;
+            padding: 5mm;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            background: white;
+        }
+        
+        /* État de chargement */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-family: sans-serif;
+            color: #666;
+        }
+        
+        .error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-family: sans-serif;
+            color: #e03121;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-card-face" id="card">
+        <div class="print-card-content" id="content">
+            <p class="loading">Chargement...</p>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * PRINT-RENDER.HTML
+         * Page minimaliste pour Puppeteer
+         * 
+         * Params:
+         *   ?card=R1     ID de la carte
+         *   &face=recto  recto ou verso
+         */
+        
+        async function init() {
+            const params = new URLSearchParams(window.location.search);
+            const cardId = params.get('card');
+            const face = params.get('face') || 'recto';
+            
+            const cardEl = document.getElementById('card');
+            const contentEl = document.getElementById('content');
+            
+            if (!cardId) {
+                contentEl.innerHTML = '<p class="error">Paramètre card manquant</p>';
+                document.body.classList.add('card-error');
+                return;
+            }
+            
+            try {
+                // 1. Charger l'index
+                const indexResponse = await fetch('assets/data/cards-index.json');
+                if (!indexResponse.ok) throw new Error('Index non trouvé');
+                const index = await indexResponse.json();
+                
+                // 2. Trouver la carte
+                const allItems = [...index.cards, ...(index.affiches || [])];
+                const card = allItems.find(c => c.id === cardId);
+                if (!card) throw new Error(`Carte ${cardId} non trouvée`);
+                
+                // 3. Appliquer le type
+                cardEl.className = 'print-card-face type-' + card.type;
+                
+                // 4. Charger le markdown
+                if (!card.path) throw new Error('Pas de path pour cette carte');
+                
+                const mdResponse = await fetch(card.path);
+                if (!mdResponse.ok) throw new Error(`Markdown non trouvé: ${card.path}`);
+                let markdown = await mdResponse.text();
+                
+                // 5. Extraire recto ou verso
+                const flipMarker = '<!-- FLIP -->';
+                let content;
+                
+                if (markdown.includes(flipMarker)) {
+                    const parts = markdown.split(flipMarker);
+                    if (face === 'recto') {
+                        content = parts[0].trim();
+                    } else {
+                        content = parts.slice(1).join(flipMarker).trim();
+                    }
+                } else {
+                    // Pas de FLIP : tout est recto, verso vide
+                    if (face === 'recto') {
+                        content = markdown;
+                    } else {
+                        content = '*Pas de verso défini*';
+                    }
+                }
+                
+                // 6. Retirer les marqueurs HEAD
+                content = content.replace('<!-- HEAD -->', '');
+                
+                // 7. Retirer les blocs SKIP-PRINT
+                content = content.replace(/<!-- SKIP-PRINT -->[\s\S]*?(?=##|---|$)/gi, '');
+                
+                // 8. Parser le markdown
+                contentEl.innerHTML = marked.parse(content);
+                
+                // 9. Twemoji
+                twemoji.parse(contentEl, { folder: 'svg', ext: '.svg' });
+                
+                // 10. Attendre les fonts
+                await document.fonts.ready;
+                
+                // 11. Signaler que c'est prêt
+                document.body.classList.add('card-ready');
+                
+            } catch (err) {
+                console.error('Erreur:', err);
+                contentEl.innerHTML = `<p class="error">${err.message}</p>`;
+                document.body.classList.add('card-error');
+            }
+        }
+        
+        init();
+    </script>
+</body>
+</html>

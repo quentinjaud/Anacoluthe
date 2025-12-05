@@ -1,10 +1,7 @@
-# M1 - ACCUEIL & ATTENTES
-###### Sous-titre de carte
+# 🌅 ACCUEIL & ATTENTES
+###### Le premier après-midi - 20-30 min
 
 <!-- HEAD -->
-
-## 🌅 ACCUEIL & ATTENTES
-*J1 après-midi - 20-30 min*
 
 Vous êtes six inconnu·es qui allez partager 12m² pendant 6 jours. Avant de plonger dans l'action (courses, inventaire, topo sécu), prenons le temps de nous rencontrer vraiment.
 

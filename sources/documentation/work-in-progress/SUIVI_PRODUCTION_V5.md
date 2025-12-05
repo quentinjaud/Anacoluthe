@@ -142,6 +142,16 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - CTA "JOUER" accenté en teal
 - Nav bottom pills sur anacoluthe.html (filtres par type de carte)
 
+**Évolutions 251205** :
+- CSS print autonomisé (`cards-print.css`) : imports fonts, variables couleurs, resets - utilisable seul par Puppeteer
+- Fonds de cartes print = blanc (économie d'encre), seuls les titres gardent les couleurs d'accent
+- Footers harmonisés sur toutes les pages : 2 colonnes (crédits + nav)
+- Pills de navigation colorées : bleu (Accueil), teal (Jeu), rouge (Atelier), noir (GitHub)
+- Navigation flottante dans l'atelier à cartes (position absolute, masquée en mode print)
+- Renommage "L'atelier" → "L'atelier à cartes"
+- Footer credits complet : description + projet BPJEPS + licence + dernier commit
+- **Marqueurs SKIP-PRINT / SKIP-WEB** : masquage conditionnel de sections selon le contexte de rendu
+
 **Évolutions 251204 soir** :
 - Section "Contenu du jeu" : format texte court + tags colorés, affiches en premier
 - Section "Objectifs pédagogiques" : grille 3 colonnes (Technique, Dysfonctionnements, Émancipation)
@@ -278,6 +288,11 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - ✅ Workflow GitHub Actions avec trigger `[print]` (5 déc)
 - ✅ Scripts render-cards.js + assemble-booklets.js (5 déc)
 - ✅ Dépendances à jour : marked 17.x, puppeteer 24.32.x (5 déc)
+- ✅ CSS print autonomisé pour Puppeteer (5 déc)
+- ✅ Fonds print blancs pour économie d'encre (5 déc)
+- ✅ Footers harmonisés : 2 colonnes + pills colorées (5 déc)
+- ✅ Navigation flottante dans l'atelier à cartes (5 déc)
+- ✅ Marqueurs SKIP-PRINT / SKIP-WEB implémentés (5 déc)
 - 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
@@ -287,6 +302,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251205b | 5 déc. 2025 | Site web : CSS print autonomisé, fonds blancs, footers 2 colonnes, marqueurs SKIP-PRINT/SKIP-WEB |
 | v251205 | 5 déc. 2025 | Générateur PDF print : workflow GitHub Actions, scripts render/assemble, dépendances npm |
 | v251204d | 4 déc. 2025 | Refonte section contenu (grille tags), objectifs en 3 colonnes, badges alignés droite, subtitles humanisés |
 | v251204c | 4 déc. 2025 | Nav bottom pills + scroll spy, CTA JOUER teal, paragraphe origine nom |

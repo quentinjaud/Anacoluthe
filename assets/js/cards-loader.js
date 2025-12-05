@@ -8,6 +8,53 @@
 let cardsData = null;
 let currentFilter = 'all';
 
+/**
+ * Pré-traitement du markdown pour les marqueurs SKIP-PRINT / SKIP-WEB
+ * Transforme les blocs marqués en divs avec classes pour masquage conditionnel
+ * 
+ * Syntaxe : <!-- SKIP-PRINT --> ou <!-- SKIP-WEB -->
+ * Le bloc s'étend jusqu'au prochain titre H2 (## ) ou jusqu'à la fin du fichier
+ */
+function preprocessSkipMarkers(markdown) {
+    const skipPrintRegex = /<!--\s*SKIP-PRINT\s*-->/gi;
+    const skipWebRegex = /<!--\s*SKIP-WEB\s*-->/gi;
+    
+    function processMarker(md, regex, className) {
+        let result = md;
+        let match;
+        
+        while ((match = regex.exec(md)) !== null) {
+            const startPos = match.index;
+            const markerEnd = startPos + match[0].length;
+            
+            const afterMarker = md.substring(markerEnd);
+            const nextH2Match = afterMarker.match(/\n##\s/);
+            
+            let endPos;
+            if (nextH2Match) {
+                endPos = markerEnd + nextH2Match.index;
+            } else {
+                endPos = md.length;
+            }
+            
+            const contentToWrap = md.substring(markerEnd, endPos);
+            const wrapped = `<div class="${className}">\n${contentToWrap.trim()}\n</div>\n`;
+            result = md.substring(0, startPos) + wrapped + md.substring(endPos);
+            
+            regex.lastIndex = 0;
+            md = result;
+        }
+        
+        return result;
+    }
+    
+    let processed = markdown;
+    processed = processMarker(processed, skipPrintRegex, 'skip-print');
+    processed = processMarker(processed, skipWebRegex, 'skip-web');
+    
+    return processed;
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', init);
 
@@ -160,7 +207,10 @@ async function openCard(cardId) {
         const contentPath = card.memoPath || card.path;
         
         // Charger le markdown
-        const markdown = await fetchCardMarkdown(contentPath);
+        let markdown = await fetchCardMarkdown(contentPath);
+        
+        // Pré-traiter les marqueurs SKIP-PRINT / SKIP-WEB
+        markdown = preprocessSkipMarkers(markdown);
         
         // Séparer le head du reste du contenu (si marqueur présent)
         const headMarker = '<!-- HEAD -->';

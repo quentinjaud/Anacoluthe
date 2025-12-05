@@ -1,0 +1,308 @@
+/**
+ * ANACOLUTHE - CSS PRINT A6 (AUTONOME)
+ * ====================================
+ * Styles pour le rendu PDF des cartes A6 via Puppeteer
+ * 
+ * ⚠️ FICHIER AUTONOME - ne dépend PAS de style.css ni cards.css
+ * Peut être chargé seul par Puppeteer pour le rendu PDF
+ * 
+ * CHAÎNE DE RENDU :
+ * 1. Markdown source (card.path)
+ * 2. Marked.js parse MD → HTML
+ * 3. Ce CSS stylise le HTML
+ * 4. Twemoji convertit emojis → SVG
+ * 5. Auto-fit ajuste font-size si débordement
+ * 6. Puppeteer capture → PDF
+ * 
+ * FORMAT :
+ * - A6 = 105 × 148 mm
+ * - Padding = 5mm
+ * - Zone utile = 95 × 138 mm
+ * 
+ * MODIFIER CE FICHIER POUR :
+ * - Ajuster les tailles de texte print
+ * - Modifier les marges/espacements
+ * - Changer les couleurs par type de carte
+ */
+
+/* ========================================
+   FONTS (autonome - pas besoin de style.css)
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap');
+
+/* ========================================
+   VARIABLES PRINT (autonome)
+   ======================================== */
+:root {
+    /* === COULEURS (dupliquées de style.css pour autonomie) === */
+    
+    /* Texte */
+    --text-dark: #2D3748;
+    --border-light: #D1D5DB;
+    
+    /* Couleurs officielles Les Glénans */
+    --rouge-glenans: #F04839;
+    
+    /* Accents par type (titres uniquement, fonds = blanc) */
+    --amber-700: #c96a30;   /* Rôles */
+    --teal-700: #3d8b87;    /* Moments */
+    --corail-700: #d9634a;  /* SOS */
+    
+    /* === DIMENSIONS A6 === */
+    --a6-width: 105mm;
+    --a6-height: 148mm;
+    --card-padding: 5mm;
+    --card-radius: 3mm;
+    
+    /* === FONT SIZING === */
+    /* Base et limites pour auto-fit */
+    --print-base-font-size: 9pt;
+    --print-font-size-min: 6.5pt;
+    --print-font-size-max: 9pt;
+    --print-font-size-step: 0.25pt;
+    
+    /* Ratios pour les titres (en em, relatifs à --print-base-font-size) */
+    --print-h1-size: 1.556em;   /* ~14pt à base 9pt */
+    --print-h2-size: 1.111em;   /* ~10pt à base 9pt */
+    --print-h3-size: 1em;       /* ~9pt */
+    --print-h6-size: 1em;       /* ~9pt */
+    --print-small-size: 0.778em; /* ~7pt */
+}
+
+/* ========================================
+   CARTE A6 - Container
+   ======================================== */
+.print-card-face {
+    width: var(--a6-width);
+    height: var(--a6-height);
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    
+    /* Reset de base pour autonomie */
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Mode Puppeteer - pas d'ombre ni bordure */
+body.mode-print .print-card-face {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+/* ========================================
+   TYPES DE CARTES - Fonds blancs (économie d'encre)
+   ======================================== */
+.print-card-face.type-role { 
+    background: #fff; 
+}
+
+.print-card-face.type-moment { 
+    background: #fff; 
+}
+
+.print-card-face.type-sos { 
+    background: #fff; 
+}
+
+.print-card-face.type-affiche { 
+    background: #fff; 
+}
+
+/* ========================================
+   CONTENU - Typographie
+   ======================================== */
+.print-card-content {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: var(--print-base-font-size);
+    line-height: 1.4;
+    color: var(--text-dark);
+    
+    /* Reset pour autonomie */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* H1 - Titre principal */
+.print-card-content h1 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: var(--print-h1-size);
+    font-weight: 800;
+    margin: 0 0 2mm 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.type-role .print-card-content h1 { color: var(--amber-700); }
+.type-moment .print-card-content h1 { color: var(--teal-700); }
+.type-sos .print-card-content h1 { color: var(--corail-700); }
+
+/* H6 - Sous-titre (après H1) */
+.print-card-content h6 {
+    font-family: 'Merriweather', serif;
+    font-size: var(--print-h6-size);
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 3mm 0;
+    padding: 0;
+    opacity: 0.8;
+}
+
+.type-role .print-card-content h6 { color: var(--amber-700); }
+.type-moment .print-card-content h6 { color: var(--teal-700); }
+.type-sos .print-card-content h6 { color: var(--corail-700); }
+
+/* H2 - Sections */
+.print-card-content h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: var(--print-h2-size);
+    font-weight: 700;
+    margin: 3mm 0 1.5mm 0;
+    padding: 0 0 1mm 0;
+    border-bottom: 0.5pt solid currentColor;
+}
+
+.type-role .print-card-content h2 { color: var(--amber-700); }
+.type-moment .print-card-content h2 { color: var(--teal-700); }
+.type-sos .print-card-content h2 { color: var(--corail-700); }
+
+/* H3 - Sous-sections */
+.print-card-content h3 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: var(--print-h3-size);
+    font-weight: 600;
+    margin: 2mm 0 1mm 0;
+    padding: 0;
+}
+
+/* Paragraphes */
+.print-card-content p {
+    margin: 0 0 2mm 0;
+    padding: 0;
+}
+
+/* Citations */
+.print-card-content blockquote {
+    font-style: italic;
+    padding: 0 0 0 3mm;
+    border-left: 2pt solid var(--border-light);
+    margin: 0 0 2mm 0;
+}
+
+/* Listes */
+.print-card-content ul,
+.print-card-content ol {
+    margin: 0 0 2mm 4mm;
+    padding: 0;
+}
+
+.print-card-content li {
+    margin: 0 0 0.5mm 0;
+    padding: 0;
+}
+
+/* Emphases */
+.print-card-content strong {
+    font-weight: 700;
+}
+
+.print-card-content em {
+    font-style: italic;
+}
+
+/* Séparateurs */
+.print-card-content hr {
+    border: none;
+    border-top: 0.5pt solid var(--border-light);
+    margin: 2mm 0;
+    padding: 0;
+}
+
+/* Liens */
+.print-card-content a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ========================================
+   TWEMOJI - Emojis en SVG
+   ======================================== */
+.print-card-content img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 0.05em 0 0.1em;
+    vertical-align: -0.1em;
+}
+
+.print-card-content h1 img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+}
+
+/* ========================================
+   INDICATEURS (masqués en mode Puppeteer)
+   ======================================== */
+.overflow-warning {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(255,0,0,0.2));
+    color: var(--rouge-glenans);
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    text-align: center;
+    padding: 10mm 2mm 2mm;
+    pointer-events: none;
+}
+
+.overflow-warning.hidden {
+    display: none;
+}
+
+body.mode-print .overflow-warning {
+    display: none;
+}
+
+/* ========================================
+   MARQUEURS SKIP - Masquage conditionnel
+   ======================================== */
+/* En mode print, on masque les blocs SKIP-PRINT */
+.skip-print {
+    display: none;
+}
+
+/* En mode print, on affiche les blocs SKIP-WEB (ils sont masqués en web) */
+.skip-web {
+    display: block;
+}
+
+/* ========================================
+   @MEDIA PRINT (Ctrl+P)
+   ======================================== */
+@media print {
+    .print-card-face {
+        box-shadow: none;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    
+    .overflow-warning {
+        display: none;
+    }
+    
+    @page {
+        size: 105mm 148mm;
+        margin: 0;
+    }
+}

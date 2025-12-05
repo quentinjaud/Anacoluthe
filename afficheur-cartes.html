@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anacoluthe - Afficheur cartes A6</title>
+    <title>Anacoluthe - L'atelier à cartes</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS principal (variables) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CSS cartes (styles modale) -->
+    <link rel="stylesheet" href="assets/css/cards.css">
+    <!-- CSS print A6 (prioritaire pour le rendu PDF) -->
+    <link rel="stylesheet" href="assets/css/cards-print.css">
     
     <!-- Twemoji -->
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
@@ -18,48 +25,21 @@
     
     <style>
         /* ========================================
-           VARIABLES & RESET
+           VARIABLES ATELIER (complément)
            ======================================== */
         :root {
-            /* Dimensions A6 */
-            --a6-width: 105mm;
-            --a6-height: 148mm;
-            --card-padding: 5mm;
-            --card-radius: 3mm;
+            /* Dimensions écrans */
+            --web-width: 700px;
+            --mobile-width: 360px;
+            --mini-width: 180px;
             
-            /* Fond général */
-            --bg-page: #f5f5f0;
-            --bg-cream: #FFFDF9;
-            --text-dark: #2D3748;
-            --text-muted: #718096;
-            --border-light: #D1D5DB;
-            
-            /* Couleurs officielles */
-            --glenans-bleu: #0066ad;
-            --glenans-rouge: #e03121;
-            
-            /* Teal - Moments clés */
-            --teal-50: #e8f4f3;
-            --teal-100: #c5e4e2;
-            --teal-700: #3d8b87;
-            
-            /* Ambre/Orange - Rôles */
-            --amber-50: #fff8f0;
-            --amber-100: #ffe8d4;
-            --amber-700: #c96a30;
-            
-            /* Corail - SOS */
-            --corail-50: #fff5f2;
-            --corail-100: #ffe4db;
-            --corail-700: #d9634a;
+            /* Page background */
+            --bg-page: #F3F4F6;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* ========================================
+           RESET ATELIER
+           ======================================== */
         body {
             font-family: 'Merriweather', serif;
             font-weight: 300;
@@ -69,30 +49,143 @@
             padding: 20px;
         }
         
+        /* Mode print Puppeteer */
+        body.mode-print {
+            background: white;
+            padding: 0;
+        }
+        
         /* ========================================
-           CONTRÔLES
+           HEADER NAVIGATION ATELIER
+           ======================================== */
+        .atelier-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .atelier-header > * {
+            pointer-events: auto;
+        }
+        
+        body.mode-print .atelier-header {
+            display: none;
+        }
+        
+        .atelier-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--teal-700);
+            text-decoration: none;
+            border: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: 2rem;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .atelier-back:hover {
+            background: var(--teal-700);
+            color: white;
+        }
+        
+        .atelier-back img {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+        
+        .atelier-link {
+            display: inline-block;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            border: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .atelier-link:hover {
+            background: white;
+            color: var(--text-dark);
+        }
+        
+        /* ========================================
+           CONTRÔLES ATELIER
            ======================================== */
         .controls {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 15px;
+            margin-top: 35px;
+            padding: 1rem 1.5rem;
+            background: rgba(224, 49, 33, 0.05);
+            border: 1px solid var(--rouge-glenans);
+            border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        body.mode-print .controls {
+            display: none;
+        }
+        
+        /* Emojis débordants superposés */
+        .controls-emoji {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 2.5rem;
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        .controls-emoji .emoji-1 {
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+        }
+        
+        .controls-emoji .emoji-2 {
+            position: relative;
+            left: -0.6em;
+            z-index: 1;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
         }
         
         .controls h1 {
             font-family: 'Merriweather Sans', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--glenans-bleu);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--rouge-glenans);
+            text-align: center;
+            margin: 0 0 0.8rem 0;
         }
         
         .controls-row {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
+            justify-content: center;
             flex-wrap: wrap;
+        }
+        
+        .controls-row:last-child {
+            margin-bottom: 0;
         }
         
         .controls label {
@@ -102,12 +195,25 @@
         }
         
         .controls select {
-            padding: 8px 12px;
-            font-size: 1rem;
+            padding: 6px 10px;
+            font-size: 0.95rem;
             border: 1px solid var(--border-light);
-            border-radius: 4px;
+            border-radius: 6px;
             background: white;
-            min-width: 200px;
+            min-width: 240px;
+        }
+        
+        .controls .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        
+        .controls .checkbox-label input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
         
         .controls .info {
@@ -116,206 +222,362 @@
             margin-top: 10px;
         }
         
-        .controls .info code {
-            background: #f0f0f0;
-            padding: 2px 6px;
+        /* ========================================
+           BOUTONS DE VUE - Style pills
+           ======================================== */
+        .view-switcher {
+            display: flex;
+            gap: 0.25rem;
+            width: fit-content;
+            margin: 0 auto;
+            background: #F3F4F6;
+            padding: 0.25rem;
+            border-radius: 2rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .view-btn {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            color: #6B7280;
+        }
+        
+        .view-btn:hover {
+            color: #374151;
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .view-btn.active {
+            background: var(--blanc);
+            color: var(--bleu-glenans);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .controls-separator {
+            width: 1px;
+            height: 32px;
+            background: var(--border-light);
+            margin: 0 5px;
+        }
+        
+        /* Options print - ligne compacte */
+        .print-options {
+            display: none;
+        }
+        
+        body.view-print .print-options {
+            display: contents;
+        }
+        
+        /* Mini switcher pour recto/verso */
+        .mini-switcher {
+            display: flex;
+            gap: 2px;
+            background: #F3F4F6;
+            padding: 2px;
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .mini-btn {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border: none;
+            background: transparent;
             border-radius: 3px;
+            cursor: pointer;
+            color: #6B7280;
+            transition: all 0.15s ease;
+        }
+        
+        .mini-btn:hover {
+            color: #374151;
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .mini-btn.active {
+            background: white;
+            color: var(--bleu-glenans);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        /* Checkbox compact */
+        .controls .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
             font-size: 0.8rem;
         }
         
+        .controls .checkbox-label input {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+        }
+        
         /* ========================================
-           PREVIEW CONTAINER
+           CONTAINERS PAR MODE
            ======================================== */
         .preview-container {
-            display: flex;
+            display: none;
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
             margin-top: 20px;
         }
         
-        .card-face {
-            width: var(--a6-width);
-            height: var(--a6-height);
-            background: var(--bg-cream);
-            border: 1px solid var(--border-light);
-            border-radius: var(--card-radius);
-            padding: var(--card-padding);
+        body.view-print .preview-print,
+        body.view-web .preview-web,
+        body.view-mobile .preview-mobile,
+        body.view-tech .preview-tech {
+            display: flex;
+        }
+        
+        body.mode-print .preview-print {
+            display: flex;
+            gap: 0;
+            margin: 0;
+        }
+        
+        /* ========================================
+           VUE PRINT - Cartes A6
+           ======================================== */
+        body.face-recto .print-card-face[data-face="verso"],
+        body.face-verso .print-card-face[data-face="recto"] {
+            display: none;
+        }
+        
+        /* Labels supprimés - les labels sont dans .viewer-caption */
+        .print-card-face::before {
+            display: none;
+        }
+        
+        body.mode-print .print-card-face::before {
+            display: none;
+        }
+        
+        /* ========================================
+           VUE WEB - Simule exactement la modale
+           ======================================== */
+        .preview-web {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .web-viewer {
+            width: var(--web-width);
+            max-height: 85vh;
+            background: var(--blanc);
+            border-radius: var(--radius-card);
             overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
             position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
-        .card-face::before {
-            content: attr(data-label);
-            position: absolute;
-            top: -25px;
-            left: 0;
-            font-family: 'Merriweather Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
+        /* Supprimé - les labels sont maintenant dans .viewer-caption */
+        .web-viewer::before {
+            display: none;
         }
         
-        /* Types de cartes */
-        .card-face.type-role {
-            background: var(--amber-50);
+        /* Le body utilise card-modal-body de cards.css */
+        .web-viewer .card-modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+            background-color: var(--bg-cream);
         }
-        .card-face.type-moment {
-            background: var(--teal-50);
-        }
-        .card-face.type-sos {
-            background: var(--corail-50);
+        
+        /* Section nav dans le viewer - réutilise les styles de cards.css */
+        .web-viewer .card-section-nav {
+            border-radius: 0;
         }
         
         /* ========================================
-           CONTENU CARTE
+           VUE MOBILE - Mini + Mobile
            ======================================== */
-        .card-content {
-            height: 100%;
+        .preview-mobile {
+            align-items: flex-start;
+            gap: 40px;
+        }
+        
+        /* Mini card - wrapper qui contient la vraie card-tile scalée */
+        .mini-wrapper {
+            position: relative;
+        }
+        
+        /* Supprimé - les labels sont maintenant dans .viewer-caption */
+        .mini-wrapper::before {
+            display: none;
+        }
+        
+        /* Container pour scaler la tuile - pas de scale, taille réelle réduite */
+        .mini-scaler {
+            width: 300px; /* Largeur proche des tuiles desktop sur anacoluthe.html */
+        }
+        
+        /* Override des tailles pour une tuile compacte */
+        .mini-wrapper .card-tile {
+            padding: 1.25rem;
+            padding-top: 2rem;
+            margin-top: 1.2rem;
+            cursor: default;
+        }
+        
+        .mini-wrapper .card-emoji {
+            font-size: 3rem;
+            top: -1.5rem;
+            left: 0.85rem;
+        }
+        
+        .mini-wrapper .card-badges {
+            top: -0.6rem;
+            right: 0.85rem;
+        }
+        
+        .mini-wrapper .card-type-badge {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+        }
+        
+        .mini-wrapper .card-tile-title {
+            font-size: 1.35rem;
+        }
+        
+        .mini-wrapper .card-tile-subtitle {
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        .mini-wrapper .card-tile-description {
+            font-size: 0.85rem;
+            margin-bottom: 0.85rem;
+        }
+        
+        .mini-wrapper .card-tile-tags {
+            padding: 0.65rem;
+        }
+        
+        .mini-wrapper .card-tile-tags-title {
+            font-size: 0.7rem;
+            margin-bottom: 0.4rem;
+        }
+        
+        .mini-wrapper .card-tile-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+        }
+        
+        .mini-wrapper .card-tile:hover {
+            transform: none;
+        }
+        
+        /* Mobile viewer - simule aussi la modale mais à 360px */
+        .mobile-viewer {
+            width: var(--mobile-width);
+            max-height: 80vh;
+            background: var(--blanc);
+            border-radius: var(--radius-small);
             overflow: hidden;
-            font-size: 9pt;
-            line-height: 1.4;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
         
-        /* Header (H1 + H6) */
-        .card-content h1 {
-            font-family: 'Merriweather Sans', sans-serif;
-            font-size: 14pt;
-            font-weight: 800;
-            margin-bottom: 2mm;
-            line-height: 1.2;
+        /* Supprimé - les labels sont maintenant dans .viewer-caption */
+        .mobile-viewer::before {
+            display: none;
         }
         
-        .type-role .card-content h1 { color: var(--amber-700); }
-        .type-moment .card-content h1 { color: var(--teal-700); }
-        .type-sos .card-content h1 { color: var(--corail-700); }
-        
-        .card-content h6 {
-            font-family: 'Merriweather', serif;
-            font-size: 9pt;
-            font-weight: 400;
-            font-style: italic;
-            margin-bottom: 3mm;
-            opacity: 0.8;
+        /* Le body utilise card-modal-body de cards.css avec override mobile */
+        .mobile-viewer .card-modal-body {
+            padding: 1.25rem;
+            overflow-y: auto;
+            flex: 1;
+            background-color: var(--bg-cream);
         }
         
-        .type-role .card-content h6 { color: var(--amber-700); }
-        .type-moment .card-content h6 { color: var(--teal-700); }
-        .type-sos .card-content h6 { color: var(--corail-700); }
-        
-        /* Sections H2 */
-        .card-content h2 {
-            font-family: 'Merriweather Sans', sans-serif;
-            font-size: 10pt;
-            font-weight: 700;
-            margin-top: 3mm;
-            margin-bottom: 1.5mm;
-            padding-bottom: 1mm;
-            border-bottom: 0.5pt solid currentColor;
+        /* Override nav-head pour mobile */
+        .mobile-viewer .card-modal-body .nav-head {
+            margin: -1.25rem -1.25rem 1.25rem -1.25rem;
+            width: calc(100% + 2.5rem);
+            padding: 1rem 1.25rem 0.75rem 1.25rem;
         }
         
-        .type-role .card-content h2 { color: var(--amber-700); }
-        .type-moment .card-content h2 { color: var(--teal-700); }
-        .type-sos .card-content h2 { color: var(--corail-700); }
-        
-        /* Sections H3 */
-        .card-content h3 {
-            font-family: 'Merriweather Sans', sans-serif;
-            font-size: 9pt;
-            font-weight: 600;
-            margin-top: 2mm;
-            margin-bottom: 1mm;
+        .mobile-viewer .card-modal-body .nav-head h1 {
+            font-size: 1.4rem;
         }
         
-        /* Paragraphes */
-        .card-content p {
-            margin-bottom: 2mm;
+        .mobile-viewer .card-modal-body .nav-head h6 {
+            font-size: 1rem;
         }
         
-        /* Blockquote (intro) */
-        .card-content blockquote {
-            font-style: italic;
-            padding-left: 3mm;
-            border-left: 2pt solid var(--border-light);
-            margin-bottom: 2mm;
+        /* Section nav mobile */
+        .mobile-viewer .card-section-nav {
+            border-radius: 0;
+            padding: 0.6rem 0.75rem;
         }
         
-        /* Listes */
-        .card-content ul, 
-        .card-content ol {
-            margin-left: 4mm;
-            margin-bottom: 2mm;
-        }
-        
-        .card-content li {
-            margin-bottom: 0.5mm;
-        }
-        
-        /* Emphase */
-        .card-content strong {
-            font-weight: 700;
-        }
-        
-        .card-content em {
-            font-style: italic;
-        }
-        
-        /* Séparateurs */
-        .card-content hr {
-            border: none;
-            border-top: 0.5pt solid var(--border-light);
-            margin: 2mm 0;
-        }
-        
-        /* Footer (licence) */
-        .card-content > p:last-child em {
-            font-size: 7pt;
-            color: var(--text-muted);
-        }
-        
-        /* Masquer les liens/vidéos en print preview */
-        .card-content a {
-            color: inherit;
-            text-decoration: none;
+        .mobile-viewer .card-section-nav .section-nav-link {
+            font-size: 0.7rem;
+            padding: 0.35rem 0.6rem;
         }
         
         /* ========================================
-           TWEMOJI
+           TWEMOJI - Forcer les tailles dans les viewers
            ======================================== */
-        .card-content img.emoji {
-            height: 1em;
-            width: 1em;
-            margin: 0 0.05em 0 0.1em;
+        .web-viewer img.emoji,
+        .mobile-viewer img.emoji {
+            height: 1.2em !important;
+            width: 1.2em !important;
+            max-width: 1.2em !important;
+            display: inline !important;
             vertical-align: -0.1em;
         }
         
-        .card-content h1 img.emoji {
-            height: 1.2em;
-            width: 1.2em;
+        .web-viewer .nav-head h1 img.emoji,
+        .mobile-viewer .nav-head h1 img.emoji {
+            height: 1em !important;
+            width: 1em !important;
+            max-width: 1em !important;
+        }
+        
+        .web-viewer h2 img.emoji,
+        .mobile-viewer h2 img.emoji {
+            height: 1.1em !important;
+            width: 1.1em !important;
+            max-width: 1.1em !important;
         }
         
         /* ========================================
-           OVERFLOW INDICATOR
+           INDICATEURS PRINT
            ======================================== */
-        .overflow-warning {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(255,0,0,0.2));
-            color: var(--glenans-rouge);
+        .font-size-indicator {
             font-family: 'Merriweather Sans', sans-serif;
-            font-size: 8pt;
-            font-weight: 700;
-            text-align: center;
-            padding: 10mm 2mm 2mm;
-            pointer-events: none;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
         
-        .overflow-warning.hidden {
+        .font-size-indicator.reduced {
+            color: var(--rouge-glenans);
+            font-weight: 600;
+        }
+        
+        body.mode-print .font-size-indicator {
             display: none;
         }
         
@@ -327,126 +589,661 @@
             align-items: center;
             justify-content: center;
             height: 100%;
+            min-height: 100px;
             font-family: 'Merriweather Sans', sans-serif;
             color: var(--text-muted);
         }
         
-        .error {
-            color: var(--glenans-rouge);
+        .error { color: var(--rouge-glenans); }
+        
+        /* ========================================
+           LÉGENDES SOUS LES VIEWERS
+           ======================================== */
+        .viewer-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .viewer-caption {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 10px;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 4px;
+        }
+        
+        .viewer-caption .caption-title {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-right: 6px;
+        }
+        
+        .viewer-caption .caption-size {
+            color: var(--text-dark);
+        }
+        
+        .viewer-caption .caption-source {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.65rem;
+            opacity: 0.8;
+        }
+        
+        body.mode-print .viewer-caption {
+            display: none;
         }
         
         /* ========================================
-           PRINT STYLES
+           MARQUEURS SKIP - Comportement atelier
            ======================================== */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .controls {
-                display: none;
-            }
-            
-            .preview-container {
-                gap: 0;
-            }
-            
-            .card-face {
-                box-shadow: none;
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-            
-            .card-face::before {
-                display: none;
-            }
-            
-            @page {
-                size: 105mm 148mm;
-                margin: 0;
-            }
+        /* Vue Print : comme Puppeteer, cacher SKIP-PRINT */
+        body.view-print .skip-print {
+            display: none;
+        }
+        body.view-print .skip-web {
+            display: block;
+        }
+        
+        /* Vues Web/Mobile : cacher SKIP-WEB, montrer SKIP-PRINT */
+        body.view-web .skip-print,
+        body.view-mobile .skip-print {
+            display: block;
+        }
+        body.view-web .skip-web,
+        body.view-mobile .skip-web {
+            display: none;
+        }
+        
+        /* Mode Puppeteer (capture PDF) : forcer le comportement print */
+        body.mode-print .skip-print {
+            display: none !important;
+        }
+        body.mode-print .skip-web {
+            display: block !important;
+        }
+        
+        /* ========================================
+           VUE TECH - Infos techniques
+           ======================================== */
+        .preview-tech {
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .tech-panel {
+            width: 100%;
+            background: var(--blanc);
+            border-radius: var(--radius-card);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-panel h2 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--bleu-glenans);
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bleu-glenans);
+        }
+        
+        .tech-panel h3 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-panel p, .tech-panel li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-panel ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-panel code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
+            background: #F3F4F6;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            color: var(--rouge-glenans);
+        }
+        
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.75rem 0;
+        }
+        
+        .tech-table th, .tech-table td {
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .tech-table th {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-weight: 600;
+            background: #F9FAFB;
+        }
+        
+        .tech-table td code {
+            font-size: 0.8rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        /* Ajustements viewer-group */
+        .viewer-group {
+            margin-top: 20px;
+        }
+        
+        .preview-mobile .viewer-group {
+            align-items: flex-start;
         }
     </style>
 </head>
-<body>
+<body class="view-print">
+    <nav class="atelier-header">
+        <a href="anacoluthe.html" class="atelier-back">
+            <img src="assets/images/logo-anacoluthe.svg" alt="">
+            <span>← Retour au jeu</span>
+        </a>
+        <a href="index.html" class="atelier-link">Accueil</a>
+    </nav>
+    
     <div class="controls">
-        <h1>🖨️ Afficheur cartes A6</h1>
+        <span class="controls-emoji"><span class="emoji-1">🪄</span><span class="emoji-2">🖨️</span></span>
+        <h1>L'atelier à cartes</h1>
+        
         <div class="controls-row">
-            <label for="card-select">Carte :</label>
             <select id="card-select">
-                <option value="">-- Choisir une carte --</option>
+                <option value="">Choisir une carte...</option>
             </select>
+            <div class="view-switcher" id="mode-buttons">
+                <button class="view-btn active" data-mode="print" title="Vue impression A6">🖨️ Print</button>
+                <button class="view-btn" data-mode="web" title="Vue desktop">🖥️ Web</button>
+                <button class="view-btn" data-mode="mobile" title="Vue mobile + tuile">📱 Mobile</button>
+                <button class="view-btn" data-mode="tech" title="Infos techniques">⚙️ Tech</button>
+            </div>
+            <span class="print-options">
+                <div class="mini-switcher" id="face-buttons">
+                    <button class="mini-btn active" data-face="both" title="Recto et verso">◫</button>
+                    <button class="mini-btn" data-face="recto" title="Recto seul">R</button>
+                    <button class="mini-btn" data-face="verso" title="Verso seul">V</button>
+                </div>
+            </span>
+            <span class="print-options">
+                <label class="checkbox-label" title="Ajuster automatiquement la taille du texte">
+                    <input type="checkbox" id="autofit-toggle" checked>
+                    Auto-fit
+                </label>
+            </span>
         </div>
-        <p class="info">
-            Dimensions réelles A6 : 105 × 148 mm. 
-            Accès direct : <code>afficheur-cartes.html?card=R1</code>
-        </p>
     </div>
     
-    <div class="preview-container">
-        <div class="card-face" data-label="RECTO" id="card-recto">
-            <div class="card-content">
-                <p class="loading">← Sélectionner une carte</p>
-            </div>
-            <div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>
+    <!-- VUE TECH -->
+    <div class="preview-container preview-tech">
+        <div class="tech-panel">
+            <h2>⚙️ Architecture des vues</h2>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Vue</th>
+                        <th>Fichiers CSS</th>
+                        <th>Cible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Print</strong></td>
+                        <td><code>cards-print.css</code></td>
+                        <td>Impression A6, Puppeteer PDF</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Web</strong></td>
+                        <td><code>cards.css</code></td>
+                        <td>Modale desktop 700px</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mobile</strong></td>
+                        <td><code>cards.css</code></td>
+                        <td>Tuile 300px + Modale 360px</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Fichiers clés</h3>
+            <ul>
+                <li><code>assets/css/style.css</code> - Variables globales (couleurs, fonts)</li>
+                <li><code>assets/css/cards.css</code> - Styles tuiles + modales (site public)</li>
+                <li><code>assets/css/cards-print.css</code> - <strong>Styles print A6</strong> (à modifier pour le rendu PDF)</li>
+                <li><code>assets/data/cards-index.json</code> - Index des cartes</li>
+            </ul>
         </div>
-        <div class="card-face" data-label="VERSO" id="card-verso">
-            <div class="card-content">
-                <p class="loading">← Sélectionner une carte</p>
+        
+        <div class="tech-panel">
+            <h2>🖨️ Tailles Print (A6)</h2>
+            <p>Base: <code>--print-base-font-size: 9pt</code> • Min auto-fit: <code>6.5pt</code></p>
+            
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Élément</th>
+                        <th>Variable CSS</th>
+                        <th>Taille calculée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>H1 (titre carte)</td>
+                        <td><code>--print-h1-size: 1.556em</code></td>
+                        <td id="tech-h1-size">14pt</td>
+                    </tr>
+                    <tr>
+                        <td>H2 (sections)</td>
+                        <td><code>--print-h2-size: 1.111em</code></td>
+                        <td id="tech-h2-size">10pt</td>
+                    </tr>
+                    <tr>
+                        <td>H3 (sous-sections)</td>
+                        <td><code>--print-h3-size: 1em</code></td>
+                        <td id="tech-h3-size">9pt</td>
+                    </tr>
+                    <tr>
+                        <td>H6 (sous-titre)</td>
+                        <td><code>--print-h6-size: 1em</code></td>
+                        <td id="tech-h6-size">9pt</td>
+                    </tr>
+                    <tr>
+                        <td>Corps texte</td>
+                        <td><code>1em</code></td>
+                        <td id="tech-body-size">9pt</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Dimensions physiques</h3>
+            <ul>
+                <li>Format: <code>105 × 148 mm</code> (A6)</li>
+                <li>Padding: <code>5mm</code></li>
+                <li>Zone utile: <code>95 × 138 mm</code></li>
+                <li>Border-radius: <code>3mm</code></li>
+            </ul>
+        </div>
+        
+        <div class="tech-panel">
+            <h2>🔄 Fonctionnement du renderer</h2>
+            
+            <h3>1. Chargement</h3>
+            <p><code>cards-index.json</code> → liste les cartes avec <code>path</code> vers le fichier markdown source</p>
+            
+            <h3>2. Parsing Markdown</h3>
+            <ul>
+                <li><code>&lt;!-- HEAD --&gt;</code> sépare le header sticky (H1 + H6) du contenu</li>
+                <li><code>&lt;!-- FLIP --&gt;</code> sépare recto et verso pour le print</li>
+                <li>Marked.js parse le MD → HTML</li>
+                <li>Twemoji convertit les emojis en SVG</li>
+            </ul>
+            
+            <h3>3. Auto-fit (Print)</h3>
+            <p>Réduit <code>font-size</code> de <code>--print-font-size-max</code> à <code>--print-font-size-min</code> par pas de <code>--print-font-size-step</code> jusqu'à ce que le contenu tienne dans la zone A6.</p>
+            <p><strong>Fichier à modifier :</strong> <code>assets/css/cards-print.css</code></p>
+            
+            <h3>4. Navigation sections (Web/Mobile)</h3>
+            <p>Génère une barre de nav à partir des H2. Intersection Observer gère le scroll-spy.</p>
+        </div>
+        
+        <div class="tech-panel">
+            <h2>📊 Carte chargée</h2>
+            <div id="tech-card-info">
+                <p><em>← Sélectionner une carte pour voir ses infos</em></p>
             </div>
-            <div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>
+        </div>
+    </div>
+    
+    <!-- VUE PRINT -->
+    <div class="preview-container preview-print">
+        <div class="viewer-group">
+            <div class="print-card-face" data-face="recto" id="card-recto">
+                <div class="print-card-content">
+                    <p class="loading">← Sélectionner une carte</p>
+                </div>
+                <div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>
+            </div>
+            <div class="viewer-caption">
+                <span class="caption-title">Recto</span>
+                <span class="caption-size">A6 105×148mm</span>
+                <span class="caption-source" id="caption-source-recto">Source: -</span>
+            </div>
+            <div class="font-size-indicator" id="font-indicator-recto"></div>
+        </div>
+        <div class="viewer-group">
+            <div class="print-card-face" data-face="verso" id="card-verso">
+                <div class="print-card-content">
+                    <p class="loading">← Sélectionner une carte</p>
+                </div>
+                <div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>
+            </div>
+            <div class="viewer-caption">
+                <span class="caption-title">Verso</span>
+                <span class="caption-size">A6 105×148mm</span>
+                <span class="caption-source" id="caption-source-verso">Source: -</span>
+            </div>
+            <div class="font-size-indicator" id="font-indicator-verso"></div>
+        </div>
+    </div>
+    
+    <!-- VUE WEB - utilise exactement les classes de cards.css -->
+    <div class="preview-container preview-web">
+        <div class="viewer-group">
+            <div class="web-viewer" id="web-viewer">
+                <div class="card-modal-body" id="web-modal-body">
+                    <p class="loading">← Sélectionner une carte</p>
+                </div>
+                <!-- La section-nav sera ajoutée par JS -->
+            </div>
+            <div class="viewer-caption">
+                <span class="caption-title">Web</span>
+                <span class="caption-size">700px</span>
+                <span class="caption-source" id="caption-source-web">Source: -</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- VUE MOBILE -->
+    <div class="preview-container preview-mobile">
+        <div class="viewer-group">
+            <div class="mini-wrapper" id="mini-wrapper">
+                <div class="mini-scaler">
+                    <article class="card-tile" id="mini-tile" data-card-id="" data-type="role">
+                        <span class="card-emoji">🎴</span>
+                        <div class="card-badges">
+                            <span class="card-type-badge">--</span>
+                        </div>
+                        <div class="card-tile-header">
+                            <h3 class="card-tile-title">Sélectionner une carte</h3>
+                        </div>
+                        <div class="card-tile-body">
+                            <p class="card-tile-subtitle">← Choisir dans la liste</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="viewer-caption">
+                <span class="caption-title">Tuile</span>
+                <span class="caption-size">300px</span>
+                <span class="caption-source">Source: cards-index.json</span>
+            </div>
+        </div>
+        <div class="viewer-group">
+            <div class="mobile-viewer" id="mobile-viewer">
+                <div class="card-modal-body" id="mobile-modal-body">
+                    <p class="loading">← Sélectionner une carte</p>
+                </div>
+                <!-- La section-nav sera ajoutée par JS -->
+            </div>
+            <div class="viewer-caption">
+                <span class="caption-title">Mobile</span>
+                <span class="caption-size">360px</span>
+                <span class="caption-source" id="caption-source-mobile">Source: -</span>
+            </div>
         </div>
     </div>
 
     <script>
+        // Configuration auto-fit (lit les variables CSS de cards-print.css)
+        const AUTOFIT = {
+            get baseSize() {
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-base-font-size')) || 9;
+            },
+            get minSize() {
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-min')) || 6.5;
+            },
+            get maxSize() {
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-max')) || 9;
+            },
+            get step() {
+                return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-step')) || 0.25;
+            }
+        };
+        
         // État
         let cardsIndex = null;
+        let autofitEnabled = true;
+        let currentMode = 'print';
+        let currentFace = 'both';
         
-        // Init
+        // Paramètres URL
+        const params = new URLSearchParams(window.location.search);
+        const paramCard = params.get('card');
+        const paramMode = params.get('mode');
+        const paramFace = params.get('face');
+        const paramAutofit = params.get('autofit');
+        const paramView = params.get('view');
+        
+        // Mode Puppeteer
+        if (paramMode === 'print') {
+            document.body.classList.add('mode-print');
+        }
+        
+        /**
+         * Pré-traitement du markdown pour les marqueurs SKIP-PRINT / SKIP-WEB
+         * Transforme les blocs marqués en divs avec classes pour masquage conditionnel
+         * 
+         * Syntaxe : <!-- SKIP-PRINT --> ou <!-- SKIP-WEB -->
+         * Le bloc s'étend jusqu'au prochain titre H2 (## ) ou jusqu'à la fin du fichier
+         */
+        function preprocessSkipMarkers(markdown) {
+            // Pattern pour détecter les marqueurs
+            const skipPrintRegex = /<!--\s*SKIP-PRINT\s*-->/gi;
+            const skipWebRegex = /<!--\s*SKIP-WEB\s*-->/gi;
+            
+            // Fonction pour traiter un type de marqueur
+            function processMarker(md, regex, className) {
+                let result = md;
+                let match;
+                
+                // Trouver tous les marqueurs
+                while ((match = regex.exec(md)) !== null) {
+                    const startPos = match.index;
+                    const markerEnd = startPos + match[0].length;
+                    
+                    // Chercher le prochain H2 après le marqueur
+                    const afterMarker = md.substring(markerEnd);
+                    const nextH2Match = afterMarker.match(/\n##\s/);
+                    
+                    let endPos;
+                    if (nextH2Match) {
+                        endPos = markerEnd + nextH2Match.index;
+                    } else {
+                        // Pas de H2 après, aller jusqu'à la fin
+                        endPos = md.length;
+                    }
+                    
+                    // Extraire le contenu à wrapper
+                    const contentToWrap = md.substring(markerEnd, endPos);
+                    
+                    // Remplacer le marqueur + contenu par le div
+                    const wrapped = `<div class="${className}">\n${contentToWrap.trim()}\n</div>\n`;
+                    result = md.substring(0, startPos) + wrapped + md.substring(endPos);
+                    
+                    // Recalculer la regex depuis le début (car le texte a changé)
+                    regex.lastIndex = 0;
+                    md = result;
+                }
+                
+                return result;
+            }
+            
+            let processed = markdown;
+            processed = processMarker(processed, skipPrintRegex, 'skip-print');
+            processed = processMarker(processed, skipWebRegex, 'skip-web');
+            
+            return processed;
+        }
+        
+        // Face (pour Puppeteer)
+        if (paramFace === 'recto') {
+            document.body.classList.add('face-recto');
+            currentFace = 'recto';
+        } else if (paramFace === 'verso') {
+            document.body.classList.add('face-verso');
+            currentFace = 'verso';
+        }
+        
+        // Vue initiale
+        if (paramView && ['print', 'web', 'mobile', 'tech'].includes(paramView)) {
+            currentMode = paramView;
+            document.body.className = document.body.className.replace(/view-\w+/, '');
+            document.body.classList.add('view-' + paramView);
+        }
+        
+        if (paramAutofit === 'false') {
+            autofitEnabled = false;
+        }
+        
         document.addEventListener('DOMContentLoaded', init);
         
         async function init() {
             try {
-                // Charger l'index
                 const response = await fetch('assets/data/cards-index.json');
                 cardsIndex = await response.json();
                 
-                // Peupler le sélecteur
-                populateSelect();
+                if (paramMode !== 'print') {
+                    populateSelect();
+                    document.getElementById('card-select').addEventListener('change', onCardChange);
+                    
+                    const autofitToggle = document.getElementById('autofit-toggle');
+                    autofitToggle.checked = autofitEnabled;
+                    autofitToggle.addEventListener('change', (e) => {
+                        autofitEnabled = e.target.checked;
+                        const cardId = document.getElementById('card-select').value;
+                        if (cardId) loadCard(cardId);
+                    });
+                    
+                    setupModeButtons();
+                    setupFaceButtons();
+                }
                 
-                // Gérer le changement
-                document.getElementById('card-select').addEventListener('change', onCardChange);
-                
-                // Vérifier l'URL
-                const params = new URLSearchParams(window.location.search);
-                const cardId = params.get('card');
-                if (cardId) {
-                    document.getElementById('card-select').value = cardId;
-                    loadCard(cardId);
+                if (paramCard) {
+                    if (paramMode !== 'print') {
+                        document.getElementById('card-select').value = paramCard;
+                    }
+                    await loadCard(paramCard);
                 }
             } catch (error) {
                 console.error('Erreur init:', error);
+                document.body.classList.add('card-error');
             }
+        }
+        
+        function setupModeButtons() {
+            const buttons = document.querySelectorAll('#mode-buttons .view-btn');
+            
+            buttons.forEach(btn => {
+                if (btn.dataset.mode === currentMode) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+                
+                btn.addEventListener('click', () => {
+                    currentMode = btn.dataset.mode;
+                    document.body.className = document.body.className.replace(/view-\w+/, '');
+                    document.body.classList.add('view-' + currentMode);
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    updateUrl();
+                });
+            });
+        }
+        
+        function setupFaceButtons() {
+            const buttons = document.querySelectorAll('#face-buttons .mini-btn');
+            
+            buttons.forEach(btn => {
+                if (btn.dataset.face === currentFace) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+                
+                btn.addEventListener('click', () => {
+                    currentFace = btn.dataset.face;
+                    document.body.classList.remove('face-recto', 'face-verso');
+                    if (currentFace === 'recto') {
+                        document.body.classList.add('face-recto');
+                    } else if (currentFace === 'verso') {
+                        document.body.classList.add('face-verso');
+                    }
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    updateUrl();
+                });
+            });
+        }
+        
+        function updateUrl() {
+            const cardId = document.getElementById('card-select').value;
+            if (!cardId) return;
+            
+            let url = `?card=${cardId}`;
+            if (currentMode !== 'print') {
+                url += `&view=${currentMode}`;
+            }
+            if (currentMode === 'print' && currentFace !== 'both') {
+                url += `&face=${currentFace}`;
+            }
+            
+            history.replaceState({}, '', url);
         }
         
         function populateSelect() {
             const select = document.getElementById('card-select');
             
-            // Grouper par type
             const groups = {
+                affiche: { label: '📋 Affiches', cards: [] },
                 role: { label: '🔧 Rôles', cards: [] },
-                moment: { label: '📋 Moments', cards: [] },
+                moment: { label: '📅 Moments', cards: [] },
                 sos: { label: '🆘 SOS', cards: [] }
             };
             
+            // Ajouter les affiches
+            if (cardsIndex.affiches) {
+                cardsIndex.affiches.forEach(card => {
+                    groups.affiche.cards.push(card);
+                });
+            }
+            
+            // Ajouter les cartes
             cardsIndex.cards.forEach(card => {
                 if (groups[card.type]) {
                     groups[card.type].cards.push(card);
                 }
             });
             
-            // Créer les optgroups
             Object.values(groups).forEach(group => {
                 if (group.cards.length === 0) return;
                 
@@ -468,91 +1265,439 @@
         function onCardChange(e) {
             const cardId = e.target.value;
             if (cardId) {
-                // Mettre à jour l'URL
-                history.pushState({}, '', `?card=${cardId}`);
+                updateUrl();
                 loadCard(cardId);
             }
         }
         
         async function loadCard(cardId) {
-            const card = cardsIndex.cards.find(c => c.id === cardId);
+            // Chercher dans cartes ET affiches
+            const allItems = [...cardsIndex.cards, ...(cardsIndex.affiches || [])];
+            const card = allItems.find(c => c.id === cardId);
             if (!card) {
                 showError('Carte non trouvée');
                 return;
             }
             
-            // Appliquer le type aux faces
+            // Charger le markdown
+            let markdown = '';
+            const contentPath = card.path;
+            
+            if (contentPath) {
+                try {
+                    const response = await fetch(contentPath);
+                    if (response.ok) {
+                        markdown = await response.text();
+                        // Pré-traiter les marqueurs SKIP-PRINT / SKIP-WEB
+                        markdown = preprocessSkipMarkers(markdown);
+                    }
+                } catch (error) {
+                    console.error('Erreur chargement:', error);
+                }
+            }
+            
+            // Rendre toutes les vues
+            await renderPrintView(card, markdown);
+            await renderWebView(card, markdown);
+            await renderMobileView(card, markdown);
+            renderTechView(card);
+            
+            document.body.classList.add('card-ready');
+        }
+        
+        async function renderPrintView(card, markdown) {
             const recto = document.getElementById('card-recto');
             const verso = document.getElementById('card-verso');
             
-            recto.className = 'card-face type-' + card.type;
-            verso.className = 'card-face type-' + card.type;
+            recto.className = 'print-card-face type-' + card.type;
+            verso.className = 'print-card-face type-' + card.type;
             recto.setAttribute('data-label', 'RECTO');
+            recto.setAttribute('data-face', 'recto');
             verso.setAttribute('data-label', 'VERSO');
+            verso.setAttribute('data-face', 'verso');
             
-            // Charger le markdown
-            try {
-                const response = await fetch(card.path);
-                if (!response.ok) throw new Error('Fichier non trouvé');
-                const markdown = await response.text();
-                
-                // Parser avec les marqueurs
-                renderCard(markdown, recto, verso);
-                
-            } catch (error) {
-                console.error('Erreur chargement:', error);
-                showError('Impossible de charger ' + card.path);
+            if (!markdown || !card.path) {
+                recto.querySelector('.print-card-content').innerHTML = '<p class="error">Pas de version print</p>';
+                verso.querySelector('.print-card-content').innerHTML = '';
+                return;
             }
-        }
-        
-        function renderCard(markdown, rectoEl, versoEl) {
-            // Séparer recto/verso via <!-- FLIP -->
+            
             const flipMarker = '<!-- FLIP -->';
             let rectoMd, versoMd;
             
             if (markdown.includes(flipMarker)) {
                 const parts = markdown.split(flipMarker);
-                rectoMd = parts[0].trim();
-                versoMd = parts.slice(1).join(flipMarker).trim();
+                rectoMd = parts[0].trim().replace('<!-- HEAD -->', '');
+                versoMd = parts.slice(1).join(flipMarker).trim().replace('<!-- HEAD -->', '');
             } else {
-                rectoMd = markdown;
-                versoMd = '*Pas de verso défini (marqueur `<!-- FLIP -->` manquant)*';
+                rectoMd = markdown.replace('<!-- HEAD -->', '');
+                versoMd = '*Pas de verso défini*';
             }
             
-            // Retirer le marqueur HEAD (pas utile pour le print)
-            rectoMd = rectoMd.replace('<!-- HEAD -->', '');
-            versoMd = versoMd.replace('<!-- HEAD -->', '');
+            const rectoContent = recto.querySelector('.print-card-content');
+            const versoContent = verso.querySelector('.print-card-content');
             
-            // Parser le markdown
-            const rectoHtml = marked.parse(rectoMd);
-            const versoHtml = marked.parse(versoMd);
+            rectoContent.innerHTML = marked.parse(rectoMd);
+            versoContent.innerHTML = marked.parse(versoMd);
             
-            // Injecter
-            const rectoContent = rectoEl.querySelector('.card-content');
-            const versoContent = versoEl.querySelector('.card-content');
-            
-            rectoContent.innerHTML = rectoHtml;
-            versoContent.innerHTML = versoHtml;
-            
-            // Twemoji
             twemoji.parse(rectoContent, { folder: 'svg', ext: '.svg' });
             twemoji.parse(versoContent, { folder: 'svg', ext: '.svg' });
             
-            // Vérifier overflow
-            checkOverflow(rectoEl);
-            checkOverflow(versoEl);
+            await document.fonts.ready;
+            await new Promise(resolve => setTimeout(resolve, 50));
+            
+            if (autofitEnabled) {
+                autoFitContent(recto, 'recto');
+                autoFitContent(verso, 'verso');
+            } else {
+                rectoContent.style.fontSize = '';
+                versoContent.style.fontSize = '';
+                checkOverflow(recto);
+                checkOverflow(verso);
+                updateFontIndicator('recto', AUTOFIT.baseSize, false);
+                updateFontIndicator('verso', AUTOFIT.baseSize, false);
+            }
+            
+            // Mettre à jour les sources
+            const sourceRecto = document.getElementById('caption-source-recto');
+            const sourceVerso = document.getElementById('caption-source-verso');
+            if (sourceRecto) sourceRecto.textContent = card.path || '-';
+            if (sourceVerso) sourceVerso.textContent = card.path || '-';
+        }
+        
+        async function renderWebView(card, markdown) {
+            const viewer = document.getElementById('web-viewer');
+            const modalBody = document.getElementById('web-modal-body');
+            
+            // Retirer l'ancienne nav si présente
+            const oldNav = viewer.querySelector('.card-section-nav');
+            if (oldNav) oldNav.remove();
+            
+            // Appliquer les classes de type (comme dans la modale)
+            viewer.className = 'web-viewer modal-' + card.type;
+            
+            if (!markdown) {
+                modalBody.innerHTML = '<p class="error">Fichier non disponible</p>';
+                return;
+            }
+            
+            // Séparer head du body (comme dans cards-loader.js)
+            const headMarker = '<!-- HEAD -->';
+            let headHtml = '';
+            let bodyMarkdown = markdown;
+            
+            if (markdown.includes(headMarker)) {
+                const parts = markdown.split(headMarker);
+                if (parts.length >= 2) {
+                    headHtml = marked.parse(parts[0].trim());
+                    bodyMarkdown = parts.slice(1).join(headMarker).trim();
+                }
+            }
+            
+            // Retirer le marqueur FLIP pour le rendu web (on affiche tout)
+            bodyMarkdown = bodyMarkdown.replace('<!-- FLIP -->', '\n\n---\n\n');
+            
+            const bodyHtml = marked.parse(bodyMarkdown);
+            
+            // Construire le HTML exactement comme cards-loader.js
+            const navHeadHtml = headHtml ? `<div class="nav-head">${headHtml}</div>` : '';
+            modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>`;
+            
+            // Ajouter la classe has-nav-head
+            if (headHtml) {
+                modalBody.classList.add('has-nav-head');
+            } else {
+                modalBody.classList.remove('has-nav-head');
+            }
+            
+            twemoji.parse(modalBody, { folder: 'svg', ext: '.svg' });
+            
+            // Générer la navigation sections (comme dans cards-loader.js)
+            generateSectionNav(modalBody, viewer, card.type);
+            
+            // Mettre à jour la source
+            const sourceWeb = document.getElementById('caption-source-web');
+            if (sourceWeb) sourceWeb.textContent = card.path || '-';
+        }
+        
+        async function renderMobileView(card, markdown) {
+            // Mini - utilise le même markup que createCardTile() de cards-loader.js
+            const tile = document.getElementById('mini-tile');
+            const typeInfo = cardsIndex.types ? cardsIndex.types[card.type] : { label: card.type.toUpperCase() };
+            
+            // Mettre à jour les attributs
+            tile.setAttribute('data-card-id', card.id);
+            tile.setAttribute('data-type', card.type);
+            tile.className = 'card-tile' + (card.available ? '' : ' card-unavailable');
+            
+            // Générer les badges
+            const protoBadge = card.proto ? '<span class="badge-proto">🛠️ PROTO</span>' : '';
+            const unavailableBadge = card.available ? '' : '<span class="badge-unavailable">⏳ À VENIR</span>';
+            
+            // Générer les tags
+            const tagsHtml = card.tags && card.tags.length > 0 
+                ? `<div class="card-tile-tags">
+                    <div class="card-tile-tags-title">${typeInfo.tagsIcon || '🌱'} ${card.tagsTitle || 'Compétences'}</div>
+                    <div class="card-tile-tags-list">
+                        ${card.tags.map(tag => `<span class="card-tile-tag">${tag}</span>`).join('')}
+                    </div>
+                   </div>`
+                : '';
+            
+            // Mettre à jour le contenu (exactement comme createCardTile)
+            tile.innerHTML = `
+                <span class="card-emoji">${card.emoji || '🎴'}</span>
+                <div class="card-badges">
+                    ${protoBadge}
+                    ${unavailableBadge}
+                    <span class="card-type-badge">${typeInfo.label}</span>
+                </div>
+                <div class="card-tile-header">
+                    <h3 class="card-tile-title">${card.title}</h3>
+                </div>
+                <div class="card-tile-body">
+                    <p class="card-tile-subtitle">${card.subtitle || ''}</p>
+                    ${card.description ? `<p class="card-tile-description">${card.description}</p>` : ''}
+                    ${tagsHtml}
+                </div>
+            `;
+            
+            twemoji.parse(tile, { folder: 'svg', ext: '.svg' });
+            
+            // Mobile viewer
+            const viewer = document.getElementById('mobile-viewer');
+            const modalBody = document.getElementById('mobile-modal-body');
+            
+            // Retirer l'ancienne nav si présente
+            const oldNav = viewer.querySelector('.card-section-nav');
+            if (oldNav) oldNav.remove();
+            
+            viewer.className = 'mobile-viewer modal-' + card.type;
+            
+            if (!markdown) {
+                modalBody.innerHTML = '<p class="error">Fichier non disponible</p>';
+                return;
+            }
+            
+            // Même logique que web
+            const headMarker = '<!-- HEAD -->';
+            let headHtml = '';
+            let bodyMarkdown = markdown;
+            
+            if (markdown.includes(headMarker)) {
+                const parts = markdown.split(headMarker);
+                if (parts.length >= 2) {
+                    headHtml = marked.parse(parts[0].trim());
+                    bodyMarkdown = parts.slice(1).join(headMarker).trim();
+                }
+            }
+            
+            bodyMarkdown = bodyMarkdown.replace('<!-- FLIP -->', '\n\n---\n\n');
+            const bodyHtml = marked.parse(bodyMarkdown);
+            
+            const navHeadHtml = headHtml ? `<div class="nav-head">${headHtml}</div>` : '';
+            modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>`;
+            
+            if (headHtml) {
+                modalBody.classList.add('has-nav-head');
+            } else {
+                modalBody.classList.remove('has-nav-head');
+            }
+            
+            twemoji.parse(modalBody, { folder: 'svg', ext: '.svg' });
+            
+            generateSectionNav(modalBody, viewer, card.type);
+            
+            // Mettre à jour la source
+            const sourceMobile = document.getElementById('caption-source-mobile');
+            if (sourceMobile) sourceMobile.textContent = card.path || '-';
+        }
+        
+        function renderTechView(card) {
+            // Récupérer la taille de base actuelle (après auto-fit)
+            const rectoContent = document.querySelector('#card-recto .print-card-content');
+            let baseSize = AUTOFIT.baseSize;
+            
+            if (rectoContent && rectoContent.style.fontSize) {
+                baseSize = parseFloat(rectoContent.style.fontSize);
+            }
+            
+            // Calculer les tailles des headings
+            const ratios = {
+                h1: 1.556,
+                h2: 1.111,
+                h3: 1,
+                h6: 1,
+                body: 1
+            };
+            
+            Object.keys(ratios).forEach(key => {
+                const el = document.getElementById(`tech-${key}-size`);
+                if (el) {
+                    const size = (baseSize * ratios[key]).toFixed(2);
+                    el.textContent = `${size}pt`;
+                    if (baseSize < AUTOFIT.baseSize) {
+                        el.style.color = 'var(--rouge-glenans)';
+                        el.style.fontWeight = '600';
+                    } else {
+                        el.style.color = '';
+                        el.style.fontWeight = '';
+                    }
+                }
+            });
+            
+            // Afficher les infos de la carte
+            const infoEl = document.getElementById('tech-card-info');
+            if (infoEl) {
+                const typeInfo = cardsIndex.types ? cardsIndex.types[card.type] : { label: card.type };
+                infoEl.innerHTML = `
+                    <table class="tech-table">
+                        <tr><th>ID</th><td><code>${card.id}</code></td></tr>
+                        <tr><th>Type</th><td>${typeInfo.label} (<code>${card.type}</code>)</td></tr>
+                        <tr><th>Titre</th><td>${card.title}</td></tr>
+                        <tr><th>Sous-titre</th><td>${card.subtitle || '-'}</td></tr>
+                        <tr><th>Emoji</th><td>${card.emoji || '-'}</td></tr>
+                        <tr><th>Disponible</th><td>${card.available ? '✅ Oui' : '❌ Non'}</td></tr>
+                        <tr><th>Proto</th><td>${card.proto ? '🛠️ Oui' : 'Non'}</td></tr>
+                        <tr><th>Path</th><td><code>${card.path || '-'}</code></td></tr>
+                        ${card.pdfPath ? `<tr><th>PDF</th><td><code>${card.pdfPath}</code></td></tr>` : ''}
+                        <tr><th>Tags</th><td>${card.tags ? card.tags.join(', ') : '-'}</td></tr>
+                    </table>
+                `;
+            }
+        }
+        
+        /**
+         * Génère la navigation entre sections H2 
+         * Reproduit exactement la logique de cards-loader.js
+         */
+        function generateSectionNav(modalBody, viewerEl, cardType) {
+            const h2Elements = modalBody.querySelectorAll('.card-content h2');
+            
+            if (h2Elements.length < 2) {
+                return;
+            }
+            
+            // Ajouter des IDs aux H2
+            const sections = [];
+            const uniquePrefix = viewerEl.id + '-';
+            h2Elements.forEach((h2, index) => {
+                const id = 'section-' + index + '-' + uniquePrefix;
+                h2.id = id;
+                // Extraire le texte sans l'emoji du début
+                const text = h2.textContent.replace(/^[\u{1F300}-\u{1F9FF}\s]+/u, '').trim();
+                // Raccourcir si trop long
+                const shortText = text.length > 20 ? text.substring(0, 18) + '...' : text;
+                sections.push({ 
+                    id, 
+                    text: shortText, 
+                    emoji: h2.textContent.match(/^[\u{1F300}-\u{1F9FF}]/u)?.[0] || '' 
+                });
+            });
+            
+            // Créer la barre de navigation (comme cards-loader.js)
+            const nav = document.createElement('nav');
+            nav.className = 'card-section-nav nav-' + cardType;
+            nav.innerHTML = `
+                <div class="section-nav-inner">
+                    ${sections.map(s => `<a href="#${s.id}" class="section-nav-link" data-section="${s.id}">${s.emoji ? s.emoji + ' ' : ''}${s.text}</a>`).join('')}
+                </div>
+            `;
+            
+            // Ajouter la nav au viewer (en dehors du modalBody pour qu'elle soit fixe)
+            viewerEl.appendChild(nav);
+            
+            // Scroll smooth vers la section au clic
+            nav.querySelectorAll('.section-nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+            
+            // Scroll spy avec Intersection Observer
+            const observerOptions = {
+                root: modalBody,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        nav.querySelectorAll('.section-nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        const activeLink = nav.querySelector(`[data-section="${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            h2Elements.forEach(h2 => observer.observe(h2));
+            
+            // Activer le premier par défaut
+            const firstLink = nav.querySelector('.section-nav-link');
+            if (firstLink) firstLink.classList.add('active');
+        }
+        
+        function autoFitContent(faceEl, faceId) {
+            const content = faceEl.querySelector('.print-card-content');
+            const warning = faceEl.querySelector('.overflow-warning');
+            
+            let currentSize = AUTOFIT.maxSize;
+            
+            const isOverflowing = () => {
+                const prevOverflow = content.style.overflow;
+                content.style.overflow = 'visible';
+                const overflows = content.scrollHeight > content.clientHeight;
+                content.style.overflow = prevOverflow || 'hidden';
+                return overflows;
+            };
+            
+            while (isOverflowing() && currentSize > AUTOFIT.minSize) {
+                currentSize -= AUTOFIT.step;
+                content.style.fontSize = currentSize + 'pt';
+            }
+            
+            const stillOverflows = isOverflowing();
+            
+            if (stillOverflows) {
+                warning.classList.remove('hidden');
+            } else {
+                warning.classList.add('hidden');
+            }
+            
+            const wasReduced = currentSize < AUTOFIT.maxSize;
+            updateFontIndicator(faceId, currentSize, wasReduced);
+        }
+        
+        function updateFontIndicator(faceId, size, reduced) {
+            const indicator = document.getElementById(`font-indicator-${faceId}`);
+            if (!indicator) return;
+            
+            if (reduced) {
+                indicator.textContent = `Texte: ${size.toFixed(2)}pt (réduit de ${AUTOFIT.maxSize}pt)`;
+                indicator.classList.add('reduced');
+            } else {
+                indicator.textContent = `Texte: ${size}pt`;
+                indicator.classList.remove('reduced');
+            }
         }
         
         function checkOverflow(faceEl) {
-            const content = faceEl.querySelector('.card-content');
+            const content = faceEl.querySelector('.print-card-content');
             const warning = faceEl.querySelector('.overflow-warning');
             
-            // Reset pour mesurer
             content.style.overflow = 'visible';
-            
             const isOverflowing = content.scrollHeight > content.clientHeight;
-            
-            // Remettre le overflow hidden
             content.style.overflow = 'hidden';
             
             if (isOverflowing) {
@@ -563,11 +1708,9 @@
         }
         
         function showError(message) {
-            const recto = document.getElementById('card-recto');
-            const verso = document.getElementById('card-verso');
-            
-            recto.querySelector('.card-content').innerHTML = `<p class="error">${message}</p>`;
-            verso.querySelector('.card-content').innerHTML = '';
+            document.querySelectorAll('.print-card-content, .card-content').forEach(el => {
+                el.innerHTML = `<p class="error">${message}</p>`;
+            });
         }
     </script>
 </body>

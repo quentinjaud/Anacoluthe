@@ -205,7 +205,7 @@
       "description": "Préparation, départ, navigation, approche, arrivée - avec les responsabilités par rôle.",
       "tags": ["Préparation", "Départ", "Navigation", "Approche", "Arrivée"],
       "tagsTitle": "5 phases",
-      "memoPath": "sources/affiches/A1_routines_memo.md",
+      "path": "sources/affiches/A1_routines_memo.md",
       "pdfPath": "print/A1_routines_quotidiennes.pdf",
       "available": false
     },
@@ -218,7 +218,7 @@
       "description": "Support effaçable pour le brief matin : météo intérieure, compétences visées, rôles et programme.",
       "tags": ["Météo perso", "Compétences", "Rôles", "Programme"],
       "tagsTitle": "Sections",
-      "memoPath": "sources/affiches/A2_tableau_memo.md",
+      "path": "sources/affiches/A2_tableau_memo.md",
       "pdfPath": "print/A2_tableau_equipage.pdf",
       "available": true
     },
@@ -231,7 +231,7 @@
       "description": "Recto : Beaufort/Douglas. Verso : 5 piliers du faire équipage + guidance brief/débrief.",
       "tags": ["Beaufort", "Douglas", "5 piliers", "Brief/Débrief"],
       "tagsTitle": "Contenu",
-      "memoPath": "sources/affiches/A3_marque_page_memo.md",
+      "path": "sources/affiches/A3_marque_page_memo.md",
       "pdfPath": "print/A3_marque_page_ldb.pdf",
       "available": false
     }

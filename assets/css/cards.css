@@ -1089,3 +1089,53 @@
     border: none;
     border-radius: var(--radius-small);
 }
+
+/* ===========================================
+   TWEMOJI - Emojis convertis en images SVG
+   =========================================== */
+
+img.emoji {
+    height: 1.2em !important;
+    width: 1.2em !important;
+    max-width: 1.2em !important;
+    margin: 0 0.05em 0 0.1em;
+    vertical-align: -0.1em;
+    display: inline !important;
+}
+
+/* Emoji dans nav-head H1 */
+.nav-head h1 img.emoji {
+    height: 1em !important;
+    width: 1em !important;
+    max-width: 1em !important;
+    vertical-align: -0.05em;
+}
+
+/* Emoji dans les titres H1 (hors nav-head) */
+.card-content h1 img.emoji {
+    height: 1em !important;
+    width: 1em !important;
+    max-width: 1em !important;
+    vertical-align: -0.05em;
+}
+
+/* Emoji dans les titres H2 */
+h2 img.emoji {
+    height: 1.1em !important;
+    width: 1.1em !important;
+    max-width: 1.1em !important;
+    vertical-align: -0.1em;
+}
+
+/* ========================================
+   MARQUEURS SKIP - Masquage conditionnel (web)
+   ======================================== */
+/* En mode web, on affiche les blocs SKIP-PRINT */
+.skip-print {
+    display: block;
+}
+
+/* En mode web, on masque les blocs SKIP-WEB */
+.skip-web {
+    display: none;
+}

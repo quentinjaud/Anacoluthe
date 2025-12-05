@@ -178,13 +178,22 @@ async function openCard(cardId) {
         // Parser et afficher le body
         const bodyHtml = embedYouTubeLinks(marked.parse(bodyMarkdown));
         
-        // Pour les affiches, ajouter un bouton de téléchargement PDF
+        // Boutons d'action en bas de carte
         const pdfButton = card.pdfPath 
-            ? `<div class="pdf-download-section">
-                <a href="${card.pdfPath}" class="pdf-download-btn" target="_blank" download>
+            ? `<a href="${card.pdfPath}" class="pdf-download-btn" target="_blank" download>
                     📄 Télécharger le PDF
-                </a>
-               </div>`
+                </a>`
+            : '';
+        
+        // Bouton prévisualisation print (pour cartes, pas affiches)
+        const previewButton = card.path && !card.memoPath
+            ? `<a href="afficheur-cartes.html?card=${card.id}" class="print-preview-btn" target="_blank">
+                    🖨️ Prévisualiser A6
+                </a>`
+            : '';
+        
+        const actionsSection = (pdfButton || previewButton)
+            ? `<div class="card-actions-section">${pdfButton}${previewButton}</div>`
             : '';
         
         // Construire le HTML final avec nav-head si présent
@@ -192,7 +201,7 @@ async function openCard(cardId) {
             ? `<div class="nav-head">${headHtml}</div>` 
             : '';
         
-        modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>${pdfButton}`;
+        modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>${actionsSection}`;
         
         // Ajouter classe si nav-head présent
         if (headHtml) {

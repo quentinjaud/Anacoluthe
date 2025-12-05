@@ -1,6 +1,6 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## État d'avancement après travail site web
-*Dernière mise à jour : 251204 soir (4 décembre 2025)*
+*Dernière mise à jour : 251205 (5 décembre 2025)*
 
 ---
 
@@ -29,6 +29,7 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 | **Cartes SOS coopératives** | A6 R/V | 4 | 🟠 PROTOS CRÉÉS |
 | **Affiches permanentes** | A4 | 3 | ✅ COMPLET |
 | **Site web** | GitHub Pages | 1 | ✅ EN LIGNE |
+| **Générateur PDF** | GitHub Actions | 1 | ✅ OPÉRATIONNEL |
 | **Guide équipage** | À définir | ? | ⬜ À définir |
 | **Guide mono** | À définir | ? | ⬜ À définir |
 
@@ -62,6 +63,63 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 | A1 | Routines quotidiennes | 5 phases chrono (préparation → départ → navigation → approche → arrivée) |
 | A2 | Tableau d'équipage | Météo perso + 6 compétences + rôles du jour + programme |
 | A3 | Marque-page LDB | Recto: Beaufort/Douglas - Verso: 5 piliers coopératifs + guidance brief/débrief |
+
+---
+
+### 🖨️ Générateur PDF print - OPÉRATIONNEL
+
+**Pipeline de génération** : Workflow automatisé en 3 étapes pour produire des PDFs imprimables.
+
+**Architecture** :
+1. **PREVIEW** (`afficheur-cartes.html`) : Prévisualisation WYSIWYG des cartes au format A6 réel
+2. **RENDER** (`scripts/render-cards.js`) : Génération des PDFs A6 individuels via Puppeteer
+3. **ASSEMBLER** (`scripts/assemble-booklets.js`) : Assemblage en livrets A4 4-UP via pdf-lib
+
+**Commandes locales** :
+```bash
+npm run print            # Génère tout (render + assemble)
+npm run print:roles      # Seulement les cartes rôles
+npm run render           # PDFs A6 individuels uniquement
+npm run assemble         # Livrets A4 uniquement
+```
+
+**Déclenchement GitHub Actions** :
+- Commit avec tag `[print]` dans le message → génération automatique
+- Ou déclenchement manuel via Actions > "Generate Print PDFs"
+
+**Fichiers générés** :
+```
+print/
+├── cartes/              # PDFs A6 individuels (2 pages : recto + verso)
+│   ├── R1.pdf ... R4.pdf
+│   ├── M1.pdf ... M7.pdf
+│   └── S1.pdf ... S4.pdf
+└── livrets/             # PDFs A4 assemblés (4-UP, recto-verso bord long)
+    ├── livret-roles.pdf
+    ├── livret-moments.pdf
+    ├── livret-sos.pdf
+    └── kit-complet.pdf
+```
+
+**Spécifications impression** :
+- Papier : 200-250g/m² cartonné
+- Impression : Recto-verso bord long, portrait, 100%, sans marges
+- Découpe : Coupe croisée unique au centre de l'A4
+- Finition : Plastification 80-125 microns pour usage maritime
+
+**Stack technique** :
+| Composant | Technologie | Version |
+|-----------|-------------|----------|
+| Preview | HTML/CSS + Twemoji + marked.js | - |
+| Render | Puppeteer (headless Chrome) | ^24.32.0 |
+| Assembler | pdf-lib | ^1.17.1 |
+| Markdown | marked | ^17.0.0 |
+| Automation | GitHub Actions | Node 20 |
+
+**Décisions clés** :
+- Layout 4-UP : 4 × A6 par feuille A4 (2×2), découpe simple
+- Trigger opt-in `[print]` : évite les runs inutiles de GitHub Actions
+- pdf-lib maintenu malgré inactivité : seule lib gratuite pour manipulation PDF
 
 ---
 
@@ -216,6 +274,10 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - ✅ Badges galerie repositionnés : tous alignés droite en débordement (4 déc)
 - ✅ Subtitles moments humanisés : "Le premier soir", "Tous les matins"... (4 déc)
 - ✅ Renommages : "Retour moniteurice", "Marque-page livre de bord" (4 déc)
+- ✅ Générateur PDF print opérationnel (5 déc)
+- ✅ Workflow GitHub Actions avec trigger `[print]` (5 déc)
+- ✅ Scripts render-cards.js + assemble-booklets.js (5 déc)
+- ✅ Dépendances à jour : marked 17.x, puppeteer 24.32.x (5 déc)
 - 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
@@ -225,6 +287,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251205 | 5 déc. 2025 | Générateur PDF print : workflow GitHub Actions, scripts render/assemble, dépendances npm |
 | v251204d | 4 déc. 2025 | Refonte section contenu (grille tags), objectifs en 3 colonnes, badges alignés droite, subtitles humanisés |
 | v251204c | 4 déc. 2025 | Nav bottom pills + scroll spy, CTA JOUER teal, paragraphe origine nom |
 | v251204b | 4 déc. 2025 | Site web en ligne anacoluthe.org, design CSS finalisé |
@@ -277,10 +340,19 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 **Site web**
 - `index.html` - Page d'accueil
 - `anacoluthe.html` - Afficheur de cartes
+- `afficheur-cartes.html` - Preview print A6
 - `assets/css/style.css` - Styles généraux
 - `assets/css/cards.css` - Styles des cartes
 - `assets/js/cards-loader.js` - Chargement dynamique des cartes
 - `assets/data/cards-index.json` - Index des cartes
+
+**Générateur PDF**
+- `scripts/render-cards.js` - Génération PDFs A6 (Puppeteer)
+- `scripts/assemble-booklets.js` - Assemblage livrets A4 (pdf-lib)
+- `.github/workflows/generate-print.yml` - Workflow GitHub Actions
+- `package.json` - Dépendances npm (marked, pdf-lib, puppeteer)
+- `print/cartes/` - PDFs A6 générés
+- `print/livrets/` - Livrets A4 assemblés
 
 ### Archives V4
 - `archives/v4/` (guides, cartes, personnages)
@@ -289,16 +361,44 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 ## 🔧 CONVENTIONS TECHNIQUES
 
-### Marqueur recto/verso pour impression
+### Marqueurs de structure dans les fichiers markdown
 
-**Contexte** : Les cartes A6 sont recto-verso. Pour permettre à un outil de génération PDF de savoir où couper entre les faces, on utilise un commentaire HTML invisible.
+**Contexte** : Les fichiers markdown des cartes utilisent des commentaires HTML invisibles pour structurer le contenu. Ces marqueurs permettent à l'afficheur web et aux outils de génération PDF de parser correctement les différentes sections.
 
-**Convention** : `<!-- FLIP -->`
+#### Marqueur `<!-- HEAD -->` - Entête de carte
 
-**Usage dans les fichiers markdown** :
+**Usage** : Sépare l'entête (H1 titre + H6 sous-titre) du corps de la carte.
+
 ```markdown
 # 🔧 BOSCO
-**Le·la gardien·ne du bateau**
+###### Le·la gardien·ne du bateau
+
+<!-- HEAD -->
+
+> Description de la carte...
+
+## ✨ Section suivante
+```
+
+**Règles** :
+- Un seul marqueur par fichier
+- Tout avant `<!-- HEAD -->` = nav-head (affiché en sticky sur desktop)
+- Tout après `<!-- HEAD -->` = card-content (corps scrollable)
+- Format attendu avant le marqueur : H1 avec emoji + H6 sous-titre
+
+**Comportement afficheur** :
+- Desktop (>1024px) : nav-head reste fixe en haut, fond coloré selon type
+- Mobile/tablette : nav-head scroll avec le contenu
+
+#### Marqueur `<!-- FLIP -->` - Recto/verso pour impression
+
+**Usage** : Indique où couper entre les faces recto et verso pour la génération PDF.
+
+```markdown
+# 🔧 BOSCO
+###### Le·la gardien·ne du bateau
+
+<!-- HEAD -->
 
 Contenu recto...
 
@@ -314,9 +414,8 @@ Contenu verso...
 - Tout avant `<!-- FLIP -->` = recto
 - Tout après `<!-- FLIP -->` = verso
 - Le commentaire est invisible au rendu markdown standard
-- Regex de parsing : `/<!--\s*FLIP\s*-->/i`
 
-**Applicable à** : Cartes rôles (R1-R4), cartes moments (M1-M7), cartes SOS (S1-S4)
+**Applicable à** : Cartes rôles (R1-R4), cartes moments (M1-M7), cartes SOS (S1-S4), mémos affiches (A1-A3)
 
 ### Formatage markdown des titres
 

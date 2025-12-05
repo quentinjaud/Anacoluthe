@@ -1,89 +1,76 @@
-# 🖨️ Fichiers prêts à imprimer
+# 🖨️ Print - PDFs imprimables Anacoluthe
 
-Ce dossier contient les PDFs prêts à imprimer pour déployer Anacoluthe sur votre base ou bateau.
+Ce dossier contient les PDFs générés automatiquement pour l'impression des cartes.
 
-## 📦 Contenu du kit
+## Structure
 
-| Fichier | Format | Quantité | Usage |
-|---------|--------|----------|-------|
-| `cartes-roles-a6.pdf` | A6 R/V | 4 cartes | Rôles quotidiens |
-| `cartes-moments-a6.pdf` | A6 R/V | 7 cartes | Temps forts J1→J6 |
-| `cartes-sos-a6.pdf` | A6 R/V | 4 cartes | Régulation tensions |
-| `affiches-a4.pdf` | A4 | 3 affiches | Supports permanents |
-| `kit-complet.pdf` | Mixte | Tout | Compilation complète |
+```
+/print/
+├── cartes/              ← PDFs A6 individuels (2 pages : recto + verso)
+│   ├── R1_bosco.pdf
+│   ├── R2_navigateurice.pdf
+│   └── ...
+├── livrets/             ← Livrets A4 assemblés (4-UP, recto-verso)
+│   ├── livret-roles.pdf
+│   ├── livret-moments.pdf
+│   ├── livret-sos.pdf
+│   └── kit-complet.pdf
+└── README.md
+```
 
-## 🛠️ Recommandations d'impression
+## Comment déclencher la génération
 
-### Cartes A6
+### Option 1 : Déclenchement manuel
+1. Aller sur GitHub > Actions > "📄 Generate Print PDFs"
+2. Cliquer "Run workflow"
+3. Choisir le target (all, roles, moments, sos)
 
-**Papier** : 200-250g/m² (type bristol ou carte)
+### Option 2 : Via le message de commit
+Ajouter `[print]` dans le message de commit :
+```bash
+git commit -m "Mise à jour carte R1 [print]"
+```
 
-**Impression** : Recto-verso, orientation portrait
+> **Note :** Sans `[print]`, les modifications des sources ne déclenchent PAS la régénération des PDFs (économie de ressources).
 
-**Finition** : Plastification recommandée pour usage maritime
-- Pochettes plastification 80-125 microns
-- Coins arrondis après découpe (optionnel mais conseillé)
+## Instructions d'impression
 
-**Découpe** : 
-- Format A6 = 105 × 148 mm
-- Si impression sur A4 : 2 cartes par feuille
+### Livrets A4 (4-UP)
 
-### Affiches A4
+1. **Imprimer** le livret PDF souhaité
+2. **Paramètres** :
+   - Format : A4
+   - Recto-verso : Bord long (flip on long edge)
+   - Échelle : 100% (pas d'ajustement)
+   - Marges : Aucune
+3. **Découper** au centre (horizontal + vertical) - repères de coupe discrets inclus
+4. **Plastifier** chaque carte A6 (80-125 microns recommandés)
 
-**Papier** : 120-160g/m² (papier standard qualité)
+### Résultat
 
-**Impression** : 
-- A1 Routines : Recto seul, paysage
-- A2 Tableau équipage : Recto seul, portrait (avec feutre effaçable)
-- A3 Marque-page LDB : Recto-verso, portrait
+Chaque feuille A4 donne 4 cartes A6 (105 × 148 mm) avec le bon verso au dos.
 
-**Finition** : Plastification obligatoire
-- Pochettes plastification 125 microns minimum
-- Le tableau équipage nécessite une plastification compatible feutres effaçables
+## Contenu des livrets
 
-### Matériel nécessaire
+| Livret | Cartes | Feuilles A4 |
+|--------|--------|-------------|
+| `livret-roles.pdf` | R1-R4 (4 cartes) | 1 |
+| `livret-moments.pdf` | M1-M7 (7 cartes + 1 blanche) | 2 |
+| `livret-sos.pdf` | S1-S4 (4 cartes) | 1 |
+| `kit-complet.pdf` | Tous | 4 |
 
-- [ ] Imprimante couleur
-- [ ] Papier 200g pour cartes
-- [ ] Papier 120g pour affiches
-- [ ] Plastifieuse
-- [ ] Pochettes plastification A4 et A6
-- [ ] Massicot ou cutter + règle
-- [ ] Feutres effaçables (pour tableau équipage)
+## Développement local
 
-## 📐 Vérifications avant impression
+```bash
+# Installer les dépendances
+npm install
 
-1. **Marges** : Vérifier que les marges d'impression sont minimales
-2. **Échelle** : Imprimer à 100% (pas d'ajustement automatique)
-3. **Alignement R/V** : Faire un test sur une feuille avant tirage complet
-4. **Couleurs** : Les emojis doivent être lisibles (contraste suffisant)
+# Générer tout
+npm run print
 
-## 🌊 Pour les conditions maritimes
-
-Les supports vont être utilisés :
-- Sur le pont (embruns, soleil)
-- Dans le carré (humidité, manipulation fréquente)
-- Près du livre de bord (usage quotidien)
-
-La plastification n'est pas optionnelle, c'est une nécessité pour la durabilité.
-
-## 📊 Quantités pour une base
-
-| Élément | Par bateau | Base 10 bateaux |
-|---------|------------|-----------------|
-| Kit cartes complet | 1 | 10 |
-| Kit affiches | 1 | 10 |
-| Feutres effaçables | 2-3 | 25 |
-
-**Coût estimé** : ~10€ par bateau (hors plastifieuse)
-
----
-
-## 📝 Notes
-
-- Les fichiers PDF sont optimisés pour impression professionnelle
-- Pour impression maison, vérifier la compatibilité de votre imprimante avec le grammage papier
-- En cas de problème d'impression, les fichiers sources Markdown sont disponibles dans `/sources/`
+# Générer uniquement les rôles
+npm run print:roles
+```
 
 ---
 

@@ -1,0 +1,83 @@
+name: 📄 Generate Print PDFs
+
+on:
+  # Déclenchement manuel (toujours disponible)
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Quoi générer'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - roles
+          - moments
+          - sos
+  
+  # Déclenchement auto UNIQUEMENT si le commit contient [print]
+  push:
+    paths:
+      - 'sources/cartes/**/*.md'
+      - 'scripts/render-cards.js'
+      - 'scripts/assemble-booklets.js'
+
+jobs:
+  # Job de vérification : le commit contient-il [print] ?
+  check-trigger:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: 🔍 Check for [print] tag
+        id: check
+        run: |
+          # workflow_dispatch = toujours exécuter
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "✅ Déclenchement manuel - on exécute"
+          # push = vérifier le message de commit
+          elif echo "${{ github.event.head_commit.message }}" | grep -q "\[print\]"; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "✅ Tag [print] trouvé - on exécute"
+          else
+            echo "should_run=false" >> $GITHUB_OUTPUT
+            echo "⏭️ Pas de tag [print] - on skip"
+          fi
+
+  generate-pdfs:
+    needs: check-trigger
+    if: needs.check-trigger.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: 📦 Install dependencies
+        run: npm ci
+      
+      - name: 🌐 Install Puppeteer browser
+        run: npx puppeteer browsers install chrome
+      
+      - name: 🖨️ Render A6 cards
+        run: node scripts/render-cards.js ${{ github.event.inputs.target || 'all' }}
+      
+      - name: 📚 Assemble booklets
+        run: node scripts/assemble-booklets.js ${{ github.event.inputs.target || 'all' }}
+      
+      - name: 💾 Commit generated PDFs
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add print/cartes/*.pdf print/livrets/*.pdf || true
+          git diff --staged --quiet || git commit -m "📄 Update print PDFs [skip ci]"
+          git push || echo "Nothing to push"

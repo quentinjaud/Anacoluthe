@@ -72,11 +72,15 @@ Chaque rôle est incarné par un·e marin·e inspirant·e du monde nautique rée
 Anacoluthe/
 ├── index.html               # 🌐 Page d'accueil du site
 ├── anacoluthe.html          # 🃏 Afficheur de cartes interactif
+├── afficheur-cartes.html    # 🖨️ Preview print format A6
 ├── assets/                  # 🎨 Ressources web
 │   ├── css/                 # Styles (style.css, cards.css)
 │   ├── js/                  # Scripts (cards-loader.js)
 │   ├── data/                # Données JSON (cards-index.json)
 │   └── images/              # Images
+├── scripts/                 # ⚙️ Scripts de génération
+│   ├── render-cards.js      # Markdown → PDFs A6 (Puppeteer)
+│   └── assemble-booklets.js # PDFs A6 → Livrets A4 (pdf-lib)
 ├── sources/                 # 📝 Fichiers sources Markdown
 │   ├── cartes/
 │   │   ├── roles/           # R1-R4
@@ -86,17 +90,58 @@ Anacoluthe/
 │   ├── documentation/       # Synthèses, intentions, présentations
 │   │   └── work-in-progress/
 │   └── guides-seances-topos/
+├── print/                   # 📄 PDFs générés
+│   ├── cartes/              # PDFs A6 individuels
+│   └── livrets/             # Livrets A4 assemblés (4-UP)
 ├── archives/                # 📦 Versions V1-V4
-├── print/                   # 📄 PDFs prêts à imprimer
-├── pdfs/                    # 📄 PDFs générés
 └── README.md
 ```
 
 ---
 
-## 🖨️ Télécharger et utiliser
+## 🖨️ Générer et imprimer les cartes
 
-**Prochainement** : PDFs prêts à imprimer disponibles sur le site web.
+### PDFs prêts à l'emploi
+
+Les PDFs sont générés automatiquement et disponibles dans le dossier `print/` :
+
+| Fichier | Contenu | Format |
+|---------|---------|--------|
+| `livret-roles.pdf` | 4 cartes rôles (R1-R4) | 1 feuille A4 |
+| `livret-moments.pdf` | 7 cartes moments (M1-M7) | 2 feuilles A4 |
+| `livret-sos.pdf` | 4 cartes SOS (S1-S4) | 1 feuille A4 |
+| `kit-complet.pdf` | Toutes les cartes | 4 feuilles A4 |
+
+### Générer localement
+
+```bash
+# Installation des dépendances
+npm install
+
+# Générer tous les PDFs
+npm run print
+
+# Ou par type
+npm run print:roles
+npm run print:moments
+npm run print:sos
+```
+
+### Spécifications d'impression
+
+- **Papier** : 200-250g/m² cartonné
+- **Impression** : Recto-verso bord long, portrait, 100%, sans marges
+- **Découpe** : Coupe croisée unique au centre de la feuille A4
+- **Finition** : Plastification 80-125 microns recommandée pour usage maritime
+
+### Stack technique
+
+| Composant | Technologie |
+|-----------|-------------|
+| Preview | HTML/CSS + Twemoji + marked.js |
+| Render | Puppeteer (headless Chrome) |
+| Assembler | pdf-lib |
+| Automation | GitHub Actions (trigger `[print]`) |
 
 ---
 

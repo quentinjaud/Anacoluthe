@@ -1,0 +1,27 @@
+{
+  "name": "anacoluthe-print",
+  "version": "5.0.0",
+  "description": "Génération des PDFs imprimables pour Anacoluthe",
+  "private": true,
+  "scripts": {
+    "render": "node scripts/render-cards.js",
+    "render:roles": "node scripts/render-cards.js roles",
+    "render:moments": "node scripts/render-cards.js moments",
+    "render:sos": "node scripts/render-cards.js sos",
+    "assemble": "node scripts/assemble-booklets.js",
+    "assemble:roles": "node scripts/assemble-booklets.js roles",
+    "assemble:moments": "node scripts/assemble-booklets.js moments",
+    "assemble:sos": "node scripts/assemble-booklets.js sos",
+    "print": "npm run render && npm run assemble",
+    "print:roles": "npm run render:roles && npm run assemble:roles"
+  },
+  "dependencies": {
+    "marked": "^17.0.0",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^24.32.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "CC-BY-NC-SA-4.0"
+}

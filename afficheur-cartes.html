@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anacoluthe - Afficheur cartes A6</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Twemoji -->
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <style>
+        /* ========================================
+           VARIABLES & RESET
+           ======================================== */
+        :root {
+            /* Dimensions A6 */
+            --a6-width: 105mm;
+            --a6-height: 148mm;
+            --card-padding: 5mm;
+            --card-radius: 3mm;
+            
+            /* Fond général */
+            --bg-page: #f5f5f0;
+            --bg-cream: #FFFDF9;
+            --text-dark: #2D3748;
+            --text-muted: #718096;
+            --border-light: #D1D5DB;
+            
+            /* Couleurs officielles */
+            --glenans-bleu: #0066ad;
+            --glenans-rouge: #e03121;
+            
+            /* Teal - Moments clés */
+            --teal-50: #e8f4f3;
+            --teal-100: #c5e4e2;
+            --teal-700: #3d8b87;
+            
+            /* Ambre/Orange - Rôles */
+            --amber-50: #fff8f0;
+            --amber-100: #ffe8d4;
+            --amber-700: #c96a30;
+            
+            /* Corail - SOS */
+            --corail-50: #fff5f2;
+            --corail-100: #ffe4db;
+            --corail-700: #d9634a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            background: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding: 20px;
+        }
+        
+        /* ========================================
+           CONTRÔLES
+           ======================================== */
+        .controls {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .controls h1 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--glenans-bleu);
+        }
+        
+        .controls-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .controls label {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .controls select {
+            padding: 8px 12px;
+            font-size: 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            background: white;
+            min-width: 200px;
+        }
+        
+        .controls .info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+        
+        .controls .info code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        /* ========================================
+           PREVIEW CONTAINER
+           ======================================== */
+        .preview-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .card-face {
+            width: var(--a6-width);
+            height: var(--a6-height);
+            background: var(--bg-cream);
+            border: 1px solid var(--border-light);
+            border-radius: var(--card-radius);
+            padding: var(--card-padding);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card-face::before {
+            content: attr(data-label);
+            position: absolute;
+            top: -25px;
+            left: 0;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+        
+        /* Types de cartes */
+        .card-face.type-role {
+            background: var(--amber-50);
+        }
+        .card-face.type-moment {
+            background: var(--teal-50);
+        }
+        .card-face.type-sos {
+            background: var(--corail-50);
+        }
+        
+        /* ========================================
+           CONTENU CARTE
+           ======================================== */
+        .card-content {
+            height: 100%;
+            overflow: hidden;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        
+        /* Header (H1 + H6) */
+        .card-content h1 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 14pt;
+            font-weight: 800;
+            margin-bottom: 2mm;
+            line-height: 1.2;
+        }
+        
+        .type-role .card-content h1 { color: var(--amber-700); }
+        .type-moment .card-content h1 { color: var(--teal-700); }
+        .type-sos .card-content h1 { color: var(--corail-700); }
+        
+        .card-content h6 {
+            font-family: 'Merriweather', serif;
+            font-size: 9pt;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 3mm;
+            opacity: 0.8;
+        }
+        
+        .type-role .card-content h6 { color: var(--amber-700); }
+        .type-moment .card-content h6 { color: var(--teal-700); }
+        .type-sos .card-content h6 { color: var(--corail-700); }
+        
+        /* Sections H2 */
+        .card-content h2 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            margin-top: 3mm;
+            margin-bottom: 1.5mm;
+            padding-bottom: 1mm;
+            border-bottom: 0.5pt solid currentColor;
+        }
+        
+        .type-role .card-content h2 { color: var(--amber-700); }
+        .type-moment .card-content h2 { color: var(--teal-700); }
+        .type-sos .card-content h2 { color: var(--corail-700); }
+        
+        /* Sections H3 */
+        .card-content h3 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 9pt;
+            font-weight: 600;
+            margin-top: 2mm;
+            margin-bottom: 1mm;
+        }
+        
+        /* Paragraphes */
+        .card-content p {
+            margin-bottom: 2mm;
+        }
+        
+        /* Blockquote (intro) */
+        .card-content blockquote {
+            font-style: italic;
+            padding-left: 3mm;
+            border-left: 2pt solid var(--border-light);
+            margin-bottom: 2mm;
+        }
+        
+        /* Listes */
+        .card-content ul, 
+        .card-content ol {
+            margin-left: 4mm;
+            margin-bottom: 2mm;
+        }
+        
+        .card-content li {
+            margin-bottom: 0.5mm;
+        }
+        
+        /* Emphase */
+        .card-content strong {
+            font-weight: 700;
+        }
+        
+        .card-content em {
+            font-style: italic;
+        }
+        
+        /* Séparateurs */
+        .card-content hr {
+            border: none;
+            border-top: 0.5pt solid var(--border-light);
+            margin: 2mm 0;
+        }
+        
+        /* Footer (licence) */
+        .card-content > p:last-child em {
+            font-size: 7pt;
+            color: var(--text-muted);
+        }
+        
+        /* Masquer les liens/vidéos en print preview */
+        .card-content a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        /* ========================================
+           TWEMOJI
+           ======================================== */
+        .card-content img.emoji {
+            height: 1em;
+            width: 1em;
+            margin: 0 0.05em 0 0.1em;
+            vertical-align: -0.1em;
+        }
+        
+        .card-content h1 img.emoji {
+            height: 1.2em;
+            width: 1.2em;
+        }
+        
+        /* ========================================
+           OVERFLOW INDICATOR
+           ======================================== */
+        .overflow-warning {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(255,0,0,0.2));
+            color: var(--glenans-rouge);
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 8pt;
+            font-weight: 700;
+            text-align: center;
+            padding: 10mm 2mm 2mm;
+            pointer-events: none;
+        }
+        
+        .overflow-warning.hidden {
+            display: none;
+        }
+        
+        /* ========================================
+           LOADING & ERROR
+           ======================================== */
+        .loading, .error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-family: 'Merriweather Sans', sans-serif;
+            color: var(--text-muted);
+        }
+        
+        .error {
+            color: var(--glenans-rouge);
+        }
+        
+        /* ========================================
+           PRINT STYLES
+           ======================================== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .controls {
+                display: none;
+            }
+            
+            .preview-container {
+                gap: 0;
+            }
+            
+            .card-face {
+                box-shadow: none;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .card-face::before {
+                display: none;
+            }
+            
+            @page {
+                size: 105mm 148mm;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h1>🖨️ Afficheur cartes A6</h1>
+        <div class="controls-row">
+            <label for="card-select">Carte :</label>
+            <select id="card-select">
+                <option value="">-- Choisir une carte --</option>
+            </select>
+        </div>
+        <p class="info">
+            Dimensions réelles A6 : 105 × 148 mm. 
+            Accès direct : <code>afficheur-cartes.html?card=R1</code>
+        </p>
+    </div>
+    
+    <div class="preview-container">
+        <div class="card-face" data-label="RECTO" id="card-recto">
+            <div class="card-content">
+                <p class="loading">← Sélectionner une carte</p>
+            </div>
+            <div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>
+        </div>
+        <div class="card-face" data-label="VERSO" id="card-verso">
+            <div class="card-content">
+                <p class="loading">← Sélectionner une carte</p>
+            </div>
+            <div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>
+        </div>
+    </div>
+
+    <script>
+        // État
+        let cardsIndex = null;
+        
+        // Init
+        document.addEventListener('DOMContentLoaded', init);
+        
+        async function init() {
+            try {
+                // Charger l'index
+                const response = await fetch('assets/data/cards-index.json');
+                cardsIndex = await response.json();
+                
+                // Peupler le sélecteur
+                populateSelect();
+                
+                // Gérer le changement
+                document.getElementById('card-select').addEventListener('change', onCardChange);
+                
+                // Vérifier l'URL
+                const params = new URLSearchParams(window.location.search);
+                const cardId = params.get('card');
+                if (cardId) {
+                    document.getElementById('card-select').value = cardId;
+                    loadCard(cardId);
+                }
+            } catch (error) {
+                console.error('Erreur init:', error);
+            }
+        }
+        
+        function populateSelect() {
+            const select = document.getElementById('card-select');
+            
+            // Grouper par type
+            const groups = {
+                role: { label: '🔧 Rôles', cards: [] },
+                moment: { label: '📋 Moments', cards: [] },
+                sos: { label: '🆘 SOS', cards: [] }
+            };
+            
+            cardsIndex.cards.forEach(card => {
+                if (groups[card.type]) {
+                    groups[card.type].cards.push(card);
+                }
+            });
+            
+            // Créer les optgroups
+            Object.values(groups).forEach(group => {
+                if (group.cards.length === 0) return;
+                
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = group.label;
+                
+                group.cards.forEach(card => {
+                    const option = document.createElement('option');
+                    option.value = card.id;
+                    option.textContent = `${card.id} - ${card.title}`;
+                    if (!card.available) option.textContent += ' (à venir)';
+                    optgroup.appendChild(option);
+                });
+                
+                select.appendChild(optgroup);
+            });
+        }
+        
+        function onCardChange(e) {
+            const cardId = e.target.value;
+            if (cardId) {
+                // Mettre à jour l'URL
+                history.pushState({}, '', `?card=${cardId}`);
+                loadCard(cardId);
+            }
+        }
+        
+        async function loadCard(cardId) {
+            const card = cardsIndex.cards.find(c => c.id === cardId);
+            if (!card) {
+                showError('Carte non trouvée');
+                return;
+            }
+            
+            // Appliquer le type aux faces
+            const recto = document.getElementById('card-recto');
+            const verso = document.getElementById('card-verso');
+            
+            recto.className = 'card-face type-' + card.type;
+            verso.className = 'card-face type-' + card.type;
+            recto.setAttribute('data-label', 'RECTO');
+            verso.setAttribute('data-label', 'VERSO');
+            
+            // Charger le markdown
+            try {
+                const response = await fetch(card.path);
+                if (!response.ok) throw new Error('Fichier non trouvé');
+                const markdown = await response.text();
+                
+                // Parser avec les marqueurs
+                renderCard(markdown, recto, verso);
+                
+            } catch (error) {
+                console.error('Erreur chargement:', error);
+                showError('Impossible de charger ' + card.path);
+            }
+        }
+        
+        function renderCard(markdown, rectoEl, versoEl) {
+            // Séparer recto/verso via <!-- FLIP -->
+            const flipMarker = '<!-- FLIP -->';
+            let rectoMd, versoMd;
+            
+            if (markdown.includes(flipMarker)) {
+                const parts = markdown.split(flipMarker);
+                rectoMd = parts[0].trim();
+                versoMd = parts.slice(1).join(flipMarker).trim();
+            } else {
+                rectoMd = markdown;
+                versoMd = '*Pas de verso défini (marqueur `<!-- FLIP -->` manquant)*';
+            }
+            
+            // Retirer le marqueur HEAD (pas utile pour le print)
+            rectoMd = rectoMd.replace('<!-- HEAD -->', '');
+            versoMd = versoMd.replace('<!-- HEAD -->', '');
+            
+            // Parser le markdown
+            const rectoHtml = marked.parse(rectoMd);
+            const versoHtml = marked.parse(versoMd);
+            
+            // Injecter
+            const rectoContent = rectoEl.querySelector('.card-content');
+            const versoContent = versoEl.querySelector('.card-content');
+            
+            rectoContent.innerHTML = rectoHtml;
+            versoContent.innerHTML = versoHtml;
+            
+            // Twemoji
+            twemoji.parse(rectoContent, { folder: 'svg', ext: '.svg' });
+            twemoji.parse(versoContent, { folder: 'svg', ext: '.svg' });
+            
+            // Vérifier overflow
+            checkOverflow(rectoEl);
+            checkOverflow(versoEl);
+        }
+        
+        function checkOverflow(faceEl) {
+            const content = faceEl.querySelector('.card-content');
+            const warning = faceEl.querySelector('.overflow-warning');
+            
+            // Reset pour mesurer
+            content.style.overflow = 'visible';
+            
+            const isOverflowing = content.scrollHeight > content.clientHeight;
+            
+            // Remettre le overflow hidden
+            content.style.overflow = 'hidden';
+            
+            if (isOverflowing) {
+                warning.classList.remove('hidden');
+            } else {
+                warning.classList.add('hidden');
+            }
+        }
+        
+        function showError(message) {
+            const recto = document.getElementById('card-recto');
+            const verso = document.getElementById('card-verso');
+            
+            recto.querySelector('.card-content').innerHTML = `<p class="error">${message}</p>`;
+            verso.querySelector('.card-content').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

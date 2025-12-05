@@ -541,6 +541,23 @@ footer p {
     text-align: center;
 }
 
+footer .footer-dev {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-light);
+    font-size: 0.8rem;
+}
+
+footer .footer-dev a {
+    color: var(--text-muted);
+    border-bottom-color: transparent;
+}
+
+footer .footer-dev a:hover {
+    color: var(--bleu-glenans);
+    border-bottom-color: var(--bleu-glenans);
+}
+
 /* ===========================================
    NAVIGATION BOTTOM (index.html)
    Style pills - Camaïeu rouge Glénans

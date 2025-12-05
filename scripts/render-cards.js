@@ -97,7 +97,7 @@ function getCardsToProcess(target) {
   const allowedTypes = TYPE_FILTERS[target] || TYPE_FILTERS.all;
   
   return index.cards.filter(card => 
-    card.available && allowedTypes.includes(card.type)
+    allowedTypes.includes(card.type)
   );
 }
 
@@ -210,7 +210,7 @@ async function main() {
   console.log(`   ${cards.length} cartes à générer\n`);
   
   if (cards.length === 0) {
-    console.log('   Aucune carte trouvée (vérifier cards-index.json et available: true).');
+    console.log('   Aucune carte trouvée (vérifier cards-index.json).');
     return;
   }
   

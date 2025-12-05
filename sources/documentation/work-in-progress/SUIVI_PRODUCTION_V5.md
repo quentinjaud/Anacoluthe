@@ -1,6 +1,6 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## État d'avancement après travail site web
-*Dernière mise à jour : 251205 (5 décembre 2025)*
+*Dernière mise à jour : 251205d (5 décembre 2025)*
 
 ---
 
@@ -28,12 +28,13 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 | **Cartes moments-clés** | A6 R/V | 7 | 🟡 PROTOS CRÉÉS |
 | **Cartes SOS coopératives** | A6 R/V | 4 | 🟠 PROTOS CRÉÉS |
 | **Affiches permanentes** | A4 | 3 | ✅ COMPLET |
+| **Mémos affiches** | A6 R/V | 3 | 🟠 PROTOS CRÉÉS |
 | **Site web** | GitHub Pages | 1 | ✅ EN LIGNE |
 | **Générateur PDF** | GitHub Actions | 1 | ✅ OPÉRATIONNEL |
 | **Guide équipage** | À définir | ? | ⬜ À définir |
 | **Guide mono** | À définir | ? | ⬜ À définir |
 
-**TOTAL ÉLÉMENTS FIXES** : 18 (4+7+4+3)
+**TOTAL ÉLÉMENTS FIXES** : 21 (4+7+4+3+3)
 
 ---
 
@@ -63,6 +64,14 @@ J1-J2 : Modélise l'usage des rôles → J5-J6 : Stagiaires s'approprient le sys
 | A1 | Routines quotidiennes | 5 phases chrono (préparation → départ → navigation → approche → arrivée) |
 | A2 | Tableau d'équipage | Météo perso + 6 compétences + rôles du jour + programme |
 | A3 | Marque-page LDB | Recto: Beaufort/Douglas - Verso: 5 piliers coopératifs + guidance brief/débrief |
+
+**Mémos d'accompagnement (protos)** : `sources/affiches/`
+
+| # | Mémo | Contenu | Fichier |
+|---|------|---------|----------|
+| A1 | Routines quotidiennes | À quoi ça sert, où l'afficher, comment l'utiliser | `A1_routines_memo.md` |
+| A2 | Tableau d'équipage | Mode d'emploi brief matin + fin de journée | `A2_tableau_memo.md` |
+| A3 | Marque-page LDB | Utilisation échelles, 5 piliers, guidance brief/débrief | `A3_marque_page_memo.md` |
 
 ---
 
@@ -151,6 +160,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - Renommage "L'atelier" → "L'atelier à cartes"
 - Footer credits complet : description + projet BPJEPS + licence + dernier commit
 - **Marqueurs SKIP-PRINT / SKIP-WEB** : masquage conditionnel de sections selon le contexte de rendu
+- **Bouton suggestion** : bouton "💌 Suggérer une modification" dans le footer des modales (visible desktop + mobile), ouvre un mailto:contact@anacoluthe.org avec sujet pré-rempli
 
 **Évolutions 251204 soir** :
 - Section "Contenu du jeu" : format texte court + tags colorés, affiches en premier
@@ -162,7 +172,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - Bold stratégiques dans "Genèse et partage"
 - Nav : MISSION (ex-ANCRAGE), OBJECTIFS ajouté
 
-**Référence design** : `sources/documentation/CHARTE_GRAPHIQUE_INTENTIONS.md`
+**Référence design** : `sources/documentation/DESIGN_INTENTIONS.md`
 
 ---
 
@@ -247,6 +257,22 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 ---
 
+## 🔮 DÉVELOPPEMENTS FUTURS
+
+### Notice livret pour impression
+
+**Objectif** : Intégrer au PDF des livrets une page pleine de notice.
+
+**Contenu prévu** :
+- Crédits (auteur, licence CC-BY-NC-SA, URL projet)
+- Consignes pour une impression de qualité (grammage papier, recto-verso bord long, plastification)
+
+**Fichier à créer** : `sources/notice_livret.md`
+
+**Implémentation** : Modifier `scripts/assemble-booklets.js` pour insérer la notice en première ou dernière page des livrets.
+
+---
+
 ## 📈 STATISTIQUES & PROGRESSION
 
 ### Complétion globale V5
@@ -257,10 +283,11 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 | Cartes moments-clés | 7* | 7 | 100%* | 🟡 Protos OK |
 | Cartes SOS | 4* | 4 | 100%* | 🟠 Protos OK |
 | Affiches A4 | 3 | 3 | 100% | ✅ COMPLET |
+| Mémos affiches | 3* | 3 | 100%* | 🟠 Protos OK |
 | Site web | 1 | 1 | 100% | ✅ EN LIGNE |
 | Guide équipage | 0 | ? | 0% | ⬜ À définir |
 | Guide mono | 0 | ? | 0% | ⬜ À définir |
-| **TOTAL ÉLÉMENTS FIXES** | **18*** | **18** | **100%*** | 🔄 Protos à valider |
+| **TOTAL ÉLÉMENTS FIXES** | **21*** | **21** | **100%*** | 🔄 Protos à valider |
 
 *\* Protos créés - relecture/validation à faire*
 
@@ -293,6 +320,11 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - ✅ Footers harmonisés : 2 colonnes + pills colorées (5 déc)
 - ✅ Navigation flottante dans l'atelier à cartes (5 déc)
 - ✅ Marqueurs SKIP-PRINT / SKIP-WEB implémentés (5 déc)
+- ✅ Bouton suggestion "💌 Suggérer une modification" dans modale (5 déc)
+- ✅ Mémos affiches protos créés avec marqueur FLIP (5 déc)
+- ✅ Gestion statut proto via cards-index.json (pas de suffixe _proto dans noms fichiers)
+- ✅ Suppression logique `available` dans cards-loader.js : si dans JSON = disponible (5 déc)
+- ✅ Fusion DESIGN_NOTES + CHARTE_GRAPHIQUE → DESIGN_INTENTIONS.md (5 déc)
 - 🟡 Relecture/validation protos à faire
 - ⬜ Guides à définir
 
@@ -302,6 +334,8 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251205d | 5 déc. 2025 | Mémos affiches protos (A1-A3), simplification available, fusion DESIGN_INTENTIONS.md |
+| v251205c | 5 déc. 2025 | Site web : bouton suggestion mailto dans footer modale (desktop + mobile) |
 | v251205b | 5 déc. 2025 | Site web : CSS print autonomisé, fonds blancs, footers 2 colonnes, marqueurs SKIP-PRINT/SKIP-WEB |
 | v251205 | 5 déc. 2025 | Générateur PDF print : workflow GitHub Actions, scripts render/assemble, dépendances npm |
 | v251204d | 4 déc. 2025 | Refonte section contenu (grille tags), objectifs en 3 colonnes, badges alignés droite, subtitles humanisés |
@@ -346,12 +380,19 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - `sources/affiches/AFFICHE_A2_TABLEAU_EQUIPAGE_V251110.md`
 - `sources/affiches/AFFICHE_A3_MARQUE_PAGE_LDB_V251110.md`
 
+**Mémos affiches (protos)**
+- `sources/affiches/A1_routines_memo.md`
+- `sources/affiches/A2_tableau_memo.md`
+- `sources/affiches/A3_marque_page_memo.md`
+
+**Référence design**
+- `sources/documentation/DESIGN_INTENTIONS.md` ← **Référence unique (couleurs, typo, emojis, marqueurs MD, workflow print)**
+
 **Documentation**
 - `sources/documentation/CARTES_MOMENTS_INTENTIONS.md`
 - `sources/documentation/CARTES_SOS_INTENTIONS.md`
 - `sources/documentation/SYNTHESE_REFONTE_V5.md`
 - `sources/documentation/PRESENTATION_V5.md`
-- `sources/documentation/CHARTE_GRAPHIQUE_INTENTIONS.md`
 
 **Site web**
 - `index.html` - Page d'accueil

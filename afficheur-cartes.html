@@ -1272,7 +1272,7 @@
             const select = document.getElementById('card-select');
             
             const groups = {
-                affiche: { label: '📋 Affiches', cards: [] },
+                affiche: { label: '📋 Mémos des Affiches', cards: [] },
                 role: { label: '🔧 Rôles', cards: [] },
                 moment: { label: '📅 Moments', cards: [] },
                 sos: { label: '🆘 SOS', cards: [] }
@@ -1302,7 +1302,7 @@
                     const option = document.createElement('option');
                     option.value = card.id;
                     option.textContent = `${card.id} - ${card.title}`;
-                    if (!card.available) option.textContent += ' (à venir)';
+                    if (card.proto) option.textContent += ' (proto)';
                     optgroup.appendChild(option);
                 });
                 

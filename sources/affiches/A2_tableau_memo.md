@@ -64,7 +64,7 @@ On note les prénoms sur le tableau.
 
 Le·la mono annonce le programme prévu. On le note en quelques mots.
 
----
+<!-- FLIP -->
 
 ## 🌙 EN FIN DE JOURNÉE
 

@@ -128,8 +128,6 @@ function renderGallery() {
  */
 function createCardTile(card) {
     const typeInfo = cardsData.types[card.type];
-    const availableClass = card.available ? '' : 'card-unavailable';
-    const unavailableBadge = card.available ? '' : '<span class="badge-unavailable">⌛ À VENIR</span>';
     const protoBadge = card.proto ? '<span class="badge-proto">🛠️ PROTO</span>' : '';
     
     // Générer les tags
@@ -143,11 +141,10 @@ function createCardTile(card) {
         : '';
     
     return `
-        <article class="card-tile ${availableClass}" data-card-id="${card.id}" data-type="${card.type}">
+        <article class="card-tile" data-card-id="${card.id}" data-type="${card.type}">
             <span class="card-emoji">${card.emoji}</span>
             <div class="card-badges">
                 ${protoBadge}
-                ${unavailableBadge}
                 <span class="card-type-badge">${typeInfo.label}</span>
             </div>
             <div class="card-tile-header">
@@ -189,11 +186,6 @@ async function openCard(cardId) {
     const card = allItems.find(c => c.id === cardId);
     if (!card) {
         console.error('Carte non trouvée:', cardId);
-        return;
-    }
-
-    if (!card.available) {
-        showModalMessage('Cette carte est en cours de production. Revenez bientôt !', card.type);
         return;
     }
 

@@ -11,8 +11,7 @@
       "tags": ["Attention préventive", "Responsabilité partagée", "Autonomie technique"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R1_bosco.md",
-      "pdfPath": "print/cartes/R1_bosco.pdf",
-      "available": true
+      "pdfPath": "print/cartes/R1_bosco.pdf"
     },
     {
       "id": "R2",
@@ -25,8 +24,7 @@
       "tags": ["Vision stratégique", "Pédagogie", "Veille météo"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R2_navigateurice.md",
-      "pdfPath": "print/cartes/R2_navigateurice.pdf",
-      "available": true
+      "pdfPath": "print/cartes/R2_navigateurice.pdf"
     },
     {
       "id": "R3",
@@ -39,8 +37,7 @@
       "tags": ["Écoute active", "Facilitation", "Régulation collective"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R3_second_soigneux.md",
-      "pdfPath": "print/cartes/R3_second_soigneux.pdf",
-      "available": true
+      "pdfPath": "print/cartes/R3_second_soigneux.pdf"
     },
     {
       "id": "R4",
@@ -53,8 +50,7 @@
       "tags": ["Créativité", "Attention aux besoins", "Organisation invisible"],
       "tagsTitle": "Compétences cultivées",
       "path": "sources/cartes/roles/R4_cambusiere.md",
-      "pdfPath": "print/cartes/R4_cambusiere.pdf",
-      "available": true
+      "pdfPath": "print/cartes/R4_cambusiere.pdf"
     },
     {
       "id": "M1",
@@ -65,8 +61,7 @@
       "description": "Poser les intentions individuelles et créer une première connexion d'équipage.",
       "tags": ["Se présenter", "Partager ses attentes", "Écouter"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M1_ACCUEIL_ATTENTES.md",
-      "available": true
+      "path": "sources/cartes/moments/M1_ACCUEIL_ATTENTES.md"
     },
     {
       "id": "M2",
@@ -78,7 +73,6 @@
       "tags": ["Poser le cadre", "Explorer les thèmes", "Formuler", "Valider"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M2_accords_equipage_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -91,7 +85,6 @@
       "tags": ["Présenter", "Choisir", "Lancer"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M3_introduction_roles_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -104,7 +97,6 @@
       "tags": ["Météo perso", "Rôles du jour", "Programme"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M4_brief_matin_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -117,7 +109,6 @@
       "tags": ["Tour de parole", "Technique", "Coopération"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M5_debrief_soir_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -130,7 +121,6 @@
       "tags": ["Bilan intermédiaire", "Ajuster", "Relancer"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M6_mi_parcours_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -143,7 +133,6 @@
       "tags": ["Bilan personnel", "Compétences acquises", "Transfert à terre"],
       "tagsTitle": "Déroulé",
       "path": "sources/cartes/moments/M7_debrief_final_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -156,7 +145,6 @@
       "tags": ["Pause", "Nommer", "Écouter", "Chercher ensemble"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S1_conflit_ouvert_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -169,7 +157,6 @@
       "tags": ["Accepter", "Proposer", "Respecter les besoins"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S2_temps_sans_navigation_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -182,7 +169,6 @@
       "tags": ["Constater", "Proposer", "Reformuler"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S3_rediscuter_accords_programme_proto.md",
-      "available": true,
       "proto": true
     },
     {
@@ -195,7 +181,6 @@
       "tags": ["Préparer", "Formuler", "Écouter la réponse"],
       "tagsTitle": "Étapes clés",
       "path": "sources/cartes/sos/S4_demande_feedback_mono_proto.md",
-      "available": true,
       "proto": true
     }
   ],
@@ -212,7 +197,7 @@
       "path": "sources/affiches/A1_routines_memo.md",
       "pdfPath": "print/cartes/A1_routines_memo.pdf",
       "affichePath": "print/affiches/A1_routines_quotidiennes.pdf",
-      "available": false
+      "proto": true
     },
     {
       "id": "A2",
@@ -226,12 +211,12 @@
       "path": "sources/affiches/A2_tableau_memo.md",
       "pdfPath": "print/cartes/A2_tableau_memo.pdf",
       "affichePath": "print/affiches/A2_tableau_equipage.pdf",
-      "available": true
+      "proto": true
     },
     {
       "id": "A3",
       "type": "affiche",
-      "title": "Marque-page<br>livre de bord",
+      "title": "Marque-page LDB",
       "subtitle": "Échelles & piliers coopératifs",
       "emoji": "📖",
       "description": "Recto : Beaufort/Douglas. Verso : 5 piliers du faire équipage + guidance brief/débrief.",
@@ -240,7 +225,7 @@
       "path": "sources/affiches/A3_marque_page_memo.md",
       "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
       "affichePath": "print/affiches/A3_marque_page_ldb.pdf",
-      "available": false
+      "proto": true
     }
   ],
   "types": {

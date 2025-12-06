@@ -50,3 +50,7 @@ L'équipage peut choisir un geste, un mot, un rituel de clôture.
 *Qu'est-ce que je veux garder de cette expérience ?*
 
 → Bon vent pour la suite ! 🌊
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

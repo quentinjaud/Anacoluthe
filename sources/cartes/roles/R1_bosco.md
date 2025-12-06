@@ -47,7 +47,7 @@ Développer la capacité à diagnostiquer et réparer.
 - Qui peut m'aider à vérifier ce point ?
 - Est-ce qu'on a tout ce qu'il faut pour réparer ça ?
 
-## 💡 Transposable à terre
+## 💡 Et à terre ?
 
 **Au travail, en famille, en coloc :**  
 Le soin préventif du matériel collectif (voiture, outils, vélos, matériel partagé) évite les pannes et crée de la sécurité. Observer, anticiper, réparer plutôt que remplacer = autonomie et sobriété.

@@ -53,3 +53,7 @@ Récap à voix haute. Chacun·e note ou photo le planning.
 #### 💡 À TERRE
 
 Savoir transformer un temps subi en temps choisi, c'est une compétence pour tous les projets qui rencontrent des imprévus.
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

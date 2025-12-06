@@ -47,3 +47,7 @@ Chacun·e signe (initiales, dessin...).
 Affichez la feuille dans le carré, visible de tou·tes. On y reviendra à mi-parcours (M6) et en fin de stage (M7).
 
 → Prochaine étape : M3 Introduction des rôles
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

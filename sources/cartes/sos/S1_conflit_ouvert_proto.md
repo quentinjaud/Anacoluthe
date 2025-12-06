@@ -51,3 +51,7 @@ Soit on trouve un accord, soit on laisse reposer et on en reparle demain.
 #### 💡 À TERRE
 
 Savoir désamorcer un conflit relationnel, ça sert partout : famille, travail, asso. Les mêmes étapes fonctionnent.
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

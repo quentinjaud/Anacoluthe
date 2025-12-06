@@ -59,3 +59,7 @@ Si une vraie tension émerge, sortez une carte SOS plutôt que de tout traiter i
 *De quoi l'équipage a-t-il besoin pour bien finir la semaine ?*
 
 → Fin de stage : M7 Débrief final
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

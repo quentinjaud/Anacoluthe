@@ -47,7 +47,7 @@ Nommer les tensions avant qu'elles ne s'enkystent, proposer des outils.
 - Y a-t-il une tension qui mériterait qu'on en parle ?
 - Qu'est-ce qu'on a bien fait ensemble aujourd'hui ?
 
-## 💡 Transposable à terre
+## 💡 Et à terre ?
 
 **Dans un projet, en famille, entre ami·es :**  
 Faciliter la parole, nommer les non-dits, réguler les tensions avant qu'elles n'explosent = compétences clés de la coopération.

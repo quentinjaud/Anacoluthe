@@ -55,3 +55,7 @@ Le·la second soigneux anime le débrief coopération.
 *Y a-t-il quelque chose de non-dit ?*
 
 → Demain matin : M4 Brief du matin
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

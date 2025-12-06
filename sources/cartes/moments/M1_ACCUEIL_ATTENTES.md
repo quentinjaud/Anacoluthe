@@ -40,3 +40,7 @@ Faisons plusieurs petits tours. Chacun·e répond en 1-2 phrases :
 Notons les attentes sur une feuille A4 qu'on laissera affichée au carré. On y reviendra à mi-parcours (M6) et en fin de stage (M7) pour vérifier qu'on a tenu le cap.
 
 → Prochaine étape : avitaillement, puis M2 Accords.
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

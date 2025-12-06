@@ -46,3 +46,7 @@ Le·la mono conclut : "Ces compétences servent partout - au travail, en famille
 Les cartes rôles restent accessibles dans le carré. Demain matin (M4), vous attribuerez vos premiers rôles.
 
 → Prochaine étape : M4 Brief du matin (dès J2)
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

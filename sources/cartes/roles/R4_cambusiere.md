@@ -59,7 +59,7 @@ La cambuse offre une vue privilégiée sur l'état réel de l'équipage.
 - Comment adapter le prochain repas à la météo prévue ?
 - Qu'est-ce qui faciliterait la vie de l'équipage demain ?
 
-## 💡 Transposable à terre
+## 💡 Et à terre ?
 
 **En famille, en coloc, au travail :**  
 Celui·celle qui nourrit voit tout, sait qui va bien, qui décroche, qui a besoin de quoi. C'est un **poste d'observation stratégique** sur le groupe. La logistique invisible (courses, repas, rangement) structure le quotidien collectif et crée les conditions du bien-être de tou·tes.

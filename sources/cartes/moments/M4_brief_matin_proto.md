@@ -54,3 +54,7 @@ Enchaînez avec le brief classique : météo, route, programme.
 Un·e équipier·ère anime le brief à la place du·de la mono.
 
 → Ce soir : M5 Débrief du soir
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

@@ -51,3 +51,7 @@ Si objection forte → continuer ou reporter.
 #### 💡 À TERRE
 
 Savoir renégocier des accords en cours de route, c'est une compétence clé pour les projets collectifs qui durent.
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

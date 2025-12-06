@@ -55,3 +55,7 @@ Expression d'inconfort :
 #### 💡 À TERRE
 
 Savoir donner un feedback structuré à un·e responsable, c'est une compétence précieuse au travail, en asso, partout.
+
+---
+
+*Anacoluthe - CC-BY-NC-SA*

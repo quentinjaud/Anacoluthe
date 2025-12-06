@@ -10,6 +10,9 @@
  *   target: 'all' | 'roles' | 'moments' | 'sos'
  * 
  * Output: /print/cartes/{id}.pdf (2 pages : recto + verso)
+ * 
+ * Variables d'environnement:
+ *   DEBUG=true  Active le mode debug (screenshots, logs verbeux)
  */
 
 const fs = require('fs');
@@ -38,6 +41,17 @@ const CONFIG = {
 // Mode debug (activé par [debug] dans le commit ou DEBUG=true)
 const DEBUG = process.env.DEBUG === 'true';
 
+// Stats pour le résumé final (mode debug)
+const stats = {
+  startTime: Date.now(),
+  cardsProcessed: 0,
+  cardsSuccess: 0,
+  cardsFailed: 0,
+  totalRenderTime: 0,
+  autoFitReductions: [],
+  errors: []
+};
+
 // Types à traiter selon le target
 const TYPE_FILTERS = {
   all: ['role', 'moment', 'sos', 'affiche'],
@@ -46,6 +60,55 @@ const TYPE_FILTERS = {
   sos: ['sos'],
   affiches: ['affiche']
 };
+
+/**
+ * DEBUG: Affiche les infos d'environnement
+ */
+function logEnvironment() {
+  if (!DEBUG) return;
+  
+  console.log('\n🔍 ===== DEBUG: ENVIRONNEMENT =====');
+  console.log(`   Node.js: ${process.version}`);
+  console.log(`   Platform: ${process.platform} ${process.arch}`);
+  console.log(`   CWD: ${process.cwd()}`);
+  console.log(`   Puppeteer: ${require('puppeteer/package.json').version}`);
+  console.log(`   pdf-lib: ${require('pdf-lib/package.json').version}`);
+  console.log('');
+  console.log('   CONFIG:');
+  Object.entries(CONFIG).forEach(([key, value]) => {
+    console.log(`     ${key}: ${value}`);
+  });
+  console.log('=================================\n');
+}
+
+/**
+ * DEBUG: Affiche les infos d'une carte avant rendu
+ */
+function logCardInfo(card) {
+  if (!DEBUG) return;
+  
+  console.log(`\n   📋 Card info:`);
+  console.log(`      ID: ${card.id}`);
+  console.log(`      Type: ${card.type}`);
+  console.log(`      Path: ${card.path}`);
+  
+  // Taille du fichier source
+  if (card.path && fs.existsSync(card.path)) {
+    const stat = fs.statSync(card.path);
+    console.log(`      Source size: ${stat.size} bytes`);
+    
+    // Compter les caractères et lignes
+    const content = fs.readFileSync(card.path, 'utf-8');
+    console.log(`      Source chars: ${content.length}`);
+    console.log(`      Source lines: ${content.split('\n').length}`);
+    
+    // Vérifier les marqueurs
+    console.log(`      Has FLIP: ${content.includes('<!-- FLIP -->')}`);
+    console.log(`      Has HEAD: ${content.includes('<!-- HEAD -->')}`);
+    console.log(`      Has SKIP-PRINT: ${content.includes('SKIP-PRINT')}`);
+    console.log(`      Has SKIP-WEB: ${content.includes('SKIP-WEB')}`);
+  }
+}
 
 /**
  * Serveur HTTP statique minimal
@@ -115,7 +178,13 @@ function getCardsToProcess(target) {
  * Génère un PDF A6 pour une face de carte
  */
 async function renderCardFace(page, cardId, face, baseUrl) {
+  const faceStartTime = Date.now();
   const url = `${baseUrl}/print-render.html?card=${cardId}&face=${face}`;
+  
+  if (DEBUG) {
+    console.log(`\n   📄 Rendering ${face}...`);
+    console.log(`      URL: ${url}`);
+  }
   
   // Naviguer
   await page.goto(url, { 
@@ -128,11 +197,14 @@ async function renderCardFace(page, cardId, face, baseUrl) {
     await page.waitForSelector('body.card-ready', { 
       timeout: CONFIG.readyTimeout 
     });
+    if (DEBUG) console.log(`      ✅ card-ready détecté`);
   } catch (err) {
     // Vérifier s'il y a une erreur
     const hasError = await page.$('body.card-error');
     if (hasError) {
-      throw new Error(`Erreur de chargement pour ${cardId} (${face})`);
+      const errorMsg = `Erreur de chargement pour ${cardId} (${face})`;
+      stats.errors.push(errorMsg);
+      throw new Error(errorMsg);
     }
     // Debug : récupérer le contenu de la page
     const bodyClasses = await page.evaluate(() => document.body.className);
@@ -148,27 +220,107 @@ async function renderCardFace(page, cardId, face, baseUrl) {
   // Petit délai pour le rendu final
   await new Promise(r => setTimeout(r, 200));
   
-  // DEBUG: Capturer le contenu visible (seulement si DEBUG=true)
+  // DEBUG: Capturer infos détaillées
   if (DEBUG) {
     const debugInfo = await page.evaluate(() => {
-      const content = document.querySelector('.print-card-content');
+      const card = document.getElementById('card');
+      const content = document.getElementById('content');
       const body = document.body;
+      
+      // Récupérer les styles computed
+      const contentStyles = content ? getComputedStyle(content) : null;
+      const cardStyles = card ? getComputedStyle(card) : null;
+      
+      // Lister les fonts chargées
+      const fonts = [];
+      document.fonts.forEach(f => fonts.push(`${f.family} ${f.weight} ${f.status}`));
+      
       return {
+        // Body
         bodyClasses: body.className,
-        hasContent: !!content,
-        contentHTML: content ? content.innerHTML.substring(0, 300) : 'NO CONTENT ELEMENT',
-        contentVisible: content ? getComputedStyle(content).display !== 'none' : false,
         bodyWidth: body.offsetWidth,
-        bodyHeight: body.offsetHeight
+        bodyHeight: body.offsetHeight,
+        
+        // Card container
+        cardWidth: card?.offsetWidth,
+        cardHeight: card?.offsetHeight,
+        cardClientHeight: card?.clientHeight,
+        cardScrollHeight: card?.scrollHeight,
+        cardPadding: cardStyles?.padding,
+        
+        // Content
+        hasContent: !!content,
+        contentWidth: content?.offsetWidth,
+        contentHeight: content?.offsetHeight,
+        contentClientHeight: content?.clientHeight,
+        contentScrollHeight: content?.scrollHeight,
+        contentFontSize: contentStyles?.fontSize,
+        contentLineHeight: contentStyles?.lineHeight,
+        contentOverflow: contentStyles?.overflow,
+        
+        // Overflow detection
+        isOverflowing: content ? content.scrollHeight > content.clientHeight : null,
+        overflowAmount: content ? content.scrollHeight - content.clientHeight : null,
+        
+        // Fonts
+        fontsLoaded: fonts.length,
+        fontsList: fonts.slice(0, 5).join(', '),
+        
+        // Content preview
+        contentHTML: content ? content.innerHTML.substring(0, 500) : 'NO CONTENT',
+        
+        // Nombre d'éléments
+        h1Count: content?.querySelectorAll('h1').length || 0,
+        h2Count: content?.querySelectorAll('h2').length || 0,
+        h3Count: content?.querySelectorAll('h3').length || 0,
+        pCount: content?.querySelectorAll('p').length || 0,
+        liCount: content?.querySelectorAll('li').length || 0,
+        imgCount: content?.querySelectorAll('img').length || 0
       };
     });
-    console.log(`  📊 Debug ${cardId} (${face}): body=${debugInfo.bodyClasses}, hasContent=${debugInfo.hasContent}, visible=${debugInfo.contentVisible}, size=${debugInfo.bodyWidth}x${debugInfo.bodyHeight}`);
-    console.log(`     Content preview: ${debugInfo.contentHTML.substring(0, 150)}...`);
     
-    // Screenshot pour voir ce qui est capturé
+    console.log(`      📏 Dimensions:`);
+    console.log(`         Body: ${debugInfo.bodyWidth}x${debugInfo.bodyHeight}px`);
+    console.log(`         Card: ${debugInfo.cardWidth}x${debugInfo.cardHeight}px (client: ${debugInfo.cardClientHeight}, scroll: ${debugInfo.cardScrollHeight})`);
+    console.log(`         Content: ${debugInfo.contentWidth}x${debugInfo.contentHeight}px (client: ${debugInfo.contentClientHeight}, scroll: ${debugInfo.contentScrollHeight})`);
+    console.log(`         Padding: ${debugInfo.cardPadding}`);
+    
+    console.log(`      📝 Typography:`);
+    console.log(`         Font-size: ${debugInfo.contentFontSize}`);
+    console.log(`         Line-height: ${debugInfo.contentLineHeight}`);
+    console.log(`         Fonts loaded: ${debugInfo.fontsLoaded} (${debugInfo.fontsList})`);
+    
+    console.log(`      📦 Content:`);
+    console.log(`         Overflow: ${debugInfo.isOverflowing ? `YES (+${debugInfo.overflowAmount}px)` : 'NO'}`);
+    console.log(`         Elements: ${debugInfo.h1Count} H1, ${debugInfo.h2Count} H2, ${debugInfo.h3Count} H3, ${debugInfo.pCount} P, ${debugInfo.liCount} LI, ${debugInfo.imgCount} IMG`);
+    
+    // Tracker les réductions auto-fit
+    if (debugInfo.contentFontSize && parseFloat(debugInfo.contentFontSize) < 10) {
+      stats.autoFitReductions.push({
+        card: cardId,
+        face: face,
+        fontSize: debugInfo.contentFontSize,
+        overflow: debugInfo.overflowAmount
+      });
+    }
+    
+    // Screenshot
     const screenshotPath = `print/debug-${cardId}-${face}.png`;
     await page.screenshot({ path: screenshotPath, fullPage: false });
-    console.log(`     Screenshot saved: ${screenshotPath}`);
+    console.log(`      📸 Screenshot: ${screenshotPath}`);
+    
+    // Logs console de la page
+    const consoleLogs = await page.evaluate(() => {
+      // On ne peut pas récupérer les logs passés, mais on peut afficher l'état
+      return window.__debugLogs || [];
+    });
+    if (consoleLogs.length > 0) {
+      console.log(`      💬 Console logs: ${consoleLogs.join(', ')}`);
+    }
+    
+    const faceTime = Date.now() - faceStartTime;
+    console.log(`      ⏱️  Render time: ${faceTime}ms`);
+    stats.totalRenderTime += faceTime;
   }
   
   // Générer le PDF
@@ -186,19 +338,45 @@ async function renderCardFace(page, cardId, face, baseUrl) {
  * Génère un PDF A6 complet (recto + verso) pour une carte
  */
 async function renderCard(browser, card, baseUrl) {
+  const cardStartTime = Date.now();
+  stats.cardsProcessed++;
+  
+  // Log infos carte en mode debug
+  logCardInfo(card);
+  
   const page = await browser.newPage();
   
-  // Capturer les erreurs de la page
-  page.on('console', msg => {
-    if (msg.type() === 'error') {
-      console.log(`  🚨 Console error: ${msg.text()}`);
-    }
-  });
+  // Capturer les erreurs et logs de la page
+  if (DEBUG) {
+    page.on('console', msg => {
+      const type = msg.type();
+      const text = msg.text();
+      if (type === 'error') {
+        console.log(`      🚨 Console ERROR: ${text}`);
+      } else if (type === 'warning') {
+        console.log(`      ⚠️  Console WARN: ${text}`);
+      } else {
+        console.log(`      💬 Console ${type}: ${text}`);
+      }
+    });
+  } else {
+    // En mode normal, juste les erreurs
+    page.on('console', msg => {
+      if (msg.type() === 'error') {
+        console.log(`  🚨 Console error: ${msg.text()}`);
+      }
+    });
+  }
+  
   page.on('pageerror', err => {
     console.log(`  🚨 Page error: ${err.message}`);
+    stats.errors.push(`Page error (${card.id}): ${err.message}`);
   });
+  
   page.on('requestfailed', req => {
-    console.log(`  🚨 Request failed: ${req.url()} - ${req.failure()?.errorText}`);
+    const failure = `Request failed: ${req.url()} - ${req.failure()?.errorText}`;
+    console.log(`  🚨 ${failure}`);
+    if (DEBUG) stats.errors.push(`${card.id}: ${failure}`);
   });
   
   // Viewport A6 en pixels (96 DPI de base, multiplié par deviceScaleFactor)
@@ -234,13 +412,58 @@ async function renderCard(browser, card, baseUrl) {
     const outputPath = path.join(CONFIG.outputDir, `${baseName}.pdf`);
     fs.writeFileSync(outputPath, pdfBytes);
     
-    console.log(`  ✅ ${baseName}.pdf`);
+    const cardTime = Date.now() - cardStartTime;
+    stats.cardsSuccess++;
+    
+    if (DEBUG) {
+      const pdfSize = pdfBytes.length;
+      console.log(`\n   ✅ ${baseName}.pdf (${(pdfSize / 1024).toFixed(1)} KB, ${cardTime}ms)`);
+    } else {
+      console.log(`  ✅ ${baseName}.pdf`);
+    }
     
   } catch (err) {
+    stats.cardsFailed++;
+    stats.errors.push(`${card.id}: ${err.message}`);
     console.log(`  ❌ ${card.id}: ${err.message}`);
   } finally {
     await page.close();
   }
+}
+
+/**
+ * DEBUG: Affiche le résumé final
+ */
+function logSummary() {
+  if (!DEBUG) return;
+  
+  const totalTime = Date.now() - stats.startTime;
+  
+  console.log('\n🔍 ===== DEBUG: RÉSUMÉ =====');
+  console.log(`   Durée totale: ${(totalTime / 1000).toFixed(2)}s`);
+  console.log(`   Temps de rendu cumulé: ${(stats.totalRenderTime / 1000).toFixed(2)}s`);
+  console.log('');
+  console.log(`   Cartes traitées: ${stats.cardsProcessed}`);
+  console.log(`   ✅ Succès: ${stats.cardsSuccess}`);
+  console.log(`   ❌ Échecs: ${stats.cardsFailed}`);
+  
+  if (stats.autoFitReductions.length > 0) {
+    console.log('');
+    console.log(`   📏 Auto-fit reductions (${stats.autoFitReductions.length}):`);
+    stats.autoFitReductions.forEach(r => {
+      console.log(`      - ${r.card} (${r.face}): ${r.fontSize}`);
+    });
+  }
+  
+  if (stats.errors.length > 0) {
+    console.log('');
+    console.log(`   ⚠️ Erreurs (${stats.errors.length}):`);
+    stats.errors.forEach(e => {
+      console.log(`      - ${e}`);
+    });
+  }
+  
+  console.log('==============================\n');
 }
 
 /**
@@ -253,6 +476,9 @@ async function main() {
   console.log(`   DPI: ${CONFIG.deviceScaleFactor * 96} (scale ${CONFIG.deviceScaleFactor})`);
   if (DEBUG) console.log(`   🔍 Mode DEBUG activé`);
   console.log('');
+  
+  // Logs environnement en mode debug
+  logEnvironment();
   
   // S'assurer que le dossier output existe
   if (!fs.existsSync(CONFIG.outputDir)) {
@@ -298,7 +524,10 @@ async function main() {
     server.close();
   }
   
-  console.log(`\n✅ Render terminé : ${cards.length} PDFs générés dans ${CONFIG.outputDir}/\n`);
+  // Résumé en mode debug
+  logSummary();
+  
+  console.log(`\n✅ Render terminé : ${stats.cardsSuccess}/${stats.cardsProcessed} PDFs générés dans ${CONFIG.outputDir}/\n`);
 }
 
 main().catch(err => {

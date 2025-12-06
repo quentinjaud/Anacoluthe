@@ -14,6 +14,11 @@ on:
           - roles
           - moments
           - sos
+      debug:
+        description: 'Mode debug (screenshots + logs)'
+        required: false
+        default: false
+        type: boolean
   
   # Déclenchement auto UNIQUEMENT si le commit contient [print]
   push:
@@ -39,21 +44,30 @@ jobs:
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Déclenchement manuel - on exécute"
+            
+            # Debug via input
+            if [ "${{ github.event.inputs.debug }}" == "true" ]; then
+              echo "debug_mode=true" >> $GITHUB_OUTPUT
+              echo "🔍 Mode debug activé (input)"
+            else
+              echo "debug_mode=false" >> $GITHUB_OUTPUT
+            fi
           # push = vérifier le message de commit
           elif echo "$COMMIT_MSG" | grep -q "\[print\]"; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Tag [print] trouvé - on exécute"
+            
+            # Debug via tag [debug] dans le commit
+            if echo "$COMMIT_MSG" | grep -q "\[debug\]"; then
+              echo "debug_mode=true" >> $GITHUB_OUTPUT
+              echo "🔍 Mode debug activé (tag)"
+            else
+              echo "debug_mode=false" >> $GITHUB_OUTPUT
+            fi
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
-            echo "⏭️ Pas de tag [print] - on skip"
-          fi
-          
-          # Vérifier [debug]
-          if echo "$COMMIT_MSG" | grep -q "\[debug\]"; then
-            echo "debug_mode=true" >> $GITHUB_OUTPUT
-            echo "🔍 Mode debug activé"
-          else
             echo "debug_mode=false" >> $GITHUB_OUTPUT
+            echo "⏭️ Pas de tag [print] - on skip"
           fi
 
   generate-pdfs:

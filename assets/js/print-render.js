@@ -18,42 +18,40 @@ async function autoFit(cardEl, contentEl) {
     const MAX_SIZE = 10;    // pt
     const STEP = 0.25;      // pt
     
-    // Calculer la hauteur utile (carte - padding 5mm × 2)
-    // 5mm ≈ 19px à 96dpi, donc 10mm ≈ 38px
-    const PADDING_PX = 38;
-    const SAFETY_MARGIN = 3; // px de marge pour éviter rognage dernière ligne
-    
     let currentSize = MAX_SIZE;
     
-    // Vérifier si débordement
-    // scrollHeight = hauteur totale du contenu
-    // cardEl.clientHeight - padding = zone utile
-    const getAvailableHeight = () => cardEl.clientHeight - PADDING_PX - SAFETY_MARGIN;
+    // Debug : afficher les dimensions initiales
+    console.log(`Auto-fit init: scrollHeight=${contentEl.scrollHeight}, clientHeight=${contentEl.clientHeight}`);
     
-    const checkOverflow = () => {
-        return contentEl.scrollHeight > getAvailableHeight();
-    };
+    // Vérifier si débordement STRICT (scrollHeight > clientHeight)
+    // contentEl a height:100% donc clientHeight = zone utile
+    const checkOverflow = () => contentEl.scrollHeight > contentEl.clientHeight;
     
     // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)
     while (checkOverflow() && currentSize > MIN_SIZE) {
         currentSize -= STEP;
         contentEl.style.fontSize = `${currentSize}pt`;
         
-        // Attendre le re-layout (50ms pour laisser le navigateur stabiliser)
-        await new Promise(r => setTimeout(r, 50));
+        // Attendre le re-layout
+        await new Promise(r => setTimeout(r, 20));
     }
     
-    // Délai de stabilisation finale après auto-fit
-    await new Promise(r => setTimeout(r, 100));
+    // Si on a réduit, faire un step de plus pour la marge de sécurité
+    if (currentSize < MAX_SIZE && currentSize > MIN_SIZE) {
+        currentSize -= STEP;
+        contentEl.style.fontSize = `${currentSize}pt`;
+    }
     
-    // Log si on a dû réduire
+    // Log
     if (currentSize < MAX_SIZE) {
         console.log(`Auto-fit: taille réduite à ${currentSize}pt`);
+    } else {
+        console.log(`Auto-fit: taille conservée à ${MAX_SIZE}pt`);
     }
     
     // Avertir si toujours en débordement
     if (checkOverflow()) {
-        console.warn(`⚠️ Contenu déborde même à ${MIN_SIZE}pt`);
+        console.warn(`⚠️ Contenu déborde même à ${currentSize}pt`);
     }
 }
 

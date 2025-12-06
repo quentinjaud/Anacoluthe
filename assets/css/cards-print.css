@@ -72,9 +72,9 @@
     
     /* === FONT SIZING === */
     /* Base et limites pour auto-fit */
-    --print-base-font-size: 10pt;
-    --print-font-size-min: 6pt;
-    --print-font-size-max: 10pt;
+    --print-base-font-size: 11pt;
+    --print-font-size-min: 5.5pt;
+    --print-font-size-max: 11pt;
     --print-font-size-step: 0.25pt;
     
     /* Ratios pour les titres (en em, relatifs à --print-base-font-size) */

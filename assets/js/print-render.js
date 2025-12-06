@@ -11,52 +11,35 @@
 
 /**
  * Auto-fit : réduit la taille de police si le contenu déborde
+ * Détection simplifiée - vérification manuelle du PDF recommandée
  */
 async function autoFit(cardEl, contentEl) {
-    // Paramètres (cohérents avec cards-print.css)
-    const MIN_SIZE = 6;     // pt
-    const MAX_SIZE = 10;    // pt
+    const MIN_SIZE = 5.5;   // pt
+    const MAX_SIZE = 11;    // pt
     const STEP = 0.25;      // pt
-    const SAFETY_THRESHOLD = 3; // Nb de steps avant d'appliquer marge de sécurité
     
     let currentSize = MAX_SIZE;
-    let stepsReduced = 0;
     
-    // Debug : afficher les dimensions initiales
-    console.log(`Auto-fit init: scrollHeight=${contentEl.scrollHeight}, clientHeight=${contentEl.clientHeight}`);
-    
-    // Vérifier si débordement STRICT (scrollHeight > clientHeight)
-    // contentEl a height:100% donc clientHeight = zone utile
-    const checkOverflow = () => contentEl.scrollHeight > contentEl.clientHeight;
+    // Mesurer overflow : height:auto temporaire pour obtenir la vraie hauteur
+    const checkOverflow = () => {
+        const savedHeight = contentEl.style.height;
+        contentEl.style.height = 'auto';
+        const contentHeight = contentEl.scrollHeight;
+        const availableHeight = cardEl.clientHeight;
+        contentEl.style.height = savedHeight;
+        return contentHeight > availableHeight;
+    };
     
     // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)
     while (checkOverflow() && currentSize > MIN_SIZE) {
         currentSize -= STEP;
-        stepsReduced++;
         contentEl.style.fontSize = `${currentSize}pt`;
-        
-        // Attendre le re-layout
-        await new Promise(r => setTimeout(r, 20));
-    }
-    
-    // Marge de sécurité : seulement si réduction significative (>= 3 steps = 0.75pt)
-    // Évite de trop réduire pour des micro-overflows
-    if (stepsReduced >= SAFETY_THRESHOLD && currentSize > MIN_SIZE) {
-        currentSize -= STEP;
-        contentEl.style.fontSize = `${currentSize}pt`;
-        console.log(`Auto-fit: marge de sécurité appliquée (${stepsReduced} steps)`);
+        await new Promise(r => setTimeout(r, 10));
     }
     
     // Log
     if (currentSize < MAX_SIZE) {
-        console.log(`Auto-fit: taille réduite à ${currentSize}pt (${stepsReduced} steps)`);
-    } else {
-        console.log(`Auto-fit: taille conservée à ${MAX_SIZE}pt`);
-    }
-    
-    // Avertir si toujours en débordement
-    if (checkOverflow()) {
-        console.warn(`⚠️ Contenu déborde même à ${currentSize}pt`);
+        console.log(`Auto-fit: ${currentSize}pt`);
     }
 }
 

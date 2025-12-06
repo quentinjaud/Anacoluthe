@@ -3,7 +3,7 @@
 
 <!-- HEAD -->
 
-Une tension entre deux personnes (ou plus) est devenue visible. Ça se voit dans les regards, les silences, les remarques. Ça pèse sur tout l'équipage. Ce n'est plus un simple désaccord - c'est un conflit qui bloque.
+> Une tension entre deux personnes (ou plus) est devenue visible. Ça se voit dans les regards, les silences, les remarques. Ça pèse sur tout l'équipage. Ce n'est plus un simple désaccord - c'est un conflit qui bloque.
 
 ## ✨ INTENTION
 

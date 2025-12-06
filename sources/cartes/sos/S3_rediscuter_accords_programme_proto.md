@@ -3,7 +3,7 @@
 
 <!-- HEAD -->
 
-Un accord d'équipage n'est pas respecté. Ou une frustration technique monte chez un ou plusieurs stagiaires. Ce qui a été posé en début de stage ne tient plus. Sans renégociation, frustration et ressentiment s'installent.
+> Un accord d'équipage n'est pas respecté. Ou une frustration technique monte chez un ou plusieurs stagiaires. Ce qui a été posé en début de stage ne tient plus. Sans renégociation, frustration et ressentiment s'installent.
 
 ## ✨ INTENTION
 

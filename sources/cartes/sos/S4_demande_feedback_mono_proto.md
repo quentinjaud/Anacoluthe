@@ -3,10 +3,10 @@
 
 <!-- HEAD -->
 
-L'équipage a besoin de parler au·à la mono. Trois cas possibles :
-- Feedback positif : quelque chose a bien marché, on veut le dire
-- Demande d'ajustement : rythme, méthodes, programme
-- Expression d'inconfort : quelque chose ne va pas
+> L'équipage a besoin de parler au·à la mono. Trois cas possibles :
+> - Feedback positif : quelque chose a bien marché, on veut le dire
+> - Demande d'ajustement : rythme, méthodes, programme
+> - Expression d'inconfort : quelque chose ne va pas
 
 ## ✨ INTENTION
 

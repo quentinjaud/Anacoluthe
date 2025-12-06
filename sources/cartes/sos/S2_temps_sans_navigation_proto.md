@@ -3,7 +3,7 @@
 
 <!-- HEAD -->
 
-La météo bloque : pétole ou temps trop fort. Pas de navigation possible pour plusieurs heures, voire la journée. Frustration, surprise, désœuvrement. Sans organisation, le groupe se disperse, certains râlent, d'autres s'isolent.
+> La météo bloque : pétole ou temps trop fort. Pas de navigation possible pour plusieurs heures, voire la journée. Frustration, surprise, désœuvrement. Sans organisation, le groupe se disperse, certains râlent, d'autres s'isolent.
 
 ## ✨ INTENTION
 

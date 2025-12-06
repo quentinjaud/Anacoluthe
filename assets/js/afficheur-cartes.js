@@ -627,24 +627,29 @@ function autoFitContent(faceEl, faceId) {
     }
     
     // Gérer l'UI : indicateur de taille
-    updateFontIndicator(faceId, finalSize, wasReduced);
+    updateFontIndicator(faceId, finalSize, wasReduced, stillOverflows);
 }
 
 /**
  * Met à jour l'indicateur de taille de police
  */
-function updateFontIndicator(faceId, size, reduced) {
+function updateFontIndicator(faceId, size, reduced, isOverflow = false) {
     const indicator = document.getElementById(`font-indicator-${faceId}`);
     if (!indicator) return;
     
     const maxSize = getCssValue('--print-font-size-max', 11);
     
-    if (reduced) {
+    // Reset classes
+    indicator.classList.remove('reduced', 'overflow');
+    
+    if (isOverflow) {
+        indicator.textContent = `Texte: ${size.toFixed(2)}pt (réduit de ${maxSize}pt) - DÉBORDEMENT`;
+        indicator.classList.add('overflow');
+    } else if (reduced) {
         indicator.textContent = `Texte: ${size.toFixed(2)}pt (réduit de ${maxSize}pt)`;
         indicator.classList.add('reduced');
     } else {
         indicator.textContent = `Texte: ${size}pt`;
-        indicator.classList.remove('reduced');
     }
 }
 

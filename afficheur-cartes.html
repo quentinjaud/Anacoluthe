@@ -22,6 +22,8 @@
     
     <!-- Markdown parser -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Module partagé de parsing markdown -->
+    <script src="assets/js/markdown-utils.js"></script>
     
     <style>
         /* ========================================
@@ -372,6 +374,20 @@
         /* ========================================
            VUE PRINT - Cartes A6
            ======================================== */
+        /* Prévisualisation : simule le rendu carte découpée */
+        .print-card-face {
+            border: 1px solid var(--border-light);
+            border-radius: 3mm;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+        
+        /* Mode Puppeteer : retirer les effets de prévisualisation */
+        body.mode-print .print-card-face {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        
         body.face-recto .print-card-face[data-face="verso"],
         body.face-verso .print-card-face[data-face="recto"] {
             display: none;
@@ -1110,89 +1126,6 @@
             document.body.classList.add('mode-print');
         }
         
-        /**
-         * Pré-traitement du markdown pour les marqueurs SKIP-PRINT / SKIP-WEB
-         * Transforme les blocs marqués en divs avec classes pour masquage conditionnel
-         * 
-         * Syntaxe : <!-- SKIP-PRINT --> ou <!-- SKIP-WEB -->
-         * Le bloc inclut le H2 qui suit immédiatement (s'il y en a un)
-         * et s'étend jusqu'au prochain H2, divider (---) ou fin du fichier
-         */
-        function preprocessSkipMarkers(markdown) {
-            // Pattern pour détecter les marqueurs
-            const skipPrintRegex = /<!--\s*SKIP-PRINT\s*-->/gi;
-            const skipWebRegex = /<!--\s*SKIP-WEB\s*-->/gi;
-            
-            // Fonction pour traiter un type de marqueur
-            function processMarker(md, regex, className) {
-                let result = md;
-                let match;
-                
-                // Trouver tous les marqueurs
-                while ((match = regex.exec(md)) !== null) {
-                    const startPos = match.index;
-                    const markerEnd = startPos + match[0].length;
-                    
-                    // Chercher les délimiteurs après le marqueur
-                    const afterMarker = md.substring(markerEnd);
-                    
-                    // Chercher le premier H2 (en sautant celui immédiatement après le marqueur)
-                    const h2Regex = /\n##\s/g;
-                    let h2Match;
-                    let h2EndPos = null;
-                    let foundFirstH2 = false;
-                    
-                    while ((h2Match = h2Regex.exec(afterMarker)) !== null) {
-                        const textBefore = afterMarker.substring(0, h2Match.index);
-                        const isImmediate = /^\s*$/.test(textBefore);
-                        
-                        if (isImmediate && !foundFirstH2) {
-                            // C'est le H2 de titre de section, il fait partie du bloc à masquer
-                            foundFirstH2 = true;
-                            continue;
-                        }
-                        
-                        // Ce H2 marque la fin
-                        h2EndPos = h2Match.index;
-                        break;
-                    }
-                    
-                    // Chercher le premier divider ---
-                    const dividerMatch = afterMarker.match(/\n---\s*\n/);
-                    let dividerEndPos = dividerMatch ? dividerMatch.index : null;
-                    
-                    // Prendre le plus proche des deux (H2 ou divider)
-                    let endPos = md.length;
-                    if (h2EndPos !== null && dividerEndPos !== null) {
-                        endPos = markerEnd + Math.min(h2EndPos, dividerEndPos);
-                    } else if (h2EndPos !== null) {
-                        endPos = markerEnd + h2EndPos;
-                    } else if (dividerEndPos !== null) {
-                        endPos = markerEnd + dividerEndPos;
-                    }
-                    
-                    // Extraire le contenu à wrapper
-                    const contentToWrap = md.substring(markerEnd, endPos);
-                    
-                    // Remplacer le marqueur + contenu par le div
-                    const wrapped = `<div class="${className}">\n${contentToWrap.trim()}\n</div>\n`;
-                    result = md.substring(0, startPos) + wrapped + md.substring(endPos);
-                    
-                    // Recalculer la regex depuis le début (car le texte a changé)
-                    regex.lastIndex = 0;
-                    md = result;
-                }
-                
-                return result;
-            }
-            
-            let processed = markdown;
-            processed = processMarker(processed, skipPrintRegex, 'skip-print');
-            processed = processMarker(processed, skipWebRegex, 'skip-web');
-            
-            return processed;
-        }
-        
         // Face (pour Puppeteer)
         if (paramFace === 'recto') {
             document.body.classList.add('face-recto');
@@ -1216,6 +1149,9 @@
         document.addEventListener('DOMContentLoaded', init);
         
         async function init() {
+            // Configurer marked via le module partagé
+            configureMarked();
+            
             try {
                 const response = await fetch('assets/data/cards-index.json');
                 cardsIndex = await response.json();
@@ -1445,8 +1381,8 @@
             updatePdfButtons(card);
             updateVerifyButtons(cardId);
             
-            // Charger le markdown
-            let markdown = '';
+            // Charger le markdown original (non prétraité)
+            let markdownRaw = '';
             let contentPath = card.path;
             
             if (contentPath) {
@@ -1459,19 +1395,19 @@
                 try {
                     const response = await fetch(contentPath);
                     if (response.ok) {
-                        markdown = await response.text();
-                        // Pré-traiter les marqueurs SKIP-PRINT / SKIP-WEB
-                        markdown = preprocessSkipMarkers(markdown);
+                        markdownRaw = await response.text();
                     }
                 } catch (error) {
                     console.error('Erreur chargement:', error);
                 }
             }
             
-            // Rendre toutes les vues
-            await renderPrintView(card, markdown);
-            await renderWebView(card, markdown);
-            await renderMobileView(card, markdown);
+            // Rendre toutes les vues avec le prétraitement approprié
+            // - Print : garde FLIP pour séparer recto/verso
+            // - Web/Mobile : supprime FLIP
+            await renderPrintView(card, markdownRaw);
+            await renderWebView(card, markdownRaw);
+            await renderMobileView(card, markdownRaw);
             renderTechView(card);
             
             document.body.classList.add('card-ready');
@@ -1494,6 +1430,7 @@
                 return;
             }
             
+            // 1. Split par FLIP (avant tout prétraitement)
             const flipMarker = '<!-- FLIP -->';
             let rectoMd, versoMd;
             
@@ -1506,9 +1443,24 @@
                 versoMd = '*Pas de verso défini*';
             }
             
+            // 2. Prétraiter les marqueurs SKIP sur chaque partie
+            // Pour print : supprimer les blocs SKIP-PRINT, garder SKIP-WEB
+            rectoMd = rectoMd.replace(
+                /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
+                ''
+            );
+            rectoMd = rectoMd.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
+            
+            versoMd = versoMd.replace(
+                /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
+                ''
+            );
+            versoMd = versoMd.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
+            
             const rectoContent = recto.querySelector('.print-card-content');
             const versoContent = verso.querySelector('.print-card-content');
             
+            // 3. Parser le markdown
             rectoContent.innerHTML = marked.parse(rectoMd);
             versoContent.innerHTML = marked.parse(versoMd);
             
@@ -1553,23 +1505,23 @@
                 return;
             }
             
+            // Prétraiter les marqueurs via module partagé (FLIP supprimé, SKIP wrappés)
+            let processed = preprocessMarkdownMarkers(markdown);
+            
             // Séparer head du body (comme dans cards-loader.js)
             const headMarker = '<!-- HEAD -->';
             let headHtml = '';
-            let bodyMarkdown = markdown;
+            let bodyMarkdown = processed;
             
-            if (markdown.includes(headMarker)) {
-                const parts = markdown.split(headMarker);
+            if (processed.includes(headMarker)) {
+                const parts = processed.split(headMarker);
                 if (parts.length >= 2) {
                     headHtml = marked.parse(parts[0].trim());
                     bodyMarkdown = parts.slice(1).join(headMarker).trim();
                 }
             }
             
-            // Retirer le marqueur FLIP pour le rendu web (on affiche tout)
-            bodyMarkdown = bodyMarkdown.replace('<!-- FLIP -->', '\n\n---\n\n');
-            
-            const bodyHtml = marked.parse(bodyMarkdown);
+            const bodyHtml = wrapSkipBlocks(marked.parse(bodyMarkdown));
             
             // Construire le HTML exactement comme cards-loader.js
             const navHeadHtml = headHtml ? `<div class="nav-head">${headHtml}</div>` : '';
@@ -1584,8 +1536,8 @@
             
             twemoji.parse(modalBody, { folder: 'svg', ext: '.svg' });
             
-            // Générer la navigation sections (comme dans cards-loader.js)
-            generateSectionNav(modalBody, viewer, card.type);
+            // Générer la navigation sections (via module partagé)
+            generateSectionNav(modalBody, viewer, card.type, viewer.id);
             
             // Mettre à jour la source
             const sourceWeb = document.getElementById('caption-source-web');
@@ -1650,21 +1602,23 @@
                 return;
             }
             
+            // Prétraiter les marqueurs via module partagé (FLIP supprimé, SKIP wrappés)
+            let processed = preprocessMarkdownMarkers(markdown);
+            
             // Même logique que web
             const headMarker = '<!-- HEAD -->';
             let headHtml = '';
-            let bodyMarkdown = markdown;
+            let bodyMarkdown = processed;
             
-            if (markdown.includes(headMarker)) {
-                const parts = markdown.split(headMarker);
+            if (processed.includes(headMarker)) {
+                const parts = processed.split(headMarker);
                 if (parts.length >= 2) {
                     headHtml = marked.parse(parts[0].trim());
                     bodyMarkdown = parts.slice(1).join(headMarker).trim();
                 }
             }
             
-            bodyMarkdown = bodyMarkdown.replace('<!-- FLIP -->', '\n\n---\n\n');
-            const bodyHtml = marked.parse(bodyMarkdown);
+            const bodyHtml = wrapSkipBlocks(marked.parse(bodyMarkdown));
             
             const navHeadHtml = headHtml ? `<div class="nav-head">${headHtml}</div>` : '';
             modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>`;
@@ -1677,7 +1631,8 @@
             
             twemoji.parse(modalBody, { folder: 'svg', ext: '.svg' });
             
-            generateSectionNav(modalBody, viewer, card.type);
+            // Générer la navigation sections (via module partagé)
+            generateSectionNav(modalBody, viewer, card.type, viewer.id);
             
             // Mettre à jour la source
             const sourceMobile = document.getElementById('caption-source-mobile');
@@ -1736,87 +1691,6 @@
                     </table>
                 `;
             }
-        }
-        
-        /**
-         * Génère la navigation entre sections H2 
-         * Reproduit exactement la logique de cards-loader.js
-         */
-        function generateSectionNav(modalBody, viewerEl, cardType) {
-            const h2Elements = modalBody.querySelectorAll('.card-content h2');
-            
-            if (h2Elements.length < 2) {
-                return;
-            }
-            
-            // Ajouter des IDs aux H2
-            const sections = [];
-            const uniquePrefix = viewerEl.id + '-';
-            h2Elements.forEach((h2, index) => {
-                const id = 'section-' + index + '-' + uniquePrefix;
-                h2.id = id;
-                // Extraire le texte sans l'emoji du début
-                const text = h2.textContent.replace(/^[\u{1F300}-\u{1F9FF}\s]+/u, '').trim();
-                // Raccourcir si trop long
-                const shortText = text.length > 20 ? text.substring(0, 18) + '...' : text;
-                sections.push({ 
-                    id, 
-                    text: shortText, 
-                    emoji: h2.textContent.match(/^[\u{1F300}-\u{1F9FF}]/u)?.[0] || '' 
-                });
-            });
-            
-            // Créer la barre de navigation (comme cards-loader.js)
-            const nav = document.createElement('nav');
-            nav.className = 'card-section-nav nav-' + cardType;
-            nav.innerHTML = `
-                <div class="section-nav-inner">
-                    ${sections.map(s => `<a href="#${s.id}" class="section-nav-link" data-section="${s.id}">${s.emoji ? s.emoji + ' ' : ''}${s.text}</a>`).join('')}
-                </div>
-            `;
-            
-            // Ajouter la nav au viewer (en dehors du modalBody pour qu'elle soit fixe)
-            viewerEl.appendChild(nav);
-            
-            // Scroll smooth vers la section au clic
-            nav.querySelectorAll('.section-nav-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
-                    const target = document.getElementById(targetId);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-            
-            // Scroll spy avec Intersection Observer
-            const observerOptions = {
-                root: modalBody,
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        nav.querySelectorAll('.section-nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        const activeLink = nav.querySelector(`[data-section="${entry.target.id}"]`);
-                        if (activeLink) {
-                            activeLink.classList.add('active');
-                            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            h2Elements.forEach(h2 => observer.observe(h2));
-            
-            // Activer le premier par défaut
-            const firstLink = nav.querySelector('.section-nav-link');
-            if (firstLink) firstLink.classList.add('active');
         }
         
         function autoFitContent(faceEl, faceId) {

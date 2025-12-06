@@ -27,6 +27,22 @@ Un design **léger, accessible et chaleureux** qui reflète l'esprit du projet :
 - ❌ Typographies fantaisie
 - ❌ Surcharge graphique
 - ❌ Couleurs trop saturées
+- ❌ Iframes (YouTube, etc.) - problèmes de parsing, tracking, poids
+
+### Médias externes (vidéos)
+
+**Pas d'iframes** dans le markdown. Liens simples avec emoji 📺 :
+
+```markdown
+**Vidéo recommandée :**  
+[📺 Titre de la vidéo](https://www.youtube.com/watch?v=XXX)
+```
+
+Raisons :
+- Légèreté (0 KB de tracking externe)
+- Parsing markdown fiable
+- Fonctionne hors-ligne (le lien reste lisible)
+- Print-friendly
 
 ---
 

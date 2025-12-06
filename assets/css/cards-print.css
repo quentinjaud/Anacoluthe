@@ -44,15 +44,31 @@
     --rouge-glenans: #F04839;
     
     /* Accents par type (titres uniquement, fonds = blanc) */
-    --amber-700: #c96a30;   /* Rôles */
-    --teal-700: #3d8b87;    /* Moments */
-    --corail-700: #d9634a;  /* SOS */
+    --amber-700: #c96a30;   /* Rôles - principal */
+    --teal-700: #3d8b87;    /* Moments - principal */
+    --brick-700: #C62828;   /* SOS - principal (rouge brique) */
+    
+    /* Accents secondaires (H3, H4) */
+    --amber-accent: #3d8b87;   /* Rôles → teal */
+    --teal-accent: #c96a30;    /* Moments → amber */
+    --brick-accent: #0066AD;   /* SOS → bleu Glénans */
+    
+    /* Couleurs légères pour borders */
+    --amber-50: #fff8f0;
+    --teal-50: #e8f4f3;
+    --brick-50: #FFEBEE;
+    --amber-200: #fcd9b8;
+    --teal-200: #a3d4d0;
+    --brick-200: #EF9A9A;
+    --glenans-200: #90caf9;  /* Bleu Glénans clair */
+    --amber-300: #f5b078;
+    --teal-300: #7ec4bf;
+    --brick-300: #E57373;
     
     /* === DIMENSIONS A6 === */
     --a6-width: 105mm;
     --a6-height: 148mm;
     --card-padding: 5mm;
-    --card-radius: 3mm;
     
     /* === FONT SIZING === */
     /* Base et limites pour auto-fit */
@@ -62,9 +78,9 @@
     --print-font-size-step: 0.25pt;
     
     /* Ratios pour les titres (en em, relatifs à --print-base-font-size) */
-    --print-h1-size: 1.556em;   /* ~15.5pt à base 10pt */
-    --print-h2-size: 1.111em;   /* ~11pt à base 10pt */
-    --print-h3-size: 1em;       /* ~10pt */
+    --print-h1-size: 1.8em;     /* ~18pt à base 10pt */
+    --print-h2-size: 1.25em;    /* ~12.5pt à base 10pt */
+    --print-h3-size: 1.05em;    /* ~10.5pt */
     --print-h6-size: 1em;       /* ~10pt */
     --print-small-size: 0.778em; /* ~7.8pt */
 }
@@ -76,23 +92,15 @@
     width: var(--a6-width);
     height: var(--a6-height);
     background: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: var(--card-radius);
+    border: none;
+    /* border-radius: pas de valeur = 0 par défaut (PDF), prévisualisation gère son propre radius */
     padding: var(--card-padding);
     overflow: hidden;
     position: relative;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     
     /* Reset de base pour autonomie */
     box-sizing: border-box;
     margin: 0;
-}
-
-/* Mode Puppeteer - pas d'ombre ni bordure */
-body.mode-print .print-card-face {
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
 }
 
 /* ========================================
@@ -123,7 +131,7 @@ body.mode-print .print-card-face {
     font-family: 'Merriweather', serif;
     font-weight: 300;
     font-size: var(--print-base-font-size);
-    line-height: 1.4;
+    line-height: 1.5;
     color: var(--text-dark);
     
     /* Reset pour autonomie */
@@ -137,14 +145,15 @@ body.mode-print .print-card-face {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: var(--print-h1-size);
     font-weight: 800;
-    margin: 0 0 2mm 0;
+    text-transform: uppercase;
+    margin: 0 0 0.2em 0;
     padding: 0;
     line-height: 1.2;
 }
 
 .type-role .print-card-content h1 { color: var(--amber-700); }
 .type-moment .print-card-content h1 { color: var(--teal-700); }
-.type-sos .print-card-content h1 { color: var(--corail-700); }
+.type-sos .print-card-content h1 { color: var(--brick-700); }
 
 /* H6 - Sous-titre (après H1) */
 .print-card-content h6 {
@@ -152,65 +161,108 @@ body.mode-print .print-card-face {
     font-size: var(--print-h6-size);
     font-weight: 400;
     font-style: italic;
-    margin: 0 0 3mm 0;
+    margin: 0 0 1.1em 0;
     padding: 0;
     opacity: 0.8;
 }
 
-.type-role .print-card-content h6 { color: var(--amber-700); }
-.type-moment .print-card-content h6 { color: var(--teal-700); }
-.type-sos .print-card-content h6 { color: var(--corail-700); }
+.type-role .print-card-content h6 { color: var(--amber-accent); }
+.type-moment .print-card-content h6 { color: var(--teal-accent); }
+.type-sos .print-card-content h6 { color: var(--brick-accent); }
 
 /* H2 - Sections */
 .print-card-content h2 {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: var(--print-h2-size);
-    font-weight: 700;
-    margin: 3mm 0 1.5mm 0;
-    padding: 0 0 1mm 0;
-    border-bottom: 0.5pt solid currentColor;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 1.2em 0 0.4em 0;
+    padding-top: 0.4em;
+    border-top: 1px solid #ddd;
+}
+
+/* Border H2 par type (couleur d'accent légère) */
+.type-role .print-card-content h2 { border-top-color: var(--teal-200); }
+.type-moment .print-card-content h2 { border-top-color: var(--amber-200); }
+.type-sos .print-card-content h2 { border-top-color: var(--glenans-200); }
+
+/* H2 en tête de page (verso) - pas de border-top */
+.print-card-content > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
 }
 
 .type-role .print-card-content h2 { color: var(--amber-700); }
 .type-moment .print-card-content h2 { color: var(--teal-700); }
-.type-sos .print-card-content h2 { color: var(--corail-700); }
+.type-sos .print-card-content h2 { color: var(--brick-700); }
 
-/* H3 - Sous-sections */
+/* H3 - Sous-sections (couleur accent) */
 .print-card-content h3 {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: var(--print-h3-size);
     font-weight: 600;
-    margin: 2mm 0 1mm 0;
+    margin: 0.55em 0 0.28em 0;
     padding: 0;
 }
 
+.type-role .print-card-content h3 { color: var(--amber-accent); }
+.type-moment .print-card-content h3 { color: var(--teal-accent); }
+.type-sos .print-card-content h3 { color: var(--brick-accent); }
+
+/* H4 - Sous-sous-sections (couleur accent) */
+.print-card-content h4 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0.4em 0 0.2em 0;
+    padding: 0;
+}
+
+.type-role .print-card-content h4 { color: var(--amber-accent); }
+.type-moment .print-card-content h4 { color: var(--teal-accent); }
+.type-sos .print-card-content h4 { color: var(--brick-accent); }
+
 /* Paragraphes */
 .print-card-content p {
-    margin: 0 0 2mm 0;
+    margin: 0 0 0.55em 0;
     padding: 0;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
 }
 
 /* Citations */
 .print-card-content blockquote {
     font-style: italic;
-    padding: 0 0 0 3mm;
+    padding: 0 0 0 0.85em;
     border-left: 2pt solid var(--border-light);
-    margin: 0 0 2mm 0;
+    margin: 0 0 0.55em 0;
 }
+
+/* Couleur bordure blockquote par type (accent) */
+.type-role .print-card-content blockquote { border-left-color: var(--amber-accent); }
+.type-moment .print-card-content blockquote { border-left-color: var(--teal-accent); }
+.type-sos .print-card-content blockquote { border-left-color: var(--brick-accent); }
 
 /* Listes */
 .print-card-content ul,
 .print-card-content ol {
-    margin: 0 0 2mm 4mm;
+    margin: 0 0 0.55em 1.1em;
     padding: 0;
 }
 
 .print-card-content li {
-    margin: 0 0 0.5mm 0;
+    margin: 0;
     padding: 0;
 }
+
+/* Couleur des puces/numéros (accent) */
+.print-card-content li::marker {
+    font-weight: 700;
+}
+
+.type-role .print-card-content li::marker { color: var(--amber-accent); }
+.type-moment .print-card-content li::marker { color: var(--teal-accent); }
+.type-sos .print-card-content li::marker { color: var(--brick-accent); }
 
 /* Emphases */
 .print-card-content strong {
@@ -221,13 +273,17 @@ body.mode-print .print-card-face {
     font-style: italic;
 }
 
-/* Séparateurs */
+/* Séparateurs - trait court centré, couleur principale-300 */
 .print-card-content hr {
     border: none;
-    border-top: 0.5pt solid var(--border-light);
-    margin: 2mm 0;
-    padding: 0;
+    border-top: 1px solid var(--border-light);
+    margin: 0.8em auto;
+    width: 50%;
 }
+
+.type-role .print-card-content hr { border-top-color: var(--amber-300); }
+.type-moment .print-card-content hr { border-top-color: var(--teal-300); }
+.type-sos .print-card-content hr { border-top-color: var(--brick-300); }
 
 /* Liens */
 .print-card-content a {

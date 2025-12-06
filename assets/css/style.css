@@ -49,10 +49,15 @@
     --amber-100: #ffe8d4;
     --amber-700: #c96a30;
     
-    /* Corail - SOS */
-    --corail-50: #fff5f2;
-    --corail-100: #ffe4db;
-    --corail-700: #d9634a;
+    /* Brick - SOS (remplace Corail) */
+    --brick-50: #FFEBEE;
+    --brick-100: #FFCDD2;
+    --brick-700: #C62828;
+    
+    /* Legacy Corail - compatibilité */
+    --corail-50: #FFEBEE;
+    --corail-100: #FFCDD2;
+    --corail-700: #C62828;
     
     /* Utilitaires */
     --radius-card: 16px;
@@ -134,11 +139,18 @@ header h1 {
 .accent-teal {
     color: var(--teal-700);
 }
+.accent-brick {
+    color: #C62828; /* brick-700 */
+}
+.accent-navy {
+    color: #1E3A5F; /* navy-700 */
+}
+/* Legacy - compatibilité */
 .accent-corail {
-    color: var(--corail-700);
+    color: #C62828; /* brick-700 (anciennement corail) */
 }
 .accent-slate {
-    color: #334155;
+    color: #1E3A5F; /* navy-700 (anciennement slate) */
 }
 
 .slash {
@@ -210,16 +222,16 @@ section {
 
 /* Couleurs des titres accentués par type de carte */
 .content-grid .card.card-affiche h3 {
-    color: #334155;
+    color: #1E3A5F; /* navy-700 */
 }
 
 .content-grid .card.card-affiche h3 strong {
-    color: #334155;
+    color: #1E3A5F; /* navy-700 */
 }
 
 .content-grid .card.card-affiche {
-    background-color: #f1f5f9;
-    border-color: var(--corail-700);
+    background-color: #E8EDF4; /* navy-50 */
+    border-color: #C62828; /* brick-700 */
 }
 
 .content-grid .card.card-role h3 strong {
@@ -231,7 +243,7 @@ section {
 }
 
 .content-grid .card.card-sos h3 strong {
-    color: var(--corail-700);
+    color: #C62828; /* brick-700 */
 }
 
 .content-grid .card.card-topo h3 strong,
@@ -273,8 +285,8 @@ section {
 }
 
 .card.card-sos .tag {
-    background-color: var(--corail-100);
-    color: var(--corail-700);
+    background-color: #FFCDD2; /* brick-100 */
+    color: #C62828; /* brick-700 */
 }
 
 /* ===========================================
@@ -444,13 +456,13 @@ a:hover {
 }
 
 .card-cta-tag.tag-sos {
-    background-color: var(--corail-100);
-    color: var(--corail-700);
+    background-color: #FFCDD2; /* brick-100 */
+    color: #C62828; /* brick-700 */
 }
 
 .card-cta-tag.tag-affiche {
-    background-color: #E2E8F0; /* slate-200 */
-    color: #334155; /* slate-700 */
+    background-color: #C9D5E3; /* navy-100 */
+    color: #1E3A5F; /* navy-700 */
 }
 
 /* ===========================================
@@ -516,11 +528,11 @@ li {
 }
 
 .card.card-sos {
-    background-color: var(--corail-50);
+    background-color: #FFEBEE; /* brick-50 */
     border: 1px solid var(--teal-700);
 }
 .card.card-sos h3 {
-    color: var(--corail-700);
+    color: #C62828; /* brick-700 */
 }
 
 /* ===========================================

@@ -5,15 +5,11 @@
 
 > Le·la navigateurice prépare les routes, suit la météo et anticipe les décisions de navigation. Ce rôle développe la vision d'ensemble, la planification et la communication des informations essentielles pour que l'équipage comprenne où iel va et pourquoi.
 
----
-
 ## ✨ Inspiré·e de Capucine Trochet
 
 Navigatrice française (née en 1981), aventurière des mers et militante de la sobriété heureuse. Elle parcourt les océans sur de vieux gréements low-tech, sans GPS ni pilote automatique, en quête d'une navigation plus lente et plus consciente.
 
 Autrice de plusieurs récits d'aventure maritime, elle incarne une approche résiliente et poétique de la voile, où l'essentiel prime sur la performance.
-
----
 
 ## 🌱 Cela t'aidera à cultiver...
 
@@ -45,17 +41,13 @@ Développer une lecture fine des prévisions et du ciel.
 - Préparer la navigation du lendemain
 - Noter dans le livre de bord le trajet et les décisions
 
----
-
 ## 🗣️ Questions pour t'aider
 
 - Quel est notre objectif aujourd'hui ?
 - Qu'est-ce qui pourrait nous forcer à changer de plan ?
 - Est-ce que tout le monde comprend la route prévue ?
 
----
-
-## 💡 Transposable à terre
+## 💡 Et à terre ?
 
 **Dans un projet collectif :**  
 Tenir le cap d'un projet, anticiper les obstacles, communiquer la stratégie à l'équipe pour que chacun·e comprenne la direction et les décisions.
@@ -68,11 +60,8 @@ Tenir le cap d'un projet, anticiper les obstacles, communiquer la stratégie à 
 - *L'Appel de l'océan* - Capucine Trochet  
 - *Naviguer en solitaire* - Capucine Trochet
 
-**Vidéo recommandée :**
-
-<div class="video-embed">
-<iframe src="https://www.youtube-nocookie.com/embed/fDKBvl8Tl2w" title="Portrait de Capucine Trochet" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+**Vidéo recommandée :**  
+[📺 Portrait de Capucine Trochet](https://www.youtube.com/watch?v=fDKBvl8Tl2w)
 
 ---
 

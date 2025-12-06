@@ -5,15 +5,11 @@
 
 > Le·la second soigneux veille au bien-être de l'équipage, facilite la parole et régule les tensions. Ce rôle développe l'écoute, le courage de nommer les difficultés et la capacité à créer des espaces de coopération bienveillante.
 
----
-
 ## ✨ Inspiré·e d'Isabelle Autissier
 
 Navigatrice française (née en 1956), première femme à boucler un tour du monde en solitaire en compétition (1991). Ingénieure agronome et océanographe, elle combine rigueur scientifique et sensibilité humaine.
 
 Ses récits de navigation témoignent d'une attention profonde aux équilibres fragiles - ceux de la mer, du bateau, et de l'âme humaine face à la solitude et aux éléments.
-
----
 
 ## 🌱 Cela t'aidera à cultiver...
 
@@ -45,15 +41,11 @@ Nommer les tensions avant qu'elles ne s'enkystent, proposer des outils.
 - Faire circuler la parole équitablement
 - Proposer une carte SOS si une tension apparaît
 
----
-
 ## 🗣️ Questions pour t'aider
 
 - Comment va chacun·e aujourd'hui ?
 - Y a-t-il une tension qui mériterait qu'on en parle ?
 - Qu'est-ce qu'on a bien fait ensemble aujourd'hui ?
-
----
 
 ## 💡 Transposable à terre
 
@@ -68,11 +60,8 @@ Faciliter la parole, nommer les non-dits, réguler les tensions avant qu'elles n
 - *Seule* - Isabelle Autissier  
 - *Passer par le Nord* - Isabelle Autissier
 
-**Vidéo recommandée :**
-
-<div class="video-embed">
-<iframe src="https://www.youtube-nocookie.com/embed/3KwLaB5xC1I" title="Portrait d'Isabelle Autissier" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+**Vidéo recommandée :**  
+[📺 Portrait d'Isabelle Autissier](https://www.youtube.com/watch?v=3KwLaB5xC1I)
 
 ---
 

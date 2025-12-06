@@ -5,8 +5,6 @@
 
 > Le·la cambusier·ère organise l'approvisionnement, les repas et la convivialité au carré. Ce rôle développe la créativité dans la contrainte, l'attention aux besoins du groupe et l'organisation logistique invisible qui fait tourner le quotidien.
 
----
-
 ## ✨ Inspiré·e de Tracy Edwards
 
 Navigatrice britannique (née en 1962). Whitbread 1985-86 : seule femme à bord, reléguée à la cuisine malgré ses compétences en navigation. Elle transforme ce rôle stigmatisé en **observatoire privilégié des dynamiques d'équipage**.
@@ -14,8 +12,6 @@ Navigatrice britannique (née en 1962). Whitbread 1985-86 : seule femme à bord,
 1989 : crée le premier équipage 100% féminin (Maiden), remporte 2 étapes. Première femme Yachtsman of the Year.
 
 *« On m'avait dit que ma place était à la cambuse. J'y ai appris à lire l'équipage comme personne. »*
-
----
 
 ## 🌱 Cela t'aidera à cultiver...
 
@@ -57,15 +53,11 @@ La cambuse offre une vue privilégiée sur l'état réel de l'équipage.
 - Anticiper le prochain ravitaillement
 - Noter ce qui a bien/moins bien fonctionné
 
----
-
 ## 🗣️ Questions pour t'aider
 
 - Qui n'a pas assez bu/mangé aujourd'hui ?
 - Comment adapter le prochain repas à la météo prévue ?
 - Qu'est-ce qui faciliterait la vie de l'équipage demain ?
-
----
 
 ## 💡 Transposable à terre
 
@@ -86,11 +78,8 @@ Celui·celle qui nourrit voit tout, sait qui va bien, qui décroche, qui a besoi
 *Maiden* (2018) - Alex Holmes  
 L'histoire du premier équipage féminin du Whitbread
 
-**Vidéo recommandée :**
-
-<div class="video-embed">
-<iframe src="https://www.youtube-nocookie.com/embed/klroP1mToFA" title="Portrait de Tracy Edwards" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+**Vidéo recommandée :**  
+[📺 Portrait de Tracy Edwards](https://www.youtube.com/watch?v=klroP1mToFA)
 
 ---
 

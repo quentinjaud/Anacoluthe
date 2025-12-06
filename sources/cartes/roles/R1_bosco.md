@@ -5,15 +5,11 @@
 
 > Le·la bosco veille à l'entretien et à la sécurité matérielle du bateau. Ce rôle développe l'observation préventive, la responsabilité collective sur le matériel et l'autonomie technique. C'est un poste stratégique qui permet à l'équipage de naviguer sereinement.
 
----
-
 ## ✨ Inspiré·e de Bernard Moitessier
 
 Navigateur français (1925-1994), figure légendaire de la voile contemplative et de la longue route. **Bricoleur génial et amoureux de ses bateaux**, il entretenait chaque cordage, chaque poulie avec un soin méticuleux. Pour lui, l'autonomie en mer passait d'abord par **la connaissance intime du bateau et la capacité à tout réparer soi-même**.
 
 Lors du Golden Globe 1968, en tête de la course, il choisit de continuer vers le Pacifique plutôt que de gagner, prolongeant son tour du monde à 37 000 milles. « Je continue parce que je suis heureux en mer », écrira-t-il. Son livre *La Longue Route* reste une référence sur l'autonomie technique et le respect des éléments.
-
----
 
 ## 🌱 Cela t'aidera à cultiver...
 
@@ -45,15 +41,11 @@ Développer la capacité à diagnostiquer et réparer.
 - Préparer les outils pour les réparations du lendemain
 - Faire un point avec le·la mono sur l'état général du bateau
 
----
-
 ## 🗣️ Questions pour t'aider
 
 - Qu'est-ce qui mériterait un coup d'œil aujourd'hui ?
 - Qui peut m'aider à vérifier ce point ?
 - Est-ce qu'on a tout ce qu'il faut pour réparer ça ?
-
----
 
 ## 💡 Transposable à terre
 
@@ -67,11 +59,8 @@ Le soin préventif du matériel collectif (voiture, outils, vélos, matériel pa
 **Livre recommandé :**  
 *La Longue Route* - Bernard Moitessier
 
-**Vidéo recommandée :**
-
-<div class="video-embed">
-<iframe src="https://www.youtube-nocookie.com/embed/Vg8lzaY7TsI" title="Portrait de Bernard Moitessier" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+**Vidéo recommandée :**  
+[📺 Portrait de Bernard Moitessier](https://www.youtube.com/watch?v=Vg8lzaY7TsI)
 
 ---
 

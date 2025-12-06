@@ -1,0 +1,359 @@
+# TECH INTENTIONS - ANACOLUTHE
+
+Référence unique pour les décisions techniques, l'architecture et les conventions du projet.
+
+---
+
+## 🎯 Philosophie technique
+
+### Principe directeur
+
+**Légèreté maximale** : le site doit fonctionner sur mobile en réseau dégradé (bateaux, zones côtières). Chaque KB compte.
+
+### Ce qu'on privilégie
+
+| Principe | Traduction |
+|----------|------------|
+| **Vanilla first** | JS/CSS natifs, pas de frameworks |
+| **Statique** | GitHub Pages, pas de backend |
+| **Cacheable** | Fichiers séparés, versions stables |
+| **Maintenable** | Code lisible > code minifié |
+| **Progressive** | Fonctionne sans JS (contenu lisible) |
+
+### Ce qu'on évite
+
+- ❌ Frameworks JS (React, Vue, etc.)
+- ❌ Bundlers (webpack, vite, etc.)
+- ❌ CSS-in-JS
+- ❌ Dépendances npm côté client
+- ❌ Backend / base de données
+- ❌ Minification (gzip GitHub Pages suffit)
+
+---
+
+## 🏗️ Stack technique
+
+### Hébergement
+
+| Élément | Choix | Raison |
+|---------|-------|--------|
+| **Hosting** | GitHub Pages | Gratuit, CDN, HTTPS auto |
+| **Domaine** | github.io (pour l'instant) | Simplicité |
+| **CI/CD** | Aucun | Déploiement = push sur main |
+
+### Frontend
+
+| Élément | Choix | Raison |
+|---------|-------|--------|
+| **JS** | Vanilla ES6+ | Pas de build, cacheable |
+| **CSS** | Vanilla + variables CSS | Maintenable, pas de préprocesseur |
+| **HTML** | Statique | SEO, accessibilité |
+| **Fonts** | Google Fonts (Merriweather) | CDN, cache longue durée |
+
+### Dépendances externes (CDN)
+
+| Lib | Version | Usage | Taille |
+|-----|---------|-------|--------|
+| **marked.js** | latest | Parsing markdown → HTML | ~30 KB |
+| **Twemoji** | latest | Emojis SVG (print uniquement) | ~10 KB |
+
+### Outils de développement (hors site)
+
+| Outil | Usage |
+|-------|-------|
+| **Puppeteer** | Génération PDF (local) |
+| **GitHub Desktop** | Commits (Quentin) |
+
+---
+
+## 📁 Architecture des fichiers
+
+```
+Anacoluthe/
+├── index.html              # Page d'accueil
+├── anacoluthe.html         # Galerie des cartes (jeu)
+├── afficheur-cartes.html   # Atelier prévisualisation/PDF
+├── print-render.html       # Page Puppeteer (génération PDF)
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css           # Variables + styles communs
+│   │   ├── cards.css           # Tuiles + modales (web)
+│   │   └── cards-print.css     # Styles impression A6
+│   │
+│   ├── js/
+│   │   ├── markdown-utils.js   # Fonctions partagées parsing MD
+│   │   ├── cards-loader.js     # Galerie anacoluthe.html
+│   │   ├── afficheur-cartes.js # Atelier prévisualisation
+│   │   ├── print-render.js     # Rendu Puppeteer
+│   │   └── index.js            # Scroll spy accueil
+│   │
+│   ├── data/
+│   │   └── cards-index.json    # Index des cartes (métadonnées)
+│   │
+│   └── images/
+│       └── logo-anacoluthe.svg
+│
+├── sources/
+│   ├── cartes/                 # Contenu markdown des cartes
+│   │   ├── roles/
+│   │   ├── moments/
+│   │   ├── sos/
+│   │   └── affiches/
+│   │
+│   └── documentation/          # Docs projet
+│       ├── DESIGN_INTENTIONS.md
+│       ├── TECH_INTENTIONS.md      # ← Ce fichier
+│       ├── CARTES_*_INTENTIONS.md
+│       └── work-in-progress/
+│
+├── print/                      # PDFs générés (hors Git)
+│
+└── archives/                   # Versions obsolètes (V4, etc.)
+```
+
+---
+
+## 🔧 Architecture JavaScript
+
+### Principe : modules séparés, pas de bundling
+
+Chaque fichier JS a une responsabilité claire. Pas de bundling = cache navigateur optimal.
+
+### Fichiers et responsabilités
+
+| Fichier | Responsabilité | Dépendances |
+|---------|----------------|-------------|
+| `markdown-utils.js` | Parsing MD, marqueurs, nav sections | marked.js |
+| `cards-loader.js` | Galerie, filtres, modale | markdown-utils.js |
+| `afficheur-cartes.js` | Prévisualisation multi-vues, auto-fit | markdown-utils.js |
+| `print-render.js` | Rendu minimaliste Puppeteer | marked.js |
+| `index.js` | Scroll spy page accueil | - |
+
+### Fonctions partagées (markdown-utils.js)
+
+```javascript
+configureMarked()           // Config marked.js standard
+preprocessMarkdownMarkers() // Traite FLIP pour web/print
+wrapSkipBlocks()           // Wrappe SKIP-PRINT/SKIP-WEB en divs
+parseCardContent()         // Sépare HEAD du body
+generateSectionNav()       // Nav H2 + scroll spy
+applyTwemoji()             // Conversion emojis → SVG
+```
+
+### Chargement des scripts
+
+```html
+<!-- Ordre : dépendances externes → utils → logique page -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="assets/js/markdown-utils.js"></script>
+<script src="assets/js/cards-loader.js"></script>
+```
+
+Pas de `type="module"` pour l'instant (compatibilité), mais architecture prête pour ES6 modules si besoin.
+
+---
+
+## 📝 Conventions de code
+
+### JavaScript
+
+| Convention | Exemple |
+|------------|---------|
+| **Nommage** | camelCase pour fonctions/variables |
+| **Fonctions** | Verbes (`loadCard`, `renderView`) |
+| **Async** | async/await (pas de callbacks) |
+| **DOM** | getElementById, querySelector |
+| **Commentaires** | JSDoc pour fonctions exportées |
+
+### CSS
+
+| Convention | Exemple |
+|------------|---------|
+| **Nommage** | kebab-case (`.card-tile-header`) |
+| **Variables** | `--nom-semantique` (`--teal-700`) |
+| **Organisation** | Par composant, commentaires sections |
+| **Unités** | `rem`/`em` web, `mm`/`pt` print |
+
+### HTML
+
+| Convention | Exemple |
+|------------|---------|
+| **IDs** | kebab-case (`card-select`) |
+| **Classes** | BEM-like (`card-tile-tags-title`) |
+| **Attributs data** | `data-card-id`, `data-type` |
+
+### Markdown (contenu cartes)
+
+Voir DESIGN_INTENTIONS.md pour les marqueurs (`<!-- HEAD -->`, `<!-- FLIP -->`, etc.)
+
+---
+
+## ✍️ Conventions d'écriture
+
+### Tirets - CRITIQUE
+
+```
+❌ Jamais : — (cadratin) ou – (demi-cadratin)
+✅ Toujours : - (tiret simple, touche clavier)
+```
+
+Raison : accessibilité clavier, cohérence, parsing fiable.
+
+### Écriture inclusive
+
+| Forme | Exemple |
+|-------|---------|
+| **Point médian** | `le·la mono`, `chacun·e` |
+| **Néologismes** | `navigateurice`, `moniteurice` |
+| **Pronom neutre** | `iel` |
+
+Tiret simple pour le point médian : `·` (pas `•`).
+
+### Titres markdown
+
+```markdown
+❌ # **Titre en gras**
+✅ # Titre simple
+```
+
+Le CSS gère le gras des titres.
+
+---
+
+## 🔄 Workflow Git
+
+### Branches
+
+| Branche | Usage |
+|---------|-------|
+| `main` | Production (GitHub Pages) |
+| `dev` | Développement (si besoin) |
+
+Pour l'instant, travail direct sur `main` (projet solo).
+
+### Commits
+
+| Type | Format |
+|------|--------|
+| **Feature** | `feat: description` |
+| **Fix** | `fix: description` |
+| **Refactor** | `refactor: description` |
+| **Docs** | `docs: description` |
+| **Style** | `style: description` |
+
+Exemple : `refactor: extraction JS inline vers fichiers séparés`
+
+### Workflow quotidien
+
+1. Modifications locales (VS Code / Claude)
+2. Test navigateur local
+3. Commit via GitHub Desktop (Quentin)
+4. Push → déploiement auto GitHub Pages
+
+---
+
+## 🏷️ Versionnage
+
+### Documents fonctionnels (cartes, affiches)
+
+Footer avec date : `V_AAMMJJ`
+
+```markdown
+---
+*Version : V_251206*
+```
+
+### Fichiers sources (code, docs techniques)
+
+Pas de version dans le fichier. Git fait foi.
+
+### Format date
+
+`AAMMJJ` ou `AAMMJJH` si plusieurs versions/jour.
+
+Exemple : `251206` = 6 décembre 2025
+
+---
+
+## 📊 Métriques de référence
+
+### Tailles fichiers (décembre 2025)
+
+| Catégorie | Fichiers | Total |
+|-----------|----------|-------|
+| **CSS** | 3 fichiers | ~56 KB |
+| **JS** | 5 fichiers | ~44 KB |
+| **HTML** | 4 pages | ~95 KB |
+| **Total statique** | - | ~195 KB |
+
+Avec gzip GitHub Pages : ~50 KB transférés.
+
+### Performance cible
+
+| Métrique | Cible |
+|----------|-------|
+| **First paint** | < 1s (3G) |
+| **Interactive** | < 2s (3G) |
+| **Lighthouse perf** | > 90 |
+
+---
+
+## 🧭 Décisions et raisons
+
+### Pourquoi pas de framework JS ?
+
+- Taille : React = 40+ KB, Vue = 30+ KB (avant le code app)
+- Complexité : build step, node_modules
+- Durabilité : vanilla JS fonctionne dans 10 ans
+- Contexte : site de contenu, pas d'app complexe
+
+### Pourquoi pas de minification ?
+
+- Gzip GitHub Pages compresse déjà à ~75%
+- Gain minif+gzip vs gzip seul : ~8 KB sur 72 KB
+- Code lisible = debug et maintenance plus faciles
+- Pas de build step = workflow simple
+
+### Pourquoi Twemoji seulement en print ?
+
+- **Web** : emojis natifs (0 KB, rendu OS)
+- **Print** : Twemoji SVG (rendu identique cross-platform pour PDF)
+
+### Pourquoi marked.js ?
+
+- Léger (~30 KB)
+- Pas de dépendances
+- Extensible (custom renderers si besoin)
+- Bien maintenu
+
+### Pourquoi pas de localStorage ?
+
+- Contenu public, pas de personnalisation
+- Pas de compte utilisateur
+- Stateless = simple
+
+---
+
+## 🔮 Évolutions possibles
+
+### Si le projet grossit
+
+| Besoin | Solution envisagée |
+|--------|-------------------|
+| **Plus de JS** | ES6 modules natifs (`type="module"`) |
+| **Tests** | Playwright pour tests E2E |
+| **PWA** | Service worker pour offline |
+| **i18n** | Fichiers JSON par langue |
+
+### Ce qu'on ne fera probablement pas
+
+- Migration vers framework JS
+- Backend / API
+- Base de données
+- Authentification
+
+---
+
+*Document créé le 6 décembre 2025*
+*Anacoluthe V5 - CC-BY-NC-SA*

@@ -1,6 +1,8 @@
 # DESIGN INTENTIONS - ANACOLUTHE
 
-Référence unique pour toutes les décisions graphiques et techniques du projet, print et web.
+Référence pour les décisions **visuelles** : couleurs, typographie, emojis, supports print.
+
+Pour l'architecture code et les conventions techniques → voir `TECH_INTENTIONS.md`
 
 ---
 
@@ -27,22 +29,16 @@ Un design **léger, accessible et chaleureux** qui reflète l'esprit du projet :
 - ❌ Typographies fantaisie
 - ❌ Surcharge graphique
 - ❌ Couleurs trop saturées
-- ❌ Iframes (YouTube, etc.) - problèmes de parsing, tracking, poids
+- ❌ Iframes (YouTube, etc.)
 
 ### Médias externes (vidéos)
 
-**Pas d'iframes** dans le markdown. Liens simples avec emoji 📺 :
+Liens simples avec emoji 📺, pas d'iframes :
 
 ```markdown
 **Vidéo recommandée :**  
 [📺 Titre de la vidéo](https://www.youtube.com/watch?v=XXX)
 ```
-
-Raisons :
-- Légèreté (0 KB de tracking externe)
-- Parsing markdown fiable
-- Fonctionne hors-ligne (le lien reste lisible)
-- Print-friendly
 
 ---
 
@@ -89,12 +85,6 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 | **Sous-titres** | Merriweather Sans | 600 |
 | **Corps** | Merriweather (serif) | 300 |
 | **Labels/Tags** | Merriweather Sans | 600 |
-
-### Import Google Fonts
-
-```css
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Merriweather+Sans:wght@400;600;700;800&display=swap');
-```
 
 ### Tailles
 
@@ -148,11 +138,8 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 
 | Contexte | Emojis | Raison |
 |----------|--------|--------|
-| Site public (`index.html`, `anacoluthe.html`) | **Natifs** | Légèreté (0 KB) |
-| Atelier (`afficheur-cartes.html`) | **Twemoji** | Rendu identique print |
-| PDFs générés | **Twemoji** | Via Puppeteer |
-
-**Coût Twemoji** : ~50-100KB + 20 requêtes par page. Acceptable pour les outils de production, pas pour le site public.
+| Site public | **Natifs** | Légèreté (0 KB) |
+| Atelier / PDFs | **Twemoji** | Rendu identique cross-platform |
 
 ---
 
@@ -173,17 +160,10 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 
 ### Emoji débordant (cartes)
 
-Position "badge" en haut à gauche, débordant du cadre.
-
-```css
-.card-emoji {
-    position: absolute;
-    top: -1.5rem;
-    left: 1rem;
-    font-size: 3.5rem;
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
-}
-```
+Position "badge" en haut à gauche, débordant du cadre :
+- Taille : 3.5rem
+- Position : `top: -1.5rem`, `left: 1rem`
+- Ombre très légère
 
 ---
 
@@ -195,31 +175,13 @@ Les fichiers cartes utilisent des commentaires HTML invisibles pour structurer l
 
 Sépare l'entête (H1 + H6) du corps.
 
-```markdown
-# 🔧 BOSCO
-###### Le·la gardien·ne du bateau
-
-<!-- HEAD -->
-
-> Description...
-```
-
-- **Avant** = `nav-head` (sticky desktop, scroll mobile)
-- **Après** = `card-content`
+- **Avant** = `nav-head` (sticky desktop)
+- **Après** = `card-content` (scrollable)
 - Un seul par fichier
 
 ### `<!-- FLIP -->` - Recto/verso
 
 Indique où couper pour le PDF A6.
-
-```markdown
-Contenu recto...
-
-<!-- FLIP -->
-
-## 🔧 TES MISSIONS
-Contenu verso...
-```
 
 - **Avant** = recto (page 1)
 - **Après** = verso (page 2)
@@ -227,37 +189,17 @@ Contenu verso...
 
 ### `<!-- SKIP-PRINT -->` - Masquer en impression
 
-```markdown
-<!-- SKIP-PRINT -->
+Contenu visible sur web, masqué en PDF.
 
-## 📚 Pour aller plus loin
-[Contenu web-only : vidéos, liens...]
-```
-
-**Portée** : jusqu'au prochain H2 (en sautant celui juste après), `---`, ou fin de fichier.
-
-| Contexte | Visible ? |
-|----------|----------|
-| Web | ✅ |
-| Print/PDF | ❌ |
+**Portée** : jusqu'au prochain H2, `---`, ou fin de fichier.
 
 ### `<!-- SKIP-WEB -->` - Masquer sur le web
 
-```markdown
-<!-- SKIP-WEB -->
-
-## 📱 QR Code
-[Contenu print-only]
-```
-
-| Contexte | Visible ? |
-|----------|----------|
-| Web | ❌ |
-| Print/PDF | ✅ |
+Contenu visible en PDF, masqué sur web (ex: QR codes).
 
 ---
 
-## 📄 Spécifications par support
+## 📄 Spécifications supports
 
 ### Cartes A6 (105 × 148 mm)
 
@@ -270,34 +212,13 @@ Contenu verso...
 
 - **Format** : Plastifié, affichage permanent
 - **Marges** : 10mm
-- **Orientation** : Portrait ou paysage selon contenu
 
 ### Site web
 
 - **Largeur max** : 1200px
-- **Responsive** : Mobile-first, breakpoints 768px / 1024px
+- **Responsive** : Mobile-first
 - **Fond** : `#FFFDF9`
 - **Gap grille cartes** : 2.5rem (pour emoji débordant)
-
----
-
-## 📁 Architecture fichiers
-
-### Séparation site / outils
-
-```
-anacoluthe.html       → Consultation publique (léger)
-afficheur-cartes.html → Production/preview (peut être lourd)
-scripts/              → Node.js (pas chargé navigateur)
-```
-
-### Séparation contenu / présentation
-
-```
-sources/              → Markdown pur (contenu)
-assets/css/           → Styles (présentation)
-assets/data/          → JSON (métadonnées)
-```
 
 ---
 
@@ -305,49 +226,18 @@ assets/data/          → JSON (métadonnées)
 
 **Principe** : WYSIWYG - ce qu'on voit dans `afficheur-cartes.html` = ce qu'on obtient en PDF.
 
-| Étape | Outil | Fonction |
-|-------|-------|----------|
-| Preview | HTML/CSS | Contrôle visuel |
-| Render | Puppeteer | Chrome headless → PDF A6 |
-| Assemble | pdf-lib | Assemblage livrets A4 |
-
-### Commandes
-
-```bash
-npm run print         # Génère tout
-npm run render        # PDFs A6 uniquement
-npm run assemble      # Livrets A4 uniquement
-```
+| Étape | Outil |
+|-------|-------|
+| Preview | afficheur-cartes.html |
+| Render | Puppeteer → PDF A6 |
+| Assemble | pdf-lib → livrets A4 |
 
 ### Spécifications impression
 
 - **Papier** : 200-250g/m² cartonné
-- **Mode** : Recto-verso bord long, portrait, 100%
-- **Découpe** : Coupe croisée au centre de l'A4
+- **Mode** : Recto-verso bord long
+- **Découpe** : Coupe croisée au centre A4
 - **Finition** : Plastification 80-125 microns
-
----
-
-## ✍️ Conventions
-
-### Tirets
-
-**UNIQUEMENT `-`** (tiret simple du clavier).
-
-❌ Jamais `—` (cadratin) ni `–` (demi-cadratin)
-
-### Titres Markdown
-
-❌ Pas de `**bold**` dans les titres h1-h6
-
-Les titres sont stylés en gras via CSS.
-
-### Versionnage
-
-| Type | Convention |
-|------|------------|
-| Docs fonctionnels | Footer `V_AAMMJJ` |
-| Sources/cartes | Pas de version (Git) |
 
 ---
 
@@ -375,16 +265,14 @@ Anacoluthe !?                           CC-BY-NC-SA
 
 Avant de finaliser un support :
 
-- [ ] Couleurs cohérentes avec le type (rôle/moment/SOS/affiche)
-- [ ] Typographie correcte (Merriweather / Merriweather Sans)
+- [ ] Couleurs cohérentes avec le type
+- [ ] Typographie correcte
 - [ ] Emoji présent et bien positionné
-- [ ] Densité texte respectée (~900 car/face pour A6)
-- [ ] Marges suffisantes pour découpe
+- [ ] Densité texte respectée
+- [ ] Marges suffisantes
 - [ ] Footer présent
-- [ ] Contraste suffisant (lecture extérieure)
-- [ ] Test impression avant série
+- [ ] Contraste suffisant
 
 ---
 
-*Dernière mise à jour : 5 décembre 2025*
 *Anacoluthe !? - CC-BY-NC-SA*

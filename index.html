@@ -295,35 +295,7 @@
         </div>
     </footer>
 
-    <script>
-    // Scroll spy - surligne la pill de la section visible
-    document.addEventListener('DOMContentLoaded', function() {
-        const sections = document.querySelectorAll('section[id]');
-        const navPills = document.querySelectorAll('.nav-pill[href^="#"]');
-        
-        function updateActiveNav() {
-            let current = '';
-            const scrollPos = window.scrollY + window.innerHeight / 3;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navPills.forEach(pill => {
-                pill.classList.remove('active');
-                if (pill.getAttribute('href') === '#' + current) {
-                    pill.classList.add('active');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', updateActiveNav);
-        updateActiveNav();
-    });
-    </script>
+    <!-- Scroll spy pour navigation -->
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

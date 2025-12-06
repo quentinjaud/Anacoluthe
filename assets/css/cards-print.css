@@ -246,13 +246,17 @@
 /* Listes */
 .print-card-content ul,
 .print-card-content ol {
-    margin: 0 0 0.55em 1.1em;
-    padding: 0;
+    margin: 0 0 0.55em 0;
+    padding: 0 0 0 1.4em;  /* padding-left au lieu de margin pour garder les puces visibles */
+    list-style-position: outside;
 }
 
 .print-card-content li {
     margin: 0;
     padding: 0;
+    /* Éviter que les puces soient coupées si rognage */
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 /* Couleur des puces/numéros (accent) */

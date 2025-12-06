@@ -17,8 +17,10 @@ async function autoFit(cardEl, contentEl) {
     const MIN_SIZE = 6;     // pt
     const MAX_SIZE = 10;    // pt
     const STEP = 0.25;      // pt
+    const SAFETY_THRESHOLD = 3; // Nb de steps avant d'appliquer marge de sécurité
     
     let currentSize = MAX_SIZE;
+    let stepsReduced = 0;
     
     // Debug : afficher les dimensions initiales
     console.log(`Auto-fit init: scrollHeight=${contentEl.scrollHeight}, clientHeight=${contentEl.clientHeight}`);
@@ -30,21 +32,24 @@ async function autoFit(cardEl, contentEl) {
     // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)
     while (checkOverflow() && currentSize > MIN_SIZE) {
         currentSize -= STEP;
+        stepsReduced++;
         contentEl.style.fontSize = `${currentSize}pt`;
         
         // Attendre le re-layout
         await new Promise(r => setTimeout(r, 20));
     }
     
-    // Si on a réduit, faire un step de plus pour la marge de sécurité
-    if (currentSize < MAX_SIZE && currentSize > MIN_SIZE) {
+    // Marge de sécurité : seulement si réduction significative (>= 3 steps = 0.75pt)
+    // Évite de trop réduire pour des micro-overflows
+    if (stepsReduced >= SAFETY_THRESHOLD && currentSize > MIN_SIZE) {
         currentSize -= STEP;
         contentEl.style.fontSize = `${currentSize}pt`;
+        console.log(`Auto-fit: marge de sécurité appliquée (${stepsReduced} steps)`);
     }
     
     // Log
     if (currentSize < MAX_SIZE) {
-        console.log(`Auto-fit: taille réduite à ${currentSize}pt`);
+        console.log(`Auto-fit: taille réduite à ${currentSize}pt (${stepsReduced} steps)`);
     } else {
         console.log(`Auto-fit: taille conservée à ${MAX_SIZE}pt`);
     }

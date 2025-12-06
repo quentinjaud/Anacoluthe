@@ -8,6 +8,13 @@
 
 ## 🔄 DERNIÈRES MODIFICATIONS (251206)
 
+### Session 2 - Générateur PDF
+- Ajout suffixe `_overflow` pour cartes dont le contenu déborde même à 6pt
+- Amélioration auto-fit : marge sécurité conditionnelle (≥3 steps)
+- Mode DEBUG enrichi : dimensions, typographie, screenshots, stats
+- Documentation complète dans TECH_INTENTIONS.md (section "🖨️ Génération PDF")
+
+### Session 1 - Architecture
 - Extraction JS inline → fichiers séparés (`afficheur-cartes.js`, `print-render.js`, `index.js`)
 - Création `TECH_INTENTIONS.md` (architecture, conventions, workflow)
 - Nettoyage `DESIGN_INTENTIONS.md` (suppression doublons techniques)
@@ -36,7 +43,7 @@
 | Affiches A4 | 3 | ✅ COMPLET |
 | Mémos affiches | 3 | 🟠 PROTOS À VALIDER |
 | Site web | 1 | ✅ EN LIGNE |
-| Générateur PDF | 1 | ✅ OPÉRATIONNEL |
+| Générateur PDF | 1 | ✅ OPÉRATIONNEL (debug + overflow) |
 | Guides | ? | ⬜ À DÉFINIR |
 
 **Total éléments fixes** : 21 (hors guides)

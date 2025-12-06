@@ -41,14 +41,16 @@ const CONFIG = {
 // Mode debug (activé par [debug] dans le commit ou DEBUG=true)
 const DEBUG = process.env.DEBUG === 'true';
 
-// Stats pour le résumé final (mode debug)
+// Stats pour le résumé final
 const stats = {
   startTime: Date.now(),
   cardsProcessed: 0,
   cardsSuccess: 0,
   cardsFailed: 0,
+  cardsWithOverflow: 0,
   totalRenderTime: 0,
   autoFitReductions: [],
+  overflowCards: [],
   errors: []
 };
 
@@ -176,10 +178,12 @@ function getCardsToProcess(target) {
 
 /**
  * Génère un PDF A6 pour une face de carte
+ * @returns {{ buffer: Buffer, hasOverflow: boolean }} PDF buffer et flag overflow persistant
  */
 async function renderCardFace(page, cardId, face, baseUrl) {
   const faceStartTime = Date.now();
   const url = `${baseUrl}/print-render.html?card=${cardId}&face=${face}`;
+  let hasOverflow = false; // Overflow persistant (même à taille min)
   
   if (DEBUG) {
     console.log(`\n   📄 Rendering ${face}...`);
@@ -323,6 +327,24 @@ async function renderCardFace(page, cardId, face, baseUrl) {
     stats.totalRenderTime += faceTime;
   }
   
+  // Détecter overflow persistant (même en mode non-DEBUG)
+  // Overflow = taille min (6pt) ET contenu dépasse encore
+  const overflowInfo = await page.evaluate(() => {
+    const content = document.getElementById('content');
+    if (!content) return { isOverflowing: false, fontSize: null };
+    const styles = getComputedStyle(content);
+    const fontSize = parseFloat(styles.fontSize);
+    const isOverflowing = content.scrollHeight > content.clientHeight;
+    return { isOverflowing, fontSize };
+  });
+  
+  // Overflow persistant = à la taille min (6pt) et déborde encore
+  const MIN_FONT_SIZE = 6;
+  if (overflowInfo.fontSize <= MIN_FONT_SIZE && overflowInfo.isOverflowing) {
+    hasOverflow = true;
+    console.log(`  ⚠️ ${cardId} (${face}): overflow persistant à ${overflowInfo.fontSize}pt`);
+  }
+  
   // Générer le PDF
   const pdfBuffer = await page.pdf({
     width: `${CONFIG.pageWidth}mm`,
@@ -331,7 +353,7 @@ async function renderCardFace(page, cardId, face, baseUrl) {
     margin: { top: 0, right: 0, bottom: 0, left: 0 }
   });
   
-  return pdfBuffer;
+  return { buffer: pdfBuffer, hasOverflow };
 }
 
 /**
@@ -388,16 +410,19 @@ async function renderCard(browser, card, baseUrl) {
   
   try {
     // Générer recto et verso
-    const rectoBuffer = await renderCardFace(page, card.id, 'recto', baseUrl);
-    const versoBuffer = await renderCardFace(page, card.id, 'verso', baseUrl);
+    const rectoResult = await renderCardFace(page, card.id, 'recto', baseUrl);
+    const versoResult = await renderCardFace(page, card.id, 'verso', baseUrl);
+    
+    // Détecter si au moins une face a un overflow persistant
+    const hasOverflow = rectoResult.hasOverflow || versoResult.hasOverflow;
     
     // Fusionner les 2 pages avec pdf-lib
     const { PDFDocument } = require('pdf-lib');
     
     const mergedPdf = await PDFDocument.create();
     
-    const rectoPdf = await PDFDocument.load(rectoBuffer);
-    const versoPdf = await PDFDocument.load(versoBuffer);
+    const rectoPdf = await PDFDocument.load(rectoResult.buffer);
+    const versoPdf = await PDFDocument.load(versoResult.buffer);
     
     const [rectoPage] = await mergedPdf.copyPages(rectoPdf, [0]);
     const [versoPage] = await mergedPdf.copyPages(versoPdf, [0]);
@@ -408,18 +433,27 @@ async function renderCard(browser, card, baseUrl) {
     const pdfBytes = await mergedPdf.save();
     
     // Sauvegarder - utiliser le nom du fichier source (sans extension)
+    // Ajouter _overflow si contenu déborde même à la taille min
     const baseName = path.basename(card.path, '.md');
-    const outputPath = path.join(CONFIG.outputDir, `${baseName}.pdf`);
+    const suffix = hasOverflow ? '_overflow' : '';
+    const outputPath = path.join(CONFIG.outputDir, `${baseName}${suffix}.pdf`);
     fs.writeFileSync(outputPath, pdfBytes);
     
     const cardTime = Date.now() - cardStartTime;
     stats.cardsSuccess++;
     
+    // Tracker les cartes avec overflow
+    if (hasOverflow) {
+      stats.cardsWithOverflow++;
+      stats.overflowCards.push(baseName);
+    }
+    
     if (DEBUG) {
       const pdfSize = pdfBytes.length;
-      console.log(`\n   ✅ ${baseName}.pdf (${(pdfSize / 1024).toFixed(1)} KB, ${cardTime}ms)`);
+      console.log(`\n   ✅ ${baseName}${suffix}.pdf (${(pdfSize / 1024).toFixed(1)} KB, ${cardTime}ms)`);
     } else {
-      console.log(`  ✅ ${baseName}.pdf`);
+      const icon = hasOverflow ? '⚠️' : '✅';
+      console.log(`  ${icon} ${baseName}${suffix}.pdf`);
     }
     
   } catch (err) {
@@ -445,7 +479,16 @@ function logSummary() {
   console.log('');
   console.log(`   Cartes traitées: ${stats.cardsProcessed}`);
   console.log(`   ✅ Succès: ${stats.cardsSuccess}`);
+  console.log(`   ⚠️  Overflow: ${stats.cardsWithOverflow}`);
   console.log(`   ❌ Échecs: ${stats.cardsFailed}`);
+  
+  if (stats.overflowCards.length > 0) {
+    console.log('');
+    console.log(`   🚨 Cartes avec overflow persistant (${stats.overflowCards.length}):`);
+    stats.overflowCards.forEach(name => {
+      console.log(`      - ${name}_overflow.pdf`);
+    });
+  }
   
   if (stats.autoFitReductions.length > 0) {
     console.log('');
@@ -527,7 +570,10 @@ async function main() {
   // Résumé en mode debug
   logSummary();
   
-  console.log(`\n✅ Render terminé : ${stats.cardsSuccess}/${stats.cardsProcessed} PDFs générés dans ${CONFIG.outputDir}/\n`);
+  const overflowNote = stats.cardsWithOverflow > 0 
+    ? ` (⚠️ ${stats.cardsWithOverflow} avec overflow)` 
+    : '';
+  console.log(`\n✅ Render terminé : ${stats.cardsSuccess}/${stats.cardsProcessed} PDFs générés dans ${CONFIG.outputDir}/${overflowNote}\n`);
 }
 
 main().catch(err => {

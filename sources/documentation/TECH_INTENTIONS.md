@@ -62,7 +62,88 @@ Référence unique pour les décisions techniques, l'architecture et les convent
 | Outil | Usage |
 |-------|-------|
 | **Puppeteer** | Génération PDF (local) |
+| **pdf-lib** | Fusion pages PDF |
 | **GitHub Desktop** | Commits (Quentin) |
+
+---
+
+## 🖨️ Génération PDF
+
+### Script principal
+
+`scripts/render-cards.js` - Génère les PDFs A6 individuels via Puppeteer.
+
+**Principe** : Utilise `print-render.html` comme source unique de vérité (WYSIWYG). Ce qui est affiché dans le navigateur = ce qui est imprimé.
+
+### Commandes
+
+```bash
+# Générer toutes les cartes
+npm run render
+
+# Filtrer par type
+npm run render -- roles
+npm run render -- moments
+npm run render -- sos
+npm run render -- affiches
+
+# Mode debug (screenshots + logs détaillés)
+DEBUG=true npm run render
+```
+
+### Output
+
+```
+print/cartes/
+├── R1_bosco.pdf              # Carte normale
+├── A2_tableau_memo_overflow.pdf  # Contenu trop long
+└── ...
+```
+
+### Suffixe `_overflow`
+
+Quand le contenu déborde même à la taille de police minimum (6pt), le PDF est renommé avec le suffixe `_overflow`. Cela signale que **le contenu markdown doit être raccourci** - ce n'est pas un problème technique.
+
+| Cas | Nom fichier | Action |
+|-----|-------------|--------|
+| Contenu OK | `R1_bosco.pdf` | ✅ Rien |
+| Contenu trop long | `A2_tableau_memo_overflow.pdf` | ✏️ Raccourcir le .md |
+
+### Auto-fit
+
+Le système ajuste automatiquement la taille de police pour faire tenir le contenu :
+
+| Paramètre | Valeur |
+|-----------|--------|
+| **Taille max** | 10pt |
+| **Taille min** | 6pt |
+| **Pas** | 0.25pt |
+| **Marge sécurité** | Appliquée si ≥3 steps de réduction |
+
+Si le contenu déborde encore à 6pt → suffixe `_overflow`.
+
+### Mode DEBUG
+
+Activé via `DEBUG=true`, affiche pour chaque carte :
+
+- Dimensions (body, card, content)
+- Typographie (font-size, line-height, fonts chargées)
+- Détection overflow (avec pixels de dépassement)
+- Screenshots dans `print/debug-{cardId}-{face}.png`
+- Logs console de la page
+- Temps de rendu
+
+Résumé final :
+```
+🔍 ===== DEBUG: RÉSUMÉ =====
+   Cartes traitées: 18
+   ✅ Succès: 17
+   ⚠️  Overflow: 1
+   ❌ Échecs: 0
+   
+   🚨 Cartes avec overflow persistant (1):
+      - A2_tableau_memo_overflow.pdf
+```
 
 ---
 

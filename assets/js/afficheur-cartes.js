@@ -5,21 +5,10 @@
  * Dépendances : marked.js, twemoji, markdown-utils.js
  */
 
-// Configuration auto-fit (lit les variables CSS de cards-print.css)
-const AUTOFIT = {
-    get baseSize() {
-        return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-base-font-size')) || 10;
-    },
-    get minSize() {
-        return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-min')) || 6;
-    },
-    get maxSize() {
-        return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-max')) || 10;
-    },
-    get step() {
-        return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-font-size-step')) || 0.25;
-    }
-};
+// Lecture des valeurs CSS pour l'affichage (indicateurs, vue tech)
+function getCssValue(prop, fallback) {
+    return parseFloat(getComputedStyle(document.documentElement).getPropertyValue(prop)) || fallback;
+}
 
 // État global
 let cardsIndex = null;
@@ -415,8 +404,9 @@ async function renderPrintView(card, markdown) {
         versoContent.style.fontSize = '';
         checkOverflow(recto);
         checkOverflow(verso);
-        updateFontIndicator('recto', AUTOFIT.baseSize, false);
-        updateFontIndicator('verso', AUTOFIT.baseSize, false);
+        const baseSize = getCssValue('--print-base-font-size', 11);
+        updateFontIndicator('recto', baseSize, false);
+        updateFontIndicator('verso', baseSize, false);
     }
     
     // Mettre à jour les sources
@@ -561,7 +551,8 @@ async function renderMobileView(card, markdown) {
 function renderTechView(card) {
     // Récupérer la taille de base actuelle (après auto-fit)
     const rectoContent = document.querySelector('#card-recto .print-card-content');
-    let baseSize = AUTOFIT.baseSize;
+    const defaultBaseSize = getCssValue('--print-base-font-size', 11);
+    let baseSize = defaultBaseSize;
     
     if (rectoContent && rectoContent.style.fontSize) {
         baseSize = parseFloat(rectoContent.style.fontSize);
@@ -581,7 +572,7 @@ function renderTechView(card) {
         if (el) {
             const size = (baseSize * ratios[key]).toFixed(2);
             el.textContent = `${size}pt`;
-            if (baseSize < AUTOFIT.baseSize) {
+            if (baseSize < defaultBaseSize) {
                 el.style.color = 'var(--rouge-glenans)';
                 el.style.fontWeight = '600';
             } else {
@@ -613,37 +604,30 @@ function renderTechView(card) {
 }
 
 /**
- * Auto-fit : réduit la taille de police jusqu'à ce que le contenu tienne
+ * Auto-fit wrapper : utilise le module partagé et gère l'UI
  */
 function autoFitContent(faceEl, faceId) {
     const content = faceEl.querySelector('.print-card-content');
     const warning = faceEl.querySelector('.overflow-warning');
     
-    let currentSize = AUTOFIT.maxSize;
+    // Appeler la fonction centralisée du module partagé
+    const { finalSize, wasReduced } = autoFit(faceEl, content);
     
-    const isOverflowing = () => {
-        const prevOverflow = content.style.overflow;
-        content.style.overflow = 'visible';
-        const overflows = content.scrollHeight > content.clientHeight;
-        content.style.overflow = prevOverflow || 'hidden';
-        return overflows;
-    };
+    // Vérifier si ça déborde encore (taille min atteinte)
+    const prevOverflow = content.style.overflow;
+    content.style.overflow = 'visible';
+    const stillOverflows = content.scrollHeight > content.clientHeight;
+    content.style.overflow = prevOverflow || 'hidden';
     
-    while (isOverflowing() && currentSize > AUTOFIT.minSize) {
-        currentSize -= AUTOFIT.step;
-        content.style.fontSize = currentSize + 'pt';
-    }
-    
-    const stillOverflows = isOverflowing();
-    
+    // Gérer l'UI : warning
     if (stillOverflows) {
         warning.classList.remove('hidden');
     } else {
         warning.classList.add('hidden');
     }
     
-    const wasReduced = currentSize < AUTOFIT.maxSize;
-    updateFontIndicator(faceId, currentSize, wasReduced);
+    // Gérer l'UI : indicateur de taille
+    updateFontIndicator(faceId, finalSize, wasReduced);
 }
 
 /**
@@ -653,8 +637,10 @@ function updateFontIndicator(faceId, size, reduced) {
     const indicator = document.getElementById(`font-indicator-${faceId}`);
     if (!indicator) return;
     
+    const maxSize = getCssValue('--print-font-size-max', 11);
+    
     if (reduced) {
-        indicator.textContent = `Texte: ${size.toFixed(2)}pt (réduit de ${AUTOFIT.maxSize}pt)`;
+        indicator.textContent = `Texte: ${size.toFixed(2)}pt (réduit de ${maxSize}pt)`;
         indicator.classList.add('reduced');
     } else {
         indicator.textContent = `Texte: ${size}pt`;

@@ -75,7 +75,7 @@
     --print-base-font-size: 11pt;
     --print-font-size-min: 5.5pt;
     --print-font-size-max: 11pt;
-    --print-font-size-step: 0.25pt;
+    --print-font-size-step: 0.1pt;
     
     /* Ratios pour les titres (en em, relatifs à --print-base-font-size) */
     --print-h1-size: 1.8em;     /* ~18pt à base 10pt */
@@ -228,6 +228,12 @@
     margin: 0 0 0.55em 0;
     padding: 0;
     text-align: left;
+}
+
+/* Dernier élément - pas de margin-bottom (évite espace perdu en auto-fit) */
+.print-card-content > *:last-child,
+.print-card-content > *:last-child > *:last-child {
+    margin-bottom: 0;
 }
 
 /* Citations */

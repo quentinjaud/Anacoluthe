@@ -6,42 +6,8 @@
  *   ?card=R1     ID de la carte
  *   &face=recto  recto ou verso
  * 
- * Dépendances : marked.js, twemoji
+ * Dépendances : marked.js, twemoji, markdown-utils.js
  */
-
-/**
- * Auto-fit : réduit la taille de police si le contenu déborde
- * Détection simplifiée - vérification manuelle du PDF recommandée
- */
-async function autoFit(cardEl, contentEl) {
-    const MIN_SIZE = 5.5;   // pt
-    const MAX_SIZE = 11;    // pt
-    const STEP = 0.25;      // pt
-    
-    let currentSize = MAX_SIZE;
-    
-    // Mesurer overflow : height:auto temporaire pour obtenir la vraie hauteur
-    const checkOverflow = () => {
-        const savedHeight = contentEl.style.height;
-        contentEl.style.height = 'auto';
-        const contentHeight = contentEl.scrollHeight;
-        const availableHeight = cardEl.clientHeight;
-        contentEl.style.height = savedHeight;
-        return contentHeight > availableHeight;
-    };
-    
-    // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)
-    while (checkOverflow() && currentSize > MIN_SIZE) {
-        currentSize -= STEP;
-        contentEl.style.fontSize = `${currentSize}pt`;
-        await new Promise(r => setTimeout(r, 10));
-    }
-    
-    // Log
-    if (currentSize < MAX_SIZE) {
-        console.log(`Auto-fit: ${currentSize}pt`);
-    }
-}
 
 /**
  * Initialisation : charge et rend la carte
@@ -105,7 +71,6 @@ async function init() {
         content = content.replace('<!-- HEAD -->', '');
         
         // 7. Retirer les blocs SKIP-PRINT
-        // Pattern: marqueur + whitespace + optionnellement le H2 de section + contenu jusqu'au prochain délimiteur
         content = content.replace(
             /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
             ''
@@ -117,16 +82,19 @@ async function init() {
         // 9. Parser le markdown
         contentEl.innerHTML = marked.parse(content);
         
-        // 10. Twemoji
-        twemoji.parse(contentEl, { folder: 'svg', ext: '.svg' });
+        // 10. Twemoji (via module partagé)
+        applyTwemoji(contentEl);
         
         // 11. Attendre les fonts
         await document.fonts.ready;
         
-        // 12. Auto-fit : réduire la taille si débordement
-        await autoFit(cardEl, contentEl);
+        // 12. Petit délai pour le layout initial
+        await new Promise(r => setTimeout(r, 50));
         
-        // 13. Signaler que c'est prêt
+        // 13. Auto-fit via module partagé
+        autoFit(cardEl, contentEl);
+        
+        // 14. Signaler que c'est prêt
         document.body.classList.add('card-ready');
         
     } catch (err) {

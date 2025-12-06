@@ -233,6 +233,54 @@ function applyTwemoji(element) {
     }
 }
 
+/**
+ * Auto-fit : réduit la taille de police jusqu'à ce que le contenu tienne
+ * 
+ * Lit les variables CSS pour les limites (ou utilise les valeurs par défaut).
+ * Fonctionne de façon synchrone pour le layout navigateur.
+ * 
+ * @param {HTMLElement} cardEl - L'élément carte parent (.print-card-face)
+ * @param {HTMLElement} contentEl - L'élément contenu (.print-card-content)
+ * @param {Object} options - Options optionnelles
+ * @param {number} options.minSize - Taille minimale en pt (défaut: lit CSS ou 5.5)
+ * @param {number} options.maxSize - Taille maximale en pt (défaut: lit CSS ou 11)
+ * @param {number} options.step - Pas de réduction en pt (défaut: lit CSS ou 0.25)
+ * @returns {Object} - { finalSize, wasReduced }
+ */
+function autoFit(cardEl, contentEl, options = {}) {
+    // Lire les valeurs CSS ou utiliser les défauts
+    const cssRoot = getComputedStyle(document.documentElement);
+    const minSize = options.minSize !== undefined ? options.minSize : (parseFloat(cssRoot.getPropertyValue('--print-font-size-min')) || 5.5);
+    const maxSize = options.maxSize !== undefined ? options.maxSize : (parseFloat(cssRoot.getPropertyValue('--print-font-size-max')) || 11);
+    const step = options.step !== undefined ? options.step : (parseFloat(cssRoot.getPropertyValue('--print-font-size-step')) || 0.25);
+    
+    let currentSize = maxSize;
+    contentEl.style.fontSize = currentSize + 'pt';
+    
+    // Vérifier overflow : temporairement passer en visible pour mesurer
+    const isOverflowing = () => {
+        const prevOverflow = contentEl.style.overflow;
+        contentEl.style.overflow = 'visible';
+        const overflows = contentEl.scrollHeight > contentEl.clientHeight;
+        contentEl.style.overflow = prevOverflow || 'hidden';
+        return overflows;
+    };
+    
+    // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)
+    while (isOverflowing() && currentSize > minSize) {
+        currentSize -= step;
+        contentEl.style.fontSize = currentSize + 'pt';
+    }
+    
+    const wasReduced = currentSize < maxSize;
+    
+    if (wasReduced) {
+        console.log(`Auto-fit: ${currentSize.toFixed(2)}pt (réduit de ${maxSize}pt)`);
+    }
+    
+    return { finalSize: currentSize, wasReduced };
+}
+
 // Export pour utilisation en module ES6 ou en script classique
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -241,6 +289,7 @@ if (typeof module !== 'undefined' && module.exports) {
         wrapSkipBlocks,
         parseCardContent,
         generateSectionNav,
-        applyTwemoji
+        applyTwemoji,
+        autoFit
     };
 }

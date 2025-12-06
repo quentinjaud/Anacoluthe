@@ -113,14 +113,15 @@ Quand le contenu déborde même à la taille de police minimum (6pt), le PDF est
 
 Le système ajuste automatiquement la taille de police pour faire tenir le contenu :
 
-| Paramètre | Valeur |
-|-----------|--------|
-| **Taille max** | 10pt |
-| **Taille min** | 6pt |
-| **Pas** | 0.25pt |
-| **Marge sécurité** | Appliquée si ≥3 steps de réduction |
+| Paramètre | Valeur | Variable CSS |
+|-----------|--------|---------------|
+| **Taille max** | 11pt | `--print-font-size-max` |
+| **Taille min** | 5.5pt | `--print-font-size-min` |
+| **Pas** | 0.1pt | `--print-font-size-step` |
 
-Si le contenu déborde encore à 6pt → suffixe `_overflow`.
+Logique centralisée dans `markdown-utils.js` → fonction `autoFit()` utilisée par `afficheur-cartes.js` et `print-render.js`.
+
+Si le contenu déborde encore à 5.5pt → suffixe `_overflow`.
 
 ### Mode DEBUG
 
@@ -220,6 +221,7 @@ wrapSkipBlocks()           // Wrappe SKIP-PRINT/SKIP-WEB en divs
 parseCardContent()         // Sépare HEAD du body
 generateSectionNav()       // Nav H2 + scroll spy
 applyTwemoji()             // Conversion emojis → SVG
+autoFit()                  // Ajustement auto taille police (print)
 ```
 
 ### Chargement des scripts

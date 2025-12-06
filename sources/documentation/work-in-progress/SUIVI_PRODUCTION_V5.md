@@ -8,6 +8,13 @@
 
 ## 🔄 DERNIÈRES MODIFICATIONS (251206)
 
+### Session 3 - Refactoring JS
+- Centralisation `autoFit()` dans `markdown-utils.js` (source unique de vérité)
+- Suppression code dupliqué entre `afficheur-cartes.js` et `print-render.js`
+- Fix compatibilité navigateur : remplacement `??` par syntaxe ternaire
+- CSS : suppression margin-bottom dernier élément (espace perdu en auto-fit)
+- Réduction step auto-fit : 0.25pt → 0.1pt (meilleur remplissage)
+
 ### Session 2 - Générateur PDF
 - Ajout suffixe `_overflow` pour cartes dont le contenu déborde même à 6pt
 - Amélioration auto-fit : marge sécurité conditionnelle (≥3 steps)

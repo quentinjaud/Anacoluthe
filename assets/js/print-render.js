@@ -17,15 +17,21 @@ async function autoFit(cardEl, contentEl) {
     const MIN_SIZE = 6;     // pt
     const MAX_SIZE = 10;    // pt
     const STEP = 0.25;      // pt
-    const SAFETY_MARGIN = 5; // px de marge de sécurité pour éviter rognage (2px insuffisant)
+    
+    // Calculer la hauteur utile (carte - padding 5mm × 2)
+    // 5mm ≈ 19px à 96dpi, donc 10mm ≈ 38px
+    const PADDING_PX = 38;
+    const SAFETY_MARGIN = 3; // px de marge pour éviter rognage dernière ligne
     
     let currentSize = MAX_SIZE;
     
     // Vérifier si débordement
-    // On compare le contenu avec lui-même (scrollHeight vs clientHeight)
-    // + une marge de sécurité pour éviter les rognages de dernières lignes
+    // scrollHeight = hauteur totale du contenu
+    // cardEl.clientHeight - padding = zone utile
+    const getAvailableHeight = () => cardEl.clientHeight - PADDING_PX - SAFETY_MARGIN;
+    
     const checkOverflow = () => {
-        return contentEl.scrollHeight > (contentEl.clientHeight - SAFETY_MARGIN);
+        return contentEl.scrollHeight > getAvailableHeight();
     };
     
     // Réduire jusqu'à ce que ça rentre (ou taille min atteinte)

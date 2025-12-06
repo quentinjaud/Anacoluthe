@@ -28,21 +28,32 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       should_run: ${{ steps.check.outputs.should_run }}
+      debug_mode: ${{ steps.check.outputs.debug_mode }}
     steps:
-      - name: 🔍 Check for [print] tag
+      - name: 🔍 Check for [print] and [debug] tags
         id: check
         run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          
           # workflow_dispatch = toujours exécuter
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Déclenchement manuel - on exécute"
           # push = vérifier le message de commit
-          elif echo "${{ github.event.head_commit.message }}" | grep -q "\[print\]"; then
+          elif echo "$COMMIT_MSG" | grep -q "\[print\]"; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Tag [print] trouvé - on exécute"
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
             echo "⏭️ Pas de tag [print] - on skip"
+          fi
+          
+          # Vérifier [debug]
+          if echo "$COMMIT_MSG" | grep -q "\[debug\]"; then
+            echo "debug_mode=true" >> $GITHUB_OUTPUT
+            echo "🔍 Mode debug activé"
+          else
+            echo "debug_mode=false" >> $GITHUB_OUTPUT
           fi
 
   generate-pdfs:
@@ -72,14 +83,16 @@ jobs:
       
       - name: 🖨️ Render A6 cards
         run: node scripts/render-cards.js ${{ github.event.inputs.target || 'all' }}
+        env:
+          DEBUG: ${{ needs.check-trigger.outputs.debug_mode }}
       
       - name: 📸 Upload debug screenshots
         uses: actions/upload-artifact@v4
-        if: always()
+        if: needs.check-trigger.outputs.debug_mode == 'true'
         with:
           name: debug-screenshots
           path: print/debug-*.png
-          retention-days: 1
+          retention-days: 3
           if-no-files-found: ignore
       
       - name: 📚 Assemble booklets

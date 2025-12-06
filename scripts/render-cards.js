@@ -29,8 +29,14 @@ const CONFIG = {
   
   // Timeouts
   navigationTimeout: 30000,
-  readyTimeout: 10000
+  readyTimeout: 10000,
+  
+  // Qualité rendu (3 = 288 DPI effectif, bon pour images futures)
+  deviceScaleFactor: 3
 };
+
+// Mode debug (activé par [debug] dans le commit ou DEBUG=true)
+const DEBUG = process.env.DEBUG === 'true';
 
 // Types à traiter selon le target
 const TYPE_FILTERS = {
@@ -142,26 +148,28 @@ async function renderCardFace(page, cardId, face, baseUrl) {
   // Petit délai pour le rendu final
   await new Promise(r => setTimeout(r, 200));
   
-  // DEBUG: Capturer le contenu visible
-  const debugInfo = await page.evaluate(() => {
-    const content = document.querySelector('.print-card-content');
-    const body = document.body;
-    return {
-      bodyClasses: body.className,
-      hasContent: !!content,
-      contentHTML: content ? content.innerHTML.substring(0, 300) : 'NO CONTENT ELEMENT',
-      contentVisible: content ? getComputedStyle(content).display !== 'none' : false,
-      bodyWidth: body.offsetWidth,
-      bodyHeight: body.offsetHeight
-    };
-  });
-  console.log(`  📊 Debug ${cardId} (${face}): body=${debugInfo.bodyClasses}, hasContent=${debugInfo.hasContent}, visible=${debugInfo.contentVisible}, size=${debugInfo.bodyWidth}x${debugInfo.bodyHeight}`);
-  console.log(`     Content preview: ${debugInfo.contentHTML.substring(0, 150)}...`);
-  
-  // DEBUG: Screenshot pour voir ce qui est capturé
-  const screenshotPath = `print/debug-${cardId}-${face}.png`;
-  await page.screenshot({ path: screenshotPath, fullPage: false });
-  console.log(`     Screenshot saved: ${screenshotPath}`);
+  // DEBUG: Capturer le contenu visible (seulement si DEBUG=true)
+  if (DEBUG) {
+    const debugInfo = await page.evaluate(() => {
+      const content = document.querySelector('.print-card-content');
+      const body = document.body;
+      return {
+        bodyClasses: body.className,
+        hasContent: !!content,
+        contentHTML: content ? content.innerHTML.substring(0, 300) : 'NO CONTENT ELEMENT',
+        contentVisible: content ? getComputedStyle(content).display !== 'none' : false,
+        bodyWidth: body.offsetWidth,
+        bodyHeight: body.offsetHeight
+      };
+    });
+    console.log(`  📊 Debug ${cardId} (${face}): body=${debugInfo.bodyClasses}, hasContent=${debugInfo.hasContent}, visible=${debugInfo.contentVisible}, size=${debugInfo.bodyWidth}x${debugInfo.bodyHeight}`);
+    console.log(`     Content preview: ${debugInfo.contentHTML.substring(0, 150)}...`);
+    
+    // Screenshot pour voir ce qui est capturé
+    const screenshotPath = `print/debug-${cardId}-${face}.png`;
+    await page.screenshot({ path: screenshotPath, fullPage: false });
+    console.log(`     Screenshot saved: ${screenshotPath}`);
+  }
   
   // Générer le PDF
   const pdfBuffer = await page.pdf({
@@ -193,11 +201,11 @@ async function renderCard(browser, card, baseUrl) {
     console.log(`  🚨 Request failed: ${req.url()} - ${req.failure()?.errorText}`);
   });
   
-  // Viewport A6 en pixels (96 DPI)
+  // Viewport A6 en pixels (96 DPI de base, multiplié par deviceScaleFactor)
   await page.setViewport({
     width: Math.round(CONFIG.pageWidth * 96 / 25.4),
     height: Math.round(CONFIG.pageHeight * 96 / 25.4),
-    deviceScaleFactor: 2
+    deviceScaleFactor: CONFIG.deviceScaleFactor
   });
   
   try {
@@ -241,7 +249,10 @@ async function renderCard(browser, card, baseUrl) {
 async function main() {
   const target = process.argv[2] || 'all';
   console.log(`\n🖨️  RENDER - Génération des PDFs A6 via afficheur`);
-  console.log(`   Target: ${target}\n`);
+  console.log(`   Target: ${target}`);
+  console.log(`   DPI: ${CONFIG.deviceScaleFactor * 96} (scale ${CONFIG.deviceScaleFactor})`);
+  if (DEBUG) console.log(`   🔍 Mode DEBUG activé`);
+  console.log('');
   
   // S'assurer que le dossier output existe
   if (!fs.existsSync(CONFIG.outputDir)) {

@@ -184,6 +184,15 @@ section {
     padding-right: 1.5rem;
 }
 
+@media (max-width: 768px) {
+    .section-fullwidth {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 .section-fullwidth h2 {
     max-width: 800px;
     margin-left: auto;

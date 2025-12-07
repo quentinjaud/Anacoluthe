@@ -22,6 +22,28 @@
     -ms-overflow-style: none; /* IE/Edge */
 }
 
+@media (max-width: 768px) {
+    .filters {
+        margin: 0 auto 1rem auto;
+    }
+    
+    /* Réduire l'espace header sur page jeu */
+    header {
+        padding-bottom: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Réduire l'espace en bas de la galerie */
+    .cards-gallery-container {
+        margin-bottom: 1rem;
+    }
+    
+    /* Réduire le padding-bottom du main */
+    main {
+        padding-bottom: 2rem;
+    }
+}
+
 .filters::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
 }
@@ -210,13 +232,14 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
 }
 
 .card-tile-title {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
+    line-height: 1.1;
     margin: 0;
 }
 
@@ -251,7 +274,7 @@
 }
 
 .card-tile-body {
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
 }
 
 .card-tile-subtitle {

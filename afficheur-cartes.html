@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anacoluthe - L'atelier à cartes</title>
     
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0B4F6C">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Anacoluthe">
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +28,8 @@
     <!-- Twemoji -->
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     
-    <!-- Markdown parser -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Markdown parser (local pour PWA) -->
+    <script src="assets/js/vendor/marked.min.js"></script>
     <!-- Module partagé de parsing markdown -->
     <script src="assets/js/markdown-utils.js"></script>
     
@@ -1096,5 +1104,7 @@
 
     <!-- Logique de l'afficheur (extraction du JS inline) -->
     <script src="assets/js/afficheur-cartes.js"></script>
+    <!-- PWA Status -->
+    <script src="assets/js/pwa-status.js"></script>
 </body>
 </html>

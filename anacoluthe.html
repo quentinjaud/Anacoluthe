@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Anacoluthe - Utiliser le jeu pédagogique en équipage">
     <title>Utiliser le jeu - Anacoluthe</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0B4F6C">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Anacoluthe">
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+    
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/cards.css">
@@ -62,10 +71,12 @@
         </div>
     </footer>
 
-    <!-- marked.js pour parser le markdown -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- marked.js pour parser le markdown (local pour PWA) -->
+    <script src="assets/js/vendor/marked.min.js"></script>
     <!-- Module partagé de parsing markdown -->
     <script src="assets/js/markdown-utils.js"></script>
     <script src="assets/js/cards-loader.js"></script>
+    <!-- PWA Status -->
+    <script src="assets/js/pwa-status.js"></script>
 </body>
 </html>

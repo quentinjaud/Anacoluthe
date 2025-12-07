@@ -1,12 +1,29 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 251206*
+*Dernière mise à jour : 251207*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ---
 
-## 🔄 DERNIÈRES MODIFICATIONS (251206)
+## 🔄 DERNIÈRES MODIFICATIONS (251207)
+
+### Session 4 - PWA Install Button
+- Ajout bouton "Installer Anacoluthe" à côté du CTA "Utiliser" (section #utiliser)
+- Bouton visible uniquement quand installation PWA possible (Chrome/Edge)
+- Capture événement `beforeinstallprompt` dans `pwa-status.js`
+- Styles harmonisés entre les deux cartes CTA (flex column, line-height communs)
+- Carte install : thème navy (#E8EDF4 bg, #1E3A5F border), hover inverse
+- Fix meta tag : ajout `mobile-web-app-capable` (standard) en plus de `apple-mobile-web-app-capable`
+- Correction hover subtitle `.card-cta` (contraste insuffisant)
+
+**Comportement navigateurs** :
+- Chrome/Edge : événement `beforeinstallprompt` → bouton visible → prompt natif au clic
+- Firefox/Safari : événement jamais déclenché → bouton masqué (install via menu navigateur)
+
+---
+
+## 🔄 MODIFICATIONS PRÉCÉDENTES (251206)
 
 ### Session 3 - Refactoring JS
 - Centralisation `autoFit()` dans `markdown-utils.js` (source unique de vérité)

@@ -156,6 +156,8 @@ Anacoluthe/
 ├── anacoluthe.html         # Galerie des cartes (jeu)
 ├── afficheur-cartes.html   # Atelier prévisualisation/PDF
 ├── print-render.html       # Page Puppeteer (génération PDF)
+├── manifest.json           # PWA : métadonnées app
+├── sw.js                   # PWA : service worker (cache)
 │
 ├── assets/
 │   ├── css/
@@ -168,6 +170,7 @@ Anacoluthe/
 │   │   ├── cards-loader.js     # Galerie anacoluthe.html
 │   │   ├── afficheur-cartes.js # Atelier prévisualisation
 │   │   ├── print-render.js     # Rendu Puppeteer
+│   │   ├── pwa-status.js       # PWA : status, install button
 │   │   └── index.js            # Scroll spy accueil
 │   │
 │   ├── data/
@@ -210,6 +213,7 @@ Chaque fichier JS a une responsabilité claire. Pas de bundling = cache navigate
 | `cards-loader.js` | Galerie, filtres, modale | markdown-utils.js |
 | `afficheur-cartes.js` | Prévisualisation multi-vues, auto-fit | markdown-utils.js |
 | `print-render.js` | Rendu minimaliste Puppeteer | marked.js |
+| `pwa-status.js` | PWA : status online/offline, install button | - |
 | `index.js` | Scroll spy page accueil | - |
 
 ### Fonctions partagées (markdown-utils.js)
@@ -366,9 +370,9 @@ Exemple : `251206` = 6 décembre 2025
 | Catégorie | Fichiers | Total |
 |-----------|----------|-------|
 | **CSS** | 3 fichiers | ~56 KB |
-| **JS** | 5 fichiers | ~44 KB |
-| **HTML** | 4 pages | ~95 KB |
-| **Total statique** | - | ~195 KB |
+| **JS** | 6 fichiers | ~48 KB |
+| **HTML** | 4 pages | ~96 KB |
+| **Total statique** | - | ~200 KB |
 
 Avec gzip GitHub Pages : ~50 KB transférés.
 
@@ -426,7 +430,7 @@ Avec gzip GitHub Pages : ~50 KB transférés.
 |--------|-------------------|
 | **Plus de JS** | ES6 modules natifs (`type="module"`) |
 | **Tests** | Playwright pour tests E2E |
-| **PWA** | Service worker pour offline |
+| **PWA** | ✅ Implémenté (voir section dédiée) |
 | **i18n** | Fichiers JSON par langue |
 
 ### Ce qu'on ne fera probablement pas
@@ -438,5 +442,96 @@ Avec gzip GitHub Pages : ~50 KB transférés.
 
 ---
 
-*Document créé le 6 décembre 2025*
+## 📱 PWA (Progressive Web App)
+
+### Objectif
+
+Permettre l'utilisation hors-ligne en mer. Les utilisateurs installent l'app au port (avec réseau), puis l'utilisent toute la semaine sans connexion.
+
+### Fichiers
+
+| Fichier | Rôle |
+|---------|------|
+| `manifest.json` | Métadonnées app (nom, icônes, couleurs) |
+| `sw.js` | Service Worker (cache, offline) |
+| `assets/js/pwa-status.js` | UI status (online/offline, install button) |
+
+### Stratégie de cache
+
+**Cache-first** : le service worker sert le cache en priorité, puis met à jour en arrière-plan.
+
+```javascript
+// Ressources cachées au premier chargement
+const CACHE_FILES = [
+    '/',
+    '/index.html',
+    '/anacoluthe.html',
+    '/assets/css/style.css',
+    '/assets/css/cards.css',
+    '/assets/js/*.js',
+    '/assets/data/cards-index.json',
+    '/sources/cartes/**/*.md',
+    // etc.
+];
+```
+
+### Bouton d'installation
+
+Deux approches combinées :
+
+| Méthode | Comportement |
+|---------|-------------|
+| **Passive** | Le navigateur propose automatiquement l'installation |
+| **Active** | Bouton "Installer Anacoluthe" déclenchant le prompt |
+
+**Implémentation du bouton** :
+
+```javascript
+// Capture du prompt (avant qu'il s'affiche)
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    state.deferredInstallPrompt = e;
+    showInstallButton();  // Affiche notre bouton custom
+});
+
+// Clic sur le bouton
+async function handleInstallClick() {
+    state.deferredInstallPrompt.prompt();  // Déclenche le prompt natif
+    const { outcome } = await state.deferredInstallPrompt.userChoice;
+    state.deferredInstallPrompt = null;
+    hideInstallButton();
+}
+```
+
+### Compatibilité navigateurs
+
+| Navigateur | `beforeinstallprompt` | Installation |
+|------------|----------------------|---------------|
+| **Chrome/Edge** | ✅ Oui | Bouton custom + prompt |
+| **Firefox** | ❌ Non | Menu navigateur (manuel) |
+| **Safari iOS** | ❌ Non | Partager → "Sur l'écran d'accueil" |
+
+Le bouton reste masqué sur Firefox/Safari (graceful degradation).
+
+### Meta tags PWA
+
+```html
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B4F6C">
+<meta name="mobile-web-app-capable" content="yes">         <!-- Standard -->
+<meta name="apple-mobile-web-app-capable" content="yes">   <!-- Safari iOS -->
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Anacoluthe">
+<link rel="apple-touch-icon" href="assets/images/icon-192.png">
+```
+
+### UI Status
+
+- **Indicateur online/offline** : pastille colorée dans le header
+- **Toast mise à jour** : notification quand nouveau contenu disponible
+- **Bouton refresh** : force la mise à jour du cache
+
+---
+
+*Document créé le 6 décembre 2025 - Mis à jour le 7 décembre 2025*
 *Anacoluthe V5 - CC-BY-NC-SA*

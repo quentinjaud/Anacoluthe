@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Anacoluthe - Dispositif pédagogique pour apprendre l'organisation collective et le vivre ensemble par la voile habitable">
     <title>Anacoluthe V5</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0B4F6C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Anacoluthe">
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+    
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -234,12 +244,13 @@
             <p>
                 Retours, suggestions, envie de contribuer ? Le projet est ouvert sur <a href="https://github.com/quentinjaud/Anacoluthe">GitHub</a>.
             </p>
-            <p style="text-align: center; margin-top: 2.5rem;">
+            <div class="cta-cards-container">
                 <a href="anacoluthe.html" class="card-cta">
                     <span class="card-cta-logo">
                         <img src="assets/images/logo-anacoluthe.svg" alt="Logo Anacoluthe">
                     </span>
                     <span class="card-cta-title">Utiliser <strong>Anacoluthe</strong></span>
+                    <span class="card-cta-subtitle">en ligne</span>
                     <span class="card-cta-tags">
                         <span class="card-cta-tag tag-role">Rôles</span>
                         <span class="card-cta-tag tag-moment">Moments</span>
@@ -247,7 +258,16 @@
                         <span class="card-cta-tag tag-affiche">Affiches</span>
                     </span>
                 </a>
-            </p>
+                <button id="pwa-install-btn" class="card-cta-install" style="display: none;">
+                    <span class="card-cta-logo card-cta-logo-install">📲</span>
+                    <span class="card-cta-title">Installer <strong>Anacoluthe</strong></span>
+                    <span class="card-cta-subtitle">hors-ligne pour la semaine</span>
+                    <span class="card-cta-tags">
+                        <span class="card-cta-tag tag-webapp">Webapp</span>
+                        <span class="card-cta-tag tag-offline">Hors-ligne</span>
+                    </span>
+                </button>
+            </div>
         </section>
 
         <section>
@@ -297,5 +317,7 @@
 
     <!-- Scroll spy pour navigation -->
     <script src="assets/js/index.js"></script>
+    <!-- PWA Status -->
+    <script src="assets/js/pwa-status.js"></script>
 </body>
 </html>

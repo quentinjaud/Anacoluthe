@@ -168,7 +168,7 @@ header h1 {
 main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 2rem 4rem;
+    padding: 0 2rem 2rem;
 }
 
 section {
@@ -818,7 +818,7 @@ footer .footer-dev a:hover {
 
 /* Espace pour la nav fixe */
 main {
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
 }
 
 footer {
@@ -905,7 +905,7 @@ footer {
     }
 
     main {
-        padding: 0 1.5rem 5rem;
+        padding: 0 1.5rem 2rem;
     }
 
     header {
@@ -1229,4 +1229,221 @@ footer {
         width: 100%;
         max-width: 280px;
     }
+}
+
+/* ===========================================
+   PWA PRE-FOOTER FLOTTANT
+   Remplace la pastille header - Style pill cohérent
+   =========================================== */
+
+/* Conteneur pour centrer le sticky */
+.pwa-prefooter-wrapper {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    bottom: 1rem;
+    z-index: 90;
+    margin-top: 2rem;
+    pointer-events: none; /* Laisse passer les clics sauf sur la pill */
+}
+
+.pwa-prefooter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    background: var(--blanc);
+    border: 1px solid var(--border-light);
+    border-radius: 2rem;
+    padding: 0.4rem 0.75rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    pointer-events: auto; /* Réactive les clics sur la pill */
+}
+
+/* Groupe status (pastille + texte) */
+.pwa-prefooter-status {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0 0.5rem;
+}
+
+.pwa-prefooter-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+.pwa-prefooter-dot.online {
+    background-color: #22C55E;
+    box-shadow: 0 0 4px rgba(34, 197, 94, 0.5);
+}
+
+.pwa-prefooter-dot.offline {
+    background-color: #EF4444;
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+}
+
+.pwa-prefooter-dot.refreshing {
+    background-color: #F59E0B;
+    animation: pwa-pulse 1s ease-in-out infinite;
+}
+
+@keyframes pwa-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.pwa-prefooter-text {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* Séparateur */
+.pwa-prefooter-sep {
+    width: 1px;
+    height: 1.25rem;
+    background: var(--border-light);
+    flex-shrink: 0;
+}
+
+/* Boutons pill */
+.pwa-prefooter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    
+    padding: 0.35rem 0.65rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Bouton refresh */
+.pwa-prefooter-btn.btn-refresh {
+    background: var(--teal-100);
+    color: var(--teal-700);
+}
+
+.pwa-prefooter-btn.btn-refresh:hover:not(:disabled) {
+    background: var(--teal-700);
+    color: var(--blanc);
+}
+
+.pwa-prefooter-btn.btn-refresh:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pwa-prefooter-btn.btn-refresh .btn-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.pwa-prefooter-btn.btn-refresh.refreshing .btn-icon {
+    animation: pwa-spin 0.8s linear infinite;
+}
+
+/* Bouton install */
+.pwa-prefooter-btn.btn-install {
+    background: var(--bleu-glenans);
+    color: var(--blanc);
+}
+
+.pwa-prefooter-btn.btn-install:hover {
+    background: #004d82;
+}
+
+/* État installé (non-interactif) */
+.pwa-prefooter-btn.btn-install.installed {
+    background: transparent;
+    color: #22C55E;
+    cursor: default;
+    padding: 0.35rem 0.5rem;
+}
+
+.pwa-prefooter-btn.btn-install.installed:hover {
+    background: transparent;
+}
+
+/* Masquer le pre-footer si dans l'app standalone */
+@media (display-mode: standalone) {
+    .pwa-prefooter-btn.btn-install {
+        display: none;
+    }
+}
+
+/* Responsive pre-footer */
+@media (max-width: 768px) {
+    .pwa-prefooter-wrapper {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .pwa-prefooter {
+        width: 100%;
+        justify-content: center;
+        padding: 0.4rem 0.75rem;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .pwa-prefooter {
+        padding: 0.35rem 0.6rem;
+        gap: 0.4rem;
+    }
+    
+    .pwa-prefooter-status {
+        padding: 0 0.25rem;
+        gap: 0.3rem;
+    }
+    
+    .pwa-prefooter-text {
+        font-size: 0.6rem;
+    }
+    
+    .pwa-prefooter-btn {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.5rem;
+        gap: 0.2rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .pwa-prefooter {
+        padding: 0.3rem 0.5rem;
+        gap: 0.3rem;
+    }
+    
+    .pwa-prefooter-text {
+        font-size: 0.55rem;
+    }
+    
+    .pwa-prefooter-btn {
+        font-size: 0.55rem;
+        padding: 0.25rem 0.4rem;
+    }
+}
+
+/* Masquer l'ancienne pastille header quand le pre-footer est actif */
+body.has-pwa-prefooter .pwa-status-indicator {
+    display: none;
+}
+
+/* Masquer l'ancien footer status quand le pre-footer est actif */
+body.has-pwa-prefooter .pwa-footer-status {
+    display: none;
 }

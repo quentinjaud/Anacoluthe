@@ -1,6 +1,8 @@
 /**
  * Anacoluthe V5 - PWA Status Manager
  * Gère l'affichage de l'état online/offline et les mises à jour
+ * 
+ * v2 - Pre-footer flottant (remplace pastille header)
  */
 
 (function() {
@@ -9,10 +11,12 @@
   // État global
   const state = {
     isOnline: navigator.onLine,
+    isRefreshing: false,
     swRegistration: null,
     lastSync: null,
     version: null,
-    deferredInstallPrompt: null
+    deferredInstallPrompt: null,
+    isInstalled: false
   };
 
   // Clé localStorage pour la date de sync
@@ -22,14 +26,22 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     state.deferredInstallPrompt = e;
-    showInstallButton();
+    updatePrefooterInstallBtn();
+    showInstallButtonCTA(); // Bouton CTA sur index.html
   });
 
   // Détecter si déjà installé
   window.addEventListener('appinstalled', () => {
     state.deferredInstallPrompt = null;
-    hideInstallButton();
+    state.isInstalled = true;
+    updatePrefooterInstallBtn();
+    hideInstallButtonCTA(); // Bouton CTA sur index.html
   });
+
+  // Vérifier si en mode standalone (déjà installé)
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    state.isInstalled = true;
+  }
 
   // Initialisation au chargement du DOM
   document.addEventListener('DOMContentLoaded', init);
@@ -38,11 +50,17 @@
     // Charger la dernière date de sync
     state.lastSync = localStorage.getItem(SYNC_KEY);
     
-    // Créer les éléments UI
+    // Créer le pre-footer (nouveau composant principal)
+    createPrefooter();
+    
+    // Bouton CTA d'installation sur index.html
+    setupInstallButton();
+    
+    // Legacy : garder les anciens composants pour compatibilité
+    // mais ils seront masqués par CSS si le pre-footer est présent
     createStatusIndicator();
     createFooterStatus();
     createUpdateToast();
-    setupInstallButton();
     
     // Écouter les changements de connexion
     window.addEventListener('online', handleOnline);
@@ -53,6 +71,164 @@
     
     // Mise à jour initiale de l'UI
     updateUI();
+  }
+
+  // === PRE-FOOTER (nouveau composant v2) ===
+  
+  function createPrefooter() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    
+    // Marquer le body pour masquer les anciens composants
+    document.body.classList.add('has-pwa-prefooter');
+    
+    // Créer le wrapper (pour le centrage sticky)
+    const wrapper = document.createElement('div');
+    wrapper.className = 'pwa-prefooter-wrapper';
+    
+    const prefooter = document.createElement('div');
+    prefooter.id = 'pwa-prefooter';
+    prefooter.className = 'pwa-prefooter';
+    
+    // Structure HTML
+    prefooter.innerHTML = `
+      <div class="pwa-prefooter-status">
+        <span class="pwa-prefooter-dot online" id="prefooter-dot"></span>
+        <span class="pwa-prefooter-text" id="prefooter-text">En ligne</span>
+      </div>
+      <div class="pwa-prefooter-sep"></div>
+      <button class="pwa-prefooter-btn btn-refresh" id="prefooter-refresh" title="Mettre à jour les cartes">
+        <span class="btn-icon">🔄</span>
+        <span class="btn-label">Mettre à jour</span>
+      </button>
+      <button class="pwa-prefooter-btn btn-install" id="prefooter-install" style="display: none;">
+        <span class="btn-icon">📲</span>
+        <span class="btn-label">Installer</span>
+      </button>
+    `;
+    
+    // Assembler et insérer à la fin du main
+    wrapper.appendChild(prefooter);
+    main.appendChild(wrapper);
+    
+    // Handlers
+    document.getElementById('prefooter-refresh').addEventListener('click', handlePrefooterRefresh);
+    document.getElementById('prefooter-install').addEventListener('click', handleInstallClick);
+    
+    // Initialiser l'état du bouton install
+    updatePrefooterInstallBtn();
+  }
+  
+  function updatePrefooterStatus() {
+    const dot = document.getElementById('prefooter-dot');
+    const text = document.getElementById('prefooter-text');
+    const refreshBtn = document.getElementById('prefooter-refresh');
+    
+    if (!dot || !text) return;
+    
+    // État de la connexion
+    if (state.isRefreshing) {
+      dot.className = 'pwa-prefooter-dot refreshing';
+      text.textContent = 'Mise à jour...';
+    } else if (state.isOnline) {
+      dot.className = 'pwa-prefooter-dot online';
+      text.textContent = 'En ligne';
+    } else {
+      dot.className = 'pwa-prefooter-dot offline';
+      text.textContent = 'Hors-ligne';
+    }
+    
+    // Bouton refresh
+    if (refreshBtn) {
+      refreshBtn.disabled = !state.isOnline || state.isRefreshing;
+      
+      if (state.isRefreshing) {
+        refreshBtn.classList.add('refreshing');
+      } else {
+        refreshBtn.classList.remove('refreshing');
+      }
+    }
+  }
+  
+  function updatePrefooterInstallBtn() {
+    const btn = document.getElementById('prefooter-install');
+    if (!btn) return;
+    
+    const label = btn.querySelector('.btn-label');
+    const icon = btn.querySelector('.btn-icon');
+    
+    if (state.isInstalled) {
+      // Afficher "App installée"
+      btn.style.display = 'flex';
+      btn.classList.add('installed');
+      btn.disabled = true;
+      if (icon) icon.textContent = '✓';
+      if (label) label.textContent = 'Installée';
+    } else if (state.deferredInstallPrompt) {
+      // Bouton d'installation disponible
+      btn.style.display = 'flex';
+      btn.classList.remove('installed');
+      btn.disabled = false;
+      if (icon) icon.textContent = '📲';
+      if (label) label.textContent = 'Installer';
+    } else {
+      // Pas de prompt disponible, masquer
+      btn.style.display = 'none';
+    }
+  }
+  
+  function handlePrefooterRefresh() {
+    if (!state.isOnline || state.isRefreshing) return;
+    
+    state.isRefreshing = true;
+    updatePrefooterStatus();
+    
+    // Forcer la mise à jour du SW
+    if (state.swRegistration) {
+      state.swRegistration.update()
+        .then(() => {
+          // Forcer le rechargement du cache
+          if (navigator.serviceWorker.controller) {
+            const messageChannel = new MessageChannel();
+            messageChannel.port1.onmessage = (event) => {
+              if (event.data.type === 'UPDATE_COMPLETE') {
+                updateSyncTime();
+                state.isRefreshing = false;
+                updateUI();
+                // Recharger la page pour appliquer
+                window.location.reload();
+              }
+            };
+            
+            navigator.serviceWorker.controller.postMessage(
+              { type: 'FORCE_UPDATE' },
+              [messageChannel.port2]
+            );
+            
+            // Timeout de sécurité (5s)
+            setTimeout(() => {
+              if (state.isRefreshing) {
+                state.isRefreshing = false;
+                updateUI();
+                // Recharger quand même
+                window.location.reload();
+              }
+            }, 5000);
+          } else {
+            // Pas de SW actif, recharger directement
+            state.isRefreshing = false;
+            window.location.reload();
+          }
+        })
+        .catch(() => {
+          state.isRefreshing = false;
+          updateUI();
+        });
+    } else {
+      // Pas de SW, recharger directement
+      state.isRefreshing = false;
+      window.location.reload();
+    }
   }
 
   // === Service Worker ===
@@ -103,6 +279,7 @@
       
       if (event.data.type === 'UPDATE_COMPLETE') {
         state.version = event.data.version;
+        state.isRefreshing = false;
         updateSyncTime();
         updateUI();
         hideUpdateToast();
@@ -144,7 +321,7 @@
     updateUI();
   }
 
-  // === UI : Indicateur pastille (header) ===
+  // === UI Legacy : Indicateur pastille (header) ===
   
   function createStatusIndicator() {
     const indicator = document.createElement('div');
@@ -161,7 +338,7 @@
     }
   }
 
-  // === UI : Footer status ===
+  // === UI Legacy : Footer status ===
   
   function createFooterStatus() {
     const footer = document.querySelector('footer');
@@ -231,7 +408,7 @@
     }
   }
 
-  // === Actions ===
+  // === Actions Legacy ===
   
   function handleRefresh() {
     if (!state.isOnline) {
@@ -283,6 +460,11 @@
   // === Mise à jour UI ===
   
   function updateUI() {
+    // Nouveau pre-footer
+    updatePrefooterStatus();
+    updatePrefooterInstallBtn();
+    
+    // Legacy (gardés pour compatibilité mais masqués par CSS)
     updateStatusIndicator();
     updateFooterStatus();
   }
@@ -344,7 +526,7 @@
     }
   }
 
-  // === Bouton d'installation PWA ===
+  // === Bouton d'installation PWA (CTA sur index.html) ===
 
   function setupInstallButton() {
     const btn = document.getElementById('pwa-install-btn');
@@ -354,23 +536,23 @@
     
     // Si le prompt est déjà disponible, afficher le bouton
     if (state.deferredInstallPrompt) {
-      showInstallButton();
+      showInstallButtonCTA();
     }
     
     // Vérifier si déjà installé (mode standalone)
     if (window.matchMedia('(display-mode: standalone)').matches) {
-      hideInstallButton();
+      hideInstallButtonCTA();
     }
   }
 
-  function showInstallButton() {
+  function showInstallButtonCTA() {
     const btn = document.getElementById('pwa-install-btn');
     if (btn) {
       btn.style.display = 'flex';
     }
   }
 
-  function hideInstallButton() {
+  function hideInstallButtonCTA() {
     const btn = document.getElementById('pwa-install-btn');
     if (btn) {
       btn.style.display = 'none';
@@ -392,7 +574,14 @@
     
     // Le prompt ne peut être utilisé qu'une fois
     state.deferredInstallPrompt = null;
-    hideInstallButton();
+    
+    if (outcome === 'accepted') {
+      state.isInstalled = true;
+    }
+    
+    // Mettre à jour les deux UI (pre-footer + CTA)
+    updatePrefooterInstallBtn();
+    hideInstallButtonCTA();
   }
 
 })();

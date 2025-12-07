@@ -11,13 +11,9 @@ Le marque-page est un **aide-mémoire recto-verso** glissé dans le livre de bor
 
 Il fait le lien entre **navigation technique** et **coopération**.
 
----
-
 ## 📍 OÙ LE RANGER ?
 
 Toujours dans le livre de bord, visible et accessible. Il sert de marque-page pour la page du jour.
-
----
 
 ## 🌊 UTILISER LES ÉCHELLES (recto)
 
@@ -46,8 +42,6 @@ Les 5 piliers sont le **socle de la coopération** de la semaine :
 | ✨ Bienveillance | Droit à l'erreur, pas de jugement |
 
 **Quand s'y référer ?** En cas de tension, pour recentrer sur ce qu'on s'est engagé à faire ensemble.
-
----
 
 ## 📝 GUIDANCE BRIEF/DÉBRIEF
 

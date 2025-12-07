@@ -10,15 +10,11 @@ L'affiche Routines structure les **5 phases de chaque journée de navigation** :
 
 Elle montre **ce que fait le collectif** et **ce que fait chaque rôle** à chaque phase. C'est une vue d'ensemble qui aide l'équipage à anticiper et à se coordonner.
 
----
-
 ## 📍 OÙ L'AFFICHER ?
 
 Dans le carré, visible de tou·tes :
 - Près de la table à cartes
 - À côté du tableau d'équipage
-
----
 
 ## 🔄 COMMENT L'UTILISER ?
 
@@ -46,8 +42,6 @@ L'affiche donne le **cadre général**. Chaque équipage construit ses **checkli
 - On affine au fil des jours
 
 **Où noter ?** Dans le carnet de bord collectif ou sur une feuille dédiée.
-
----
 
 ## 🔗 ARTICULATION AVEC LES AUTRES OUTILS
 

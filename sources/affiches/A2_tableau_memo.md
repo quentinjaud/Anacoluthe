@@ -13,8 +13,6 @@ Le tableau d'équipage est le **cœur visuel de votre coopération**. Affiché d
 
 C'est un outil **effaçable** : on le remplit chaque matin au brief, on l'efface le soir ou le lendemain.
 
----
-
 ## 📍 OÙ L'AFFICHER ?
 
 Dans le carré, à un endroit visible par tou·tes :
@@ -23,8 +21,6 @@ Dans le carré, à un endroit visible par tou·tes :
 - À hauteur des yeux
 
 **Matériel nécessaire** : feutres effaçables (2-3 couleurs)
-
----
 
 ## 🌅 UTILISATION AU BRIEF MATIN
 
@@ -76,8 +72,6 @@ Pas besoin d'effacer tout de suite. Le tableau reste visible pour le débrief so
 
 On efface avant le brief du lendemain.
 
----
-
 ## 💡 ASTUCES
 
 **Si quelqu'un oublie** : pas grave, on complète ensemble.
@@ -87,8 +81,6 @@ On efface avant le brief du lendemain.
 **Si un rôle change** : on barre et on réécrit, c'est normal.
 
 **Les initiales se chevauchent** : c'est bon signe, l'équipage vise les mêmes compétences !
-
----
 
 ## 🔗 LIEN AVEC LE LIVRE DE BORD
 

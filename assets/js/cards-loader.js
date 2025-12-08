@@ -18,12 +18,24 @@ async function init() {
     
     try {
         await loadCardsIndex();
+        
+        // Vérifier si un type est demandé dans l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const typeParam = urlParams.get('type');
+        if (typeParam && ['role', 'moment', 'sos', 'affiche'].includes(typeParam)) {
+            currentFilter = typeParam;
+            // Activer le bouton filtre correspondant
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === typeParam);
+            });
+        }
+        
         renderGallery();
         setupFilters();
         setupModalClose();
         
         // Vérifier si une carte est demandée dans l'URL
-        const urlParams = new URLSearchParams(window.location.search);
         const cardId = urlParams.get('card');
         if (cardId) {
             openCard(cardId);
@@ -120,6 +132,17 @@ function setupFilters() {
             btn.classList.add('active');
             currentFilter = btn.dataset.filter;
             renderGallery();
+            
+            // Mettre à jour l'URL
+            const url = new URL(window.location);
+            if (currentFilter === 'all') {
+                url.searchParams.delete('type');
+            } else {
+                url.searchParams.set('type', currentFilter);
+            }
+            // Supprimer ?card si présent (on change de contexte)
+            url.searchParams.delete('card');
+            window.history.replaceState({}, '', url);
         });
     });
 }

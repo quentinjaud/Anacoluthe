@@ -1625,11 +1625,17 @@ body.home-page footer {
 /* Grille des 4 aperçus */
 .apercu-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto 1.5rem;
     align-items: start; /* Align top pour éviter l'étirement */
+}
+
+@media (min-width: 600px) {
+    .apercu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 900px) {

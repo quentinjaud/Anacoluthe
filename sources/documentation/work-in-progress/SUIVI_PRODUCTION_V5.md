@@ -1,12 +1,44 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 251207*
+*Dernière mise à jour : 251208*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ---
 
-## 🔄 DERNIÈRES MODIFICATIONS (251207)
+## 🔄 DERNIÈRES MODIFICATIONS (251208)
+
+### Session 5 - Refonte page d'accueil (index.html)
+
+**Section Aperçu des cartes - nouveau design pile de cartes**
+- Effet "pile de cartes" avec 2 fake cards derrière chaque tuile (rotations légères)
+- Structure HTML : `.apercu-stack` > `.apercu-tile-wrapper` > fake cards + tile
+- Emoji repositionné dans le header de chaque tuile
+- Footer sous chaque pile : "x cartes dans le paquet [badge type]"
+- Badges colorés par type (Rôles, Moments, SOS, Affiches)
+- Pour affiches : "3 affiches A4 et leur carte mémo" (sans badge)
+- Hover : carte se soulève et perd sa rotation
+- Responsive fiabilisé (tablette/desktop avec `align-items: start`)
+
+**Bouton Mélanger - Easter egg LMFAO**
+- Texte normal : "🎲 Mélanger les cartes 🔀"
+- Texte hover : "Everyday I'm shufflin' 🎶" (via `data-hover` + CSS `::after`)
+- Emoji 🕺 qui bounce vers le haut au hover (`.shufflin-emoji`)
+- Transition fluide cubic-bezier entre les deux états
+
+**Titres de sections**
+- Point d'interrogation rouge (`accent-brick`) sur "Un aperçu ?" et "Pourquoi Anacoluthe ?"
+
+**Fichiers modifiés**
+- `index.html` - structure HTML complète des tuiles
+- `assets/css/style.css` - styles apercu-stack, fake cards, footer, easter egg
+
+**À supprimer (inutilisé)**
+- `assets/images/shufflin.png` (remplacé par emoji)
+
+---
+
+## 🔄 MODIFICATIONS PRÉCÉDENTES (251207)
 
 ### Session 4 - PWA Install Button
 - Ajout bouton "Installer Anacoluthe" à côté du CTA "Utiliser" (section #utiliser)

@@ -8,6 +8,8 @@
 
 | Version | Date | Contenu |
 |---------|------|---------|
+| v251208 | 8 déc. 2025 | Refonte page accueil : pile de cartes, footer paquets, easter egg shufflin' |
+| v251207 | 7 déc. 2025 | PWA install button, fix meta mobile-web-app-capable |
 | v251206 | 6 déc. 2025 | Extraction JS inline → fichiers séparés, création TECH_INTENTIONS.md |
 | v251205e | 5 déc. 2025 | Print-render.html dédié Puppeteer, boutons vérifier rendu, auto-fit 6-10pt, support affiches mémos |
 | v251205d | 5 déc. 2025 | Mémos affiches protos (A1-A3), simplification available, fusion DESIGN_INTENTIONS.md |
@@ -29,6 +31,20 @@
 ## ✅ JALONS ATTEINTS (ordre chronologique inverse)
 
 ### Décembre 2025
+
+**8 déc - Refonte page d'accueil**
+- Section Aperçu : effet pile de cartes (2 fake cards + tile)
+- Structure : `.apercu-stack` > `.apercu-tile-wrapper` > fake cards + tile
+- Footer sous chaque pile : "x cartes dans le paquet [badge]"
+- Hover : carte se soulève, perd sa rotation
+- Responsive tablette fiabilisé
+- Easter egg bouton : "Everyday I'm shufflin' 🎶" + emoji 🕺 bounce
+- Points d'interrogation rouge (accent-brick) sur titres sections
+
+**7 déc - PWA Install Button**
+- Bouton "Installer Anacoluthe" visible si installation PWA possible
+- Fix meta tag `mobile-web-app-capable`
+- Styles cartes CTA harmonisés
 
 **6 déc - Architecture JS**
 - Extraction JS inline → fichiers séparés (afficheur-cartes.js, print-render.js, index.js)

@@ -332,6 +332,18 @@ a:hover {
     border-bottom-color: var(--rouge-glenans);
 }
 
+/* Header link - pas de soulignement */
+.header-link {
+    text-decoration: none;
+    border: none;
+    border-bottom: none;
+}
+
+.header-link:hover {
+    border: none;
+    border-bottom: none;
+}
+
 /* ===========================================
    BOUTONS
    =========================================== */
@@ -617,12 +629,12 @@ footer {
     align-items: center;
     gap: 0.4rem;
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-muted);
     text-decoration: none;
     border: 1px solid var(--border-light);
-    padding: 0.35rem 0.75rem;
+    padding: 0.25rem 0.6rem;
     border-radius: 2rem;
     background: rgba(255,255,255,0.5);
     transition: all 0.2s ease;
@@ -673,6 +685,16 @@ footer {
     background: #24292e;
     color: white;
     border-color: #24292e;
+}
+
+.footer-nav-link.accent-fil {
+    color: #C75146;
+    border-color: rgba(199, 81, 70, 0.3);
+}
+.footer-nav-link.accent-fil:hover {
+    background: #C75146;
+    color: white;
+    border-color: #C75146;
 }
 
 /* Responsive footer */
@@ -1118,6 +1140,43 @@ footer {
     flex-wrap: wrap;
 }
 
+/* Ligne secondaire de CTAs (plus petits, en colonne) */
+.cta-cards-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-left: 1rem;
+}
+
+.cta-cards-secondary .card-cta {
+    min-width: 120px;
+    padding: 0.75rem;
+    margin-top: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cta-cards-secondary .card-cta-logo-secondary {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+    top: -14px;
+    left: 1rem;
+}
+
+.cta-cards-secondary .card-cta.card-cta-secondary .card-cta-title {
+    font-size: 0.85rem;
+    margin-top: 0;
+}
+
+.cta-cards-secondary .card-cta.card-cta-secondary .card-cta-subtitle {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+}
+
 /* Styles communs aux deux cartes dans le container */
 .cta-cards-container .card-cta,
 .cta-cards-container .card-cta-install {
@@ -1484,7 +1543,7 @@ body.home-page footer {
    =========================================== */
 .hero-section {
     text-align: center;
-    padding: 1rem 0 2rem;
+    padding: 1rem 0 1rem;
 }
 
 .hero-description {
@@ -1719,6 +1778,43 @@ body.home-page footer {
     justify-content: center;
     gap: 0.4rem;
     flex-wrap: wrap;
+}
+
+/* Header au-dessus de la pile */
+.apercu-stack-header {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* Chiffre expressif */
+.apercu-count {
+    display: inline-block;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    transform: rotate(-8deg);
+    margin-right: -0.3rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Couleur du chiffre par type */
+.apercu-stack[data-type="affiche"] .apercu-count { color: #1E3A5F; }
+.apercu-stack[data-type="role"] .apercu-count { color: var(--amber-700); }
+.apercu-stack[data-type="moment"] .apercu-count { color: var(--teal-700); }
+.apercu-stack[data-type="sos"] .apercu-count { color: #C62828; }
+
+.apercu-stack-header .apercu-type-badge {
+    position: relative;
+    margin-left: -0.2rem;
+    z-index: 2;
 }
 
 /* Couleurs par type - appliquées au stack */
@@ -2040,6 +2136,283 @@ body.home-page footer {
 .objectifs-section h2 {
     text-align: center;
     margin-top: 0;
+}
+
+.objectifs-intro {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+/* ===========================================
+   SECTION CTA (bas de page)
+   =========================================== */
+.cta-section {
+    padding: 2rem 0 3rem;
+    text-align: center;
+}
+
+.cta-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.cta-intro {
+    text-align: center !important;
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.cta-section .cta-cards-container {
+    margin-top: 0;
+}
+
+/* ===========================================
+   SECTION FIL DE LA SEMAINE (index)
+   =========================================== */
+.fil-semaine-section {
+    padding: 1rem 0 3rem;
+    text-align: center;
+}
+
+.fil-semaine-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.fil-semaine-intro {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.fil-semaine-preview {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    border: none;
+    border-bottom: none;
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 700px;
+}
+
+.fil-semaine-preview:hover {
+    /* Pas d'effet sur le conteneur, juste sur le bouton */
+    border: none;
+    border-bottom: none;
+}
+
+/* Conteneur du fil */
+.fil-thread-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 160px;
+    margin: 0 auto;
+}
+
+/* Ligne SVG ondulée */
+.fil-thread-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fil-thread-path {
+    stroke: var(--brick);
+    stroke-width: 2.5;
+}
+
+/* Conteneur des étapes */
+.fil-thread-steps {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Étape sur le fil */
+.fil-thread-step {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--teal-50);
+    padding: 0.4rem 0.5rem;
+    border-radius: 10px;
+    min-width: 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.fil-thread-step:hover {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Badge SOS intégré à la carte Rythme */
+.fil-thread-sos-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 0.9rem;
+    background: var(--brick-50);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fil-thread-emoji {
+    font-size: 1.2rem;
+}
+
+.fil-thread-label {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* Badge SOS flottant */
+.fil-thread-sos {
+    position: absolute;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--brick-50);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.fil-thread-sos:hover {
+    border: none;
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.fil-thread-sos-icon {
+    font-size: 0.85rem;
+}
+
+/* Endpoints (Intro et À terre) - attachés aux extrémités du fil */
+.fil-thread-endpoint {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--teal-50);
+    padding: 0.4rem 0.5rem;
+    border-radius: 10px;
+    min-width: 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.fil-thread-endpoint:hover {
+    border: none;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.fil-thread-start {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.fil-thread-end {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+/* Bouton CTA style "mélanger" */
+.btn-fil-semaine {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    background: var(--blanc);
+    color: var(--text-dark);
+    border: 2px solid var(--border-light);
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-fil-semaine:hover {
+    background: var(--teal-50);
+    border: 2px solid var(--teal-700);
+    color: var(--teal-700);
+}
+
+.btn-fil-emoji {
+    font-size: 1.2rem;
+}
+
+/* Responsive fil de la semaine */
+@media (max-width: 500px) {
+    .fil-thread-container {
+        height: 180px;
+    }
+    
+    .fil-thread-endpoint.fil-thread-start {
+        top: 60%;
+    }
+    
+    .fil-thread-endpoint.fil-thread-end {
+        top: 40%;
+    }
+}
+
+.fil-semaine-cta {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bleu-glenans);
+}
+
+.fil-semaine-preview:hover .fil-semaine-cta {
+    text-decoration: underline;
 }
 
 

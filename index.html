@@ -24,7 +24,7 @@
     </header>
 
     <main>
-        <!-- Section Hero -->
+        <!-- Section Hero (intro) -->
         <section id="hero" class="hero-section">
             <p class="hero-description">
                 Anacoluthe est un <strong>jeu pédagogique</strong> pour les stages de voile habitable : 
@@ -38,113 +38,74 @@
             </p>
             <p class="hero-description">
                 Ce jeu est inspiré des méthodes de l'éducation populaire. Originellement développé comme 
-                un projet d'études sur la base des <a href="https://www.glenans.asso.fr/fr/naviguer/ou-naviguer/mediterranee/marseillan.html">Glénans à Marseillan</a>, 
+                un projet d'études sur la base des <a href="https://www.glenans.asso.fr/marseillan">Glénans à Marseillan</a>, 
                 il s'ouvre maintenant au plus grand nombre, sous licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons</a>.
             </p>
-            <div class="hero-cta">
-                <div class="cta-cards-container">
-                    <a href="anacoluthe.html" class="card-cta card-cta-primary">
-                        <span class="card-cta-logo">
-                            <img src="assets/images/logo-anacoluthe.svg" alt="Logo Anacoluthe">
-                        </span>
-                        <span class="card-cta-title">Découvrir <strong>les cartes</strong></span>
-                        <span class="card-cta-subtitle">15 cartes + 3 affiches</span>
-                        <span class="card-cta-tags">
-                            <span class="card-cta-tag tag-role">Rôles</span>
-                            <span class="card-cta-tag tag-moment">Moments</span>
-                            <span class="card-cta-tag tag-sos">SOS</span>
-                            <span class="card-cta-tag tag-affiche">Affiches</span>
-                        </span>
+        </section>
+
+        <!-- Section Fil de la semaine -->
+        <section id="fil-semaine" class="fil-semaine-section">
+            <h2><span class="slash">/</span> Comment <span class="highlight">ça se passe</span> en vrai<span class="accent-brick"> ?</span></h2>
+            <p class="fil-semaine-intro">Ces affiches et ces cartes sont des <strong>mini-guides</strong> et des <strong>inspirations</strong> à portée des marins. En les utilisant au fil du stage, les équipier·e·s assaisonnent d'un grain de coopération les <strong>moments clefs</strong> de leur stage pour apprendre davantage que de la "technique voile".</p>
+            
+            <div class="fil-thread-container">
+                <svg class="fil-thread-line" viewBox="0 0 800 140" preserveAspectRatio="none">
+                    <!-- Fil principal avec looping vers Rythme -->
+                    <path d="M0,70 
+                             C40,70 60,30 120,50 
+                             C180,70 200,110 280,90 
+                             C340,75 360,40 420,55
+                             C460,65 470,20 500,15
+                             C530,10 550,50 540,80
+                             C530,110 500,115 480,100
+                             C465,88 480,70 520,75
+                             C580,82 620,120 680,95
+                             C740,70 760,70 800,70" 
+                          fill="none" stroke="#C75146" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="fil-thread-steps">
+                    <a href="fil-semaine.html#intro" class="fil-thread-endpoint fil-thread-start">
+                        <span class="fil-thread-emoji">⛵</span>
+                        <span class="fil-thread-label">Intro</span>
                     </a>
-                    <a href="ensavoirplus.html" class="card-cta card-cta-secondary">
-                        <span class="card-cta-logo card-cta-logo-secondary">📖</span>
-                        <span class="card-cta-title">En savoir <strong>plus</strong></span>
-                        <span class="card-cta-subtitle">contexte, objectifs, genèse</span>
+                    <a href="fil-semaine.html#cadre" class="fil-thread-step" style="left: 18%; top: 25%">
+                        <span class="fil-thread-emoji">🤝</span>
+                        <span class="fil-thread-label">Cadre</span>
+                    </a>
+                    <a href="fil-semaine.html#outils" class="fil-thread-step" style="left: 35%; top: 70%">
+                        <span class="fil-thread-emoji">🧭</span>
+                        <span class="fil-thread-label">Outils</span>
+                    </a>
+                    <a href="fil-semaine.html#rythme" class="fil-thread-step fil-thread-loop" style="left: 55%; top: 50%">
+                        <span class="fil-thread-emoji">🔄</span>
+                        <span class="fil-thread-label">Rythme</span>
+                        <span class="fil-thread-sos-badge">🆘</span>
+                    </a>
+                    <a href="fil-semaine.html#cloture" class="fil-thread-step" style="left: 78%; top: 75%">
+                        <span class="fil-thread-emoji">🎒</span>
+                        <span class="fil-thread-label">Clôture</span>
+                    </a>
+                    <a href="fil-semaine.html#terre" class="fil-thread-endpoint fil-thread-end">
+                        <span class="fil-thread-emoji">🌍</span>
+                        <span class="fil-thread-label">À terre</span>
                     </a>
                 </div>
             </div>
+            <a href="fil-semaine.html" class="btn-fil-semaine">
+                <span class="btn-fil-emoji">🧵</span>
+                <span>Découvrir le fil</span>
+            </a>
         </section>
 
         <!-- Section Aperçu des cartes -->
         <section id="apercu" class="apercu-section section-fullwidth">
             <h2><span class="slash">/</span> Un <span class="highlight">aperçu</span> du jeu<span class="accent-brick"> ?</span></h2>
-            <p class="apercu-intro">Cliquez sur une tuile pour explorer le paquet, ou mélangez pour découvrir d'autres cartes :</p>
+            <p class="apercu-intro">Le jeu comporte <strong>4 types de cartes</strong> pour enrichir le vivre-ensemble.</p>
             
             <div class="apercu-grid" id="apercu-grid">
-                <!-- Tuile Rôles -->
-                <div class="apercu-stack" data-type="role">
-                    <div class="apercu-tile-wrapper">
-                        <div class="apercu-fake-card fake-2"></div>
-                        <div class="apercu-fake-card fake-1"></div>
-                        <div class="apercu-tile">
-                            <div class="apercu-tile-header">
-                                <span class="apercu-emoji" id="emoji-role"></span>
-                            </div>
-                            <div class="apercu-card-preview" id="preview-role">
-                                <a href="#" class="apercu-title"></a>
-                                <span class="apercu-subtitle"></span>
-                                <span class="apercu-description"></span>
-                                <div class="apercu-tags"></div>
-                            </div>
-                            <div class="apercu-tile-actions">
-                                <a href="#" class="apercu-btn apercu-btn-card" data-card-id="">🔍 Voir la carte</a>
-                                <a href="anacoluthe.html?type=role" class="apercu-btn apercu-btn-deck">🗃️ Voir le paquet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="apercu-stack-footer">4 cartes dans le paquet <span class="apercu-type-badge">🔧 Rôles</span></div>
-                </div>
-
-                <!-- Tuile Moments -->
-                <div class="apercu-stack" data-type="moment">
-                    <div class="apercu-tile-wrapper">
-                        <div class="apercu-fake-card fake-2"></div>
-                        <div class="apercu-fake-card fake-1"></div>
-                        <div class="apercu-tile">
-                            <div class="apercu-tile-header">
-                                <span class="apercu-emoji" id="emoji-moment"></span>
-                            </div>
-                            <div class="apercu-card-preview" id="preview-moment">
-                                <a href="#" class="apercu-title"></a>
-                                <span class="apercu-subtitle"></span>
-                                <span class="apercu-description"></span>
-                                <div class="apercu-tags"></div>
-                            </div>
-                            <div class="apercu-tile-actions">
-                                <a href="#" class="apercu-btn apercu-btn-card" data-card-id="">🔍 Voir la carte</a>
-                                <a href="anacoluthe.html?type=moment" class="apercu-btn apercu-btn-deck">🗃️ Voir le paquet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="apercu-stack-footer">7 cartes dans le paquet <span class="apercu-type-badge">📅 Moments</span></div>
-                </div>
-
-                <!-- Tuile SOS -->
-                <div class="apercu-stack" data-type="sos">
-                    <div class="apercu-tile-wrapper">
-                        <div class="apercu-fake-card fake-2"></div>
-                        <div class="apercu-fake-card fake-1"></div>
-                        <div class="apercu-tile">
-                            <div class="apercu-tile-header">
-                                <span class="apercu-emoji" id="emoji-sos"></span>
-                            </div>
-                            <div class="apercu-card-preview" id="preview-sos">
-                                <a href="#" class="apercu-title"></a>
-                                <span class="apercu-subtitle"></span>
-                                <span class="apercu-description"></span>
-                                <div class="apercu-tags"></div>
-                            </div>
-                            <div class="apercu-tile-actions">
-                                <a href="#" class="apercu-btn apercu-btn-card" data-card-id="">🔍 Voir la carte</a>
-                                <a href="anacoluthe.html?type=sos" class="apercu-btn apercu-btn-deck">🗃️ Voir le paquet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="apercu-stack-footer">4 cartes dans le paquet <span class="apercu-type-badge">🆘 SOS</span></div>
-                </div>
-
                 <!-- Tuile Affiches -->
                 <div class="apercu-stack" data-type="affiche">
+                    <div class="apercu-stack-header"><span class="apercu-count">3</span><span class="apercu-type-badge">🖼️ Affiches</span> et leur carte mémo, pour visualiser ce qui importe vraiment</div>
                     <div class="apercu-tile-wrapper">
                         <div class="apercu-fake-card fake-2"></div>
                         <div class="apercu-fake-card fake-1"></div>
@@ -164,7 +125,78 @@
                             </div>
                         </div>
                     </div>
-                    <div class="apercu-stack-footer">3 affiches A4 et leur carte mémo</div>
+                </div>
+
+                <!-- Tuile Rôles -->
+                <div class="apercu-stack" data-type="role">
+                    <div class="apercu-stack-header"><span class="apercu-count">4</span><span class="apercu-type-badge">🔧 Rôles</span> à incarner pour gagner en technique ET en savoir-être</div>
+                    <div class="apercu-tile-wrapper">
+                        <div class="apercu-fake-card fake-2"></div>
+                        <div class="apercu-fake-card fake-1"></div>
+                        <div class="apercu-tile">
+                            <div class="apercu-tile-header">
+                                <span class="apercu-emoji" id="emoji-role"></span>
+                            </div>
+                            <div class="apercu-card-preview" id="preview-role">
+                                <a href="#" class="apercu-title"></a>
+                                <span class="apercu-subtitle"></span>
+                                <span class="apercu-description"></span>
+                                <div class="apercu-tags"></div>
+                            </div>
+                            <div class="apercu-tile-actions">
+                                <a href="#" class="apercu-btn apercu-btn-card" data-card-id="">🔍 Voir la carte</a>
+                                <a href="anacoluthe.html?type=role" class="apercu-btn apercu-btn-deck">🗃️ Voir le paquet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuile Moments -->
+                <div class="apercu-stack" data-type="moment">
+                    <div class="apercu-stack-header"><span class="apercu-count">7</span><span class="apercu-type-badge">📅 Moments</span> importants guidés pour en tirer le meilleur</div>
+                    <div class="apercu-tile-wrapper">
+                        <div class="apercu-fake-card fake-2"></div>
+                        <div class="apercu-fake-card fake-1"></div>
+                        <div class="apercu-tile">
+                            <div class="apercu-tile-header">
+                                <span class="apercu-emoji" id="emoji-moment"></span>
+                            </div>
+                            <div class="apercu-card-preview" id="preview-moment">
+                                <a href="#" class="apercu-title"></a>
+                                <span class="apercu-subtitle"></span>
+                                <span class="apercu-description"></span>
+                                <div class="apercu-tags"></div>
+                            </div>
+                            <div class="apercu-tile-actions">
+                                <a href="#" class="apercu-btn apercu-btn-card" data-card-id="">🔍 Voir la carte</a>
+                                <a href="anacoluthe.html?type=moment" class="apercu-btn apercu-btn-deck">🗃️ Voir le paquet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuile SOS -->
+                <div class="apercu-stack" data-type="sos">
+                    <div class="apercu-stack-header"><span class="apercu-count">4</span><span class="apercu-type-badge">🆘 SOS</span> pour rester soigneux dans la tempête</div>
+                    <div class="apercu-tile-wrapper">
+                        <div class="apercu-fake-card fake-2"></div>
+                        <div class="apercu-fake-card fake-1"></div>
+                        <div class="apercu-tile">
+                            <div class="apercu-tile-header">
+                                <span class="apercu-emoji" id="emoji-sos"></span>
+                            </div>
+                            <div class="apercu-card-preview" id="preview-sos">
+                                <a href="#" class="apercu-title"></a>
+                                <span class="apercu-subtitle"></span>
+                                <span class="apercu-description"></span>
+                                <div class="apercu-tags"></div>
+                            </div>
+                            <div class="apercu-tile-actions">
+                                <a href="#" class="apercu-btn apercu-btn-card" data-card-id="">🔍 Voir la carte</a>
+                                <a href="anacoluthe.html?type=sos" class="apercu-btn apercu-btn-deck">🗃️ Voir le paquet</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -176,23 +208,58 @@
 
         <!-- Section Objectifs -->
         <section id="objectifs" class="objectifs-section">
-            <h2><span class="slash">/</span> Pourquoi <span class="highlight">Anacoluthe</span><span class="accent-brick"> ?</span></h2>
+            <h2><span class="slash">/</span> Qu'est-ce qu'on <span class="highlight">y gagne</span><span class="accent-brick"> ?</span></h2>
+            <p class="objectifs-intro">Le vivre-ensemble est au cœur de la voile en équipage. Bien vivre ensemble sur un voilier permet de...</p>
             
             <div class="objectifs-grid">
                 <div class="objectif-card">
-                    <span class="objectif-emoji">📈</span>
-                    <h3>Progression <strong>technique</strong></h3>
+                    <span class="objectif-emoji">🚀</span>
+                    <h3>Progresser plus <strong>rapidement</strong></h3>
                     <p>Un équipage qui coopère bien progresse mieux techniquement. Organisation collective et sens marin sont travaillés explicitement, pas laissés au hasard.</p>
                 </div>
                 <div class="objectif-card">
-                    <span class="objectif-emoji">⚡</span>
-                    <h3>Réduire les <strong>dysfonctionnements</strong></h3>
+                    <span class="objectif-emoji">☔</span>
+                    <h3>Vivre moins d'événements <strong>désagréables</strong></h3>
                     <p>Les tensions sont nommées tôt, la régulation est outillée. La charge d'animation du vivre-ensemble est allégée pour les moniteur·ices.</p>
                 </div>
                 <div class="objectif-card">
                     <span class="objectif-emoji">🌱</span>
-                    <h3>Émancipation <strong>collective</strong></h3>
+                    <h3>S'émanciper <strong>collectivement</strong></h3>
                     <p>Les compétences travaillées sont explicitement transférables à terre : travail, famille, associations. L'équipage gagne en autonomie au fil de la semaine.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTAs -->
+        <section id="cta" class="cta-section">
+            <h2><span class="slash">/</span> Prêt·e à <span class="highlight">embarquer</span><span class="accent-brick"> ?</span></h2>
+            <p class="cta-intro">Le jeu est ouvert, gratuit, libre d'utilisation et contributif. Bonne navigation !</p>
+            
+            <div class="cta-cards-container">
+                <a href="anacoluthe.html" class="card-cta card-cta-primary">
+                    <span class="card-cta-logo">
+                        <img src="assets/images/logo-anacoluthe.svg" alt="Logo Anacoluthe">
+                    </span>
+                    <span class="card-cta-title">Découvrir <strong>les cartes</strong></span>
+                    <span class="card-cta-subtitle">15 cartes + 3 affiches</span>
+                    <span class="card-cta-tags">
+                        <span class="card-cta-tag tag-role">Rôles</span>
+                        <span class="card-cta-tag tag-moment">Moments</span>
+                        <span class="card-cta-tag tag-sos">SOS</span>
+                        <span class="card-cta-tag tag-affiche">Affiches</span>
+                    </span>
+                </a>
+                <div class="cta-cards-secondary">
+                    <a href="fil-semaine.html" class="card-cta card-cta-secondary">
+                        <span class="card-cta-logo card-cta-logo-secondary">🧵</span>
+                        <span class="card-cta-title">Le fil d'une <strong>semaine</strong></span>
+                        <span class="card-cta-subtitle">avec le jeu</span>
+                    </a>
+                    <a href="ensavoirplus.html" class="card-cta card-cta-secondary">
+                        <span class="card-cta-logo card-cta-logo-secondary">📖</span>
+                        <span class="card-cta-title">En savoir <strong>plus</strong></span>
+                        <span class="card-cta-subtitle">contexte, objectifs, genèse</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -209,6 +276,7 @@
             </div>
             <nav class="footer-nav">
                 <a href="anacoluthe.html" class="footer-nav-link accent-jeu">🃏 Les cartes</a>
+                <a href="fil-semaine.html" class="footer-nav-link accent-fil">🧵 Le déroulé du jeu</a>
                 <a href="ensavoirplus.html" class="footer-nav-link accent-info">📖 En savoir plus</a>
                 <a href="https://github.com/quentinjaud/Anacoluthe" class="footer-nav-link accent-github">💻 GitHub</a>
             </nav>
@@ -217,5 +285,7 @@
 
     <!-- Script pour l'aperçu aléatoire -->
     <script src="assets/js/home.js"></script>
+    <!-- Liens externes en nouvel onglet -->
+    <script src="assets/js/external-links.js"></script>
 </body>
 </html>

@@ -708,6 +708,13 @@
     }
 }
 
+/* Grille 4 colonnes pour les rôles (desktop) */
+@media (min-width: 1025px) {
+    .cards-gallery.gallery-4cols {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .filters {
         gap: 0.4rem;

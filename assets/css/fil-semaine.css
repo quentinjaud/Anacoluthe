@@ -1,0 +1,778 @@
+/**
+ * Anacoluthe - Le fil de la semaine
+ * Styles pour la page scrollytelling
+ */
+
+/* ===========================================
+   VARIABLES COULEURS SECTIONS
+   =========================================== */
+:root {
+    --fil-cream: #FFFDF9;
+    --fil-teal: #e8f4f3;
+    --fil-amber: #fff8f0;
+    --fil-brick: #FFEBEE;
+    --fil-navy: #E8EDF4;
+}
+
+/* ===========================================
+   HEADER SIMPLIFIÉ (supprimé - logo dans intro)
+   =========================================== */
+
+/* ===========================================
+   CONTAINER PRINCIPAL
+   =========================================== */
+.fil-container {
+    padding-top: 0;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ===========================================
+   SECTIONS
+   =========================================== */
+.fil-container .fil-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem 8rem;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.fil-content {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Couleurs de fond */
+.fil-section-cream { background-color: var(--fil-cream); }
+.fil-section-teal { background-color: var(--fil-teal); }
+.fil-section-amber { background-color: var(--fil-amber); }
+.fil-section-brick { background-color: var(--fil-brick); }
+.fil-section-navy { background-color: var(--fil-navy); }
+
+/* ===========================================
+   TYPOGRAPHIE SECTIONS
+   =========================================== */
+.fil-section-emoji {
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.fil-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--bleu-glenans);
+    margin: 0 0 1rem 0;
+}
+
+.fil-subtitle {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 0 0 2rem 0;
+}
+
+.fil-text {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.fil-text-center {
+    text-align: center;
+}
+
+/* ===========================================
+   LOGO INTRO
+   =========================================== */
+.fil-logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+.fil-logo-link:hover {
+    border: none;
+}
+
+.fil-logo {
+    width: 80px;
+    height: 80px;
+}
+
+.fil-logo-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--bleu-glenans);
+}
+
+/* ===========================================
+   INTRO SPÉCIFIQUE
+   =========================================== */
+.fil-intro-visual {
+    margin: 2rem 0;
+}
+
+.fil-intro-emoji {
+    font-size: 6rem;
+    display: block;
+    animation: fil-float 3s ease-in-out infinite;
+}
+
+@keyframes fil-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.fil-question {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 1.5rem 0 2rem 0;
+}
+
+.fil-question strong {
+    font-weight: 700;
+    color: var(--bleu-glenans);
+}
+
+.fil-title-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--blanc);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    padding: 0.6rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.fil-title-emoji {
+    font-size: 1.2rem;
+}
+
+.fil-title-text {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.fil-title-pill .fil-scroll-arrow {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    animation: fil-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes fil-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+}
+
+/* ===========================================
+   OUTILS / CARTES
+   =========================================== */
+.fil-tools {
+    margin-top: 2.5rem;
+}
+
+.fil-tools-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.fil-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.fil-tools-sos {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Outil individuel */
+.fil-tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+    padding: 1rem;
+    border-radius: var(--radius-card);
+    border: none;
+}
+
+.fil-tool:hover {
+    transform: translateY(-4px);
+    border: none;
+}
+
+.fil-tool-name {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    color: var(--text-dark);
+}
+
+.fil-tool-desc {
+    font-family: 'Merriweather', serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    text-align: center;
+}
+
+/* Placeholder affiches */
+.fil-tool-visual {
+    position: relative;
+    width: 120px;
+    height: 160px;
+    background: var(--blanc);
+    border: 2px dashed var(--border-light);
+    border-radius: var(--radius-small);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.fil-tool-image {
+    width: 200px;
+    height: calc(200px / 1.414);
+    border: 1px solid var(--border-light);
+    border-style: solid;
+    position: relative;
+}
+
+.fil-tool-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fil-tool-image.fil-tool-pending::before {
+    content: 'visuel en attente';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: var(--blanc);
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem;
+    text-align: center;
+    z-index: 1;
+}
+
+.fil-tool:hover .fil-tool-visual {
+    border-color: var(--bleu-glenans);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fil-tool-icon {
+    font-size: 2.5rem;
+}
+
+.fil-tool-badge {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #C9D5E3;
+    color: #1E3A5F;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+}
+
+/* Mini-cartes */
+.fil-tool-card {
+    width: 90px;
+    height: 120px;
+    background: var(--blanc);
+    border-radius: var(--radius-small);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.fil-tool:hover .fil-tool-card {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.fil-card-emoji {
+    font-size: 2rem;
+}
+
+.fil-card-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Rotations des cartes */
+.fil-card-rotate-left { transform: rotate(-3deg); }
+.fil-card-rotate-right { transform: rotate(3deg); }
+.fil-card-rotate-slight { transform: rotate(-1.5deg); }
+
+.fil-tool:hover .fil-card-rotate-left,
+.fil-tool:hover .fil-card-rotate-right,
+.fil-tool:hover .fil-card-rotate-slight {
+    transform: rotate(0deg);
+}
+
+/* Couleurs par type */
+.fil-tool-moment .fil-tool-card {
+    background: var(--teal-50);
+    border: 1px solid var(--amber-700);
+}
+
+.fil-tool-moment .fil-card-title {
+    color: var(--teal-700);
+}
+
+.fil-tool-sos .fil-tool-card {
+    background: #FFEBEE;
+    border: 1px solid var(--teal-700);
+}
+
+.fil-tool-sos .fil-card-title {
+    color: #C62828;
+}
+
+/* Stack de cartes rôles - éventail */
+.fil-tool-roles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fil-tool-cards-stack {
+    position: relative;
+    width: 180px;
+    height: 140px;
+}
+
+.fil-tool-cards-stack .fil-tool-card {
+    position: absolute;
+    width: 60px;
+    height: 85px;
+    background: var(--blanc);
+    border: 1px solid var(--amber-700);
+    transform-origin: bottom center;
+    transition: all 0.3s ease;
+}
+
+.fil-card-stack-1 { left: 20px; bottom: 10px; transform: rotate(-15deg); z-index: 1; }
+.fil-card-stack-2 { left: 50px; bottom: 10px; transform: rotate(-5deg); z-index: 2; }
+.fil-card-stack-3 { left: 80px; bottom: 10px; transform: rotate(5deg); z-index: 3; }
+.fil-card-stack-4 { left: 110px; bottom: 10px; transform: rotate(15deg); z-index: 4; }
+
+.fil-tool-cards-stack .fil-card-emoji {
+    font-size: 1.5rem;
+}
+
+.fil-tool-roles:hover .fil-card-stack-1 { transform: rotate(-20deg) translateY(-8px); }
+.fil-tool-roles:hover .fil-card-stack-2 { transform: rotate(-7deg) translateY(-12px); }
+.fil-tool-roles:hover .fil-card-stack-3 { transform: rotate(7deg) translateY(-12px); }
+.fil-tool-roles:hover .fil-card-stack-4 { transform: rotate(20deg) translateY(-8px); }
+
+/* ===========================================
+   BOUCLE QUOTIDIENNE
+   =========================================== */
+.fil-boucle {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.fil-boucle-phase {
+    background: var(--blanc);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+}
+
+.fil-boucle-phase:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.fil-boucle-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.fil-boucle-phase h4 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--bleu-glenans);
+    margin: 0 0 0.5rem 0;
+}
+
+.fil-boucle-phase p {
+    font-family: 'Merriweather', serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin: 0 0 1rem 0;
+    text-align: center;
+}
+
+.fil-boucle-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.fil-mini-tool {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background: #F3F4F6;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.fil-mini-tool:hover {
+    background: var(--bleu-glenans);
+    color: var(--blanc);
+    border: none;
+}
+
+.fil-mini-moment {
+    background: var(--teal-100);
+    color: var(--teal-700);
+}
+
+.fil-mini-role {
+    background: var(--amber-100);
+    color: var(--amber-700);
+}
+
+.fil-boucle-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+/* ===========================================
+   CTA OUTRO - utilise les styles de style.css
+   (.cta-cards-container, .card-cta, etc.)
+   =========================================== */
+
+/* ===========================================
+   SLIDER NAVIGATION
+   =========================================== */
+.fil-slider {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--blanc);
+    padding: 0.4rem 1rem;
+    padding-bottom: max(0.4rem, env(safe-area-inset-bottom));
+}
+
+.fil-slider-track {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.fil-slider-line {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.fil-slider-line::before {
+    content: '›';
+}
+
+.fil-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0.4rem 0.5rem 0.3rem;
+    border-radius: var(--radius-small);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: -1.2rem;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: none !important;
+}
+
+/* Rotations aléatoires */
+.fil-step:nth-child(1) { transform: rotate(-2deg); }
+.fil-step:nth-child(3) { transform: rotate(1.5deg); }
+.fil-step:nth-child(5) { transform: rotate(-1deg); }
+.fil-step:nth-child(7) { transform: rotate(2.5deg); }
+.fil-step:nth-child(9) { transform: rotate(-2.5deg); }
+.fil-step:nth-child(11) { transform: rotate(1deg); }
+
+.fil-step:hover {
+    transform: rotate(0deg) translateY(-3px);
+    background: var(--blanc);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    border: 1px solid var(--border-light) !important;
+}
+
+.fil-step-emoji {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.fil-step-label {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+}
+
+/* État actif */
+.fil-step.active {
+    background: var(--teal-100);
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    border: 1px solid var(--border-light) !important;
+}
+
+.fil-step.active .fil-step-emoji {
+    transform: scale(1.1);
+}
+
+.fil-step.active .fil-step-label {
+    color: var(--teal-700);
+}
+
+/* Wrapper Rythme + SOS */
+.fil-step-rythme-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* SOS décalé - petit badge à côté de Rythme */
+.fil-step-sos-badge {
+    position: absolute;
+    top: 2px;
+    right: -16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none !important;
+}
+
+.fil-step-sos-badge:hover {
+    transform: scale(1.1);
+    border: none !important;
+}
+
+.fil-sos-icon {
+    font-size: 1rem;
+}
+
+.fil-step-sos-badge.active .fil-sos-icon {
+    transform: scale(1.2);
+}
+
+/* ===========================================
+   RESPONSIVE - MOBILE
+   =========================================== */
+@media (max-width: 768px) {
+    .fil-section {
+        min-height: auto;
+        padding: 3rem 1.5rem 4rem;
+    }
+    
+    .fil-section-emoji {
+        font-size: 3rem;
+    }
+    
+    .fil-title {
+        font-size: 1.8rem;
+    }
+    
+    .fil-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .fil-text {
+        font-size: 1rem;
+    }
+    
+    .fil-intro-emoji {
+        font-size: 4rem;
+    }
+    
+    /* Outils */
+    .fil-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .fil-tools-sos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .fil-tool-visual {
+        width: 100px;
+        height: 130px;
+    }
+    
+    .fil-tool-card {
+        width: 75px;
+        height: 100px;
+    }
+    
+    .fil-tool-name {
+        font-size: 0.85rem;
+    }
+    
+    .fil-tool-desc {
+        font-size: 0.75rem;
+    }
+    
+    /* Boucle */
+    .fil-boucle {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .fil-boucle-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .fil-boucle-phase {
+        max-width: 100%;
+    }
+    
+    /* Slider */
+    .fil-slider-track {
+        gap: 0.1rem;
+    }
+    
+    .fil-slider-line {
+        max-width: 20px;
+    }
+    
+    .fil-step {
+        padding: 0.3rem 0.4rem;
+    }
+    
+    .fil-step-emoji {
+        font-size: 1.2rem;
+    }
+    
+    .fil-step-label {
+        font-size: 0.5rem;
+    }
+    
+    .fil-step-sos {
+        transform: translateX(40px);
+    }
+    
+    /* CTA */
+    .fil-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .fil-cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ===========================================
+   DESKTOP - SNAP SCROLL
+   =========================================== */
+@media (min-width: 769px) {
+    .fil-container {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: calc(100vh - 60px);
+    }
+    
+    .fil-section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+
+/* ===========================================
+   FOOTER AJUSTEMENT
+   =========================================== */
+footer {
+    padding-bottom: 5rem; /* Compense le slider fixe */
+}

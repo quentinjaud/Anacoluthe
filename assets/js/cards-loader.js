@@ -75,6 +75,13 @@ function renderGallery() {
     }
 
     gallery.innerHTML = filteredCards.map(card => createCardTile(card)).join('');
+    
+    // Grille 4 colonnes pour les rôles et SOS (exactement 4 cartes)
+    if ((currentFilter === 'role' || currentFilter === 'sos') && filteredCards.length === 4) {
+        gallery.classList.add('gallery-4cols');
+    } else {
+        gallery.classList.remove('gallery-4cols');
+    }
 
     // Ajouter les event listeners
     gallery.querySelectorAll('.card-tile').forEach(tile => {

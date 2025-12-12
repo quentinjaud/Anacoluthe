@@ -407,7 +407,7 @@
 }
 
 .fil-tool-sos .fil-tool-card {
-    background: #FFEBEE !important;
+    background: var(--blanc) !important;
     border: 1px solid #FFCDD2;
 }
 

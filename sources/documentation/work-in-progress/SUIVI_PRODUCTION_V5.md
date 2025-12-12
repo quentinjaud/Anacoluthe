@@ -1,12 +1,26 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 251208*
+*Dernière mise à jour : 251212*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ---
 
-## 🔄 DERNIÈRES MODIFICATIONS (251208)
+## 🔄 DERNIÈRES MODIFICATIONS (251212)
+
+### Session 6 - Corrections CSS fil-semaine
+
+**Cartes SOS - cohérence visuelle**
+- Fond des cartes SOS changé de rose (`#FFEBEE`) à blanc (`var(--blanc)`)
+- Bordure corail conservée (`#FFCDD2`) pour maintenir l'identité visuelle SOS
+- Alignement avec les cartes moments qui ont déjà fond blanc
+
+**Fichier modifié**
+- `assets/css/fil-semaine.css` - `.fil-tool-sos .fil-tool-card`
+
+---
+
+## 🔄 MODIFICATIONS PRÉCÉDENTES (251208)
 
 ### Session 5 - Refonte page d'accueil (index.html)
 

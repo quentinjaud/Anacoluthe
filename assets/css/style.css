@@ -26,6 +26,7 @@
 :root {
     /* Fond général Anacoluthe */
     --bg-cream: #FFFDF9;
+    --blanc: #FFFFFF;
     --text-dark: #2D3748;
     --text-muted: #718096;
     --border-light: #D1D5DB;
@@ -54,18 +55,11 @@
     --brick-100: #FFCDD2;
     --brick-700: #C62828;
     
-    /* Legacy Corail - compatibilité */
-    --corail-50: #FFEBEE;
-    --corail-100: #FFCDD2;
-    --corail-700: #C62828;
-    
+
     /* Utilitaires */
     --radius-card: 16px;
     --radius-small: 8px;
     
-    /* Legacy (compatibilité) */
-    --fond: var(--bg-cream);
-    --blanc: #FFFFFF;
 }
 
 /* ===========================================
@@ -146,14 +140,6 @@ header h1 {
 .accent-navy {
     color: #1E3A5F; /* navy-700 */
 }
-/* Legacy - compatibilité */
-.accent-corail {
-    color: #C62828; /* brick-700 (anciennement corail) */
-}
-.accent-slate {
-    color: #1E3A5F; /* navy-700 (anciennement slate) */
-}
-
 .slash {
     color: var(--rouge-glenans);
     font-weight: 800;
@@ -721,22 +707,6 @@ footer p {
     text-align: center;
 }
 
-footer .footer-dev {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--border-light);
-    font-size: 0.8rem;
-}
-
-footer .footer-dev a {
-    color: var(--text-muted);
-    border-bottom-color: transparent;
-}
-
-footer .footer-dev a:hover {
-    color: var(--bleu-glenans);
-    border-bottom-color: var(--bleu-glenans);
-}
 
 /* ===========================================
    NAVIGATION BOTTOM (index.html)
@@ -2437,10 +2407,6 @@ body.home-page footer {
 }
 
 @media (max-width: 500px) {
-    .desktop-only {
-        display: none;
-    }
-    
     .apercu-header-text {
         display: inline;
         width: auto;

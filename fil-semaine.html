@@ -48,13 +48,12 @@
                 </p>
                 
                 <div class="fil-tools">
-                    <h3 class="fil-tools-title">Pour fluidifier cette étape</h3>
-                    
                     <div class="fil-tools-grid">
                         <!-- LDB + Marque-page -->
                         <a href="anacoluthe.html?card=affiche-ldb" target="_blank" class="fil-tool fil-tool-affiche">
                             <div class="fil-tool-visual fil-tool-image fil-tool-pending">
                                 <img src="assets/images/affiche-tableau-equipage.png" alt="Livre de bord + Marque-page">
+                                <span class="fil-tool-emoji">📖</span>
                             </div>
                             <span class="fil-tool-name">Livre de bord + Marque-page</span>
                             <span class="fil-tool-desc">Les 5 piliers, Beaufort, Douglas</span>
@@ -105,13 +104,12 @@
                 </p>
                 
                 <div class="fil-tools">
-                    <h3 class="fil-tools-title">Pour fluidifier cette étape</h3>
-                    
                     <div class="fil-tools-grid">
                         <!-- Tableau équipage -->
                         <a href="anacoluthe.html?card=affiche-tableau" target="_blank" class="fil-tool fil-tool-affiche">
                             <div class="fil-tool-visual fil-tool-image">
                                 <img src="assets/images/affiche-tableau-equipage.png" alt="Tableau d'équipage">
+                                <span class="fil-tool-emoji">📋</span>
                             </div>
                             <span class="fil-tool-name">Tableau d'équipage</span>
                             <span class="fil-tool-desc">Météo perso, rôles du jour</span>
@@ -141,6 +139,7 @@
                         <a href="anacoluthe.html?card=affiche-routines" target="_blank" class="fil-tool fil-tool-affiche">
                             <div class="fil-tool-visual fil-tool-image fil-tool-pending">
                                 <img src="assets/images/affiche-tableau-equipage.png" alt="Checklists routines">
+                                <span class="fil-tool-emoji">✅</span>
                             </div>
                             <span class="fil-tool-name">Checklists routines</span>
                             <span class="fil-tool-desc">Les 5 phases d'une journée de nav</span>
@@ -154,44 +153,85 @@
         <section id="rythme" class="fil-section fil-section-cream">
             <div class="fil-content">
                 <span class="fil-section-emoji">🔄</span>
-                <h2 class="fil-title">Trouvons le rythme</h2>
+                <h2 class="fil-title">Trouvons notre rythme</h2>
                 <p class="fil-text">
-                    Les journées se ressemblent et se singularisent. Un rituel s'installe. 
-                    Chacun·e tourne dans les rôles, trouve sa place. <strong>La boucle quotidienne</strong> ancre les apprentissages.
+                    Aucune journée ne ressemble à une autre. Pour autant, quelques <strong>rituels simples</strong> 
+                    permettent de <strong>garder le cap ensemble</strong> et d'<strong>apprendre de chaque situation</strong>.
                 </p>
                 
                 <div class="fil-boucle">
-                    <div class="fil-boucle-phase fil-boucle-matin">
-                        <span class="fil-boucle-icon">🌅</span>
-                        <h4>Matin</h4>
-                        <p>Brief, météo perso, attribution des rôles</p>
-                        <div class="fil-boucle-tools">
-                            <a href="anacoluthe.html?card=affiche-tableau" target="_blank" class="fil-mini-tool">📋 Tableau</a>
-                            <a href="anacoluthe.html?card=M4" target="_blank" class="fil-mini-tool fil-mini-moment">📅 M4 Brief</a>
+                    <!-- MATIN -->
+                    <div class="fil-boucle-bloc">
+                        <div class="fil-boucle-outils">
+                            <a href="anacoluthe.html?card=affiche-tableau" target="_blank" class="fil-boucle-outil fil-boucle-outil-affiche">
+                                <span class="fil-boucle-outil-label">Tableau</span>
+                                <div class="fil-boucle-outil-image">
+                                    <img src="assets/images/affiche-tableau-equipage.png" alt="Tableau d'équipage">
+                                    <span class="fil-boucle-outil-emoji">📋</span>
+                                </div>
+                            </a>
+                            <a href="anacoluthe.html?card=M4" target="_blank" class="fil-boucle-outil fil-boucle-outil-moment">
+                                <span class="fil-boucle-outil-label">M4 Brief</span>
+                                <div class="fil-boucle-outil-card">📅</div>
+                            </a>
+                        </div>
+                        <div class="fil-boucle-base">
+                            <span class="fil-boucle-icon">🌅</span>
+                            <h4>Matin</h4>
+                            <p class="fil-tool-desc">Brief, météo perso, attribution des rôles</p>
                         </div>
                     </div>
                     
                     <div class="fil-boucle-arrow">→</div>
                     
-                    <div class="fil-boucle-phase fil-boucle-journee">
-                        <span class="fil-boucle-icon">⛵</span>
-                        <h4>Journée</h4>
-                        <p>Chacun·e incarne son rôle, suit les routines</p>
-                        <div class="fil-boucle-tools">
-                            <a href="anacoluthe.html?type=role" target="_blank" class="fil-mini-tool fil-mini-role">🔧 Rôles</a>
-                            <a href="anacoluthe.html?card=affiche-routines" target="_blank" class="fil-mini-tool">✅ Checklists</a>
+                    <!-- JOURNÉE -->
+                    <div class="fil-boucle-bloc">
+                        <div class="fil-boucle-outils fil-boucle-outils-4">
+                            <div class="fil-boucle-outil fil-boucle-outil-role">
+                                <span class="fil-boucle-outil-label">Rôles</span>
+                                <div class="fil-boucle-cards-stack">
+                                    <a href="anacoluthe.html?card=R1" target="_blank" class="fil-boucle-stack-card fil-boucle-stack-1">🔧</a>
+                                    <a href="anacoluthe.html?card=R2" target="_blank" class="fil-boucle-stack-card fil-boucle-stack-2">🧭</a>
+                                    <a href="anacoluthe.html?card=R3" target="_blank" class="fil-boucle-stack-card fil-boucle-stack-3">🤲</a>
+                                    <a href="anacoluthe.html?card=R4" target="_blank" class="fil-boucle-stack-card fil-boucle-stack-4">🍳</a>
+                                </div>
+                            </div>
+                            <a href="anacoluthe.html?card=affiche-routines" target="_blank" class="fil-boucle-outil fil-boucle-outil-affiche">
+                                <span class="fil-boucle-outil-label">Routines</span>
+                                <div class="fil-boucle-outil-image">
+                                    <img src="assets/images/affiche-tableau-equipage.png" alt="Checklists routines">
+                                    <span class="fil-boucle-outil-emoji">✅</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fil-boucle-base">
+                            <span class="fil-boucle-icon">⛵</span>
+                            <h4>Journée</h4>
+                            <p class="fil-tool-desc">Chacun·e incarne son rôle, suit les routines</p>
                         </div>
                     </div>
                     
                     <div class="fil-boucle-arrow">→</div>
                     
-                    <div class="fil-boucle-phase fil-boucle-soir">
-                        <span class="fil-boucle-icon">🌙</span>
-                        <h4>Soir</h4>
-                        <p>Débrief, ce qu'on a vécu, ligne coop au LDB</p>
-                        <div class="fil-boucle-tools">
-                            <a href="anacoluthe.html?card=M5" target="_blank" class="fil-mini-tool fil-mini-moment">📅 M5 Débrief</a>
-                            <a href="anacoluthe.html?card=affiche-ldb" target="_blank" class="fil-mini-tool">📖 LDB</a>
+                    <!-- SOIR -->
+                    <div class="fil-boucle-bloc">
+                        <div class="fil-boucle-outils">
+                            <a href="anacoluthe.html?card=affiche-ldb" target="_blank" class="fil-boucle-outil fil-boucle-outil-affiche">
+                                <span class="fil-boucle-outil-label">LDB</span>
+                                <div class="fil-boucle-outil-image">
+                                    <img src="assets/images/affiche-tableau-equipage.png" alt="Livre de bord">
+                                    <span class="fil-boucle-outil-emoji">📖</span>
+                                </div>
+                            </a>
+                            <a href="anacoluthe.html?card=M5" target="_blank" class="fil-boucle-outil fil-boucle-outil-moment">
+                                <span class="fil-boucle-outil-label">M5 Débrief</span>
+                                <div class="fil-boucle-outil-card">🌙</div>
+                            </a>
+                        </div>
+                        <div class="fil-boucle-base">
+                            <span class="fil-boucle-icon">🌙</span>
+                            <h4>Soir</h4>
+                            <p class="fil-tool-desc">Débrief, ce qu'on a vécu, ligne coop au LDB</p>
                         </div>
                     </div>
                 </div>
@@ -246,27 +286,35 @@
             </div>
         </section>
 
-        <!-- ACTE 3 : CLÔTURER -->
-        <section id="cloturer" class="fil-section fil-section-teal">
+        <!-- ACTE 3 : ANCRER -->
+        <section id="ancrer" class="fil-section fil-section-teal">
             <div class="fil-content">
-                <span class="fil-section-emoji">🎒</span>
-                <h2 class="fil-title">Clôturons</h2>
+                <span class="fil-section-emoji">⚓</span>
+                <h2 class="fil-title">Ancrons</h2>
                 <p class="fil-text">
-                    Déjà la fin. Qu'est-ce qu'on a traversé ensemble ? Qu'est-ce qu'on en garde ? 
-                    Le temps de <strong>nommer les apprentissages</strong> et de penser à ce qu'on ramène à terre.
+                    Pour ramener ses apprentissages à terre, encore faut-il les avoir nommés. 
+                    <strong>Des bilans réguliers</strong> - à mi-parcours, en fin de stage - aident à 
+                    <strong>conscientiser ce qu'on a vécu</strong> et à imaginer comment s'en servir dans nos vies terrestres.
                 </p>
                 
                 <div class="fil-tools">
-                    <h3 class="fil-tools-title">Pour fluidifier cette étape</h3>
-                    
                     <div class="fil-tools-grid">
+                        <a href="anacoluthe.html?card=M5" target="_blank" class="fil-tool fil-tool-moment">
+                            <div class="fil-tool-card fil-card-rotate-slight">
+                                <span class="fil-card-emoji">🌙</span>
+                                <span class="fil-card-title">M5</span>
+                            </div>
+                            <span class="fil-tool-name">Débrief soir</span>
+                            <span class="fil-tool-desc">Chaque soir, on debrief le technique ET le vivre-ensemble</span>
+                        </a>
+                        
                         <a href="anacoluthe.html?card=M6" target="_blank" class="fil-tool fil-tool-moment">
                             <div class="fil-tool-card fil-card-rotate-left">
                                 <span class="fil-card-emoji">⚖️</span>
                                 <span class="fil-card-title">M6</span>
                             </div>
                             <span class="fil-tool-name">Mi-parcours</span>
-                            <span class="fil-tool-desc">Point d'étape collectif (J3-J4)</span>
+                            <span class="fil-tool-desc">Prenons un temps en milieu de stage pour réfléchir à notre équipage</span>
                         </a>
                         
                         <a href="anacoluthe.html?card=M7" target="_blank" class="fil-tool fil-tool-moment">
@@ -275,27 +323,10 @@
                                 <span class="fil-card-title">M7</span>
                             </div>
                             <span class="fil-tool-name">Débrief final</span>
-                            <span class="fil-tool-desc">Ancrer les apprentissages</span>
+                            <span class="fil-tool-desc">C'est la fin :( qu'est-ce qu'on ramène à terre ?</span>
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- OUTRO : ET À TERRE ? -->
-        <section id="terre" class="fil-section fil-section-navy">
-            <div class="fil-content">
-                <span class="fil-section-emoji">🌍</span>
-                <h2 class="fil-title">Et à terre ?</h2>
-                <p class="fil-text">
-                    Le stage se termine, la vie continue. Communiquer clairement, réguler les tensions, 
-                    s'organiser collectivement, prendre soin des autres : ces compétences servent 
-                    <strong>au travail, en famille, dans les associations</strong>.
-                </p>
-                <p class="fil-text">
-                    Chaque carte rôle inclut une section "transposable à terre" pour faire le lien 
-                    entre la mer et le quotidien.
-                </p>
                 
                 <div class="cta-cards-container">
                     <a href="anacoluthe.html" class="card-cta card-cta-primary">
@@ -350,14 +381,9 @@
                 </a>
             </div>
             <div class="fil-slider-line"></div>
-            <a href="#cloturer" class="fil-step" data-section="cloturer" aria-label="Clôturer">
-                <span class="fil-step-emoji">🎒</span>
-                <span class="fil-step-label">Clôture</span>
-            </a>
-            <div class="fil-slider-line"></div>
-            <a href="#terre" class="fil-step" data-section="terre" aria-label="Et à terre">
-                <span class="fil-step-emoji">🌍</span>
-                <span class="fil-step-label">À terre</span>
+            <a href="#ancrer" class="fil-step" data-section="ancrer" aria-label="Ancrer">
+                <span class="fil-step-emoji">⚓</span>
+                <span class="fil-step-label">Ancrer</span>
             </a>
         </div>
     </nav>

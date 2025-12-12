@@ -249,10 +249,28 @@
     color: var(--text-dark);
 }
 
+/* Couleurs des noms par type */
+.fil-tool-moment .fil-tool-name {
+    color: var(--teal-700);
+}
+
+.fil-tool-sos .fil-tool-name {
+    color: #C62828;
+}
+
+.fil-tool-affiche .fil-tool-name {
+    color: var(--bleu-glenans);
+}
+
+.fil-tool-roles .fil-tool-name {
+    color: var(--amber-700);
+}
+
 .fil-tool-desc {
     font-family: 'Merriweather', serif;
     font-size: 0.8rem;
     font-weight: 300;
+    font-style: italic;
     color: var(--text-muted);
     margin-top: 0.25rem;
     text-align: center;
@@ -305,6 +323,17 @@
     padding: 0.25rem;
     text-align: center;
     z-index: 1;
+}
+
+/* Emoji overlay sur les affiches */
+.fil-tool-emoji {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    z-index: 2;
 }
 
 .fil-tool:hover .fil-tool-visual {
@@ -369,8 +398,8 @@
 
 /* Couleurs par type */
 .fil-tool-moment .fil-tool-card {
-    background: var(--teal-50);
-    border: 1px solid var(--amber-700);
+    background: var(--blanc) !important;
+    border: 1px solid var(--teal-200);
 }
 
 .fil-tool-moment .fil-card-title {
@@ -378,8 +407,8 @@
 }
 
 .fil-tool-sos .fil-tool-card {
-    background: #FFEBEE;
-    border: 1px solid var(--teal-700);
+    background: #FFEBEE !important;
+    border: 1px solid #FFCDD2;
 }
 
 .fil-tool-sos .fil-card-title {
@@ -424,40 +453,228 @@
 .fil-tool-roles:hover .fil-card-stack-4 { transform: rotate(20deg) translateY(-8px); }
 
 /* ===========================================
-   BOUCLE QUOTIDIENNE
+   BOUCLE QUOTIDIENNE - NOUVELLE VERSION
    =========================================== */
 .fil-boucle {
     display: flex;
-    align-items: stretch;
+    align-items: flex-end;
     justify-content: center;
     gap: 1rem;
     margin-top: 2rem;
     flex-wrap: wrap;
 }
 
-.fil-boucle-phase {
-    background: var(--blanc);
-    border-radius: var(--radius-card);
-    padding: 1.5rem;
+.fil-boucle-bloc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1;
     min-width: 200px;
     max-width: 280px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    isolation: isolate; /* Crée un contexte d'empilement */
+}
+
+/* Outils qui dépassent - DERRIÈRE la base */
+.fil-boucle-outils {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: -20px;
+    z-index: 0;
+    position: relative;
+}
+
+.fil-boucle-outil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    border: none !important;
     transition: transform 0.2s ease;
 }
 
-.fil-boucle-phase:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+.fil-boucle-outil:hover {
+    transform: translateY(-6px);
+    border: none !important;
+}
+
+.fil-boucle-outil-label {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Labels des outils du bloc Journée - plus hauts */
+.fil-boucle-outils-4 .fil-boucle-outil-label {
+    position: relative;
+    top: -8px;
+}
+
+.fil-boucle-outil-card {
+    width: 70px;
+    height: 90px;
+    background: var(--blanc);
+    border-radius: var(--radius-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+/* Images affiches - même taille que dans les autres sections */
+.fil-boucle-outil-image {
+    position: relative;
+    width: 140px;
+    height: calc(140px / 1.414);
+    border-radius: var(--radius-small);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #C9D5E3;
+    transition: all 0.2s ease;
+}
+
+/* Emoji en overlay sur les affiches */
+.fil-boucle-outil-emoji {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    z-index: 2;
+}
+
+/* Rotations légères des affiches */
+.fil-boucle-outil-affiche:nth-child(1) .fil-boucle-outil-image {
+    transform: rotate(-3deg);
+}
+
+.fil-boucle-outil-affiche:nth-child(2) .fil-boucle-outil-image {
+    transform: rotate(2deg);
+}
+
+.fil-boucle-outil:hover .fil-boucle-outil-image {
+    transform: rotate(0deg);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.fil-boucle-outil-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Stack de cartes rôles dans la boucle */
+.fil-boucle-cards-stack {
+    position: relative;
+    width: 75px;
+    height: 85px;
+}
+
+.fil-boucle-stack-card {
+    position: absolute;
+    width: 50px;
+    height: 65px;
+    background: var(--blanc);
+    border: 1px solid var(--amber-200);
+    border-radius: var(--radius-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transform-origin: bottom center;
+    transition: all 0.3s ease;
+}
+
+.fil-boucle-stack-1 { left: 0; bottom: 0; transform: rotate(-10deg); z-index: 1; }
+.fil-boucle-stack-3 { left: 16px; bottom: 0; transform: rotate(3deg); z-index: 2; }
+.fil-boucle-stack-4 { left: 24px; bottom: 0; transform: rotate(10deg); z-index: 3; }
+
+/* Carte 2 mise en avant - même taille que M4/M5 */
+.fil-boucle-stack-2 {
+    left: 4px;
+    bottom: 2px;
+    transform: rotate(-2deg);
+    z-index: 10;
+    width: 70px;
+    height: 90px;
+    font-size: 2rem;
+    border-color: var(--amber-700);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.fil-boucle-outil-role:hover .fil-boucle-stack-1 { transform: rotate(-16deg) translateY(-6px); }
+.fil-boucle-outil-role:hover .fil-boucle-stack-2 { transform: rotate(0deg) translateY(-8px); }
+.fil-boucle-outil-role:hover .fil-boucle-stack-3 { transform: rotate(5deg) translateY(-6px); }
+.fil-boucle-outil-role:hover .fil-boucle-stack-4 { transform: rotate(16deg) translateY(-6px); }
+
+/* Affiches en paysage - suppression de l'ancien style */
+.fil-boucle-outil-affiche .fil-boucle-outil-card {
+    display: none;
+}
+
+.fil-boucle-outil:hover .fil-boucle-outil-card {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Couleurs par type */
+.fil-boucle-outil-moment .fil-boucle-outil-card {
+    background: var(--teal-50);
+    border: 1px solid var(--teal-200);
+}
+
+.fil-boucle-outil-moment .fil-boucle-outil-label {
+    color: var(--teal-700);
+}
+
+.fil-boucle-outil-role .fil-boucle-outil-card {
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+}
+
+.fil-boucle-outil-role .fil-boucle-outil-label {
+    color: var(--amber-700);
+}
+
+.fil-boucle-outil-affiche .fil-boucle-outil-label {
+    color: var(--bleu-glenans);
+}
+
+/* Rotations légères */
+.fil-boucle-outil:nth-child(1) .fil-boucle-outil-card { transform: rotate(-4deg); }
+.fil-boucle-outil:nth-child(2) .fil-boucle-outil-card { transform: rotate(3deg); }
+
+.fil-boucle-outil:hover .fil-boucle-outil-card {
+    transform: rotate(0deg);
+}
+
+/* Base du bloc - DEVANT les outils */
+.fil-boucle-base {
+    background: var(--blanc);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 1.5rem 1.25rem;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .fil-boucle-icon {
     font-size: 2rem;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
-.fil-boucle-phase h4 {
+.fil-boucle-base h4 {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
@@ -465,49 +682,13 @@
     margin: 0 0 0.5rem 0;
 }
 
-.fil-boucle-phase p {
+.fil-boucle-base p {
     font-family: 'Merriweather', serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 300;
     color: var(--text-dark);
-    margin: 0 0 1rem 0;
-    text-align: center;
-}
-
-.fil-boucle-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-}
-
-.fil-mini-tool {
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 0.3rem 0.6rem;
-    border-radius: 999px;
-    background: #F3F4F6;
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: none;
-}
-
-.fil-mini-tool:hover {
-    background: var(--bleu-glenans);
-    color: var(--blanc);
-    border: none;
-}
-
-.fil-mini-moment {
-    background: var(--teal-100);
-    color: var(--teal-700);
-}
-
-.fil-mini-role {
-    background: var(--amber-100);
-    color: var(--amber-700);
+    margin: 0;
+    line-height: 1.5;
 }
 
 .fil-boucle-arrow {
@@ -515,6 +696,7 @@
     align-items: center;
     font-size: 1.5rem;
     color: var(--text-muted);
+    margin-bottom: 50px;
 }
 
 /* ===========================================
@@ -709,12 +891,30 @@
         align-items: center;
     }
     
-    .fil-boucle-arrow {
-        transform: rotate(90deg);
+    .fil-boucle-bloc {
+        max-width: 100%;
+        width: 100%;
     }
     
-    .fil-boucle-phase {
-        max-width: 100%;
+    .fil-boucle-arrow {
+        transform: rotate(90deg);
+        margin-bottom: 0;
+        margin: 1rem 0;
+    }
+    
+    .fil-boucle-outil-card {
+        width: 58px;
+        height: 75px;
+        font-size: 1.7rem;
+    }
+    
+    .fil-boucle-outil-image {
+        width: 110px;
+        height: calc(110px / 1.414);
+    }
+    
+    .fil-boucle-outil-label {
+        font-size: 0.6rem;
     }
     
     /* Slider */

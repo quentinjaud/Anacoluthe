@@ -1787,8 +1787,14 @@ body.home-page footer {
     font-size: 0.85rem;
     font-weight: 400;
     color: var(--text-dark);
-    margin-bottom: 1rem;
-    line-height: 1.4;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.15rem;
 }
 
 /* Chiffre expressif */
@@ -1798,11 +1804,10 @@ body.home-page footer {
     font-size: 2.5rem;
     font-weight: 800;
     transform: rotate(-8deg);
-    margin-right: -0.3rem;
+    margin-right: -0.2rem;
     position: relative;
-    z-index: 1;
-    line-height: 1;
-    vertical-align: middle;
+    line-height: 0.8;
+    vertical-align: baseline;
 }
 
 /* Couleur du chiffre par type */
@@ -2062,7 +2067,7 @@ body.home-page footer {
 /* Bouton mélanger */
 .btn-shuffle {
     display: block;
-    margin: 0 auto;
+    margin: 2rem auto 0;
     background: var(--blanc);
     color: var(--text-dark);
     border: 2px solid var(--border-light);
@@ -2219,13 +2224,14 @@ body.home-page footer {
     margin: 0 auto;
 }
 
-/* Ligne SVG ondulée */
+/* Ligne SVG ondulée - en arrière-plan */
 .fil-thread-line {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
 
 .fil-thread-path {
@@ -2233,20 +2239,19 @@ body.home-page footer {
     stroke-width: 2.5;
 }
 
-/* Conteneur des étapes */
-.fil-thread-steps {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+/* Grid des étapes */
+.fil-thread-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto;
+    align-items: center;
     height: 100%;
+    padding: 0;
 }
 
-/* Étape sur le fil */
-.fil-thread-step {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+/* Item de base */
+.fil-thread-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2254,33 +2259,103 @@ body.home-page footer {
     background: var(--teal-50);
     padding: 0.4rem 0.5rem;
     border-radius: 10px;
-    min-width: 50px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     text-decoration: none;
     border: none;
     transition: all 0.2s ease;
+    justify-self: center;
 }
 
-.fil-thread-step:hover {
+.fil-thread-item:hover {
     border: none;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: scale(1.08);
 }
 
-/* Badge SOS intégré à la carte Rythme */
-.fil-thread-sos-badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    font-size: 0.9rem;
+/* Premier et dernier : collés aux bords */
+.fil-thread-item:first-child {
+    justify-self: start;
+}
+
+.fil-thread-item:last-child {
+    justify-self: end;
+}
+
+/* Positions haut/bas alternées */
+.fil-thread-item-up {
+    align-self: start;
+    margin-top: 10px;
+}
+
+.fil-thread-item-down {
+    align-self: end;
+    margin-bottom: 10px;
+}
+
+/* Variantes de couleur */
+.fil-thread-item-amber {
+    background: var(--amber-50);
+}
+
+.fil-thread-item-neutral {
+    background: var(--blanc);
+    border: 1px solid var(--border-light);
+}
+
+.fil-thread-item-brick {
     background: var(--brick-50);
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
+}
+
+/* Sous-groupe Rythme + SOS */
+.fil-thread-subgroup {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
     display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+}
+
+.fil-thread-subgroup:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.fil-thread-subitem {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    gap: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+    min-width: 70px;
+}
+
+.fil-thread-subitem:hover {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transform: scale(1.08);
+}
+
+/* Quinconce dans le sous-groupe */
+.fil-thread-subgroup .fil-thread-subitem:first-child {
+    transform: rotate(-3deg) translateY(-5px);
+}
+
+.fil-thread-subgroup .fil-thread-subitem:last-child {
+    transform: rotate(3deg) translateY(10px);
+}
+
+.fil-thread-subgroup .fil-thread-subitem:first-child:hover {
+    transform: rotate(-3deg) translateY(-5px) scale(1.08);
+}
+
+.fil-thread-subgroup .fil-thread-subitem:last-child:hover {
+    transform: rotate(3deg) translateY(10px) scale(1.08);
 }
 
 .fil-thread-emoji {
@@ -2296,67 +2371,13 @@ body.home-page footer {
     letter-spacing: 0.02em;
 }
 
-/* Badge SOS flottant */
-.fil-thread-sos {
-    position: absolute;
-    top: 25%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: var(--brick-50);
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    text-decoration: none;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-.fil-thread-sos:hover {
-    border: none;
-    transform: translate(-50%, -50%) scale(1.15);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.fil-thread-sos-icon {
-    font-size: 0.85rem;
-}
-
-/* Endpoints (Intro et À terre) - attachés aux extrémités du fil */
-.fil-thread-endpoint {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    background: var(--teal-50);
-    padding: 0.4rem 0.5rem;
-    border-radius: 10px;
-    min-width: 50px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    text-decoration: none;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-.fil-thread-endpoint:hover {
-    border: none;
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-.fil-thread-start {
-    left: 0;
-    transform: translateY(-50%);
-}
-
-.fil-thread-end {
-    right: 0;
-    transform: translateY(-50%);
+.fil-thread-legend {
+    font-family: 'Merriweather', serif;
+    font-size: 0.55rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    white-space: nowrap;
 }
 
 /* Bouton CTA style "mélanger" */
@@ -2389,18 +2410,48 @@ body.home-page footer {
     font-size: 1.2rem;
 }
 
+/* Utilitaires responsive */
+.apercu-header-text {
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .desktop-only {
+        display: none;
+    }
+    
+    .apercu-header-text {
+        display: inline;
+        width: auto;
+    }
+}
+
 /* Responsive fil de la semaine */
 @media (max-width: 500px) {
     .fil-thread-container {
         height: 180px;
     }
     
-    .fil-thread-endpoint.fil-thread-start {
-        top: 60%;
+    .fil-thread-grid {
+        padding: 0;
     }
     
-    .fil-thread-endpoint.fil-thread-end {
-        top: 40%;
+    .fil-thread-item,
+    .fil-thread-subitem {
+        padding: 0.3rem 0.4rem;
+    }
+    
+    .fil-thread-emoji {
+        font-size: 1rem;
+    }
+    
+    .fil-thread-label {
+        font-size: 0.5rem;
+    }
+    
+    .fil-thread-legend {
+        font-size: 0.45rem;
     }
 }
 

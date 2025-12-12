@@ -49,63 +49,65 @@
             <p class="fil-semaine-intro">Ces affiches et ces cartes sont des <strong>mini-guides</strong> et des <strong>inspirations</strong> à portée des marins. En les utilisant au fil du stage, les équipier·e·s assaisonnent d'un grain de coopération les <strong>moments clefs</strong> de leur stage pour apprendre davantage que de la "technique voile".</p>
             
             <div class="fil-thread-container">
-                <svg class="fil-thread-line" viewBox="0 0 800 140" preserveAspectRatio="none">
+                <svg class="fil-thread-line" viewBox="0 0 800 160" preserveAspectRatio="none">
                     <!-- Fil principal avec looping vers Rythme -->
-                    <path d="M0,70 
-                             C40,70 60,30 120,50 
-                             C180,70 200,110 280,90 
-                             C340,75 360,40 420,55
-                             C460,65 470,20 500,15
-                             C530,10 550,50 540,80
-                             C530,110 500,115 480,100
-                             C465,88 480,70 520,75
-                             C580,82 620,120 680,95
-                             C740,70 760,70 800,70" 
+                    <path d="M0,80 
+                             C40,80 60,35 120,55 
+                             C180,75 200,120 280,100 
+                             C340,82 360,45 420,60
+                             C460,72 470,25 500,20
+                             C530,15 550,55 540,90
+                             C530,125 500,130 480,115
+                             C465,103 480,80 520,85
+                             C580,92 620,130 700,105
+                             C760,85 780,85 800,85" 
                           fill="none" stroke="#C75146" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <div class="fil-thread-steps">
-                    <a href="fil-semaine.html#intro" class="fil-thread-endpoint fil-thread-start">
-                        <span class="fil-thread-emoji">⛵</span>
-                        <span class="fil-thread-label">Intro</span>
-                    </a>
-                    <a href="fil-semaine.html#cadre" class="fil-thread-step" style="left: 18%; top: 25%">
+                <div class="fil-thread-grid">
+                    <a href="fil-semaine.html#cadre" class="fil-thread-item fil-thread-item-up">
                         <span class="fil-thread-emoji">🤝</span>
                         <span class="fil-thread-label">Cadre</span>
+                        <span class="fil-thread-legend">Poser les bases</span>
                     </a>
-                    <a href="fil-semaine.html#outils" class="fil-thread-step" style="left: 35%; top: 70%">
+                    <a href="fil-semaine.html#avant-nav" class="fil-thread-item fil-thread-item-down fil-thread-item-amber">
                         <span class="fil-thread-emoji">🧭</span>
                         <span class="fil-thread-label">Outils</span>
+                        <span class="fil-thread-legend">Prendre ses marques</span>
                     </a>
-                    <a href="fil-semaine.html#rythme" class="fil-thread-step fil-thread-loop" style="left: 55%; top: 50%">
-                        <span class="fil-thread-emoji">🔄</span>
-                        <span class="fil-thread-label">Rythme</span>
-                        <span class="fil-thread-sos-badge">🆘</span>
-                    </a>
-                    <a href="fil-semaine.html#cloture" class="fil-thread-step" style="left: 78%; top: 75%">
-                        <span class="fil-thread-emoji">🎒</span>
-                        <span class="fil-thread-label">Clôture</span>
-                    </a>
-                    <a href="fil-semaine.html#terre" class="fil-thread-endpoint fil-thread-end">
-                        <span class="fil-thread-emoji">🌍</span>
-                        <span class="fil-thread-label">À terre</span>
+                    <div class="fil-thread-item fil-thread-item-up fil-thread-subgroup">
+                        <a href="fil-semaine.html#rythme" class="fil-thread-subitem fil-thread-item-neutral">
+                            <span class="fil-thread-emoji">🔄</span>
+                            <span class="fil-thread-label">Rythme</span>
+                            <span class="fil-thread-legend">Tenir le cap ensemble</span>
+                        </a>
+                        <a href="fil-semaine.html#sos" class="fil-thread-subitem fil-thread-item-brick">
+                            <span class="fil-thread-emoji">🆘</span>
+                            <span class="fil-thread-label">SOS</span>
+                            <span class="fil-thread-legend">Réguler les tensions</span>
+                        </a>
+                    </div>
+                    <a href="fil-semaine.html#ancrer" class="fil-thread-item fil-thread-item-down">
+                        <span class="fil-thread-emoji">⚓</span>
+                        <span class="fil-thread-label">Ancrer</span>
+                        <span class="fil-thread-legend">Ramener à terre</span>
                     </a>
                 </div>
             </div>
             <a href="fil-semaine.html" class="btn-fil-semaine">
                 <span class="btn-fil-emoji">🧵</span>
-                <span>Découvrir le fil</span>
+                <span>Découvrir le déroulé en détails</span>
             </a>
         </section>
 
         <!-- Section Aperçu des cartes -->
         <section id="apercu" class="apercu-section section-fullwidth">
-            <h2><span class="slash">/</span> Un <span class="highlight">aperçu</span> du jeu<span class="accent-brick"> ?</span></h2>
-            <p class="apercu-intro">Le jeu comporte <strong>4 types de cartes</strong> pour enrichir le vivre-ensemble.</p>
+            <h2><span class="slash">/</span> Il y a quoi dans les <span class="highlight">cartes</span><span class="accent-brick"> ?</span></h2>
+            <p class="apercu-intro">Il y a <strong>4 types de cartes</strong> différents. Chaque paquet a un <strong>objectif propre</strong>, et tous s'articulent autour des <strong>3 affiches</strong>.</p>
             
             <div class="apercu-grid" id="apercu-grid">
                 <!-- Tuile Affiches -->
                 <div class="apercu-stack" data-type="affiche">
-                    <div class="apercu-stack-header"><span class="apercu-count">3</span><span class="apercu-type-badge">🖼️ Affiches</span> et leur carte mémo, pour visualiser ce qui importe vraiment</div>
+                    <div class="apercu-stack-header"><span class="apercu-count">3</span><span class="apercu-type-badge">🖼️ Mémos</span><span class="apercu-header-text">qui accompagnent les <strong>affiches</strong> et aident à leur usage quotidien</span></div>
                     <div class="apercu-tile-wrapper">
                         <div class="apercu-fake-card fake-2"></div>
                         <div class="apercu-fake-card fake-1"></div>
@@ -177,7 +179,7 @@
 
                 <!-- Tuile SOS -->
                 <div class="apercu-stack" data-type="sos">
-                    <div class="apercu-stack-header"><span class="apercu-count">4</span><span class="apercu-type-badge">🆘 SOS</span> pour rester soigneux dans la tempête</div>
+                    <div class="apercu-stack-header"><span class="apercu-count">4</span><span class="apercu-type-badge">🆘 SOS</span><span class="apercu-header-text">pour rester soigneux<br>dans la tempête</span></div>
                     <div class="apercu-tile-wrapper">
                         <div class="apercu-fake-card fake-2"></div>
                         <div class="apercu-fake-card fake-1"></div>

@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const stepSection = step.getAttribute('data-section');
             step.classList.toggle('active', stepSection === sectionId);
         });
+        
+        // Mettre à jour l'URL avec le hash (sans recharger la page)
+        if (sectionId && history.replaceState) {
+            history.replaceState(null, null, '#' + sectionId);
+        }
     }
     
     // ===========================================
@@ -97,21 +102,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // INITIAL STATE
     // ===========================================
     
-    // Activer le premier step au chargement
-    if (steps.length > 0) {
-        steps[0].classList.add('active');
-    }
-    
     // Si URL avec hash, scroller vers la section
     if (window.location.hash) {
-        const targetSection = document.querySelector(window.location.hash);
+        const targetId = window.location.hash.substring(1);
+        const targetSection = document.getElementById(targetId);
         if (targetSection) {
+            // Mettre à jour le step actif
+            updateActiveStep(targetId);
+            // Scroller après un court délai pour laisser la page se charger
             setTimeout(() => {
                 targetSection.scrollIntoView({
-                    behavior: 'smooth',
+                    behavior: 'auto',
                     block: 'start'
                 });
-            }, 100);
+            }, 50);
+        }
+    } else {
+        // Activer le premier step au chargement si pas de hash
+        if (steps.length > 0) {
+            steps[0].classList.add('active');
         }
     }
 });

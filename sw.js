@@ -5,7 +5,7 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.0.0';
+const CACHE_VERSION = '1.2.0';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
 
 // Ressources essentielles à précacher
@@ -15,18 +15,24 @@ const PRECACHE_URLS = [
   '/index.html',
   '/anacoluthe.html',
   '/afficheur-cartes.html',
+  '/fil-semaine.html',
+  '/ensavoirplus.html',
   
   // CSS
   '/assets/css/style.css',
   '/assets/css/cards.css',
   '/assets/css/cards-print.css',
+  '/assets/css/fil-semaine.css',
   
   // JS
-  '/assets/js/index.js',
+  '/assets/js/home.js',
   '/assets/js/cards-loader.js',
   '/assets/js/markdown-utils.js',
   '/assets/js/afficheur-cartes.js',
   '/assets/js/pwa-status.js',
+  '/assets/js/fil-semaine.js',
+  '/assets/js/external-links.js',
+  '/assets/js/scroll-spy.js',
   '/assets/js/vendor/marked.min.js',
   
   // Data
@@ -36,6 +42,7 @@ const PRECACHE_URLS = [
   '/assets/images/logo-anacoluthe.svg',
   '/assets/images/icon-192.png',
   '/assets/images/icon-512.png',
+  '/assets/images/affiche-tableau-equipage.png',
   
   // Cartes Rôles
   '/sources/cartes/roles/R1_bosco.md',

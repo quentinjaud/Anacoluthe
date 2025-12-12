@@ -154,6 +154,8 @@ Résumé final :
 Anacoluthe/
 ├── index.html              # Page d'accueil
 ├── anacoluthe.html         # Galerie des cartes (jeu)
+├── fil-semaine.html        # Déroulé de la semaine
+├── ensavoirplus.html       # Contexte et objectifs
 ├── afficheur-cartes.html   # Atelier prévisualisation/PDF
 ├── print-render.html       # Page Puppeteer (génération PDF)
 ├── manifest.json           # PWA : métadonnées app
@@ -163,7 +165,8 @@ Anacoluthe/
 │   ├── css/
 │   │   ├── style.css           # Variables + styles communs
 │   │   ├── cards.css           # Tuiles + modales (web)
-│   │   └── cards-print.css     # Styles impression A6
+│   │   ├── cards-print.css     # Styles impression A6
+│   │   └── fil-semaine.css     # Page fil de la semaine
 │   │
 │   ├── js/
 │   │   ├── markdown-utils.js   # Fonctions partagées parsing MD
@@ -171,7 +174,12 @@ Anacoluthe/
 │   │   ├── afficheur-cartes.js # Atelier prévisualisation
 │   │   ├── print-render.js     # Rendu Puppeteer
 │   │   ├── pwa-status.js       # PWA : status, install button
-│   │   └── index.js            # Scroll spy accueil
+│   │   ├── home.js             # Aperçu aléatoire cartes accueil
+│   │   ├── fil-semaine.js      # Navigation slider fil-semaine
+│   │   ├── scroll-spy.js       # Scroll spy ensavoirplus
+│   │   ├── external-links.js   # Liens externes nouvel onglet
+│   │   └── vendor/
+│   │       └── marked.min.js   # Parser markdown (local PWA)
 │   │
 │   ├── data/
 │   │   └── cards-index.json    # Index des cartes (métadonnées)
@@ -209,12 +217,15 @@ Chaque fichier JS a une responsabilité claire. Pas de bundling = cache navigate
 
 | Fichier | Responsabilité | Dépendances |
 |---------|----------------|-------------|
-| `markdown-utils.js` | Parsing MD, marqueurs, nav sections | marked.js |
+| `markdown-utils.js` | Parsing MD, marqueurs, nav sections, auto-fit | marked.js |
 | `cards-loader.js` | Galerie, filtres, modale | markdown-utils.js |
-| `afficheur-cartes.js` | Prévisualisation multi-vues, auto-fit | markdown-utils.js |
-| `print-render.js` | Rendu minimaliste Puppeteer | marked.js |
+| `afficheur-cartes.js` | Prévisualisation multi-vues | markdown-utils.js |
+| `print-render.js` | Rendu minimaliste Puppeteer | markdown-utils.js |
 | `pwa-status.js` | PWA : status online/offline, install button | - |
-| `index.js` | Scroll spy page accueil | - |
+| `home.js` | Aperçu aléatoire cartes page accueil | - |
+| `fil-semaine.js` | Navigation slider + scroll spy fil-semaine | - |
+| `scroll-spy.js` | Scroll spy page ensavoirplus | - |
+| `external-links.js` | Liens externes en nouvel onglet | - |
 
 ### Fonctions partagées (markdown-utils.js)
 
@@ -369,12 +380,13 @@ Exemple : `251206` = 6 décembre 2025
 
 | Catégorie | Fichiers | Total |
 |-----------|----------|-------|
-| **CSS** | 3 fichiers | ~56 KB |
-| **JS** | 6 fichiers | ~48 KB |
-| **HTML** | 4 pages | ~96 KB |
-| **Total statique** | - | ~200 KB |
+| **CSS** | 4 fichiers | ~111 KB |
+| **JS** | 9 fichiers | ~71 KB |
+| **JS vendor** | 1 fichier | ~39 KB |
+| **HTML** | 6 pages | ~100 KB |
+| **Total statique** | - | ~320 KB |
 
-Avec gzip GitHub Pages : ~50 KB transférés.
+Avec gzip GitHub Pages : ~80 KB transférés.
 
 ### Performance cible
 
@@ -533,5 +545,5 @@ Le bouton reste masqué sur Firefox/Safari (graceful degradation).
 
 ---
 
-*Document créé le 6 décembre 2025 - Mis à jour le 7 décembre 2025*
+*Document créé le 6 décembre 2025 - Mis à jour le 12 décembre 2025*
 *Anacoluthe V5 - CC-BY-NC-SA*

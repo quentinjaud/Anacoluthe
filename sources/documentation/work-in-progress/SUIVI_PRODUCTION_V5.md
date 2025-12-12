@@ -156,6 +156,7 @@
 
 | Fichier | Contenu |
 |---------|---------|
+| `SUIVI_CODE.md` | Audit code, écarts doc/code, méthodes vérification, nettoyage |
 | `DESIGN_INTENTIONS.md` | Couleurs, typo, emojis, marqueurs MD, specs print |
 | `TECH_INTENTIONS.md` | Architecture JS/CSS, conventions code, workflow Git |
 | `CARTES_MOMENTS_INTENTIONS.md` | Intentions pédagogiques moments |

@@ -1224,12 +1224,22 @@ footer {
 /* ============================================
    Carte Install PWA (styles spécifiques)
    ============================================ */
+
+/* Dans le conteneur CTA, positionner en 4e colonne */
+.cta-cards-container > .card-cta-install {
+    margin-top: 14px; /* aligné avec les cartes secondaires */
+    margin-left: 0.5rem;
+    min-width: auto;
+    max-width: 130px;
+}
+
 .card-cta-install {
     position: relative;
     background: #E8EDF4;
     border: 1px solid #1E3A5F;
     border-radius: var(--radius-card);
-    padding: 1.5rem 2rem 1.25rem;
+    padding: 0.75rem 1rem 0.6rem;
+    padding-top: 1.25rem;
     cursor: pointer;
     font-family: 'Merriweather Sans', sans-serif;
     color: #1E3A5F;
@@ -1254,17 +1264,27 @@ footer {
 /* Logo cercle débordant */
 .card-cta-logo-install {
     position: absolute;
-    top: -1.5rem;
-    left: 1rem;
-    width: 3rem;
-    height: 3rem;
+    top: -0.75rem;
+    left: 0.6rem;
+    width: 1.75rem;
+    height: 1.75rem;
     background: var(--blanc);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 0.9rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card-cta-install .card-cta-title {
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+.card-cta-install .card-cta-subtitle {
+    font-size: 0.6rem;
+    margin-bottom: 0;
 }
 
 .card-cta-install .card-cta-title strong {
@@ -1990,19 +2010,19 @@ body.home-page footer {
 }
 
 /* Couleurs des tags par type */
-.apercu-tile[data-type="role"] .apercu-tag {
+.apercu-stack[data-type="role"] .apercu-tag {
     background: var(--amber-100);
     color: var(--amber-700);
 }
-.apercu-tile[data-type="moment"] .apercu-tag {
+.apercu-stack[data-type="moment"] .apercu-tag {
     background: var(--teal-100);
     color: var(--teal-700);
 }
-.apercu-tile[data-type="sos"] .apercu-tag {
+.apercu-stack[data-type="sos"] .apercu-tag {
     background: #FFCDD2;
     color: #C62828;
 }
-.apercu-tile[data-type="affiche"] .apercu-tag {
+.apercu-stack[data-type="affiche"] .apercu-tag {
     background: #C9D5E3;
     color: #1E3A5F;
 }
@@ -2043,22 +2063,22 @@ body.home-page footer {
 }
 
 /* Variante par type au hover */
-.apercu-tile[data-type="role"] .apercu-btn:hover {
+.apercu-stack[data-type="role"] .apercu-btn:hover {
     color: var(--amber-700);
     border: 1px solid var(--amber-700) !important;
     border-bottom: 1px solid var(--amber-700) !important;
 }
-.apercu-tile[data-type="moment"] .apercu-btn:hover {
+.apercu-stack[data-type="moment"] .apercu-btn:hover {
     color: var(--teal-700);
     border: 1px solid var(--teal-700) !important;
     border-bottom: 1px solid var(--teal-700) !important;
 }
-.apercu-tile[data-type="sos"] .apercu-btn:hover {
+.apercu-stack[data-type="sos"] .apercu-btn:hover {
     color: #C62828;
     border: 1px solid #C62828 !important;
     border-bottom: 1px solid #C62828 !important;
 }
-.apercu-tile[data-type="affiche"] .apercu-btn:hover {
+.apercu-stack[data-type="affiche"] .apercu-btn:hover {
     color: #1E3A5F;
     border: 1px solid #1E3A5F !important;
     border-bottom: 1px solid #1E3A5F !important;

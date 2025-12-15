@@ -39,9 +39,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 2rem 8rem;
+    padding: 4rem 2rem 4rem;
     width: 100%;
     margin: 0 !important;
+}
+
+/* Dernière section : padding réduit pour coller au footer */
+.fil-container .fil-section:last-child { padding-bottom: 0;
+}
+
+/* Supprimer l'espace entre .cta-cards-container et footer */
+.cta-cards-container {
+    margin-bottom: 0 !important;
 }
 
 .fil-content {
@@ -958,21 +967,33 @@
    DESKTOP - SNAP SCROLL
    =========================================== */
 @media (min-width: 769px) {
-    .fil-container {
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        height: calc(100vh - 60px);
-    }
-    
+    /* Pas de scroll-snap sur desktop pour éviter footer sticky */
     .fil-section {
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
+        min-height: 100vh;
     }
+}
+
+/* ===========================================
+   SECTION CTA FINALE
+   =========================================== */
+.fil-container .cta-section {
+    background-color: var(--fil-cream);
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+}
+
+.fil-container .cta-section h2 {
+    margin-top: 0;
 }
 
 /* ===========================================
    FOOTER AJUSTEMENT
    =========================================== */
+.fil-container {
+    margin-bottom: 0 !important;
+}
+
 footer {
+    margin-top: 0;
     padding-bottom: 5rem; /* Compense le slider fixe */
 }

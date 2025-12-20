@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de conception - Anacoluthe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/suivi.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-link">
+            <h1 class="site-title">Anacoluthe</h1>
+        </a>
+        <p class="site-subtitle">🔧 Suivi de conception</p>
+    </header>
+
+    <main class="suivi-page">
+
+        <!-- Progression globale -->
+        <section class="suivi-overview">
+            <h2>📊 Progression globale</h2>
+            <div id="progress-container" class="progress-container">
+                <p class="loading">Chargement...</p>
+            </div>
+        </section>
+
+        <!-- Phase 1 -->
+        <section class="suivi-phase">
+            <h2>Phase 1 : Cartes & Affiches</h2>
+            <p class="phase-description">18 éléments - 5 passes par élément</p>
+            
+            <div id="passes-legend" class="passes-legend">
+                <!-- Généré par JS -->
+            </div>
+            
+            <div id="paquets-container" class="paquets-container">
+                <!-- Généré par JS -->
+            </div>
+        </section>
+
+        <!-- Actions hors-digital -->
+        <section class="suivi-aside">
+            <h2>📦 Actions hors-digital</h2>
+            <ul id="aside-list" class="aside-list">
+                <!-- Généré par JS -->
+            </ul>
+        </section>
+
+        <!-- Retours et mémos -->
+        <section class="suivi-retours">
+            <h2>📬 Retours & mémos</h2>
+            <div id="retours-container" class="retours-container">
+                <p class="loading">Chargement...</p>
+            </div>
+        </section>
+
+        <!-- Phases futures -->
+        <section class="suivi-future">
+            <h2>🔮 Phases futures</h2>
+            <div class="future-cards">
+                <div class="future-card">
+                    <span class="future-emoji">📚</span>
+                    <h3>Phase 2</h3>
+                    <p>Guides mono + équipage</p>
+                </div>
+                <div class="future-card">
+                    <span class="future-emoji">🎓</span>
+                    <h3>Phase 3</h3>
+                    <p>Formations & séances</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modale notes -->
+    <div id="notes-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div id="notes-modal-body" class="modal-body">
+                <!-- Contenu chargé dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-credits">
+                <div class="footer-title">Anacoluthe V5</div>
+                <div class="footer-desc">Dispositif pédagogique pour apprendre l'organisation collective et le vivre ensemble par la voile habitable.<br>Projet support pour la validation des UC1-2 du BPJEPS.<br><a href="suivi.html">🚧 Suivre le travail en cours</a></div>
+                <div class="footer-meta">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a> - Quentin Jaud - Dernier commit : décembre 2025
+                </div>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html" class="footer-nav-link accent-index">← Accueil</a>
+                <a href="anacoluthe.html" class="footer-nav-link accent-jeu">🃏 Les cartes</a>
+                <a href="fil-semaine.html" class="footer-nav-link accent-fil">🧵 Le déroulé du jeu</a>
+                <a href="https://github.com/quentinjaud/Anacoluthe" class="footer-nav-link accent-github">💻 GitHub</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="assets/js/suivi-loader.js"></script>
+    <script src="assets/js/external-links.js"></script>
+</body>
+</html>

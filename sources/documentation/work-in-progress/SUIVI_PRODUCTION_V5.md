@@ -1,8 +1,63 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 251212*
+*Dernière mise à jour : 251220*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (251220)
+
+### Session 7 - Page de suivi de conception (suivi.html)
+
+**Nouvelle page web de suivi**
+- Création `suivi.html` - tableau de bord visuel du projet
+- Barre de progression globale (% d'avancement calculé sur 5 passes x 21 éléments)
+- Stats en temps réel : terminés / en cours / à faire
+- Accordéons par paquet (Affiches, Rôles, Moments, SOS)
+- Tableau d'avancement par élément avec 5 passes (Fond, Forme, Design, Print, Site)
+- Bouton "Notes" par paquet ouvrant une modale avec le fichier markdown
+- Section "Retours & mémos" (inbox terrain)
+- Section "Actions hors-digital" (impressions, tests terrain, formations)
+- Section "Phases futures" (placeholder)
+
+**Architecture fichiers suivi de conception**
+```
+sources/suivi/
+├── tableau_suivi_cartes.md   ← Source unique (éditable)
+├── retours_et_memos.md       ← Inbox retours terrain
+├── roles_notes.md            ← Notes détaillées rôles
+├── moments_notes.md          ← Notes détaillées moments
+├── sos_notes.md              ← Notes détaillées SOS
+└── affiches_notes.md         ← Notes détaillées affiches
+```
+
+**Comportement accordéons**
+- Fermés au chargement
+- Un seul ouvert à la fois (les autres se ferment)
+- Clic sur tout le header (pas juste la flèche)
+- Couleurs d'accent par type de paquet (navy/amber/teal/brick)
+
+**Mise à jour footers**
+- Ajout lien "🚧 Suivre le travail en cours" dans tous les footers publics
+- Pages concernées : index.html, anacoluthe.html, ensavoirplus.html, fil-semaine.html, suivi.html
+
+**Fichiers créés**
+- `suivi.html`
+- `assets/css/suivi.css`
+- `assets/js/suivi-loader.js`
+- `sources/suivi/tableau_suivi_cartes.md`
+- `sources/suivi/retours_et_memos.md`
+- `sources/suivi/*_notes.md` (4 fichiers)
+
+**Fichiers modifiés**
+- `index.html`, `anacoluthe.html`, `ensavoirplus.html`, `fil-semaine.html` - footer
+
+**À supprimer**
+- `assets/data/suivi-index.json` (remplacé par markdown)
+
+**Renommage**
+- "Suivi de production" → "Suivi de conception" (distingue du journal de sessions)
 
 ---
 
@@ -111,12 +166,15 @@
 | Cartes moments-clés | 7 | 🟡 PROTOS À VALIDER |
 | Cartes SOS | 4 | 🟠 PROTOS À VALIDER |
 | Affiches A4 | 3 | ✅ COMPLET |
-| Mémos affiches | 3 | 🟠 PROTOS À VALIDER |
+| Mémos affiches A6 | 3 | 🟠 PROTOS À VALIDER |
 | Site web | 1 | ✅ EN LIGNE |
-| Générateur PDF | 1 | ✅ OPÉRATIONNEL (debug + overflow) |
+| Page suivi | 1 | ✅ EN LIGNE |
+| Générateur PDF | 1 | ✅ OPÉRATIONNEL |
 | Guides | ? | ⬜ À DÉFINIR |
 
 **Total éléments fixes** : 21 (hors guides)
+
+**Progression** : ~49% (voir suivi.html)
 
 ---
 

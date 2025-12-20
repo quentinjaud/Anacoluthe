@@ -1,0 +1,152 @@
+{
+  "phases": [
+    {
+      "id": "phase1",
+      "title": "Phase 1 : Finir les cartes et affiches",
+      "emoji": "🃏",
+      "description": "Compléter la production de tous les éléments du jeu"
+    }
+  ],
+  "paquets": [
+    {
+      "id": "roles",
+      "title": "Cartes Rôles",
+      "emoji": "🔧",
+      "count": 4,
+      "notesPath": "sources/suivi/roles_notes.md"
+    },
+    {
+      "id": "moments",
+      "title": "Cartes Moments",
+      "emoji": "📅",
+      "count": 7,
+      "notesPath": "sources/suivi/moments_notes.md"
+    },
+    {
+      "id": "sos",
+      "title": "Cartes SOS",
+      "emoji": "🆘",
+      "count": 4,
+      "notesPath": "sources/suivi/sos_notes.md"
+    },
+    {
+      "id": "affiches",
+      "title": "Affiches & Mémos",
+      "emoji": "📋",
+      "count": 3,
+      "notesPath": "sources/suivi/affiches_notes.md"
+    }
+  ],
+  "passes": [
+    { "id": "fond", "label": "Fond", "title": "Intentions pédagogiques" },
+    { "id": "forme", "label": "Forme", "title": "Rédaction A6 (~900 car/face)" },
+    { "id": "design", "label": "Design", "title": "Mise en forme visuelle" },
+    { "id": "print", "label": "Print", "title": "PDF prêt à imprimer" },
+    { "id": "site", "label": "Site", "title": "Affiché sur anacoluthe.org" }
+  ],
+  "items": [
+    {
+      "id": "R1", "paquet": "roles", "title": "Bosco", "subtitle": "Bernard Moitessier",
+      "fond": "done", "forme": "done", "design": "done", "print": "done", "site": "done",
+      "comment": ""
+    },
+    {
+      "id": "R2", "paquet": "roles", "title": "Navigateurice", "subtitle": "Capucine Trochet",
+      "fond": "done", "forme": "done", "design": "done", "print": "done", "site": "done",
+      "comment": ""
+    },
+    {
+      "id": "R3", "paquet": "roles", "title": "Second soigneux", "subtitle": "Isabelle Autissier",
+      "fond": "done", "forme": "done", "design": "done", "print": "done", "site": "done",
+      "comment": ""
+    },
+    {
+      "id": "R4", "paquet": "roles", "title": "Cambusier·ère", "subtitle": "Tracy Edwards",
+      "fond": "done", "forme": "done", "design": "done", "print": "done", "site": "done",
+      "comment": ""
+    },
+    {
+      "id": "M1", "paquet": "moments", "title": "Accueil & Attentes", "subtitle": "J1 après-midi",
+      "fond": "done", "forme": "done", "design": "done", "print": "done", "site": "done",
+      "comment": ""
+    },
+    {
+      "id": "M2", "paquet": "moments", "title": "Accords d'équipage", "subtitle": "J1 soir",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "M3", "paquet": "moments", "title": "Introduction rôles", "subtitle": "J1 soir",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "M4", "paquet": "moments", "title": "Brief matin", "subtitle": "J2-J6 quotidien",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "M5", "paquet": "moments", "title": "Débrief soir", "subtitle": "J2-J6 quotidien",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "M6", "paquet": "moments", "title": "Mi-parcours", "subtitle": "J3 ou J4",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "M7", "paquet": "moments", "title": "Débrief final", "subtitle": "J6 après-midi",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "S1", "paquet": "sos", "title": "Gérer un conflit", "subtitle": "Quand la tension monte",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "S2", "paquet": "sos", "title": "Temps sans navigation", "subtitle": "Pétole ou coup de vent",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "S3", "paquet": "sos", "title": "Rediscuter le cadre", "subtitle": "Quand ça coince",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "S4", "paquet": "sos", "title": "Retour moniteurice", "subtitle": "Oser dire",
+      "fond": "done", "forme": "wip", "design": "todo", "print": "todo", "site": "wip",
+      "comment": "Proto créé, à relire"
+    },
+    {
+      "id": "A1", "paquet": "affiches", "title": "Routines quotidiennes", "subtitle": "5 phases + mémo",
+      "fond": "done", "forme": "done", "design": "wip", "print": "todo", "site": "wip",
+      "comment": "Affiche OK, mémo en proto"
+    },
+    {
+      "id": "A2", "paquet": "affiches", "title": "Tableau d'équipage", "subtitle": "Météo perso + mémo",
+      "fond": "done", "forme": "done", "design": "wip", "print": "todo", "site": "wip",
+      "comment": "Affiche OK, mémo en proto"
+    },
+    {
+      "id": "A3", "paquet": "affiches", "title": "Marque-page LDB", "subtitle": "Beaufort/Douglas + mémo",
+      "fond": "done", "forme": "done", "design": "wip", "print": "todo", "site": "wip",
+      "comment": "Affiche OK, mémo en proto"
+    }
+  ],
+  "aside": {
+    "title": "À côté : Actions hors prod numérique",
+    "emoji": "📦",
+    "items": [
+      { "id": "print1", "label": "Imprimer UN jeu complet", "done": false },
+      { "id": "printN", "label": "Imprimer plusieurs jeux + supports d'appropriation", "done": false }
+    ]
+  },
+  "statusLabels": {
+    "done": { "label": "✅", "title": "Terminé" },
+    "wip": { "label": "🔄", "title": "En cours / Proto" },
+    "todo": { "label": "⬜", "title": "À faire" }
+  }
+}

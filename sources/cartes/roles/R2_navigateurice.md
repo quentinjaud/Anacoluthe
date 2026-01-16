@@ -37,7 +37,7 @@ Développer une lecture fine des prévisions et du ciel.
 - Adapter le plan si la météo ou la fatigue changent
 
 ### Le soir
-- Valider le mouillage ou la marina avec le·la mono
+- Valider le mouillage ou la marina avec le·la moniteurice
 - Préparer la navigation du lendemain
 - Noter dans le livre de bord le trajet et les décisions
 

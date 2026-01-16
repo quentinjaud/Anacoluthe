@@ -39,9 +39,11 @@ Les 5 piliers sont le **socle de la coopération** de la semaine :
 | 🤝 Entraide active | Proposer et demander de l'aide |
 | ⚠️ Vigilance mutuelle | Vérifier que les autres vont bien |
 | 🧘 Droit au repos | Respecter ses limites et celles des autres |
-| ✨ Bienveillance | Droit à l'erreur, pas de jugement |
+| ✨ Sollicitude | Droit à l'erreur, pas de jugement |
 
 **Quand s'y référer ?** En cas de tension, pour recentrer sur ce qu'on s'est engagé à faire ensemble.
+
+> un peu plus d'infos méthode et "pourquoi il faut coopérer" plutôt que répéter le contenu du marque-pages ?
 
 ## 📝 GUIDANCE BRIEF/DÉBRIEF
 
@@ -50,7 +52,3 @@ Le verso rappelle **quoi noter dans "Observations"** du LDB :
 **Brief matin** : Rôles du jour + programme + intention collective
 
 **Débrief soir** : Ligne technique + ligne coopération
-
----
-
-💡 **Le livre de bord trace notre navigation ET notre coopération.**

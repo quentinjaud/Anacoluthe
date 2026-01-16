@@ -3,13 +3,15 @@
 
 <!-- HEAD -->
 
+> Sans nommer explicitement les apprentissages, les compétences développées risquent de rester "une expérience de stage". Transformons six jours de navigation en bagage transposable à terre.
+
 La semaine se termine. Vous avez navigué, appris, coopéré, peut-être galéré. Vous avez incarné des rôles, régulé des tensions, vécu des moments forts ensemble.
 
 Mais si vous repartez sans prendre le temps de nommer ce que vous avez appris, ces expériences risquent de s'évaporer. Les compétences développées ici - coopération, écoute, organisation collective - sont transposables partout. Encore faut-il en prendre conscience.
 
 Ce débrief final ancre les apprentissages et prépare leur transfert vers la vie à terre.
 
-## ✨ UNE INVITATION
+## ✨ LE P'TIT TIP'S
 
 Ce temps est essentiel pour le transfert d'apprentissage. Sans lui, les compétences développées restent "une expérience de stage" au lieu de devenir des outils durables.
 
@@ -40,7 +42,7 @@ Chacun·e peut offrir un feedback positif à un·e autre :
 
 #### 4. CLÔTURE COLLECTIVE (5 min)
 
-Le·la mono reformule les apprentissages communs.
+Le·la moniteurice reformule les apprentissages communs.
 L'équipage peut choisir un geste, un mot, un rituel de clôture.
 
 #### 🗣️ QUESTIONS POUR T'AIDER

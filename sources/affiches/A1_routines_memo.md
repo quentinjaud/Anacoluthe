@@ -45,11 +45,9 @@ L'affiche donne le **cadre général**. Chaque équipage construit ses **checkli
 
 ## 🔗 ARTICULATION AVEC LES AUTRES OUTILS
 
-| Outil | Articulation |
-|-------|--------------|
-| **Tableau d'équipage** | Qui a quel rôle aujourd'hui |
-| **Cartes rôles** | Détail des missions par rôle |
-| **Livre de bord** | Trace des actions réalisées |
+- **Tableau d'équipage** → Qui a quel rôle aujourd'hui
+- **Cartes rôles** → Détail des missions par rôle
+- **Livre de bord** → Trace des actions réalisées
 
 ---
 

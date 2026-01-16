@@ -9,7 +9,7 @@
 
 Créer un espace pour que les personnes concernées puissent nommer ce qui coince, s'écouter vraiment, et trouver un chemin pour continuer à naviguer ensemble.
 
-Pour : Équipage entier ou binôme concerné, avec ou sans le·la mono.
+Pour : Équipage entier ou binôme concerné, avec ou sans le·la moniteurice.
 
 <!-- FLIP -->
 
@@ -46,7 +46,7 @@ Soit on trouve un accord, soit on laisse reposer et on en reparle demain.
 
 - Ne pas forcer la résolution - parfois le temps aide
 - Ne pas chercher un·e "coupable"
-- Le·la mono peut faciliter si demandé
+- Le·la moniteurice peut faciliter si demandé
 
 #### 💡 À TERRE
 

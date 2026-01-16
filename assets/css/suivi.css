@@ -10,7 +10,11 @@
     padding: 1rem;
 }
 
-.suivi-page h2:first-of-type {
+.suivi-page section h2 {
+    margin-top: 2.5rem;
+}
+
+.suivi-page section:first-of-type h2 {
     margin-top: 0;
 }
 
@@ -85,6 +89,133 @@
 .stat-done .stat-value { color: var(--teal-700); }
 .stat-wip .stat-value { color: var(--amber-700); }
 .stat-todo .stat-value { color: var(--text-muted); }
+
+/* Sur le feu */
+.suivi-surlefeu {
+    margin-bottom: 2rem;
+}
+
+.surlefeu-container {
+    background: var(--blanc);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--amber-500);
+}
+
+.surlefeu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.surlefeu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.surlefeu-item.done .surlefeu-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.surlefeu-checkbox {
+    font-size: 1rem;
+}
+
+.surlefeu-empty {
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+/* Cooked (accordéon) */
+.cooked-container {
+    margin-top: 1rem;
+}
+
+.cooked-accordion {
+    background: var(--blanc);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.cooked-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    background: #f8f9fa;
+    transition: background 0.2s;
+}
+
+.cooked-header:hover {
+    background: #f0f1f2;
+}
+
+.cooked-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.cooked-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.cooked-toggle {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+}
+
+.cooked-accordion.open .cooked-toggle {
+    transform: rotate(90deg);
+}
+
+.cooked-body {
+    display: none;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #f0f1f2;
+}
+
+.cooked-accordion.open .cooked-body {
+    display: block;
+}
+
+.cooked-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.cooked-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.cooked-checkbox {
+    font-size: 0.9rem;
+}
+
+.cooked-text {
+    text-decoration: line-through;
+}
 
 /* Phase sections */
 .suivi-phase,

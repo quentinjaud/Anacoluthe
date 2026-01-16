@@ -3,15 +3,17 @@
 
 <!-- HEAD -->
 
+> Transformons les normes implicites en engagements co-construits. Posons ensemble les règles du vivre-ensemble et créons un cadre où chacun·e se sent légitime à exprimer ses besoins.
+
 Une semaine en équipage, c'est vivre ensemble 24h/24 dans 12m² flottants. Dormir, manger, naviguer, affronter la météo, prendre des décisions qui engagent tout le monde.
 
 Sans cadre explicite, vous allez naviguer à vue dans le vivre-ensemble : supposer ce qui est OK pour les autres, compenser en silence, accumuler les frustrations.
 
 Les accords d'équipage, c'est votre contrat social explicite. Pas une liste de règles imposées - des engagements d'humain·e à humain·e, co-construits.
 
-## ✨ UNE INVITATION
+## ✨ LE P'TIT TIP'S
 
-Ces accords sont les vôtres. Le·la mono facilite, mais c'est vous qui décidez ce qui compte. Vous pourrez les rediscuter en cours de semaine si besoin (voir carte SOS S3).
+Ces accords sont les vôtres. Le·la moniteurice facilite, mais c'est vous qui décidez ce qui compte. Vous pourrez les rediscuter en cours de semaine si besoin (voir carte SOS S3).
 
 <!-- FLIP -->
 
@@ -19,7 +21,7 @@ Ces accords sont les vôtres. Le·la mono facilite, mais c'est vous qui décidez
 
 #### 1. POSER LE CADRE
 
-Le·la mono explique : "On va créer ensemble les règles de notre équipage. Chacun·e peut proposer, questionner, ajuster."
+Le·la moniteurice explique : "On va créer ensemble les règles de notre équipage. Chacun·e peut proposer, questionner, ajuster."
 
 Prenez une feuille vierge. Écrivez en haut : ACCORDS D'ÉQUIPAGE
 
@@ -27,7 +29,7 @@ Prenez une feuille vierge. Écrivez en haut : ACCORDS D'ÉQUIPAGE
 
 Par thème, tour de table : "Qu'est-ce qui est important pour moi ?"
 
-Thèmes possibles : Communication - Sommeil - Fatigue/repos - Gestion tensions - Droit à l'erreur - Humour/limites - Moments solo - Rangement - Relation au·à la mono
+Thèmes possibles : Communication - Sommeil - Fatigue/repos - Gestion tensions - Droit à l'erreur - Humour/limites - Moments solo - Rangement - Relation au·à la moniteurice
 
 ⚠️ Veiller à l'équilibre temps de parole
 

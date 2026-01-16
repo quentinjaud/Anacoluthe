@@ -8,6 +8,30 @@
 
 ## 🔄 DERNIÈRES MODIFICATIONS (260116)
 
+### Session 9 - Amélioration page suivi.html
+
+**Nouvelles sections dynamiques**
+- Section "🧑‍🍳 En cuisine en ce moment..." (todo list depuis markdown)
+- Section "👌 Sorti des cuisines" (accordéon replié par défaut pour tâches terminées)
+- Parsing dynamique des sections `## 🔥Sur le feu` et `## 👌 Cooked` du markdown
+
+**Renommages sections**
+- "Phase 1 : Cartes & Affiches" → "🎨 Affinage des Cartes & Affiches"
+- "Actions hors-digital" → "🔊 Diffusion du jeu"
+- "Phases futures" → "👐 Appropriation du jeu"
+
+**Corrections**
+- Favicon : correction lien cassé (`favicon.svg` → `logo-anacoluthe.svg`)
+- CSS : espacement h2 corrigé (spécificité `.suivi-page section h2`)
+
+**Fichiers modifiés**
+- `suivi.html` - structure HTML mise à jour
+- `assets/css/suivi.css` - styles accordéon "Cooked", espacement h2
+- `assets/js/suivi-loader.js` - parsing sections "Sur le feu" et "Cooked"
+- `sources/suivi/tableau_suivi_cartes.md` - ajout sections 🔥 et 👌
+
+---
+
 ### Session 8 - Refactorisation code afficheur/print
 
 **Nettoyage CSS**

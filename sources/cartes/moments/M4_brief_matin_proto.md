@@ -3,13 +3,15 @@
 
 <!-- HEAD -->
 
+> Greffons la dimension humaine sur le technique. En 5 minutes, activons la conscience collective du groupe et transformons un programme de navigation en projet d'équipage partagé.
+
 Le brief technique existe déjà : météo, route, programme. Mais comment va l'équipage ce matin ? Qui est en forme, qui traîne une fatigue ? Qui prend quel rôle aujourd'hui ?
 
 Ce temps court greffe la dimension humaine sur le brief technique existant. Il permet de savoir où en est chacun·e, d'attribuer les rôles du jour, et de partir avec une intention commune.
 
 C'est aussi le moment où le tableau d'équipage prend vie : chacun·e y note sa météo perso et son rôle.
 
-## ✨ UNE INVITATION
+## ✨ LE P'TIT TIP'S
 
 La météo perso n'a pas à être justifiée. Un mot suffit. Si quelqu'un·e est en basse énergie, le·la second soigneux du jour gardera un œil bienveillant.
 
@@ -51,7 +53,7 @@ Enchaînez avec le brief classique : météo, route, programme.
 
 #### 💡 VARIANTE J5-J6
 
-Un·e équipier·ère anime le brief à la place du·de la mono.
+Un·e équipier·ère anime le brief à la place du·de la moniteurice.
 
 → Ce soir : M5 Débrief du soir
 

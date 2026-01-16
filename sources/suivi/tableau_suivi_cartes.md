@@ -1,6 +1,15 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 2025-12-20
+> Dernière mise à jour : 16 Janvier 2026
+
+## 🔥Sur le feu
+
+[] Compacter FORT le mémo A2
+
+## 👌 Cooked
+
+[X] Ajouter aux cartes moment la petite intro dans le bloc "quote" comme dans les rôles
+[X] Enlever "mono" des cartes
 
 ## Progression globale
 
@@ -10,7 +19,7 @@
 | En cours | 14 |
 | Total Phase 1 | 21 |
 
-## Phase 1 : Cartes & Affiches (21 éléments)
+## 🎨 Affinage des Cartes & Affiches
 
 ### Légende des passes
 
@@ -26,27 +35,27 @@
 
 | ID | Titre | Fond | Forme | Design | Print | Site | Commentaire |
 |----|-------|------|-------|--------|-------|------|-------------|
-| A1a | Routines (affiche A4) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| A1m | Routines (mémo A6) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 | Proto |
-| A2a | Tableau équipage (affiche A4) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| A2m | Tableau équipage (mémo A6) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 | Proto |
-| A3a | Marque-page LDB (affiche A4) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| A3m | Marque-page LDB (mémo A6) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 | Proto |
-| R1 | Bosco | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| R2 | Navigateurice | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| R3 | Second soigneux | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| R4 | Cambusier·ère | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| M1 | Accueil & Attentes | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| M2 | Accords d'équipage | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto - à finaliser |
-| M3 | Introduction rôles | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto - priorité haute |
-| M4 | Brief matin | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto - priorité haute |
-| M5 | Débrief soir | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto - priorité haute |
-| M6 | Mi-parcours | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto |
-| M7 | Débrief final | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto |
-| S1 | Gérer un conflit | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto créé 4 déc |
-| S2 | Temps sans navigation | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto créé 4 déc |
-| S3 | Rediscuter le cadre | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto créé 4 déc |
-| S4 | Retour moniteurice | ✅ | 🔄 | ⬜ | ⬜ | ⬜ | Proto créé 4 déc |
+| A1a | [Routines (affiche A4)](../affiches/A1_Routines.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| A1m | [Routines (mémo A6)](../affiches/A1_routines_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
+| A2a | [Tableau équipage (affiche A4)](../affiches/A2_tableau.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
+| A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
+| R1 | [Bosco](../cartes/roles/R1_bosco.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| R2 | [Navigateurice](../cartes/roles/R2_navigateurice.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| R3 | [Second soigneux](../cartes/roles/R3_second_soigneux.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| R4 | [Cambusier·ère](../cartes/roles/R4_cambusiere.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| M1 | [Accueil & Attentes](../cartes/moments/M1_ACCUEIL_ATTENTES.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | à finaliser |
+| M3 | [Introduction rôles](../cartes/moments/M3_introduction_roles_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
+| M4 | [Brief matin](../cartes/moments/M4_brief_matin_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
+| M5 | [Débrief soir](../cartes/moments/M5_debrief_soir_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
+| M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
+| M7 | [Débrief final](../cartes/moments/M7_debrief_final_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
+| S1 | [Gérer un conflit](../cartes/sos/S1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| S2 | [Temps sans navigation](../cartes/sos/S2_temps_sans_navigation_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| S3 | [Rediscuter le cadre](../cartes/sos/S3_rediscuter_accords_programme_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| S4 | [Retour moniteurice](../cartes/sos/S4_demande_feedback_mono_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 
 ### Légende statuts
 
@@ -56,7 +65,7 @@
 
 ---
 
-## Actions hors-digital
+## 🔊 Diffusion du jeu
 
 | Action | Statut | Note |
 |--------|--------|------|
@@ -67,7 +76,7 @@
 
 ---
 
-## Phases futures
+## 👐 Appropriation du jeu
 
 | Phase | Contenu | Statut |
 |-------|---------|--------|
@@ -76,4 +85,4 @@
 
 ---
 
-*Fichier éditable manuellement - V_251220*
+*Fichier éditable manuellement - V_260116*

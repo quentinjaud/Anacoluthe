@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where:*)",
+      "Bash(dir \"C:\\\\Program Files\\\\Typora\\\\Typora.exe\")",
+      "Bash(dir \"C:\\\\Program Files \\(x86\\)\\\\Typora\\\\Typora.exe\")",
+      "Bash(dir \"%LOCALAPPDATA%\\\\Programs\\\\Typora\\\\Typora.exe\")",
+      "Bash(curl:*)",
+      "Bash(npx http-server:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nrefactor: Factoriser le code afficheur/print-render\n\n- Suppression variable CSS redondante --print-base-font-size\n- Nouvelle fonction splitByFlip\\(\\) dans markdown-utils.js\n- Nouvelle fonction prepareMarkdownForPrint\\(\\) dans markdown-utils.js  \n- Nouvelle fonction renderModalViewer\\(\\) dans afficheur-cartes.js\n- Correction ratios tailles renderTechView \\(alignement CSS\\)\n- Cache-busting ?v=2 sur print-render.html\nEOF\n\\)\")"
+    ]
+  }
+}

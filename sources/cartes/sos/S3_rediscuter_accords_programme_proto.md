@@ -9,7 +9,7 @@
 
 Reconnaître que quelque chose ne fonctionne plus. Permettre l'expression des frustrations sans accusation. Renégocier collectivement et repartir sur des bases ajustées.
 
-Pour : Équipage entier. Le·la mono valide les ajustements possibles (technique, sécurité).
+Pour : Équipage entier. Le·la moniteurice valide les ajustements possibles (technique, sécurité).
 
 <!-- FLIP -->
 
@@ -35,7 +35,7 @@ Tour de parole : "Qu'est-ce qui ne fonctionne plus pour moi ? De quoi ai-je beso
 
 "Qu'est-ce qu'on ajuste ?"
 - Pour les accords : modifier le document affiché
-- Pour le programme : le·la mono propose des ajustements possibles
+- Pour le programme : le·la moniteurice propose des ajustements possibles
 
 #### 5. VALIDATION
 
@@ -46,7 +46,7 @@ Si objection forte → continuer ou reporter.
 
 - Modifier physiquement l'affiche des accords si besoin
 - Le second soigneux vérifie les jours suivants que ça tient
-- Le·la mono peut expliquer des contraintes (sécurité, technique) mais pas bloquer sans raison
+- Le·la moniteurice peut expliquer des contraintes (sécurité, technique) mais pas bloquer sans raison
 
 #### 💡 À TERRE
 

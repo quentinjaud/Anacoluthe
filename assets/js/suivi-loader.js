@@ -17,25 +17,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch('sources/suivi/tableau_suivi_cartes.md');
         if (!response.ok) throw new Error('Fichier tableau non trouvé');
         const markdown = await response.text();
-        
+
         // Parser les données
         const data = parseMarkdown(markdown);
-        
+
         // Afficher
         renderProgress(data);
+        renderSurLeFeu(data.surLeFeu);
+        renderCooked(data.cooked);
         renderPasses();
         renderItems(data.items);
         renderAside(data.aside);
-        
+
         // Charger les retours
         renderRetours();
-        
+
         // Setup modale
         setupModal();
-        
+
     } catch (error) {
         console.error('Erreur chargement suivi:', error);
-        document.getElementById('progress-container').innerHTML = 
+        document.getElementById('progress-container').innerHTML =
             '<p class="error">Erreur de chargement des données</p>';
     }
 });
@@ -46,7 +48,34 @@ document.addEventListener('DOMContentLoaded', async () => {
 function parseMarkdown(md) {
     const items = [];
     const aside = [];
-    
+    const surLeFeu = [];
+
+    // Trouver la section "Sur le feu" (liste avec [] ou [x] ou - après ## 🔥Sur le feu)
+    const surLeFeuMatch = md.match(/## 🔥\s*Sur le feu\s*\n([\s\S]*?)(?=\n##|\n---)/);
+    if (surLeFeuMatch) {
+        const lines = surLeFeuMatch[1].split('\n').filter(l => l.trim().match(/^(\[.?\]|-)/));
+        for (const line of lines) {
+            const done = line.includes('[x]') || line.includes('[X]');
+            const text = line.replace(/^\[.?\]\s*/, '').replace(/^-\s*/, '').trim();
+            if (text) {
+                surLeFeu.push({ text, done });
+            }
+        }
+    }
+
+    // Trouver la section "Cooked" (tâches terminées)
+    const cooked = [];
+    const cookedMatch = md.match(/## 👌\s*Cooked\s*\n([\s\S]*?)(?=\n##|\n---)/);
+    if (cookedMatch) {
+        const lines = cookedMatch[1].split('\n').filter(l => l.trim().match(/^(\[.?\]|-)/));
+        for (const line of lines) {
+            const text = line.replace(/^\[.?\]\s*/, '').replace(/^-\s*/, '').trim();
+            if (text) {
+                cooked.push(text);
+            }
+        }
+    }
+
     // Trouver le tableau d'avancement (après "### Tableau d'avancement")
     const tableMatch = md.match(/\| ID \| Titre \|[\s\S]*?(?=\n\n|\n###|\n---)/);
     if (tableMatch) {
@@ -71,8 +100,8 @@ function parseMarkdown(md) {
         }
     }
     
-    // Trouver le tableau actions hors-digital
-    const asideMatch = md.match(/## Actions hors-digital[\s\S]*?\| Action \|[\s\S]*?(?=\n\n|\n---)/);
+    // Trouver le tableau "Diffusion du jeu"
+    const asideMatch = md.match(/## 🔊\s*Diffusion du jeu[\s\S]*?\| Action \|[\s\S]*?(?=\n\n|\n---)/);
     if (asideMatch) {
         const lines = asideMatch[0].split('\n').filter(l => l.startsWith('|') && !l.includes('Action') && !l.includes('---'));
         for (const line of lines) {
@@ -87,7 +116,7 @@ function parseMarkdown(md) {
         }
     }
     
-    return { items, aside };
+    return { items, aside, surLeFeu, cooked };
 }
 
 /**
@@ -108,6 +137,71 @@ function getType(id) {
     if (id.startsWith('S')) return 'sos';
     if (id.startsWith('A')) return 'affiche';
     return 'other';
+}
+
+/**
+ * Affiche la section "Sur le feu"
+ */
+function renderSurLeFeu(surLeFeu) {
+    const container = document.getElementById('surlefeu-container');
+    if (!container) return;
+
+    if (!surLeFeu || surLeFeu.length === 0) {
+        container.innerHTML = '<p class="surlefeu-empty">Rien sur le feu pour le moment</p>';
+        return;
+    }
+
+    container.innerHTML = `
+        <ul class="surlefeu-list">
+            ${surLeFeu.map(item => `
+                <li class="surlefeu-item ${item.done ? 'done' : ''}">
+                    <span class="surlefeu-checkbox">${item.done ? '✅' : '⬜'}</span>
+                    <span class="surlefeu-text">${item.text}</span>
+                </li>
+            `).join('')}
+        </ul>
+    `;
+}
+
+/**
+ * Affiche la section "Cooked" (accordéon replié)
+ */
+function renderCooked(cooked) {
+    const container = document.getElementById('cooked-container');
+    if (!container) return;
+
+    if (!cooked || cooked.length === 0) {
+        container.style.display = 'none';
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="cooked-accordion">
+            <div class="cooked-header" onclick="toggleCooked()">
+                <span class="cooked-title">👌 Sorti des cuisines</span>
+                <span class="cooked-count">(${cooked.length})</span>
+                <span class="cooked-toggle">▶</span>
+            </div>
+            <div class="cooked-body">
+                <ul class="cooked-list">
+                    ${cooked.map(text => `
+                        <li class="cooked-item">
+                            <span class="cooked-checkbox">✅</span>
+                            <span class="cooked-text">${text}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Toggle accordéon Cooked
+ */
+function toggleCooked() {
+    const accordion = document.querySelector('.cooked-accordion');
+    accordion.classList.toggle('open');
 }
 
 /**

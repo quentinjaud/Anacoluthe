@@ -44,7 +44,7 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 - **Accroche contextuelle** : Poser la situation concrète (le "vous êtes là")
 - **Problème/enjeu** : Pourquoi ce moment est important
-- **Intention(s)** : Ce qu'on vise (organisation + coopération fusionnés)
+- **Quote d'introduction** : Blockquote (`>`) synthétisant l'enjeu en 2-3 phrases. Ton engageant, à la 2e personne du pluriel ("Transformons...", "Célébrons..."). Comme sur les cartes rôles.
 - **Invitation Anacoluthe** (si pertinent) : Le "meta" sur l'exploration de soi
 
 ### Structure verso

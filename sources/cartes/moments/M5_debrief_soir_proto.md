@@ -3,13 +3,15 @@
 
 <!-- HEAD -->
 
+> Ancrons les apprentissages techniques ET relationnels. En nommant ce qui a fonctionné dans le collectif, transformons cette journée de navigation en expérience d'apprentissage consciente.
+
 La journée de navigation est finie. Vous avez manœuvré, appris, peut-être galéré. Le débrief technique existe déjà : qu'est-ce qui a marché, qu'est-ce qu'on améliore ?
 
 Mais la dimension humaine compte aussi. Comment a fonctionné l'équipage ? Les rôles ont-ils été tenus ? Y a-t-il eu des frictions, des belles coopérations ?
 
 Ce temps ancre les apprentissages techniques ET relationnels. C'est aussi le moment d'identifier si une carte SOS serait utile.
 
-## ✨ UNE INVITATION
+## ✨ LE P'TIT TIP'S
 
 On parle de fonctionnement collectif, pas de personnes. "Notre communication a été compliquée" plutôt que "Tu n'écoutais pas". C'est plus utile et moins blessant.
 

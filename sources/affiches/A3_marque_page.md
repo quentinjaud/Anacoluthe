@@ -51,16 +51,16 @@ Ces piliers guident notre coopération tout au long de la semaine.
 Dire ce qu'on fait • Demander avant d'agir • Nommer si on comprend pas
 
 #### 🤝 ENTRAIDE ACTIVE
-Proposer son aide • Demander de l'aide • Transmettre ses savoirs
+Proposer son aide sans l'imposer • Accepter de demander de l'aide • Vérifier puis transmettre ses savoirs
 
 #### ⚠️ VIGILANCE MUTUELLE
 Vérifier l'état des autres • Nommer les tensions • Réguler ensemble
 
 #### 🧘 DROIT AU REPOS
-Respecter ses limites • Demander une pause • Rotation équitable
+Respecter ses limites • Annoncer ses pauses • Veiller à des rotations équitables
 
-#### ✨ BIENVEILLANCE
-Droit à l'erreur • Pas de jugement • On apprend ensemble
+#### ✨ SOLLICITUDE
+Se donner le droit à l'erreur • Eviter de verbaliser ses jugements • On apprend ensemble
 
 ---
 

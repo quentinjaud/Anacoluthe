@@ -3,11 +3,13 @@
 
 <!-- HEAD -->
 
+> Ce moment pose les fondations d'une semaine de coopération réelle. Exprimons nos attentes dès J1, pour donner les clés au·à la moniteurice pour construire un programme qui nous convient, et célébrons la diversité des motivations de chacun·e.
+
 Vous êtes six inconnu·es qui allez partager 12m² pendant 6 jours. Avant de plonger dans l'action (courses, inventaire, topo sécu), prenons le temps de nous rencontrer vraiment.
 
-Sans expression des attentes, le·la mono navigue à l'aveugle. Les déceptions de fin de stage viennent souvent d'espoirs jamais formulés. Vos attentes l'aideront à construire un programme qui combine vos envies, les impératifs météo et les objectifs du stage.
+Sans expression des attentes, le·la moniteurice navigue à l'aveugle. Les déceptions de fin de stage viennent souvent d'espoirs jamais formulés. Vos attentes l'aideront à construire un programme qui combine vos envies, les impératifs météo et les objectifs du stage.
 
-## ✨ UNE INVITATION
+## ✨ LE P'TIT TIP'S
 
 Ici, personne ne vous connaît. Personne n'attend de vous que vous soyez "comme d'habitude". C'est une occasion rare : vous pouvez explorer une autre version de vous-même, sortir de vos automatismes, questionner votre posture et vos façons d'être en groupe.
 
@@ -19,9 +21,9 @@ Cette semaine, vous apprendrez la voile - et aussi à faire équipage. Ces comp�
 
 #### 1. BRISE-GLACE (5 min)
 
-Option A : "Ton prénom + quelque chose que personne ici ne peut deviner sur toi."
+**Option A - L'objet voyage** : Chacun·e a choisi un objet en arrivant (dans son sac ou sur le bateau). On le montre et on explique pourquoi il nous représente ou compte pour nous.
 
-Option B : Avec un bout du bord. Qui le tient dit son prénom + pourquoi iel est là, puis le passe.
+**Option B - Le nœud** : On fait circuler un bout. Chacun·e fait un nœud (même maladroit) en disant son prénom et une chose qu'iel veut "attacher" à cette semaine. À la fin, le bout garde la trace de tout le groupe.
 
 #### 2. TOURS DE PAROLE (15-20 min)
 
@@ -37,9 +39,9 @@ Faisons plusieurs petits tours. Chacun·e répond en 1-2 phrases :
 
 #### ⚓ ANCRAGE
 
-Notons les attentes sur une feuille A4 qu'on laissera affichée au carré. On y reviendra à mi-parcours (M6) et en fin de stage (M7) pour vérifier qu'on a tenu le cap.
+Notons les attentes sur une feuille A4 qu'on laissera affichée au carré. On y reviendra après la première navigation, puis à mi-parcours (M6) et enfin, à la fin du stage (M7) pour vérifier qu'on a tenu le cap.
 
-→ Prochaine étape : avitaillement, puis M2 Accords.
+→ Prochaine étape : avitaillement, puis **M2 Accords**.
 
 ---
 

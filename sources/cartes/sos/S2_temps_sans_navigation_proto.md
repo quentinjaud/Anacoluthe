@@ -9,7 +9,7 @@
 
 Transformer ce temps contraint en temps choisi. Équilibrer collectif et solo. Utiliser ce temps pour autre chose que "attendre que ça passe".
 
-Pour : Équipage entier. Le·la mono arrange le programme, chaque rôle peut contribuer selon ses missions.
+Pour : Équipage entier. Le·la moniteurice arrange le programme, chaque rôle peut contribuer selon ses missions.
 
 <!-- FLIP -->
 
@@ -32,7 +32,7 @@ Options possibles :
 
 #### 3. CONSTRUCTION DU PROGRAMME (5 min)
 
-Le·la mono propose un équilibre :
+Le·la moniteurice propose un équilibre :
 - Collectif obligatoire (ex : topo, repas)
 - Collectif optionnel (ex : jeu, balade)
 - Solo respecté (plages libres)

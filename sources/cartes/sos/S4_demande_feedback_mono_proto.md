@@ -1,16 +1,16 @@
 # 💬 DEMANDE-RETOUR MONITEURICE 
-###### Communiquer avec le·la mono sur son action
+###### Communiquer avec le·la moniteurice sur son action
 
 <!-- HEAD -->
 
-> L'équipage a besoin de parler au·à la mono. Trois cas possibles :
+> L'équipage a besoin de parler au·à la moniteurice. Trois cas possibles :
 > - Feedback positif : quelque chose a bien marché, on veut le dire
 > - Demande d'ajustement : rythme, méthodes, programme
 > - Expression d'inconfort : quelque chose ne va pas
 
 ## ✨ INTENTION
 
-Légitimer la parole des stagiaires vers le·la mono. Donner une méthode pour formuler clairement. Permettre les ajustements en cours de stage.
+Légitimer la parole des stagiaires vers le·la moniteurice. Donner une méthode pour formuler clairement. Permettre les ajustements en cours de stage.
 
 Pour : Un stagiaire ou l'équipage collectivement. Le second soigneux peut faciliter.
 
@@ -20,7 +20,7 @@ Pour : Un stagiaire ou l'équipage collectivement. Le second soigneux peut facil
 
 #### 1. DÉCISION DE PARLER
 
-"J'aimerais qu'on utilise cette carte pour parler au·à la mono de [sujet]."
+"J'aimerais qu'on utilise cette carte pour parler au·à la moniteurice de [sujet]."
 Si c'est collectif, vérifier que d'autres partagent le besoin.
 
 #### 2. PRÉPARER SON MESSAGE
@@ -33,9 +33,9 @@ Structurer avec 4 éléments :
 
 #### 3. EXPRESSION
 
-La personne formule son message. Le·la mono écoute sans interrompre.
+La personne formule son message. Le·la moniteurice écoute sans interrompre.
 
-#### 4. RÉPONSE DU·DE LA MONO
+#### 4. RÉPONSE DU·DE LA MONITEURICE
 
 Iel peut : remercier, demander des précisions, proposer un ajustement, expliquer une contrainte.
 

@@ -19,7 +19,7 @@ function configureMarked() {
 
 /**
  * Pré-traitement du markdown pour le marqueur FLIP uniquement
- * 
+ *
  * @param {string} markdown - Le markdown brut
  * @param {Object} options - Options de traitement
  * @param {boolean} options.keepFlip - Si true, garde le marqueur FLIP (pour print)
@@ -28,13 +28,63 @@ function configureMarked() {
 function preprocessMarkdownMarkers(markdown, options = {}) {
     const { keepFlip = false } = options;
     let processed = markdown;
-    
+
     // Supprimer le marqueur FLIP pour les vues web/mobile
     if (!keepFlip) {
         processed = processed.replace(/<!--\s*FLIP\s*-->/gi, '');
     }
-    
+
     return processed;
+}
+
+/**
+ * Sépare le markdown en recto/verso selon le marqueur FLIP
+ *
+ * @param {string} markdown - Le markdown brut complet
+ * @returns {Object} - { recto, verso }
+ */
+function splitByFlip(markdown) {
+    const flipMarker = '<!-- FLIP -->';
+
+    if (markdown.includes(flipMarker)) {
+        const parts = markdown.split(flipMarker);
+        return {
+            recto: parts[0].trim(),
+            verso: parts.slice(1).join(flipMarker).trim()
+        };
+    }
+
+    return {
+        recto: markdown,
+        verso: '*Pas de verso défini*'
+    };
+}
+
+/**
+ * Prépare le markdown pour le rendu print (recto ou verso)
+ * - Supprime les blocs SKIP-PRINT (contenu réservé au web)
+ * - Supprime les marqueurs SKIP-WEB (garde le contenu pour print)
+ * - Supprime les marqueurs HEAD
+ *
+ * @param {string} markdown - Le markdown brut d'une face (recto ou verso)
+ * @returns {string} - Le markdown nettoyé pour print
+ */
+function prepareMarkdownForPrint(markdown) {
+    let content = markdown;
+
+    // Retirer le marqueur HEAD
+    content = content.replace(/<!--\s*HEAD\s*-->/gi, '');
+
+    // Supprimer les blocs SKIP-PRINT (le marqueur + le contenu jusqu'au prochain H2 ou HR ou fin)
+    content = content.replace(
+        /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
+        ''
+    );
+
+    // Retirer les marqueurs SKIP-WEB (garder le contenu pour print)
+    content = content.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
+
+    return content;
 }
 
 /**
@@ -286,6 +336,8 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         configureMarked,
         preprocessMarkdownMarkers,
+        splitByFlip,
+        prepareMarkdownForPrint,
         wrapSkipBlocks,
         parseCardContent,
         generateSectionNav,

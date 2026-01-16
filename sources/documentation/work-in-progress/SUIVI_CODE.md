@@ -2,7 +2,7 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 12 décembre 2025 - 17h*
+*Dernière mise à jour : 16 janvier 2026*
 
 ---
 
@@ -254,6 +254,58 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 251212 | Supprimer shufflin.png (action 12) | assets/images/ | ✅ Fait |
 | 251212 | Ajouter affiche-tableau-equipage.png au précache | sw.js | ✅ Fait |
 | - | Images conservées volontairement | .gitkeep, icon-pwa.svg, Logo*.jpg, affiche*.png | ✅ Gardé |
+| 260116 | Refacto afficheur/print-render | markdown-utils.js, afficheur-cartes.js, print-render.js, cards-print.css | ✅ Fait |
+
+---
+
+## REFACTO 16 JANVIER 2026
+
+### Contexte
+Nettoyage du code de l'afficheur de cartes et du moteur de rendu markdown-to-print.
+
+### Modifications
+
+#### 1. Variable CSS redondante supprimée
+- **Fichier** : `cards-print.css`
+- **Avant** : `--print-base-font-size` et `--print-font-size-max` (redondantes, même valeur 11pt)
+- **Après** : uniquement `--print-font-size-max`
+- **Impact** : `afficheur-cartes.js` mis à jour pour utiliser `--print-font-size-max`
+
+#### 2. Ratios de tailles corrigés
+- **Fichier** : `afficheur-cartes.js` (fonction `renderTechView`)
+- **Avant** : ratios incohérents `{ h1: 1.556, h2: 1.111, h3: 1, h6: 1 }`
+- **Après** : ratios alignés sur CSS `{ h1: 1.8, h2: 1.25, h3: 1.05, h6: 1 }`
+
+#### 3. Fonction `splitByFlip` factorisée
+- **Fichier** : `markdown-utils.js`
+- **Nouvelle fonction** : `splitByFlip(markdown)` retourne `{ recto, verso }`
+- **Utilisée par** : `afficheur-cartes.js` et `print-render.js`
+- **Avant** : logique dupliquée dans les deux fichiers
+
+#### 4. Fonction `prepareMarkdownForPrint` factorisée
+- **Fichier** : `markdown-utils.js`
+- **Nouvelle fonction** : `prepareMarkdownForPrint(markdown)` gère HEAD, SKIP-PRINT, SKIP-WEB
+- **Utilisée par** : `afficheur-cartes.js` et `print-render.js`
+- **Avant** : regex dupliquées dans les deux fichiers
+
+#### 5. Fonction `renderModalViewer` factorisée
+- **Fichier** : `afficheur-cartes.js`
+- **Nouvelle fonction** : `renderModalViewer(config, card, markdown)`
+- **Utilisée par** : `renderWebView` et `renderMobileView`
+- **Avant** : ~40 lignes de code dupliquées entre les deux fonctions
+
+#### 6. Cache-busting ajouté
+- **Fichier** : `print-render.html`
+- **Scripts** : `?v=2` ajouté aux imports JS pour forcer le rechargement
+
+### Bilan
+
+| Métrique | Avant | Après |
+|----------|-------|-------|
+| Lignes dupliquées supprimées | ~80 | 0 |
+| Fonctions partagées ajoutées | 0 | 3 |
+| Variables CSS redondantes | 1 | 0 |
+| Bugs potentiels corrigés | 1 (ratios) | 0 |
 
 ---
 

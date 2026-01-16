@@ -1,8 +1,36 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 251220*
+*Dernière mise à jour : 260116*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260116)
+
+### Session 8 - Refactorisation code afficheur/print
+
+**Nettoyage CSS**
+- Suppression variable redondante `--print-base-font-size` (même valeur que `--print-font-size-max`)
+- Fichier : `cards-print.css`
+
+**Factorisation JS**
+- Nouvelle fonction `splitByFlip()` dans `markdown-utils.js` - séparation recto/verso
+- Nouvelle fonction `prepareMarkdownForPrint()` dans `markdown-utils.js` - nettoyage HEAD/SKIP-PRINT/SKIP-WEB
+- Nouvelle fonction `renderModalViewer()` dans `afficheur-cartes.js` - code partagé web/mobile
+- Correction ratios tailles dans `renderTechView()` (alignement CSS)
+
+**Fichiers modifiés**
+- `assets/css/cards-print.css` - variable supprimée
+- `assets/js/markdown-utils.js` - 2 fonctions ajoutées
+- `assets/js/afficheur-cartes.js` - refacto + fonction partagée
+- `assets/js/print-render.js` - utilise fonctions partagées
+- `print-render.html` - cache-busting `?v=2`
+
+**Bilan**
+- ~80 lignes dupliquées supprimées
+- 3 fonctions partagées créées
+- 1 bug potentiel corrigé (ratios)
 
 ---
 

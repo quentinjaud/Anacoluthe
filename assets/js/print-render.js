@@ -47,54 +47,24 @@ async function init() {
         if (!mdResponse.ok) throw new Error(`Markdown non trouvé: ${card.path}`);
         let markdown = await mdResponse.text();
         
-        // 5. Extraire recto ou verso
-        const flipMarker = '<!-- FLIP -->';
-        let content;
-        
-        if (markdown.includes(flipMarker)) {
-            const parts = markdown.split(flipMarker);
-            if (face === 'recto') {
-                content = parts[0].trim();
-            } else {
-                content = parts.slice(1).join(flipMarker).trim();
-            }
-        } else {
-            // Pas de FLIP : tout est recto, verso vide
-            if (face === 'recto') {
-                content = markdown;
-            } else {
-                content = '*Pas de verso défini*';
-            }
-        }
-        
-        // 6. Retirer les marqueurs HEAD
-        content = content.replace('<!-- HEAD -->', '');
-        
-        // 7. Retirer les blocs SKIP-PRINT
-        content = content.replace(
-            /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
-            ''
-        );
-        
-        // 8. Retirer les marqueurs SKIP-WEB (garder le contenu pour print)
-        content = content.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
-        
-        // 9. Parser le markdown
+        // 5. Extraire recto ou verso (via module partagé)
+        const { recto, verso } = splitByFlip(markdown);
+        const content = prepareMarkdownForPrint(face === 'recto' ? recto : verso);
+
+        // 6. Parser le markdown
         contentEl.innerHTML = marked.parse(content);
-        
-        // 10. Twemoji (via module partagé)
+
+        // 7. Twemoji (via module partagé)
         applyTwemoji(contentEl);
-        
-        // 11. Attendre les fonts
+
+        // 8. Attendre les fonts + délai layout
         await document.fonts.ready;
-        
-        // 12. Petit délai pour le layout initial
         await new Promise(r => setTimeout(r, 50));
-        
-        // 13. Auto-fit via module partagé
+
+        // 9. Auto-fit via module partagé
         autoFit(cardEl, contentEl);
-        
-        // 14. Signaler que c'est prêt
+
+        // 10. Signaler que c'est prêt
         document.body.classList.add('card-ready');
         
     } catch (err) {

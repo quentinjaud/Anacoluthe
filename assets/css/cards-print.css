@@ -71,13 +71,12 @@
     --card-padding: 5mm;
     
     /* === FONT SIZING === */
-    /* Base et limites pour auto-fit */
-    --print-base-font-size: 11pt;
+    /* Limites pour auto-fit */
     --print-font-size-min: 5.5pt;
     --print-font-size-max: 11pt;
     --print-font-size-step: 0.1pt;
     
-    /* Ratios pour les titres (en em, relatifs à --print-base-font-size) */
+    /* Ratios pour les titres (en em, relatifs à font-size) */
     --print-h1-size: 1.8em;     /* ~18pt à base 10pt */
     --print-h2-size: 1.25em;    /* ~12.5pt à base 10pt */
     --print-h3-size: 1.05em;    /* ~10.5pt */
@@ -130,7 +129,7 @@
     overflow: hidden;
     font-family: 'Merriweather', serif;
     font-weight: 300;
-    font-size: var(--print-base-font-size);
+    font-size: var(--print-font-size-max);
     line-height: 1.5;
     color: var(--text-dark);
     

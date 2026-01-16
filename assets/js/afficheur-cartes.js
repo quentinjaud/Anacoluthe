@@ -340,75 +340,53 @@ async function loadCard(cardId, forceReload = false) {
  * Rendu de la vue Print (A6 recto/verso)
  */
 async function renderPrintView(card, markdown) {
-    const recto = document.getElementById('card-recto');
-    const verso = document.getElementById('card-verso');
-    
-    recto.className = 'print-card-face type-' + card.type;
-    verso.className = 'print-card-face type-' + card.type;
-    recto.setAttribute('data-label', 'RECTO');
-    recto.setAttribute('data-face', 'recto');
-    verso.setAttribute('data-label', 'VERSO');
-    verso.setAttribute('data-face', 'verso');
-    
+    const rectoEl = document.getElementById('card-recto');
+    const versoEl = document.getElementById('card-verso');
+
+    rectoEl.className = 'print-card-face type-' + card.type;
+    versoEl.className = 'print-card-face type-' + card.type;
+    rectoEl.setAttribute('data-label', 'RECTO');
+    rectoEl.setAttribute('data-face', 'recto');
+    versoEl.setAttribute('data-label', 'VERSO');
+    versoEl.setAttribute('data-face', 'verso');
+
     if (!markdown || !card.path) {
-        recto.querySelector('.print-card-content').innerHTML = '<p class="error">Pas de version print</p>';
-        verso.querySelector('.print-card-content').innerHTML = '';
+        rectoEl.querySelector('.print-card-content').innerHTML = '<p class="error">Pas de version print</p>';
+        versoEl.querySelector('.print-card-content').innerHTML = '';
         return;
     }
-    
-    // 1. Split par FLIP (avant tout prétraitement)
-    const flipMarker = '<!-- FLIP -->';
-    let rectoMd, versoMd;
-    
-    if (markdown.includes(flipMarker)) {
-        const parts = markdown.split(flipMarker);
-        rectoMd = parts[0].trim().replace('<!-- HEAD -->', '');
-        versoMd = parts.slice(1).join(flipMarker).trim().replace('<!-- HEAD -->', '');
-    } else {
-        rectoMd = markdown.replace('<!-- HEAD -->', '');
-        versoMd = '*Pas de verso défini*';
-    }
-    
-    // 2. Prétraiter les marqueurs SKIP pour print
-    // Supprimer les blocs SKIP-PRINT, garder SKIP-WEB
-    rectoMd = rectoMd.replace(
-        /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
-        ''
-    );
-    rectoMd = rectoMd.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
-    
-    versoMd = versoMd.replace(
-        /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
-        ''
-    );
-    versoMd = versoMd.replace(/<!--\s*SKIP-WEB\s*-->/gi, '');
-    
-    const rectoContent = recto.querySelector('.print-card-content');
-    const versoContent = verso.querySelector('.print-card-content');
-    
-    // 3. Parser le markdown
+
+    // Split par FLIP puis préparer pour print (via module partagé)
+    const { recto, verso } = splitByFlip(markdown);
+    const rectoMd = prepareMarkdownForPrint(recto);
+    const versoMd = prepareMarkdownForPrint(verso);
+
+    const rectoContent = rectoEl.querySelector('.print-card-content');
+    const versoContent = versoEl.querySelector('.print-card-content');
+
+    // Parser le markdown
     rectoContent.innerHTML = marked.parse(rectoMd);
     versoContent.innerHTML = marked.parse(versoMd);
-    
+
     applyTwemoji(rectoContent);
     applyTwemoji(versoContent);
-    
+
     await document.fonts.ready;
     await new Promise(resolve => setTimeout(resolve, 50));
-    
+
     if (autofitEnabled) {
-        autoFitContent(recto, 'recto');
-        autoFitContent(verso, 'verso');
+        autoFitContent(rectoEl, 'recto');
+        autoFitContent(versoEl, 'verso');
     } else {
         rectoContent.style.fontSize = '';
         versoContent.style.fontSize = '';
-        checkOverflow(recto);
-        checkOverflow(verso);
-        const baseSize = getCssValue('--print-base-font-size', 11);
+        checkOverflow(rectoEl);
+        checkOverflow(versoEl);
+        const baseSize = getCssValue('--print-font-size-max', 11);
         updateFontIndicator('recto', baseSize, false);
         updateFontIndicator('verso', baseSize, false);
     }
-    
+
     // Mettre à jour les sources
     const sourceRecto = document.getElementById('caption-source-recto');
     const sourceVerso = document.getElementById('caption-source-verso');
@@ -417,69 +395,83 @@ async function renderPrintView(card, markdown) {
 }
 
 /**
- * Rendu de la vue Web (modale desktop 700px)
- * Utilise parseCardContent() du module partagé
+ * Rendu d'un viewer modal (partagé entre Web et Mobile)
+ *
+ * @param {Object} config - Configuration du viewer
+ * @param {string} config.viewerId - ID de l'élément viewer
+ * @param {string} config.modalBodyId - ID de l'élément modal-body
+ * @param {string} config.viewerClass - Classe CSS du viewer (ex: 'web-viewer', 'mobile-viewer')
+ * @param {string} config.sourceId - ID de l'élément caption-source (optionnel)
+ * @param {Object} card - Données de la carte
+ * @param {string} markdown - Contenu markdown
  */
-async function renderWebView(card, markdown) {
-    const viewer = document.getElementById('web-viewer');
-    const modalBody = document.getElementById('web-modal-body');
-    
+function renderModalViewer(config, card, markdown) {
+    const { viewerId, modalBodyId, viewerClass, sourceId } = config;
+    const viewer = document.getElementById(viewerId);
+    const modalBody = document.getElementById(modalBodyId);
+
     // Retirer l'ancienne nav si présente
     const oldNav = viewer.querySelector('.card-section-nav');
     if (oldNav) oldNav.remove();
-    
-    // Appliquer les classes de type (comme dans la modale)
-    viewer.className = 'web-viewer modal-' + card.type;
-    
+
+    // Appliquer les classes de type
+    viewer.className = `${viewerClass} modal-${card.type}`;
+
     if (!markdown) {
         modalBody.innerHTML = '<p class="error">Fichier non disponible</p>';
         return;
     }
-    
-    // Utiliser le module partagé pour parser le contenu
+
+    // Parser le contenu (via module partagé)
     const processed = preprocessMarkdownMarkers(markdown);
     const { headHtml, bodyHtml, hasHead } = parseCardContent(processed);
-    
+
     // Construire le HTML
     const navHeadHtml = hasHead ? `<div class="nav-head">${headHtml}</div>` : '';
     modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>`;
-    
-    // Ajouter la classe has-nav-head
-    if (hasHead) {
-        modalBody.classList.add('has-nav-head');
-    } else {
-        modalBody.classList.remove('has-nav-head');
-    }
-    
+
+    // Classe has-nav-head
+    modalBody.classList.toggle('has-nav-head', hasHead);
+
     applyTwemoji(modalBody);
-    
-    // Générer la navigation sections (via module partagé)
-    generateSectionNav(modalBody, viewer, card.type, viewer.id);
-    
+
+    // Générer la navigation sections
+    generateSectionNav(modalBody, viewer, card.type, viewerId);
+
     // Mettre à jour la source
-    const sourceWeb = document.getElementById('caption-source-web');
-    if (sourceWeb) sourceWeb.textContent = card.path || '-';
+    if (sourceId) {
+        const sourceEl = document.getElementById(sourceId);
+        if (sourceEl) sourceEl.textContent = card.path || '-';
+    }
+}
+
+/**
+ * Rendu de la vue Web (modale desktop 700px)
+ */
+async function renderWebView(card, markdown) {
+    renderModalViewer({
+        viewerId: 'web-viewer',
+        modalBodyId: 'web-modal-body',
+        viewerClass: 'web-viewer',
+        sourceId: 'caption-source-web'
+    }, card, markdown);
 }
 
 /**
  * Rendu de la vue Mobile (tuile 300px + modale 360px)
- * Utilise parseCardContent() du module partagé
  */
 async function renderMobileView(card, markdown) {
     // === Mini tuile ===
     const tile = document.getElementById('mini-tile');
     const typeInfo = cardsIndex.types ? cardsIndex.types[card.type] : { label: card.type.toUpperCase() };
-    
-    // Mettre à jour les attributs
+
     tile.setAttribute('data-card-id', card.id);
     tile.setAttribute('data-type', card.type);
     tile.className = 'card-tile';
-    
-    // Générer les badges
+
     const protoBadge = card.proto ? '<span class="badge-proto">🛠️ PROTO</span>' : '';
-    
-    // Générer les tags
-    const tagsHtml = card.tags && card.tags.length > 0 
+
+    const tagsHtml = card.tags && card.tags.length > 0
         ? `<div class="card-tile-tags">
             <div class="card-tile-tags-title">${typeInfo.tagsIcon || '🌱'} ${card.tagsTitle || 'Compétences'}</div>
             <div class="card-tile-tags-list">
@@ -487,8 +479,7 @@ async function renderMobileView(card, markdown) {
             </div>
            </div>`
         : '';
-    
-    // Mettre à jour le contenu
+
     tile.innerHTML = `
         <span class="card-emoji">${card.emoji || '🎴'}</span>
         <div class="card-badges">
@@ -504,45 +495,16 @@ async function renderMobileView(card, markdown) {
             ${tagsHtml}
         </div>
     `;
-    
+
     applyTwemoji(tile);
-    
-    // === Mobile viewer ===
-    const viewer = document.getElementById('mobile-viewer');
-    const modalBody = document.getElementById('mobile-modal-body');
-    
-    // Retirer l'ancienne nav si présente
-    const oldNav = viewer.querySelector('.card-section-nav');
-    if (oldNav) oldNav.remove();
-    
-    viewer.className = 'mobile-viewer modal-' + card.type;
-    
-    if (!markdown) {
-        modalBody.innerHTML = '<p class="error">Fichier non disponible</p>';
-        return;
-    }
-    
-    // Utiliser le module partagé pour parser le contenu
-    const processed = preprocessMarkdownMarkers(markdown);
-    const { headHtml, bodyHtml, hasHead } = parseCardContent(processed);
-    
-    const navHeadHtml = hasHead ? `<div class="nav-head">${headHtml}</div>` : '';
-    modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>`;
-    
-    if (hasHead) {
-        modalBody.classList.add('has-nav-head');
-    } else {
-        modalBody.classList.remove('has-nav-head');
-    }
-    
-    applyTwemoji(modalBody);
-    
-    // Générer la navigation sections (via module partagé)
-    generateSectionNav(modalBody, viewer, card.type, viewer.id);
-    
-    // Mettre à jour la source
-    const sourceMobile = document.getElementById('caption-source-mobile');
-    if (sourceMobile) sourceMobile.textContent = card.path || '-';
+
+    // === Mobile viewer (utilise la fonction partagée) ===
+    renderModalViewer({
+        viewerId: 'mobile-viewer',
+        modalBodyId: 'mobile-modal-body',
+        viewerClass: 'mobile-viewer',
+        sourceId: 'caption-source-mobile'
+    }, card, markdown);
 }
 
 /**
@@ -551,19 +513,19 @@ async function renderMobileView(card, markdown) {
 function renderTechView(card) {
     // Récupérer la taille de base actuelle (après auto-fit)
     const rectoContent = document.querySelector('#card-recto .print-card-content');
-    const defaultBaseSize = getCssValue('--print-base-font-size', 11);
+    const defaultBaseSize = getCssValue('--print-font-size-max', 11);
     let baseSize = defaultBaseSize;
     
     if (rectoContent && rectoContent.style.fontSize) {
         baseSize = parseFloat(rectoContent.style.fontSize);
     }
     
-    // Calculer les tailles des headings
+    // Calculer les tailles des headings (doit correspondre à cards-print.css)
     const ratios = {
-        h1: 1.556,
-        h2: 1.111,
-        h3: 1,
-        h6: 1,
+        h1: 1.8,    // --print-h1-size
+        h2: 1.25,   // --print-h2-size
+        h3: 1.05,   // --print-h3-size
+        h6: 1,      // --print-h6-size
         body: 1
     };
     

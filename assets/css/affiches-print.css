@@ -1,0 +1,581 @@
+/**
+ * ANACOLUTHE - CSS PRINT A4 PAYSAGE (AFFICHES)
+ * =============================================
+ * Styles pour le rendu PDF des affiches A4 via Puppeteer
+ *
+ * ⚠️ FICHIER AUTONOME - ne dépend PAS de style.css ni cards.css
+ * Peut être chargé seul par Puppeteer pour le rendu PDF
+ *
+ * FORMAT :
+ * - A4 paysage = 297 × 210 mm
+ * - Padding = 10mm
+ * - Zone utile = 277 × 190 mm
+ */
+
+/* ========================================
+   FONTS (autonome)
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;700;800&family=Merriweather:wght@300;400;700&display=swap');
+
+/* ========================================
+   VARIABLES PRINT A4
+   ======================================== */
+:root {
+    /* === DIMENSIONS A4 PAYSAGE === */
+    --a4-width: 297mm;
+    --a4-height: 210mm;
+    --affiche-padding: 15mm;
+
+    /* === COULEURS (dupliquées de style.css pour autonomie) === */
+
+    /* Texte */
+    --text-dark: #2D3748;
+    --text-light: #718096;
+    --border-light: #D1D5DB;
+
+    /* Couleurs officielles Les Glénans */
+    --bleu-glenans: #0066AD;
+
+    /* Accents Anacoluthe */
+    --teal-700: #3d8b87;
+    --teal-50: #e8f4f3;
+    --amber-700: #c96a30;
+    --amber-50: #fff8f0;
+    --brick-50: #FFEBEE;
+
+    /* Blocs */
+    --bloc-bg: #f5f5f5;  /* gris léger */
+    --bloc-accent: #fff4c4;
+}
+
+/* ========================================
+   RESET
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   AFFICHE A4 - Container principal
+   ======================================== */
+.affiche-a4 {
+    width: var(--a4-width);
+    height: var(--a4-height);
+    aspect-ratio: 297 / 210;  /* A4 paysage */
+    padding: var(--affiche-padding);
+    background: white;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: var(--text-dark);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dernière section (Programme) prend l'espace restant */
+.affiche-a4 .section:last-child {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;  /* Pas de marge en bas, on utilise tout l'espace */
+}
+
+.affiche-a4 .section:last-child .grid-6 {
+    flex: 1;
+    align-content: stretch;  /* Étirer les blocs sur toute la hauteur */
+}
+
+/* ========================================
+   TITRE PRINCIPAL (30pt)
+   ======================================== */
+.affiche-header h1 {
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--bleu-glenans);
+    text-align: center;
+    margin-bottom: 6mm;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+.section {
+    margin-bottom: 5mm;
+}
+
+.section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+    margin-bottom: 2mm;
+}
+
+.section-icon {
+    font-size: 16pt;
+}
+
+.section-header h2 {
+    font-size: 16pt;
+    font-weight: 400;
+    color: var(--teal-700);
+    text-transform: uppercase;
+}
+
+.section-header h2 strong {
+    font-weight: 700;
+}
+
+.instruction {
+    margin-left: auto;
+    font-size: 10pt;
+    font-style: italic;
+    font-family: 'Merriweather', serif;
+    color: var(--text-light);
+}
+
+/* ========================================
+   GRILLES
+   ======================================== */
+.grid-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3mm;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3mm;
+}
+
+/* ========================================
+   BLOCS (titres 12pt)
+   ======================================== */
+.bloc {
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 4mm 2mm;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Merriweather', serif;
+    min-height: 18mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloc strong {
+    font-weight: 700;
+    display: inline;
+    color: #4a5568;  /* gris foncé doux */
+}
+
+.bloc .light {
+    font-weight: 400;
+    color: #4a5568;
+}
+
+/* Emoji et texte dans blocs intentions : display block pour saut de ligne naturel */
+.bloc .emoji-line {
+    display: block;
+}
+
+.bloc .text-line {
+    display: block;
+}
+
+/* Colonnes multi-span */
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+
+/* ========================================
+   ACCENTS INTENTIONS
+   Couleurs extrapolées depuis le système existant
+   ======================================== */
+.bloc.accent-patience {
+    background: var(--teal-50);  /* #e8f4f3 - sérénité */
+}
+
+.bloc.accent-parole {
+    background: #e8eef4;         /* bleu Glénans clair */
+}
+
+.bloc.accent-energie {
+    background: #fff4c4;         /* jaune vif */
+}
+
+.bloc.accent-ecoute {
+    background: #f4eef8;         /* violet clair */
+}
+
+.bloc.accent-precision {
+    background: var(--brick-50); /* #FFEBEE - attention */
+}
+
+.bloc.accent-cooperation {
+    background: var(--amber-50); /* #fff8f0 - chaleur */
+}
+
+/* Accent générique (programme - Séances) */
+.bloc.accent {
+    background: var(--bloc-accent); /* #fff4c4 - jaune vif */
+}
+
+/* ========================================
+   BLOCS ÉDITABLES (Rôles, Programme)
+   Contenu aligné en haut pour laisser de l'espace d'écriture
+   ======================================== */
+.bloc.editable {
+    justify-content: flex-start;
+    min-height: 22mm;
+}
+
+.bloc.editable.border-amber {
+    border: 1px solid var(--amber-700);
+}
+
+.bloc.editable.border-teal {
+    border: 1px solid var(--teal-700);
+}  
+
+/* Blocs éditables avec emoji + titre sur la même ligne (Rôles, Programme) */
+.bloc.editable.inline {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2mm;
+    text-align: center;
+    flex: 1;
+}
+
+/* ========================================
+   SLIDER MÉTÉO
+   ======================================== */
+.meteo-slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #fff4c4, #f0f0f0);
+    border-radius: 3mm;
+    padding: 2mm 6mm;
+    font-size: 18pt;
+}
+
+/* ========================================
+   TWEMOJI
+   ======================================== */
+img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    vertical-align: -0.15em;
+}
+
+.bloc img.emoji {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.affiche-header h1 img.emoji {
+    height: 1em;
+    width: 1em;
+}
+
+/* ========================================
+   @MEDIA PRINT
+   ======================================== */
+@media print {
+    @page {
+        size: 297mm 210mm landscape;
+        margin: 0;
+    }
+
+    .affiche-a4 {
+        box-shadow: none;
+    }
+}
+
+/* ========================================
+   AFFICHE A4 PORTRAIT - Container
+   ======================================== */
+.affiche-a4-portrait {
+    width: 210mm;
+    height: 297mm;
+    aspect-ratio: 210 / 297;
+    padding: 8mm;
+    background: white;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: var(--text-dark);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.affiche-a4-portrait .affiche-header {
+    flex-shrink: 0;
+}
+
+.affiche-a4-portrait .affiche-header h1 {
+    font-size: 20pt;
+    margin-bottom: 3mm;
+}
+
+/* ========================================
+   COULEURS PAR RÔLE (A1 Routines)
+   ======================================== */
+.role-card.role-bosco {
+    background: #e8eef4;
+    border: 0.5pt solid var(--bleu-glenans);
+}
+.role-card.role-nav {
+    background: var(--teal-50);
+    border: 0.5pt solid var(--teal-700);
+}
+.role-card.role-second {
+    background: var(--amber-50);
+    border: 0.5pt solid var(--amber-700);
+}
+.role-card.role-cambuse {
+    background: var(--brick-50);
+    border: 0.5pt solid #C62828;
+}
+
+/* ========================================
+   SECTIONS COMPACTES (A1)
+   ======================================== */
+.section-routine {
+    flex-shrink: 0;  /* Garde sa hauteur naturelle */
+}
+
+.section-routine .section-header {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin-bottom: 0;  /* Collé à la collectif-line */
+}
+
+.section-routine .section-header h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section-routine .section-icon {
+    font-size: 12pt;
+}
+
+/* Ligne Collectif */
+.collectif-line {
+    background: var(--bloc-bg);
+    border-radius: 2mm;
+    padding: 1.5mm 3mm;
+    font-family: 'Merriweather', serif;
+    font-size: 8.5pt;
+    font-weight: 300;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   STYLE BLOC ENGLOBANT (section-wrapped)
+   ======================================== */
+.section-routine.section-wrapped {
+    position: relative;
+    padding-top: 4mm;  /* Espace pour le header débordant */
+}
+
+.section-wrapped .section-wrapper {
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 5mm 3mm 3mm 3mm;
+    position: relative;
+}
+
+.section-wrapped .section-header {
+    position: absolute;
+    top: -3.5mm;
+    left: 3mm;
+    padding: 0 2mm;
+    z-index: 1;
+}
+
+.section-wrapped .collectif-line {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-weight:400;
+}
+
+.section-wrapped .role-card {
+    border-width: 0.25pt;
+}
+
+/* ========================================
+   GRILLE 4 RÔLES (A1)
+   ======================================== */
+.grid-4-roles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2mm;
+    margin-top: 1.5mm;
+}
+
+/* ========================================
+   BLOCS RÔLES COMPACTS (A1) - Emoji débordant
+   ======================================== */
+.role-card {
+    position: relative;
+    padding: 3.5mm 2mm 2mm 2mm;
+    margin-top: 4mm;
+    border-radius: 2mm;
+    text-align: left;
+}
+
+.role-card .role-emoji {
+    position: absolute;
+    top: -3mm;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14pt;
+    line-height: 1;     
+}
+
+.role-card .role-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5mm;
+    font-family: 'Merriweather', serif;
+    font-size: 7pt;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+.role-card .task-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 1mm;
+    padding-left: 1mm;
+}
+
+.role-card .task-checkbox {
+    width: 2mm;
+    height: 2mm;
+    border: 0.4pt solid var(--text-light);
+    border-radius: 0.3mm;
+    flex-shrink: 0;
+    margin-top: 0.3mm;
+}
+
+/* Icône rotation (section Navigation) */
+.role-card .task-rotation {
+    width: 2.5mm;
+    height: 2.5mm;
+    flex-shrink: 0;
+    margin-top: 0.2mm;
+}
+
+.role-card .task-rotation svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: var(--text-light);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ========================================
+   SECTION NOTES (A1)
+   ======================================== */
+.section-notes-routines {
+    flex-shrink: 0;
+}
+
+.section-notes-routines .section-header {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin-bottom: 1.5mm;
+}
+
+.section-notes-routines .section-header h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2mm;
+}
+
+.notes-column {
+    border-radius: 2mm;
+    padding: 2mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
+}
+
+.notes-column.role-bosco { background: #e8eef4; border: 0.5pt solid var(--bleu-glenans); }
+.notes-column.role-nav { background: var(--teal-50); border: 0.5pt solid var(--teal-700); }
+.notes-column.role-second { background: var(--amber-50); border: 0.5pt solid var(--amber-700); }
+.notes-column.role-cambuse { background: var(--brick-50); border: 0.5pt solid #C62828; }
+
+.notes-column .role-header {
+    font-size: 10pt;
+    text-align: center;
+    margin-bottom: 1mm;
+}
+
+.checkbox-line {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    font-size: 6pt;
+    min-height: 4mm;
+}
+
+.checkbox {
+    width: 3mm;
+    height: 3mm;
+    border: 0.5pt solid var(--text-light);
+    border-radius: 0.5mm;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   FOOTER A1
+   ======================================== */
+.affiche-footer {
+    display: flex;
+    justify-content: center;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 7pt;
+    color: var(--text-light);
+    font-style: italic;
+    padding-top: 2mm;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   @MEDIA PRINT PORTRAIT
+   ======================================== */
+@media print {
+    .affiche-a4-portrait {
+        box-shadow: none;
+    }
+}
+
+@page portrait {
+    size: 210mm 297mm portrait;
+    margin: 0;
+}

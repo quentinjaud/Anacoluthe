@@ -1,6 +1,6 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 16 Janvier 2026
+> Dernière mise à jour : 17 Janvier 2026
 
 ## 🔥Sur le feu
 
@@ -8,6 +8,8 @@
 
 ## 👌 Cooked
 
+[X] A1 Routines : migration HTML + affinage contenu (17 janv 2026)
+[X] A2 Tableau équipage : migration HTML + affinage contenu (17 janv 2026)
 [X] Ajouter aux cartes moment la petite intro dans le bloc "quote" comme dans les rôles
 [X] Enlever "mono" des cartes
 
@@ -37,7 +39,7 @@
 |----|-------|------|-------|--------|-------|------|-------------|
 | A1a | [Routines (affiche A4)](../affiches/A1_Routines.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | A1m | [Routines (mémo A6)](../affiches/A1_routines_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
-| A2a | [Tableau équipage (affiche A4)](../affiches/A2_tableau.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| A2a | [Tableau équipage (affiche A4)](../affiches/A2_tableau_equipage.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Bordures amber/teal, Merriweather serif |
 | A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
 | A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
@@ -85,4 +87,4 @@
 
 ---
 
-*Fichier éditable manuellement - V_260116*
+*Fichier éditable manuellement - V_260117*

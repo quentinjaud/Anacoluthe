@@ -2,30 +2,9 @@
 
 **Anacoluthe V5** : Dispositif pédagogique coopératif pour stages voile habitable (Les Glénans). Mon rôle : game-designer éducation populaire, dev web.
 
-## Fichiers
+## Objectif
 
-- Desktop : `C:\Users\quent\Documents\GitHub\Anacoluthe\`
-- Web : `https://raw.githubusercontent.com/quentinjaud/Anacoluthe/main/`
-
-## Documentation
-
-Toujours lire `SUIVI_PRODUCTION_V5.md` en premier. Convention `*_INTENTIONS.md` = docs d'aide à l'écriture et réflexion humain+Claude. Lire selon besoin :
-
-- `DESIGN_INTENTIONS.md` → couleurs, emojis, typo, marqueurs MD, print
-- `TECH_INTENTIONS.md` → architecture JS/CSS, conventions code, Git
-- `SUIVI_CODE.md` → Audit et nettoyage permanent du code
-- `CARTES_*_INTENTIONS.md` → intentions pédagogiques par type de carte
-- `FORMATIONS_*_INTENTIONS.md`, `SEANCES_INTENTIONS.md` → intentions pédagogiques hors cartes
-
-Signaler les 404.
-
-## Suivi de conception
-
-Dossier `sources/suivi/`. Si Quentin donne des infos à la volée, les noter dans le bon fichier :
-
-- `retours_et_memos.md` → inbox retours terrain, idées, bugs signalés
-- `tableau_suivi_cartes.md` → avancement des 21 éléments (5 passes)
-- `*_notes.md` → notes détaillées par paquet (roles, moments, sos, affiches)
+Compétences organisation/coopération/savoir-être transposables à terre. Indicateur J6 : stagiaires nomment compétences + réutilisation.
 
 ## Vocabulaire V5
 
@@ -39,9 +18,23 @@ Dossier `sources/suivi/`. Si Quentin donne des infos à la volée, les noter dan
 
 V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 
-## Objectif
+## Méthode de travail
 
-Compétences organisation/coopération/savoir-être transposables à terre. Indicateur J6 : stagiaires nomment compétences + réutilisation.
+**Collaboration** : Modifications ensemble, commits par Quentin.
+
+**Avant de produire :**
+- Poser UNE question à la fois (pas de rafale), préférer les choix multiples
+- Explorer 2-3 approches avec avantages/inconvénients avant de trancher
+- Signaler les doutes >60%
+
+**Pendant la production :**
+- Chaque phrase doit servir l'objectif pédagogique (YAGNI)
+- Éliminer le jargon non essentiel, simplifier ce qui peut l'être
+- Montrer le travail par morceaux (~200-300 mots), valider avant de continuer
+
+**Avant de valider :**
+- Relire contre la checklist de la passe en cours
+- Ne pas valider si : "ça devrait marcher", satisfaction avant relecture, contraintes non vérifiées
 
 ## Contraintes d'écriture
 
@@ -50,8 +43,24 @@ Compétences organisation/coopération/savoir-être transposables à terre. Indi
 - Densité A6 ~900 car/face
 - Versionnage docs = footer `V_AAMMJJ`, sources = Git
 
-## Workflow
+## Documentation
 
-Modifications ensemble, commits par Quentin.
+**Fichiers :**
+- Desktop : `C:\Users\quent\Documents\GitHub\Anacoluthe\`
+- Web : `https://raw.githubusercontent.com/quentinjaud/Anacoluthe/main/`
 
-Méthode : produire vite, questionner, proposer alternatives, signaler doutes >60%.
+**Toujours lire `SUIVI_PRODUCTION_V5.md` en premier.** Convention `*_INTENTIONS.md` = docs d'aide à l'écriture. Lire selon besoin :
+
+- `DESIGN_INTENTIONS.md` → couleurs, emojis, typo, marqueurs MD, print
+- `TECH_INTENTIONS.md` → architecture JS/CSS, conventions code, Git
+- `SUIVI_CODE.md` → journal de maintenance technique (racine)
+- `ENTRETIEN_CODE.md` → audit et liste des anomalies à corriger (sources/documentation/)
+- `CARTES_*_INTENTIONS.md` → intentions pédagogiques par type de carte
+- `FORMATIONS_*_INTENTIONS.md`, `SEANCES_INTENTIONS.md` → intentions pédagogiques hors cartes
+
+Signaler les 404.
+
+**Suivi de conception** (dossier `sources/suivi/`) - noter les infos à la volée :
+- `retours_et_memos.md` → inbox retours terrain, idées, bugs
+- `tableau_suivi_cartes.md` → avancement des 21 éléments (5 passes)
+- `*_notes.md` → notes détaillées par paquet

@@ -2,9 +2,16 @@
 
 ---
 
-## RECTO : ÉCHELLES MÉTÉO ET MER
+## RECTO : COMMENT REMPLIR LE LIVRE DE BORD ?
 
-### 🌊 ÉCHELLE DE BEAUFORT (force du vent)
+### 💡 Pourquoi remplir le livre de bord ?
+
+- Un super outil pour t'aider à **entraîner ton sens marin** : essayer de deviner l'état de mer aux sensations avant de sortir le vérifier, tester une nouvelle méthode de positionnement...
+- Une occasion d'**échanger toustes ensemble** sur nos sensations et nos repères, nos réglages, la rotation des postes, notre état de fatigue...
+- Le **support de mémoire** pour nos briefs et debriefs techniques
+- La **seule trace "officielle"** de nos actions pour les assurances, pour le RTQ...
+
+### 🌬️ ÉCHELLE DE BEAUFORT (force du vent)
 
 | Force | Vent (nœuds) | Mer | Termes |
 |-------|--------------|-----|--------|
@@ -36,6 +43,12 @@
 | 7 | 6-9 | Grosse |
 | 8 | 9-14 | Très grosse |
 | 9 | >14 | Énorme |
+
+### ✍️ Comment le remplir ?
+
+- ☐ Chaque ligne est **complète**, sans "idem" ou tiret
+- ☐ On écrit au **stylo noir**, pour faciliter les scans/photos
+- ☐ On évite au maximum les **ratures et les gribouillis**
 
 ---
 

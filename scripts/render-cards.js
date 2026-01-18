@@ -217,9 +217,20 @@ async function renderAfficheA4(page, card, baseUrl, formatConfig) {
 
   // Screenshot en mode debug
   if (DEBUG) {
+    // Screenshot global
     const screenshotPath = `print/debug-${card.id}.png`;
     await page.screenshot({ path: screenshotPath, fullPage: true });
     console.log(`      📸 ${screenshotPath}`);
+
+    // Screenshots par page pour affiches multi-pages
+    if (pageCount > 1) {
+      const pages = await page.$$('.affiche-a4, .affiche-a4-portrait');
+      for (let i = 0; i < pages.length; i++) {
+        const pagePath = `print/debug-${card.id}-page${i + 1}.png`;
+        await pages[i].screenshot({ path: pagePath });
+        console.log(`      📸 ${pagePath}`);
+      }
+    }
   }
 
   // Note: pas de landscape:true car les dimensions sont déjà en paysage (297×210)

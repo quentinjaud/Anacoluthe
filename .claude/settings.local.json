@@ -8,7 +8,18 @@
       "Bash(curl:*)",
       "Bash(npx http-server:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nrefactor: Factoriser le code afficheur/print-render\n\n- Suppression variable CSS redondante --print-base-font-size\n- Nouvelle fonction splitByFlip\\(\\) dans markdown-utils.js\n- Nouvelle fonction prepareMarkdownForPrint\\(\\) dans markdown-utils.js  \n- Nouvelle fonction renderModalViewer\\(\\) dans afficheur-cartes.js\n- Correction ratios tailles renderTechView \\(alignement CSS\\)\n- Cache-busting ?v=2 sur print-render.html\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nrefactor: Factoriser le code afficheur/print-render\n\n- Suppression variable CSS redondante --print-base-font-size\n- Nouvelle fonction splitByFlip\\(\\) dans markdown-utils.js\n- Nouvelle fonction prepareMarkdownForPrint\\(\\) dans markdown-utils.js  \n- Nouvelle fonction renderModalViewer\\(\\) dans afficheur-cartes.js\n- Correction ratios tailles renderTechView \\(alignement CSS\\)\n- Cache-busting ?v=2 sur print-render.html\nEOF\n\\)\")",
+      "Bash(wc:*)",
+      "Bash(node scripts/render-cards.js:*)",
+      "Bash(dir:*)",
+      "Bash(git restore:*)",
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(DEBUG=true node scripts/render-cards.js:*)",
+      "Bash(set DEBUG=true)",
+      "Bash(cmd /c \"set DEBUG=true && node scripts/render-cards.js affiches\")",
+      "Bash($env:DEBUG=\"true\")",
+      "Bash(npx cross-env:*)"
     ]
   }
 }

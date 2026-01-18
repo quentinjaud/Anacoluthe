@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=210mm, height=297mm">
+    <title>Marque-page Livre de Bord - Anacoluthe</title>
+    <link rel="stylesheet" href="../../assets/css/affiches-print.css">
+</head>
+<body>
+
+<!-- ========================================
+     PAGE 1 - RECTO : Échelles + Aide LDB en sidebar
+     ======================================== -->
+<div class="affiche-a4-portrait page-recto">
+
+    <header class="affiche-header">
+        <h1>📖 COMMENT REMPLIR LE LIVRE DE BORD ? </h1>
+    </header>
+
+    <!-- Layout 2 colonnes : échelles (3/4) + aide LDB (1/4) -->
+    <div class="recto-layout">
+
+        <!-- Colonne principale : échelles -->
+        <div class="echelles-column">
+
+            <!-- Pourquoi remplir le LDB -->
+            <section class="section-pourquoi-ldb">
+                <div class="section-header">
+                    <span class="section-icon">💡</span>
+                    <h2>Pourquoi remplir le livre de bord ?</h2>
+                </div>
+                <ul class="pourquoi-list">
+                    <li>Un super outil pour t'aider à <strong>entraîner ton sens marin</strong> : essayer de deviner l'état de mer aux sensations avant de sortir le vérifier, tester une nouvelle méthode de positionnement...</li>
+                    <li>Une occasion d'<strong>échanger toustes ensemble</strong> sur nos sensations et nos repères, nos réglages, la rotation des postes, notre état de fatigue...</li>
+                    <li>Le <strong>support de mémoire</strong> pour nos briefs et debriefs techniques</li>
+                    <li>La <strong>seule trace "officielle"</strong> de nos actions pour les assurances, pour le RTQ...</li>
+                </ul>
+            </section>
+
+            <!-- Échelle de Beaufort -->
+            <section class="section-echelle section-wrapped echelle-beaufort-section">
+                <div class="section-header">
+                    <span class="section-icon">🌬️</span>
+                    <h2>ÉCHELLE DE BEAUFORT</h2>
+                    <span class="instruction">pour décrire le vent</span>
+                </div>
+                <div class="section-wrapper">
+                    <table class="echelle-table echelle-beaufort">
+                        <thead>
+                            <tr>
+                                <th>Force</th>
+                                <th>Nœuds</th>
+                                <th>Termes</th>
+                                <th>Aspect de la mer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-force="0"><td>0</td><td>&lt;1</td><td>Calme</td><td>Miroir</td></tr>
+                            <tr data-force="1"><td>1</td><td>1-3</td><td>Très légère brise</td><td>Rides</td></tr>
+                            <tr data-force="2"><td>2</td><td>4-6</td><td>Légère brise</td><td>Vaguelettes</td></tr>
+                            <tr data-force="3"><td>3</td><td>7-10</td><td>Petite brise</td><td>Petites vagues</td></tr>
+                            <tr data-force="4"><td>4</td><td>11-16</td><td>Jolie brise</td><td>Vagues modérées</td></tr>
+                            <tr data-force="5"><td>5</td><td>17-21</td><td>Bonne brise</td><td>Vagues assez grosses</td></tr>
+                            <tr data-force="6"><td>6</td><td>22-27</td><td>Vent frais</td><td>Grosses vagues</td></tr>
+                            <tr data-force="7"><td>7</td><td>28-33</td><td>Grand frais</td><td>Lames, écume</td></tr>
+                            <tr data-force="8"><td>8</td><td>34-40</td><td>Coup de vent</td><td>Tourbillons d'écume</td></tr>
+                            <tr data-force="9"><td>9</td><td>41-47</td><td>Fort coup de vent</td><td>Lames déferlantes</td></tr>
+                            <tr data-force="10"><td>10</td><td>48-55</td><td>Tempête</td><td>Très grosses lames</td></tr>
+                            <tr data-force="11"><td>11</td><td>56-63</td><td>Violente tempête</td><td>Lames exceptionnelles</td></tr>
+                            <tr data-force="12"><td>12</td><td>&gt;64</td><td>Ouragan</td><td>Air plein d'écume</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Échelle Douglas -->
+            <section class="section-echelle section-wrapped echelle-douglas-section">
+                <div class="section-header">
+                    <span class="section-icon">🌊</span>
+                    <h2>ÉCHELLE DOUGLAS</h2>
+                    <span class="instruction">pour décrire la mer</span>
+                </div>
+                <div class="section-wrapper">
+                    <table class="echelle-table echelle-douglas">
+                        <thead>
+                            <tr>
+                                <th>Degré</th>
+                                <th>Hauteur (m)</th>
+                                <th>État de la mer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-degre="0"><td>0</td><td>0</td><td>Calme (mer d'huile)</td></tr>
+                            <tr data-degre="1"><td>1</td><td>0-0,1</td><td>Ridée</td></tr>
+                            <tr data-degre="2"><td>2</td><td>0,1-0,5</td><td>Belle (vaguelettes)</td></tr>
+                            <tr data-degre="3"><td>3</td><td>0,5-1,25</td><td>Peu agitée</td></tr>
+                            <tr data-degre="4"><td>4</td><td>1,25-2,5</td><td>Agitée</td></tr>
+                            <tr data-degre="5"><td>5</td><td>2,5-4</td><td>Forte</td></tr>
+                            <tr data-degre="6"><td>6</td><td>4-6</td><td>Très forte</td></tr>
+                            <tr data-degre="7"><td>7</td><td>6-9</td><td>Grosse</td></tr>
+                            <tr data-degre="8"><td>8</td><td>9-14</td><td>Très grosse</td></tr>
+                            <tr data-degre="9"><td>9</td><td>&gt;14</td><td>Énorme</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Comment le remplir -->
+            <section class="section-pourquoi-ldb section-comment-ldb">
+                <div class="section-header">
+                    <span class="section-icon">✍️</span>
+                    <h2>Comment le remplir ?</h2>
+                </div>
+                <ul class="comment-list">
+                    <li><span class="checkbox"></span><span>Chaque ligne est <strong>complète</strong>, sans "idem" ou tiret</span></li>
+                    <li><span class="checkbox"></span><span>Tout est écrit au <strong>stylo noir</strong>, pour faciliter les scans/photos</span></li>
+                    <li><span class="checkbox"></span><span>On évite au maximum les <strong>ratures et les gribouillis</strong></span></li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Sidebar : Aide au remplissage du LDB -->
+        <aside class="ldb-sidebar">
+            <div class="ldb-sidebar-header">
+                <span class="section-icon">✏️</span>
+                <h2>CONTENU<br>D'UNE LIGNE</h2>
+            </div>
+            <div class="ldb-sidebar-content">
+                <div class="ldb-item"><span class="ldb-name">Heure</span><span class="ldb-desc">Heure locale au moment de l'inscription (format 24h)</span></div>
+                <div class="ldb-item"><span class="ldb-name">Loch</span><span class="ldb-desc">Distance totale parcourue en milles depuis le départ (compteur odomètre)</span></div>
+                <div class="ldb-item"><span class="ldb-name">Événements</span><span class="ldb-desc">Pourquoi cette ligne ? Qu'y a-t-il de nouveau depuis la précédente ?</span></div>
+                <div class="ldb-item"><span class="ldb-name">Cap</span><span class="ldb-desc">Direction en degrés (0-360°). Au compas = Cm (magnétique), au GPS = COG</span></div>
+                <div class="ldb-item"><span class="ldb-name">Vitesse</span><span class="ldb-desc">En nœuds. Au speedo = Vs (surface), au GPS = SOG</span></div>
+                <div class="ldb-item"><span class="ldb-name">Vent</span><span class="ldb-desc">Force (échelle Beaufort ci-contre) et direction d'où vient le vent</span></div>
+                <div class="ldb-item"><span class="ldb-name">Allure</span><span class="ldb-desc">Allure par rapport au vent (près, travers, largue, vent arrière) + amure (bâbord/tribord)</span></div>
+                <div class="ldb-item"><span class="ldb-name">Voilure</span><span class="ldb-desc">Ce qui propulse le bateau. Ex : GV+Gén, Mot, GV 1ris+Gén, Spi...</span></div>
+                <div class="ldb-item"><span class="ldb-name">Position</span><span class="ldb-desc">Coordonnées en latitude et longitude (degrés/minutes décimales)</span></div>
+                <div class="ldb-item"><span class="ldb-name">Origine pos.</span><span class="ldb-desc">Comment a-t-on obtenu la position ? GPS, relèvements, estime...</span></div>
+                <div class="ldb-item"><span class="ldb-name">État mer</span><span class="ldb-desc">Degré Douglas (échelle ci-contre) décrivant la hauteur des vagues</span></div>
+                <div class="ldb-item"><span class="ldb-name">Sonde</span><span class="ldb-desc">Profondeur d'eau sous la quille en mètres, lue aux instruments</span></div>
+                <div class="ldb-item"><span class="ldb-name">Baro.</span><span class="ldb-desc">Pression atmosphérique en hPa (baromètre dans le carré). Moyenne : 1013 hPa</span></div>
+                <div class="ldb-item"><span class="ldb-name">Visi.</span><span class="ldb-desc">Distance en milles jusqu'à l'amer le plus lointain identifiable</span></div>
+                <div class="ldb-item"><span class="ldb-name">Nuages/temps</span><span class="ldb-desc">Type de nuages, couverture en octas (0-8), viennent-ils de mer ou terre ?</span></div>
+                <div class="ldb-item"><span class="ldb-name">Courants</span><span class="ldb-desc">Courant de marée (direction + force) ou tension batterie (volts)</span></div>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer class="affiche-footer affiche-footer-split">
+        <span>Anacoluthe !?</span>
+        <span>CC-BY-NC-SA</span>
+    </footer>
+
+</div>
+
+<!-- ========================================
+     PAGE 2 - VERSO : Faire équipage
+     ======================================== -->
+<div class="affiche-a4-portrait page-verso">
+
+    <header class="affiche-header">
+        <h1>⚓ FAIRE ÉQUIPAGE</h1>
+    </header>
+
+    <!-- Les 5 piliers coopératifs -->
+    <section class="section-piliers">
+        <div class="section-header">
+            <h2>NOS PRINCIPES COOPÉRATIFS</h2>
+            <span class="instruction">Ces piliers guident notre coopération tout au long de la semaine.</span>
+        </div>
+        <div class="piliers-grid">
+            <div class="pilier">
+                <span class="pilier-emoji">🗣️</span>
+                <span class="pilier-title">Communication claire</span>
+                <div class="pilier-items">
+                    Dire ce qu'on fait<br>
+                    Demander avant d'agir<br>
+                    Nommer si on comprend pas
+                </div>
+            </div>
+            <div class="pilier">
+                <span class="pilier-emoji">🤝</span>
+                <span class="pilier-title">Entraide active</span>
+                <div class="pilier-items">
+                    Proposer son aide sans l'imposer<br>
+                    Accepter de demander de l'aide<br>
+                    Vérifier puis transmettre ses savoirs
+                </div>
+            </div>
+            <div class="pilier">
+                <span class="pilier-emoji">⚠️</span>
+                <span class="pilier-title">Vigilance mutuelle</span>
+                <div class="pilier-items">
+                    Vérifier l'état des autres<br>
+                    Nommer les tensions<br>
+                    Réguler ensemble
+                </div>
+            </div>
+            <div class="pilier">
+                <span class="pilier-emoji">🧘</span>
+                <span class="pilier-title">Droit au repos</span>
+                <div class="pilier-items">
+                    Respecter ses limites<br>
+                    Annoncer ses pauses<br>
+                    Veiller à des rotations équitables
+                </div>
+            </div>
+            <div class="pilier">
+                <span class="pilier-emoji">✨</span>
+                <span class="pilier-title">Sollicitude</span>
+                <div class="pilier-items">
+                    Se donner le droit à l'erreur<br>
+                    Éviter de verbaliser ses jugements<br>
+                    On apprend ensemble
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brief du matin -->
+    <section class="section-ritual">
+        <div class="section-header">
+            <span class="section-icon">🌅</span>
+            <h2>AU BRIEF DU MATIN</h2>
+            <span class="instruction">(devant le LDB)</span>
+        </div>
+        <div class="ritual-content">
+            <p class="ritual-intro"><strong>On note dans "Observations" :</strong></p>
+            <div class="ritual-checkbox"><span class="checkbox"></span>Les rôles du jour</div>
+            <div class="ritual-checkbox"><span class="checkbox"></span>Le programme prévu</div>
+            <div class="ritual-checkbox"><span class="checkbox"></span>Une intention collective (optionnel)</div>
+        </div>
+    </section>
+
+    <!-- Débrief du soir -->
+    <section class="section-ritual">
+        <div class="section-header">
+            <span class="section-icon">🌙</span>
+            <h2>AU DÉBRIEF DU SOIR</h2>
+            <span class="instruction">(devant le LDB)</span>
+        </div>
+        <div class="ritual-content">
+            <p class="ritual-intro"><strong>On note dans "Observations" :</strong></p>
+            <div class="ritual-checkbox"><span class="checkbox"></span>Ligne technique (navigation, manœuvres, conditions)</div>
+            <div class="ritual-checkbox"><span class="checkbox"></span>Ligne coopération (réussite collective, apprentissage)</div>
+            <p class="ritual-exemples">
+                <strong>Exemples :</strong> <em>"Bonne entraide sur l'empannage", "On a pris le temps d'expliquer", "Tension nommée et régulée"</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- Citation finale -->
+    <div class="citation-finale">
+        💡 <strong>Le livre de bord trace notre navigation ET notre coopération.</strong>
+    </div>
+
+    <footer class="affiche-footer affiche-footer-split">
+        <span>Anacoluthe !?</span>
+        <span>CC-BY-NC-SA</span>
+    </footer>
+
+</div>
+
+</body>
+</html>

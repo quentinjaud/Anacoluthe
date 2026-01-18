@@ -1,8 +1,114 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260116*
+*Dernière mise à jour : 260118*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260118)
+
+### Session 12 - Affiche A3 Marque-page LDB (A4 portrait recto-verso)
+
+**Nouvelle affiche HTML recto-verso**
+- Création `sources/affiches/A3_marque_page.html` (format A4 portrait 210×297mm, 2 pages)
+- Recto : Pourquoi/Comment remplir le LDB + échelles Beaufort/Douglas + sidebar colonnes LDB
+- Verso : 5 piliers coopératifs + brief matin + débrief soir + citation finale
+
+**Améliorations tooling multi-pages**
+- `print-render-a4.js` : support `querySelectorAll` pour extraire toutes les pages, hauteur dynamique `297 * pageCount`mm
+- `render-cards.js` : détection pageCount, viewport ajusté, screenshot `fullPage: true`
+- `cards-index.json` : ajout `format: "A4-portrait"` et `htmlPath` pour A3
+
+**Styles CSS spécifiques A3**
+- Section "Pourquoi LDB" : bullets brick-700, strong weight 700
+- Section "Comment le remplir" : 3 items en colonnes flex, fond blanc, checkboxes brick-700
+- Tables échelles : lignes alternées teintées (teal pour Beaufort, bleu mer pour Douglas)
+- Sidebar : 16 champs LDB avec badges amber-100
+
+**Travail restant verso**
+- Ajouter infos sur les paquets du jeu
+- Nettoyer la forme des 5 piliers
+
+**Affinage affiche A1 Routines**
+- Reformulation des tâches : minuscules, participes passés ("moteur et gréement vérifiés")
+- Lignes collectives reformulées avec accent sur le "on" ("On sait où on va et qui fait quoi")
+- Ajout tâches manquantes (ex: "grignotages disponibles" pour cambuse)
+- Cohérence avec le ton du projet
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260117)
+
+### Session 11 - Affiche A1 Routines Quotidiennes (A4 portrait)
+
+**Nouvelle affiche HTML**
+- Création `sources/affiches/A1_routines.html` (format A4 portrait 210×297mm)
+- 5 sections de routines : Préparation, Appareillage, Navigation, Avant atterrissage, Après atterrissage
+- Section notes avec checkboxes vides par rôle
+- Footer centré avec tagline
+
+**Structure HTML par section**
+- Titre h2 avec emoji + nom de section
+- Ligne collectif (texte commun à toute l'équipe)
+- Grille 4 colonnes avec les 4 rôles (bosco, nav, second, cambuse)
+- Chaque rôle : emoji + liste de tâches avec checkboxes
+
+**Choix typographiques**
+- Import Merriweather serif (weights 300, 400, 700)
+- Titres sections : Merriweather Sans, 11pt, bold 700, uppercase, teal
+- Collectif-line : Merriweather serif, 8.5pt, light 300
+- Tâches rôles : Merriweather serif, 7pt, light 300
+- Footer : Merriweather Sans, centré
+
+**Styles testés et rejetés**
+- "Section-wrapped" (bloc gris englobant avec titre débordant) → trop lourd visuellement
+- Fond coloré sur collectif-line → préféré transparent
+
+**Particularité section Navigation**
+- Icône SVG rotation (flèche circulaire) au lieu des checkboxes classiques
+- Symbolise les tâches récurrentes/tournantes pendant la nav
+
+**Fichiers créés**
+- `sources/affiches/A1_routines.html`
+- `assets/js/print-render-a4.js`
+- `print-render-a4.html`
+
+**Fichiers modifiés**
+- `assets/css/affiches-print.css` - styles A4 portrait, Merriweather serif, grilles rôles
+- `scripts/render-cards.js` - format A4-portrait (210×297mm)
+- `assets/data/cards-index.json` - entrée A1 mise à jour
+
+---
+
+### Session 10 - Migration A2 Tableau d'équipage vers HTML/Puppeteer
+
+**Migration complète de l'affiche A2**
+- Nouveau fichier `sources/affiches/A2_tableau_equipage.html` (remplace le Google Doc)
+- CSS dédié `assets/css/affiches-print.css` pour format A4 paysage
+- Intégration au script `render-cards.js` avec format A4-landscape (297×210mm)
+
+**Structure HTML**
+- 4 sections : Météos Perso, Intentions (6 col), Rôles (4 col), Programme (6 col)
+- Grilles CSS avec `grid-template-columns`
+- Classes `.bloc`, `.editable`, `.inline`, `.accent-*` pour les blocs
+
+**Ajustements visuels finaux**
+- Titre principal : bleu anacoluthe (#1E3A5F), 28pt
+- Titres de section : gris doux (#718096)
+- Blocs : fond gris léger (#f5f5f5), coins arrondis 3mm
+- Intentions : emoji ligne 1, "ma/mon" (light 400) + mot-clé (bold 700) ligne 2
+- Rôles/Programme : emoji + titre sur même ligne, aligné centre-haut
+- Slider météo : padding réduit (2mm vertical)
+- Marges : 15mm
+
+**Fichiers créés**
+- `sources/affiches/A2_tableau_equipage.html`
+- `assets/css/affiches-print.css`
+
+**Fichiers modifiés**
+- `scripts/render-cards.js` - support format A4-landscape
+- `sources/suivi/tableau_suivi_cartes.md` - lien A2a mis à jour
 
 ---
 

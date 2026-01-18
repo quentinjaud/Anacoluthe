@@ -1,11 +1,13 @@
 /**
- * RENDER - Génère les PDFs A6 individuels via print-render.html
- * 
+ * RENDER - Génère les PDFs A6 et A4 via print-render.html / print-render-a4.html
+ *
  * Usage: node scripts/render-cards.js [target]
  *   target: 'all' | 'roles' | 'moments' | 'sos' | 'affiches'
- * 
- * Output: /print/cartes/{id}.pdf (2 pages : recto + verso)
- * 
+ *
+ * Output:
+ *   - Cartes A6 : /print/cartes/{id}.pdf (2 pages : recto + verso)
+ *   - Affiches A4 : /print/affiches/{id}.pdf (1 page)
+ *
  * Variables d'environnement:
  *   DEBUG=true  Active le mode debug (screenshots)
  */
@@ -21,11 +23,32 @@ const CONFIG = {
   affichesDir: 'print/affiches',
   indexPath: 'assets/data/cards-index.json',
   serverPort: 8765,
-  pageWidth: 105,  // A6 mm
-  pageHeight: 148,
   navigationTimeout: 30000,
   readyTimeout: 10000,
-  deviceScaleFactor: 3
+  deviceScaleFactor: 3,
+
+  // Formats supportés
+  formats: {
+    'A6': {
+      width: 105,
+      height: 148,
+      renderPage: 'print-render.html',
+      paramName: 'card'
+    },
+    'A4-landscape': {
+      width: 297,
+      height: 210,
+      renderPage: 'print-render-a4.html',
+      paramName: 'affiche'
+    },
+    'A4-portrait': {
+      width: 210,
+      height: 297,
+      renderPage: 'print-render-a4.html',
+      paramName: 'affiche'
+    }
+  },
+  defaultFormat: 'A6'
 };
 
 const DEBUG = process.env.DEBUG === 'true';
@@ -94,26 +117,32 @@ function createStaticServer(rootDir) {
 function getCardsToProcess(target) {
   const indexContent = fs.readFileSync(CONFIG.indexPath, 'utf-8');
   const index = JSON.parse(indexContent);
-  
+
   const allowedTypes = TYPE_FILTERS[target] || TYPE_FILTERS.all;
   const allItems = [...index.cards, ...(index.affiches || [])];
-  
-  return allItems.filter(item => 
-    allowedTypes.includes(item.type) && item.path
-  );
+
+  return allItems.filter(item => {
+    if (!allowedTypes.includes(item.type)) return false;
+    // Pour les affiches A4 (landscape ou portrait), on vérifie htmlPath
+    if (item.format === 'A4-landscape' || item.format === 'A4-portrait') {
+      return item.htmlPath;
+    }
+    // Pour les cartes A6, on vérifie path (markdown)
+    return item.path;
+  });
 }
 
 /**
- * Génère un PDF A6 pour une face de carte
+ * Génère un PDF A6 pour une face de carte (markdown)
  */
-async function renderCardFace(page, cardId, face, baseUrl) {
-  const url = `${baseUrl}/print-render.html?card=${cardId}&face=${face}`;
-  
-  await page.goto(url, { 
+async function renderCardFace(page, cardId, face, baseUrl, formatConfig) {
+  const url = `${baseUrl}/${formatConfig.renderPage}?${formatConfig.paramName}=${cardId}&face=${face}`;
+
+  await page.goto(url, {
     waitUntil: 'networkidle0',
     timeout: CONFIG.navigationTimeout
   });
-  
+
   // Attendre que la carte soit prête
   try {
     await page.waitForSelector('body.card-ready', { timeout: CONFIG.readyTimeout });
@@ -124,73 +153,159 @@ async function renderCardFace(page, cardId, face, baseUrl) {
     }
     await new Promise(r => setTimeout(r, 1000));
   }
-  
+
   await page.evaluateHandle('document.fonts.ready');
   await new Promise(r => setTimeout(r, 200));
-  
+
   // Screenshot en mode debug
   if (DEBUG) {
     const screenshotPath = `print/debug-${cardId}-${face}.png`;
     await page.screenshot({ path: screenshotPath, fullPage: false });
     console.log(`      📸 ${face}: ${screenshotPath}`);
   }
-  
+
   return await page.pdf({
-    width: `${CONFIG.pageWidth}mm`,
-    height: `${CONFIG.pageHeight}mm`,
+    width: `${formatConfig.width}mm`,
+    height: `${formatConfig.height}mm`,
     printBackground: true,
     margin: { top: 0, right: 0, bottom: 0, left: 0 }
   });
 }
 
 /**
- * Génère un PDF A6 complet (recto + verso) pour une carte
+ * Génère un PDF A4 pour une affiche HTML (supporte multi-pages)
+ */
+async function renderAfficheA4(page, card, baseUrl, formatConfig) {
+  const url = `${baseUrl}/${formatConfig.renderPage}?${formatConfig.paramName}=${card.id}`;
+
+  await page.goto(url, {
+    waitUntil: 'networkidle0',
+    timeout: CONFIG.navigationTimeout
+  });
+
+  // Attendre que l'affiche soit prête
+  try {
+    await page.waitForSelector('body.affiche-ready', { timeout: CONFIG.readyTimeout });
+  } catch (err) {
+    const hasError = await page.$('body.affiche-error');
+    if (hasError) {
+      throw new Error(`Erreur de chargement pour l'affiche ${card.id}`);
+    }
+    await new Promise(r => setTimeout(r, 1000));
+  }
+
+  // Détecter le nombre de pages (divs .affiche-a4 ou .affiche-a4-portrait)
+  const pageCount = await page.evaluate(() => {
+    return document.querySelectorAll('.affiche-a4, .affiche-a4-portrait').length;
+  });
+
+  // Ajuster le viewport pour les multi-pages
+  if (pageCount > 1) {
+    const viewportWidth = Math.round(formatConfig.width * 96 / 25.4);
+    const viewportHeight = Math.round(formatConfig.height * pageCount * 96 / 25.4);
+    await page.setViewport({
+      width: viewportWidth,
+      height: viewportHeight,
+      deviceScaleFactor: CONFIG.deviceScaleFactor
+    });
+    // Attendre le re-layout
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  await page.evaluateHandle('document.fonts.ready');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Screenshot en mode debug
+  if (DEBUG) {
+    const screenshotPath = `print/debug-${card.id}.png`;
+    await page.screenshot({ path: screenshotPath, fullPage: true });
+    console.log(`      📸 ${screenshotPath}`);
+  }
+
+  // Note: pas de landscape:true car les dimensions sont déjà en paysage (297×210)
+  return await page.pdf({
+    width: `${formatConfig.width}mm`,
+    height: `${formatConfig.height}mm`,
+    printBackground: true,
+    margin: { top: 0, right: 0, bottom: 0, left: 0 }
+  });
+}
+
+/**
+ * Génère un PDF pour une carte ou affiche
  */
 async function renderCard(browser, card, baseUrl) {
   stats.cardsProcessed++;
-  
+
+  const format = card.format || CONFIG.defaultFormat;
+  const formatConfig = CONFIG.formats[format] || CONFIG.formats[CONFIG.defaultFormat];
+
   const page = await browser.newPage();
-  
+
   // Capturer les erreurs
   page.on('pageerror', err => {
     stats.errors.push(`Page error (${card.id}): ${err.message}`);
   });
-  
-  // Viewport A6 en pixels
+
+  // Viewport adapté au format
+  // Pour le paysage, le viewport doit avoir width > height
+  const viewportWidth = Math.round(formatConfig.width * 96 / 25.4);
+  const viewportHeight = Math.round(formatConfig.height * 96 / 25.4);
   await page.setViewport({
-    width: Math.round(CONFIG.pageWidth * 96 / 25.4),
-    height: Math.round(CONFIG.pageHeight * 96 / 25.4),
+    width: viewportWidth,
+    height: viewportHeight,
     deviceScaleFactor: CONFIG.deviceScaleFactor
   });
-  
+
   try {
-    const rectoBuffer = await renderCardFace(page, card.id, 'recto', baseUrl);
-    const versoBuffer = await renderCardFace(page, card.id, 'verso', baseUrl);
-    
-    // Fusionner les 2 pages
-    const { PDFDocument } = require('pdf-lib');
-    
-    const mergedPdf = await PDFDocument.create();
-    const rectoPdf = await PDFDocument.load(rectoBuffer);
-    const versoPdf = await PDFDocument.load(versoBuffer);
-    
-    const [rectoPage] = await mergedPdf.copyPages(rectoPdf, [0]);
-    const [versoPage] = await mergedPdf.copyPages(versoPdf, [0]);
-    
-    mergedPdf.addPage(rectoPage);
-    mergedPdf.addPage(versoPage);
-    
-    const pdfBytes = await mergedPdf.save();
-    
-    // Sauvegarder
-    const baseName = path.basename(card.path, '.md');
-    const outputDir = card.type === 'affiche' ? CONFIG.affichesDir : CONFIG.outputDir;
-    const outputPath = path.join(outputDir, `${baseName}.pdf`);
-    fs.writeFileSync(outputPath, pdfBytes);
-    
-    stats.cardsSuccess++;
-    console.log(`  ✅ ${baseName}.pdf`);
-    
+    let pdfBytes;
+
+    // Affiche A4 (landscape ou portrait) avec HTML direct (1 page)
+    if ((format === 'A4-landscape' || format === 'A4-portrait') && card.htmlPath) {
+      const pdfBuffer = await renderAfficheA4(page, card, baseUrl, formatConfig);
+
+      // Pas de fusion, une seule page
+      pdfBytes = pdfBuffer;
+
+      // Sauvegarder dans le dossier affiches
+      const baseName = path.basename(card.htmlPath, '.html');
+      const outputPath = path.join(CONFIG.affichesDir, `${baseName}.pdf`);
+      fs.writeFileSync(outputPath, pdfBytes);
+
+      stats.cardsSuccess++;
+      const orientation = format === 'A4-portrait' ? 'portrait' : 'paysage';
+      console.log(`  ✅ ${baseName}.pdf (A4 ${orientation})`);
+
+    } else {
+      // Carte A6 markdown (recto + verso)
+      const rectoBuffer = await renderCardFace(page, card.id, 'recto', baseUrl, formatConfig);
+      const versoBuffer = await renderCardFace(page, card.id, 'verso', baseUrl, formatConfig);
+
+      // Fusionner les 2 pages
+      const { PDFDocument } = require('pdf-lib');
+
+      const mergedPdf = await PDFDocument.create();
+      const rectoPdf = await PDFDocument.load(rectoBuffer);
+      const versoPdf = await PDFDocument.load(versoBuffer);
+
+      const [rectoPage] = await mergedPdf.copyPages(rectoPdf, [0]);
+      const [versoPage] = await mergedPdf.copyPages(versoPdf, [0]);
+
+      mergedPdf.addPage(rectoPage);
+      mergedPdf.addPage(versoPage);
+
+      pdfBytes = await mergedPdf.save();
+
+      // Sauvegarder
+      const baseName = path.basename(card.path, '.md');
+      const outputDir = card.type === 'affiche' ? CONFIG.affichesDir : CONFIG.outputDir;
+      const outputPath = path.join(outputDir, `${baseName}.pdf`);
+      fs.writeFileSync(outputPath, pdfBytes);
+
+      stats.cardsSuccess++;
+      console.log(`  ✅ ${baseName}.pdf`);
+    }
+
   } catch (err) {
     stats.cardsFailed++;
     stats.errors.push(`${card.id}: ${err.message}`);

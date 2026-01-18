@@ -16,69 +16,75 @@
 ## 🐝 PRÉPARATION DE LA JOURNÉE
 
 ### COLLECTIF
-- Météo et intentions de chacun Attribution rôles du jour
-- Brief programme navigation et séances
+> On sait où on va et qui fait quoi
+
+- Météo partagée, rôles attribués, programme expliqué
 
 ### PAR RÔLE
-- 🔧 **Bosco** : Check moteur+coupes-circuits + Voiles/gréement + Hublots et vannes
-- 🧭 **Navig** : Météo/marée,  plan de navigation,  Route prévue dans LDB
-- 🤝 **Second** : Playlist du jour, brassières verifiées, matos sécu, 
-
-  > le second peut choisir la playlist du jour par exemple.
-- 🍳 **Cambuse** : Petit-déj + Eau/vivres/repas midi préparés
+- 🔧 **Bosco** : moteur et gréement vérifiés, voiles choisies et préparées, hublots et vannes contrôlés
+- 🧭 **Nav** : météo/marée vérifiées, plan de nav' préparé, LDB initialisé (équipage, météo)
+- 🤝 **Second·e** : playlist choisie, brassières vérifiées, matos sécu prêt
+- 🍳 **Cambuse** : petit-déj rangé, grignotages disponibles, repas midi préparé
 
 ---
 
 ## ⚓ APPAREILLAGE
 
 ### COLLECTIF
-- Brief manœuvre + Distribution des rôles pour la manœuvre de départ + Communication claire
+> On part ensemble, prêt·es
+
+- Manœuvre expliquée, postes distribués, topo Sécu' fait
 
 ### PAR RÔLE
 - 🔧 **Bosco** : défenses placées, amarres doublées, moteur démarré
-- 🧭 **Navig** : Scenario de sortie partagé, ligne "appareillage" dans LDB
-- 🤝 **Second** :  Electricité et adaptateur retirés, Check sécu (tout le monde a sa brassière)
-- 🍳 **Cambuse** : Rangement carré, capitainerie payée et badges rendus
+- 🧭 **Nav** : scénario de sortie partagé, ligne "appareillage" inscrite au LDB
+- 🤝 **Second·e** : électricité débranchée, adaptateur retiré, brassières vérifiées
+- 🍳 **Cambuse** : carré rangé, capitainerie réglée, badges rendus
 
 ---
 
 ## ⛵ EN NAVIGATION
 
 ### COLLECTIF
-- **ROUTE, REGLAGE, RANGEMENT, RIRES, REPAS, REPOS**
-- Rotation aux postes + Entraide consentie + Repos autonome
+> **ROUTE, RÉGLAGE, RANGEMENT, RIRES, REPAS, REPOS**
+
+- Postes tournés, entraide consentie, repos pris
 
 ### PAR RÔLE
-- 🔧 **Bosco** : Rangement pont + Veille technique
-- 🧭 **Nav'** : Route/réglages + Point régulier dans LDB
-- 🤝 **Second·e** : Rotation postes + Vérif périodiques équipage
-- 🍳 **Cambuse** : Repas/grignotage + Rythme/repos
+- 🔧 **Bosco** : pont rangé, veille technique assurée
+- 🧭 **Nav** : route suivie, réglages ajustés, point inscrit au LDB
+- 🤝 **Second·e** : rotation effectuée, équipage vérifié
+- 🍳 **Cambuse** : repas/grignotage servi, rythme/repos respecté
 
 ---
 
 ## 🌴 AVANT ATTERRISSAGE
 
 ### COLLECTIF
-- Brief manœuvre d'atterrissage + Rôles attribués
+> On arrive ensemble, sereins
+
+- Manœuvre anticipée, postes attribués
 
 ### PAR RÔLE
-- 🔧 **Bosco** : Défenses installées + Amarres prêtes
-- 🧭 **Nav'** : pilotage d'entrée repéré et partagé (carte, Bloc marine...)
-- 🤝 **Second·e** : Tout le monde briefé et OK, sécu de base rappelée
-- 🍳 **Cambuse** : Carré rangé + Équipement à terre préparé
+- 🔧 **Bosco** : défenses installées, amarres prêtes
+- 🧭 **Nav** : pilotage d'entrée repéré, pilotage partagé
+- 🤝 **Second·e** : équipage informé, sécu de base rappelée
+- 🍳 **Cambuse** : carré rangé, équipement à terre préparé
 
 ---
 
 ## 🏝️ APRÈS ATTERRISSAGE
 
 ### COLLECTIF
-- Débrief technique + Débrief humain : "On a appris quoi ?"
+> On célèbre et on apprend
+
+- Retour technique fait, apprentissages partagés
 
 ### PAR RÔLE
-- 🔧 **Bosco** : Amarres OK + Électricité branchée + Réparations sur BoatOn
-- 🧭 **Nav'** : Ligne dans LDB + Point "on fait quoi demain"
-- 🤝 **Second·e** : Facilite les débriefs et anime des cartes Anacoluthe si besoin
-- 🍳 **Cambuse** : Préparation repas + Célébration de la journée
+- 🔧 **Bosco** : amarres sécurisées, électricité branchée, réparations notées sur BoatOn
+- 🧭 **Nav** : ligne inscrite au LDB, programme du lendemain esquissé
+- 🤝 **Second·e** : retours facilités, cartes Anacoluthe animées
+- 🍳 **Cambuse** : repas préparé, journée célébrée
 
 
 

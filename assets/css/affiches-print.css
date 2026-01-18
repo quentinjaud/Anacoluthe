@@ -41,7 +41,13 @@
     --teal-50: #e8f4f3;
     --amber-700: #c96a30;
     --amber-50: #fff8f0;
+    --amber-100: #ffe8d4;
     --brick-50: #FFEBEE;
+    --brick-700: #C62828;  /* Rouge SOS */
+
+    /* Bleu mer (Douglas) - désaturé */
+    --sea-700: #4a7c91;
+    --sea-50: #e8f1f4;
 
     /* Blocs */
     --bloc-bg: #f5f5f5;  /* gris léger */
@@ -188,7 +194,6 @@
 }
 
 /* Colonnes multi-span */
-.col-2 { grid-column: span 2; }
 .col-3 { grid-column: span 3; }
 
 /* ========================================
@@ -217,11 +222,6 @@
 
 .bloc.accent-cooperation {
     background: var(--amber-50); /* #fff8f0 - chaleur */
-}
-
-/* Accent générique (programme - Séances) */
-.bloc.accent {
-    background: var(--bloc-accent); /* #fff4c4 - jaune vif */
 }
 
 /* ========================================
@@ -320,7 +320,7 @@ img.emoji {
 
 .affiche-a4-portrait .affiche-header h1 {
     font-size: 20pt;
-    margin-bottom: 3mm;
+    margin-bottom: 6mm;
 }
 
 /* ========================================
@@ -378,6 +378,11 @@ img.emoji {
     font-size: 8.5pt;
     font-weight: 300;
     flex-shrink: 0;
+}
+
+/* Paradigme en gras dans la ligne collectif */
+.collectif-line strong {
+    font-weight: 700;
 }
 
 /* ========================================
@@ -578,4 +583,535 @@ img.emoji {
 @page portrait {
     size: 210mm 297mm portrait;
     margin: 0;
+}
+
+/* ========================================
+   A3 MARQUE-PAGE - STYLES SPÉCIFIQUES
+   ======================================== */
+
+/* Pages recto/verso avec saut de page */
+.page-recto,
+.page-verso {
+    page-break-after: always;
+}
+
+.page-verso {
+    page-break-after: auto;
+}
+
+/* ----------------------------------------
+   BLOC POURQUOI LDB
+   Style wrapped avec titre débordant, accent rouge SOS
+   ---------------------------------------- */
+.section-pourquoi-ldb {
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 4mm 3mm 2mm 3mm;
+    margin-bottom: 3mm;
+    position: relative;
+    margin-top: 5mm;
+}
+
+.section-pourquoi-ldb .section-header {
+    position: absolute;
+    top: -5mm;
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+}
+
+.section-pourquoi-ldb .section-header h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brick-700);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-pourquoi-ldb .section-icon {
+    font-size: 16pt;
+}
+
+.section-pourquoi-ldb .pourquoi-list {
+    font-family: 'Merriweather', serif;
+    font-size: 8pt;
+    font-weight: 300;
+    margin: 0;
+    padding-left: 2mm;
+    line-height: 1.3;
+    list-style: none;
+}
+
+.section-pourquoi-ldb .pourquoi-list strong {
+    font-weight: 700;
+}
+
+.section-pourquoi-ldb .pourquoi-list li {
+    margin-bottom: 1.5mm;
+    position: relative;
+    padding-left: 3mm;
+}
+
+.section-pourquoi-ldb .pourquoi-list li::before {
+    content: "•";
+    color: var(--brick-700);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+/* Liste avec checkboxes (Comment le remplir) - Layout colonnes */
+.section-comment-ldb .comment-list {
+    font-family: 'Merriweather', serif;
+    font-size: 8pt;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+    list-style: none;
+    display: flex;
+    gap: 3mm;
+}
+
+.section-comment-ldb .comment-list strong {
+    font-weight: 700;
+}
+
+.section-comment-ldb .comment-list li {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 2mm;
+    padding: 2mm;
+    background: white;
+    border-radius: 2mm;
+}
+
+.section-comment-ldb .comment-list .checkbox {
+    width: 3mm;
+    height: 3mm;
+    border: 0.5pt solid var(--brick-700);
+    border-radius: 0.5mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+}
+
+/* ----------------------------------------
+   TABLES ÉCHELLES (Beaufort, Douglas)
+   Style wrapped : fond gris, titre débordant
+   ---------------------------------------- */
+.section-echelle {
+    margin-bottom: 5mm;
+}
+
+.section-echelle.section-wrapped {
+    position: relative;
+    padding-top: 5mm;
+}
+
+.section-echelle.section-wrapped .section-wrapper {
+    border-radius: 3mm;
+    padding: 4mm 3mm 3mm 3mm;
+}
+
+/* Wrappers colorés par accent */
+.echelle-beaufort-section .section-wrapper {
+    background: var(--teal-50);
+}
+
+.echelle-douglas-section .section-wrapper {
+    background: var(--sea-50);
+}
+
+.section-echelle.section-wrapped .section-header {
+    position: absolute;
+    top: 0;
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    z-index: 1;
+}
+
+.section-echelle .section-header h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Headers différenciés par échelle */
+.section-echelle.echelle-beaufort-section .section-header h2 {
+    color: var(--teal-700);
+}
+
+.section-echelle.echelle-douglas-section .section-header h2 {
+    color: var(--sea-700);
+}
+
+.section-echelle .section-icon {
+    font-size: 16pt;
+}
+
+.section-echelle .instruction {
+    font-size: 9pt;
+    font-style: italic;
+    font-family: 'Merriweather', serif;
+    color: var(--text-light);
+}
+
+.echelle-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Merriweather', serif;
+    font-size: 8pt;
+}
+
+.echelle-table th {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    padding: 1.5mm 2mm;
+    text-align: left;
+}
+
+/* Beaufort = accent teal - fond transparent pour fusion avec wrapper */
+.echelle-beaufort th {
+    background: transparent;
+    border-bottom: 0.5pt solid var(--teal-700);
+    color: var(--teal-700);
+}
+
+/* Douglas = accent bleu mer - fond transparent pour fusion avec wrapper */
+.echelle-douglas th {
+    background: transparent;
+    border-bottom: 0.5pt solid var(--sea-700);
+    color: var(--sea-700);
+}
+
+.echelle-table td {
+    padding: 1.2mm 2mm;
+}
+
+.echelle-table td:first-child {
+    font-weight: 700;
+    text-align: center;
+    width: 12mm;
+}
+
+/* Lignes alternées teintées par accent */
+.echelle-beaufort tbody tr:nth-child(even) {
+    background: #d8edeb;  /* teal très clair */
+}
+
+.echelle-douglas tbody tr:nth-child(even) {
+    background: #d5e3e9;  /* bleu mer désaturé très clair */
+}
+
+/* Coloration par gravité - Beaufort */
+.echelle-beaufort tr[data-force="0"] td:first-child,
+.echelle-beaufort tr[data-force="1"] td:first-child,
+.echelle-beaufort tr[data-force="2"] td:first-child,
+.echelle-beaufort tr[data-force="3"] td:first-child {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.echelle-beaufort tr[data-force="4"] td:first-child,
+.echelle-beaufort tr[data-force="5"] td:first-child,
+.echelle-beaufort tr[data-force="6"] td:first-child {
+    background: #fff8e1;
+    color: #f57f17;
+}
+
+.echelle-beaufort tr[data-force="7"] td:first-child,
+.echelle-beaufort tr[data-force="8"] td:first-child {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.echelle-beaufort tr[data-force="9"] td:first-child,
+.echelle-beaufort tr[data-force="10"] td:first-child,
+.echelle-beaufort tr[data-force="11"] td:first-child,
+.echelle-beaufort tr[data-force="12"] td:first-child {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* Coloration par gravité - Douglas */
+.echelle-douglas tr[data-degre="0"] td:first-child,
+.echelle-douglas tr[data-degre="1"] td:first-child,
+.echelle-douglas tr[data-degre="2"] td:first-child,
+.echelle-douglas tr[data-degre="3"] td:first-child {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.echelle-douglas tr[data-degre="4"] td:first-child,
+.echelle-douglas tr[data-degre="5"] td:first-child {
+    background: #fff8e1;
+    color: #f57f17;
+}
+
+.echelle-douglas tr[data-degre="6"] td:first-child,
+.echelle-douglas tr[data-degre="7"] td:first-child {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.echelle-douglas tr[data-degre="8"] td:first-child,
+.echelle-douglas tr[data-degre="9"] td:first-child {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* ----------------------------------------
+   LAYOUT RECTO : Échelles + Sidebar LDB
+   ---------------------------------------- */
+.recto-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3mm;
+    flex: 1;
+}
+
+.echelles-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4mm;
+}
+
+/* ----------------------------------------
+   SIDEBAR COLONNES LDB
+   ---------------------------------------- */
+.ldb-sidebar {
+    background: var(--amber-50);
+    border-radius: 3mm;
+    padding: 4mm 3mm 3mm 3mm;
+    margin-top: 5mm;  /* Aligne avec les échelles qui ont padding-top: 5mm */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.ldb-sidebar-header {
+    position: absolute;
+    top: -5mm;  /* Aligne avec section-echelle.section-wrapped top: 0 */
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+}
+
+.ldb-sidebar-header .section-icon {
+    font-size: 16pt;
+}
+
+.ldb-sidebar-header h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--amber-700);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.ldb-sidebar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding-top: 4mm;  /* Espace sous le titre */
+}
+
+.ldb-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5mm;
+}
+
+.ldb-name {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--amber-700);
+    background: var(--amber-100);
+    padding: 0.5mm 2mm;
+    border-radius: 2mm;
+    display: inline-block;
+    width: fit-content;
+}
+
+.ldb-desc {
+    font-family: 'Merriweather', serif;
+    font-size: 6.5pt;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+/* ----------------------------------------
+   PILIERS COOPÉRATIFS (verso)
+   ---------------------------------------- */
+.section-piliers {
+    margin-bottom: 4mm;
+}
+
+.section-piliers .section-header {
+    margin-bottom: 3mm;
+}
+
+.section-piliers .section-header h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    text-transform: uppercase;
+    margin: 0 0 1mm 0;
+}
+
+.section-piliers .instruction {
+    font-size: 9pt;
+    font-style: italic;
+    font-family: 'Merriweather', serif;
+    color: var(--text-light);
+    display: block;
+}
+
+.piliers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2mm;
+}
+
+.pilier {
+    background: var(--bloc-bg);
+    border-radius: 2mm;
+    padding: 3mm 2mm;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pilier-emoji {
+    font-size: 18pt;
+    display: block;
+    margin-bottom: 1mm;
+}
+
+.pilier-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    color: var(--teal-700);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+}
+
+.pilier-items {
+    font-family: 'Merriweather', serif;
+    font-size: 7pt;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-dark);
+}
+
+/* ----------------------------------------
+   RITUELS (brief/débrief)
+   ---------------------------------------- */
+.section-ritual {
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 3mm 4mm;
+    margin-bottom: 3mm;
+}
+
+.section-ritual .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+    margin-bottom: 2mm;
+}
+
+.section-ritual .section-header h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-ritual .section-icon {
+    font-size: 12pt;
+}
+
+.section-ritual .instruction {
+    font-size: 9pt;
+    font-style: italic;
+    font-family: 'Merriweather', serif;
+    color: var(--text-light);
+}
+
+.ritual-content {
+    font-family: 'Merriweather', serif;
+    font-size: 9pt;
+}
+
+.ritual-intro {
+    margin: 0 0 2mm 0;
+    font-size: 9pt;
+}
+
+.ritual-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 2mm;
+    margin-bottom: 1.5mm;
+    font-size: 9pt;
+    font-weight: 300;
+}
+
+.ritual-checkbox .checkbox {
+    width: 3mm;
+    height: 3mm;
+    border: 0.5pt solid var(--text-light);
+    border-radius: 0.5mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+}
+
+.ritual-exemples {
+    margin: 2mm 0 0 0;
+    font-size: 8pt;
+    color: var(--text-light);
+}
+
+.ritual-exemples em {
+    font-style: italic;
+}
+
+/* ----------------------------------------
+   CITATION FINALE
+   ---------------------------------------- */
+.citation-finale {
+    background: var(--amber-50);
+    border-left: 2pt solid var(--amber-700);
+    border-radius: 0 2mm 2mm 0;
+    padding: 3mm 4mm;
+    font-family: 'Merriweather', serif;
+    font-size: 10pt;
+    text-align: center;
+    margin-bottom: 3mm;
+}
+
+/* ----------------------------------------
+   FOOTER SPLIT (gauche/droite)
+   ---------------------------------------- */
+.affiche-footer-split {
+    display: flex;
+    justify-content: space-between;
+    padding: 2mm 0 0 0;
 }

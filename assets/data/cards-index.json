@@ -199,6 +199,7 @@
     {
       "id": "A1",
       "type": "affiche",
+      "format": "A4-portrait",
       "title": "Routines quotidiennes",
       "subtitle": "Les 5 phases de navigation",
       "emoji": "🔂",
@@ -206,13 +207,15 @@
       "tags": ["Préparation", "Départ", "Navigation", "Approche", "Arrivée"],
       "tagsTitle": "5 phases",
       "path": "sources/affiches/A1_routines_memo.md",
+      "htmlPath": "sources/affiches/A1_routines.html",
       "pdfPath": "print/cartes/A1_routines_memo.pdf",
-      "affichePath": "print/affiches/A1_routines_quotidiennes.pdf",
+      "affichePath": "print/affiches/A1_routines.pdf",
       "proto": true
     },
     {
       "id": "A2",
       "type": "affiche",
+      "format": "A4-landscape",
       "title": "Tableau d'équipage",
       "subtitle": "Météo perso & rôles du jour",
       "emoji": "📋",
@@ -220,6 +223,7 @@
       "tags": ["Météo perso", "Compétences", "Rôles", "Programme"],
       "tagsTitle": "Sections",
       "path": "sources/affiches/A2_tableau_memo.md",
+      "htmlPath": "sources/affiches/A2_tableau_equipage.html",
       "pdfPath": "print/cartes/A2_tableau_memo.pdf",
       "affichePath": "print/affiches/A2_tableau_equipage.pdf",
       "proto": true
@@ -227,6 +231,7 @@
     {
       "id": "A3",
       "type": "affiche",
+      "format": "A4-portrait",
       "title": "Marque-page LDB",
       "subtitle": "Échelles & piliers coopératifs",
       "emoji": "📖",
@@ -234,8 +239,9 @@
       "tags": ["Beaufort", "Douglas", "5 piliers", "Brief/Débrief"],
       "tagsTitle": "Contenu",
       "path": "sources/affiches/A3_marque_page_memo.md",
+      "htmlPath": "sources/affiches/A3_marque_page.html",
       "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
-      "affichePath": "print/affiches/A3_marque_page_ldb.pdf",
+      "affichePath": "print/affiches/A3_marque_page.pdf",
       "proto": true
     }
   ],

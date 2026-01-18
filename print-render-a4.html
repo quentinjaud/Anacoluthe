@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=297mm, height=210mm">
+    <title>Anacoluthe - Print Render A4</title>
+
+    <!-- CSS Print A4 -->
+    <link rel="stylesheet" href="assets/css/affiches-print.css">
+
+    <!-- Twemoji -->
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"></script>
+
+    <style>
+        /* Reset complet */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 297mm;
+            height: 210mm;
+            margin: 0;
+            padding: 0;
+            background: white;
+            overflow: hidden;
+        }
+
+        /* L'affiche prend tout l'espace */
+        .affiche-a4 {
+            width: 297mm;
+            height: 210mm;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            background: white;
+        }
+
+        /* État de chargement */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-family: sans-serif;
+            color: #666;
+        }
+
+        .error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-family: sans-serif;
+            color: #e03121;
+        }
+    </style>
+</head>
+<body>
+    <div id="affiche-container">
+        <p class="loading">Chargement...</p>
+    </div>
+
+    <!-- Logique de rendu print A4 -->
+    <script src="assets/js/print-render-a4.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 16 janvier 2026*
+*Dernière mise à jour : 18 janvier 2026*
 
 ---
 
@@ -49,6 +49,7 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | fil-semaine.html | fil-semaine.js, external-links.js |
 | ensavoirplus.html | scroll-spy.js, external-links.js, pwa-status.js |
 | print-render.html | markdown-utils.js, print-render.js |
+| print-render-a4.html | print-render-a4.js, twemoji (CDN) |
 
 ### 4. Vérification des CSS chargés par page
 
@@ -60,6 +61,7 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | fil-semaine.html | style.css, fil-semaine.css |
 | ensavoirplus.html | style.css |
 | print-render.html | cards-print.css |
+| print-render-a4.html | affiches-print.css |
 
 ---
 
@@ -255,6 +257,12 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 251212 | Ajouter affiche-tableau-equipage.png au précache | sw.js | ✅ Fait |
 | - | Images conservées volontairement | .gitkeep, icon-pwa.svg, Logo*.jpg, affiche*.png | ✅ Gardé |
 | 260116 | Refacto afficheur/print-render | markdown-utils.js, afficheur-cartes.js, print-render.js, cards-print.css | ✅ Fait |
+| 260117 | Support format A4 paysage affiches | render-cards.js, affiches-print.css | ✅ Fait |
+| 260117 | Support format A4 portrait affiches | render-cards.js, affiches-print.css, print-render-a4.html, print-render-a4.js | ✅ Fait |
+| 260117 | Création affiche A1 Routines | A1_routines.html | ✅ Fait |
+| 260117 | Import Merriweather serif | affiches-print.css | ✅ Fait |
+| 260118 | Support multi-pages A4 portrait (recto-verso) | print-render-a4.js, render-cards.js | ✅ Fait |
+| 260118 | Création affiche A3 Marque-page LDB (2 pages) | A3_marque_page.html | ✅ Fait |
 
 ---
 
@@ -306,6 +314,202 @@ Nettoyage du code de l'afficheur de cartes et du moteur de rendu markdown-to-pri
 | Fonctions partagées ajoutées | 0 | 3 |
 | Variables CSS redondantes | 1 | 0 |
 | Bugs potentiels corrigés | 1 (ratios) | 0 |
+
+---
+
+## SUPPORT FORMAT A4 PAYSAGE (17 JANVIER 2026)
+
+### Contexte
+Migration de l'affiche A2 Tableau d'équipage depuis Google Docs vers le pipeline HTML/Puppeteer.
+
+### Modifications
+
+#### 1. Nouveau CSS affiches-print.css
+- **Fichier** : `assets/css/affiches-print.css`
+- **Contenu** : styles dédiés format A4 paysage (297×210mm)
+- **Classes principales** : `.affiche-a4`, `.section`, `.bloc`, `.grid-6`, `.grid-4`, `.meteo-slider`
+- **Variables** : `--anacoluthe-bleu`, `--bloc-bg`, couleurs accent intentions
+
+#### 2. Extension render-cards.js
+- **Fichier** : `scripts/render-cards.js`
+- **Ajout** : format `A4-landscape` dans `FORMATS` (297×210mm)
+- **Ajout** : entrée A2 dans `cardsIndex` avec `format: 'A4-landscape'`
+- **Fix** : retrait `landscape: true` de Puppeteer (dimensions explicites suffisent)
+
+#### 3. Vérification scripts/CSS par page
+
+| Page | CSS chargés |
+|------|-------------|
+| print-render-a4.html | affiches-print.css |
+
+### Choix techniques
+
+| Problème | Solution |
+|----------|----------|
+| PDF rendu en portrait au lieu de paysage | Retirer `landscape: true`, dimensions 297×210 suffisent |
+| Espacement supplémentaire avec `<br>` dans flexbox | Utiliser `<span class="emoji-line">` + `display: block` |
+| Emoji inconsistants entre OS | Twemoji via CDN |
+
+---
+
+## SUPPORT FORMAT A4 PORTRAIT (17 JANVIER 2026)
+
+### Contexte
+Création de l'affiche A1 Routines Quotidiennes en format A4 portrait (210×297mm).
+
+### Modifications
+
+#### 1. Extension render-cards.js
+- **Fichier** : `scripts/render-cards.js`
+- **Ajout** : format `A4-portrait` dans `FORMATS` (210×297mm)
+- **Ajout** : entrée A1 dans `cardsIndex` avec `format: 'A4-portrait'`
+
+#### 2. Nouveau rendu print-render-a4.html
+- **Fichier** : `print-render-a4.html`
+- **Contenu** : page de rendu pour affiches A4 (portrait et paysage)
+- **Script** : `print-render-a4.js` pour charger les HTML d'affiches
+
+#### 3. Extension affiches-print.css
+- **Fichier** : `assets/css/affiches-print.css`
+- **Ajout** : import Google Fonts Merriweather (serif) + Merriweather Sans
+- **Ajout** : classe `.affiche-a4-portrait` (210×297mm)
+- **Ajout** : grille `.grid-4-roles` pour layout 4 colonnes
+- **Ajout** : classes `.role-bosco`, `.role-nav`, `.role-second`, `.role-cambuse`
+- **Ajout** : styles `.section-routine`, `.section-header`, `.collectif-line`
+- **Ajout** : checkboxes (`.task-checkbox`) et icône rotation SVG (`.task-rotation`)
+- **Ajout** : section notes (`.section-notes-routines`)
+
+#### 4. Vérification scripts/CSS par page
+
+| Page | CSS chargés |
+|------|-------------|
+| print-render-a4.html | affiches-print.css |
+
+| Page | Scripts chargés |
+|------|-----------------|
+| print-render-a4.html | print-render-a4.js |
+
+### Choix techniques
+
+| Problème | Solution |
+|----------|----------|
+| Typographie lisible en petit format | Merriweather serif pour corps de texte (7-8.5pt) |
+| Distinction tâches ponctuelles vs récurrentes | Checkbox carrée vs icône SVG rotation |
+| Layout 4 rôles équilibré | CSS Grid avec `grid-template-columns: repeat(4, 1fr)` |
+| Couleurs par rôle | Variables CSS existantes (teal, amber, brick, bleu) |
+
+---
+
+## SUPPORT MULTI-PAGES A4 PORTRAIT (18 JANVIER 2026)
+
+### Contexte
+Extension du pipeline de rendu pour supporter les documents A4 portrait recto-verso (ex: A3 Marque-page LDB).
+
+### Modifications
+
+#### 1. Extension print-render-a4.js
+- **Fichier** : `assets/js/print-render-a4.js`
+- **Avant** : `querySelector` récupérait uniquement la première page
+- **Après** : `querySelectorAll('.affiche-a4, .affiche-a4-portrait')` récupère toutes les pages
+- **Ajout** : hauteur dynamique `297 * pageCount`mm pour A4 portrait multi-pages
+- **Ajout** : `overflow: visible` sur body pour permettre le défilement
+
+#### 2. Extension render-cards.js
+- **Fichier** : `scripts/render-cards.js`
+- **Ajout** : détection du nombre de pages via `page.evaluate()`
+- **Ajout** : ajustement viewport pour multi-pages (`height * pageCount`)
+- **Ajout** : option `fullPage: true` pour les screenshots multi-pages
+
+### Code clé
+
+**print-render-a4.js :**
+```javascript
+const affichePages = doc.querySelectorAll('.affiche-a4, .affiche-a4-portrait');
+containerEl.innerHTML = '';
+affichePages.forEach(page => containerEl.appendChild(page));
+
+const pageCount = affichePages.length;
+if (affiche.format === 'A4-portrait') {
+    document.documentElement.style.height = `${297 * pageCount}mm`;
+    document.body.style.height = `${297 * pageCount}mm`;
+    document.body.style.overflow = 'visible';
+}
+```
+
+**render-cards.js :**
+```javascript
+const pageCount = await page.evaluate(() => {
+  return document.querySelectorAll('.affiche-a4, .affiche-a4-portrait').length;
+});
+
+if (pageCount > 1) {
+  const viewportHeight = Math.round(formatConfig.height * pageCount * 96 / 25.4);
+  await page.setViewport({ width: viewportWidth, height: viewportHeight, ... });
+}
+```
+
+### Choix techniques
+
+| Problème | Solution |
+|----------|----------|
+| PDF ne rendait que la première page | `querySelectorAll` au lieu de `querySelector` |
+| Viewport trop petit pour multi-pages | Calcul dynamique `height * pageCount` |
+| Body coupait le contenu | `overflow: visible` |
+
+---
+
+## LIMITATIONS PUPPETEER/CHROME PDF (17 JANVIER 2026)
+
+### Bordures fines - Minimum 1px
+
+**Problème découvert** : Les bordures CSS inférieures à 1px ne sont pas respectées dans le PDF généré par Puppeteer/Chrome.
+
+**Source** : [Issue #4768 puppeteer/puppeteer](https://github.com/GoogleChrome/puppeteer/issues/4768)
+
+**Cause** : Chrome convertit les bordures en rectangles remplis et applique un minimum d'environ 1px, indépendamment de la valeur CSS spécifiée.
+
+**Équivalences** :
+| Valeur | Résultat réel |
+|--------|---------------|
+| `0.1mm` | Arrondi à ~1px |
+| `0.2mm` | Arrondi à ~1px |
+| `0.25pt` | Arrondi à ~1px |
+| `0.5pt` | Arrondi à ~1px |
+| `1px` | Minimum fiable (~0.26mm, ~0.75pt) |
+
+**Recommandation** : Utiliser `1px` comme épaisseur de bordure fine dans les CSS print. Toute valeur inférieure sera de toute façon rendue à ~1px.
+
+**Workarounds possibles** (non recommandés) :
+1. `scale: 0.8` dans options PDF - réduit tout le contenu de 20%
+2. Post-traitement du PDF avec outil vectoriel (Inkscape)
+3. Changement de renderer (wkhtmltopdf, Prince)
+
+### Impact sur le code
+
+**Fichier** : `assets/css/affiches-print.css`
+
+```css
+/* Bordures blocs éditables - 1px = minimum fiable Puppeteer */
+.bloc.editable.border-amber {
+    border: 1px solid var(--amber-700);
+}
+
+.bloc.editable.border-teal {
+    border: 1px solid var(--teal-700);
+}
+```
+
+### Twemoji - Fonctionnel dans Puppeteer
+
+**Vérification** : Twemoji fonctionne correctement dans le rendu PDF via Puppeteer.
+
+**Pipeline** :
+1. `print-render-a4.html` charge Twemoji depuis CDN
+2. `print-render-a4.js` appelle `applyTwemoji(containerEl)` après chargement HTML
+3. Les emojis Unicode sont convertis en `<img>` SVG Twemoji
+4. Puppeteer attend `networkidle0` + `body.affiche-ready` avant rendu
+
+**Attention** : En visualisation directe des fichiers HTML sources (sans passer par le renderer), les emojis apparaissent en style système natif car Twemoji n'est pas chargé.
 
 ---
 

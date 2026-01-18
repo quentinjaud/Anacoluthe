@@ -53,8 +53,8 @@ V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 
 - `DESIGN_INTENTIONS.md` → couleurs, emojis, typo, marqueurs MD, print
 - `TECH_INTENTIONS.md` → architecture JS/CSS, conventions code, Git
-- `SUIVI_CODE.md` → journal de maintenance technique (racine)
-- `ENTRETIEN_CODE.md` → audit et liste des anomalies à corriger (sources/documentation/)
+- `SUIVI_CODE.md` → journal maintenance et historique corrections (sources/documentation/work-in-progress/)
+- `ENTRETIEN_CODE.md` → audit et anomalies à corriger (sources/documentation/)
 - `CARTES_*_INTENTIONS.md` → intentions pédagogiques par type de carte
 - `FORMATIONS_*_INTENTIONS.md`, `SEANCES_INTENTIONS.md` → intentions pédagogiques hors cartes
 

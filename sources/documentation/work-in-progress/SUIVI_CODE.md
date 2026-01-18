@@ -263,6 +263,9 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260117 | Import Merriweather serif | affiches-print.css | ✅ Fait |
 | 260118 | Support multi-pages A4 portrait (recto-verso) | print-render-a4.js, render-cards.js | ✅ Fait |
 | 260118 | Création affiche A3 Marque-page LDB (2 pages) | A3_marque_page.html | ✅ Fait |
+| 260118 | Screenshots par page pour affiches multi-pages | render-cards.js | ✅ Fait |
+| 260118 | Mise à jour liens affiches fil-semaine | fil-semaine.html, fil-semaine.css | ✅ Fait |
+| 260118 | Audit technique complet (CSS, JS, Pipeline) | ENTRETIEN_CODE.md | ✅ Fait |
 
 ---
 
@@ -510,6 +513,46 @@ if (pageCount > 1) {
 4. Puppeteer attend `networkidle0` + `body.affiche-ready` avant rendu
 
 **Attention** : En visualisation directe des fichiers HTML sources (sans passer par le renderer), les emojis apparaissent en style système natif car Twemoji n'est pas chargé.
+
+---
+
+## AUDIT TECHNIQUE COMPLET (18 JANVIER 2026)
+
+### Contexte
+Audit exhaustif du codebase (CSS, JS, Pipeline PDF) avec rapport détaillé.
+
+### Résultats
+
+| Domaine | Score | Problèmes |
+|---------|-------|-----------|
+| CSS | 7.5/10 | 47 anomalies, 4 critiques |
+| JS Sécurité | 8/10 | 1 XSS potentiel, 0 vuln npm |
+| Pipeline PDF | 7/10 | 4 failles robustesse |
+
+### Rapport détaillé
+Voir `sources/documentation/ENTRETIEN_CODE.md` pour :
+- Liste complète des anomalies CSS
+- Vulnérabilités JS identifiées
+- Faiblesses pipeline PDF
+- Plan d'action priorisé (14 corrections)
+
+### Modifications effectuées
+
+1. **render-cards.js** - Screenshots par page pour affiches multi-pages
+   - Génère `debug-A3-page1.png` et `debug-A3-page2.png` pour A3
+
+2. **fil-semaine.css** - CSS dual-image
+   - `.fil-tool-image-dual` et `.fil-boucle-outil-image-dual` pour affichage recto/verso
+
+3. **fil-semaine.html** - 6 blocs affiches corrigés
+   - Liens : `affiche-ldb` → `A3`, `affiche-tableau` → `A2`, `affiche-routines` → `A1`
+   - Classes `fil-tool-pending` retirées
+   - Emojis overlay retirés
+
+4. **assets/images/** - Nouvelles images
+   - `affiche-A1-routines.png`
+   - `affiche-A3-recto.png`
+   - `affiche-A3-verso.png`
 
 ---
 

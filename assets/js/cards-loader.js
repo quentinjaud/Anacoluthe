@@ -205,7 +205,29 @@ async function openCard(cardId) {
         
         // Construire le HTML final
         const navHeadHtml = hasHead ? `<div class="nav-head">${headHtml}</div>` : '';
-        modalBody.innerHTML = `${navHeadHtml}<div class="card-content">${bodyHtml}</div>${actionsSection}`;
+
+        // Ajouter l'image de prévisualisation pour les affiches
+        let previewHtml = '';
+        if (card.type === 'affiche' && card.previewImages && card.previewImages.length > 0) {
+            if (card.previewImages.length === 1) {
+                // Une seule image (A1, A2)
+                previewHtml = `
+                    <div class="modal-affiche-preview">
+                        <img src="${card.previewImages[0]}" alt="${card.title}">
+                    </div>`;
+            } else {
+                // Plusieurs images côte à côte (A3)
+                const imagesHtml = card.previewImages
+                    .map(src => `<img src="${src}" alt="${card.title}">`)
+                    .join('');
+                previewHtml = `
+                    <div class="modal-affiche-preview modal-affiche-preview-dual">
+                        ${imagesHtml}
+                    </div>`;
+            }
+        }
+
+        modalBody.innerHTML = `${navHeadHtml}${previewHtml}<div class="card-content">${bodyHtml}</div>${actionsSection}`;
         
         if (hasHead) {
             modalBody.classList.add('has-nav-head');

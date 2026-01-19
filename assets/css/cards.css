@@ -1063,6 +1063,42 @@
     color: var(--blanc);
 }
 
+/* Prévisualisation affiche dans modale */
+.modal-affiche-preview {
+    margin: 0 auto 1.5rem auto;
+    border-radius: var(--radius-small);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+}
+
+.modal-affiche-preview img {
+    display: block;
+    height: 300px;
+    width: auto;
+}
+
+/* Deux images côte à côte (A3 recto/verso) */
+.modal-affiche-preview-dual {
+    display: flex;
+    width: fit-content;
+    gap: 4px;
+    background: var(--border-light);
+}
+
+.modal-affiche-preview-dual img {
+    height: 300px;
+    width: auto;
+}
+
+/* Indication cliquable */
+.modal-affiche-preview:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 /* ===========================================
    BOUTON ATELIER (footer modale desktop)
    =========================================== */

@@ -266,6 +266,8 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260118 | Screenshots par page pour affiches multi-pages | render-cards.js | ✅ Fait |
 | 260118 | Mise à jour liens affiches fil-semaine | fil-semaine.html, fil-semaine.css | ✅ Fait |
 | 260118 | Audit technique complet (CSS, JS, Pipeline) | ENTRETIEN_CODE.md | ✅ Fait |
+| 260119 | Preview images affiches dans modale | cards-loader.js, cards-index.json, cards.css | ✅ Fait |
+| 260119 | Lightbox GLightbox pour zoom affiches | lightbox.js, glightbox.min.*, anacoluthe.html | ✅ Fait |
 
 ---
 
@@ -553,6 +555,45 @@ Voir `sources/documentation/ENTRETIEN_CODE.md` pour :
    - `affiche-A1-routines.png`
    - `affiche-A3-recto.png`
    - `affiche-A3-verso.png`
+
+---
+
+## PREVIEW AFFICHES + LIGHTBOX (19 JANVIER 2026)
+
+### Contexte
+Ajout d'une prévisualisation des affiches dans la modale carte, avec lightbox zoom.
+
+### Fonctionnalités
+
+1. **Preview dans modale** - Les affiches (A1, A2, A3) affichent leur image PNG au-dessus du mémo
+2. **Lightbox GLightbox** - Au clic sur l'image, ouverture en plein écran avec zoom
+3. **Support multi-images** - A3 affiche recto/verso côte à côte, navigation entre les deux
+
+### Fichiers modifiés
+
+| Fichier | Modification |
+|---------|--------------|
+| `cards-index.json` | Ajout champ `previewImages` pour chaque affiche |
+| `cards-loader.js` | Génération HTML preview dans `openCard()` |
+| `cards.css` | Styles `.modal-affiche-preview` (300px hauteur, centré) |
+| `lightbox.js` | Wrapper GLightbox pour images dynamiques |
+| `anacoluthe.html` | Import GLightbox CSS + JS |
+
+### Fichiers ajoutés
+
+| Fichier | Taille |
+|---------|--------|
+| `assets/js/vendor/glightbox.min.js` | 56kb |
+| `assets/css/vendor/glightbox.min.css` | 14kb |
+
+### GLightbox
+
+Bibliothèque choisie pour :
+- Vanilla JS (pas de dépendance jQuery)
+- Support pinch-to-zoom mobile natif
+- Navigation flèches entre images
+- Animations fluides
+- Accessibilité (keyboard, aria)
 
 ---
 

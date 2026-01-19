@@ -2463,3 +2463,14 @@ body.home-page footer {
     color: white;
     border-color: var(--bleu-glenans);
 }
+
+/* ===========================================
+   TWEMOJI - Emojis convertis en images SVG
+   =========================================== */
+img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    vertical-align: -0.15em;
+    margin: 0 0.05em;
+    display: inline;
+}

@@ -82,7 +82,7 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 
 | # | Moment | Timing | Intention |
 |---|--------|--------|-----------|
-| M1 | Accueil & attentes | J1 matin | Poser intentions individuelles |
+| M1 | Accueil & Présentations | J1 matin | Poser intentions individuelles |
 | M2 | Accords d'équipage | J1-J2 | Créer contrat social |
 | M3 | Introduction rôles | J1-J2 | Présenter les 4 rôles et les marins inspirants associés |
 | M4 | Brief matin | J2-J6 | Météo perso + attribution rôles |

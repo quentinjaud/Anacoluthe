@@ -44,7 +44,7 @@ const CONFIG = {
       title: 'Cartes Rôles'
     },
     moments: {
-      cards: ['M1_accueil-attentes', 'M2_accords-equipage', 'M3_introduction-roles', 
+      cards: ['M1_accueil-presentations', 'M2_accords-equipage', 'M3_introduction-roles', 
               'M4_brief-matin', 'M5_debrief-soir', 'M6_mi-parcours', 'M7_debrief-final'],
       title: 'Cartes Moments-clés'
     },

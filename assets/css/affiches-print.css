@@ -311,7 +311,6 @@ img.emoji {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .affiche-a4-portrait .affiche-header {
@@ -323,24 +322,28 @@ img.emoji {
     margin-bottom: 6mm;
 }
 
+/* Conteneur sections qui s'étale jusqu'en bas */
+.affiche-a4-portrait .sections-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* ========================================
    COULEURS PAR RÔLE (A1 Routines)
    ======================================== */
 .role-card.role-bosco {
     background: #e8eef4;
-    border: 0.5pt solid var(--bleu-glenans);
 }
 .role-card.role-nav {
     background: var(--teal-50);
-    border: 0.5pt solid var(--teal-700);
 }
 .role-card.role-second {
     background: var(--amber-50);
-    border: 0.5pt solid var(--amber-700);
 }
 .role-card.role-cambuse {
     background: var(--brick-50);
-    border: 0.5pt solid #C62828;
 }
 
 /* ========================================
@@ -402,21 +405,19 @@ img.emoji {
 
 .section-wrapped .section-header {
     position: absolute;
-    top: -3.5mm;
+    top: -4mm;
     left: 3mm;
-    padding: 0 2mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
     z-index: 1;
 }
 
 .section-wrapped .collectif-line {
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-weight:400;
-}
-
-.section-wrapped .role-card {
-    border-width: 0.25pt;
+    background: white;
+    border-radius: 2mm;
+    padding: 1.5mm 3mm;
+    font-weight: 400;
 }
 
 /* ========================================
@@ -495,27 +496,8 @@ img.emoji {
 }
 
 /* ========================================
-   SECTION NOTES (A1)
+   GRILLE NOTES (A1 - Actions spécifiques)
    ======================================== */
-.section-notes-routines {
-    flex-shrink: 0;
-}
-
-.section-notes-routines .section-header {
-    display: flex;
-    align-items: center;
-    gap: 2mm;
-    margin-bottom: 1.5mm;
-}
-
-.section-notes-routines .section-header h2 {
-    font-size: 11pt;
-    font-weight: 700;
-    color: var(--teal-700);
-    margin: 0;
-    text-transform: uppercase;
-}
-
 .notes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -530,10 +512,10 @@ img.emoji {
     gap: 1mm;
 }
 
-.notes-column.role-bosco { background: #e8eef4; border: 0.5pt solid var(--bleu-glenans); }
-.notes-column.role-nav { background: var(--teal-50); border: 0.5pt solid var(--teal-700); }
-.notes-column.role-second { background: var(--amber-50); border: 0.5pt solid var(--amber-700); }
-.notes-column.role-cambuse { background: var(--brick-50); border: 0.5pt solid #C62828; }
+.notes-column.role-bosco { background: #e8eef4; }
+.notes-column.role-nav { background: var(--teal-50); }
+.notes-column.role-second { background: var(--amber-50); }
+.notes-column.role-cambuse { background: var(--brick-50); }
 
 .notes-column .role-header {
     font-size: 10pt;
@@ -875,12 +857,21 @@ img.emoji {
     grid-template-columns: 3fr 1fr;
     gap: 3mm;
     flex: 1;
+    padding-top: 5mm;  /* Espace pour les titres débordants (positionnés à top: -5mm) */
 }
 
 .echelles-column {
     display: flex;
     flex-direction: column;
-    gap: 4mm;
+    justify-content: space-between;  /* Première en haut, dernière en bas, espace réparti */
+}
+
+.echelles-column > *:first-child {
+    margin-top: 0;  /* Retire le margin-top, géré par padding-top du parent */
+}
+
+.echelles-column > *:last-child {
+    margin-bottom: 0;  /* Retire le margin de la dernière section pour aligner avec sidebar */
 }
 
 /* ----------------------------------------
@@ -890,7 +881,6 @@ img.emoji {
     background: var(--amber-50);
     border-radius: 3mm;
     padding: 4mm 3mm 3mm 3mm;
-    margin-top: 5mm;  /* Aligne avec les échelles qui ont padding-top: 5mm */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -957,11 +947,22 @@ img.emoji {
    PILIERS COOPÉRATIFS (verso)
    ---------------------------------------- */
 .section-piliers {
-    margin-bottom: 4mm;
+    position: relative;
+    margin-top: 8mm;
+    margin-bottom: 2mm;
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 4mm 3mm 3mm 3mm;
 }
 
 .section-piliers .section-header {
-    margin-bottom: 3mm;
+    position: absolute;
+    top: -5mm;
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin-bottom: 0;
 }
 
 .section-piliers .section-header h2 {
@@ -969,7 +970,11 @@ img.emoji {
     font-weight: 700;
     color: var(--teal-700);
     text-transform: uppercase;
-    margin: 0 0 1mm 0;
+    margin: 0;
+}
+
+.section-piliers .section-icon {
+    font-size: 16pt;
 }
 
 .section-piliers .instruction {
@@ -987,9 +992,9 @@ img.emoji {
 }
 
 .pilier {
-    background: var(--bloc-bg);
+    background: white;
     border-radius: 2mm;
-    padding: 3mm 2mm;
+    padding: 2mm 2mm;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1013,31 +1018,41 @@ img.emoji {
 
 .pilier-items {
     font-family: 'Merriweather', serif;
-    font-size: 7pt;
+    font-size: 8pt;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.3;
     color: var(--text-dark);
 }
 
 /* ----------------------------------------
    RITUELS (brief/débrief)
    ---------------------------------------- */
-.section-ritual {
-    background: var(--bloc-bg);
-    border-radius: 3mm;
-    padding: 3mm 4mm;
-    margin-bottom: 3mm;
-}
-
-.section-ritual .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 2mm;
+.rituals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
     margin-bottom: 2mm;
 }
 
+.section-ritual {
+    position: relative;
+    margin-top: 8mm;
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 4mm 4mm 3mm 4mm;
+}
+
+.section-ritual .section-header {
+    position: absolute;
+    top: -5mm;
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+}
+
 .section-ritual .section-header h2 {
-    font-size: 11pt;
+    font-size: 14pt;
     font-weight: 700;
     color: var(--teal-700);
     text-transform: uppercase;
@@ -1045,7 +1060,7 @@ img.emoji {
 }
 
 .section-ritual .section-icon {
-    font-size: 12pt;
+    font-size: 16pt;
 }
 
 .section-ritual .instruction {
@@ -1057,12 +1072,12 @@ img.emoji {
 
 .ritual-content {
     font-family: 'Merriweather', serif;
-    font-size: 9pt;
+    font-size: 8pt;
 }
 
 .ritual-intro {
-    margin: 0 0 2mm 0;
-    font-size: 9pt;
+    margin: 1mm 0 2mm 0;
+    font-size: 8pt;
 }
 
 .ritual-checkbox {
@@ -1070,7 +1085,7 @@ img.emoji {
     align-items: flex-start;
     gap: 2mm;
     margin-bottom: 1.5mm;
-    font-size: 9pt;
+    font-size: 8pt;
     font-weight: 300;
 }
 
@@ -1100,11 +1115,11 @@ img.emoji {
     background: var(--amber-50);
     border-left: 2pt solid var(--amber-700);
     border-radius: 0 2mm 2mm 0;
-    padding: 3mm 4mm;
+    padding: 2mm 4mm;
     font-family: 'Merriweather', serif;
-    font-size: 10pt;
+    font-size: 8pt;
     text-align: center;
-    margin-bottom: 3mm;
+    margin-bottom: 2mm;
 }
 
 /* ----------------------------------------
@@ -1114,4 +1129,211 @@ img.emoji {
     display: flex;
     justify-content: space-between;
     padding: 2mm 0 0 0;
+}
+
+/* ----------------------------------------
+   MÉMOS RÔLES + PAQUETS (verso marque-page)
+   ---------------------------------------- */
+.memos-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2mm;
+    margin-bottom: 2mm;
+}
+
+.section-memo {
+    position: relative;
+    margin-top: 8mm;
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 4mm 3mm 2mm 3mm;
+}
+
+.section-memo .section-header {
+    position: absolute;
+    top: -5mm;
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+}
+
+.section-memo .section-header h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-memo .section-icon {
+    font-size: 16pt;
+}
+
+.memo-content {
+    font-family: 'Merriweather', serif;
+    font-size: 8pt;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+/* Mémo Rôles - Grille 4 colonnes */
+.memo-roles {
+    padding: 4mm 2mm 2mm 2mm;
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2mm;
+}
+
+.role-bloc {
+    position: relative;
+    border-radius: 2mm;
+    padding: 3mm 2mm 2mm 2mm;
+    margin-top: 4mm;
+    text-align: center;
+}
+
+/* Header débordant avec emoji + nom */
+.role-bloc .role-header {
+    position: absolute;
+    top: -2.5mm;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.role-bloc .role-header .role-emoji {
+    font-size: 10pt;
+    vertical-align: middle;
+}
+
+/* Couleurs de texte par rôle */
+.role-bloc.role-bosco .role-header { color: var(--bleu-glenans); }
+.role-bloc.role-nav .role-header { color: var(--teal-700); }
+.role-bloc.role-second .role-header { color: var(--amber-700); }
+.role-bloc.role-cambuse .role-header { color: #C62828; }
+
+.role-bloc .role-text {
+    font-family: 'Merriweather', serif;
+    font-size: 8pt;
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.role-bloc .role-inspire {
+    font-family: 'Merriweather', serif;
+    font-size: 6pt;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 1mm;
+}
+
+/* Couleurs par rôle (comme A1 Routines) */
+.role-bloc.role-bosco {
+    background: #e8eef4;
+}
+
+.role-bloc.role-nav {
+    background: var(--teal-50);
+}
+
+.role-bloc.role-second {
+    background: var(--amber-50);
+}
+
+.role-bloc.role-cambuse {
+    background: var(--brick-50);
+}
+
+/* Mémo Paquets - Grille 2x2 */
+.paquets-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2mm;
+}
+
+.paquet-bloc {
+    background: white;
+    border-radius: 2mm;
+    padding: 2mm 3mm;
+    text-align: center;
+}
+
+.paquet-bloc .paquet-header {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    margin: 0 0 1mm 0;
+}
+
+.paquet-bloc .paquet-intention {
+    font-family: 'Merriweather', serif;
+    font-size: 7pt;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 1mm;
+}
+
+.paquet-bloc .paquet-detail {
+    font-family: 'Merriweather', serif;
+    font-size: 7pt;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+/* ----------------------------------------
+   BLOC NOTES EFFAÇABLES (verso marque-page)
+   ---------------------------------------- */
+.section-notes {
+    position: relative;
+    margin-top: 8mm;
+    background: var(--bloc-bg);
+    border-radius: 3mm;
+    padding: 4mm 3mm 3mm 3mm;
+    flex-grow: 1;
+}
+
+.section-notes .section-header {
+    position: absolute;
+    top: -5mm;
+    left: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+}
+
+.section-notes .section-header h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--teal-700);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-notes .section-icon {
+    font-size: 16pt;
+}
+
+.notes-lines {
+    height: 100%;
+    min-height: 20mm;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 8mm,
+        #d0d0d0 8mm,
+        #d0d0d0 8.15mm
+    );
 }

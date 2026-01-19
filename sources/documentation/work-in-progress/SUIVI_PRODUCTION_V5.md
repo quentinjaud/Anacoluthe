@@ -1,8 +1,48 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260118*
+*Dernière mise à jour : 260119*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260119)
+
+### Session 13 - Refonte affiches A1/A3 + Renommage M1
+
+**Refonte A1 Routines**
+- Restructuration HTML avec `section-wrapper` pour meilleur contrôle CSS print
+- Nouveaux emojis : 🔁 (titre principal), 🛬 (avant atterrissage au lieu de 🌴)
+- Titres ajustés : "Avant l'atterrissage", "Après l'arrivée"
+- Textes collectifs reformulés (ex: "On part ensemble, chacun·e à son poste, un poste pour chacun·e")
+- Suppression du footer (redondant)
+
+**Refonte A3 Marque-page verso (COMPLÉTÉ)**
+- Section "Les 4 rôles" ajoutée : descriptions courtes + inspirations (Moitessier, Trochet, Autissier, Edwards)
+- Section "Les paquets du jeu" ajoutée : 3 affiches, 4 rôles, 7 moments, 4 SOS
+- Zone "Mémos" (notes effaçables) ajoutée
+- Rituels matin/soir restructurés en 2 colonnes
+- Piliers coopératifs condensés (textes raccourcis)
+
+**Twemoji lazy load**
+- Nouveau fichier `assets/js/twemoji-init.js` (chargement non-bloquant)
+- Intégré aux 3 affiches (A1, A2, A3) via `<script defer>`
+- Fallback gracieux : emojis natifs si CDN indisponible
+
+**Renommage M1**
+- "Accueil & attentes" → "Accueil & Présentations"
+- Mis à jour dans : CARTES_MOMENTS_INTENTIONS.md, DESIGN_INTENTIONS.md, PRESENTATION_V5.md, tableau_suivi_cartes.md
+- Fichier renommé : `M1_ACCUEIL_ATTENTES.md` → `M1_accueil_presentations.md`
+
+**Mémos A1 et A2 enrichis**
+- Corrections "mono" → "moniteurice" (cohérence écriture inclusive)
+- A1_routines_memo.md : intro enrichie sur l'importance des routines
+- A2_tableau_memo.md : reformulations diverses
+
+**CSS print ajusté**
+- Support `.sections-container` pour répartition verticale A1
+- Suppression bordures sur `.role-card` (allègement visuel)
+- Ajustements espacement sections A3
 
 ---
 

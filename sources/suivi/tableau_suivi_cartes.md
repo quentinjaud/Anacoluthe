@@ -1,16 +1,18 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 18 Janvier 2026
+> Dernière mise à jour : 19 Janvier 2026
 
 ## 🔥Sur le feu
 
-[] Compacter FORT le mémo A2
-[] A3 Marque-page verso : ajouter infos paquets, nettoyer la forme
+[] Compacter FORT le mémo A2 : mais rajouter des infos sur les postures des "intentions"
 
 ## 👌 Cooked
 
+[X] A3 Marque-page verso : ajout mémos Rôles et Paquets, zone notes (19 janv 2026)
+[X] A1 Routines : refonte HTML (section-wrapper, emojis, textes) (19 janv 2026)
+[X] Twemoji lazy load sur toutes les affiches (19 janv 2026)
 [X] A3 Marque-page recto : migration HTML + affinage contenu (18 janv 2026)
-[X] Tooling : support multi-pages PDF (recto-verso A4 portrait) (18 janv 2026)
+[X] Outil : support multi-pages PDF (recto-verso A4 portrait) (18 janv 2026)
 [X] A1 Routines : migration HTML + affinage contenu (17 janv 2026)
 [X] A2 Tableau équipage : migration HTML + affinage contenu (17 janv 2026)
 [X] Ajouter aux cartes moment la petite intro dans le bloc "quote" comme dans les rôles
@@ -44,13 +46,13 @@
 | A1m | [Routines (mémo A6)](../affiches/A1_routines_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
 | A2a | [Tableau équipage (affiche A4)](../affiches/A2_tableau_equipage.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Bordures amber/teal, Merriweather serif |
 | A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
-| A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.html) | ✅ | 🔄 | ✅ | ✅ | ✅ | Recto OK, verso à affiner |
+| A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet (recto + verso) |
 | A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 |  |
 | R1 | [Bosco](../cartes/roles/R1_bosco.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R2 | [Navigateurice](../cartes/roles/R2_navigateurice.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R3 | [Second soigneux](../cartes/roles/R3_second_soigneux.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R4 | [Cambusier·ère](../cartes/roles/R4_cambusiere.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| M1 | [Accueil & Attentes](../cartes/moments/M1_ACCUEIL_ATTENTES.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
+| M1 | [Accueil & Présentations](../cartes/moments/M1_accueil_presentations.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | à finaliser |
 | M3 | [Introduction rôles](../cartes/moments/M3_introduction_roles_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
 | M4 | [Brief matin](../cartes/moments/M4_brief_matin_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |

@@ -1169,17 +1169,9 @@
 }
 
 /* ===========================================
-   TWEMOJI - Emojis convertis en images SVG
+   TWEMOJI - Contextes spécifiques aux cartes
+   (Les styles de base sont dans style.css)
    =========================================== */
-
-img.emoji {
-    height: 1.2em !important;
-    width: 1.2em !important;
-    max-width: 1.2em !important;
-    margin: 0 0.05em 0 0.1em;
-    vertical-align: -0.1em;
-    display: inline !important;
-}
 
 /* Emoji dans nav-head H1 */
 .nav-head h1 img.emoji {

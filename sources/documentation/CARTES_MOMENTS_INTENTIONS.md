@@ -13,7 +13,7 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 | # | Moment | Timing | Durée | Statut |
 |---|--------|--------|-------|--------|
-| M1 | Accueil & attentes | J1 après-midi | 20-30 min | ✅ Produit |
+| M1 | Accueil & Présentations | J1 après-midi | 20-30 min | ✅ Produit |
 | M2 | Accords d'équipage | J1 soir | 30-45 min | ⬜ À faire |
 | M3 | Introduction rôles | J1 soir (après M2) | 15-20 min | ⬜ À faire |
 | M4 | Brief matin | J2-J6 quotidien | 5-10 min | ⬜ À faire |
@@ -23,7 +23,7 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 **Séquencement J1** :
 1. Administratif (accueil base)
-2. M1 Accueil & attentes
+2. M1 Accueil & Présentations
 3. Menu + Avitaillement (1/2 groupe courses, 1/2 groupe inventaire)
 4. Topo sécurité (mono)
 5. M2 Accords d'équipage (apéro pré-repas)
@@ -64,9 +64,9 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 ---
 
-## M1 - ACCUEIL & ATTENTES
+## M1 - ACCUEIL & PRÉSENTATIONS
 
-**Statut : ✅ Produit** → `sources/cartes/moments/M1_ACCUEIL_ATTENTES.md`
+**Statut : ✅ Produit** → `sources/cartes/moments/M1_accueil_presentations.md`
 
 ### 📍 Contexte d'usage
 

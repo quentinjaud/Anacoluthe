@@ -61,8 +61,8 @@
       "description": "Poser les intentions individuelles et créer une première connexion d'équipage.",
       "tags": ["Se présenter", "Partager ses attentes", "Écouter"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M1_ACCUEIL_ATTENTES.md",
-      "pdfPath": "print/cartes/M1_ACCUEIL_ATTENTES.pdf"
+      "path": "sources/cartes/moments/M1_accueil_presentations.md",
+      "pdfPath": "print/cartes/M1_accueil_presentations.pdf"
     },
     {
       "id": "M2",

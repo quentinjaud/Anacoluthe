@@ -2,7 +2,7 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 18 janvier 2026*
+*Dernière mise à jour : 19 janvier 2026*
 
 ---
 
@@ -268,6 +268,10 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260118 | Audit technique complet (CSS, JS, Pipeline) | ENTRETIEN_CODE.md | ✅ Fait |
 | 260119 | Preview images affiches dans modale | cards-loader.js, cards-index.json, cards.css | ✅ Fait |
 | 260119 | Lightbox GLightbox pour zoom affiches | lightbox.js, glightbox.min.*, anacoluthe.html | ✅ Fait |
+| 260119 | Refonte A1 Routines (section-wrapper, emojis) | A1_routines.html, affiches-print.css | ✅ Fait |
+| 260119 | Refonte A3 verso (rôles, paquets, mémos) | A3_marque_page.html, affiches-print.css | ✅ Fait |
+| 260119 | Twemoji lazy load affiches | twemoji-init.js, A1/A2/A3.html | ✅ Fait |
+| 260119 | Renommage M1 Accueil & Présentations | docs, M1_accueil_presentations.md | ✅ Fait |
 
 ---
 

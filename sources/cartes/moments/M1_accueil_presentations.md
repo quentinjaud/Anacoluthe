@@ -1,4 +1,4 @@
-# 🌅 ACCUEIL & ATTENTES
+# 🌅 ACCUEIL & PRESENTATIONS
 ###### Le premier après-midi - 20-30 min
 
 <!-- HEAD -->
@@ -39,7 +39,7 @@ Faisons plusieurs petits tours. Chacun·e répond en 1-2 phrases :
 
 #### ⚓ ANCRAGE
 
-Notons les attentes sur une feuille A4 qu'on laissera affichée au carré. On y reviendra après la première navigation, puis à mi-parcours (M6) et enfin, à la fin du stage (M7) pour vérifier qu'on a tenu le cap.
+Notons nos premières attentes sur une feuille A4 qu'on laissera affichée au carré. On y reviendra après la première navigation, puis à mi-parcours (M6) et enfin, à la fin du stage (M7) pour vérifier qu'on a tenu le cap.
 
 → Prochaine étape : avitaillement, puis **M2 Accords**.
 

@@ -111,7 +111,7 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 **Moments :**
 | Carte | Emoji | Nom |
 |-------|-------|-----|
-| M1 | 👋 | Accueil & attentes |
+| M1 | 👋 | Accueil & Présentations |
 | M2 | 🤝 | Accords d'équipage |
 | M3 | 🎭 | Introduction rôles |
 | M4 | 🌅 | Brief matin |

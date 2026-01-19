@@ -6,7 +6,6 @@
 ## 🎯 À QUOI ÇA SERT ?
 
 Le tableau d'équipage est le **cœur visuel de votre coopération**. Affiché dans le carré, il permet à chacun·e de :
-    
 - Visualiser l'état du groupe chaque matin
 - Savoir qui fait quoi aujourd'hui
 - Suivre la progression de la semaine
@@ -30,11 +29,11 @@ Chacun·e dessine son symbole sur le curseur météo. Pas besoin de justifier - 
 
 > *"Je suis plutôt là aujourd'hui"* + petit dessin
 
-Le·la mono et le·la second soigneux repèrent ainsi qui pourrait avoir besoin d'attention.
+Le·la moniteurice et le·la second soigneux repèrent ainsi qui pourrait avoir besoin d'attention.
 
-### 2. Compétence du jour (1 min)
+### 2. Intention - focus du jour (1 min)
 
-Chacun·e met son initiale sur **une compétence** qu'iel veut travailler aujourd'hui :
+Chacun·e met son initiale sur **une compétence** sur laquelle iel veut travailler, s'interroger aujourd'hui :
 
 | Compétence | Exemples concrets |
 |------------|-------------------|
@@ -45,12 +44,14 @@ Chacun·e met son initiale sur **une compétence** qu'iel veut travailler aujour
 | ⚡ Énergie | Dynamisme, initiative |
 | 🧘 Patience | Calme, acceptation du rythme |
 
+> on met davantage d'infos sur les postures. 
+
 ### 3. Rôles du jour (2 min)
 
-Le·la mono propose ou l'équipage choisit qui prend quel rôle :
+La moniteurice propose ou l'équipage choisit qui prend quel rôle :
 
 - 🔧 **Bosco** - veille au matériel
-- 🧭 **Navigateurice** - prépare la route
+- 🧭 **Navigateurice** - prépare et suit la route
 - 🤲 **Second soigneux** - veille à l'équipage
 - 🍳 **Cambusier·ère** - gère l'intendance
 
@@ -58,7 +59,7 @@ On note les prénoms sur le tableau.
 
 ### 4. Programme (1 min)
 
-Le·la mono annonce le programme prévu. On le note en quelques mots.
+La moniteurice annonce le programme prévu. On le note en quelques mots.
 
 <!-- FLIP -->
 

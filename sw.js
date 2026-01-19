@@ -51,7 +51,7 @@ const PRECACHE_URLS = [
   '/sources/cartes/roles/R4_cambusiere.md',
   
   // Cartes Moments
-  '/sources/cartes/moments/M1_ACCUEIL_ATTENTES.md',
+  '/sources/cartes/moments/M1_accueil_presentations.md',
   '/sources/cartes/moments/M2_accords_equipage_proto.md',
   '/sources/cartes/moments/M3_introduction_roles_proto.md',
   '/sources/cartes/moments/M4_brief_matin_proto.md',

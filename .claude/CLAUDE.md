@@ -49,10 +49,10 @@ V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 - Desktop : `C:\Users\quent\Documents\GitHub\Anacoluthe\`
 - Web : `https://raw.githubusercontent.com/quentinjaud/Anacoluthe/main/`
 
-**Toujours lire `SUIVI_PRODUCTION_V5.md` en premier.** Convention `*_INTENTIONS.md` = docs d'aide à l'écriture. Lire selon besoin :
+**Toujours lire `SUIVI_PRODUCTION_V5.md` en premier** (sources/documentation/work-in-progress/). Convention `*_INTENTIONS.md` = docs d'aide à l'écriture. Lire selon besoin :
 
-- `DESIGN_INTENTIONS.md` → couleurs, emojis, typo, marqueurs MD, print
-- `TECH_INTENTIONS.md` → architecture JS/CSS, conventions code, Git
+- `DESIGN_INTENTIONS.md` → couleurs, emojis, typo, marqueurs MD, print (sources/documentation/)
+- `TECH_INTENTIONS.md` → architecture JS/CSS, conventions code, Git (sources/documentation/)
 - `SUIVI_CODE.md` → journal maintenance et historique corrections (sources/documentation/work-in-progress/)
 - `ENTRETIEN_CODE.md` → audit et anomalies à corriger (sources/documentation/)
 - `CARTES_*_INTENTIONS.md` → intentions pédagogiques par type de carte

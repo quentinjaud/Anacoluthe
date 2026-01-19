@@ -17,3 +17,6 @@ npm-debug.log*
 # Fichiers temporaires
 *.tmp
 *.temp
+
+# Claude Code (config locale)
+.claude/settings.local.json

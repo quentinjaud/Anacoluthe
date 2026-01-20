@@ -11,10 +11,11 @@ L'affiche montre **6 moments** de la journée :
 
 Pour chaque moment : une intention collective (ligne du haut en gras) et ce que chaque rôle vérifie (4 colonnes).
 
-**Qui anime ?** Le·la second soigneux en priorité, ou n'importe qui.
+## 📌 En pratique
 
-## 🎯 Quand l'utiliser ?
+**Qui anime ?** Lae second soigneux en priorité, ou n'importe qui.
 
+**Quand l'utiliser ?**
 - **Brief matin** : parcourir les phases prévues pour la journée
 - **Transitions** : vérifier qu'on n'oublie rien avant de passer à la suite
 - **Débrief soir** : qu'est-ce qu'on a bien fait ? oublié ?

@@ -1,15 +1,15 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 20 Janvier 2026
+> Dernière mise à jour : 20 Janvier 2026 (soir)
 
 ## 🔥Sur le feu
 
-[ ] Compacter FORT le mémo A2 : mais rajouter des infos sur les postures des "intentions"
 [ ] A1 : relire et modifier les checklist, encore trop de tâches à la con, et manquent des essentiels 
-[ ] Mémos A2m et A3m : réécrire selon le même format que A1m (voir PLAN_MEMOS_AFFICHES.md)
 
 ## 👌 Cooked
 
+[X] A3m Marque-page mémo : réécriture complète, tableau "Quand s'y référer" pour les 5 piliers, complémentarité Beaufort/Douglas (20 janv 2026)
+[X] A2m Tableau équipage mémo : réécriture complète, format guide de facilitation, 6 intentions définies (20 janv 2026)
 [X] A1m Routines mémo : réécriture complète, format guide de facilitation (20 janv 2026)
 [X] A3 Marque-page verso : ajout mémos Rôles et Paquets, zone notes (19 janv 2026)
 [X] A1 Routines : refonte HTML (section-wrapper, emojis, textes) (19 janv 2026)
@@ -25,8 +25,8 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Éléments terminés | 8 |
-| En cours | 13 |
+| Éléments terminés | 10 |
+| En cours | 11 |
 | Total Phase 1 | 21 |
 
 ## 🎨 Affinage des Cartes & Affiches
@@ -48,9 +48,9 @@
 | A1a | [Routines (affiche A4)](../affiches/A1_Routines.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | A1m | [Routines (mémo A6)](../affiches/A1_routines_memo.md) | ✅ | ✅ | ⬜ | ⬜ | 🔄 | Réécriture 20 janv |
 | A2a | [Tableau équipage (affiche A4)](../affiches/A2_tableau_equipage.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Bordures amber/teal, Merriweather serif |
-| A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 | Priorité haute |
+| A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | ✅ | ⬜ | ⬜ | 🔄 | Réécriture 20 janv |
 | A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet (recto + verso) |
-| A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) | ✅ | 🔄 | ⬜ | ⬜ | 🔄 | Obsolète, réécriture nécessaire |
+| A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) | ✅ | ✅ | ⬜ | ⬜ | 🔄 | Réécriture 20 janv |
 | R1 | [Bosco](../cartes/roles/R1_bosco.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R2 | [Navigateurice](../cartes/roles/R2_navigateurice.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R3 | [Second soigneux](../cartes/roles/R3_second_soigneux.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |

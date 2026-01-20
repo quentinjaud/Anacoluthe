@@ -1,8 +1,64 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260119*
+*Dernière mise à jour : 260120*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260120)
+
+### Session 14 - Réécriture mémo A2 Tableau d'équipage
+
+**Réécriture complète A2_tableau_memo.md**
+- Nouveau format "guide de facilitation" (cohérent avec A1m)
+- Bloc quote étoffé : lien coopération/technique
+- Section "📌 En pratique" : qui anime + quand (pattern harmonisé sur A1/A2/A3)
+- Déroulé en 4 étapes avec durées (météos, intentions, rôles, programme)
+- Tableau des 6 intentions avec questions/comportements d'aide :
+  - 🧘 Patience : Laisser le temps aux autres avant d'intervenir
+  - 🗣️ Parole : Est-ce que j'ose dire quand je ne comprends pas ?
+  - ⚡ Énergie : M'engager dans les tâches sans attendre qu'on m'assigne
+  - 👂 Écoute : Est-ce que je laisse les autres finir avant de répondre ?
+  - 🎯 Précision : Finir proprement ce que je commence
+  - 🤝 Coopération : Est-ce que je fais avec les autres ou à côté ?
+- Rappel des 4 rôles (descriptions courtes)
+- Section "En fin de journée" + "Voir aussi"
+
+**Harmonisation affiche/mémo A2**
+- "Dessine ton icône" → "Dessine tes initiales" (affiche HTML)
+- "Navigateur·ice" → "Navigateurice" (affiche HTML)
+- "Second·e Soigneux·se" → "Second soigneux" (affiche HTML)
+
+**Harmonisation écriture inclusive (3 mémos)**
+- "Le·la" → "Lae" partout (A1m, A2m)
+- Règle ajoutée dans CLAUDE.md
+
+**Pattern "📌 En pratique" harmonisé**
+- A1m : Qui anime + Quand l'utiliser
+- A2m : Qui anime + Quand
+- A3m : À quoi ça sert + Où le ranger
+
+**Réécriture complète A3_marque_page_memo.md**
+- Titre simplifié : "Marque-page" (sans "livre de bord")
+- Bloc quote : pont entre technique (LDB) et coopération
+- Section "📌 En pratique" : À quoi ça sert + Où le ranger
+- Recto : explication complémentarité Beaufort/Douglas (houle résiduelle)
+- Recto : aide-mémoire 16 colonnes du LDB
+- Verso focalisé : tableau "Quand s'y référer" par pilier
+- Lien LDB/coopération (colonne Observations)
+
+**Harmonisation affiche A3 HTML**
+- "Second·e soigneux·se" → "Second soigneux"
+- "Second·e" → "Second soigneux" (dans les paquets)
+
+**Fichiers modifiés**
+- `sources/affiches/A2_tableau_memo.md` - réécriture complète
+- `sources/affiches/A2_tableau_equipage.html` - harmonisation vocabulaire
+- `sources/affiches/A3_marque_page_memo.md` - réécriture complète
+- `sources/affiches/A3_marque_page.html` - harmonisation "Second soigneux"
+- `sources/affiches/A1_routines_memo.md` - "lae", section En pratique
+- `.claude/CLAUDE.md` - règle "le·la" → "lae"
 
 ---
 
@@ -364,7 +420,7 @@ sources/suivi/
 | Cartes moments-clés | 7 | 🟡 PROTOS À VALIDER |
 | Cartes SOS | 4 | 🟠 PROTOS À VALIDER |
 | Affiches A4 | 3 | ✅ COMPLET |
-| Mémos affiches A6 | 3 | 🟠 PROTOS À VALIDER |
+| Mémos affiches A6 | 3 | ✅ COMPLET |
 | Site web | 1 | ✅ EN LIGNE |
 | Page suivi | 1 | ✅ EN LIGNE |
 | Générateur PDF | 1 | ✅ OPÉRATIONNEL |
@@ -401,18 +457,18 @@ sources/suivi/
 
 ### Mémos affiches (3)
 
-| # | Mémo | Fichier |
-|---|------|---------|
-| A1 | Routines quotidiennes | `sources/affiches/A1_routines_memo.md` |
-| A2 | Tableau d'équipage | `A2_tableau_memo.md` |
-| A3 | Marque-page LDB | `A3_marque_page_memo.md` |
+| # | Mémo | Fichier | Statut |
+|---|------|---------|--------|
+| A1m | Routines quotidiennes | `sources/affiches/A1_routines_memo.md` | ✅ Forme validée |
+| A2m | Tableau d'équipage | `A2_tableau_memo.md` | ✅ Forme validée |
+| A3m | Marque-page LDB | `A3_marque_page_memo.md` | ✅ Forme validée |
 
 ---
 
 ## 🔜 PROCHAINES ÉTAPES
 
 ### Priorité haute
-- [ ] Relecture/validation des 14 protos (7 moments + 4 SOS + 3 mémos)
+- [ ] Relecture/validation des 11 protos (7 moments + 4 SOS)
 
 **Critères** : densité ~900 car/face, écriture inclusive, ton bienveillant, actions concrètes
 

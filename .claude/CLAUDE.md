@@ -39,7 +39,8 @@ V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 ## Contraintes d'écriture
 
 - Tirets uniquement `-` (jamais — ni –)
-- Écriture inclusive (navigateurice, iel, chacun·e)
+- Écriture inclusive (navigateurice, iel, chacun·e, lae)
+- "le·la" → toujours "lae" (ex: lae moniteurice, lae second soigneux)
 - Densité A6 ~900 car/face
 - Versionnage docs = footer `V_AAMMJJ`, sources = Git
 

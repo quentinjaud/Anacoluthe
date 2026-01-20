@@ -1,54 +1,47 @@
-# 📖 MARQUE-PAGE LIVRE DE BORD
+# 📖 MARQUE-PAGE
 ###### Mémo d'accompagnement de l'affiche A3
 
 <!-- HEAD -->
 
-## 🎯 À QUOI ÇA SERT ?
+> Le livre de bord trace la navigation technique. Mais une nav réussie, c'est aussi un équipage qui coopère. Ce marque-page relie les deux : d'un côté les échelles pour décrire les conditions, de l'autre les principes pour naviguer ensemble. Glissé dans le LDB, il reste visible en permanence - un rappel discret de nos engagements collectifs.
 
-Le marque-page est un **aide-mémoire recto-verso** glissé dans le livre de bord :
-- **Recto** : Échelles Beaufort et Douglas pour noter les conditions
-- **Verso** : 5 piliers coopératifs + guidance brief/débrief
+## 📌 En pratique
 
-Il fait le lien entre **navigation technique** et **coopération**.
+**À quoi ça sert ?** Aide-mémoire recto-verso qui accompagne le livre de bord toute la semaine.
 
-## 📍 OÙ LE RANGER ?
+**Où le ranger ?** Toujours dans le LDB, il marque la page du jour.
 
-Toujours dans le livre de bord, visible et accessible. Il sert de marque-page pour la page du jour.
+## 🌊 Le recto : décrire les conditions
 
-## 🌊 UTILISER LES ÉCHELLES (recto)
+L'échelle de Beaufort décrit la force du vent (en nœuds). L'échelle Douglas décrit l'état de la mer (hauteur des vagues). Les deux sont complémentaires : on peut avoir une mer forte avec peu de vent (houle résiduelle) ou l'inverse.
 
-### Échelle de Beaufort
-Force du vent en nœuds + état de la mer associé. Utile pour :
-- Noter les conditions dans le LDB
-- Communiquer clairement ("force 4" plutôt que "ça souffle")
-
-### Échelle Douglas
-Hauteur des vagues. Complète Beaufort pour décrire l'état de la mer indépendamment du vent (houle résiduelle, mer croisée...).
-
-**Au quotidien** : On note dans le LDB la force Beaufort et/ou l'état Douglas observés.
+Sur la droite, un aide-mémoire des 16 colonnes du LDB avec leur signification. Pratique quand on hésite sur ce qu'il faut noter ou comment le formuler.
 
 <!-- FLIP -->
 
-## ⚓ LES 5 PILIERS (verso)
+## ⚓ Les 5 piliers (verso)
 
-Les 5 piliers sont le **socle de la coopération** de la semaine :
+Ces principes sont le socle de notre coopération. On les pose ensemble J1, et le marque-page les garde sous nos yeux toute la semaine.
 
-| Pilier | En pratique |
-|--------|-------------|
-| 🗣️ Communication claire | Annoncer ses actions, demander si on comprend pas |
-| 🤝 Entraide active | Proposer et demander de l'aide |
-| ⚠️ Vigilance mutuelle | Vérifier que les autres vont bien |
-| 🧘 Droit au repos | Respecter ses limites et celles des autres |
-| ✨ Sollicitude | Droit à l'erreur, pas de jugement |
+| Pilier | Quand s'y référer |
+|--------|-------------------|
+| 🗣️ Parler, Écouter | Quand je n'ose pas dire ou que je n'écoute plus |
+| 🤝 Entraide active | Quand j'hésite à proposer ou demander de l'aide |
+| ⚠️ Vigilance mutuelle | Quand je sens une tension ou une fatigue chez quelqu'un |
+| 🧘 Autonomie | Quand je dépasse mes limites ou que je ne respecte pas celles des autres |
+| ✨ Sollicitude | Quand je juge ou que je me juge trop durement |
 
-**Quand s'y référer ?** En cas de tension, pour recentrer sur ce qu'on s'est engagé à faire ensemble.
+En cas de doute ou de tension : revenir aux piliers pour recentrer.
 
-> un peu plus d'infos méthode et "pourquoi il faut coopérer" plutôt que répéter le contenu du marque-pages ?
+## 📝 Brief et débrief
 
-## 📝 GUIDANCE BRIEF/DÉBRIEF
+La colonne "Observations" du LDB ne sert pas qu'au technique. On y note aussi :
+- **Matin** : rôles du jour, intention collective
+- **Soir** : une réussite de coopération, un apprentissage
 
-Le verso rappelle **quoi noter dans "Observations"** du LDB :
+Le LDB devient ainsi la mémoire de notre navigation ET de notre équipage.
 
-**Brief matin** : Rôles du jour + programme + intention collective
+## 👀 Voir aussi
 
-**Débrief soir** : Ligne technique + ligne coopération
+- Cartes Rôles (R1-R4) pour les missions détaillées
+- Carte M4 Brief matin et M5 Débrief soir

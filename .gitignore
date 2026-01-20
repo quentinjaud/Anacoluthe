@@ -20,3 +20,4 @@ npm-debug.log*
 
 # Claude Code (config locale)
 .claude/settings.local.json
+print/debug*.png

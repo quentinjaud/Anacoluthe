@@ -87,65 +87,42 @@ Avant de réécrire, vérifier pour chaque mémo :
 
 ---
 
-### A2m - Tableau d'équipage
+### A2m - Tableau d'équipage ✅ FAIT
 
 **Fichier** : `sources/affiches/A2_tableau_memo.md`  
 **Affiche associée** : `sources/affiches/A2_tableau_equipage.html`
 
-**Statut** : 🔄 À réécrire - PRIORITÉ HAUTE
+**Statut** : ✅ Forme finalisée (20 janvier 2026)
 
-**Tâche en cours** (tableau de suivi) : *"Compacter FORT le mémo A2 : rajouter des infos sur les postures des 'intentions'"*
-
-**Écarts identifiés** :
-- [ ] Les 6 "intentions" sont des postures (patience, écoute...) - le mémo les appelle "compétences"
-- [ ] Le mémo mélange usage et explication sans suivre l'ordre des 4 sections de l'affiche
-- [ ] Manque de guidance sur les postures : que signifie "travailler ma patience" concrètement ?
-
-**Sections de l'affiche à couvrir** :
-1. Météos perso (curseur ☀️→🌧️)
-2. Intentions (6 postures : patience, parole, énergie, écoute, précision, coopération)
-3. Rôles du jour (4 rôles)
-4. Programme (météo, sécu, séances, escales)
-
-**Prochaines étapes** :
-1. Définir ce que chaque posture signifie concrètement sur le bateau
-2. Réécriture compacte en mode "déroulé du brief"
-3. Validation densité (< 900 car/face)
+**Travail réalisé** :
+- Réécriture complète en format "guide de facilitation"
+- Ajout bloc quote avec intention pédagogique
+- Section "📌 En pratique" (qui anime + quand)
+- Déroulé en 4 étapes avec durées
+- Tableau des 6 intentions avec questions/comportements d'aide
+- Rappel des 4 rôles
+- Harmonisation affiche/mémo (initiales, noms des rôles)
+- Écriture inclusive : "lae" au lieu de "le·la"
 
 ---
 
-### A3m - Marque-page LDB
+### A3m - Marque-page LDB ✅ FAIT
 
 **Fichier** : `sources/affiches/A3_marque_page_memo.md`  
 **Affiche associée** : `sources/affiches/A3_marque_page.html`
 
-**Statut** : ⚠️ OBSOLÈTE - Réécriture nécessaire
+**Statut** : ✅ Forme finalisée (20 janvier 2026)
 
-**Écarts identifiés** :
-- [ ] L'affiche a été totalement refaite (recto + verso enrichis)
-- [ ] Le mémo ne reflète plus le contenu réel
-
-**Contenu actuel de l'affiche (à couvrir)** :
-
-**RECTO - Comment remplir le LDB** :
-- Section "Pourquoi remplir le livre de bord ?" (4 raisons)
-- Échelle de Beaufort (tableau)
-- Échelle Douglas (tableau)
-- Section "Comment le remplir ?" (3 règles)
-- Sidebar : 16 champs d'une ligne LDB expliqués
-
-**VERSO - Faire équipage** :
-- 5 piliers coopératifs (parler/écouter, entraide, vigilance, autonomie, sollicitude)
-- Brief du matin (3 checkboxes)
-- Débrief du soir (2 checkboxes + exemples)
-- Mémo des 4 rôles (résumé)
-- Mémo des 4 paquets du jeu
-- Zone notes effaçables
-
-**Prochaines étapes** :
-1. Audit complet : lister ce qui doit être guidé vs ce qui est auto-explicatif
-2. Réécriture complète du mémo
-3. Validation densité (< 900 car/face)
+**Travail réalisé** :
+- Titre simplifié : "Marque-page" (sans "livre de bord")
+- Réécriture complète en format "guide"
+- Bloc quote : pont entre technique (LDB) et coopération
+- Section "📌 En pratique" (À quoi ça sert + Où le ranger)
+- Recto : explication complémentarité Beaufort/Douglas (houle résiduelle)
+- Recto : aide-mémoire 16 colonnes du LDB
+- Verso focalisé sur le "quand s'y référer" par pilier (tableau)
+- Lien LDB/coopération (colonne Observations)
+- Harmonisation affiche HTML : "Second soigneux" au lieu de "Second·e soigneux·se"
 
 ---
 
@@ -154,8 +131,8 @@ Avant de réécrire, vérifier pour chaque mémo :
 | Priorité | Mémo | Statut | Raison |
 |----------|------|--------|--------|
 | ~~1~~ | ~~A1m~~ | ✅ FAIT | ~~Servira de modèle~~ |
-| 2 | **A2m** | 🔄 À faire | Tâche "sur le feu" dans le tableau de suivi |
-| 3 | **A3m** | 🔄 À faire | Obsolète, bloquant |
+| ~~2~~ | ~~A2m~~ | ✅ FAIT | ~~Priorité haute~~ |
+| ~~3~~ | ~~A3m~~ | ✅ FAIT | ~~Obsolète, bloquant~~ |
 
 ---
 

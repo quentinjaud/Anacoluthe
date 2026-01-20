@@ -1,93 +1,61 @@
-# 📋 TABLEAU D'ÉQUIPAGE
-###### Support quotidien pour le brief matin
+# 🌊 TABLEAU D'ÉQUIPAGE
+###### Mémo brief matin
 
 <!-- HEAD -->
 
-## 🎯 À QUOI ÇA SERT ?
+> Le tableau rend visible l'état du groupe. Chaque matin, on sait où en est chacun·e, qui fait quoi, et ce qu'on vise ensemble. Prendre ce temps de synchronisation, c'est reconnaître que la qualité de notre navigation dépend autant de notre coopération que de notre technique.
 
-Le tableau d'équipage est le **cœur visuel de votre coopération**. Affiché dans le carré, il permet à chacun·e de :
-- Visualiser l'état du groupe chaque matin
-- Savoir qui fait quoi aujourd'hui
-- Suivre la progression de la semaine
+## 📌 En pratique
 
-C'est un outil **effaçable** : on le remplit chaque matin au brief, on l'efface le soir ou le lendemain.
+**Qui anime ?** Lae second soigneux du jour - ou n'importe qui.
 
-## 📍 OÙ L'AFFICHER ?
+**Quand ?** Au brief matin, avant de monter sur le pont.
 
-Dans le carré, à un endroit visible par tou·tes :
-- Près de la table à cartes
-- Sur une cloison accessible
-- À hauteur des yeux
+## ✅ Déroulé (5-7 min)
 
-**Matériel nécessaire** : feutres effaçables (2-3 couleurs)
+**1. Météos perso** (1 min)
+Chacun·e dessine ses initiales sur le curseur. Pas besoin de justifier.
 
-## 🌅 UTILISATION AU BRIEF MATIN
+**2. Intentions** (2 min)
+Chacun·e met son initiale sur une intention à travailler aujourd'hui. On peut expliquer son choix - ou pas.
 
-### 1. Météo perso (2 min)
+**3. Rôles** (2 min)
+On note qui prend quel rôle. Lae moniteurice propose ou l'équipage choisit.
 
-Chacun·e dessine son symbole sur le curseur météo. Pas besoin de justifier - c'est un indicateur visuel rapide.
+**4. Programme** (1 min)
+Lae moniteurice annonce, on note en quelques mots.
 
-> *"Je suis plutôt là aujourd'hui"* + petit dessin
-
-Le·la moniteurice et le·la second soigneux repèrent ainsi qui pourrait avoir besoin d'attention.
-
-### 2. Intention - focus du jour (1 min)
-
-Chacun·e met son initiale sur **une compétence** sur laquelle iel veut travailler, s'interroger aujourd'hui :
-
-| Compétence | Exemples concrets |
-|------------|-------------------|
-| 🎯 Précision | Nœuds, manœuvres, réglages |
-| 🗣️ Parole | Oser demander, communiquer clairement |
-| 👂 Écoute | Attention aux autres, aux consignes |
-| 🤝 Coopération | Entraide, coordination |
-| ⚡ Énergie | Dynamisme, initiative |
-| 🧘 Patience | Calme, acceptation du rythme |
-
-> on met davantage d'infos sur les postures. 
-
-### 3. Rôles du jour (2 min)
-
-La moniteurice propose ou l'équipage choisit qui prend quel rôle :
-
-- 🔧 **Bosco** - veille au matériel
-- 🧭 **Navigateurice** - prépare et suit la route
-- 🤲 **Second soigneux** - veille à l'équipage
-- 🍳 **Cambusier·ère** - gère l'intendance
-
-On note les prénoms sur le tableau.
-
-### 4. Programme (1 min)
-
-La moniteurice annonce le programme prévu. On le note en quelques mots.
+💡 *Tout le monde participe. Si quelqu'un oublie, on complète ensemble.*
 
 <!-- FLIP -->
 
-## 🌙 EN FIN DE JOURNÉE
+## 🧠 Les 6 intentions
 
-Pas besoin d'effacer tout de suite. Le tableau reste visible pour le débrief soir - on peut regarder :
+| | Intention | Pour t'aider |
+|---|-----------|--------------|
+| 🧘 | **Patience** | Laisser le temps aux autres avant d'intervenir |
+| 🗣️ | **Parole** | Est-ce que j'ose dire quand je ne comprends pas ? |
+| ⚡ | **Énergie** | M'engager dans les tâches sans attendre qu'on m'assigne |
+| 👂 | **Écoute** | Est-ce que je laisse les autres finir avant de répondre ? |
+| 🎯 | **Précision** | Finir proprement ce que je commence |
+| 🤝 | **Coopération** | Est-ce que je fais avec les autres ou à côté ? |
 
-- Les rôles tenus vs prévus
-- Les compétences visées vs travaillées
-- La météo perso du matin vs l'état actuel
+## 🎭 Rappel des rôles
+
+- 🧭 **Navigateurice** - route et météo
+- 🔧 **Bosco** - matériel et sécurité
+- 🍳 **Cambusier·ère** - repas et convivialité
+- 🤲 **Second soigneux** - bien-être équipage
+
+## 🌙 En fin de journée
+
+Le tableau reste visible pour le débrief. On regarde :
+- Les intentions visées vs travaillées
+- Les rôles prévus vs tenus
 
 On efface avant le brief du lendemain.
 
-## 💡 ASTUCES
+## 🔗 Voir aussi
 
-**Si quelqu'un oublie** : pas grave, on complète ensemble.
-
-**Si la météo change** : on peut la mettre à jour en cours de journée.
-
-**Si un rôle change** : on barre et on réécrit, c'est normal.
-
-**Les initiales se chevauchent** : c'est bon signe, l'équipage vise les mêmes compétences !
-
-## 🔗 LIEN AVEC LE LIVRE DE BORD
-
-Le tableau d'équipage est le **compagnon visuel** du livre de bord :
-
-- Le tableau = instantané du jour (effaçable)
-- Le livre de bord = trace de la semaine (permanent)
-
-Pensez à reporter les rôles du jour dans la colonne "Observations" du livre de bord.
+- 🤲 Carte **Second soigneux** (animer le brief)
+- 🌅 Carte **M4 Brief matin** (déroulé complet)

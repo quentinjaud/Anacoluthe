@@ -273,6 +273,7 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260119 | Twemoji lazy load affiches | twemoji-init.js, A1/A2/A3.html | ✅ Fait |
 | 260119 | Renommage M1 Accueil & Présentations | docs, M1_accueil_presentations.md | ✅ Fait |
 | 260120 | Corrections critiques Phase 1 (C1, J1, P1, P2) | suivi.css, suivi-loader.js, render-cards.js | ✅ Fait |
+| 260120 | Corrections Phase 2 (C2, P3, P4, J2) | cards.css, assemble-booklets.js, generate-print.yml, print-render-a4.js | ✅ Fait |
 
 ---
 

@@ -115,8 +115,21 @@ function createStaticServer(rootDir) {
  * Charge l'index des cartes et filtre selon le target
  */
 function getCardsToProcess(target) {
-  const indexContent = fs.readFileSync(CONFIG.indexPath, 'utf-8');
-  const index = JSON.parse(indexContent);
+  let indexContent;
+  try {
+    indexContent = fs.readFileSync(CONFIG.indexPath, 'utf-8');
+  } catch (err) {
+    console.error(`Erreur lecture ${CONFIG.indexPath}: ${err.message}`);
+    process.exit(1);
+  }
+
+  let index;
+  try {
+    index = JSON.parse(indexContent);
+  } catch (err) {
+    console.error(`JSON invalide dans ${CONFIG.indexPath}: ${err.message}`);
+    process.exit(1);
+  }
 
   const allowedTypes = TYPE_FILTERS[target] || TYPE_FILTERS.all;
   const allItems = [...index.cards, ...(index.affiches || [])];
@@ -361,7 +374,8 @@ async function main() {
   // Lancer Puppeteer
   const browser = await puppeteer.launch({
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    timeout: 60000  // 60s max pour lancer Chrome
   });
   
   try {

@@ -477,7 +477,10 @@ async function openNotes(type) {
         if (typeof marked !== 'undefined') {
             body.innerHTML = marked.parse(md);
         } else {
-            body.innerHTML = `<pre>${md}</pre>`;
+            const pre = document.createElement('pre');
+            pre.textContent = md;
+            body.innerHTML = '';
+            body.appendChild(pre);
         }
     } catch (error) {
         body.innerHTML = `<p class="error">Erreur : ${error.message}</p>`;

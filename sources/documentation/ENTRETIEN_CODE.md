@@ -1,6 +1,6 @@
 # ENTRETIEN CODE - ANACOLUTHE
 
-Audit technique et liste des anomalies à corriger. Mise à jour : 2026-01-18.
+Audit technique et liste des anomalies à corriger. Mise à jour : 2026-01-20.
 
 ---
 
@@ -131,11 +131,11 @@ Audit technique et liste des anomalies à corriger. Mise à jour : 2026-01-18.
 
 ## 5. Priorités de correction
 
-### Phase 1 - Critique (~30 min)
-1. [ ] C1 : Définir --amber-500
-2. [ ] J1 : Corriger XSS suivi-loader.js
-3. [ ] P1 : Try-catch JSON.parse render-cards.js
-4. [ ] P2 : Timeout puppeteer.launch
+### Phase 1 - Critique (~30 min) ✅ Fait 260120
+1. [x] C1 : Remplacer --amber-500 par --amber-700 (suivi.css)
+2. [x] J1 : Corriger XSS suivi-loader.js (textContent)
+3. [x] P1 : Try-catch JSON.parse render-cards.js
+4. [x] P2 : Timeout puppeteer.launch (60s)
 
 ### Phase 2 - Important (~2h)
 5. [ ] C2 : Supprimer doublon .video-embed
@@ -171,4 +171,4 @@ git commit -m "test avec [print]"  # Doit exécuter
 
 ---
 
-V_260118
+V_260120

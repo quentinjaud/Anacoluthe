@@ -100,7 +100,7 @@
     border-radius: 12px;
     padding: 1rem 1.25rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border-left: 4px solid var(--amber-500);
+    border-left: 4px solid var(--amber-700);
 }
 
 .surlefeu-list {

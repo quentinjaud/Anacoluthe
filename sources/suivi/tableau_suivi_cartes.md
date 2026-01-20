@@ -6,6 +6,8 @@
 
 [] Compacter FORT le mémo A2 : mais rajouter des infos sur les postures des "intentions"
 
+[] A1 : relire et modifier les checklist, encore trop de tâches à la con, et manquent des essentiels
+
 ## 👌 Cooked
 
 [X] A3 Marque-page verso : ajout mémos Rôles et Paquets, zone notes (19 janv 2026)

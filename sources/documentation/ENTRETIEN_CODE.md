@@ -137,12 +137,12 @@ Audit technique et liste des anomalies à corriger. Mise à jour : 2026-01-20.
 3. [x] P1 : Try-catch JSON.parse render-cards.js
 4. [x] P2 : Timeout puppeteer.launch (60s)
 
-### Phase 2 - Important (~2h)
-5. [ ] C2 : Supprimer doublon .video-embed
-6. [ ] C3 : Ajouter .modal-affiche blockquote
-7. [ ] P3 : Try-catch fs.readFileSync assemble-booklets
-8. [ ] P4 : Validation PDFs dans workflow
-9. [ ] J2 : Centraliser applyTwemoji
+### Phase 2 - Important (~2h) ✅ Fait 260120
+5. [x] C2 : Supprimer doublon .video-embed (cards.css)
+6. [x] C3 : Déjà corrigé (.modal-affiche blockquote existait)
+7. [x] P3 : Try-catch fs.readFileSync assemble-booklets.js
+8. [x] P4 : Validation PDFs dans workflow (taille + header)
+9. [x] J2 : Centraliser applyTwemoji (print-render-a4 → markdown-utils)
 
 ### Phase 3 - Amélioration (~1 jour)
 10. [ ] I1-I2 : Variables CSS shadows et navy

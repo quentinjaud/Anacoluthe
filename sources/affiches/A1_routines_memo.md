@@ -1,58 +1,58 @@
-# 🌊 ROUTINES QUOTIDIENNES
-###### LES ROUTINES, COMMENT CA MARCHE ?!
+# 🔁 ROUTINES QUOTIDIENNES
+###### Guide d'utilisation de l'affiche
 
 <!-- HEAD -->
 
-## 🎯 À QUOI ÇA SERT ?
+> Pour naviguer sereinement, il faut s'assurer que l'équipage et le bateau sont en état de fonctionner, et que tout le monde sait où on va. Cette affiche structure les vérifications collectives qui permettent d'anticiper, de se coordonner et de libérer l'esprit pour les apprentissages techniques et humains.
 
-Pour pouvoir faire nos séances, optimiser le temps passé sur l'eau et pouvoir gérer les imprévus, il est important, avant tout, d'assurer le fondamental : les routines qui nous assurent que l'équipage et le voilier sont en bon état de fonctionnement, et que nous savons où nous allons. L'affiche Routine soutient cette intention. 
+L'affiche montre **6 moments** de la journée :
 
-Elle structure les **5 phases de chaque journée de navigation** :
+🐝 Préparation → ⚓ Appareillage → ⛵ Navigation → 🛬 Avant atterrissage → 🏝️ Après arrivée → 🗒️ Actions spécifiques
 
-- Préparation → Appareillage → Navigation → Avant atterrissage → Après atterrissage
+Pour chaque moment : une intention collective (ligne du haut en gras) et ce que chaque rôle vérifie (4 colonnes).
 
-Elle montre **ce que fait le collectif** et **ce que fait chaque rôle** à chaque phase. C'est une vue d'ensemble qui aide l'équipage à anticiper et à se coordonner.
+**Qui anime ?** Le·la second soigneux en priorité, ou n'importe qui.
 
-## 📍 OÙ L'AFFICHER ?
+## 🎯 Quand l'utiliser ?
 
-Dans le carré, visible de toustes :
-- Près de la table à cartes
-- À côté du tableau d'équipage
+- **Brief matin** : parcourir les phases prévues pour la journée
+- **Transitions** : vérifier qu'on n'oublie rien avant de passer à la suite
+- **Débrief soir** : qu'est-ce qu'on a bien fait ? oublié ?
 
-## 🔄 COMMENT L'UTILISER ?
+## ✅ Déroulé
 
-### Au brief matin
-Parcourir ensemble les phases prévues pour la journée. Chaque rôle repère ses tâches.
-
-### Pendant la journée
-Référence rapide pour vérifier qu'on n'oublie rien à chaque transition de phase.
-
-### En fin de journée
-Support pour le débrief : qu'est-ce qu'on a bien fait ? Qu'est-ce qu'on peut améliorer ?
+1. Annoncer la phase : "On passe à Appareillage"
+2. Lire ensemble la ligne collective (en gras)
+3. Chaque rôle parcourt sa colonne
+4. On passe à la suite quand c'est bon
 
 <!-- FLIP -->
 
-## 🛠️ CONSTRUIRE VOS CHECKLISTS
+## 🔄 Le symbole rotation
 
-L'affiche donne le **cadre général**. Chaque équipage pourra rajouter des **checklists détaillées**, en fonction de ses attentes, du niveau du stage, du contexte nav/météo.
+Dans "En navigation", certaines tâches ont une flèche circulaire.
 
-**J1-J2** : Le·la moniteurice guide la co-construction
+→ Ce sont des tâches **continues** : on les refait régulièrement pendant toute la nav, pas juste une fois.
 
-- "Qu'est-ce qu'on vérifie exactement sur le gréement ?"
-- "Comment on s'organise pour le petit-déj ?"
+## 🗒️ Actions spécifiques
 
-**J3-J6** : Transmission de personne en personne
-- À chaque rotation de rôle, on transmet sa checklist
-- On affine au fil des jours
+La dernière section est vide : c'est pour **personnaliser** selon votre bateau et contexte.
 
-**Où noter ?** Dans le carnet de bord collectif ou sur une feuille dédiée.
+**Où noter ?**
+- Directement sur l'affiche (si plastifiée + feutre effaçable)
+- Sur une note collée à côté
+- Dans un carnet d'équipage
 
-## 🔗 ARTICULATION AVEC LES AUTRES OUTILS
+**Exemples** : particularités du gréement, consignes RTQ, habitudes...
 
-- **Tableau d'équipage** → Qui a quel rôle aujourd'hui ?
-- **Cartes rôles** → Détail des missions par rôle 
-- **Livre de bord** → Trace des actions réalisées
+## 💡 Tips
 
----
+- **Plastifiée + feutre effaçable** = on coche et efface chaque jour
+- **Pas besoin de tout cocher** : certaines tâches ne s'appliquent pas à chaque nav
+- **Transmission** : à chaque rotation de rôle, on passe les tips accumulés
 
-💡 **Les rôles tournent chaque jour - Les compétences coopératives restent.**
+## 🔗 Voir aussi
+
+- **Qui fait quoi ?** → Tableau d'équipage (A2)
+- **Détail des missions** → Cartes rôles (R1-R4)
+- **Quoi noter au LDB ?** → Marque-page (A3)

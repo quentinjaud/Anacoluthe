@@ -148,10 +148,15 @@ async function loadCardPdfs(cardIds) {
     const pdfPath = findCardPdf(cardId);
     
     if (pdfPath) {
-      const pdfBytes = fs.readFileSync(pdfPath);
-      const pdf = await PDFDocument.load(pdfBytes);
-      cards.push({ id: cardId, pdf, path: pdfPath });
-      console.log(`  📄 ${path.basename(pdfPath)}`);
+      try {
+        const pdfBytes = fs.readFileSync(pdfPath);
+        const pdf = await PDFDocument.load(pdfBytes);
+        cards.push({ id: cardId, pdf, path: pdfPath });
+        console.log(`  📄 ${path.basename(pdfPath)}`);
+      } catch (err) {
+        console.error(`  ❌ Erreur lecture ${pdfPath}: ${err.message}`);
+        cards.push({ id: cardId, pdf: null });
+      }
     } else {
       console.log(`  ⚠️  ${cardId} non trouvé - page blanche`);
       cards.push({ id: cardId, pdf: null });

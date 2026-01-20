@@ -5,20 +5,10 @@
  * Params URL:
  *   ?affiche=A2    ID de l'affiche
  *
- * Dépendances : twemoji, affiches-print.css
+ * Dépendances : twemoji, markdown-utils.js (applyTwemoji), affiches-print.css
  */
 
-/**
- * Applique Twemoji au contenu
- */
-function applyTwemoji(element) {
-    if (typeof twemoji !== 'undefined') {
-        twemoji.parse(element, {
-            folder: 'svg',
-            ext: '.svg'
-        });
-    }
-}
+// applyTwemoji est fourni par markdown-utils.js (chargé avant ce script)
 
 /**
  * Initialisation : charge et rend l'affiche

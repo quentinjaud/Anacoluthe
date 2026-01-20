@@ -1210,25 +1210,4 @@ h2 img.emoji {
     display: none;
 }
 
-/* ========================================
-   VIDEO EMBED - YouTube responsive
-   ======================================== */
-.video-embed {
-    position: relative;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
-    height: 0;
-    overflow: hidden;
-    margin: 1rem 0;
-    border-radius: var(--radius-small);
-    background: #000;
-}
-
-.video-embed iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: var(--radius-small);
-}
+/* VIDEO EMBED déplacé ligne 1151 - doublon supprimé */

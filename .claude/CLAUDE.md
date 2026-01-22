@@ -10,7 +10,7 @@ Compétences organisation/coopération/savoir-être transposables à terre. Indi
 
 - 4 cartes rôles
 - 7 moments
-- 4 SOS
+- 4 Joker
 - 3 affiches A4
 - 3 mémos A6
 - Guides à définir

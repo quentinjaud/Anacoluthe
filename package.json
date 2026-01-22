@@ -7,11 +7,11 @@
     "render": "node scripts/render-cards.js",
     "render:roles": "node scripts/render-cards.js roles",
     "render:moments": "node scripts/render-cards.js moments",
-    "render:sos": "node scripts/render-cards.js sos",
+    "render:joker": "node scripts/render-cards.js joker",
     "assemble": "node scripts/assemble-booklets.js",
     "assemble:roles": "node scripts/assemble-booklets.js roles",
     "assemble:moments": "node scripts/assemble-booklets.js moments",
-    "assemble:sos": "node scripts/assemble-booklets.js sos",
+    "assemble:joker": "node scripts/assemble-booklets.js joker",
     "print": "npm run render && npm run assemble",
     "print:roles": "npm run render:roles && npm run assemble:roles"
   },

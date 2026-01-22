@@ -18,7 +18,7 @@ Ce dossier contient les PDFs générés automatiquement pour l'impression des ca
 ├── livrets/             ← Livrets A4 assemblés (4-UP, recto-verso)
 │   ├── livret_roles.pdf
 │   ├── livret_moments.pdf
-│   ├── livret_sos.pdf
+│   ├── livret_joker.pdf
 │   ├── livret_divers.pdf    (mémos d'affiches + autres)
 │   └── kit_complet.pdf
 └── README.md
@@ -29,7 +29,7 @@ Ce dossier contient les PDFs générés automatiquement pour l'impression des ca
 ### Option 1 : Déclenchement manuel
 1. Aller sur GitHub > Actions > "📄 Generate Print PDFs"
 2. Cliquer "Run workflow"
-3. Choisir le target (all, roles, moments, sos)
+3. Choisir le target (all, roles, moments, joker)
 
 ### Option 2 : Via le message de commit
 Ajouter `[print]` dans le message de commit :
@@ -62,7 +62,7 @@ Chaque feuille A4 donne 4 cartes A6 (105 × 148 mm) avec le bon verso au dos.
 |--------|--------|-------------|
 | `livret_roles.pdf` | R1-R4 (4 cartes) | 1 |
 | `livret_moments.pdf` | M1-M7 (7 cartes + 1 blanche) | 2 |
-| `livret_sos.pdf` | S1-S4 (4 cartes) | 1 |
+| `livret_joker.pdf` | J1-J4 (4 cartes) | 1 |
 | `livret_divers.pdf` | A1-A3 mémos (3 cartes + 1 blanche) | 1 |
 | `kit_complet.pdf` | Tous | 5 |
 

@@ -22,7 +22,7 @@ async function init() {
         // Vérifier si un type est demandé dans l'URL
         const urlParams = new URLSearchParams(window.location.search);
         const typeParam = urlParams.get('type');
-        if (typeParam && ['role', 'moment', 'sos', 'affiche'].includes(typeParam)) {
+        if (typeParam && ['role', 'moment', 'joker', 'affiche'].includes(typeParam)) {
             currentFilter = typeParam;
             // Activer le bouton filtre correspondant
             const filterBtns = document.querySelectorAll('.filter-btn');
@@ -76,8 +76,8 @@ function renderGallery() {
 
     gallery.innerHTML = filteredCards.map(card => createCardTile(card)).join('');
     
-    // Grille 4 colonnes pour les rôles et SOS (exactement 4 cartes)
-    if ((currentFilter === 'role' || currentFilter === 'sos') && filteredCards.length === 4) {
+    // Grille 4 colonnes pour les rôles et Joker (exactement 4 cartes)
+    if ((currentFilter === 'role' || currentFilter === 'joker') && filteredCards.length === 4) {
         gallery.classList.add('gallery-4cols');
     } else {
         gallery.classList.remove('gallery-4cols');

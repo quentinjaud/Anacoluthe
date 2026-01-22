@@ -7,7 +7,7 @@
 >
 > - 4 petits blocs avec chaque rôle, juste son emoji en demi-dépassant du bloc, comme sur le site web. 
 >
->   couleur d'accent par rôle : bosco : bleu "affiches", nav : teal "moments", second soigneux : ambre "roles", cambuse : rouge "SOS". Collectif : gris comme les blocs génériques dans le tableau A2
+>   couleur d'accent par rôle : bosco : bleu "affiches", nav : teal "moments", second soigneux : ambre "roles", cambuse : rouge "Joker". Collectif : gris comme les blocs génériques dans le tableau A2
 >
 > 🗣️ **tonalité**
 >

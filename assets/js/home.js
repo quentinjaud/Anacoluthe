@@ -32,7 +32,7 @@ async function loadCardsIndex() {
 function shuffleAllPreviews() {
     if (!cardsData) return;
 
-    const types = ['role', 'moment', 'sos', 'affiche'];
+    const types = ['role', 'moment', 'joker', 'affiche'];
     
     types.forEach(type => {
         const cards = type === 'affiche' 

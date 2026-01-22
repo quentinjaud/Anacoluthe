@@ -226,7 +226,7 @@
     justify-items: center;
 }
 
-.fil-tools-sos {
+.fil-tools-joker {
     grid-template-columns: repeat(4, 1fr);
     max-width: 700px;
     margin: 0 auto;
@@ -263,7 +263,7 @@
     color: var(--teal-700);
 }
 
-.fil-tool-sos .fil-tool-name {
+.fil-tool-joker .fil-tool-name {
     color: #C62828;
 }
 
@@ -448,12 +448,12 @@
     color: var(--teal-700);
 }
 
-.fil-tool-sos .fil-tool-card {
+.fil-tool-joker .fil-tool-card {
     background: var(--blanc) !important;
     border: 1px solid #FFCDD2;
 }
 
-.fil-tool-sos .fil-card-title {
+.fil-tool-joker .fil-card-title {
     color: #C62828;
 }
 
@@ -895,15 +895,15 @@
     color: var(--teal-700);
 }
 
-/* Wrapper Rythme + SOS */
+/* Wrapper Rythme + Joker */
 .fil-step-rythme-wrapper {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-/* SOS décalé - petit badge à côté de Rythme */
-.fil-step-sos-badge {
+/* Joker décalé - petit badge à côté de Rythme */
+.fil-step-joker-badge {
     position: absolute;
     top: 2px;
     right: -16px;
@@ -912,16 +912,16 @@
     border: none !important;
 }
 
-.fil-step-sos-badge:hover {
+.fil-step-joker-badge:hover {
     transform: scale(1.1);
     border: none !important;
 }
 
-.fil-sos-icon {
+.fil-joker-icon {
     font-size: 1rem;
 }
 
-.fil-step-sos-badge.active .fil-sos-icon {
+.fil-step-joker-badge.active .fil-joker-icon {
     transform: scale(1.2);
 }
 
@@ -960,7 +960,7 @@
         gap: 1rem;
     }
     
-    .fil-tools-sos {
+    .fil-tools-joker {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -1035,7 +1035,7 @@
         font-size: 0.5rem;
     }
     
-    .fil-step-sos {
+    .fil-step-joker {
         transform: translateX(40px);
     }
     

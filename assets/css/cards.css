@@ -103,14 +103,14 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.filter-btn[data-filter="sos"] {
+.filter-btn[data-filter="joker"] {
     color: #E53935; /* brick light */
 }
-.filter-btn[data-filter="sos"]:hover {
+.filter-btn[data-filter="joker"]:hover {
     color: #C62828; /* brick-700 */
     background: rgba(255,255,255,0.5);
 }
-.filter-btn[data-filter="sos"].active {
+.filter-btn[data-filter="joker"].active {
     background: var(--blanc);
     color: #C62828; /* brick-700 */
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -207,18 +207,18 @@
     color: var(--teal-700);
 }
 
-/* SOS (Brick - rouge brique) */
-.card-tile[data-type="sos"] {
+/* Joker (Brick - rouge brique) */
+.card-tile[data-type="joker"] {
     background-color: #FFEBEE; /* brick-50 */
     border: 1px solid var(--teal-700);
 }
-.card-tile[data-type="sos"]:hover {
+.card-tile[data-type="joker"]:hover {
     box-shadow: 0 6px 16px rgba(198, 40, 40, 0.15);
 }
-.card-tile[data-type="sos"] .card-tile-title {
+.card-tile[data-type="joker"] .card-tile-title {
     color: #C62828; /* brick-700 */
 }
-.card-tile[data-type="sos"] .card-type-badge {
+.card-tile[data-type="joker"] .card-type-badge {
     background-color: #FFCDD2; /* brick-100 */
     color: #C62828; /* brick-700 */
 }
@@ -292,8 +292,8 @@
 .card-tile[data-type="moment"] .card-tile-subtitle {
     color: var(--amber-700);
 }
-.card-tile[data-type="sos"] .card-tile-subtitle {
-    color: #0066AD; /* bleu Glénans - accent SOS */
+.card-tile[data-type="joker"] .card-tile-subtitle {
+    color: #0066AD; /* bleu Glénans - accent Joker */
 }
 .card-tile[data-type="affiche"] .card-tile-subtitle {
     color: #C62828; /* brick-700 - accent affiche */
@@ -333,7 +333,7 @@
 .card-tile[data-type="moment"] .card-tile-tags-title {
     color: var(--teal-700);
 }
-.card-tile[data-type="sos"] .card-tile-tags-title {
+.card-tile[data-type="joker"] .card-tile-tags-title {
     color: #C62828; /* brick-700 */
 }
 
@@ -360,7 +360,7 @@
     background-color: var(--teal-100);
     color: var(--teal-700);
 }
-.card-tile[data-type="sos"] .card-tile-tag {
+.card-tile[data-type="joker"] .card-tile-tag {
     background-color: #FFCDD2; /* brick-100 */
     color: #C62828; /* brick-700 */
 }
@@ -514,7 +514,7 @@
 /* Border H2 par type (couleur accent-200) */
 .modal-role .card-content h2 { border-top-color: #a3d4d0; /* teal-200 */ }
 .modal-moment .card-content h2 { border-top-color: #fcd9b8; /* amber-200 */ }
-.modal-sos .card-content h2 { border-top-color: #90caf9; /* glenans-200 */ }
+.modal-joker .card-content h2 { border-top-color: #90caf9; /* glenans-200 */ }
 .modal-affiche .card-content h2 { border-top-color: #EF9A9A; /* brick-200 */ }
 
 /* Premier H2 (en tête de contenu) : pas de border-top */
@@ -554,8 +554,8 @@
 .modal-moment .card-content h6 {
     color: var(--amber-700);
 }
-.modal-sos .card-content h6 {
-    color: #0066AD; /* bleu Glénans - accent SOS */
+.modal-joker .card-content h6 {
+    color: #0066AD; /* bleu Glénans - accent Joker */
 }
 
 .card-content p {
@@ -581,7 +581,7 @@
 /* Couleur hr par type (principal-300) */
 .modal-role .card-content hr { border-top-color: #f5b078; /* amber-300 */ }
 .modal-moment .card-content hr { border-top-color: #7ec4bf; /* teal-300 */ }
-.modal-sos .card-content hr { border-top-color: #E57373; /* brick-300 */ }
+.modal-joker .card-content hr { border-top-color: #E57373; /* brick-300 */ }
 .modal-affiche .card-content hr { border-top-color: #7A9CC6; /* navy-300 */ }
 
 .card-content ul {
@@ -615,7 +615,7 @@
 .modal-moment .card-content blockquote {
     border-left-color: var(--amber-700);
 }
-.modal-sos .card-content blockquote {
+.modal-joker .card-content blockquote {
     border-left-color: #0066AD; /* bleu Glénans */
 }
 
@@ -634,14 +634,14 @@
     color: var(--teal-700);
 }
 
-.modal-sos .card-content h1,
-.modal-sos .card-content h2 {
+.modal-joker .card-content h1,
+.modal-joker .card-content h2 {
     color: #C62828; /* brick-700 */
 }
 
-.modal-sos .card-content h3,
-.modal-sos .card-content h4 {
-    color: #0066AD; /* bleu Glénans - accent SOS */
+.modal-joker .card-content h3,
+.modal-joker .card-content h4 {
+    color: #0066AD; /* bleu Glénans - accent Joker */
 }
 
 /* ===========================================
@@ -824,11 +824,11 @@
 .modal-moment .nav-head h1 { color: var(--teal-700); }
 .modal-moment .nav-head h6 { color: var(--amber-700); }
 
-.modal-sos .nav-head {
+.modal-joker .nav-head {
     background: #FFEBEE; /* brick-50 */
 }
-.modal-sos .nav-head h1 { color: #C62828; /* brick-700 */ }
-.modal-sos .nav-head h6 { color: #0066AD; /* bleu Glénans */ }
+.modal-joker .nav-head h1 { color: #C62828; /* brick-700 */ }
+.modal-joker .nav-head h6 { color: #0066AD; /* bleu Glénans */ }
 
 .modal-affiche .nav-head {
     background: #E8EDF4; /* navy-50 */
@@ -923,11 +923,11 @@
     color: var(--blanc);
 }
 
-.nav-sos .section-nav-link {
+.nav-joker .section-nav-link {
     background: #FFCDD2; /* brick-100 */
     color: #C62828; /* brick-700 */
 }
-.nav-sos .section-nav-link:hover {
+.nav-joker .section-nav-link:hover {
     background: #C62828; /* brick-700 */
     color: var(--blanc);
 }
@@ -947,7 +947,7 @@
     color: var(--blanc);
 }
 
-.nav-sos .section-nav-link.active {
+.nav-joker .section-nav-link.active {
     background-color: #C62828; /* brick-700 */
     color: var(--blanc);
 }

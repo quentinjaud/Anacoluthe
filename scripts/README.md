@@ -48,7 +48,7 @@ node scripts/render-cards.js [target]
 | `all` | Toutes (défaut) |
 | `roles` | R1, R2, R3, R4 |
 | `moments` | M1 à M7 |
-| `sos` | S1, S2, S3, S4 |
+| `joker` | J1, J2, J3, J4 |
 
 **Output** : `print/cartes/{id}.pdf`
 
@@ -72,7 +72,7 @@ node scripts/assemble-booklets.js [target]
 | `all` | Tous les livrets (défaut) |
 | `roles` | `livret-roles.pdf` |
 | `moments` | `livret-moments.pdf` |
-| `sos` | `livret-sos.pdf` |
+| `joker` | `livret-joker.pdf` |
 
 **Output** : `print/livrets/`
 
@@ -108,7 +108,7 @@ npm run print
 # Par type
 npm run print:roles
 npm run print:moments
-npm run print:sos
+npm run print:joker
 
 # Étapes séparées
 npm run render           # Seulement les A6
@@ -223,12 +223,12 @@ print/
 │   ├── R4.pdf
 │   ├── M1.pdf
 │   ├── ...
-│   ├── S1.pdf
+│   ├── J1.pdf
 │   └── ...
 └── livrets/                   # Livrets A4 assemblés
     ├── livret-roles.pdf       # 1 feuille A4 (4 cartes)
     ├── livret-moments.pdf     # 2 feuilles A4 (8 slots, 7 cartes + 1 vide)
-    ├── livret-sos.pdf         # 1 feuille A4 (4 cartes)
+    ├── livret-joker.pdf       # 1 feuille A4 (4 cartes)
     └── kit-complet.pdf        # Toutes les cartes
 ```
 

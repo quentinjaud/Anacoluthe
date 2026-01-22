@@ -293,7 +293,7 @@ Le·la mono (ou navigateurice) présente : météo, points CQ, séances techniqu
 - Nommer les réussites collectives (célébrer)
 - Nommer les tensions ou difficultés (réguler)
 - Faire circuler la parole équitablement
-- Proposer une carte SOS si besoin
+- Proposer une carte Joker si besoin
 
 ### 🎬 Animation proposée
 
@@ -314,12 +314,12 @@ Le·la mono (ou navigateurice) présente : météo, points CQ, séances techniqu
 **Étape 4 - Ancrage livre de bord**
 Noter dans "Observations" : ligne technique + ligne coopération.
 
-**Si tension identifiée** : Proposer carte SOS adaptée.
+**Si tension identifiée** : Proposer carte Joker adaptée.
 
 ### 📚 Sources
 
 - Marque-page LDB verso (5 piliers)
-- Cartes SOS V5
+- Cartes Joker V5
 
 ---
 
@@ -368,7 +368,7 @@ Chacun·e répond à :
 
 **Étape 4 - Ajustements (10 min)**
 "Qu'est-ce qu'on ajuste pour la suite ?"
-→ Carte SOS si tension nécessite un vrai temps de régulation.
+→ Carte Joker si tension nécessite un vrai temps de régulation.
 
 **Étape 5 - Engagement (3 min)**
 "Qu'est-ce que chacun·e s'engage à faire différemment pour la deuxième moitié ?"
@@ -452,14 +452,14 @@ Pendant rangements/prépa repas midi : debriefs individuels stagiaire ↔ mono (
 - **Tableau d'équipage** : utilisé par M3, M4
 - **Livre de bord** : utilisé par M4, M5, M7
 - **Cartes rôles** : introduites par M3
-- **Cartes SOS** : mobilisables depuis M5, M6
+- **Cartes Joker** : mobilisables depuis M5, M6
 - **Feuille attentes M1** : revisitée en M6, M7
 
 ---
 
-## NOTE POUR CARTES SOS (futur)
+## NOTE POUR CARTES JOKER (futur)
 
-Pour dépersonnaliser les tensions avec V5 : passer par les rôles/focus techniques pour expliquer un comportement, puis extrapoler la tension et trouver une résolution. Les rôles V5 aident moins que les archétypes V4 à la dépersonnalisation directe → compenser dans les cartes SOS.
+Pour dépersonnaliser les tensions avec V5 : passer par les rôles/focus techniques pour expliquer un comportement, puis extrapoler la tension et trouver une résolution. Les rôles V5 aident moins que les archétypes V4 à la dépersonnalisation directe → compenser dans les cartes Joker.
 
 ---
 

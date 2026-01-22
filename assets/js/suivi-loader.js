@@ -7,7 +7,7 @@
 const NOTES_FILES = {
     role: 'sources/suivi/roles_notes.md',
     moment: 'sources/suivi/moments_notes.md',
-    sos: 'sources/suivi/sos_notes.md',
+    joker: 'sources/suivi/joker_notes.md',
     affiche: 'sources/suivi/affiches_notes.md'
 };
 
@@ -134,7 +134,7 @@ function parseStatus(cell) {
 function getType(id) {
     if (id.startsWith('R')) return 'role';
     if (id.startsWith('M')) return 'moment';
-    if (id.startsWith('S')) return 'sos';
+    if (id.startsWith('J')) return 'joker';
     if (id.startsWith('A')) return 'affiche';
     return 'other';
 }
@@ -278,7 +278,7 @@ function renderItems(items) {
         affiche: { emoji: '📌', label: 'Affiches & Mémos', items: [] },
         role: { emoji: '🧭', label: 'Cartes Rôles', items: [] },
         moment: { emoji: '📅', label: 'Cartes Moments', items: [] },
-        sos: { emoji: '🆘', label: 'Cartes SOS', items: [] }
+        joker: { emoji: '🃏', label: 'Cartes Joker', items: [] }
     };
     
     for (const item of items) {

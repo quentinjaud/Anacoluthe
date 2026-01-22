@@ -156,7 +156,7 @@ Pour les monos qui veulent aller plus loin ou devenir référent·es.
 **Contenu du kit Anacoluthe par bateau :**
 - 4 cartes rôles (plastifiées)
 - 7 cartes moments-clés (plastifiées)
-- 4 cartes SOS (plastifiées)
+- 4 cartes Joker (plastifiées)
 - 3 affiches A4 (plastifiées)
 - 1 guide mono
 - 1 notice équipage
@@ -215,7 +215,7 @@ Pour les monos qui veulent aller plus loin ou devenir référent·es.
 **Contenu à intégrer :**
 1. Tour météo perso fin de journée - 2 min
 2. Retour sur la coopération ("Qu'est-ce qui a bien marché ensemble ?") - 3 min
-3. Régulation si tension (usage cartes SOS si besoin) - 5 min optionnel
+3. Régulation si tension (usage cartes Joker si besoin) - 5 min optionnel
 4. Note dans livre de bord (ligne technique + ligne coopération) - 2 min
 
 **Livrable :** Protocole débrief soir intégrant Anacoluthe (fiche 2 pages)

@@ -13,7 +13,7 @@ on:
           - all
           - roles
           - moments
-          - sos
+          - joker
           - affiches
       debug:
         description: 'Mode debug (screenshots + logs)'

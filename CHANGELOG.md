@@ -39,7 +39,7 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ### En cours
 - 7 cartes moments-clés (M1-M7)
-- 4 cartes SOS coopératives
+- 4 cartes Joker
 - Guides équipage et mono
 
 ---

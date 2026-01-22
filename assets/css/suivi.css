@@ -307,13 +307,13 @@
     color: var(--teal-700);
 }
 
-.paquet-card[data-type="sos"] .paquet-header {
+.paquet-card[data-type="joker"] .paquet-header {
     background: #FFEBEE; /* brick-50 */
 }
-.paquet-card[data-type="sos"] .paquet-header:hover {
+.paquet-card[data-type="joker"] .paquet-header:hover {
     background: #FFCDD2; /* brick-100 */
 }
-.paquet-card[data-type="sos"] .paquet-title {
+.paquet-card[data-type="joker"] .paquet-title {
     color: #C62828; /* brick-700 */
 }
 

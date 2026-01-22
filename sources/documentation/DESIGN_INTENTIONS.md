@@ -51,7 +51,7 @@ Liens simples avec emoji 📺, pas d'iframes :
 | **Bleu Glénans** | `#0066ad` | Référence institutionnelle |
 | **Rouge Glénans** | `#e03121` | Référence institutionnelle |
 | **Teal Anacoluthe** | `#3d8b87` | Signature moments-clés |
-| **Corail Anacoluthe** | `#ff8a5b` | Signature SOS |
+| **Corail Anacoluthe** | `#ff8a5b` | Signature Joker |
 
 ### Système par type de carte
 
@@ -61,7 +61,7 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 |------|------|--------|-------|
 | **Rôles** (R1-R4) | `#fff8f0` | `#ffe8d4` | `#c96a30` |
 | **Moments** (M1-M7) | `#e8f4f3` | `#c5e4e2` | `#3d8b87` |
-| **SOS** (S1-S4) | `#fff5f2` | `#ffe4db` | `#d9634a` |
+| **Joker** (J1-J4) | `#fff5f2` | `#ffe4db` | `#d9634a` |
 | **Affiches** (A1-A3) | `#f8fafc` | `#e2e8f0` | `#475569` |
 
 ### Couleurs utilitaires
@@ -119,13 +119,13 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 | M6 | ⚓ | Mi-parcours |
 | M7 | 🏁 | Débrief final |
 
-**SOS :**
+**Joker :**
 | Carte | Emoji | Nom |
 |-------|-------|-----|
-| S1 | 🆘 | Conflit/désaccord |
-| S2 | ⏸️ | Temps sans navigation |
-| S3 | 🔄 | Rediscuter accords |
-| S4 | 💬 | Demande/feedback mono |
+| J1 | 🆘 | Conflit/désaccord |
+| J2 | ⏸️ | Temps sans navigation |
+| J3 | 🔄 | Rediscuter accords |
+| J4 | 💬 | Demande/feedback mono |
 
 **Affiches :**
 | Affiche | Emoji | Nom |

@@ -165,7 +165,7 @@ function populateSelect() {
         affiche: { label: '📋 Mémos des Affiches', cards: [] },
         role: { label: '🔧 Rôles', cards: [] },
         moment: { label: '📅 Moments', cards: [] },
-        sos: { label: '🆘 SOS', cards: [] }
+        joker: { label: '🃏 Joker', cards: [] }
     };
     
     // Ajouter les affiches
@@ -263,7 +263,7 @@ function updatePdfButtons(card) {
     const livretPaths = {
         'role': 'print/livrets/livret_roles.pdf',
         'moment': 'print/livrets/livret_moments.pdf',
-        'sos': 'print/livrets/livret_sos.pdf',
+        'joker': 'print/livrets/livret_joker.pdf',
         'affiche': 'print/livrets/livret_divers.pdf'
     };
     

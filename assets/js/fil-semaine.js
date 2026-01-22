@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentActive = document.querySelector('.fil-step.active');
         if (!currentActive) return;
         
-        const stepsArray = Array.from(steps).filter(s => !s.classList.contains('fil-step-sos'));
+        const stepsArray = Array.from(steps).filter(s => !s.classList.contains('fil-step-joker'));
         const currentIndex = stepsArray.indexOf(currentActive);
         
         let targetStep = null;

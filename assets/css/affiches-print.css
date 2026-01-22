@@ -43,7 +43,7 @@
     --amber-50: #fff8f0;
     --amber-100: #ffe8d4;
     --brick-50: #FFEBEE;
-    --brick-700: #C62828;  /* Rouge SOS */
+    --brick-700: #C62828;  /* Rouge Joker */
 
     /* Bleu mer (Douglas) - désaturé */
     --sea-700: #4a7c91;
@@ -583,7 +583,7 @@ img.emoji {
 
 /* ----------------------------------------
    BLOC POURQUOI LDB
-   Style wrapped avec titre débordant, accent rouge SOS
+   Style wrapped avec titre débordant, accent rouge Joker
    ---------------------------------------- */
 .section-pourquoi-ldb {
     background: var(--bloc-bg);

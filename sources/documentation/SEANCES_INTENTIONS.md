@@ -8,7 +8,7 @@
 
 Une séance-topo Anacoluthe est un temps dédié (~1h) pour partager des connaissances et faire pratiquer des exercices aux stagiaires sur les dimensions coopératives du stage.
 
-Ces séances complètent les cartes moments-clés (ritualisation) et les cartes SOS (intervention d'urgence) en offrant un espace d'apprentissage approfondi.
+Ces séances complètent les cartes moments-clés (ritualisation) et les cartes Joker (intervention d'urgence) en offrant un espace d'apprentissage approfondi.
 
 ---
 

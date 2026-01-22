@@ -2,7 +2,7 @@
  * RENDER - Génère les PDFs A6 et A4 via print-render.html / print-render-a4.html
  *
  * Usage: node scripts/render-cards.js [target]
- *   target: 'all' | 'roles' | 'moments' | 'sos' | 'affiches'
+ *   target: 'all' | 'roles' | 'moments' | 'joker' | 'affiches'
  *
  * Output:
  *   - Cartes A6 : /print/cartes/{id}.pdf (2 pages : recto + verso)
@@ -62,10 +62,10 @@ const stats = {
 };
 
 const TYPE_FILTERS = {
-  all: ['role', 'moment', 'sos', 'affiche'],
+  all: ['role', 'moment', 'joker', 'affiche'],
   roles: ['role'],
   moments: ['moment'],
-  sos: ['sos'],
+  joker: ['joker'],
   affiches: ['affiche']
 };
 

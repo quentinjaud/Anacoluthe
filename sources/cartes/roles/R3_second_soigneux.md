@@ -39,7 +39,7 @@ Nommer les tensions avant qu'elles ne s'enkystent, proposer des outils.
 ### Le soir
 - Animer ou co-animer le débrief collectif
 - Faire circuler la parole équitablement
-- Proposer une carte SOS si une tension apparaît
+- Proposer une carte Joker si une tension apparaît
 
 ## 🗣️ Questions pour t'aider
 

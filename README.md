@@ -42,7 +42,7 @@ Ces compétences ne sont pas un "plus" sympathique de la voile habitable. Ce son
 |---------|----------|--------|----------|
 | **Cartes Rôles** | 4 | A6 R/V plastifié | Rôles techniques quotidiens |
 | **Cartes Moments-clés** | 7 | A6 R/V plastifié | Animation temps forts J1→J6 |
-| **Cartes SOS** | 4 | A6 R/V plastifié | Régulation tensions |
+| **Cartes Joker** | 4 | A6 R/V plastifié | Régulation tensions |
 | **Mémos affiches** | 3 | A6 R/V plastifié | Résumés des affiches, à garder sur soi |
 | **Affiches permanentes** | 3 | A4 plastifié | Routines, tableau, livre de bord |
 | **Formations moniteur·ices** | - | - | Appropriation du dispositif |
@@ -87,7 +87,7 @@ Anacoluthe/
 │   ├── cartes/
 │   │   ├── roles/           # R1-R4
 │   │   ├── moments/         # M1-M7
-│   │   └── sos/             # S1-S4
+│   │   └── joker/            # J1-J4
 │   ├── affiches/            # Mémos A6 (A1-A3) + Affiches A4
 │   ├── documentation/       # Synthèses, intentions, présentations
 │   │   └── work-in-progress/
@@ -111,7 +111,7 @@ Les PDFs sont générés automatiquement et disponibles dans le dossier `print/`
 |---------|---------|--------|
 | `livret-roles.pdf` | 4 cartes rôles (R1-R4) | 1 feuille A4 |
 | `livret-moments.pdf` | 7 cartes moments (M1-M7) | 2 feuilles A4 |
-| `livret-sos.pdf` | 4 cartes SOS (S1-S4) | 1 feuille A4 |
+| `livret-joker.pdf` | 4 cartes Joker (J1-J4) | 1 feuille A4 |
 | `livret-memos.pdf` | 3 mémos affiches (A1-A3) | 1 feuille A4 |
 | `kit-complet.pdf` | Toutes les cartes + mémos | 5 feuilles A4 |
 
@@ -127,7 +127,7 @@ npm run print
 # Ou par type
 npm run print:roles
 npm run print:moments
-npm run print:sos
+npm run print:joker
 ```
 
 ### Spécifications d'impression

@@ -84,7 +84,7 @@ npm run render
 # Filtrer par type
 npm run render -- roles
 npm run render -- moments
-npm run render -- sos
+npm run render -- joker
 npm run render -- affiches
 
 # Mode debug (screenshots + logs détaillés)
@@ -191,7 +191,7 @@ Anacoluthe/
 │   ├── cartes/                 # Contenu markdown des cartes
 │   │   ├── roles/
 │   │   ├── moments/
-│   │   ├── sos/
+│   │   ├── joker/
 │   │   └── affiches/
 │   │
 │   └── documentation/          # Docs projet

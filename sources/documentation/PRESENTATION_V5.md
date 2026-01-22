@@ -63,7 +63,7 @@ Le dispositif vise l'acquisition de **compétences d'organisation, de coopérati
 |------|----------|--------|----------|
 | **Cartes Rôles** | 4 | A6 R/V plastifié | Structure quotidienne |
 | **Cartes Moments-clés** | 7 | A6 R/V plastifié | Animation temps forts |
-| **Cartes SOS** | 4 | A6 R/V plastifié | Régulation tensions |
+| **Cartes Joker** | 4 | A6 R/V plastifié | Régulation tensions |
 | **Affiches permanentes** | 3 | A4 plastifié | Référence visuelle |
 | **Notice équipage** | 1 | A5 ou livret | Appropriation du dispositif par les stagiaires |
 
@@ -90,14 +90,14 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 | M6 | Mi-parcours | J3-J4 | Point d'étape collectif |
 | M7 | Débrief final | J6 | Ancrage apprentissages |
 
-### Les 4 cartes SOS coopératives
+### Les 4 cartes Joker
 
 | # | Situation | Usage |
 |---|-----------|-------|
-| S1 | Conflit ouvert | Désamorcer tension relationnelle |
-| S2 | Décision bloquée | Sortir d'une impasse décisionnelle |
-| S3 | Fatigue collective | Adapter rythme/charge |
-| S4 | Exclusion/isolement | Réintégrer un membre d'équipage |
+| J1 | Conflit ouvert | Désamorcer tension relationnelle |
+| J2 | Décision bloquée | Sortir d'une impasse décisionnelle |
+| J3 | Fatigue collective | Adapter rythme/charge |
+| J4 | Exclusion/isolement | Réintégrer un membre d'équipage |
 
 ### Les 3 affiches A4 permanentes
 
@@ -113,7 +113,7 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 
 | Objectif | Éléments mobilisés | Mécanisme |
 |----------|-------------------|-----------|
-| **OS1 -> Réduire dysfonctionnements** | Cartes SOS, Tableau équipage (météo perso), Débrief soir | Tensions nommées tôt, régulation outillée, charge mono allégée |
+| **OS1 -> Réduire dysfonctionnements** | Cartes Joker, Tableau équipage (météo perso), Débrief soir | Tensions nommées tôt, régulation outillée, charge mono allégée |
 | **OS2 -> Éducation populaire** | Cartes rôles (section "à terre"), Débrief final J6, Marins inspirants | Compétences explicitement transférables, modèles accessibles |
 | **OS3 -> Progression technique** | Routines quotidiennes, Brief/débrief structurés, Rotation rôles | Organisation collective travaillée, sens marin développé |
 
@@ -131,7 +131,7 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 
 - Charge de gestion des tensions allégée (outillage explicite vs gestion "sous couvert")
 - Sentiment de légitimité sur l'animation du vivre-ensemble
-- Outil concret pour les situations difficiles (cartes SOS)
+- Outil concret pour les situations difficiles (cartes Joker)
 
 ### Pour la base
 

@@ -2,7 +2,7 @@
  * ASSEMBLEUR - Assemble les PDFs A6 en livrets A4 (4-UP)
  * 
  * Usage: node scripts/assemble-booklets.js [target]
- *   target: 'all' | 'roles' | 'moments' | 'sos'
+ *   target: 'all' | 'roles' | 'moments' | 'joker'
  * 
  * Input: /print/cartes/{id}.pdf (2 pages : recto + verso)
  * Output: /print/livrets/livret-{type}.pdf (A4, 4-UP, recto-verso)
@@ -48,10 +48,10 @@ const CONFIG = {
               'M4_brief-matin', 'M5_debrief-soir', 'M6_mi-parcours', 'M7_debrief-final'],
       title: 'Cartes Moments-clés'
     },
-    sos: {
-      cards: ['S1_conflit-desaccord', 'S2_temps-sans-navigation', 
-              'S3_rediscuter-accords', 'S4_feedback-mono'],
-      title: 'Cartes SOS'
+    joker: {
+      cards: ['J1_conflit-desaccord', 'J2_temps-sans-navigation',
+              'J3_rediscuter-accords', 'J4_feedback-mono'],
+      title: 'Cartes Joker'
     },
     memos: {
       cards: ['A1_routines', 'A2_tableau', 'A3_marque-page'],

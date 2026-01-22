@@ -52,18 +52,18 @@ const PRECACHE_URLS = [
   
   // Cartes Moments
   '/sources/cartes/moments/M1_accueil_presentations.md',
-  '/sources/cartes/moments/M2_accords_equipage_proto.md',
+  '/sources/cartes/moments/M2_accords_equipage.md',
   '/sources/cartes/moments/M3_introduction_roles_proto.md',
   '/sources/cartes/moments/M4_brief_matin_proto.md',
   '/sources/cartes/moments/M5_debrief_soir_proto.md',
   '/sources/cartes/moments/M6_mi_parcours_proto.md',
   '/sources/cartes/moments/M7_debrief_final_proto.md',
   
-  // Cartes SOS
-  '/sources/cartes/sos/S1_conflit_ouvert_proto.md',
-  '/sources/cartes/sos/S2_temps_sans_navigation_proto.md',
-  '/sources/cartes/sos/S3_rediscuter_accords_programme_proto.md',
-  '/sources/cartes/sos/S4_demande_feedback_mono_proto.md',
+  // Cartes Joker
+  '/sources/cartes/joker/J1_conflit_ouvert_proto.md',
+  '/sources/cartes/joker/J2_temps_sans_navigation_proto.md',
+  '/sources/cartes/joker/J3_rediscuter_accords_programme_proto.md',
+  '/sources/cartes/joker/J4_demande_feedback_mono_proto.md',
   
   // Affiches (mémos)
   '/sources/affiches/A1_routines_memo.md',

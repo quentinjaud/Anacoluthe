@@ -17,7 +17,9 @@ C'est le bon moment pour revisiter vos attentes de J1 (M1) et vos accords d'équ
 
 <!-- FLIP -->
 
+<!-- SKIP-PRINT -->
 ## ⚓ DÉROULÉ MI-PARCOURS
+<!-- /SKIP-PRINT -->
 
 #### 1. CE QUI FONCTIONNE (5 min)
 
@@ -53,7 +55,7 @@ Nommez une réussite collective depuis J1.
 
 #### ⚠️ VIGILANCE
 
-Si une vraie tension émerge, sortez une carte SOS plutôt que de tout traiter ici.
+Si une vraie tension émerge, sortez une carte Joker plutôt que de tout traiter ici.
 
 #### 🗣️ QUESTIONS POUR T'AIDER
 

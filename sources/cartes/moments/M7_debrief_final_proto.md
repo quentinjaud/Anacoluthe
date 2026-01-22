@@ -17,7 +17,9 @@ Ce temps est essentiel pour le transfert d'apprentissage. Sans lui, les compéte
 
 <!-- FLIP -->
 
+<!-- SKIP-PRINT -->
 ## 🎯 DÉROULÉ DÉBRIEF FINAL
+<!-- /SKIP-PRINT -->
 
 #### 1. TEMPS DE RÉFLEXION SOLO (10 min)
 
@@ -42,7 +44,7 @@ Chacun·e peut offrir un feedback positif à un·e autre :
 
 #### 4. CLÔTURE COLLECTIVE (5 min)
 
-Le·la moniteurice reformule les apprentissages communs.
+Lae moniteurice reformule les apprentissages communs.
 L'équipage peut choisir un geste, un mot, un rituel de clôture.
 
 #### 🗣️ QUESTIONS POUR T'AIDER

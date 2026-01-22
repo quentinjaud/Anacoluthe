@@ -8,6 +8,7 @@
 
 ## 👌 Cooked
 
+[X] M2 Accords d'équipage : passe Fond terminée - questions-guides, pop-corn, entraide/rythmes, SKIP-PRINT verso (22 janv 2026)
 [X] A1 Routines : affinage tâches POV stagiaire - lignes collectives plus concrètes, verbes d'action en navigation, section Second soigneux clarifiée, sync MD/HTML (22 janv 2026)
 [X] A3m Marque-page mémo : réécriture complète, tableau "Quand s'y référer" pour les 5 piliers, complémentarité Beaufort/Douglas (20 janv 2026)
 [X] A2m Tableau équipage mémo : réécriture complète, format guide de facilitation, 6 intentions définies (20 janv 2026)
@@ -57,16 +58,16 @@
 | R3 | [Second soigneux](../cartes/roles/R3_second_soigneux.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R4 | [Cambusier·ère](../cartes/roles/R4_cambusiere.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | M1 | [Accueil & Présentations](../cartes/moments/M1_accueil_presentations.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | à finaliser |
+| M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
 | M3 | [Introduction rôles](../cartes/moments/M3_introduction_roles_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
 | M4 | [Brief matin](../cartes/moments/M4_brief_matin_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
 | M5 | [Débrief soir](../cartes/moments/M5_debrief_soir_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
 | M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
 | M7 | [Débrief final](../cartes/moments/M7_debrief_final_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
-| S1 | [Gérer un conflit](../cartes/sos/S1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
-| S2 | [Temps sans navigation](../cartes/sos/S2_temps_sans_navigation_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
-| S3 | [Rediscuter le cadre](../cartes/sos/S3_rediscuter_accords_programme_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
-| S4 | [Retour moniteurice](../cartes/sos/S4_demande_feedback_mono_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| J1 | [Gérer un conflit](../cartes/joker/J1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| J3 | [Rediscuter le cadre](../cartes/joker/J3_rediscuter_accords_programme_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| J4 | [Retour moniteurice](../cartes/joker/J4_demande_feedback_mono_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 
 ### Légende statuts
 

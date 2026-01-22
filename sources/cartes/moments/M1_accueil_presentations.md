@@ -17,7 +17,9 @@ Cette semaine, vous apprendrez la voile - et aussi à faire équipage. Ces comp�
 
 <!-- FLIP -->
 
+<!-- SKIP-PRINT -->
 ## 🌅 DÉROULÉ ACCUEIL & ATTENTES
+<!-- /SKIP-PRINT -->
 
 #### 1. BRISE-GLACE (5 min)
 

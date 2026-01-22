@@ -9,7 +9,7 @@ La journée de navigation est finie. Vous avez manœuvré, appris, peut-être ga
 
 Mais la dimension humaine compte aussi. Comment a fonctionné l'équipage ? Les rôles ont-ils été tenus ? Y a-t-il eu des frictions, des belles coopérations ?
 
-Ce temps ancre les apprentissages techniques ET relationnels. C'est aussi le moment d'identifier si une carte SOS serait utile.
+Ce temps ancre les apprentissages techniques ET relationnels. C'est aussi le moment d'identifier si une carte Joker serait utile.
 
 ## ✨ LE P'TIT TIP'S
 
@@ -17,7 +17,9 @@ On parle de fonctionnement collectif, pas de personnes. "Notre communication a �
 
 <!-- FLIP -->
 
+<!-- SKIP-PRINT -->
 ## 🌙 DÉROULÉ DÉBRIEF SOIR
+<!-- /SKIP-PRINT -->
 
 #### 1. DÉBRIEF TECHNIQUE (5 min)
 
@@ -35,7 +37,7 @@ Tour de parole :
 #### 3. CHECK TENSIONS (2 min)
 
 "Y a-t-il une tension qui mériterait qu'on en parle ?"
-Si oui → proposer une carte SOS adaptée
+Si oui → proposer une carte Joker adaptée
 Si non → on passe
 
 #### 4. NOTER DANS LE LIVRE DE BORD
@@ -48,7 +50,7 @@ Dans "Observations", ajoutez :
 
 #### 💡 VARIANTE J5-J6
 
-Le·la second soigneux anime le débrief coopération.
+Lae second soigneux anime le débrief coopération.
 
 #### 🗣️ QUESTIONS POUR T'AIDER
 

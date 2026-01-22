@@ -13,11 +13,13 @@ C'est aussi le moment où le tableau d'équipage prend vie : chacun·e y note sa
 
 ## ✨ LE P'TIT TIP'S
 
-La météo perso n'a pas à être justifiée. Un mot suffit. Si quelqu'un·e est en basse énergie, le·la second soigneux du jour gardera un œil bienveillant.
+La météo perso n'a pas à être justifiée. Un mot suffit. Si quelqu'un·e est en basse énergie, lae second soigneux du jour gardera un œil bienveillant.
 
 <!-- FLIP -->
 
+<!-- SKIP-PRINT -->
 ## ☀️ DÉROULÉ BRIEF MATIN
+<!-- /SKIP-PRINT -->
 
 #### 1. MÉTÉO PERSO (2 min)
 
@@ -47,7 +49,7 @@ Enchaînez avec le brief classique : météo, route, programme.
 
 #### ⚠️ VIGILANCES
 
-- Si quelqu'un·e est en météo basse, le·la second soigneux garde un œil
+- Si quelqu'un·e est en météo basse, lae second soigneux garde un œil
 - Ne pas forcer les explications sur la météo perso
 - Le brief reste court - pas un temps de discussion
 

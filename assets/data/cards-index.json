@@ -73,9 +73,9 @@
       "description": "Créer un cadre partagé pour naviguer et vivre ensemble, en nommant besoins et limites.",
       "tags": ["Poser le cadre", "Explorer les thèmes", "Formuler", "Valider"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M2_accords_equipage_proto.md",
-      "pdfPath": "print/cartes/M2_accords_equipage_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/moments/M2_accords_equipage.md",
+      "pdfPath": "print/cartes/M2_accords_equipage.pdf",
+      "proto": false
     },
     {
       "id": "M3",
@@ -143,55 +143,55 @@
       "proto": true
     },
     {
-      "id": "S1",
-      "type": "sos",
+      "id": "J1",
+      "type": "joker",
       "title": "Gérer un conflit",
       "subtitle": "Quand la tension monte",
       "emoji": "⚡",
       "description": "Désamorcer une tension relationnelle avant qu'elle ne s'enkyste ou n'explose.",
       "tags": ["Pause", "Nommer", "Écouter", "Chercher ensemble"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/sos/S1_conflit_ouvert_proto.md",
-      "pdfPath": "print/cartes/S1_conflit_ouvert_proto.pdf",
+      "path": "sources/cartes/joker/J1_conflit_ouvert_proto.md",
+      "pdfPath": "print/cartes/J1_conflit_ouvert_proto.pdf",
       "proto": true
     },
     {
-      "id": "S2",
-      "type": "sos",
+      "id": "J2",
+      "type": "joker",
       "title": "Temps sans navigation",
       "subtitle": "Pétole ou coup de vent",
       "emoji": "⏸️",
       "description": "Transformer la contrainte météo en opportunité collective.",
       "tags": ["Accepter", "Proposer", "Respecter les besoins"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/sos/S2_temps_sans_navigation_proto.md",
-      "pdfPath": "print/cartes/S2_temps_sans_navigation_proto.pdf",
+      "path": "sources/cartes/joker/J2_temps_sans_navigation_proto.md",
+      "pdfPath": "print/cartes/J2_temps_sans_navigation_proto.pdf",
       "proto": true
     },
     {
-      "id": "S3",
-      "type": "sos",
+      "id": "J3",
+      "type": "joker",
       "title": "Rediscuter le cadre",
       "subtitle": "Quand ça coince",
       "emoji": "🔄",
       "description": "Ajuster les accords d'équipage ou le programme quand ils ne fonctionnent plus.",
       "tags": ["Constater", "Proposer", "Reformuler"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/sos/S3_rediscuter_accords_programme_proto.md",
-      "pdfPath": "print/cartes/S3_rediscuter_accords_programme_proto.pdf",
+      "path": "sources/cartes/joker/J3_rediscuter_accords_programme_proto.md",
+      "pdfPath": "print/cartes/J3_rediscuter_accords_programme_proto.pdf",
       "proto": true
     },
     {
-      "id": "S4",
-      "type": "sos",
+      "id": "J4",
+      "type": "joker",
       "title": "Retour moniteurice",
       "subtitle": "Oser dire",
       "emoji": "💬",
       "description": "Faire une demande ou un retour au·à la moniteur·ice, positif ou ajustement.",
       "tags": ["Préparer", "Formuler", "Écouter la réponse"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/sos/S4_demande_feedback_mono_proto.md",
-      "pdfPath": "print/cartes/S4_demande_feedback_mono_proto.pdf",
+      "path": "sources/cartes/joker/J4_demande_feedback_mono_proto.md",
+      "pdfPath": "print/cartes/J4_demande_feedback_mono_proto.pdf",
       "proto": true
     }
   ],
@@ -259,9 +259,9 @@
       "tagsIcon": "📋",
       "count": 7
     },
-    "sos": {
-      "label": "SOS",
-      "tagsIcon": "⚡",
+    "joker": {
+      "label": "Joker",
+      "tagsIcon": "🃏",
       "count": 4
     },
     "affiche": {

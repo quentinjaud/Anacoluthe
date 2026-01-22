@@ -46,12 +46,12 @@
     /* Accents par type (titres uniquement, fonds = blanc) */
     --amber-700: #c96a30;   /* Rôles - principal */
     --teal-700: #3d8b87;    /* Moments - principal */
-    --brick-700: #C62828;   /* SOS - principal (rouge brique) */
+    --brick-700: #C62828;   /* Joker - principal (rouge brique) */
     
     /* Accents secondaires (H3, H4) */
     --amber-accent: #3d8b87;   /* Rôles → teal */
     --teal-accent: #c96a30;    /* Moments → amber */
-    --brick-accent: #0066AD;   /* SOS → bleu Glénans */
+    --brick-accent: #0066AD;   /* Joker → bleu Glénans */
     
     /* Couleurs légères pour borders */
     --amber-50: #fff8f0;
@@ -113,7 +113,7 @@
     background: #fff; 
 }
 
-.print-card-face.type-sos { 
+.print-card-face.type-joker { 
     background: #fff; 
 }
 
@@ -152,7 +152,7 @@
 
 .type-role .print-card-content h1 { color: var(--amber-700); }
 .type-moment .print-card-content h1 { color: var(--teal-700); }
-.type-sos .print-card-content h1 { color: var(--brick-700); }
+.type-joker .print-card-content h1 { color: var(--brick-700); }
 
 /* H6 - Sous-titre (après H1) */
 .print-card-content h6 {
@@ -167,7 +167,7 @@
 
 .type-role .print-card-content h6 { color: var(--amber-accent); }
 .type-moment .print-card-content h6 { color: var(--teal-accent); }
-.type-sos .print-card-content h6 { color: var(--brick-accent); }
+.type-joker .print-card-content h6 { color: var(--brick-accent); }
 
 /* H2 - Sections */
 .print-card-content h2 {
@@ -183,7 +183,7 @@
 /* Border H2 par type (couleur d'accent légère) */
 .type-role .print-card-content h2 { border-top-color: var(--teal-200); }
 .type-moment .print-card-content h2 { border-top-color: var(--amber-200); }
-.type-sos .print-card-content h2 { border-top-color: var(--glenans-200); }
+.type-joker .print-card-content h2 { border-top-color: var(--glenans-200); }
 
 /* H2 en tête de page (verso) - pas de border-top */
 .print-card-content > h2:first-child {
@@ -194,7 +194,7 @@
 
 .type-role .print-card-content h2 { color: var(--amber-700); }
 .type-moment .print-card-content h2 { color: var(--teal-700); }
-.type-sos .print-card-content h2 { color: var(--brick-700); }
+.type-joker .print-card-content h2 { color: var(--brick-700); }
 
 /* H3 - Sous-sections (couleur accent) */
 .print-card-content h3 {
@@ -207,7 +207,7 @@
 
 .type-role .print-card-content h3 { color: var(--amber-accent); }
 .type-moment .print-card-content h3 { color: var(--teal-accent); }
-.type-sos .print-card-content h3 { color: var(--brick-accent); }
+.type-joker .print-card-content h3 { color: var(--brick-accent); }
 
 /* H4 - Sous-sous-sections (couleur accent) */
 .print-card-content h4 {
@@ -220,7 +220,12 @@
 
 .type-role .print-card-content h4 { color: var(--amber-accent); }
 .type-moment .print-card-content h4 { color: var(--teal-accent); }
-.type-sos .print-card-content h4 { color: var(--brick-accent); }
+.type-joker .print-card-content h4 { color: var(--brick-accent); }
+
+/* H4 en tête de page (quand H2 masqué par SKIP-PRINT) */
+.print-card-content > h4:first-child {
+    margin-top: 0;
+}
 
 /* Paragraphes */
 .print-card-content p {
@@ -246,7 +251,7 @@
 /* Couleur bordure blockquote par type (accent) */
 .type-role .print-card-content blockquote { border-left-color: var(--amber-accent); }
 .type-moment .print-card-content blockquote { border-left-color: var(--teal-accent); }
-.type-sos .print-card-content blockquote { border-left-color: var(--brick-accent); }
+.type-joker .print-card-content blockquote { border-left-color: var(--brick-accent); }
 
 /* Listes */
 .print-card-content ul,
@@ -271,7 +276,7 @@
 
 .type-role .print-card-content li::marker { color: var(--amber-accent); }
 .type-moment .print-card-content li::marker { color: var(--teal-accent); }
-.type-sos .print-card-content li::marker { color: var(--brick-accent); }
+.type-joker .print-card-content li::marker { color: var(--brick-accent); }
 
 /* Emphases */
 .print-card-content strong {
@@ -292,7 +297,7 @@
 
 .type-role .print-card-content hr { border-top-color: var(--amber-300); }
 .type-moment .print-card-content hr { border-top-color: var(--teal-300); }
-.type-sos .print-card-content hr { border-top-color: var(--brick-300); }
+.type-joker .print-card-content hr { border-top-color: var(--brick-300); }
 
 /* Liens */
 .print-card-content a {

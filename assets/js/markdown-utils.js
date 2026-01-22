@@ -66,6 +66,10 @@ function splitByFlip(markdown) {
  * - Supprime les marqueurs SKIP-WEB (garde le contenu pour print)
  * - Supprime les marqueurs HEAD
  *
+ * SKIP-PRINT supporte deux modes :
+ * 1. Avec marqueur de fin : <!-- SKIP-PRINT -->...<!-- /SKIP-PRINT --> → supprime exactement ce bloc
+ * 2. Sans marqueur de fin : supprime jusqu'au prochain H2 ou HR ou fin (comportement legacy)
+ *
  * @param {string} markdown - Le markdown brut d'une face (recto ou verso)
  * @returns {string} - Le markdown nettoyé pour print
  */
@@ -75,7 +79,13 @@ function prepareMarkdownForPrint(markdown) {
     // Retirer le marqueur HEAD
     content = content.replace(/<!--\s*HEAD\s*-->/gi, '');
 
-    // Supprimer les blocs SKIP-PRINT (le marqueur + le contenu jusqu'au prochain H2 ou HR ou fin)
+    // Mode 1 : Supprimer les blocs SKIP-PRINT avec marqueur de fin explicite
+    content = content.replace(
+        /<!--\s*SKIP-PRINT\s*-->[\s\S]*?<!--\s*\/SKIP-PRINT\s*-->/gi,
+        ''
+    );
+
+    // Mode 2 : Supprimer les blocs SKIP-PRINT sans marqueur de fin (jusqu'au prochain H2 ou HR ou fin)
     content = content.replace(
         /<!--\s*SKIP-PRINT\s*-->[\s\n]*(?:##[^\n]*\n)?[\s\S]*?(?=\n---\s*\n|\n## |$)/gi,
         ''
@@ -191,7 +201,7 @@ function parseCardContent(markdown) {
  * 
  * @param {HTMLElement} modalBody - Le conteneur du contenu (avec .card-content)
  * @param {HTMLElement} containerEl - Le conteneur parent où ajouter la nav
- * @param {string} cardType - Le type de carte (role, moment, sos, affiche)
+ * @param {string} cardType - Le type de carte (role, moment, joker, affiche)
  * @param {string} idPrefix - Préfixe pour les IDs (évite les conflits si plusieurs viewers)
  */
 function generateSectionNav(modalBody, containerEl, cardType, idPrefix = '') {

@@ -17,11 +17,13 @@ Osez le rôle qui vous intimide. C'est souvent celui qui vous fera le plus grand
 
 <!-- FLIP -->
 
+<!-- SKIP-PRINT -->
 ## 👥 DÉROULÉ INTRODUCTION DES RÔLES
+<!-- /SKIP-PRINT -->
 
 #### 1. PRÉSENTER LE PRINCIPE (2 min)
 
-Le·la moniteurice explique : "Chaque jour, vous incarnerez un rôle différent. Ces rôles développent des compétences utiles bien au-delà du bateau."
+Lae moniteurice explique : "Chaque jour, vous incarnerez un rôle différent. Ces rôles développent des compétences utiles bien au-delà du bateau."
 
 #### 2. DISTRIBUER LES 4 CARTES RÔLES (5 min)
 
@@ -41,7 +43,7 @@ Chacun·e partage : "Quel rôle m'attire ? Lequel m'intimide ?"
 
 #### 4. FAIRE LE LIEN AVEC LA VIE À TERRE (5 min)
 
-Le·la moniteurice conclut : "Ces compétences servent partout - au travail, en famille, en asso. On en reparlera en fin de semaine."
+Lae moniteurice conclut : "Ces compétences servent partout - au travail, en famille, en asso. On en reparlera en fin de semaine."
 
 #### ⚓ ANCRAGE
 

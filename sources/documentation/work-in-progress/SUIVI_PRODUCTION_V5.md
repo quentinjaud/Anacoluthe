@@ -8,6 +8,37 @@
 
 ## 🔄 DERNIÈRES MODIFICATIONS (260122)
 
+### Session 16 - Passe Fond M2 Accords d'équipage
+
+**Travail de fond sur M2**
+- Transformation des thèmes passifs en questions-guides actives
+- Nouveau format "pop-corn" au lieu du tour de table par question
+- Ajout thème entraide/apprentissage : "Quel cadre pour s'entraider sans prendre la place ?"
+- Fusion fatigue/repos/solitude → "Comment on respecte les rythmes de chacun·e ?"
+- Sous-thèmes ajoutés sous chaque question pour stimuler la réflexion
+- Ajout notion "opposables" dans le tip's (accords invocables si non respectés)
+- Consignes meta déplacées au recto (feuille vierge, équilibre temps de parole)
+- Logique recto/verso de la feuille d'accords : recto=brainstorm, verso=accords signés
+- Phase exploration séparée de reformulation (divergent puis convergent)
+
+**Amélioration SKIP-PRINT**
+- Support marqueur de fin explicite `<!-- /SKIP-PRINT -->` dans `markdown-utils.js`
+- Permet de masquer uniquement un élément précis (ex: H2 de verso) sans affecter la suite
+- Appliqué aux 7 cartes moments (M1-M7) pour masquer le titre de verso en print
+- CSS `h4:first-child { margin-top: 0 }` pour le cas où H2 est masqué
+
+**Changement de statut M2**
+- Renommage `M2_accords_equipage_proto.md` → `M2_accords_equipage.md`
+- Mise à jour références dans : sw.js, cards-index.json, tableau_suivi_cartes.md, SUIVI_PRODUCTION_V5.md
+
+**Fichiers modifiés**
+- `sources/cartes/moments/M2_accords_equipage.md` - contenu refondu
+- `sources/cartes/moments/M1-M7` - marqueurs SKIP-PRINT ajoutés
+- `assets/js/markdown-utils.js` - support `/SKIP-PRINT`
+- `assets/css/cards-print.css` - règle h4:first-child
+
+---
+
 ### Session 15 - Affinage A1 Routines POV stagiaire
 
 **Synchronisation MD/HTML**
@@ -105,7 +136,7 @@
 
 **Refonte A3 Marque-page verso (COMPLÉTÉ)**
 - Section "Les 4 rôles" ajoutée : descriptions courtes + inspirations (Moitessier, Trochet, Autissier, Edwards)
-- Section "Les paquets du jeu" ajoutée : 3 affiches, 4 rôles, 7 moments, 4 SOS
+- Section "Les paquets du jeu" ajoutée : 3 affiches, 4 rôles, 7 moments, 4 Joker
 - Zone "Mémos" (notes effaçables) ajoutée
 - Rituels matin/soir restructurés en 2 colonnes
 - Piliers coopératifs condensés (textes raccourcis)
@@ -298,7 +329,7 @@
 - Création `suivi.html` - tableau de bord visuel du projet
 - Barre de progression globale (% d'avancement calculé sur 5 passes x 21 éléments)
 - Stats en temps réel : terminés / en cours / à faire
-- Accordéons par paquet (Affiches, Rôles, Moments, SOS)
+- Accordéons par paquet (Affiches, Rôles, Moments, Joker)
 - Tableau d'avancement par élément avec 5 passes (Fond, Forme, Design, Print, Site)
 - Bouton "Notes" par paquet ouvrant une modale avec le fichier markdown
 - Section "Retours & mémos" (inbox terrain)
@@ -312,7 +343,7 @@ sources/suivi/
 ├── retours_et_memos.md       ← Inbox retours terrain
 ├── roles_notes.md            ← Notes détaillées rôles
 ├── moments_notes.md          ← Notes détaillées moments
-├── sos_notes.md              ← Notes détaillées SOS
+├── joker_notes.md            ← Notes détaillées Joker
 └── affiches_notes.md         ← Notes détaillées affiches
 ```
 
@@ -349,13 +380,13 @@ sources/suivi/
 
 ### Session 6 - Corrections CSS fil-semaine
 
-**Cartes SOS - cohérence visuelle**
-- Fond des cartes SOS changé de rose (`#FFEBEE`) à blanc (`var(--blanc)`)
-- Bordure corail conservée (`#FFCDD2`) pour maintenir l'identité visuelle SOS
+**Cartes Joker - cohérence visuelle**
+- Fond des cartes Joker changé de rose (`#FFEBEE`) à blanc (`var(--blanc)`)
+- Bordure corail conservée (`#FFCDD2`) pour maintenir l'identité visuelle Joker
 - Alignement avec les cartes moments qui ont déjà fond blanc
 
 **Fichier modifié**
-- `assets/css/fil-semaine.css` - `.fil-tool-sos .fil-tool-card`
+- `assets/css/fil-semaine.css` - `.fil-tool-joker .fil-tool-card`
 
 ---
 
@@ -368,7 +399,7 @@ sources/suivi/
 - Structure HTML : `.apercu-stack` > `.apercu-tile-wrapper` > fake cards + tile
 - Emoji repositionné dans le header de chaque tuile
 - Footer sous chaque pile : "x cartes dans le paquet [badge type]"
-- Badges colorés par type (Rôles, Moments, SOS, Affiches)
+- Badges colorés par type (Rôles, Moments, Joker, Affiches)
 - Pour affiches : "3 affiches A4 et leur carte mémo" (sans badge)
 - Hover : carte se soulève et perd sa rotation
 - Responsive fiabilisé (tablette/desktop avec `align-items: start`)
@@ -448,7 +479,7 @@ sources/suivi/
 |---------|-----|--------|
 | Cartes rôles | 4 | ✅ COMPLET |
 | Cartes moments-clés | 7 | 🟡 PROTOS À VALIDER |
-| Cartes SOS | 4 | 🟠 PROTOS À VALIDER |
+| Cartes Joker | 4 | 🟠 PROTOS À VALIDER |
 | Affiches A4 | 3 | ✅ COMPLET |
 | Mémos affiches A6 | 3 | ✅ COMPLET |
 | Site web | 1 | ✅ EN LIGNE |
@@ -468,22 +499,22 @@ sources/suivi/
 
 | # | Moment | Timing | Fichier |
 |---|--------|--------|---------|
-| M1 | Accueil & attentes | J1 après-midi | `sources/cartes/moments/M1_accueil_attentes_proto.md` |
-| M2 | Accords d'équipage | J1 soir | `M2_accords_equipage_proto.md` |
+| M1 | Accueil & Présentations | J1 après-midi | `M1_accueil_presentations.md` |
+| M2 | Accords d'équipage | J1 soir | `M2_accords_equipage.md` ✅ |
 | M3 | Introduction rôles | J1 soir | `M3_introduction_roles_proto.md` |
 | M4 | Brief matin | J2-J6 | `M4_brief_matin_proto.md` |
 | M5 | Débrief soir | J2-J6 | `M5_debrief_soir_proto.md` |
 | M6 | Mi-parcours | J3-J4 | `M6_mi_parcours_proto.md` |
 | M7 | Débrief final | J6 | `M7_debrief_final_proto.md` |
 
-### Cartes SOS (4)
+### Cartes Joker (4)
 
 | # | Carte | Fichier |
 |---|-------|---------|
-| S1 | Gérer un conflit/désaccord | `sources/cartes/sos/S1_conflit_ouvert_proto.md` |
-| S2 | Temps sans navigation | `S2_temps_sans_navigation_proto.md` |
-| S3 | Rediscuter accords/programme | `S3_rediscuter_accords_programme_proto.md` |
-| S4 | Demande/feedback mono | `S4_demande_feedback_mono_proto.md` |
+| J1 | Gérer un conflit/désaccord | `sources/cartes/joker/J1_conflit_ouvert_proto.md` |
+| J2 | Temps sans navigation | `J2_temps_sans_navigation_proto.md` |
+| J3 | Rediscuter accords/programme | `J3_rediscuter_accords_programme_proto.md` |
+| J4 | Demande/feedback mono | `J4_demande_feedback_mono_proto.md` |
 
 ### Mémos affiches (3)
 
@@ -498,7 +529,7 @@ sources/suivi/
 ## 🔜 PROCHAINES ÉTAPES
 
 ### Priorité haute
-- [ ] Relecture/validation des 11 protos (7 moments + 4 SOS)
+- [ ] Relecture/validation des 11 protos (7 moments + 4 Joker)
 
 **Critères** : densité ~900 car/face, écriture inclusive, ton bienveillant, actions concrètes
 
@@ -516,7 +547,7 @@ sources/suivi/
 | `DESIGN_INTENTIONS.md` | Couleurs, typo, emojis, marqueurs MD, specs print |
 | `TECH_INTENTIONS.md` | Architecture JS/CSS, conventions code, workflow Git |
 | `CARTES_MOMENTS_INTENTIONS.md` | Intentions pédagogiques moments |
-| `CARTES_SOS_INTENTIONS.md` | Intentions pédagogiques SOS |
+| `CARTES_JOKER_INTENTIONS.md` | Intentions pédagogiques Joker |
 | `ARCHIVES_PRODUCTION_V5.md` | Historique, décisions passées, chemins fichiers |
 
 ---
@@ -527,6 +558,37 @@ sources/suivi/
 - **Titres MD** : pas de `**bold**` dans h1-h6
 - **Écriture inclusive** : navigateurice, iel, chacun·e
 - **Densité A6** : ~900 car/face
+
+---
+
+## 📋 PROCÉDURE CHANGEMENT DE STATUT
+
+Quand une carte passe de proto à validée (passe Fond terminée) :
+
+### 1. Renommer le fichier source
+```bash
+git mv sources/cartes/xxx/Xx_nom_proto.md sources/cartes/xxx/Xx_nom.md
+```
+
+### 2. Mettre à jour les références (4 fichiers)
+
+| Fichier | Modification |
+|---------|--------------|
+| `assets/data/cards-index.json` | `path`, `pdfPath` (sans _proto), `"proto": false` |
+| `sw.js` | Chemin dans le tableau de cache |
+| `sources/suivi/tableau_suivi_cartes.md` | Lien MD + colonne Fond → ✅ |
+| `SUIVI_PRODUCTION_V5.md` | Tableau "Protos à valider" (optionnel) |
+
+### 3. Commit
+
+### Automatique au prochain build
+- **PDF** : `render-cards.js` dérive le nom du PDF depuis `path.basename(card.path, '.md')` → nouveau PDF généré automatiquement
+- **Badge PROTO** : disparaît dans l'UI (cards-loader.js lit `proto: false`)
+- **Ancien PDF** : reste dans `print/cartes/` → supprimé au prochain CI ou manuellement
+
+### Anomalies connues
+- M1 : PDF `M1_ACCUEIL_ATTENTES.pdf` désynchronisé du source `M1_accueil_presentations.md`
+- `pdfPath` dans cards-index.json est déclaratif mais non utilisé par le générateur (redondance)
 
 ---
 

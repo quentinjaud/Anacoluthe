@@ -1,11 +1,11 @@
-# CARTES SOS - INTENTIONS & ANIMATION
+# CARTES JOKER - INTENTIONS & ANIMATION
 ## Notice de production
 
 ---
 
 ## VUE D'ENSEMBLE
 
-Les 4 cartes SOS sont des **outils curatifs** mobilisables quand les cartes moments n'ont pas suffi. Elles permettent de réguler des situations qui "coincent" : conflits, frustrations, accords non respectés, communication difficile avec le·la mono.
+Les 4 cartes Joker sont des **outils curatifs** mobilisables quand les cartes moments n'ont pas suffi. Elles permettent de réguler des situations qui "coincent" : conflits, frustrations, accords non respectés, communication difficile avec le·la mono.
 
 **Nature** : Curatives, pas préventives. Elles interviennent quand une situation dégénère malgré les rituels quotidiens.
 
@@ -15,12 +15,12 @@ Les 4 cartes SOS sont des **outils curatifs** mobilisables quand les cartes mome
 
 **Format** : A6 recto-verso, ±900 caractères/face. Même structure que les cartes moments.
 
-| # | Carte SOS | Situation | Statut |
+| # | Carte Joker | Situation | Statut |
 |---|-----------|-----------|--------|
-| S1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective qui bloque | ⬜ À faire |
-| S2 | Organiser un temps sans navigation | Pétole ou temps trop fort - frustration + surprise | ⬜ À faire |
-| S3 | Rediscuter accords/programme | Accord non respecté ou frustration technique qui monte | ⬜ À faire |
-| S4 | Faire une demande/feedback au mono | Besoin de communiquer avec le·la mono sur son action | ⬜ À faire |
+| J1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective qui bloque | ⬜ À faire |
+| J2 | Organiser un temps sans navigation | Pétole ou temps trop fort - frustration + surprise | ⬜ À faire |
+| J3 | Rediscuter accords/programme | Accord non respecté ou frustration technique qui monte | ⬜ À faire |
+| J4 | Faire une demande/feedback au mono | Besoin de communiquer avec le·la mono sur son action | ⬜ À faire |
 
 ---
 
@@ -28,7 +28,7 @@ Les 4 cartes SOS sont des **outils curatifs** mobilisables quand les cartes mome
 
 ### Différences avec les cartes moments
 
-- **Pas de timing prédéfini** : les SOS se sortent quand la situation l'exige
+- **Pas de timing prédéfini** : les Joker se sortent quand la situation l'exige
 - **Ton plus "urgence"** : reconnaître que ça coince, sans dramatiser
 - **Focus résolution** : aller vers une sortie de crise, pas juste poser un cadre
 
@@ -59,11 +59,11 @@ Les 4 cartes SOS sont des **outils curatifs** mobilisables quand les cartes mome
 - **Efficacité > exhaustivité** : en situation de tension, moins de texte = mieux
 - **Rôles V5 mentionnés** : chaque carte sollicite des rôles spécifiques
 - **Pas de méthode de décision formelle** : trop lourd en situation de crise
-- **Lien vers autres cartes si besoin** : S3 peut déclencher retour vers M2, etc.
+- **Lien vers autres cartes si besoin** : J3 peut déclencher retour vers M2, etc.
 
 ---
 
-## S1 - GÉRER UN CONFLIT/DÉSACCORD
+## J1 - GÉRER UN CONFLIT/DÉSACCORD
 
 ### 📍 Contexte d'usage
 
@@ -123,7 +123,7 @@ Dans les deux cas : on se remercie d'avoir pris ce temps.
 
 ---
 
-## S2 - ORGANISER UN TEMPS SANS NAVIGATION
+## J2 - ORGANISER UN TEMPS SANS NAVIGATION
 
 ### 📍 Contexte d'usage
 
@@ -191,7 +191,7 @@ Récap à voix haute. Chacun·e note ou photo le planning.
 
 ---
 
-## S3 - REDISCUTER ACCORDS/PROGRAMME
+## J3 - REDISCUTER ACCORDS/PROGRAMME
 
 ### 📍 Contexte d'usage
 
@@ -259,7 +259,7 @@ Si objection forte → continuer la discussion ou reporter.
 
 ---
 
-## S4 - FAIRE UNE DEMANDE/FEEDBACK AU MONO
+## J4 - FAIRE UNE DEMANDE/FEEDBACK AU MONO
 
 ### 📍 Contexte d'usage
 
@@ -341,10 +341,10 @@ Le·la mono peut :
 
 ## ARTICULATION AVEC AUTRES ÉLÉMENTS
 
-- **Cartes moments** : Les SOS interviennent quand les moments n'ont pas suffi
-- **M2 Accords d'équipage** : S3 permet de revenir sur ce qui a été posé en M2
-- **M5 Débrief soir** : Peut déclencher une carte SOS si tension identifiée
-- **Tableau d'équipage** : Le second soigneux du jour est souvent initiateur des SOS
+- **Cartes moments** : Les Joker interviennent quand les moments n'ont pas suffi
+- **M2 Accords d'équipage** : J3 permet de revenir sur ce qui a été posé en M2
+- **M5 Débrief soir** : Peut déclencher une carte Joker si tension identifiée
+- **Tableau d'équipage** : Le second soigneux du jour est souvent initiateur des Joker
 - **Livre de bord** : Trace des régulations effectuées
 
 ---

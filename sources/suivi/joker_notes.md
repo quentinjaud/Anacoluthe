@@ -1,4 +1,4 @@
-# Notes - Cartes SOS
+# Notes - Cartes Joker
 
 ## Vue d'ensemble
 
@@ -6,12 +6,12 @@
 Déclencheur : équipage ou mono, souvent à l'initiative d'un stagiaire.
 
 Décisions clés (3-4 déc) :
-- Pas de méthode de décision formelle dans les SOS (trop lourd en crise)
+- Pas de méthode de décision formelle dans les Joker (trop lourd en crise)
 - Cartes conçues pour être utilisables par les stagiaires, pas seulement le mono
 
 ---
 
-## S1 - Gérer un conflit
+## J1 - Gérer un conflit
 
 ### Intentions pédagogiques
 Désamorcer une tension relationnelle avant qu'elle ne s'enkyste.
@@ -25,7 +25,7 @@ Proto créé. Vérifier que le protocole reste simple sous stress.
 
 ---
 
-## S2 - Temps sans navigation
+## J2 - Temps sans navigation
 
 ### Intentions pédagogiques
 Transformer la contrainte météo (pétole OU coup de vent) en opportunité.
@@ -39,7 +39,7 @@ Proto créé. Même dynamique émotionnelle pétole/coup de vent = même carte.
 
 ---
 
-## S3 - Rediscuter le cadre
+## J3 - Rediscuter le cadre
 
 ### Intentions pédagogiques
 Ajuster accords d'équipage OU programme quand ils ne fonctionnent plus.
@@ -53,7 +53,7 @@ Proto créé. Attention à ne pas en faire une carte "contestation permanente".
 
 ---
 
-## S4 - Retour moniteurice
+## J4 - Retour moniteurice
 
 ### Intentions pédagogiques
 Oser faire une demande ou un retour au·à la mono.
@@ -68,4 +68,4 @@ Proto créé. Carte délicate - doit rester bienveillante dans les deux sens.
 
 ---
 
-*Dernière mise à jour : décembre 2025*
+*Dernière mise à jour : janvier 2026*

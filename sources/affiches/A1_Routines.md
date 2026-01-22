@@ -1,4 +1,4 @@
-# 🌊 ROUTINES QUOTIDIENNES
+# 🔁 ROUTINES QUOTIDIENNES
 
 > 👉 **Affichage** : 
 > Pour chaque section : 
@@ -11,7 +11,9 @@
 >
 > 🗣️ **tonalité**
 >
-> Plutôt "action effectuée " que "effectuer l'action" pour pouvoir le "check" quand c'est fait. plutôt "célébrer ce qui est fait" que "dire ce qu'il faut faire"
+> Plutôt "action effectuée" que "effectuer l'action" pour pouvoir le "check" quand c'est fait. Plutôt "célébrer ce qui est fait" que "dire ce qu'il faut faire".
+
+---
 
 ## 🐝 PRÉPARATION DE LA JOURNÉE
 
@@ -31,14 +33,14 @@
 ## ⚓ APPAREILLAGE
 
 ### COLLECTIF
-> On part ensemble, prêt·es
+> On part ensemble, chacun·e à son poste, un poste pour chacun·e
 
-- Manœuvre expliquée, postes distribués, topo Sécu' fait
+- La manœuvre est claire pour tous·tes, le topo Sécu' est fait
 
 ### PAR RÔLE
 - 🔧 **Bosco** : défenses placées, amarres doublées, moteur démarré
 - 🧭 **Nav** : scénario de sortie partagé, ligne "appareillage" inscrite au LDB
-- 🤝 **Second·e** : électricité débranchée, adaptateur retiré, brassières vérifiées
+- 🤝 **Second·e** : électricité débranchée, adaptateur retiré, brassières portées
 - 🍳 **Cambuse** : carré rangé, capitainerie réglée, badges rendus
 
 ---
@@ -48,17 +50,17 @@
 ### COLLECTIF
 > **ROUTE, RÉGLAGE, RANGEMENT, RIRES, REPAS, REPOS**
 
-- Postes tournés, entraide consentie, repos pris
+- Postes tournent à rythme fixe, on s'entraide et on s'écoute
 
 ### PAR RÔLE
-- 🔧 **Bosco** : pont rangé, veille technique assurée
-- 🧭 **Nav** : route suivie, réglages ajustés, point inscrit au LDB
-- 🤝 **Second·e** : rotation effectuée, équipage vérifié
-- 🍳 **Cambuse** : repas/grignotage servi, rythme/repos respecté
+- 🔧 **Bosco** : 🔄 ranger le cockpit fréquemment, 🔄 veille technique int. / ext.
+- 🧭 **Nav** : 🔄 route suivie, position assurée, 🔄 point fréquent sur le LDB
+- 🤝 **Second·e** : 🔄 s'assurer des rotations, 🔄 vérifier l'état de l'équipage
+- 🍳 **Cambuse** : 🔄 proposer des grignotages, 🔄 rythme/repos-repas respecté
 
 ---
 
-## 🌴 AVANT ATTERRISSAGE
+## 🛬 AVANT L'ATTERRISSAGE
 
 ### COLLECTIF
 > On arrive ensemble, sereins
@@ -66,29 +68,29 @@
 - Manœuvre anticipée, postes attribués
 
 ### PAR RÔLE
-- 🔧 **Bosco** : défenses installées, amarres prêtes
-- 🧭 **Nav** : pilotage d'entrée repéré, pilotage partagé
-- 🤝 **Second·e** : équipage informé, sécu de base rappelée
+- 🔧 **Bosco** : défenses et amarres installées, voiles affalées et sécurisées
+- 🧭 **Nav** : pilotage repéré et partagé, capitainerie prévenue
+- 🤝 **Second·e** : équipage préparé, sécu de base rappelée
 - 🍳 **Cambuse** : carré rangé, équipement à terre préparé
 
 ---
 
-## 🏝️ APRÈS ATTERRISSAGE
+## 🏝️ APRÈS L'ARRIVÉE
 
 ### COLLECTIF
-> On célèbre et on apprend
+> On capitalise sur la journée
 
-- Retour technique fait, apprentissages partagés
+- Apprentissages partagés
 
 ### PAR RÔLE
 - 🔧 **Bosco** : amarres sécurisées, électricité branchée, réparations notées sur BoatOn
-- 🧭 **Nav** : ligne inscrite au LDB, programme du lendemain esquissé
-- 🤝 **Second·e** : retours facilités, cartes Anacoluthe animées
-- 🍳 **Cambuse** : repas préparé, journée célébrée
+- 🧭 **Nav** : ligne de conclusion au LDB, programme du lendemain esquissé
+- 🤝 **Second·e** : debriefs : aider à l'animation, à aborder : technique, ressentis, coopération
+- 🍳 **Cambuse** : repas du soir à anticiper, avitaillement pour le lendemain vérifié
 
+---
 
-
-## 🗒️ NOTES DES RÔLES
+## 🗒️ ACTIONS SPÉCIFIQUES
 
 1 colonne par rôle pour pouvoir noter rapidement quelques tâches supp pour la semaine, avec des checkbox vides
 

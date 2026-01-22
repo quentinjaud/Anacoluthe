@@ -1,8 +1,38 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260120*
+*Dernière mise à jour : 260122*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260122)
+
+### Session 15 - Affinage A1 Routines POV stagiaire
+
+**Synchronisation MD/HTML**
+- Le fichier `A1_Routines.md` était désynchronisé du HTML, mise à jour complète
+
+**Affinage des tâches (test utilisateur POV stagiaire)**
+- Analyse complète des formulations de tâches
+- Vocabulaire maritime (LDB, carré, défenses, brassières) considéré comme acquis en stage
+
+**Améliorations validées dans le HTML**
+- Lignes collectives plus concrètes ("On part ensemble, chacun·e à son poste, un poste pour chacun·e")
+- Section Navigation : verbes d'action clairs + symbole rotation 🔄 pour tâches continues
+- "brassières portées" > "brassières vérifiées" (actionnable)
+- "ligne de conclusion au LDB" > "ligne inscrite" (plus parlant)
+- Second soigneux : "A aborder : technique, ressentis, coopération" (aide-mémoire débrief)
+- Cambuse : "avitaillement" au lieu de "avito'" (mot complet)
+
+**Points restants identifiés (non traités)**
+- "matos sécu prêt" et "sécu de base rappelée" : vagues, pourraient être précisés
+- "BoatOn" : outil spécifique Glénans, pas universel si le jeu s'ouvre
+- "rythme/repos-repas respecté" : intention plus que tâche cochable
+
+**Fichiers modifiés**
+- `sources/affiches/A1_Routines.md` - sync complète avec HTML
+- `sources/suivi/tableau_suivi_cartes.md` - mise à jour "Cooked"
 
 ---
 

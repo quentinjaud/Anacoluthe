@@ -5,9 +5,9 @@
 
 > Pour naviguer sereinement, il faut s'assurer que l'équipage et le bateau sont en état de fonctionner, et que tout le monde sait où on va. Cette affiche structure les vérifications collectives qui permettent d'anticiper, de se coordonner et de libérer l'esprit pour les apprentissages techniques et humains.
 
-L'affiche montre **6 moments** de la journée :
+L'affiche montre **5 moments** de la journée :
 
-🐝 Préparation → ⚓ Appareillage → ⛵ Navigation → 🛬 Avant atterrissage → 🏝️ Après arrivée → 🗒️ Actions spécifiques
+🐝 Préparation → ⚓ Appareillage → ⛵ Navigation → 🛬 Avant atterrissage → 🏝️ Après arrivée
 
 Pour chaque moment : une intention collective (ligne du haut en gras) et ce que chaque rôle vérifie (4 colonnes).
 

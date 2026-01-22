@@ -1,13 +1,14 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 20 Janvier 2026 (soir)
+> Dernière mise à jour : 22 Janvier 2026
 
 ## 🔥Sur le feu
 
-[ ] A1 : relire et modifier les checklist, encore trop de tâches à la con, et manquent des essentiels 
+[ ] Mx : travailler le fond des cartes "moment"
 
 ## 👌 Cooked
 
+[X] A1 Routines : affinage tâches POV stagiaire - lignes collectives plus concrètes, verbes d'action en navigation, section Second soigneux clarifiée, sync MD/HTML (22 janv 2026)
 [X] A3m Marque-page mémo : réécriture complète, tableau "Quand s'y référer" pour les 5 piliers, complémentarité Beaufort/Douglas (20 janv 2026)
 [X] A2m Tableau équipage mémo : réécriture complète, format guide de facilitation, 6 intentions définies (20 janv 2026)
 [X] A1m Routines mémo : réécriture complète, format guide de facilitation (20 janv 2026)

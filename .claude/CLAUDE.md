@@ -62,6 +62,6 @@ V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 Signaler les 404.
 
 **Suivi de conception** (dossier `sources/suivi/`) - noter les infos à la volée :
-- `retours_et_memos.md` → inbox retours terrain, idées, bugs
+- `retours_et_memos.md` → inbox retours terrain, idées, bugs par les beta-testeurs
 - `tableau_suivi_cartes.md` → avancement des 21 éléments (5 passes)
 - `*_notes.md` → notes détaillées par paquet

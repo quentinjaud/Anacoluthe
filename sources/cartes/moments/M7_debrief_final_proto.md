@@ -7,7 +7,7 @@
 
 La semaine se termine. Vous avez navigué, appris, coopéré, peut-être galéré. Vous avez incarné des rôles, régulé des tensions, vécu des moments forts ensemble.
 
-Mais si vous repartez sans prendre le temps de nommer ce que vous avez appris, ces expériences risquent de s'évaporer. Les compétences développées ici - coopération, écoute, organisation collective - sont transposables partout. Encore faut-il en prendre conscience.
+Mais si vous repartez sans prendre le temps de nommer ce que vous avez appris, ces expériences risquent de s'évaporer. Les compétences développées ici (coopération, écoute, organisation collective) sont transposables partout. Encore faut-il en prendre conscience.
 
 Ce débrief final ancre les apprentissages et prépare leur transfert vers la vie à terre.
 

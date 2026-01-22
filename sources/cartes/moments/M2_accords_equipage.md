@@ -9,7 +9,7 @@ Une semaine en équipage, c'est vivre ensemble 24h/24 dans 12m² flottants. Dorm
 
 Sans cadre explicite, vous allez naviguer à vue dans le vivre-ensemble : supposer ce qui est OK pour les autres, compenser en silence, accumuler les frustrations.
 
-Les accords d'équipage, c'est votre contrat social explicite. Pas une liste de règles imposées - des engagements d'humain à humain, co-construits.
+Les accords d'équipage, c'est votre contrat social explicite. Pas une liste de règles imposées, mais des engagements d'humain à humain, co-construits.
 
 ## ✨ LE P'TIT TIP'S
 

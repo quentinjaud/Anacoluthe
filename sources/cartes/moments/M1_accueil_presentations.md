@@ -13,7 +13,7 @@ Sans expression des attentes, le·la moniteurice navigue à l'aveugle. Les déce
 
 Ici, personne ne vous connaît. Personne n'attend de vous que vous soyez "comme d'habitude". C'est une occasion rare : vous pouvez explorer une autre version de vous-même, sortir de vos automatismes, questionner votre posture et vos façons d'être en groupe.
 
-Cette semaine, vous apprendrez la voile - et aussi à faire équipage. Ces compétences de coopération, vous les ramènerez à terre.
+Cette semaine, vous apprendrez la voile, et aussi à faire équipage. Ces compétences de coopération, vous les ramènerez à terre.
 
 <!-- FLIP -->
 

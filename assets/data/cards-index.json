@@ -80,15 +80,15 @@
     {
       "id": "M3",
       "type": "moment",
-      "title": "Introduction rôles",
+      "title": "Découverte des rôles",
       "subtitle": "Le premier soir - 15-20 min",
       "emoji": "👥",
       "description": "Présenter les 4 rôles et leurs marins inspirants, distribuer les premières missions.",
       "tags": ["Présenter", "Choisir", "Lancer"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M3_introduction_roles_proto.md",
-      "pdfPath": "print/cartes/M3_introduction_roles_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/moments/M3_decouverte_roles.md",
+      "pdfPath": "print/cartes/M3_decouverte_roles.pdf",
+      "proto": false
     },
     {
       "id": "M4",

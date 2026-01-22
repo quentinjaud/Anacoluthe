@@ -7,13 +7,13 @@
 
 Vous êtes à mi-chemin. Les premiers jours ont posé les bases : vous vous connaissez mieux, les rôles commencent à être intégrés, les routines s'installent.
 
-C'est aussi le moment où les tensions peuvent émerger. La fatigue s'accumule, les petits agacements deviennent des irritations. C'est normal - c'est prévisible.
+C'est aussi le moment où les tensions peuvent émerger. La fatigue s'accumule, les petits agacements deviennent des irritations. C'est normal, c'est prévisible.
 
 Ce point d'étape permet de prendre du recul : qu'est-ce qui fonctionne ? Qu'est-ce qui grince ? Faut-il ajuster quelque chose avant la fin de semaine ?
 
 ## ✨ LE P'TIT TIP'S
 
-C'est le bon moment pour revisiter vos attentes de J1 (M1) et vos accords d'équipage (M2). Certaines choses ont peut-être changé - et c'est OK.
+C'est le bon moment pour revisiter vos attentes de J1 (M1) et vos accords d'équipage (M2). Certaines choses ont peut-être changé, et c'est OK.
 
 <!-- FLIP -->
 

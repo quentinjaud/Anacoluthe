@@ -9,7 +9,7 @@
 
 Navigatrice française (née en 1956), première femme à boucler un tour du monde en solitaire en compétition (1991). Ingénieure agronome et océanographe, elle combine rigueur scientifique et sensibilité humaine.
 
-Ses récits de navigation témoignent d'une attention profonde aux équilibres fragiles - ceux de la mer, du bateau, et de l'âme humaine face à la solitude et aux éléments.
+Ses récits de navigation témoignent d'une attention profonde aux équilibres fragiles : ceux de la mer, du bateau, et de l'âme humaine face à la solitude et aux éléments.
 
 ## 🌱 Cela t'aidera à cultiver...
 

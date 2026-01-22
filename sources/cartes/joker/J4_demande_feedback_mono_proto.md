@@ -39,7 +39,7 @@ La personne formule son message. Le·la moniteurice écoute sans interrompre.
 
 Iel peut : remercier, demander des précisions, proposer un ajustement, expliquer une contrainte.
 
-⚠️ Pas de justification défensive - juste accueillir et répondre.
+⚠️ Pas de justification défensive. Juste accueillir et répondre.
 
 #### 💡 EXEMPLES
 

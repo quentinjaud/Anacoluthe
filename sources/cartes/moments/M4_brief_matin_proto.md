@@ -23,8 +23,8 @@ La météo perso n'a pas à être justifiée. Un mot suffit. Si quelqu'un·e est
 
 #### 1. MÉTÉO PERSO (2 min)
 
-Tour rapide - chacun·e dit en 1 mot comment iel se sent ce matin.
-*(Pas d'explication, pas de justification - juste un mot)*
+Tour rapide : chacun·e dit en 1 mot comment iel se sent ce matin.
+*(Pas d'explication, pas de justification. Juste un mot.)*
 
 ➡️ Chacun·e positionne son initiale sur le curseur du tableau d'équipage
 
@@ -51,7 +51,7 @@ Enchaînez avec le brief classique : météo, route, programme.
 
 - Si quelqu'un·e est en météo basse, lae second soigneux garde un œil
 - Ne pas forcer les explications sur la météo perso
-- Le brief reste court - pas un temps de discussion
+- Le brief reste court, pas un temps de discussion
 
 #### 💡 VARIANTE J5-J6
 

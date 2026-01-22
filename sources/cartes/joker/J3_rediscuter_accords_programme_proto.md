@@ -18,7 +18,7 @@ Pour : Équipage entier. Le·la moniteurice valide les ajustements possibles (te
 #### 1. CONSTAT PARTAGÉ (5 min)
 
 Quelqu'un·e nomme : "J'ai l'impression que [accord X] n'est pas respecté" ou "Je ressens une frustration sur [aspect du programme]."
-Tour rapide : "Qui partage ce constat ?" - pas de débat, juste valider.
+Tour rapide : "Qui partage ce constat ?" Pas de débat, juste valider.
 
 #### 2. RETOUR AUX SOURCES (5 min)
 

@@ -3,7 +3,7 @@
 
 <!-- HEAD -->
 
-> Une tension entre deux personnes (ou plus) est devenue visible. Ça se voit dans les regards, les silences, les remarques. Ça pèse sur tout l'équipage. Ce n'est plus un simple désaccord - c'est un conflit qui bloque.
+> Une tension entre deux personnes (ou plus) est devenue visible. Ça se voit dans les regards, les silences, les remarques. Ça pèse sur tout l'équipage. Ce n'est plus un simple désaccord : c'est un conflit qui bloque.
 
 ## ✨ INTENTION
 
@@ -44,7 +44,7 @@ Soit on trouve un accord, soit on laisse reposer et on en reparle demain.
 
 #### ⚠️ VIGILANCES
 
-- Ne pas forcer la résolution - parfois le temps aide
+- Ne pas forcer la résolution, parfois le temps aide
 - Ne pas chercher un·e "coupable"
 - Le·la moniteurice peut faciliter si demandé
 

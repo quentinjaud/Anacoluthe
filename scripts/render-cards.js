@@ -247,12 +247,14 @@ async function renderAfficheA4(page, card, baseUrl, formatConfig) {
   }
 
   // Note: pas de landscape:true car les dimensions sont déjà en paysage (297×210)
-  return await page.pdf({
+  const pdfBuffer = await page.pdf({
     width: `${formatConfig.width}mm`,
     height: `${formatConfig.height}mm`,
     printBackground: true,
     margin: { top: 0, right: 0, bottom: 0, left: 0 }
   });
+
+  return { pdfBuffer, pageCount };
 }
 
 /**
@@ -286,7 +288,7 @@ async function renderCard(browser, card, baseUrl) {
 
     // Affiche A4 (landscape ou portrait) avec HTML direct (1 page)
     if ((format === 'A4-landscape' || format === 'A4-portrait') && card.htmlPath) {
-      const pdfBuffer = await renderAfficheA4(page, card, baseUrl, formatConfig);
+      const { pdfBuffer, pageCount } = await renderAfficheA4(page, card, baseUrl, formatConfig);
 
       // Pas de fusion, une seule page
       pdfBytes = pdfBuffer;
@@ -295,6 +297,20 @@ async function renderCard(browser, card, baseUrl) {
       const baseName = path.basename(card.htmlPath, '.html');
       const outputPath = path.join(CONFIG.affichesDir, `${baseName}.pdf`);
       fs.writeFileSync(outputPath, pdfBytes);
+
+      // Générer les PNG d'aperçu pour le site
+      if (card.previewImages && card.previewImages.length > 0) {
+        if (pageCount <= 1) {
+          await page.screenshot({ path: card.previewImages[0], fullPage: true });
+          console.log(`  🖼️  ${path.basename(card.previewImages[0])}`);
+        } else {
+          const pageDivs = await page.$$('.affiche-a4, .affiche-a4-portrait');
+          for (let i = 0; i < pageDivs.length && i < card.previewImages.length; i++) {
+            await pageDivs[i].screenshot({ path: card.previewImages[i] });
+            console.log(`  🖼️  ${path.basename(card.previewImages[i])}`);
+          }
+        }
+      }
 
       stats.cardsSuccess++;
       const orientation = format === 'A4-portrait' ? 'portrait' : 'paysage';

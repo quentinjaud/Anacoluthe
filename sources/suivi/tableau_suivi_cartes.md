@@ -59,7 +59,7 @@
 | R4 | [Cambusier·ère](../cartes/roles/R4_cambusiere.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | M1 | [Accueil & Présentations](../cartes/moments/M1_accueil_presentations.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | Passe Fond terminée |
-| M3 | [Découverte rôles](../cartes/moments/M3_decouverte_roles_.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | priorité haute |
+| M3 | [Découverte rôles](../cartes/moments/M3_decouverte_roles.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | priorité haute |
 | M4 | [Brief matin](../cartes/moments/M4_brief_matin_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
 | M5 | [Débrief soir](../cartes/moments/M5_debrief_soir_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
 | M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |

@@ -22,9 +22,9 @@ Osez le rôle qui vous intimide. C'est souvent celui qui vous fera le plus grand
 ## 👥 DÉCOUVRIR LES RÔLES
 <!-- /SKIP-PRINT -->
 
-#### 1. ARPENTER LES 4 CARTES RÔLES
+#### 1. DISTRIBUER LES 4 CARTES RÔLES
 
-Faites circuler les cartes. Chacun·e lit silencieusement.
+Chacun·e prend une carte au hasard et la lit en entier (recto + verso).
 
 Les 4 rôles :
 - 🔧 Bosco (Bernard Moitessier) - Entretien, anticipation matérielle
@@ -32,8 +32,12 @@ Les 4 rôles :
 - 🤲 Second soigneux (Isabelle Autissier) - Bien-être équipage, régulation
 - 🍳 Cambusier·ère (Tracy Edwards) - Repas, convivialité, observation
 
-#### 2. PARTAGE DE L'ARPENTAGE
-Chacun·e décrit ce qu'iel a compris du rôle qu'iel a parcouru.
+#### 2. PARTAGE DES RÔLES
+
+Tour de parole au fil de l'eau. Chacun·e présente SON rôle aux autres :
+- Le rôle et lae marin·e inspirant·e
+- Les missions principales
+- Ce qui vous marque dans ce rôle
 
 #### 3. TOUR DE RÉFLEXION
 

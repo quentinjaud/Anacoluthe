@@ -34,7 +34,7 @@ Les 4 rôles :
 
 #### 2. PARTAGE DES RÔLES
 
-Tour de parole au fil de l'eau. Chacun·e présente SON rôle aux autres :
+Commence qui veut. Chacun·e présente SON rôle aux autres.
 - Le rôle et lae marin·e inspirant·e
 - Les missions principales
 - Ce qui vous marque dans ce rôle

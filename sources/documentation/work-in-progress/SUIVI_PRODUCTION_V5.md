@@ -1,8 +1,31 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260122*
+*Dernière mise à jour : 260123*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260123)
+
+### Session 17 - Plan d'évaluation cartes moments M4-M7
+
+**Création du plan de travail PLAN_MOMENTS.md**
+- Analyse des patterns de raffinement appliqués à M1, M2, M3 (quote engageante, contexte concret, enjeu explicite, tip permission, déroulé actionnable, ANCRAGE, transition)
+- Grille d'audit 15 critères pour évaluer chaque proto
+- Diagnostic complet des 4 protos restants (M4, M5, M6, M7)
+- Identification des écarts par critère (emoji, quote, cohérence intentions, ANCRAGE, progression mono)
+- Ordre de traitement proposé : M4 → M5 → M6 → M7 (du plus léger au plus lourd)
+- 4 questions à trancher avant production (emojis M4/M7, brief technique M4, feedbacks croisés M7)
+
+**Diagnostic résumé**
+- M4 Brief matin : écarts légers (ANCRAGE absent, enjeu implicite)
+- M5 Débrief soir : écarts légers (renommage ANCRAGE, précisions déroulé)
+- M6 Mi-parcours : écarts moyens (ordre inversé célébration/tensions, retour M1 absent)
+- M7 Débrief final : écarts forts (redondance quote/contexte, cohérence intentions, emoji, écriture inclusive)
+
+**Fichiers créés**
+- `sources/documentation/work-in-progress/PLAN_MOMENTS.md`
 
 ---
 

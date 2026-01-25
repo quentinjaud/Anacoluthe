@@ -7,6 +7,7 @@
 [ ] Mx : travailler le fond des cartes "moment"
 
 ## 👌 Cooked
+[X] M4 : retravaillé le fil du brief matin : plus ettoffé et plus clair. quitte statut proto. 
 [X] M3 : clarifié l'intention des rôles, et retravaillé le déroulé. M3 quitte le statut proto
 [X] M2 Accords d'équipage : passe Fond terminée - questions-guides, pop-corn, entraide/rythmes, SKIP-PRINT verso (22 janv 2026)
 [X] A1 Routines : affinage tâches POV stagiaire - lignes collectives plus concrètes, verbes d'action en navigation, section Second soigneux clarifiée, sync MD/HTML (22 janv 2026)

@@ -193,6 +193,45 @@
       "path": "sources/cartes/joker/J4_demande_feedback_mono_proto.md",
       "pdfPath": "print/cartes/J4_demande_feedback_mono_proto.pdf",
       "proto": true
+    },
+    {
+      "id": "A1-memo",
+      "type": "affiche",
+      "title": "Mémo Routines",
+      "subtitle": "Les 5 phases de navigation",
+      "emoji": "🔂",
+      "description": "Mémo A6 des routines quotidiennes.",
+      "tags": ["Préparation", "Départ", "Navigation", "Approche", "Arrivée"],
+      "tagsTitle": "5 phases",
+      "path": "sources/affiches/A1_routines_memo.md",
+      "pdfPath": "print/cartes/A1_routines_memo.pdf",
+      "proto": true
+    },
+    {
+      "id": "A2-memo",
+      "type": "affiche",
+      "title": "Mémo Tableau",
+      "subtitle": "Météo perso & rôles du jour",
+      "emoji": "📋",
+      "description": "Mémo A6 du tableau d'équipage.",
+      "tags": ["Météo perso", "Compétences", "Rôles", "Programme"],
+      "tagsTitle": "Sections",
+      "path": "sources/affiches/A2_tableau_memo.md",
+      "pdfPath": "print/cartes/A2_tableau_memo.pdf",
+      "proto": true
+    },
+    {
+      "id": "A3-memo",
+      "type": "affiche",
+      "title": "Mémo Marque-page",
+      "subtitle": "Échelles & piliers coopératifs",
+      "emoji": "📖",
+      "description": "Mémo A6 du marque-page LDB.",
+      "tags": ["Beaufort", "Douglas", "5 piliers", "Brief/Débrief"],
+      "tagsTitle": "Contenu",
+      "path": "sources/affiches/A3_marque_page_memo.md",
+      "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
+      "proto": true
     }
   ],
   "affiches": [
@@ -206,10 +245,8 @@
       "description": "Préparation, départ, navigation, approche, arrivée - avec les responsabilités par rôle.",
       "tags": ["Préparation", "Départ", "Navigation", "Approche", "Arrivée"],
       "tagsTitle": "5 phases",
-      "path": "sources/affiches/A1_routines_memo.md",
       "htmlPath": "sources/affiches/A1_routines.html",
-      "pdfPath": "print/cartes/A1_routines_memo.pdf",
-      "affichePath": "print/affiches/A1_routines.pdf",
+      "pdfPath": "print/affiches/A1_routines.pdf",
       "previewImages": ["assets/images/affiche-A1-routines.png"],
       "proto": true
     },
@@ -223,10 +260,8 @@
       "description": "Support effaçable pour le brief matin : météo intérieure, compétences visées, rôles et programme.",
       "tags": ["Météo perso", "Compétences", "Rôles", "Programme"],
       "tagsTitle": "Sections",
-      "path": "sources/affiches/A2_tableau_memo.md",
       "htmlPath": "sources/affiches/A2_tableau_equipage.html",
-      "pdfPath": "print/cartes/A2_tableau_memo.pdf",
-      "affichePath": "print/affiches/A2_tableau_equipage.pdf",
+      "pdfPath": "print/affiches/A2_tableau_equipage.pdf",
       "previewImages": ["assets/images/affiche-tableau-equipage.png"],
       "proto": true
     },
@@ -240,10 +275,8 @@
       "description": "Recto : Beaufort/Douglas. Verso : 5 piliers du faire équipage + guidance brief/débrief.",
       "tags": ["Beaufort", "Douglas", "5 piliers", "Brief/Débrief"],
       "tagsTitle": "Contenu",
-      "path": "sources/affiches/A3_marque_page_memo.md",
       "htmlPath": "sources/affiches/A3_marque_page.html",
-      "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
-      "affichePath": "print/affiches/A3_marque_page.pdf",
+      "pdfPath": "print/affiches/A3_marque_page.pdf",
       "previewImages": ["assets/images/affiche-A3-recto.png", "assets/images/affiche-A3-verso.png"],
       "proto": true
     }
@@ -267,7 +300,7 @@
     "affiche": {
       "label": "Affiche",
       "tagsIcon": "📌",
-      "count": 3
+      "count": 6
     }
   }
 }

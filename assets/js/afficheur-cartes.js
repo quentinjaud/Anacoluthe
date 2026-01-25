@@ -261,10 +261,10 @@ function updatePdfButtons(card) {
     
     // PDF livret par type
     const livretPaths = {
-        'role': 'print/livrets/livret_roles.pdf',
-        'moment': 'print/livrets/livret_moments.pdf',
-        'joker': 'print/livrets/livret_joker.pdf',
-        'affiche': 'print/livrets/livret_divers.pdf'
+        'role': 'print/livrets/livret-roles.pdf',
+        'moment': 'print/livrets/livret-moments.pdf',
+        'joker': 'print/livrets/livret-joker.pdf',
+        'affiche': 'print/livrets/livret-divers.pdf'
     };
     
     const livretPath = livretPaths[card.type];

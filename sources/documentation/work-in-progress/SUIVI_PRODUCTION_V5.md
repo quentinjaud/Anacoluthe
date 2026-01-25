@@ -8,6 +8,31 @@
 
 ## 🔄 DERNIÈRES MODIFICATIONS (260125)
 
+### Session 19 - Correction génération mémos A6 affiches
+
+**Problème identifié**
+Le script `render-cards.js` ne générait que l'affiche A4 pour les entrées avec `format: A4-*`, ignorant le `path` markdown vers le mémo A6.
+
+**Solution implémentée**
+1. Modification `render-cards.js` : quand une affiche A4 a aussi un `path` markdown, génère les deux PDFs (affiche A4 + mémo A6)
+2. Restructuration `cards-index.json` :
+   - `pdfPath` = chemin mémo A6 (cohérent avec afficheur-cartes.js bouton "Télécharger le mémo")
+   - `affichePath` = chemin affiche A4 (cohérent avec bouton "Télécharger l'affiche A4")
+3. Ajout couleurs navy pour `type-affiche` dans `cards-print.css` (h1, h2, h3, h4, h6, hr)
+
+**Fichiers modifiés**
+- `scripts/render-cards.js` - génération mémo A6 après affiche A4
+- `assets/data/cards-index.json` - champs pdfPath/affichePath corrigés
+- `assets/css/cards-print.css` - couleurs navy type-affiche
+
+**Couleurs ajoutées type-affiche**
+- h1, h2 : `#1E3A5F` (navy-700)
+- h3, h4, h6 : `#4A6A8A` (navy-500)
+- h2 border-top : `#C9D5E3` (navy-100)
+- hr : `#7A9CC6` (navy-300)
+
+---
+
 ### Session 18 - Production M4 Brief matin
 
 **Réécriture complète de M4 selon nouvelle structure en 3 temps**

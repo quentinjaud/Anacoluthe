@@ -250,6 +250,9 @@ Pistes d'analyse pour alléger et nettoyer le code.
 
 | Date | Action | Fichier(s) | Statut |
 |------|--------|------------|--------|
+| 260125 | Génération mémo A6 + affiche A4 pour entrées affiches | render-cards.js | ✅ Fait |
+| 260125 | Restructuration champs pdfPath/affichePath | cards-index.json | ✅ Fait |
+| 260125 | Couleurs navy pour type-affiche | cards-print.css | ✅ Fait |
 | 251212 | Audit initial | - | ✅ Fait |
 | 251212 | Corriger sw.js (actions 1-4) | sw.js | ✅ Fait |
 | 251212 | Mettre à jour TECH_INTENTIONS (actions 5-8) | TECH_INTENTIONS.md | ✅ Fait |
@@ -600,6 +603,70 @@ Bibliothèque choisie pour :
 - Navigation flèches entre images
 - Animations fluides
 - Accessibilité (keyboard, aria)
+
+---
+
+## GÉNÉRATION MÉMO A6 + AFFICHE A4 (25 JANVIER 2026)
+
+### Contexte
+Les affiches (A1, A2, A3) ont chacune deux outputs :
+- Une affiche A4 (HTML → PDF via `print-render-a4.html`)
+- Un mémo A6 (Markdown → PDF via `print-render.html`)
+
+Le script `render-cards.js` ne générait que l'affiche A4 quand `format: A4-*` était présent.
+
+### Modifications
+
+#### 1. Extension render-cards.js
+- **Fichier** : `scripts/render-cards.js`
+- **Ajout** : après génération de l'affiche A4, si `card.path` existe, génère aussi le mémo A6
+- **Viewport** : reconfiguration dynamique A4 → A6 entre les deux rendus
+- **Output** : affiche dans `print/affiches/`, mémo dans `print/cartes/`
+
+#### 2. Restructuration cards-index.json
+- **Problème** : l'afficheur-cartes.js utilisait `pdfPath` pour le bouton "Télécharger le mémo" et `affichePath` pour "Télécharger l'affiche A4"
+- **Avant** : `pdfPath` pointait vers l'affiche A4, `memoPdfPath` vers le mémo
+- **Après** : `pdfPath` = mémo A6, `affichePath` = affiche A4
+
+#### 3. Couleurs type-affiche dans cards-print.css
+- **Fichier** : `assets/css/cards-print.css`
+- **Ajout** : règles couleurs navy pour `.type-affiche` (h1, h2, h3, h4, h6, hr)
+- **Palette** : navy-700 (#1E3A5F), navy-500 (#4A6A8A), navy-300 (#7A9CC6), navy-100 (#C9D5E3)
+
+### Code clé
+
+**render-cards.js - génération mémo A6 :**
+```javascript
+// Si l'affiche a aussi un mémo A6 (path markdown), le générer aussi
+if (card.path) {
+  const a6Format = CONFIG.formats['A6'];
+
+  // Reconfigurer le viewport pour A6
+  await page.setViewport({
+    width: Math.round(a6Format.width * 96 / 25.4),
+    height: Math.round(a6Format.height * 96 / 25.4),
+    deviceScaleFactor: CONFIG.deviceScaleFactor
+  });
+
+  const rectoBuffer = await renderCardFace(page, card.id, 'recto', baseUrl, a6Format);
+  const versoBuffer = await renderCardFace(page, card.id, 'verso', baseUrl, a6Format);
+
+  // Fusion recto + verso
+  const mergedPdf = await PDFDocument.create();
+  // ... merge pages ...
+
+  const memoOutputPath = path.join(CONFIG.outputDir, `${memoBaseName}.pdf`);
+  fs.writeFileSync(memoOutputPath, memoBytes);
+}
+```
+
+### Choix techniques
+
+| Problème | Solution |
+|----------|----------|
+| Une entrée JSON = deux PDFs | Génération séquentielle dans même page Puppeteer |
+| Nomenclature champs JSON | Alignement sur usage afficheur-cartes.js |
+| Couleurs mémos print | Cohérence avec palette web (navy pour affiches) |
 
 ---
 

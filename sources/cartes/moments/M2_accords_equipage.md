@@ -37,15 +37,15 @@ Lae moniteurice lit chaque question. Celleux qui sont inspiré·es proposent. To
 - 😄 Quelles limites sur l'**humour** ?
   *Surnoms, blagues, sujets sensibles*
 - 🧹 Qui fait quoi au **quotidien** ?
-  *Vaisselle, rangement, initiative, rappels*
+  *Repas, vaisselle, rangement, rappels*
 - 🧭 Quelle relation avec lae **moniteurice** ?
   *Moniteurice vs chef·fe de bord, autorité, questions, aide*
 
-#### 2. REFORMULER & VALIDER (10 min)
+ #### 2. REFORMULER & VALIDER (10 min)
 
-Regrouper les idées proches, reformuler : subjectif → quantitatif. *Ex : "respecter le sommeil" → "silence carré après 22h30"*
+Rester au verso : regrouper les idées proches, reformuler, pour passer du subjectif au quantitatif, mesurable, factuel. *Ex : "respecter le sommeil" → "silence carré après 22h30"*
 
-Noter au verso les accords reformulés. Valider par tour de non-objection : "Ça nuirait au groupe ou à moi ?" Si oui → ajuster. Sinon → signer.
+Ensuite, noter au verso les accords reformulés. Puis, valider par tour de non-objection : "Ça nuirait au groupe ou à moi ?" Si oui → je propose un ajustement. Sinon → pas d'objection, je signe!
 
 #### ⚓ ANCRAGE
 

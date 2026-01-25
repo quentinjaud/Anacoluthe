@@ -211,7 +211,7 @@
       "pdfPath": "print/cartes/A1_routines_memo.pdf",
       "affichePath": "print/affiches/A1_routines.pdf",
       "previewImages": ["assets/images/affiche-A1-routines.png"],
-      "proto": true
+      "proto": false
     },
     {
       "id": "A2",
@@ -228,7 +228,7 @@
       "pdfPath": "print/cartes/A2_tableau_memo.pdf",
       "affichePath": "print/affiches/A2_tableau_equipage.pdf",
       "previewImages": ["assets/images/affiche-tableau-equipage.png"],
-      "proto": true
+      "proto": false
     },
     {
       "id": "A3",
@@ -245,7 +245,7 @@
       "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
       "affichePath": "print/affiches/A3_marque_page.pdf",
       "previewImages": ["assets/images/affiche-A3-recto.png", "assets/images/affiche-A3-verso.png"],
-      "proto": true
+      "proto": false
     }
   ],
   "types": {

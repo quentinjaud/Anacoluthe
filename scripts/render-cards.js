@@ -312,9 +312,45 @@ async function renderCard(browser, card, baseUrl) {
         }
       }
 
-      stats.cardsSuccess++;
       const orientation = format === 'A4-portrait' ? 'portrait' : 'paysage';
       console.log(`  ✅ ${baseName}.pdf (A4 ${orientation})`);
+
+      // Si l'affiche a aussi un mémo A6 (path markdown), le générer aussi
+      if (card.path) {
+        const a6Format = CONFIG.formats['A6'];
+
+        // Reconfigurer le viewport pour A6
+        const a6ViewportWidth = Math.round(a6Format.width * 96 / 25.4);
+        const a6ViewportHeight = Math.round(a6Format.height * 96 / 25.4);
+        await page.setViewport({
+          width: a6ViewportWidth,
+          height: a6ViewportHeight,
+          deviceScaleFactor: CONFIG.deviceScaleFactor
+        });
+
+        const rectoBuffer = await renderCardFace(page, card.id, 'recto', baseUrl, a6Format);
+        const versoBuffer = await renderCardFace(page, card.id, 'verso', baseUrl, a6Format);
+
+        const { PDFDocument } = require('pdf-lib');
+        const mergedPdf = await PDFDocument.create();
+        const rectoPdf = await PDFDocument.load(rectoBuffer);
+        const versoPdf = await PDFDocument.load(versoBuffer);
+
+        const [rectoPage] = await mergedPdf.copyPages(rectoPdf, [0]);
+        const [versoPage] = await mergedPdf.copyPages(versoPdf, [0]);
+
+        mergedPdf.addPage(rectoPage);
+        mergedPdf.addPage(versoPage);
+
+        const memoBytes = await mergedPdf.save();
+        const memoBaseName = path.basename(card.path, '.md');
+        const memoOutputPath = path.join(CONFIG.outputDir, `${memoBaseName}.pdf`);
+        fs.writeFileSync(memoOutputPath, memoBytes);
+
+        console.log(`  ✅ ${memoBaseName}.pdf (mémo A6)`);
+      }
+
+      stats.cardsSuccess++;
 
     } else {
       // Carte A6 markdown (recto + verso)

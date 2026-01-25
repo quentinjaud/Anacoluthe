@@ -6,6 +6,51 @@
 
 ---
 
+## 🔄 DERNIÈRES MODIFICATIONS (260125)
+
+### Session 18 - Production M4 Brief matin
+
+**Réécriture complète de M4 selon nouvelle structure en 3 temps**
+
+La carte M4 a été entièrement repensée. Au lieu d'un brief linéaire de 5-10 min, c'est maintenant un rituel en sandwich :
+
+1. **Lancement** : tableau rempli (météo perso + intentions) → tour de table pour clarifier → lae moniteurice propose les rôles → chacun·e part préparer
+2. **Préparation par rôle** : nav prépare le plan, bosco prépare le bateau, cambuse anticipe les repas. Lae second soigneux et les autres aident.
+3. **Briefing partagé** : lae second soigneux anime. Chaque rôle briefe (nav, bosco, cambuse, moniteurice).
+
+**Décisions prises**
+- Emoji : ☀️ (pas 🌅, plus clair pour "matin")
+- Timing : "Tous les matins" sans durée fixe (dépend de la journée)
+- Météo perso : pas de tour verbal, déjà sur le tableau d'équipage
+- Rôles : proposés par lae moniteurice (pas décision collective)
+- Brief technique : intégré comme phase 3 (chaque rôle briefe), pas un signal léger
+
+**Recto enrichi**
+- Quote : "Fin du petit-déjeuner, début de la journée. Passer du mode individu au mode équipage..."
+- Contexte : explicite le lien avec le tableau d'équipage rempli pendant le petit-déj
+- Enjeu : version négative (démarre à froid) + version positive (appareille aligné)
+
+**Convention d'écriture ajoutée**
+- "mono" → toujours "moniteurice" (jamais l'abréviation) - ajouté dans CLAUDE.md
+
+**Fichiers modifiés**
+- `sources/cartes/moments/M4_brief_matin.md` - réécriture complète
+- `sources/documentation/DESIGN_INTENTIONS.md` - emoji 🌅 → ☀️
+- `assets/data/cards-index.json` - mise à jour M4 (path, description, tags, proto:false)
+- `sources/suivi/tableau_suivi_cartes.md` - M4 marqué ✅ Passe Fond
+- `sources/affiches/A2_tableau_memo.md` - emoji corrigé
+- `sources/documentation/CARTES_MOMENTS_INTENTIONS.md` - timing + statut
+- `sw.js` - chemin mis à jour
+- `.claude/CLAUDE.md` - règle mono → moniteurice
+
+**Apprentissages pour M5-M7**
+- Identifier les idées clefs de fond AVANT de rédiger (pas juste la forme)
+- Vérifier la cohérence avec les outils complémentaires (tableau d'équipage, LDB)
+- Enjeu = négatif + positif pour remplir le recto
+- La structure du moment peut évoluer significativement vs le proto initial
+
+---
+
 ## 🔄 DERNIÈRES MODIFICATIONS (260123)
 
 ### Session 17 - Plan d'évaluation cartes moments M4-M7

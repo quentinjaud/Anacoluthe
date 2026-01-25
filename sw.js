@@ -54,7 +54,7 @@ const PRECACHE_URLS = [
   '/sources/cartes/moments/M1_accueil_presentations.md',
   '/sources/cartes/moments/M2_accords_equipage.md',
   '/sources/cartes/moments/M3_decouverte_roles.md',
-  '/sources/cartes/moments/M4_brief_matin_proto.md',
+  '/sources/cartes/moments/M4_brief_matin.md',
   '/sources/cartes/moments/M5_debrief_soir_proto.md',
   '/sources/cartes/moments/M6_mi_parcours_proto.md',
   '/sources/cartes/moments/M7_debrief_final_proto.md',

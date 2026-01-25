@@ -58,4 +58,4 @@ On efface avant le brief du lendemain.
 ## 🔗 Voir aussi
 
 - 🤲 Carte **Second soigneux** (animer le brief)
-- 🌅 Carte **M4 Brief matin** (déroulé complet)
+- ☀️ Carte **M4 Brief matin** (déroulé complet)

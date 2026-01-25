@@ -74,33 +74,20 @@ Avant de retravailler, vérifier pour chaque carte :
 
 ## Diagnostic par carte
 
-### M4 - Brief matin ☀️
+### M4 - Brief matin ☀️ ✅ TERMINÉ
 
-**Fichier** : `sources/cartes/moments/M4_brief_matin_proto.md`
+**Fichier** : `sources/cartes/moments/M4_brief_matin.md`
 
-| # | Critère | Statut | Observation |
-|---|---------|--------|-------------|
-| 1 | Emoji titre | ⚠️ | Fichier utilise ☀️, DESIGN_INTENTIONS dit 🌅 → à trancher |
-| 2 | Quote | ✅ | Bonne, orientée action |
-| 3 | Contexte | ✅ | Situation posée clairement |
-| 4 | Enjeu | ⚠️ | Implicite ("comment va l'équipage ?"), pas de conséquence nommée |
-| 5 | Tip | ✅ | Permission ("un mot suffit") + lien second soigneux |
-| 6 | Déroulé | ⚠️ | Étape 4 "BRIEF TECHNIQUE" trop vague, pas actionnable |
-| 7 | Cohérence intentions | ⚠️ | Intentions mentionnent "remplir le tableau d'équipage" (présent) mais aussi "intention collective" plus développée |
-| 8 | ANCRAGE | ❌ | Absent. Les intentions mentionnent "noter dans le livre de bord" |
-| 9 | Transition | ✅ | "→ Ce soir : M5 Débrief du soir" |
-| 10 | Densité | ✅ | OK |
-| 11 | Écriture inclusive | ✅ | "lae", "iel" présents |
-| 12 | Tirets | ✅ | OK |
-| 13 | Marqueurs MD | ✅ | HEAD, FLIP, SKIP-PRINT OK |
-| 14 | Ton | ✅ | Adresse directe |
-| 15 | Progression mono | ✅ | "VARIANTE J5-J6" présente |
+**Résumé du travail effectué (session 18)** :
+- Réécriture complète avec nouvelle structure en 3 temps (lancement → prépa par rôle → briefing partagé)
+- Emoji ☀️ confirmé, DESIGN_INTENTIONS corrigé
+- Enjeu développé (négatif + positif)
+- Contexte explicite lien avec tableau d'équipage
+- ANCRAGE ajouté
+- Lae second soigneux anime le briefing partagé
+- Convention "mono → moniteurice" ajoutée dans CLAUDE.md
 
-**Travail à faire** :
-- Trancher emoji (☀️ vs 🌅)
-- Ajouter enjeu explicite ("Sans ce temps, l'équipage démarre à froid...")
-- Préciser étape 4 ou la supprimer (le brief technique n'est pas d'Anacoluthe)
-- Ajouter section ⚓ ANCRAGE (noter dans LDB)
+Voir `PLAN_M4.md` et `SUIVI_PRODUCTION_V5.md` (session 18) pour le détail.
 
 ---
 
@@ -202,12 +189,12 @@ Avant de retravailler, vérifier pour chaque carte :
 
 ## Ordre de traitement
 
-| Priorité | Carte | Raison |
-|----------|-------|--------|
-| 1 | **M4** | Peu de modifications, rapide à finaliser. Servira de modèle pour la paire M4/M5 |
-| 2 | **M5** | Miroir de M4, ajustements mineurs (renommage, précisions) |
-| 3 | **M6** | Plus de réorganisation nécessaire (ordre, ajout retour M1) |
-| 4 | **M7** | Le plus de travail (réécriture quote, suppression redondance, ajouts) |
+| Priorité | Carte | Statut | Raison |
+|----------|-------|--------|--------|
+| 1 | **M4** | ✅ | Terminé session 18. Structure en 3 temps, lae second soigneux anime. |
+| 2 | **M5** | 🔜 | Prochain. Miroir de M4, ajustements + cohérence avec nouvelle structure M4. |
+| 3 | **M6** | ⬜ | Réorganisation (ordre, ajout retour M1) |
+| 4 | **M7** | ⬜ | Le plus de travail (réécriture quote, suppression redondance, ajouts) |
 
 ---
 
@@ -225,11 +212,11 @@ Avant de retravailler, vérifier pour chaque carte :
 
 ## Questions à trancher avant production
 
-1. **Emoji M4** : ☀️ (dans le proto) ou 🌅 (dans DESIGN_INTENTIONS) ? L'emoji 🌅 évoque le lever de soleil mais aussi un coucher. ☀️ est plus clair pour "matin".
+1. ~~**Emoji M4** : ☀️ (dans le proto) ou 🌅 (dans DESIGN_INTENTIONS) ?~~ → **Répondu : ☀️** (plus clair pour "matin")
 
 2. **Emoji M7** : 🏁 (DESIGN_INTENTIONS) ou 🎯 (dans le proto) ? 🏁 = arrivée/fin, 🎯 = objectif atteint. Les deux fonctionnent.
 
-3. **Étape "Brief technique" dans M4** : la garder (signal que M4 se greffe sur l'existant) ou la supprimer (elle n'est pas d'Anacoluthe) ?
+3. ~~**Étape "Brief technique" dans M4** : la garder ou la supprimer ?~~ → **Répondu : Intégrée comme phase 3** (briefing partagé où chaque rôle briefe, dont lae moniteurice)
 
 4. **Feedbacks croisés dans M7** : les garder (ajout par rapport aux intentions, mais utile terrain) ou s'en tenir aux intentions ?
 

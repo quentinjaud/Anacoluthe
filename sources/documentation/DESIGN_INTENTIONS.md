@@ -114,7 +114,7 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 | M1 | 👋 | Accueil & Présentations |
 | M2 | 🤝 | Accords d'équipage |
 | M3 | 🎭 | Introduction rôles |
-| M4 | 🌅 | Brief matin |
+| M4 | ☀️ | Brief matin |
 | M5 | 🌙 | Débrief soir |
 | M6 | ⚓ | Mi-parcours |
 | M7 | 🏁 | Débrief final |

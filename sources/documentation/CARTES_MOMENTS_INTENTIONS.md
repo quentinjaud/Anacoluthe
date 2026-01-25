@@ -16,7 +16,7 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 | M1 | Accueil & Présentations | J1 après-midi | 20-30 min | ✅ Produit |
 | M2 | Accords d'équipage | J1 soir | 30-45 min | ⬜ À faire |
 | M3 | Introduction rôles | J1 soir (après M2) | 15-20 min | ⬜ À faire |
-| M4 | Brief matin | J2-J6 quotidien | 5-10 min | ⬜ À faire |
+| M4 | Brief matin | J2-J6 quotidien | Variable | ✅ Produit |
 | M5 | Débrief soir | J2-J6 quotidien | 10-20 min | ⬜ À faire |
 | M6 | Mi-parcours | J3 ou J4 | 20-30 min | ⬜ À faire |
 | M7 | Débrief final | J6 après-midi | 45 min | ⬜ À faire |
@@ -220,55 +220,67 @@ Créer le tableau historique des rôles dans le livre de bord.
 
 ---
 
-## M4 - BRIEF MATIN
+## M4 - BRIEF MATIN ✅
 
 ### 📍 Contexte d'usage
 
 **Quand** : J2-J6, chaque matin avant appareillage.
 
-**Qui anime** : Le·la mono initie J2-J3, puis progressivement l'équipage.
+**Timing** : Variable (pas de durée fixe, dépend de la journée).
 
-**Problème adressé** : Sans rituel, l'équipage démarre "à froid" sans savoir comment chacun·e va, qui fait quoi, ce qu'on vise.
+**Complémentaire de** : Tableau d'équipage (A2), rempli pendant le petit-déjeuner AVANT M4.
+
+**Qui anime** : Lae moniteurice propose les rôles. Lae second soigneux anime le briefing partagé (phase 3).
+
+**Problème adressé** : Sans rituel, l'équipage démarre "à froid" : signaux de fatigue inaperçus, pas de vision partagée, journée subie plutôt que choisie.
 
 ### 🎯 Intentions
 
+**Idées clefs à véhiculer (fond)** :
+1. Détecter les signaux faibles AVANT l'action (météo perso sur le tableau)
+2. Rotation des rôles = apprentissage par l'expérimentation
+3. Transformer une journée subie en journée choisie (intentions perso)
+4. Attention mutuelle AVANT l'action (briefing partagé = conscience collective)
+5. Greffe sur l'existant, pas un temps en plus (s'insère dans le flux petit-déj → appareillage)
+
 **Organisation** :
-- Attribuer les 4 rôles du jour (rotation)
-- Partager le programme de navigation prévu
-- Identifier les contraintes/besoins du jour
-- Remplir le tableau d'équipage
+- Passation des 4 rôles du jour
+- Préparation par rôle (nav, bosco, cambuse)
+- Briefing partagé avant appareillage
 
 **Coopération** :
-- Météo perso : chacun·e dit comment iel va
-- Repérer les signaux faibles
-- Créer un moment d'attention mutuelle avant l'action
+- Tableau d'équipage = météo perso + intentions
+- Lae second soigneux + équipier·ères sans rôle aident les rôles actifs
+- Lae second soigneux anime le briefing
 
-### 🎬 Animation proposée
+### 🎬 Structure en 3 temps
 
-**Format : 5-10 min max**
+**1. LANCEMENT**
+- Le tableau d'équipage est rempli (météo perso + intentions)
+- Tour de table : chacun·e peut clarifier sa météo et son intention si iel le souhaite
+- Lae moniteurice propose les rôles du jour
+- Chacun·e part préparer son domaine
 
-**Étape 1 - Météo perso (2-3 min)**
-Tour rapide : "Comment tu te sens ce matin ?" + "Qu'est-ce que j'ai envie de travailler aujourd'hui ?"
-→ Remplir météo humaine et intention sur le tableau d'équipage.
+**2. PRÉPARATION PAR RÔLE**
+- 🧭 Navigateurice : plan de nav, météo
+- 🔧 Bosco : état du bateau, préparation
+- 🍳 Cambusier·ère : anticipation repas
+- 🤲 Lae second soigneux et les autres aident les rôles actifs
 
-**Étape 2 - Attribution rôles (1-2 min)**
-"Aujourd'hui, qui prend quel rôle ?"
-Attribution par le·la mono (rotation, choix libre, ou proposition selon l'équipage).
-→ Noter sur le tableau d'équipage.
+**3. BRIEFING PARTAGÉ**
+Lae second soigneux anime. Chaque rôle partage :
+- Nav : route, météo, points d'attention
+- Bosco : état du bateau
+- Cambuse : repas prévus
+- Moniteurice : consignes de sécurité, séances du jour
 
-**Étape 3 - Programme du jour (2-3 min)**
-Le·la mono (ou navigateurice) présente : météo, points CQ, séances techniques, escales.
-
-**Étape 4 - Intention collective (optionnel, 1 min)**
-"Sur quoi on veut progresser ensemble aujourd'hui ?"
-
-**Ancrage** : Noter dans le livre de bord (Observations) : rôles du jour + intention.
+**Ancrage** : Noter dans le livre de bord : rôles du jour, séances prévues. On y reviendra ce soir (M5).
 
 ### 📚 Sources
 
-- Tableau d'équipage (affiche A2)
-- Marque-page LDB verso
-- Metacartes : rituels d'ouverture
+- Tableau d'équipage (affiche A2) - rempli AVANT M4
+- Livre de bord (ancrage)
+- Carte produite : `sources/cartes/moments/M4_brief_matin.md`
 
 ---
 

@@ -94,14 +94,14 @@
       "id": "M4",
       "type": "moment",
       "title": "Brief matin",
-      "subtitle": "Tous les matins - 5-10 min",
+      "subtitle": "Tous les matins",
       "emoji": "☀️",
-      "description": "Lancer la journée avec météo perso, attribution des rôles et programme.",
-      "tags": ["Météo perso", "Rôles du jour", "Programme"],
+      "description": "Passer du mode individu au mode équipage : passation des rôles, préparation, brief partagé.",
+      "tags": ["Lancement", "Préparation par rôle", "Briefing partagé"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M4_brief_matin_proto.md",
-      "pdfPath": "print/cartes/M4_brief_matin_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/moments/M4_brief_matin.md",
+      "pdfPath": "print/cartes/M4_brief_matin.pdf",
+      "proto": false
     },
     {
       "id": "M5",

@@ -41,6 +41,7 @@ V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 - Tirets `-` uniquement pour les listes (jamais — ni –, jamais en incise milieu de phrase → utiliser virgule, point, deux-points ou parenthèses)
 - Écriture inclusive (navigateurice, iel, chacun·e, lae)
 - "le·la" → toujours "lae" (ex: lae moniteurice, lae second soigneux)
+- "mono" → toujours "moniteurice" (jamais l'abréviation)
 - Densité A6 ~900 car/face
 - Versionnage docs = footer `V_AAMMJJ`, sources = Git
 

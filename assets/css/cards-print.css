@@ -153,6 +153,7 @@
 .type-role .print-card-content h1 { color: var(--amber-700); }
 .type-moment .print-card-content h1 { color: var(--teal-700); }
 .type-joker .print-card-content h1 { color: var(--brick-700); }
+.type-affiche .print-card-content h1 { color: #1E3A5F; /* navy-700 */ }
 
 /* H6 - Sous-titre (après H1) */
 .print-card-content h6 {
@@ -168,6 +169,7 @@
 .type-role .print-card-content h6 { color: var(--amber-accent); }
 .type-moment .print-card-content h6 { color: var(--teal-accent); }
 .type-joker .print-card-content h6 { color: var(--brick-accent); }
+.type-affiche .print-card-content h6 { color: #4A6A8A; /* navy-500 */ }
 
 /* H2 - Sections */
 .print-card-content h2 {
@@ -184,6 +186,7 @@
 .type-role .print-card-content h2 { border-top-color: var(--teal-200); }
 .type-moment .print-card-content h2 { border-top-color: var(--amber-200); }
 .type-joker .print-card-content h2 { border-top-color: var(--glenans-200); }
+.type-affiche .print-card-content h2 { border-top-color: #C9D5E3; /* navy-100 */ }
 
 /* H2 en tête de page (verso) - pas de border-top */
 .print-card-content > h2:first-child {
@@ -195,6 +198,7 @@
 .type-role .print-card-content h2 { color: var(--amber-700); }
 .type-moment .print-card-content h2 { color: var(--teal-700); }
 .type-joker .print-card-content h2 { color: var(--brick-700); }
+.type-affiche .print-card-content h2 { color: #1E3A5F; /* navy-700 */ }
 
 /* H3 - Sous-sections (couleur accent) */
 .print-card-content h3 {
@@ -208,6 +212,7 @@
 .type-role .print-card-content h3 { color: var(--amber-accent); }
 .type-moment .print-card-content h3 { color: var(--teal-accent); }
 .type-joker .print-card-content h3 { color: var(--brick-accent); }
+.type-affiche .print-card-content h3 { color: #4A6A8A; /* navy-500 */ }
 
 /* H4 - Sous-sous-sections (couleur accent) */
 .print-card-content h4 {
@@ -221,6 +226,7 @@
 .type-role .print-card-content h4 { color: var(--amber-accent); }
 .type-moment .print-card-content h4 { color: var(--teal-accent); }
 .type-joker .print-card-content h4 { color: var(--brick-accent); }
+.type-affiche .print-card-content h4 { color: #4A6A8A; /* navy-500 */ }
 
 /* H4 en tête de page (quand H2 masqué par SKIP-PRINT) */
 .print-card-content > h4:first-child {
@@ -298,6 +304,7 @@
 .type-role .print-card-content hr { border-top-color: var(--amber-300); }
 .type-moment .print-card-content hr { border-top-color: var(--teal-300); }
 .type-joker .print-card-content hr { border-top-color: var(--brick-300); }
+.type-affiche .print-card-content hr { border-top-color: #7A9CC6; /* navy-300 */ }
 
 /* Liens */
 .print-card-content a {

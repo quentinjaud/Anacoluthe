@@ -309,29 +309,31 @@ async function loadCard(cardId, forceReload = false) {
     // Charger le markdown original (non prétraité)
     let markdownRaw = '';
     let contentPath = card.path;
-    
+    let lastModified = null;
+
     if (contentPath) {
         // Cache-busting si forceReload
         if (forceReload) {
             const separator = contentPath.includes('?') ? '&' : '?';
             contentPath += separator + '_t=' + Date.now();
         }
-        
+
         try {
             const response = await fetch(contentPath);
             if (response.ok) {
                 markdownRaw = await response.text();
+                lastModified = response.headers.get('Last-Modified');
             }
         } catch (error) {
             console.error('Erreur chargement:', error);
         }
     }
-    
+
     // Rendre toutes les vues
     await renderPrintView(card, markdownRaw);
     await renderWebView(card, markdownRaw);
     await renderMobileView(card, markdownRaw);
-    renderTechView(card);
+    renderTechView(card, lastModified);
     
     document.body.classList.add('card-ready');
 }
@@ -510,7 +512,7 @@ async function renderMobileView(card, markdown) {
 /**
  * Rendu de la vue Technique (infos debug)
  */
-function renderTechView(card) {
+function renderTechView(card, lastModified = null) {
     // Récupérer la taille de base actuelle (après auto-fit)
     const rectoContent = document.querySelector('#card-recto .print-card-content');
     const defaultBaseSize = getCssValue('--print-font-size-max', 11);
@@ -558,6 +560,7 @@ function renderTechView(card) {
                 
                 <tr><th>Proto</th><td>${card.proto ? '🛠️ Oui' : 'Non'}</td></tr>
                 <tr><th>Path</th><td><code>${card.path || '-'}</code></td></tr>
+                <tr><th>Modifié</th><td>${lastModified ? new Date(lastModified).toLocaleString('fr-FR') : '-'}</td></tr>
                 ${card.pdfPath ? `<tr><th>PDF</th><td><code>${card.pdfPath}</code></td></tr>` : ''}
                 <tr><th>Tags</th><td>${card.tags ? card.tags.join(', ') : '-'}</td></tr>
             </table>

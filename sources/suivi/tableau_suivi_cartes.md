@@ -65,7 +65,7 @@
 | M3 | [Découverte rôles](../cartes/moments/M3_decouverte_roles.md) | ✅ | ✅ | ✅ | ✅ | ✅ | priorité haute |
 | M4 | [Brief matin](../cartes/moments/M4_brief_matin.md) |✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
 | M5 | [Débrief soir](../cartes/moments/M5_debrief_soir.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
-| M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
+| M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée, quitte proto |
 | M7 | [Débrief final](../cartes/moments/M7_debrief_final_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
 | J1 | [Gérer un conflit](../cartes/joker/J1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 | J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |

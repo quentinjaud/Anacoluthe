@@ -56,7 +56,7 @@ const PRECACHE_URLS = [
   '/sources/cartes/moments/M3_decouverte_roles.md',
   '/sources/cartes/moments/M4_brief_matin.md',
   '/sources/cartes/moments/M5_debrief_soir.md',
-  '/sources/cartes/moments/M6_mi_parcours_proto.md',
+  '/sources/cartes/moments/M6_mi_parcours.md',
   '/sources/cartes/moments/M7_debrief_final_proto.md',
   
   // Cartes Joker

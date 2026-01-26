@@ -238,7 +238,7 @@ Couleurs par type de carte : ambre (rôles), teal (moments), corail (SOS), slate
 - `sources/cartes/moments/M3_introduction_roles_proto.md`
 - `sources/cartes/moments/M4_brief_matin_proto.md`
 - `sources/cartes/moments/M5_debrief_soir_proto.md`
-- `sources/cartes/moments/M6_mi_parcours_proto.md`
+- `sources/cartes/moments/M6_mi_parcours.md`
 - `sources/cartes/moments/M7_debrief_final_proto.md`
 
 ### Cartes SOS (protos)

@@ -124,9 +124,8 @@
       "description": "Super-débrief à mi-stage : bilan des attentes et accords, ajustements en binômes avant la dernière ligne droite.",
       "tags": ["Bilan M1/M2", "Ajustements binômes", "Moment critique J3-J4"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M6_mi_parcours_proto.md",
-      "pdfPath": "print/cartes/M6_mi_parcours_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/moments/M6_mi_parcours.md",
+      "pdfPath": "print/cartes/M6_mi_parcours.pdf"
     },
     {
       "id": "M7",

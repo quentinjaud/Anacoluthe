@@ -636,7 +636,7 @@ sources/suivi/
 | M3 | Introduction rôles | J1 soir | `M3_introduction_roles_proto.md` |
 | M4 | Brief matin | J2-J6 | `M4_brief_matin_proto.md` |
 | M5 | Débrief soir | J2-J6 | `M5_debrief_soir_proto.md` |
-| M6 | Mi-parcours | J3-J4 | `M6_mi_parcours_proto.md` |
+| M6 | Mi-parcours | J3-J4 | `M6_mi_parcours.md` ✅ |
 | M7 | Débrief final | J6 | `M7_debrief_final_proto.md` |
 
 ### Cartes Joker (4)

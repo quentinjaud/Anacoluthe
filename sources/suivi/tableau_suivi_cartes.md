@@ -62,7 +62,7 @@
 | M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | Passe Fond terminée |
 | M3 | [Découverte rôles](../cartes/moments/M3_decouverte_roles.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | priorité haute |
 | M4 | [Brief matin](../cartes/moments/M4_brief_matin.md) | ✅ | ✅ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
-| M5 | [Débrief soir](../cartes/moments/M5_debrief_soir_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | priorité haute |
+| M5 | [Débrief soir](../cartes/moments/M5_debrief_soir.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
 | M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
 | M7 | [Débrief final](../cartes/moments/M7_debrief_final_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
 | J1 | [Gérer un conflit](../cartes/joker/J1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |

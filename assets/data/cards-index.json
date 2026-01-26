@@ -112,9 +112,8 @@
       "description": "Clore la journée en partageant réussites, apprentissages et points d'attention.",
       "tags": ["Tour de parole", "Technique", "Coopération"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M5_debrief_soir_proto.md",
-      "pdfPath": "print/cartes/M5_debrief_soir_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/moments/M5_debrief_soir.md",
+      "pdfPath": "print/cartes/M5_debrief_soir.pdf"
     },
     {
       "id": "M6",

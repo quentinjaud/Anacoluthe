@@ -1,8 +1,47 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260123*
+*Dernière mise à jour : 260126*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260126)
+
+### Session 20 - Production M5 Débrief soir
+
+**Réécriture complète de M5 en miroir de M4**
+
+La carte M5 a été restructurée selon le même pattern que M4 : structure en temps clairs + ANCRAGE.
+
+**Structure VERSO en 4 sections**
+1. **DÉBRIEF TECHNIQUE** : Lae moniteurice anime. Retour sur séances du jour, ce qui a marché, difficultés, ce qu'on travaille demain.
+2. **DÉBRIEF COOPÉRATION** : Lae second soigneux anime (dès J2, sauf si iel ne le sent pas). 5 petits tours :
+   - Ressenti (un mot)
+   - Rôle (ce que j'ai appris)
+   - Réussite (bon souvenir humain)
+   - Caillou ("Pour que ce soit parfait, j'aurais aimé...")
+   - Leçon (ce qu'on retient collectivement)
+3. **AJUSTEMENTS** : Si caillou "lourd" → proposer J1 Conflit ou J3 Rediscuter accords. Ce qu'on ajuste pour demain.
+4. **⚓ ANCRAGE** : LDB ligne technique + ligne coopération. Lien vers M4 Brief matin.
+
+**Décisions prises**
+- Second soigneux anime dès J2 (pas de progression J2-J3 → J4+)
+- 5 tours de parole structurés pour le débrief coop (forcer l'expression du négatif avec le tour "caillou")
+- Tip enrichi : fonctionnement collectif pas individus + faire court, pas répéter, transformer commentaires en ajustements
+- Suppression VARIANTE J5-J6 (devenu inutile)
+- Suppression section "Questions pour t'aider" (intégré dans les tours)
+
+**RECTO simplifié**
+- Contexte direct : "Ce débrief fait le point sur le technique et sur l'humain"
+- Enjeu simple : "comprendre ce qu'on retient, célébrer, nommer ce qui coince"
+- Pas de pattern négatif/positif (trop didactique)
+
+**Fichiers modifiés**
+- `sources/cartes/moments/M5_debrief_soir.md` - réécriture (renommé depuis _proto)
+- `assets/data/cards-index.json` - path, proto:false supprimé
+- `sw.js` - chemin mis à jour
+- `sources/suivi/tableau_suivi_cartes.md` - M5 marqué ✅ Passe Fond
 
 ---
 

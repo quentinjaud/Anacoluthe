@@ -352,55 +352,57 @@ Dans le livre de bord : une ligne "débrief technique", une ligne "débrief coop
 
 **Quand** : J3 ou J4 (selon météo/programme). Systématique.
 
-**Qui anime** : Le·la mono avec Second soigneux du jour (anim, scribe, ou co-anim).
+**Qui anime** : Le·la mono avec Second soigneux du jour.
 
-**Problème adressé** : Selon le modèle ICE, J3-J4 = moment où les tensions émergent. Sans point d'étape, les frustrations s'accumulent.
+**Problème adressé** : Selon le modèle ICE, J3-J4 = moment critique où les tensions émergent naturellement. La fatigue s'accumule, l'enthousiasme du début s'émousse. Sans point d'étape structuré, les frustrations s'enkystent.
+
+**Concept clé** : M6 = "super-débrief". Comme un débrief du soir, mais pour toute la première moitié du stage. On reprend les fondations posées en J1-J2 et on les ajuste si besoin.
 
 ### 🎯 Intentions
 
 **Organisation** :
-- Faire le point sur le programme (ce qui a été fait, ce qui reste)
-- Identifier les ajustements nécessaires
-- Revoir les accords si besoin
-- Revenir sur les attentes exprimées en M1
+- Relire les attentes exprimées en M1 : où on en est ?
+- Relire les accords d'équipage (M2) : est-ce qu'ils tiennent ?
+- Faire le point factuel : qui a testé quel rôle, quelles séances réalisées
+- Ajuster les "outils cadre" avant la dernière ligne droite
 
 **Coopération** :
-- Célébrer les réussites collectives du début de stage
-- Nommer les tensions accumulées
-- Vérifier que chacun·e trouve sa place
-- Remotiver si besoin
+- Tirer des leçons honnêtes de ce qu'on a vécu (pas de langue de bois, pas de "tout va bien")
+- Permettre à chacun·e de proposer des ajustements
+- Décider collectivement (validation sans objection)
 
 ### 🎬 Animation proposée
 
 **Format : 20-30 min (temps dédié)**
 
-**Étape 1 - Cadrage (2 min)**
-"On est à mi-parcours. Faisons le point : ce qui va bien, ce qui coince, ce qu'on ajuste."
+**PARTIE 1 — BILAN (10 min)**
 
-**Étape 2 - Célébration (5 min)**
-"Qu'est-ce qu'on a bien fait ensemble depuis J1 ?"
-Nommer les réussites techniques ET humaines.
+Relecture des fondations posées en début de stage.
 
-**Étape 3 - Tour "Comment je vis ce stage ?" (10 min)**
-Chacun·e répond à :
-- "Qu'est-ce qui m'a marqué·e jusqu'ici ?"
-- "Comment je me sens dans l'équipage ?"
-- "Y a-t-il quelque chose que j'ai besoin de dire ?"
+1. **Nos attentes (M1)** : Reprendre la feuille affichée J1, la lire ensemble et comparer aux séances réalisées.
+   - 👉 *"Où on en est par rapport à tout ce qu'on voulait faire ?"*
 
-⚠️ Écoute sans jugement, pas de débat à ce stade.
+2. **Nos accords (M2)** : Relire tranquillement les accords d'équipage, laisser infuser.
+   - 👉 *"Est-ce qu'ils tiennent ? Est-ce qu'on les respecte ?"*
 
-**Étape 4 - Ajustements (10 min)**
-"Qu'est-ce qu'on ajuste pour la suite ?"
-→ Carte Joker si tension nécessite un vrai temps de régulation.
+3. **Rôles et aventures** : Point factuel — qui a testé quel rôle ? Quelles situations inattendues a-t-on traversées ?
 
-**Étape 5 - Engagement (3 min)**
-"Qu'est-ce que chacun·e s'engage à faire différemment pour la deuxième moitié ?"
+**PARTIE 2 — AJUSTEMENTS (15-20 min)**
+
+Formez des binômes. Chaque binôme choisit une thématique et prend 5 min pour préparer une proposition d'ajustement. Ensuite, chaque binôme présente sa proposition : on valide s'il n'y a pas d'objection, sinon on retravaille ensemble.
+
+Thématiques :
+- **Nos accords** : *"Y a-t-il un accord à modifier, ajouter, supprimer ?"*
+- **Rotations & rôles** : *"Faut-il changer les rotations ? Faut-il ajuster les rôles ?"*
+- **Séances et programme** : *"Y a-t-il un domaine, une manœuvre sur lequel focaliser d'ici J6 ? Modifie-t-on les escales ?"*
+
+⚠️ Si une tension lourde émerge → proposer Joker J1 ou J3 plutôt que tout traiter ici.
 
 ### 📚 Sources
 
 - Guide mono V4 "Gérer le pivot J3"
 - Modèle ICE (Palinkas & Suedfeld)
-- Carte N2 V4 "Raviver l'enthousiasme"
+- Pattern M5 Débrief soir (format familier, approfondi)
 
 ---
 

@@ -80,14 +80,16 @@ Proto créé. Attention à ne pas transformer en "tour de table interminable".
 ## M6 - Mi-parcours
 
 ### Intentions pédagogiques
-Point d'étape collectif à mi-semaine.
-Ajuster accords/dynamique si besoin.
+"Super-débrief" structuré : comme un débrief du soir, mais pour toute la 1ère moitié du stage.
+J3-J4 = moment critique (fatigue, tensions émergent). Tirer des leçons honnêtes, pas de langue de bois.
+
+**Structure** : BILAN (attentes M1, accords M2, rôles/séances) + AJUSTEMENTS en binômes (accords, rotations, programme).
 
 ### Références V4
-Nouveau dans V5 (pas d'équivalent V4).
+Nouveau dans V5 (pas d'équivalent V4). Inspiré du modèle ICE (Palinkas & Suedfeld).
 
 ### Commentaires
-Proto créé. Format optionnel selon dynamique équipage.
+Passe Fond terminée 26 janv 2026. Format systématique J3 ou J4.
 
 ---
 

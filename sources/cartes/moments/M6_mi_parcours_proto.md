@@ -3,17 +3,17 @@
 
 <!-- HEAD -->
 
-> Prenons du recul à mi-semaine. Célébrons ce qui fonctionne, ajustons ce qui grince, et réactivons les dynamiques d'équipage avant la dernière ligne droite.
+> On est à mi-chemin. Qu'est-ce qu'on garde, qu'est-ce qu'on change ?
 
-Vous êtes à mi-chemin. Les premiers jours ont posé les bases : vous vous connaissez mieux, les rôles commencent à être intégrés, les routines s'installent.
+Comme un débrief du soir, mais pour toute la première moitié du stage. On reprend les fondations posées en J1-J2 : nos attentes, nos accords, qui a testé quoi.
 
-C'est aussi le moment où les tensions peuvent émerger. La fatigue s'accumule, les petits agacements deviennent des irritations. C'est normal, c'est prévisible.
+**J3-J4, c'est le moment critique.** La fatigue s'accumule, les petits agacements peuvent devenir des irritations, l'enthousiasme du début s'émousse. C'est normal, c'est prévisible. Ce point d'étape existe pour ça : nommer ce qui se passe vraiment, avant que ça ne s'enkyste.
 
-Ce point d'étape permet de prendre du recul : qu'est-ce qui fonctionne ? Qu'est-ce qui grince ? Faut-il ajuster quelque chose avant la fin de semaine ?
+Le but : tirer des leçons honnêtes de ce qu'on a vécu, et ajuster ce qui doit l'être avant la dernière ligne droite. Pas de langue de bois, pas de "tout va bien".
 
 ## ✨ LE P'TIT TIP'S
 
-C'est le bon moment pour revisiter vos attentes de J1 (M1) et vos accords d'équipage (M2). Certaines choses ont peut-être changé, et c'est OK.
+Ayez sous les yeux : la feuille des attentes (M1) et les accords d'équipage (M2). Si une tension lourde émerge, sortez une carte Joker (J1 ou J3) plutôt que de tout traiter ici.
 
 <!-- FLIP -->
 
@@ -21,48 +21,33 @@ C'est le bon moment pour revisiter vos attentes de J1 (M1) et vos accords d'équ
 ## ⚓ DÉROULÉ MI-PARCOURS
 <!-- /SKIP-PRINT -->
 
-#### 1. CE QUI FONCTIONNE (5 min)
+### 1. ON FAIT LE BILAN, CALMEMENT, ...  
 
-Tour de parole : "Qu'est-ce qui marche bien dans notre équipage ?"
-- Sur le plan technique
-- Sur le plan humain
-- Dans notre organisation
+**1. NOS ATTENTES (M1)**
 
-➡️ Notez les points forts sur une feuille
+Reprenez la feuille des attentes, du programme du stage. On la lit ensemble et on compare aux séances réalisées.
 
-#### 2. CE QUI GRINCE (5 min)
+👉 *"Où on en est par rapport à tout ce qu'on voulait faire ?"*
 
-Tour de parole : "Qu'est-ce qui pourrait être amélioré ?"
-- Frictions repérées
-- Besoins non couverts
-- Ajustements souhaités
+**2. NOS ACCORDS (M2)**
 
-⚠️ On parle de fonctionnement, pas de personnes
+Relisez tranquillement les accords d'équipage et laissez infuser un peu. 
 
-#### 3. AJUSTEMENTS (10 min)
+👉 *"Est-ce qu'ils tiennent ? Est-ce qu'on les respecte ?"*
 
-Ensemble, décidez des ajustements concrets :
-- Modifier les accords d'équipage ?
-- Changer l'organisation ?
-- Adapter le rythme ?
+**3. RÔLES, AVENTURES SPÉCIFIQUES**
 
-Utilisez la décision sans objection si besoin.
+Qui a testé quel rôle ? Quelles situations inattendues a-t-on traversées ?
 
-#### 4. CÉLÉBRER (2 min)
+---
 
-Nommez une réussite collective depuis J1.
-"On peut être fier·ères de..."
+### 2. AJUSTEMENTS POUR LA SUITE
 
-#### ⚠️ VIGILANCE
+Formez des binômes. Chaque binôme choisit une thématique et prend 5 min pour préparer une proposition d'ajustement. Ensuite, chaque binôme présente sa proposition : on valide s'il n'y a pas d'objection, sinon on retravaille ensemble.
 
-Si une vraie tension émerge, sortez une carte Joker plutôt que de tout traiter ici.
-
-#### 🗣️ QUESTIONS POUR T'AIDER
-
-*Qu'est-ce que j'ai appris sur moi depuis J1 ?*
-*De quoi l'équipage a-t-il besoin pour bien finir la semaine ?*
-
-→ Fin de stage : M7 Débrief final
+- **Nos Accords** : *"Y a-t-il un accord à modifier, ajouter, supprimer ?"*
+- **Rotations & rôles** :  *"Faut-il changer les rotations ? Faut-il ajuster les rôles ?"*
+- **Séances et programme** : *"Y a-t-il un domaine, une manœuvre sur lequel focaliser l'équipage d'ici J6 ? Modifie-t-on les escales ?"*
 
 ---
 

@@ -128,9 +128,9 @@ La carte M4 a été entièrement repensée. Au lieu d'un brief linéaire de 5-10
 - 4 questions à trancher avant production (emojis M4/M7, brief technique M4, feedbacks croisés M7)
 
 **Diagnostic résumé**
-- M4 Brief matin : écarts légers (ANCRAGE absent, enjeu implicite)
-- M5 Débrief soir : écarts légers (renommage ANCRAGE, précisions déroulé)
-- M6 Mi-parcours : écarts moyens (ordre inversé célébration/tensions, retour M1 absent)
+- M4 Brief matin : ✅ corrigé (passe Fond terminée)
+- M5 Débrief soir : ✅ corrigé (passe Fond terminée)
+- M6 Mi-parcours : ✅ corrigé 26 janv (super-débrief structuré, bilan M1/M2/rôles + ajustements binômes)
 - M7 Débrief final : écarts forts (redondance quote/contexte, cohérence intentions, emoji, écriture inclusive)
 
 **Fichiers créés**

@@ -40,11 +40,11 @@ Lae second soigneux anime (sauf si iel ne le sent pas).
 2. **Rôle** : Qu'est-ce que j'ai appris dans mon rôle ?
 3. **Réussite** : Un bon souvenir humain de la journée ?
 4. **Caillou** : "Pour que ce soit parfait, j'aurais aimé..."
-5. **Leçon** : Qu'est-ce qu'on retient collectivement ?
+5. **Leçon** : "Pour moi, l'apprentissage du jour c'est ..."
 
 #### 3. AJUSTEMENTS
 
-Si un caillou semble un peu "lourd" → proposer J1 Conflit ou J3 Rediscuter accords.
+Si un caillou semble un peu "lourd" → proposer J1 "Conflit" ou J3 "Rediscuter les accords".
 
 Ce qu'on peut ajuster pour demain : organisation, programme, accords, rôles.
 

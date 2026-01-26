@@ -1,12 +1,14 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 22 Janvier 2026
+> Dernière mise à jour : 26 Janvier 2026
 
 ## 🔥Sur le feu
 
-[ ] Mx : travailler le fond des cartes "moment"
+[ ] M7 : travailler le fond de la carte "moment"
 
 ## 👌 Cooked
+[X] M6 : réécriture complète - super-débrief structuré (bilan M1/M2/rôles + ajustements en binômes), concept moment critique J3-J4 (26 janv 2026)
+[X] M5 : retravaillé le déroulé du debrief soir : plus complet et plus dirigé. quitte le statut proto
 [X] M4 : retravaillé le fil du brief matin : plus ettoffé et plus clair. quitte statut proto. 
 [X] M3 : clarifié l'intention des rôles, et retravaillé le déroulé. M3 quitte le statut proto
 [X] M2 Accords d'équipage : passe Fond terminée - questions-guides, pop-corn, entraide/rythmes, SKIP-PRINT verso (22 janv 2026)
@@ -49,21 +51,21 @@
 | ID | Titre | Fond | Forme | Design | Print | Site | Commentaire |
 |----|-------|------|-------|--------|-------|------|-------------|
 | A1a | [Routines (affiche A4)](../affiches/A1_Routines.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| A1m | [Routines (mémo A6)](../affiches/A1_routines_memo.md) | ✅ | ✅ | ⬜ | ⬜ | 🔄 | Réécriture 20 janv |
+| A1m | [Routines (mémo A6)](../affiches/A1_routines_memo.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Réécriture 20 janv |
 | A2a | [Tableau équipage (affiche A4)](../affiches/A2_tableau_equipage.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Bordures amber/teal, Merriweather serif |
-| A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | ✅ | ⬜ | ⬜ | 🔄 | Réécriture 20 janv |
+| A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Réécriture 20 janv |
 | A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet (recto + verso) |
-| A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) | ✅ | ✅ | ⬜ | ⬜ | 🔄 | Réécriture 20 janv |
+| A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) |✅ | ✅ | ✅ | ✅ | ✅ | Réécriture 20 janv |
 | R1 | [Bosco](../cartes/roles/R1_bosco.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R2 | [Navigateurice](../cartes/roles/R2_navigateurice.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R3 | [Second soigneux](../cartes/roles/R3_second_soigneux.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R4 | [Cambusier·ère](../cartes/roles/R4_cambusiere.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | M1 | [Accueil & Présentations](../cartes/moments/M1_accueil_presentations.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
-| M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | Passe Fond terminée |
-| M3 | [Découverte rôles](../cartes/moments/M3_decouverte_roles.md) | ✅ | ✅ | ✅ | ⬜ | ⬜ | priorité haute |
-| M4 | [Brief matin](../cartes/moments/M4_brief_matin.md) | ✅ | ✅ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
-| M5 | [Débrief soir](../cartes/moments/M5_debrief_soir.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
-| M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
+| M2 | [Accords d'équipage](../cartes/moments/M2_accords_equipage.md) |✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
+| M3 | [Découverte rôles](../cartes/moments/M3_decouverte_roles.md) | ✅ | ✅ | ✅ | ✅ | ✅ | priorité haute |
+| M4 | [Brief matin](../cartes/moments/M4_brief_matin.md) |✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
+| M5 | [Débrief soir](../cartes/moments/M5_debrief_soir.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
+| M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours_proto.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
 | M7 | [Débrief final](../cartes/moments/M7_debrief_final_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
 | J1 | [Gérer un conflit](../cartes/joker/J1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 | J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |

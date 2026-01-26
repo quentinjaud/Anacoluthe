@@ -22,6 +22,8 @@ V4 obsolète (archétypes, personnages fictifs, 19 cartes) = ne jamais utiliser.
 
 **Collaboration** : Modifications ensemble, commits par Quentin.
 
+**Recherche dans le codebase** : Utiliser l'agent `deep-explore` en priorité (recherche sémantique grepai). Grep/Glob classiques uniquement pour les requêtes simples (nom de fichier exact, pattern connu).
+
 **Avant de produire :**
 - Poser UNE question à la fois (pas de rafale), préférer les choix multiples
 - Explorer 2-3 approches avec avantages/inconvénients avant de trancher

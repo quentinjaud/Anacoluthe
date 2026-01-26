@@ -51,6 +51,8 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 - **Étapes numérotées** avec durées indicatives
 - **Questions précises** plutôt que génériques - plusieurs petits tours valent mieux qu'un gros tour flou
+- **Tours thématiques** : structurer les tours de parole par thème (ressenti, rôle, réussite, caillou, leçon...)
+- **Forcer l'expression du négatif** : un tour "caillou" ou "Pour que ce soit parfait, j'aurais aimé..." évite l'autocensure
 - **Emojis de repérage** pour les questions/thèmes (lecture rapide en conditions dégradées)
 - **Ancrage en "nous"** : Ce qu'on note, où, et pourquoi on y reviendra
 - **Transition** : Lien vers l'étape suivante du stage
@@ -61,6 +63,7 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 - **Vocabulaire maritime** naturel : "tenir le cap", "naviguer à l'aveugle"
 - **Lien terre** : Rappeler subtilement la transposabilité
 - **Cohérence séquentielle** : Chaque carte annonce la suivante et rappelle les précédentes quand pertinent
+- **Tip = aussi facilitation** : Le tip peut inclure des conseils d'animation (faire court, pas répéter, transformer commentaires en ajustements)
 
 ---
 
@@ -286,11 +289,13 @@ Lae second soigneux anime. Chaque rôle partage :
 
 ## M5 - DÉBRIEF SOIR
 
+**Statut : ✅ Produit** → `sources/cartes/moments/M5_debrief_soir.md`
+
 ### 📍 Contexte d'usage
 
 **Quand** : J2-J6, chaque soir après atterrissage.
 
-**Qui anime** : Le·la mono initie J2-J3, puis Second soigneux ou autre.
+**Qui anime** : Lae moniteurice (débrief technique) + lae second soigneux (débrief coopération, dès J2).
 
 **Problème adressé** : Le débrief technique seul ne traite pas de ce qui s'est passé humainement. Les tensions non nommées s'accumulent.
 
@@ -303,35 +308,41 @@ Lae second soigneux anime. Chaque rôle partage :
 
 **Coopération** :
 - Nommer les réussites collectives (célébrer)
-- Nommer les tensions ou difficultés (réguler)
+- Forcer l'expression du négatif (éviter l'autocensure)
+- Ancrer les apprentissages par rôle
 - Faire circuler la parole équitablement
 - Proposer une carte Joker si besoin
 
 ### 🎬 Animation proposée
 
-**Format : 10-20 min**
+**Structure en 4 sections**
 
-**Étape 1 - Tour technique (5-7 min)**
-"Qu'est-ce qui a bien marché ? Qu'est-ce qui a été difficile ?"
+**1. Débrief technique** (lae moniteurice anime)
+- Retour sur les séances du jour
+- Qu'est-ce qui a bien marché ?
+- Qu'est-ce qui a été difficile ?
+- Ce qu'on va travailler demain
 
-**Étape 2 - Tour coopération (5-7 min)**
-"Comment a fonctionné notre équipage aujourd'hui ?"
-- Qu'est-ce qu'on a bien fait ensemble ?
-- Y a-t-il une tension à nommer ?
-- Comment chacun·e se sent après cette journée ?
+**2. Débrief coopération** (lae second soigneux anime, sauf si iel ne le sent pas)
+5 petits tours :
+1. Ressenti : Comment je me sens ce soir ? (un mot)
+2. Rôle : Qu'est-ce que j'ai appris dans mon rôle ?
+3. Réussite : Un bon souvenir humain de la journée ?
+4. Caillou : "Pour que ce soit parfait, j'aurais aimé..."
+5. Leçon : Qu'est-ce qu'on retient collectivement ?
 
-**Étape 3 - Ajustements (3-5 min)**
-"Qu'est-ce qu'on ajuste pour demain ?" (organisation, programme, accords)
+**3. Ajustements**
+Si caillou "lourd" → proposer J1 Conflit ou J3 Rediscuter accords.
+Ce qu'on ajuste pour demain : organisation, programme, accords, rôles.
 
-**Étape 4 - Ancrage livre de bord**
-Noter dans "Observations" : ligne technique + ligne coopération.
-
-**Si tension identifiée** : Proposer carte Joker adaptée.
+**4. Ancrage**
+Dans le livre de bord : une ligne "débrief technique", une ligne "débrief coopération".
 
 ### 📚 Sources
 
 - Marque-page LDB verso (5 piliers)
 - Cartes Joker V5
+- Carte produite : `sources/cartes/moments/M5_debrief_soir.md`
 
 ---
 

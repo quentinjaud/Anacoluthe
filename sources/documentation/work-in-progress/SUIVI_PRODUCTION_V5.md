@@ -1,8 +1,46 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260126*
+*Dernière mise à jour : 260127*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260127)
+
+### Session 21 - Production M7 Débrief final
+
+**Réécriture complète de M7**
+
+La carte M7 a été restructurée pour clore le paquet moments. Focus sur l'adversité du dernier jour et l'articulation avec les outils de la semaine.
+
+**RECTO refondu**
+- Adversité nommée : "la tête déjà un peu ailleurs", "tentant de zapper ce temps"
+- Lien explicite M1/rôles/accords : "Reprenez vos attentes de J1, vos rôles, vos accords"
+- Mention débrief technique collectif + debriefs individuels (technique + coopération)
+- Tip : conseil de facilitation (introspection, pas de commentaires, laisser le silence)
+
+**Structure VERSO en 3 étapes + BONUS**
+1. **TOUR DE PARTAGE** (30 min) : Reprise attentes J1 + cadres semaine. 3 questions par personne.
+2. **ENGAGEMENT ACTION** (5 min) : Une chose concrète à faire différemment.
+3. **CLÔTURE** (10 min) : Mot moniteurice, photo équipage.
+4. **BONUS** (optionnel) : Temps solo avant + feedbacks croisés après.
+
+**Décisions prises**
+- Emoji 🎯 conservé
+- Pas d'ANCRAGE (dernière carte du stage)
+- Question "Quel rôle m'a le plus appris" intégrée (lien cartes rôles)
+- Temps solo et feedbacks croisés en bonus optionnel (pas obligatoires)
+- Suppression section "Questions pour t'aider" (pattern M5)
+
+**Fichiers modifiés**
+- `sources/cartes/moments/M7_debrief_final.md` - réécriture (renommé depuis _proto)
+- `assets/data/cards-index.json` - path, pdfPath, proto:false
+- `sw.js` - chemin mis à jour
+- `sources/suivi/tableau_suivi_cartes.md` - M7 et paquet moments complet ✅
+- `sources/documentation/CARTES_MOMENTS_INTENTIONS.md` - statut M7
+
+**Paquet moments complet** : M1-M7 tous validés (Passe Fond terminée).
 
 ---
 

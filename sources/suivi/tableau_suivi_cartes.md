@@ -4,9 +4,8 @@
 
 ## 🔥Sur le feu
 
-[ ] M7 : travailler le fond de la carte "moment"
-
 ## 👌 Cooked
+[X] M7 : réécriture complète - adversité dernier jour nommée, lien M1/rôles/accords, structure 3 étapes + bonus, débrief technique mentionné (27 janv 2026)
 [X] M6 : réécriture complète - super-débrief structuré (bilan M1/M2/rôles + ajustements en binômes), concept moment critique J3-J4 (26 janv 2026)
 [X] M5 : retravaillé le déroulé du debrief soir : plus complet et plus dirigé. quitte le statut proto
 [X] M4 : retravaillé le fil du brief matin : plus ettoffé et plus clair. quitte statut proto. 
@@ -30,8 +29,8 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Éléments terminés | 10 |
-| En cours | 11 |
+| Éléments terminés | 17 |
+| En cours | 4 |
 | Total Phase 1 | 21 |
 
 ## 🎨 Affinage des Cartes & Affiches
@@ -66,7 +65,7 @@
 | M4 | [Brief matin](../cartes/moments/M4_brief_matin.md) |✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
 | M5 | [Débrief soir](../cartes/moments/M5_debrief_soir.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
 | M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée, quitte proto |
-| M7 | [Débrief final](../cartes/moments/M7_debrief_final_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ |  |
+| M7 | [Débrief final](../cartes/moments/M7_debrief_final.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée, quitte proto |
 | J1 | [Gérer un conflit](../cartes/joker/J1_conflit_ouvert_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 | J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 | J3 | [Rediscuter le cadre](../cartes/joker/J3_rediscuter_accords_programme_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |

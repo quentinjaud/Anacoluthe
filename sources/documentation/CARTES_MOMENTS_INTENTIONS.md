@@ -14,12 +14,12 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 | # | Moment | Timing | Durée | Statut |
 |---|--------|--------|-------|--------|
 | M1 | Accueil & Présentations | J1 après-midi | 20-30 min | ✅ Produit |
-| M2 | Accords d'équipage | J1 soir | 30-45 min | ⬜ À faire |
-| M3 | Introduction rôles | J1 soir (après M2) | 15-20 min | ⬜ À faire |
+| M2 | Accords d'équipage | J1 soir | 30-45 min | ✅ Produit |
+| M3 | Découverte rôles | J1 soir (après M2) | 15-20 min | ✅ Produit |
 | M4 | Brief matin | J2-J6 quotidien | Variable | ✅ Produit |
-| M5 | Débrief soir | J2-J6 quotidien | 10-20 min | ⬜ À faire |
-| M6 | Mi-parcours | J3 ou J4 | 20-30 min | ⬜ À faire |
-| M7 | Débrief final | J6 après-midi | 45 min | ⬜ À faire |
+| M5 | Débrief soir | J2-J6 quotidien | 10-20 min | ✅ Produit |
+| M6 | Mi-parcours | J3 ou J4 | 20-30 min | ✅ Produit |
+| M7 | Débrief final | J6 après-midi | 45 min | ✅ Produit |
 
 **Séquencement J1** :
 1. Administratif (accueil base)
@@ -75,7 +75,7 @@ Les 7 cartes moments structurent la **progression coopérative** du stage J1→J
 
 **Quand** : J1 après-midi, après formalités administratives, avant courses/inventaire.
 
-**Qui anime** : Le·la mono facilite.
+**Qui anime** : Lae moniteurice facilite.
 
 **Problème adressé** : Sans expression des attentes individuelles, le·la mono navigue à l'aveugle. Les déceptions de fin de stage viennent souvent d'attentes non formulées.
 
@@ -408,11 +408,13 @@ Thématiques :
 
 ## M7 - DÉBRIEF FINAL
 
+**Statut : ✅ Produit** → `sources/cartes/moments/M7_debrief_final.md`
+
 ### 📍 Contexte d'usage
 
 **Quand** : J6 après-midi, après dernière navigation, avant séparation.
 
-**Qui anime** : Le·la mono facilite.
+**Qui anime** : Lae moniteurice facilite.
 
 **Problème adressé** : Sans débrief structuré, les apprentissages restent flous. Le transfert vers la vie à terre ne se fait pas (<15% sans travail explicite).
 
@@ -441,7 +443,7 @@ Chacun·e seul·e répond (écrit ou mental) à :
 - "Quelle compétence ai-je développée que je veux réutiliser à terre ?"
 - "Qu'est-ce que je veux dire à l'équipage avant de partir ?"
 
-Le·la mono laisse l'équipage seul pendant ce temps.
+Lae moniteurice laisse l'équipage seul pendant ce temps.
 
 **Étape 2 - Tour de table collectif (20-30 min)**
 Chacun·e partage :
@@ -449,20 +451,20 @@ Chacun·e partage :
 - Ce qu'iel veut retenir pour la vie à terre
 - Un mot pour l'équipage
 
-Le·la mono facilite et fait des liens entre les témoignages.
+Lae moniteurice facilite et fait des liens entre les témoignages.
 
 **Étape 3 - Engagement action (5 min)**
 "Une chose concrète que je vais faire différemment grâce à cette semaine ?"
-1 phrase par personne. Le·la mono peut noter dans le livre de bord.
+1 phrase par personne. Lae moniteurice peut noter dans le livre de bord.
 
 **Étape 4 - Clôture (5 min)**
 - Photo d'équipage
-- Mot du·de la mono
+- Mot de lae moniteurice
 - Remerciements mutuels
-- 4e de couv' fiche bilan (démarche qualité, sans mono)
+- 4e de couv' fiche bilan (démarche qualité, sans moniteurice)
 
 **Étape 5 - Transition debriefs individuels**
-Pendant rangements/prépa repas midi : debriefs individuels stagiaire ↔ mono (15 min chacun·e). Feedbacks techniques et pédagogiques.
+Pendant rangements/prépa repas midi : debriefs individuels stagiaire ↔ moniteurice (15 min chacun·e). Feedbacks techniques et pédagogiques.
 
 ### 📚 Sources
 

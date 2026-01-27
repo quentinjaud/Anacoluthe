@@ -1,19 +1,21 @@
 # 🎯 DÉBRIEF FINAL
-###### Le dernier jour - 45 min
+###### Le dernier jour
 
 <!-- HEAD -->
 
-> Sans nommer explicitement les apprentissages, les compétences développées risquent de rester "une expérience de stage". Transformons six jours de navigation en bagage transposable à terre.
+> Qu'est-ce qu'on ramène à terre ? Ce débrief transforme six jours de navigation en bagage durable.
 
-La semaine se termine. Vous avez navigué, appris, coopéré, peut-être galéré. Vous avez incarné des rôles, régulé des tensions, vécu des moments forts ensemble.
+C'est le dernier jour. Les sacs sont presque prêts, les trains réservés, la tête déjà un peu ailleurs. C'est tentant de zapper ce temps pour partir plus vite.
 
-Mais si vous repartez sans prendre le temps de nommer ce que vous avez appris, ces expériences risquent de s'évaporer. Les compétences développées ici (coopération, écoute, organisation collective) sont transposables partout. Encore faut-il en prendre conscience.
+Pourtant, c'est maintenant que tout se joue. Sans ce moment, les compétences développées restent floues : on repart avec des souvenirs, mais sans mots pour décrire ce qu'on a appris. Les apprentissages s'évaporent.
 
-Ce débrief final ancre les apprentissages et prépare leur transfert vers la vie à terre.
+Reprenez vos attentes de J1, vos rôles, vos accords. Nommez ce que vous ramenez. Ce débrief ancre les apprentissages et prépare leur transfert vers la vie à terre.
+
+En parallèle : débrief technique collectif (bilan de progression équipage). Ensuite : debriefs individuels stagiaire/moniteurice (technique + coopération).
 
 ## ✨ LE P'TIT TIP'S
 
-Ce temps est essentiel pour le transfert d'apprentissage. Sans lui, les compétences développées restent "une expérience de stage" au lieu de devenir des outils durables.
+Ce n'est pas un tour de remerciements. C'est un temps d'introspection partagée. Laissez le silence faire son travail. Pas de commentaires pendant les tours : on écoute.
 
 <!-- FLIP -->
 
@@ -21,39 +23,33 @@ Ce temps est essentiel pour le transfert d'apprentissage. Sans lui, les compéte
 ## 🎯 DÉROULÉ DÉBRIEF FINAL
 <!-- /SKIP-PRINT -->
 
-#### 1. TEMPS DE RÉFLEXION SOLO (10 min)
+#### 1. TOUR DE PARTAGE (30 min)
 
-Chacun·e répond par écrit (ou mentalement) :
-- Qu'est-ce que j'ai découvert sur moi cette semaine ?
-- Quel rôle m'a le plus appris ?
-- Quelle compétence je ramène à terre ?
+Reprenez la feuille des attentes de J1 et les cadres de la semaine (rôles, accords, programme, ...).
 
-#### 2. PARTAGE EN GRAND GROUPE (30 min)
+Un tour, 2-3 min par personne. Chacun·e partage :
+- Ce que j'ai découvert sur moi cette semaine
+- Quel rôle m'a le plus appris, et quoi
+- Ce que je ramène pour ma vie à terre
 
-Tour de parole (3-5 min par personne) :
-- Ce que j'ai appris sur moi
-- Ce que j'ai appris sur la coopération
-- Comment je vais réutiliser ça à terre
+Parlez avec intention, écoutez avec attention.
 
-⚠️ Les autres écoutent sans commenter pendant le tour
+#### 2. ENGAGEMENT ACTION (5 min)
 
-#### 3. FEEDBACKS CROISÉS (10 min - optionnel)
+Chacun·e formule en une phrase : *"Une chose concrète que je vais faire différemment grâce à cette semaine."*
 
-Chacun·e peut offrir un feedback positif à un·e autre :
-"Ce que j'ai apprécié chez toi cette semaine, c'est..."
+#### 3. CLÔTURE (10 min)
 
-#### 4. CLÔTURE COLLECTIVE (5 min)
+- Mot de lae moniteurice : reformuler les apprentissages communs
+- Photo d'équipage
 
-Lae moniteurice reformule les apprentissages communs.
-L'équipage peut choisir un geste, un mot, un rituel de clôture.
+---
 
-#### 🗣️ QUESTIONS POUR T'AIDER
+#### 💡 BONUS (si le temps le permet)
 
-*En quoi suis-je différent·e du·de la navigateur·ice de J1 ?*
-*Quelle compétence vais-je utiliser au travail ? En famille ?*
-*Qu'est-ce que je veux garder de cette expérience ?*
+AVANT : **Temps solo** : chacun·e prend 10-15min pour réfléchir seul·e, par écrit ou mentalement, avant le partage.
 
-→ Bon vent pour la suite ! 🌊
+APRES : **Feedbacks croisés** : chacun·e peut offrir un feedback positif à quelqu'un : "Ce que j'ai apprécié chez toi cette semaine, c'est..."
 
 ---
 

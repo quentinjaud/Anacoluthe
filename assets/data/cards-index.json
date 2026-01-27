@@ -136,9 +136,9 @@
       "description": "Ancrer les apprentissages et nommer les compétences transposables à terre.",
       "tags": ["Bilan personnel", "Compétences acquises", "Transfert à terre"],
       "tagsTitle": "Déroulé",
-      "path": "sources/cartes/moments/M7_debrief_final_proto.md",
-      "pdfPath": "print/cartes/M7_debrief_final_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/moments/M7_debrief_final.md",
+      "pdfPath": "print/cartes/M7_debrief_final.pdf",
+      "proto": false
     },
     {
       "id": "J1",

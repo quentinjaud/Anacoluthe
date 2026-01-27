@@ -94,7 +94,7 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 
 | # | Situation | Usage |
 |---|-----------|-------|
-| J1 | Conflit ouvert | Désamorcer tension relationnelle |
+| J1 | Désaccord-conflit | Désamorcer tension relationnelle |
 | J2 | Décision bloquée | Sortir d'une impasse décisionnelle |
 | J3 | Fatigue collective | Adapter rythme/charge |
 | J4 | Exclusion/isolement | Réintégrer un membre d'équipage |

@@ -681,7 +681,7 @@ sources/suivi/
 
 | # | Carte | Fichier |
 |---|-------|---------|
-| J1 | Gérer un conflit/désaccord | `sources/cartes/joker/J1_conflit_ouvert_proto.md` |
+| J1 | Gérer un désaccord-conflit | `sources/cartes/joker/J1_desaccord_conflit.md` |
 | J2 | Temps sans navigation | `J2_temps_sans_navigation_proto.md` |
 | J3 | Rediscuter accords/programme | `J3_rediscuter_accords_programme_proto.md` |
 | J4 | Demande/feedback mono | `J4_demande_feedback_mono_proto.md` |

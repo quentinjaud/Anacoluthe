@@ -60,7 +60,7 @@ const PRECACHE_URLS = [
   '/sources/cartes/moments/M7_debrief_final.md',
   
   // Cartes Joker
-  '/sources/cartes/joker/J1_conflit_ouvert_proto.md',
+  '/sources/cartes/joker/J1_desaccord_conflit.md',
   '/sources/cartes/joker/J2_temps_sans_navigation_proto.md',
   '/sources/cartes/joker/J3_rediscuter_accords_programme_proto.md',
   '/sources/cartes/joker/J4_demande_feedback_mono_proto.md',

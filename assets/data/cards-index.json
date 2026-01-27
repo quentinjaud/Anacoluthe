@@ -143,15 +143,15 @@
     {
       "id": "J1",
       "type": "joker",
-      "title": "Gérer un conflit",
+      "title": "Gérer un désaccord-conflit",
       "subtitle": "Quand la tension monte",
       "emoji": "⚡",
       "description": "Désamorcer une tension relationnelle avant qu'elle ne s'enkyste ou n'explose.",
       "tags": ["Pause", "Nommer", "Écouter", "Chercher ensemble"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/joker/J1_conflit_ouvert_proto.md",
-      "pdfPath": "print/cartes/J1_conflit_ouvert_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/joker/J1_desaccord_conflit.md",
+      "pdfPath": "print/cartes/J1_desaccord_conflit.pdf",
+      "proto": false
     },
     {
       "id": "J2",

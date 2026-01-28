@@ -50,7 +50,7 @@ const CONFIG = {
     },
     joker: {
       cards: ['J1_conflit-desaccord', 'J2_temps-sans-navigation',
-              'J3_rediscuter-accords', 'J4_feedback-mono'],
+              'J3_rediscuter-accords', 'J4_demande_retour_mono'],
       title: 'Cartes Joker'
     },
     memos: {

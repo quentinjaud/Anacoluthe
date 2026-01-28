@@ -188,8 +188,8 @@
       "description": "Formuler un feedback à lae moniteurice : positif, demande d'ajustement, ou inconfort.",
       "tags": ["Décider", "Préparer", "Exprimer", "Réponse"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/joker/J4_demande_feedback_mono.md",
-      "pdfPath": "print/cartes/J4_demande_feedback_mono.pdf",
+      "path": "sources/cartes/joker/J4_demande_retour_mono.md",
+      "pdfPath": "print/cartes/J4_demande_retour_mono.pdf",
       "proto": false
     }
   ],

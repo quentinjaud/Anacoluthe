@@ -13,7 +13,7 @@ Vous êtes en mer depuis quelques jours et une tension s'est installée. Entre d
 
 ## 👉 POINT D'ATTENTION
 
-Lae moniteurice ou le second soigneux du jour facilite, en duo avec lae moniteurice. Veiller à l'équilibre des temps de parole - les plus silencieux ont peut-être le plus besoin de s'exprimer. Ne pas forcer la résolution : parfois, laisser reposer un désaccord jusqu'au lendemain est une issue valable.
+Lae second soigneux du jour - ou lae moniteurice si plus approprié - facilite. Veiller à l'équilibre des temps de parole - les plus silencieux ont peut-être le plus besoin de s'exprimer. Ne pas forcer la résolution : parfois, laisser reposer un désaccord jusqu'au lendemain est une issue valable.
 
 <!-- FLIP -->
 
@@ -54,5 +54,4 @@ Questions guides :
 **Vérification** : Le second soigneux du lendemain vérifie discrètement en débrief soir que la tension ne ressurgit pas.
 
 ---
-
 *Anacoluthe - CC-BY-NC-SA*

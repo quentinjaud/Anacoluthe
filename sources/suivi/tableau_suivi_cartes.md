@@ -4,9 +4,10 @@
 
 ## 🔥Sur le feu
 
-[ ] Refonte de J4 : fond et forme
+(rien en ce moment)
 
 ## 👌 Cooked
+[X] Refonte de J4 : fond - condensation recto, ajout exemples, alignement pattern Joker (28 janv 2026)
 [X] Refonte de J3 : fond - structure 5→3 étapes, tour d'objection sociocratie, message clef "jugement→besoins" (28 janv 2026)
 [X] Refonte de J2 : fond et forme (27 janv 2026)
 [X] Refonte de J1 : fond et forme
@@ -72,9 +73,9 @@
 | M6 | [Mi-parcours](../cartes/moments/M6_mi_parcours.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée, quitte proto |
 | M7 | [Débrief final](../cartes/moments/M7_debrief_final.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée, quitte proto |
 | J1 | [Gérer un désaccord-conflit](../cartes/joker/J1_desaccord_conflit.md) | ✅ | ✅ | ✅ | ✅ | ✅ | créé 4 déc |
-| J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
-| J3 | [Rediscuter le cadre](../cartes/joker/J3_rediscuter_accords_programme.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
-| J4 | [Retour moniteurice](../cartes/joker/J4_demande_feedback_mono_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
+| J3 | [Rediscuter le cadre](../cartes/joker/J3_rediscuter_accords_programme.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
+| J4 | [Demande-retour moniteurice](../cartes/joker/J4_demande_feedback_mono.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée |
 
 ### Légende statuts
 

@@ -92,12 +92,12 @@ Chaque carte inclut : biographie inspirante, missions quotidiennes (matin/nav/so
 
 ### Les 4 cartes Joker
 
-| # | Situation | Usage |
-|---|-----------|-------|
-| J1 | Désaccord-conflit | Désamorcer tension relationnelle |
-| J2 | Décision bloquée | Sortir d'une impasse décisionnelle |
-| J3 | Fatigue collective | Adapter rythme/charge |
-| J4 | Exclusion/isolement | Réintégrer un membre d'équipage |
+| # | Carte | Usage |
+|---|-------|-------|
+| J1 | Désaccord-conflit | Désamorcer une tension relationnelle |
+| J2 | Temps sans navigation | Transformer la contrainte météo en opportunité |
+| J3 | Rediscuter le cadre | Ajuster accords ou programme quand ça coince |
+| J4 | Demande-retour moniteurice | Formuler un feedback à lae moniteurice |
 
 ### Les 3 affiches A4 permanentes
 

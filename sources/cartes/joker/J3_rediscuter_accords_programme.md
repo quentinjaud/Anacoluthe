@@ -11,8 +11,6 @@ Sans renégociation, la frustration s'enkyste et le ressentiment divise. L'objec
 
 Revenir aux documents fondateurs (accords, attentes) permet de nommer ce qui coince, d'ajuster ensemble, et de repartir sur des bases acceptées par tous·tes, sans transformer ce qui est souvent un malentendu en jugement de valeur. 
 
-
-
 ## 👉 Point d'attention
 
 Lae second soigneux du jour facilite ce temps, en duo avec lae moniteurice. Iel veille à ce que chacun·e puisse s'exprimer sans accusation. Lae moniteurice valide les ajustements possibles côté technique et sécurité.
@@ -45,5 +43,4 @@ Tour d'objection : "Y-a t'il une objection à ce que que ces nouveaux accords/pr
 Au LDB, colonne Observations : "Accords/programme ajustés - [ce qui change]". Lae second soigneux vérifie les jours suivants que ça tient.
 
 ---
-
 *Anacoluthe - CC-BY-NC-SA*

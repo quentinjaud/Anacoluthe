@@ -182,15 +182,15 @@
     {
       "id": "J4",
       "type": "joker",
-      "title": "Retour moniteurice",
-      "subtitle": "Oser dire",
+      "title": "Demande-retour moniteurice",
+      "subtitle": "Communiquer avec lae moniteurice",
       "emoji": "💬",
-      "description": "Faire une demande ou un retour au·à la moniteur·ice, positif ou ajustement.",
-      "tags": ["Préparer", "Formuler", "Écouter la réponse"],
+      "description": "Formuler un feedback à lae moniteurice : positif, demande d'ajustement, ou inconfort.",
+      "tags": ["Décider", "Préparer", "Exprimer", "Réponse"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/joker/J4_demande_feedback_mono_proto.md",
-      "pdfPath": "print/cartes/J4_demande_feedback_mono_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/joker/J4_demande_feedback_mono.md",
+      "pdfPath": "print/cartes/J4_demande_feedback_mono.pdf",
+      "proto": false
     }
   ],
   "affiches": [

@@ -63,7 +63,7 @@ const PRECACHE_URLS = [
   '/sources/cartes/joker/J1_desaccord_conflit.md',
   '/sources/cartes/joker/J2_temps_sans_navigation.md',
   '/sources/cartes/joker/J3_rediscuter_accords_programme.md',
-  '/sources/cartes/joker/J4_demande_feedback_mono_proto.md',
+  '/sources/cartes/joker/J4_demande_feedback_mono.md',
   
   // Affiches (mémos)
   '/sources/affiches/A1_routines_memo.md',

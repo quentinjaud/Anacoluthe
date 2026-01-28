@@ -15,10 +15,10 @@ Les 4 cartes Joker sont des **outils curatifs** mobilisables quand les cartes mo
 
 | # | Carte Joker | Situation | Statut |
 |---|-----------|-----------|--------|
-| J1 | Gérer un conflit/désaccord | Tension interpersonnelle ou collective qui bloque | ⬜ Passe Fond |
-| J2 | Organiser un temps sans navigation | Pétole ou temps trop fort - frustration + surprise | ⬜ Passe Fond |
-| J3 | Rediscuter accords/programme | Accord non respecté ou frustration technique qui monte | ⬜ Passe Fond |
-| J4 | Faire une demande/feedback à lae moniteurice | Besoin de communiquer avec lae moniteurice sur son action | ⬜ Passe Fond |
+| J1 | Gérer un désaccord-conflit | Tension interpersonnelle ou collective qui bloque | ✅ Passe Fond |
+| J2 | Temps sans navigation | Pétole ou temps trop fort - frustration + surprise | ✅ Passe Fond |
+| J3 | Rediscuter le cadre | Accord non respecté ou frustration technique qui monte | ✅ Passe Fond |
+| J4 | Demande-retour moniteurice | Besoin de communiquer avec lae moniteurice sur son action | ✅ Passe Fond |
 
 ---
 

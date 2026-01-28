@@ -1,13 +1,13 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 26 Janvier 2026
+> Dernière mise à jour : 28 Janvier 2026
 
 ## 🔥Sur le feu
 
-[ ] Refonte de J3 : fond et forme
 [ ] Refonte de J4 : fond et forme
 
 ## 👌 Cooked
+[X] Refonte de J3 : fond - structure 5→3 étapes, tour d'objection sociocratie, message clef "jugement→besoins" (28 janv 2026)
 [X] Refonte de J2 : fond et forme (27 janv 2026)
 [X] Refonte de J1 : fond et forme
 [X] M7 : réécriture complète - adversité dernier jour nommée, lien M1/rôles/accords, structure 3 étapes + bonus, débrief technique mentionné (27 janv 2026)
@@ -73,7 +73,7 @@
 | M7 | [Débrief final](../cartes/moments/M7_debrief_final.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Passe Fond terminée, quitte proto |
 | J1 | [Gérer un désaccord-conflit](../cartes/joker/J1_desaccord_conflit.md) | ✅ | ✅ | ✅ | ✅ | ✅ | créé 4 déc |
 | J2 | [Temps sans navigation](../cartes/joker/J2_temps_sans_navigation.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
-| J3 | [Rediscuter le cadre](../cartes/joker/J3_rediscuter_accords_programme_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
+| J3 | [Rediscuter le cadre](../cartes/joker/J3_rediscuter_accords_programme.md) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | Passe Fond terminée |
 | J4 | [Retour moniteurice](../cartes/joker/J4_demande_feedback_mono_proto.md) | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | créé 4 déc |
 
 ### Légende statuts

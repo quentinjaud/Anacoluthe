@@ -173,11 +173,11 @@
       "subtitle": "Quand ça coince",
       "emoji": "🔄",
       "description": "Ajuster les accords d'équipage ou le programme quand ils ne fonctionnent plus.",
-      "tags": ["Constater", "Proposer", "Reformuler"],
+      "tags": ["Constat partagé", "Retour aux sources", "Tour des besoins", "Renégociation"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/joker/J3_rediscuter_accords_programme_proto.md",
-      "pdfPath": "print/cartes/J3_rediscuter_accords_programme_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/joker/J3_rediscuter_accords_programme.md",
+      "pdfPath": "print/cartes/J3_rediscuter_accords_programme.pdf",
+      "proto": false
     },
     {
       "id": "J4",

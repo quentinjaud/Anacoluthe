@@ -160,11 +160,11 @@
       "subtitle": "Pétole ou coup de vent",
       "emoji": "⏸️",
       "description": "Transformer la contrainte météo en opportunité collective.",
-      "tags": ["Accepter", "Proposer", "Respecter les besoins"],
+      "tags": ["Envies", "Construction collective", "Validation"],
       "tagsTitle": "Étapes clés",
-      "path": "sources/cartes/joker/J2_temps_sans_navigation_proto.md",
-      "pdfPath": "print/cartes/J2_temps_sans_navigation_proto.pdf",
-      "proto": true
+      "path": "sources/cartes/joker/J2_temps_sans_navigation.md",
+      "pdfPath": "print/cartes/J2_temps_sans_navigation.pdf",
+      "proto": false
     },
     {
       "id": "J3",

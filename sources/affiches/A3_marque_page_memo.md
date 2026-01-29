@@ -1,5 +1,5 @@
 # 📖 MARQUE-PAGE
-###### Mémo d'accompagnement de l'affiche A3
+###### Mémo pour le livre de bord
 
 <!-- HEAD -->
 

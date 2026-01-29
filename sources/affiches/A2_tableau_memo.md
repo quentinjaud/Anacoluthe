@@ -1,6 +1,5 @@
 # 🌊 TABLEAU D'ÉQUIPAGE
-###### Mémo brief matin
-
+###### Répartir la charge et s'écouter
 <!-- HEAD -->
 
 > Le tableau rend visible l'état du groupe. Chaque matin, on sait où en est chacun·e, qui fait quoi, et ce qu'on vise ensemble. Prendre ce temps de synchronisation, c'est reconnaître que la qualité de notre navigation dépend autant de notre coopération que de notre technique.

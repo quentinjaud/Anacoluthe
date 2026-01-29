@@ -1,5 +1,5 @@
 # 🔁 ROUTINES QUOTIDIENNES
-###### Guide d'utilisation de l'affiche
+###### Coopérer au quotidien
 
 <!-- HEAD -->
 

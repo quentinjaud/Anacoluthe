@@ -1,0 +1,805 @@
+/* ========================================
+   VARIABLES ATELIER (complément)
+   ======================================== */
+:root {
+    /* Dimensions écrans */
+    --web-width: 700px;
+    --mobile-width: 360px;
+    --mini-width: 180px;
+
+    /* Page background */
+    --bg-page: #F3F4F6;
+}
+
+/* ========================================
+   RESET ATELIER
+   ======================================== */
+body {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    background: var(--bg-page);
+    color: var(--text-dark);
+    line-height: 1.5;
+    padding: 20px;
+}
+
+/* Mode print Puppeteer */
+body.mode-print {
+    background: white;
+    padding: 0;
+}
+
+/* ========================================
+   HEADER NAVIGATION ATELIER
+   ======================================== */
+.atelier-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.atelier-header > * {
+    pointer-events: auto;
+}
+
+body.mode-print .atelier-header {
+    display: none;
+}
+
+.atelier-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    text-decoration: none;
+    border: none;
+    padding: 0.35rem 0.7rem;
+    border-radius: 2rem;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.atelier-back:hover {
+    background: var(--teal-700);
+    color: white;
+}
+
+.atelier-back img {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.atelier-link {
+    display: inline-block;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: none;
+    padding: 0.35rem 0.7rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.atelier-link:hover {
+    background: white;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   CONTRÔLES ATELIER
+   ======================================== */
+.controls {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 15px;
+    margin-top: 35px;
+    padding: 1rem 1.5rem;
+    background: rgba(224, 49, 33, 0.05);
+    border: 1px solid var(--rouge-glenans);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+body.mode-print .controls {
+    display: none;
+}
+
+/* Emojis débordants superposés */
+.controls-emoji {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 2.5rem;
+    line-height: 1;
+    z-index: 1;
+}
+
+.controls-emoji .emoji-1 {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+}
+
+.controls-emoji .emoji-2 {
+    position: relative;
+    left: -0.6em;
+    z-index: 1;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+}
+
+.controls h1 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--rouge-glenans);
+    text-align: center;
+    margin: 0 0 0.8rem 0;
+}
+
+.controls-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.controls-row:last-child {
+    margin-bottom: 0;
+}
+
+.controls label {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.controls select {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    background: white;
+    min-width: 240px;
+}
+
+.controls .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.controls .checkbox-label input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.controls .info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+/* ========================================
+   BOUTONS DE VUE - Style pills
+   ======================================== */
+.view-switcher {
+    display: flex;
+    gap: 0.25rem;
+    width: fit-content;
+    margin: 0 auto;
+    background: #F3F4F6;
+    padding: 0.25rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border-light);
+}
+
+.view-btn {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    color: #6B7280;
+}
+
+.view-btn:hover {
+    color: #374151;
+    background: rgba(255,255,255,0.5);
+}
+
+.view-btn.active {
+    background: var(--blanc);
+    color: var(--bleu-glenans);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.controls-separator {
+    width: 1px;
+    height: 32px;
+    background: var(--border-light);
+    margin: 0 5px;
+}
+
+/* Éléments visibles uniquement en mode print */
+.print-only {
+    display: none;
+}
+
+body.view-print .print-only {
+    display: inline-flex;
+}
+
+/* Boutons ligne 2 (tous identiques) */
+.tool-btn,
+.download-btn {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--bleu-glenans);
+    border-radius: 0.5rem;
+    background: white;
+    color: var(--bleu-glenans);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tool-btn:hover,
+.download-btn:hover {
+    background: var(--bleu-glenans);
+    color: white;
+}
+
+.tool-btn.spinning {
+    animation: spin 0.5s linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.download-btn.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Checkbox compact */
+.controls .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6B7280;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.4rem;
+    transition: all 0.15s ease;
+}
+
+.controls .checkbox-label:hover {
+    background: rgba(0,0,0,0.03);
+    color: #374151;
+}
+
+.controls .checkbox-label input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--bleu-glenans);
+}
+
+/* ========================================
+   CONTAINERS PAR MODE
+   ======================================== */
+.preview-container {
+    display: none;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+body.view-print .preview-print,
+body.view-web .preview-web,
+body.view-mobile .preview-mobile,
+body.view-tech .preview-tech {
+    display: flex;
+}
+
+body.mode-print .preview-print {
+    display: flex;
+    gap: 0;
+    margin: 0;
+}
+
+/* ========================================
+   VUE PRINT - Cartes A6
+   ======================================== */
+/* Prévisualisation : simule le rendu carte découpée */
+.print-card-face {
+    border: 1px solid var(--border-light);
+    border-radius: 3mm;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Mode Puppeteer : retirer les effets de prévisualisation */
+body.mode-print .print-card-face {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.face-recto .print-card-face[data-face="verso"],
+body.face-verso .print-card-face[data-face="recto"] {
+    display: none;
+}
+
+/* Labels supprimés - les labels sont dans .viewer-caption */
+.print-card-face::before {
+    display: none;
+}
+
+body.mode-print .print-card-face::before {
+    display: none;
+}
+
+/* ========================================
+   VUE WEB - Simule exactement la modale
+   ======================================== */
+.preview-web {
+    flex-direction: column;
+    align-items: center;
+}
+
+.web-viewer {
+    width: var(--web-width);
+    max-height: 85vh;
+    background: var(--blanc);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Supprimé - les labels sont maintenant dans .viewer-caption */
+.web-viewer::before {
+    display: none;
+}
+
+/* Le body utilise card-modal-body de cards.css */
+.web-viewer .card-modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+    background-color: var(--bg-cream);
+}
+
+/* Section nav dans le viewer - réutilise les styles de cards.css */
+.web-viewer .card-section-nav {
+    border-radius: 0;
+}
+
+/* ========================================
+   VUE MOBILE - Mini + Mobile
+   ======================================== */
+.preview-mobile {
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* Mini card - wrapper qui contient la vraie card-tile scalée */
+.mini-wrapper {
+    position: relative;
+}
+
+/* Supprimé - les labels sont maintenant dans .viewer-caption */
+.mini-wrapper::before {
+    display: none;
+}
+
+/* Container pour scaler la tuile - pas de scale, taille réelle réduite */
+.mini-scaler {
+    width: 300px; /* Largeur proche des tuiles desktop sur anacoluthe.html */
+}
+
+/* Override des tailles pour une tuile compacte */
+.mini-wrapper .card-tile {
+    padding: 1.25rem;
+    padding-top: 2rem;
+    margin-top: 1.2rem;
+    cursor: default;
+}
+
+.mini-wrapper .card-emoji {
+    font-size: 3rem;
+    top: -1.5rem;
+    left: 0.85rem;
+}
+
+.mini-wrapper .card-badges {
+    top: -0.6rem;
+    right: 0.85rem;
+}
+
+.mini-wrapper .card-type-badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+}
+
+.mini-wrapper .card-tile-title {
+    font-size: 1.35rem;
+}
+
+.mini-wrapper .card-tile-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+
+.mini-wrapper .card-tile-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+}
+
+.mini-wrapper .card-tile-tags {
+    padding: 0.65rem;
+}
+
+.mini-wrapper .card-tile-tags-title {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+}
+
+.mini-wrapper .card-tile-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.mini-wrapper .card-tile:hover {
+    transform: none;
+}
+
+/* Mobile viewer - simule aussi la modale mais à 360px */
+.mobile-viewer {
+    width: var(--mobile-width);
+    max-height: 80vh;
+    background: var(--blanc);
+    border-radius: var(--radius-small);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Supprimé - les labels sont maintenant dans .viewer-caption */
+.mobile-viewer::before {
+    display: none;
+}
+
+/* Le body utilise card-modal-body de cards.css avec override mobile */
+.mobile-viewer .card-modal-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+    flex: 1;
+    background-color: var(--bg-cream);
+}
+
+/* Override nav-head pour mobile */
+.mobile-viewer .card-modal-body .nav-head {
+    margin: -1.25rem -1.25rem 1.25rem -1.25rem;
+    width: calc(100% + 2.5rem);
+    padding: 1rem 1.25rem 0.75rem 1.25rem;
+}
+
+.mobile-viewer .card-modal-body .nav-head h1 {
+    font-size: 1.4rem;
+}
+
+.mobile-viewer .card-modal-body .nav-head h6 {
+    font-size: 1rem;
+}
+
+/* Section nav mobile */
+.mobile-viewer .card-section-nav {
+    border-radius: 0;
+    padding: 0.6rem 0.75rem;
+}
+
+.mobile-viewer .card-section-nav .section-nav-link {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.6rem;
+}
+
+/* ========================================
+   TWEMOJI - Forcer les tailles dans les viewers
+   ======================================== */
+.web-viewer img.emoji,
+.mobile-viewer img.emoji {
+    height: 1.2em !important;
+    width: 1.2em !important;
+    max-width: 1.2em !important;
+    display: inline !important;
+    vertical-align: -0.1em;
+}
+
+.web-viewer .nav-head h1 img.emoji,
+.mobile-viewer .nav-head h1 img.emoji {
+    height: 1em !important;
+    width: 1em !important;
+    max-width: 1em !important;
+}
+
+.web-viewer h2 img.emoji,
+.mobile-viewer h2 img.emoji {
+    height: 1.1em !important;
+    width: 1.1em !important;
+    max-width: 1.1em !important;
+}
+
+/* ========================================
+   INDICATEURS PRINT
+   ======================================== */
+.font-size-indicator {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.font-size-indicator.reduced {
+    color: #16a34a; /* vert - réduction réussie */
+}
+
+.font-size-indicator.overflow {
+    color: var(--rouge-glenans);
+    font-weight: 600;
+}
+
+body.mode-print .font-size-indicator {
+    display: none;
+}
+
+/* Bouton vérifier rendu Puppeteer */
+.verify-render-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    margin-top: 6px;
+    border: 1px dashed var(--border-light);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.6);
+    transition: all 0.2s ease;
+}
+
+.verify-render-btn:hover {
+    color: var(--bleu-glenans);
+    border-color: var(--bleu-glenans);
+    background: white;
+}
+
+.verify-render-btn.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+body.mode-print .verify-render-btn {
+    display: none;
+}
+
+/* ========================================
+   LOADING & ERROR
+   ======================================== */
+.loading, .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 100px;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: var(--text-muted);
+}
+
+.error { color: var(--rouge-glenans); }
+
+/* ========================================
+   LÉGENDES SOUS LES VIEWERS
+   ======================================== */
+.viewer-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewer-caption {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 10px;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 4px;
+}
+
+.viewer-caption .caption-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 6px;
+}
+
+.viewer-caption .caption-size {
+    color: var(--text-dark);
+}
+
+.viewer-caption .caption-source {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.65rem;
+    opacity: 0.8;
+}
+
+body.mode-print .viewer-caption {
+    display: none;
+}
+
+/* ========================================
+   MARQUEURS SKIP - Comportement atelier
+   ======================================== */
+/* Vue Print : comme Puppeteer, cacher SKIP-PRINT */
+body.view-print .skip-print {
+    display: none;
+}
+body.view-print .skip-web {
+    display: block;
+}
+
+/* Vues Web/Mobile : cacher SKIP-WEB, montrer SKIP-PRINT */
+body.view-web .skip-print,
+body.view-mobile .skip-print {
+    display: block;
+}
+body.view-web .skip-web,
+body.view-mobile .skip-web {
+    display: none;
+}
+
+/* Mode Puppeteer (capture PDF) : forcer le comportement print */
+body.mode-print .skip-print {
+    display: none !important;
+}
+body.mode-print .skip-web {
+    display: block !important;
+}
+
+/* ========================================
+   VUE TECH - Infos techniques
+   ======================================== */
+.preview-tech {
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tech-panel {
+    width: 100%;
+    background: var(--blanc);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.tech-panel h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--bleu-glenans);
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--bleu-glenans);
+}
+
+.tech-panel h3 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tech-panel p, .tech-panel li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.tech-panel ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-panel code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.85rem;
+    background: #F3F4F6;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    color: var(--rouge-glenans);
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 0.75rem 0;
+}
+
+.tech-table th, .tech-table td {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.tech-table th {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 600;
+    background: #F9FAFB;
+}
+
+.tech-table td code {
+    font-size: 0.8rem;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+/* Ajustements viewer-group */
+.viewer-group {
+    margin-top: 20px;
+}
+
+.preview-mobile .viewer-group {
+    align-items: flex-start;
+}

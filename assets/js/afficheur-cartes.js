@@ -101,19 +101,24 @@ async function init() {
  */
 function setupModeButtons() {
     const buttons = document.querySelectorAll('#mode-buttons .view-btn');
-    
+
     buttons.forEach(btn => {
+        // Ignorer les boutons sans data-mode (comme le bouton reload)
+        if (!btn.dataset.mode) return;
+
         if (btn.dataset.mode === currentMode) {
             btn.classList.add('active');
         } else {
             btn.classList.remove('active');
         }
-        
+
         btn.addEventListener('click', () => {
             currentMode = btn.dataset.mode;
             document.body.className = document.body.className.replace(/view-\w+/, '');
             document.body.classList.add('view-' + currentMode);
-            buttons.forEach(b => b.classList.remove('active'));
+            buttons.forEach(b => {
+                if (b.dataset.mode) b.classList.remove('active');
+            });
             btn.classList.add('active');
             updateUrl();
         });

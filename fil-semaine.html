@@ -17,6 +17,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fil-semaine.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
 </head>
 <body>
     <main class="fil-container">
@@ -281,7 +282,7 @@
                                 <span class="fil-card-emoji">💬</span>
                                 <span class="fil-card-title">J4</span>
                             </div>
-                            <span class="fil-tool-name">Faire un retour au mono</span>
+                            <span class="fil-tool-name">Faire un retour à lae moniteurice</span>
                         </a>
                     </div>
                 </div>
@@ -359,6 +360,16 @@
             </div>
         </section>
 
+        <!-- Modale pour afficher une carte -->
+        <div class="card-modal" id="card-modal">
+            <div class="card-modal-backdrop" onclick="closeModal()"></div>
+            <div class="card-modal-content">
+                <button class="card-modal-close" onclick="closeModal()" aria-label="Fermer">×</button>
+                <div class="card-modal-body" id="card-modal-body">
+                    <p class="loading">Chargement...</p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- SLIDER NAVIGATION -->
@@ -414,6 +425,11 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- marked.js pour parser le markdown (local pour PWA) -->
+    <script src="assets/js/vendor/marked.min.js"></script>
+    <!-- Module partagé de parsing markdown -->
+    <script src="assets/js/markdown-utils.js"></script>
+    <script src="assets/js/cards-loader.js"></script>
     <script src="assets/js/fil-semaine.js"></script>
     <script src="assets/js/external-links.js"></script>
     <!-- PWA Status & Install -->

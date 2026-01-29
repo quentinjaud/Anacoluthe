@@ -9,8 +9,16 @@
 let cardsData = null;
 let currentFilter = 'all';
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', init);
+// Initialisation - Auto-détection du mode
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('cards-gallery')) {
+        // Mode galerie (anacoluthe.html)
+        init();
+    } else if (document.getElementById('card-modal')) {
+        // Mode modal-only (fil-semaine.html, etc.)
+        initModalOnly();
+    }
+});
 
 async function init() {
     // Configurer marked via le module partagé
@@ -278,7 +286,7 @@ function setupModalClose() {
             closeModal();
         }
     });
-    
+
     window.addEventListener('popstate', (e) => {
         if (!e.state || !e.state.cardId) {
             closeModal();
@@ -286,6 +294,42 @@ function setupModalClose() {
             openCard(e.state.cardId);
         }
     });
+}
+
+/**
+ * Initialisation légère pour pages sans galerie (fil-semaine.html)
+ * Initialise uniquement la logique de modale
+ */
+async function initModalOnly() {
+    // Configurer marked via le module partagé
+    configureMarked();
+
+    try {
+        await loadCardsIndex();
+        setupModalClose();
+
+        // Intercepter les clics sur les liens vers anacoluthe.html?card=XX
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a[href*="anacoluthe.html?card="]');
+            if (link) {
+                e.preventDefault();
+                const url = new URL(link.href, window.location.href);
+                const cardId = url.searchParams.get('card');
+                if (cardId) {
+                    openCard(cardId);
+                }
+            }
+        });
+
+        // Vérifier si une carte est demandée dans l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const cardId = urlParams.get('card');
+        if (cardId) {
+            openCard(cardId);
+        }
+    } catch (error) {
+        console.error('Erreur initialisation modal-only:', error);
+    }
 }
 
 /**

@@ -803,3 +803,82 @@ body.mode-print .skip-web {
 .preview-mobile .viewer-group {
     align-items: flex-start;
 }
+
+/* ========================================
+   BOUTONS DÉSACTIVÉS (pour affiches)
+   ======================================== */
+.view-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ========================================
+   VUE PRINT - Support affiches A4
+   ======================================== */
+/* Container pour affiches dans la vue print - plus large que les A6 */
+.preview-print.affiche-mode {
+    justify-content: center;
+}
+
+.preview-print.affiche-mode .viewer-group:first-child {
+    max-width: none;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Container affiche - iframe isolé */
+.preview-print.affiche-mode .affiche-container {
+    width: 100% !important;
+    height: auto;
+    max-width: none !important;
+    max-height: none;
+    min-width: 900px;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+}
+
+.preview-print.affiche-mode .affiche-iframe {
+    border: none;
+    overflow: visible;
+    min-width: 900px;
+    width: 100%;
+}
+
+/* Scaling de l'iframe selon la taille d'écran */
+@media (min-width: 1800px) {
+    .preview-print.affiche-mode .affiche-iframe {
+        transform: scale(1.1);
+        transform-origin: top center;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1799px) {
+    .preview-print.affiche-mode .affiche-iframe {
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1399px) {
+    .preview-print.affiche-mode .affiche-iframe {
+        transform: scale(0.75);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 999px) {
+    .preview-print.affiche-mode .affiche-iframe {
+        transform: scale(0.6);
+        transform-origin: top center;
+    }
+}
+
+/* Cacher le second viewer group (verso) en mode affiche */
+.preview-print.affiche-mode .viewer-group:nth-child(2) {
+    display: none;
+}

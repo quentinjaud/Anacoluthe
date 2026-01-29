@@ -101,10 +101,41 @@ async function init() {
  */
 function setupModeButtons() {
     const buttons = document.querySelectorAll('#mode-buttons .view-btn');
+    const cardId = document.getElementById('card-select').value;
+    let isAffiche = false;
+
+    // Vérifier si c'est une affiche
+    if (cardId && cardsIndex) {
+        // Parser l'ID pour enlever le suffixe :memo ou :affiche
+        let actualId = cardId;
+        let forceMode = null;
+        if (cardId.includes(':')) {
+            const parts = cardId.split(':');
+            actualId = parts[0];
+            forceMode = parts[1];
+        }
+
+        const allItems = [...cardsIndex.cards, ...(cardsIndex.affiches || [])];
+        const card = allItems.find(c => c.id === actualId);
+        // Une affiche en mode :affiche (A4) grise les vues Web/Mobile
+        isAffiche = card && card.type === 'affiche' && forceMode === 'affiche';
+    }
 
     buttons.forEach(btn => {
         // Ignorer les boutons sans data-mode (comme le bouton reload)
         if (!btn.dataset.mode) return;
+
+        // Griser Web et Mobile pour les affiches
+        if (isAffiche && (btn.dataset.mode === 'web' || btn.dataset.mode === 'mobile')) {
+            btn.classList.add('disabled');
+            btn.title = 'Vue non disponible pour les affiches';
+        } else {
+            btn.classList.remove('disabled');
+            btn.title = btn.dataset.mode === 'print' ? 'Vue impression A6'
+                : btn.dataset.mode === 'web' ? 'Vue desktop'
+                : btn.dataset.mode === 'mobile' ? 'Vue mobile + tuile'
+                : 'Infos techniques';
+        }
 
         if (btn.dataset.mode === currentMode) {
             btn.classList.add('active');
@@ -113,6 +144,9 @@ function setupModeButtons() {
         }
 
         btn.addEventListener('click', () => {
+            // Empêcher le clic sur les boutons désactivés
+            if (btn.classList.contains('disabled')) return;
+
             currentMode = btn.dataset.mode;
             document.body.className = document.body.className.replace(/view-\w+/, '');
             document.body.classList.add('view-' + currentMode);
@@ -121,8 +155,20 @@ function setupModeButtons() {
             });
             btn.classList.add('active');
             updateUrl();
-        });
+        }, { once: false });
     });
+
+    // Si on est sur une affiche et qu'on est en mode web/mobile, revenir en print
+    if (isAffiche && (currentMode === 'web' || currentMode === 'mobile')) {
+        currentMode = 'print';
+        document.body.className = document.body.className.replace(/view-\w+/, '');
+        document.body.classList.add('view-print');
+        buttons.forEach(b => {
+            if (b.dataset.mode) b.classList.remove('active');
+        });
+        const printBtn = document.querySelector('[data-mode="print"]');
+        if (printBtn) printBtn.classList.add('active');
+    }
 }
 
 /**
@@ -165,42 +211,55 @@ function updateUrl() {
  */
 function populateSelect() {
     const select = document.getElementById('card-select');
-    
+
     const groups = {
-        affiche: { label: '📋 Mémos des Affiches', cards: [] },
+        afficheMemo: { label: '📋 Mémos des Affiches (A6)', cards: [] },
+        afficheA4: { label: '📄 Affiches A4', cards: [] },
         role: { label: '🔧 Rôles', cards: [] },
         moment: { label: '📅 Moments', cards: [] },
         joker: { label: '🃏 Joker', cards: [] }
     };
-    
-    // Ajouter les affiches
+
+    // Ajouter les affiches (en deux versions : mémo A6 et affiche A4)
     if (cardsIndex.affiches) {
         cardsIndex.affiches.forEach(card => {
-            groups.affiche.cards.push(card);
+            // Version mémo A6
+            groups.afficheMemo.cards.push({
+                ...card,
+                displayId: `${card.id}:memo`
+            });
+            // Version affiche A4
+            groups.afficheA4.cards.push({
+                ...card,
+                displayId: `${card.id}:affiche`
+            });
         });
     }
-    
+
     // Ajouter les cartes
     cardsIndex.cards.forEach(card => {
         if (groups[card.type]) {
-            groups[card.type].cards.push(card);
+            groups[card.type].cards.push({
+                ...card,
+                displayId: card.id
+            });
         }
     });
-    
+
     Object.values(groups).forEach(group => {
         if (group.cards.length === 0) return;
-        
+
         const optgroup = document.createElement('optgroup');
         optgroup.label = group.label;
-        
+
         group.cards.forEach(card => {
             const option = document.createElement('option');
-            option.value = card.id;
+            option.value = card.displayId;
             option.textContent = `${card.id} - ${card.title}`;
             if (card.proto) option.textContent += ' (proto)';
             optgroup.appendChild(option);
         });
-        
+
         select.appendChild(optgroup);
     });
 }
@@ -212,7 +271,7 @@ function onCardChange(e) {
     const cardId = e.target.value;
     if (cardId) {
         updateUrl();
-        loadCard(cardId);
+        loadCard(cardId).then(() => setupModeButtons());
     }
 }
 
@@ -243,27 +302,45 @@ function updatePdfButtons(card) {
     const pdfCardBtn = document.getElementById('pdf-card-btn');
     const pdfLivretBtn = document.getElementById('pdf-livret-btn');
     const pdfAfficheBtn = document.getElementById('pdf-affiche-btn');
-    
+
     const isAffiche = card.type === 'affiche';
-    
-    // Adapter le texte du premier bouton selon le type
-    if (isAffiche) {
+    const isAfficheA4Mode = isAffiche && card._forceMode === 'affiche';
+
+    // Adapter le texte du premier bouton selon le type et mode
+    if (isAfficheA4Mode) {
+        pdfCardBtn.innerHTML = '📥 Télécharger le PDF A4';
+        pdfCardBtn.title = 'Télécharger le PDF de cette affiche A4';
+        // En mode affiche A4, le bouton principal pointe vers l'affiche
+        if (card.affichePath) {
+            pdfCardBtn.href = card.affichePath;
+            pdfCardBtn.classList.remove('disabled');
+        } else {
+            pdfCardBtn.href = '#';
+            pdfCardBtn.classList.add('disabled');
+        }
+    } else if (isAffiche) {
         pdfCardBtn.innerHTML = '📥 Télécharger le mémo';
         pdfCardBtn.title = 'Télécharger le mémo A6 de cette affiche';
+        // En mode mémo, le bouton principal pointe vers le mémo
+        if (card.pdfPath) {
+            pdfCardBtn.href = card.pdfPath;
+            pdfCardBtn.classList.remove('disabled');
+        } else {
+            pdfCardBtn.href = '#';
+            pdfCardBtn.classList.add('disabled');
+        }
     } else {
         pdfCardBtn.innerHTML = '📥 Télécharger la carte';
         pdfCardBtn.title = 'Télécharger le PDF de cette carte';
+        if (card.pdfPath) {
+            pdfCardBtn.href = card.pdfPath;
+            pdfCardBtn.classList.remove('disabled');
+        } else {
+            pdfCardBtn.href = '#';
+            pdfCardBtn.classList.add('disabled');
+        }
     }
-    
-    // PDF carte/mémo individuel
-    if (card.pdfPath) {
-        pdfCardBtn.href = card.pdfPath;
-        pdfCardBtn.classList.remove('disabled');
-    } else {
-        pdfCardBtn.href = '#';
-        pdfCardBtn.classList.add('disabled');
-    }
-    
+
     // PDF livret par type
     const livretPaths = {
         'role': 'print/livrets/livret-roles.pdf',
@@ -271,7 +348,7 @@ function updatePdfButtons(card) {
         'joker': 'print/livrets/livret-joker.pdf',
         'affiche': 'print/livrets/livret-divers.pdf'
     };
-    
+
     const livretPath = livretPaths[card.type];
     if (livretPath) {
         pdfLivretBtn.href = livretPath;
@@ -280,15 +357,11 @@ function updatePdfButtons(card) {
         pdfLivretBtn.href = '#';
         pdfLivretBtn.classList.add('disabled');
     }
-    
-    // PDF affiche A4 (uniquement pour les affiches)
-    if (isAffiche && card.affichePath) {
+
+    // Bouton affiche A4 - caché en mode A4 (puisque c'est le bouton principal)
+    if (isAffiche && !isAfficheA4Mode && card.affichePath) {
         pdfAfficheBtn.href = card.affichePath;
         pdfAfficheBtn.classList.remove('disabled');
-        pdfAfficheBtn.style.display = '';
-    } else if (isAffiche) {
-        pdfAfficheBtn.href = '#';
-        pdfAfficheBtn.classList.add('disabled');
         pdfAfficheBtn.style.display = '';
     } else {
         pdfAfficheBtn.style.display = 'none';
@@ -299,18 +372,31 @@ function updatePdfButtons(card) {
  * Charge et affiche une carte dans toutes les vues
  */
 async function loadCard(cardId, forceReload = false) {
+    // Parser l'ID pour détecter le format :memo ou :affiche
+    let actualId = cardId;
+    let forceMode = null; // 'memo' ou 'affiche'
+
+    if (cardId.includes(':')) {
+        const parts = cardId.split(':');
+        actualId = parts[0];
+        forceMode = parts[1]; // 'memo' ou 'affiche'
+    }
+
     // Chercher dans cartes ET affiches
     const allItems = [...cardsIndex.cards, ...(cardsIndex.affiches || [])];
-    const card = allItems.find(c => c.id === cardId);
+    const card = allItems.find(c => c.id === actualId);
     if (!card) {
         showError('Carte non trouvée');
         return;
     }
-    
+
+    // Ajouter le mode forcé à la carte pour que renderPrintView puisse le détecter
+    card._forceMode = forceMode;
+
     // Mettre à jour les boutons PDF et vérification
     updatePdfButtons(card);
-    updateVerifyButtons(cardId);
-    
+    updateVerifyButtons(actualId);
+
     // Charger le markdown original (non prétraité)
     let markdownRaw = '';
     let contentPath = card.path;
@@ -339,16 +425,133 @@ async function loadCard(cardId, forceReload = false) {
     await renderWebView(card, markdownRaw);
     await renderMobileView(card, markdownRaw);
     renderTechView(card, lastModified);
-    
+
     document.body.classList.add('card-ready');
 }
 
 /**
- * Rendu de la vue Print (A6 recto/verso)
+ * Rendu de la vue Print (A6 recto/verso ou A4 affiche)
  */
 async function renderPrintView(card, markdown) {
+    const previewPrint = document.querySelector('.preview-print');
     const rectoEl = document.getElementById('card-recto');
     const versoEl = document.getElementById('card-verso');
+
+    // Mode affiche A4 (uniquement si explicitement demandé ou si pas de choix)
+    const shouldShowAffiche = card.type === 'affiche' && card.htmlPath &&
+                              (card._forceMode === 'affiche' || card._forceMode === null);
+
+    if (shouldShowAffiche) {
+        previewPrint.classList.add('affiche-mode');
+
+        try {
+            // Charger le HTML de l'affiche
+            const response = await fetch(card.htmlPath);
+            if (!response.ok) throw new Error(`HTML non trouvé: ${card.htmlPath}`);
+            const htmlText = await response.text();
+
+            // Parser et extraire les pages
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            const affichePages = doc.querySelectorAll('.affiche-a4, .affiche-a4-portrait');
+
+            if (!affichePages.length) {
+                throw new Error('Pas de .affiche-a4 trouvé');
+            }
+
+            // Remplacer complètement le contenu de rectoEl avec un iframe isolé
+            rectoEl.innerHTML = '';
+            rectoEl.className = 'print-card-face affiche-container';
+
+            // Créer un iframe pour isolation complète
+            const iframe = document.createElement('iframe');
+            iframe.className = 'affiche-iframe';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            rectoEl.appendChild(iframe);
+
+            // Construire le HTML complet pour l'iframe
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Récupérer le contenu HTML des pages
+            let afficheHtml = '';
+            affichePages.forEach(page => {
+                afficheHtml += page.outerHTML;
+            });
+
+            // Injecter un document HTML minimal avec seulement les CSS nécessaires
+            iframeDoc.open();
+            iframeDoc.write(`
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/affiches-print.css">
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    ${afficheHtml}
+    <script>
+        // Appliquer Twemoji
+        if (typeof twemoji !== 'undefined') {
+            twemoji.parse(document.body);
+        }
+    </script>
+</body>
+</html>
+            `);
+            iframeDoc.close();
+
+            // Ajuster la hauteur de l'iframe après chargement
+            iframe.onload = () => {
+                const height = iframe.contentWindow.document.body.scrollHeight;
+                iframe.style.height = height + 'px';
+            };
+
+            // Cacher les éléments de l'interface en mode affiche
+            const captionRecto = document.querySelector('#caption-source-recto').closest('.viewer-caption');
+            if (captionRecto) {
+                captionRecto.style.display = 'none';
+            }
+
+            document.getElementById('font-indicator-recto').style.display = 'none';
+            document.getElementById('font-indicator-verso').style.display = 'none';
+            document.getElementById('verify-recto-btn').style.display = 'none';
+            document.getElementById('verify-verso-btn').style.display = 'none';
+
+            await document.fonts.ready;
+
+        } catch (err) {
+            console.error('Erreur rendu affiche:', err);
+            rectoEl.innerHTML = `<p class="error">${err.message}</p>`;
+        }
+
+        return;
+    }
+
+    // Mode carte A6 classique
+    previewPrint.classList.remove('affiche-mode');
+
+    // Réafficher la caption (cachée en mode affiche)
+    const captionRecto = document.querySelector('#caption-source-recto').closest('.viewer-caption');
+    if (captionRecto) {
+        captionRecto.style.display = '';
+    }
 
     rectoEl.className = 'print-card-face type-' + card.type;
     versoEl.className = 'print-card-face type-' + card.type;
@@ -555,18 +758,29 @@ function renderTechView(card, lastModified = null) {
     const infoEl = document.getElementById('tech-card-info');
     if (infoEl) {
         const typeInfo = cardsIndex.types ? cardsIndex.types[card.type] : { label: card.type };
+
+        let extraRows = '';
+        if (card.type === 'affiche') {
+            extraRows = `
+                <tr><th>Format</th><td>${card.format || '-'}</td></tr>
+                <tr><th>HTML Path</th><td><code>${card.htmlPath || '-'}</code></td></tr>
+                <tr><th>Affiche PDF</th><td><code>${card.affichePath || '-'}</code></td></tr>
+            `;
+        }
+
         infoEl.innerHTML = `
             <table class="tech-table">
                 <tr><th>ID</th><td><code>${card.id}</code></td></tr>
                 <tr><th>Type</th><td>${typeInfo.label} (<code>${card.type}</code>)</td></tr>
+                ${extraRows}
                 <tr><th>Titre</th><td>${card.title}</td></tr>
                 <tr><th>Sous-titre</th><td>${card.subtitle || '-'}</td></tr>
                 <tr><th>Emoji</th><td>${card.emoji || '-'}</td></tr>
-                
+
                 <tr><th>Proto</th><td>${card.proto ? '🛠️ Oui' : 'Non'}</td></tr>
                 <tr><th>Path</th><td><code>${card.path || '-'}</code></td></tr>
                 <tr><th>Modifié</th><td>${lastModified ? new Date(lastModified).toLocaleString('fr-FR') : '-'}</td></tr>
-                ${card.pdfPath ? `<tr><th>PDF</th><td><code>${card.pdfPath}</code></td></tr>` : ''}
+                ${card.pdfPath ? `<tr><th>Mémo PDF</th><td><code>${card.pdfPath}</code></td></tr>` : ''}
                 <tr><th>Tags</th><td>${card.tags ? card.tags.join(', ') : '-'}</td></tr>
             </table>
         `;

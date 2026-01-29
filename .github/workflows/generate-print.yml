@@ -15,6 +15,7 @@ on:
           - moments
           - joker
           - affiches
+          - livrets
       debug:
         description: 'Mode debug (screenshots + logs)'
         required: false
@@ -36,8 +37,10 @@ jobs:
     outputs:
       should_run: ${{ steps.check.outputs.should_run }}
       debug_mode: ${{ steps.check.outputs.debug_mode }}
+      skip_cards_render: ${{ steps.check.outputs.skip_cards_render }}
+      assemble_target: ${{ steps.check.outputs.assemble_target }}
     steps:
-      - name: 🔍 Check for [print] and [debug] tags
+      - name: 🔍 Check for [print], [livrets] and [debug] tags
         id: check
         env:
           COMMIT_MSG: ${{ github.event.head_commit.message }}
@@ -46,7 +49,17 @@ jobs:
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Déclenchement manuel - on exécute"
-            
+
+            # Si target='livrets', skip le render des cartes et assemble tout
+            if [ "${{ github.event.inputs.target }}" == "livrets" ]; then
+              echo "skip_cards_render=true" >> $GITHUB_OUTPUT
+              echo "assemble_target=all" >> $GITHUB_OUTPUT
+              echo "📚 Mode livrets uniquement - on réassemble tous les livrets"
+            else
+              echo "skip_cards_render=false" >> $GITHUB_OUTPUT
+              echo "assemble_target=${{ github.event.inputs.target }}" >> $GITHUB_OUTPUT
+            fi
+
             # Debug via input
             if [ "${{ github.event.inputs.debug }}" == "true" ]; then
               echo "debug_mode=true" >> $GITHUB_OUTPUT
@@ -57,8 +70,23 @@ jobs:
           # push = vérifier le message de commit
           elif echo "$COMMIT_MSG" | grep -q "\[print\]"; then
             echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "skip_cards_render=false" >> $GITHUB_OUTPUT
+            echo "assemble_target=all" >> $GITHUB_OUTPUT
             echo "✅ Tag [print] trouvé - on exécute"
-            
+
+            # Debug via tag [debug] dans le commit
+            if echo "$COMMIT_MSG" | grep -q "\[debug\]"; then
+              echo "debug_mode=true" >> $GITHUB_OUTPUT
+              echo "🔍 Mode debug activé (tag)"
+            else
+              echo "debug_mode=false" >> $GITHUB_OUTPUT
+            fi
+          elif echo "$COMMIT_MSG" | grep -q "\[livrets\]"; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "skip_cards_render=true" >> $GITHUB_OUTPUT
+            echo "assemble_target=all" >> $GITHUB_OUTPUT
+            echo "✅ Tag [livrets] trouvé - on réassemble tous les livrets uniquement"
+
             # Debug via tag [debug] dans le commit
             if echo "$COMMIT_MSG" | grep -q "\[debug\]"; then
               echo "debug_mode=true" >> $GITHUB_OUTPUT
@@ -68,8 +96,10 @@ jobs:
             fi
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
+            echo "skip_cards_render=false" >> $GITHUB_OUTPUT
+            echo "assemble_target=all" >> $GITHUB_OUTPUT
             echo "debug_mode=false" >> $GITHUB_OUTPUT
-            echo "⏭️ Pas de tag [print] - on skip"
+            echo "⏭️ Pas de tag [print] ou [livrets] - on skip"
           fi
 
   generate-pdfs:
@@ -98,7 +128,8 @@ jobs:
         run: npx puppeteer browsers install chrome
       
       - name: 🖨️ Render A6 cards
-        run: node scripts/render-cards.js ${{ github.event.inputs.target || 'all' }}
+        if: needs.check-trigger.outputs.skip_cards_render != 'true'
+        run: node scripts/render-cards.js ${{ needs.check-trigger.outputs.assemble_target }}
         env:
           DEBUG: ${{ needs.check-trigger.outputs.debug_mode }}
       
@@ -112,7 +143,7 @@ jobs:
           if-no-files-found: ignore
       
       - name: 📚 Assemble booklets
-        run: node scripts/assemble-booklets.js ${{ github.event.inputs.target || 'all' }}
+        run: node scripts/assemble-booklets.js ${{ needs.check-trigger.outputs.assemble_target }}
 
       - name: ✅ Validate PDFs
         run: |

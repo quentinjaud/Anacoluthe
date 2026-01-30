@@ -31,6 +31,97 @@ Référence unique pour les décisions techniques, l'architecture et les convent
 
 ---
 
+## 🧠 Méthode de développement
+
+### Principes directeurs
+
+Ces principes réduisent les erreurs courantes de développement et garantissent un code maintenable.
+
+**Trade-off** : Ces règles favorisent la prudence sur la vitesse. Pour les tâches triviales, utiliser son jugement.
+
+### 1. Réfléchir avant coder
+
+**Ne pas supposer. Ne pas cacher la confusion. Exposer les arbitrages.**
+
+| Avant d'implémenter | Action |
+|---------------------|--------|
+| **Assumptions** | Les énoncer explicitement. Si incertain, demander. |
+| **Interprétations multiples** | Les présenter, ne pas choisir silencieusement. |
+| **Approche plus simple** | La mentionner. Contester quand justifié. |
+| **Quelque chose n'est pas clair** | S'arrêter. Nommer ce qui est confus. Demander. |
+
+### 2. Simplicité d'abord
+
+**Code minimum qui résout le problème. Rien de spéculatif.**
+
+| Ce qu'on évite | Raison |
+|----------------|--------|
+| ❌ Fonctionnalités non demandées | YAGNI |
+| ❌ Abstractions pour usage unique | Premature abstraction |
+| ❌ Flexibilité non demandée | Configuration inutile |
+| ❌ Gestion d'erreurs pour scénarios impossibles | Overhead inutile |
+
+**Question test** : "Une personne senior dirait-elle que c'est sur-compliqué ?" Si oui, simplifier.
+
+Si vous écrivez 200 lignes alors que 50 suffisent, réécrire.
+
+### 3. Changements chirurgicaux
+
+**Toucher uniquement ce qui est nécessaire. Nettoyer uniquement ses propres dégâts.**
+
+#### En modifiant du code existant
+
+| Action | Justification |
+|--------|---------------|
+| ✅ Modifier uniquement ce qui concerne la demande | Changements ciblés |
+| ❌ "Améliorer" le code adjacent | Scope creep |
+| ❌ Refactoriser ce qui fonctionne | Risque inutile |
+| ✅ Respecter le style existant | Cohérence |
+| ✅ Mentionner le dead code pré-existant | Ne pas le supprimer sauf demande |
+
+#### Quand vos changements créent des orphelins
+
+| Action | Exemple |
+|--------|---------|
+| ✅ Supprimer imports/variables/fonctions rendus inutiles PAR vos changements | `import X` non utilisé suite à votre refactor |
+| ❌ Supprimer dead code pré-existant | Laisser ou mentionner |
+
+**Test** : Chaque ligne modifiée doit tracer directement vers la demande de l'utilisateur.
+
+### 4. Exécution orientée objectifs
+
+**Définir critères de succès. Boucler jusqu'à vérification.**
+
+#### Transformer tâches en objectifs vérifiables
+
+| Tâche | Objectif vérifiable |
+|-------|---------------------|
+| "Ajouter validation" | Écrire tests pour inputs invalides, puis les faire passer |
+| "Corriger le bug" | Écrire test qui reproduit, puis le faire passer |
+| "Refactoriser X" | S'assurer que tests passent avant ET après |
+
+#### Pour tâches multi-étapes
+
+Énoncer plan bref avec vérifications :
+
+```
+1. [Étape] → vérifier : [check]
+2. [Étape] → vérifier : [check]
+3. [Étape] → vérifier : [check]
+```
+
+**Bons critères** : permettent de boucler en autonomie.
+**Mauvais critères** : "faire marcher" → nécessitent clarifications constantes.
+
+### Indicateurs de succès
+
+Ces guidelines fonctionnent si :
+- Moins de changements inutiles dans les diffs
+- Moins de réécriture due à sur-complication
+- Questions de clarification AVANT implémentation (pas après erreurs)
+
+---
+
 ## 🏗️ Stack technique
 
 ### Hébergement
@@ -294,6 +385,7 @@ Voir DESIGN_INTENTIONS.md pour les marqueurs (`<!-- HEAD -->`, `<!-- FLIP -->`, 
 ```
 ❌ Jamais : — (cadratin) ou – (demi-cadratin)
 ✅ Toujours : - (tiret simple, touche clavier)
+Tirets seulement pour lancer une liste à points. Sinon, si des tirets sont utilisés, le texte semble écrit avec IA, même quand c'est pas le cas.
 ```
 
 Raison : accessibilité clavier, cohérence, parsing fiable.
@@ -545,5 +637,5 @@ Le bouton reste masqué sur Firefox/Safari (graceful degradation).
 
 ---
 
-*Document créé le 6 décembre 2025 - Mis à jour le 12 décembre 2025*
+*Document créé le 6 décembre 2025 - Mis à jour le 30 janvier 2026*
 *Anacoluthe V5 - CC-BY-NC-SA*

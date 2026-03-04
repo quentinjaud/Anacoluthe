@@ -32,7 +32,7 @@ Un voilier, c'est un espace singulier. Quelques mètres carrés où des personne
 
 **Sur un bateau, la coopération n'est pas une option, c'est une nécessité.**
 
-C'est un terrain d'apprentissage extraordinaire. Entouré·es d'inconnu·es dans un milieu radicalement différent du quotidien, vous pouvez expérimenter d'autres façons d'être, sortir de vos habitudes, découvrir des facettes de vous encore inexplorées.
+C'est un terrain d'apprentissage extraordinaire. Ici, personne ne vous connaît dans vos rôles habituels. Vous n'êtes ni au travail, ni dans votre cercle affectif du quotidien. C'est une chance rare : vous pouvez tester la meilleure version de vous-mêmes, expérimenter d'autres façons d'être attentif·ves, coopératif·ves, soigneux·ses. Provoquer cette expérimentation, c'est l'objectif d'origine des Glénans, et c'est toujours le cas aujourd'hui.
 
 Mais c'est aussi un environnement exigeant : fatigue physique, promiscuité constante, apprentissage technique dense, adaptation à un milieu parfois hostile.
 
@@ -46,7 +46,7 @@ Dans ses statuts, Les Glénans se décrivent comme une *"École de formation à 
 
 ## ✓ Engagement bénévole
 
-Aujourd'hui les Glénans c'est 15 000 stagiaires à l'année, 1200 bénévoles dont 800 moniteurs·rices.
+Aujourd'hui les Glénans c'est plus de 20 000 stagiaires à l'année, plus de 900 moniteurs·rices, plus de 400 bénévoles terrestres, et plus de 25 000 journées de bénévolat par an.
 
 **Vos moniteur·ices sont bénévoles, ou ont en grande majorité été bénévoles avant de se professionnaliser.** C'est ce qui fait l'ADN des Glénans : des passionné·es qui transmettent par engagement, pas seulement par métier.
 

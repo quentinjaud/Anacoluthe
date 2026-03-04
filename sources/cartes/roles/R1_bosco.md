@@ -5,7 +5,7 @@
 
 > Le·la bosco veille à l'entretien et à la sécurité matérielle du bateau. Ce rôle développe l'observation préventive, la responsabilité collective sur le matériel et l'autonomie technique. C'est un poste stratégique qui permet à l'équipage de naviguer sereinement.
 
-## ✨ Inspiré·e de Bernard Moitessier
+## ✨ Inspiré de Bernard Moitessier
 
 Navigateur français (1925-1994), figure légendaire de la voile contemplative et de la longue route. **Bricoleur génial et amoureux de ses bateaux**, il entretenait chaque cordage, chaque poulie avec un soin méticuleux. Pour lui, l'autonomie en mer passait d'abord par **la connaissance intime du bateau et la capacité à tout réparer soi-même**.
 

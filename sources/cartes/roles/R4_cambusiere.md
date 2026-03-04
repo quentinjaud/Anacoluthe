@@ -5,7 +5,7 @@
 
 > Le·la cambusier·ère organise l'approvisionnement, les repas et la convivialité au carré. Ce rôle développe la créativité dans la contrainte, l'attention aux besoins du groupe et l'organisation logistique invisible qui fait tourner le quotidien.
 
-## ✨ Inspiré·e de Tracy Edwards
+## ✨ Inspiré de Tracy Edwards
 
 Navigatrice britannique (née en 1962). Whitbread 1985-86 : seule femme à bord, reléguée à la cuisine malgré ses compétences en navigation. Elle transforme ce rôle stigmatisé en **observatoire privilégié des dynamiques d'équipage**.
 

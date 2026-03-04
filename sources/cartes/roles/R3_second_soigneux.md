@@ -5,7 +5,7 @@
 
 > Le·la second soigneux veille au bien-être de l'équipage, facilite la parole et régule les tensions. Ce rôle développe l'écoute, le courage de nommer les difficultés et la capacité à créer des espaces de coopération bienveillante.
 
-## ✨ Inspiré·e d'Isabelle Autissier
+## ✨ Inspiré d'Isabelle Autissier
 
 Navigatrice française (née en 1956), première femme à boucler un tour du monde en solitaire en compétition (1991). Ingénieure agronome et océanographe, elle combine rigueur scientifique et sensibilité humaine.
 

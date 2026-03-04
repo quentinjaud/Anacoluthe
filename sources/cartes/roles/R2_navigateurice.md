@@ -5,7 +5,7 @@
 
 > Le·la navigateurice prépare les routes, suit la météo et anticipe les décisions de navigation. Ce rôle développe la vision d'ensemble, la planification et la communication des informations essentielles pour que l'équipage comprenne où iel va et pourquoi.
 
-## ✨ Inspiré·e de Capucine Trochet
+## ✨ Inspiré de Capucine Trochet
 
 Navigatrice française (née en 1981), aventurière des mers et militante de la sobriété heureuse. Elle parcourt les océans sur de vieux gréements low-tech, sans GPS ni pilote automatique, en quête d'une navigation plus lente et plus consciente.
 

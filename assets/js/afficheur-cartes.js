@@ -223,11 +223,13 @@ function populateSelect() {
     // Ajouter les affiches (en deux versions : mémo A6 et affiche A4)
     if (cardsIndex.affiches) {
         cardsIndex.affiches.forEach(card => {
-            // Version mémo A6
-            groups.afficheMemo.cards.push({
-                ...card,
-                displayId: `${card.id}:memo`
-            });
+            // Version mémo A6 (uniquement si un mémo existe)
+            if (card.path) {
+                groups.afficheMemo.cards.push({
+                    ...card,
+                    displayId: `${card.id}:memo`
+                });
+            }
             // Version affiche A4
             groups.afficheA4.cards.push({
                 ...card,
@@ -302,6 +304,7 @@ function updatePdfButtons(card) {
     const pdfCardBtn = document.getElementById('pdf-card-btn');
     const pdfLivretBtn = document.getElementById('pdf-livret-btn');
     const pdfAfficheBtn = document.getElementById('pdf-affiche-btn');
+    const htmlAfficheBtn = document.getElementById('html-affiche-btn');
 
     const isAffiche = card.type === 'affiche';
     const isAfficheA4Mode = isAffiche && card._forceMode === 'affiche';
@@ -365,6 +368,14 @@ function updatePdfButtons(card) {
         pdfAfficheBtn.style.display = '';
     } else {
         pdfAfficheBtn.style.display = 'none';
+    }
+
+    // Bouton HTML brut - visible uniquement en mode affiche A4
+    if (isAfficheA4Mode && card.htmlPath) {
+        htmlAfficheBtn.href = card.htmlPath;
+        htmlAfficheBtn.style.display = '';
+    } else {
+        htmlAfficheBtn.style.display = 'none';
     }
 }
 
@@ -463,12 +474,34 @@ async function renderPrintView(card, markdown) {
             rectoEl.innerHTML = '';
             rectoEl.className = 'print-card-face affiche-container';
 
+            // Override inline des dimensions A6 (les styles CSS de cards-print.css résistent aux overrides de classe)
+            rectoEl.style.width = '100%';
+            rectoEl.style.height = 'auto';
+            rectoEl.style.maxWidth = 'none';
+            rectoEl.style.maxHeight = 'none';
+            rectoEl.style.minWidth = '900px';
+            rectoEl.style.overflow = 'visible';
+            rectoEl.style.border = 'none';
+            rectoEl.style.boxShadow = 'none';
+            rectoEl.style.background = 'transparent';
+
+            // Masquer le viewer-group verso via JS
+            const versoGroup = versoEl.closest('.viewer-group');
+            if (versoGroup) versoGroup.style.display = 'none';
+
             // Créer un iframe pour isolation complète
             const iframe = document.createElement('iframe');
             iframe.className = 'affiche-iframe';
             iframe.style.width = '100%';
-            iframe.style.height = '100%';
+            iframe.style.height = '0';
             iframe.style.border = 'none';
+
+            // Ajuster la hauteur après chargement (avant l'écriture pour éviter la race condition)
+            iframe.onload = () => {
+                const height = iframe.contentWindow.document.body.scrollHeight;
+                iframe.style.height = height + 'px';
+            };
+
             rectoEl.appendChild(iframe);
 
             // Construire le HTML complet pour l'iframe
@@ -478,6 +511,12 @@ async function renderPrintView(card, markdown) {
             let afficheHtml = '';
             affichePages.forEach(page => {
                 afficheHtml += page.outerHTML;
+            });
+
+            // Extraire les styles locaux du fichier source (ex: A4 avec .kit-grid, .intro-text...)
+            let localStyles = '';
+            doc.querySelectorAll('style').forEach(styleEl => {
+                localStyles += styleEl.outerHTML + '\n';
             });
 
             // Injecter un document HTML minimal avec seulement les CSS nécessaires
@@ -491,6 +530,7 @@ async function renderPrintView(card, markdown) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/affiches-print.css">
+    ${localStyles}
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     <style>
         body {
@@ -517,12 +557,6 @@ async function renderPrintView(card, markdown) {
             `);
             iframeDoc.close();
 
-            // Ajuster la hauteur de l'iframe après chargement
-            iframe.onload = () => {
-                const height = iframe.contentWindow.document.body.scrollHeight;
-                iframe.style.height = height + 'px';
-            };
-
             // Cacher les éléments de l'interface en mode affiche
             const captionRecto = document.querySelector('#caption-source-recto').closest('.viewer-caption');
             if (captionRecto) {
@@ -547,11 +581,28 @@ async function renderPrintView(card, markdown) {
     // Mode carte A6 classique
     previewPrint.classList.remove('affiche-mode');
 
-    // Réafficher la caption (cachée en mode affiche)
+    // Réafficher les éléments cachés en mode affiche
     const captionRecto = document.querySelector('#caption-source-recto').closest('.viewer-caption');
-    if (captionRecto) {
-        captionRecto.style.display = '';
+    if (captionRecto) captionRecto.style.display = '';
+    document.getElementById('font-indicator-recto').style.display = '';
+    document.getElementById('font-indicator-verso').style.display = '';
+    document.getElementById('verify-recto-btn').style.display = '';
+    document.getElementById('verify-verso-btn').style.display = '';
+
+    // Restaurer la structure DOM si rectoEl a été remplacé en mode affiche (plus de .print-card-content)
+    if (!rectoEl.querySelector('.print-card-content')) {
+        rectoEl.innerHTML = '<div class="print-card-content"></div><div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>';
     }
+    if (!versoEl.querySelector('.print-card-content')) {
+        versoEl.innerHTML = '<div class="print-card-content"></div><div class="overflow-warning hidden">⚠️ DÉBORDEMENT</div>';
+    }
+
+    // Réinitialiser les styles inline posés en mode affiche
+    rectoEl.style.cssText = '';
+
+    // Réafficher le viewer-group verso
+    const versoGroup = versoEl.closest('.viewer-group');
+    if (versoGroup) versoGroup.style.display = '';
 
     rectoEl.className = 'print-card-face type-' + card.type;
     versoEl.className = 'print-card-face type-' + card.type;

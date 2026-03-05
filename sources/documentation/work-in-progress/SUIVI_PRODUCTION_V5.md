@@ -1,8 +1,153 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260127*
+*Dernière mise à jour : 260305*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260305)
+
+### Session 26 - Cosmétique, style affiches et grid montreur (5 mars)
+
+**Style affiches refactorisé**
+- Refonte CSS affiches-print.css (+263 lignes) : meilleure organisation des styles A4
+- Restructuration HTML de `A4_decouverte-dispositif.html` (+259/-147 lignes)
+- Ajustements HTML mineurs sur A1, A2, A3
+
+**Nouveau mémo A4 Découverte**
+- Création `sources/affiches/A4_decouverte_memo.md` (20 lignes)
+- PDF mémo généré : `print/cartes/A4_decouverte_memo.pdf`
+
+**Grid montreur de cartes**
+- CSS fil-semaine.css : +11 lignes pour layout grid
+- Ajustements cosmétiques cards.css, style.css
+
+**Images**
+- Nouvelles images preview : affiche-A4-recto.png, affiche-A4-verso.png
+- Images existantes optimisées (A1, A2, A3 : tailles réduites)
+
+**Version bump global**
+- Footer de toutes les 18 cartes sources mis à jour
+- PDFs régénérés localement (affiches A1-A4 + mémos A1-A4)
+
+**Fichiers modifiés**
+- `assets/css/affiches-print.css`, `assets/css/fil-semaine.css`, `assets/css/cards.css`, `assets/css/style.css`
+- `assets/data/cards-index.json`
+- `sources/affiches/A4_decouverte_memo.md` (nouveau)
+- `sources/affiches/A4_decouverte-dispositif.html`
+- `assets/js/cards-loader.js`
+- 18 cartes sources (version bump)
+- `index.html`, `ensavoirplus.html`, `fil-semaine.html`
+
+---
+
+### Session 25 - Affiche A4 Découverte dispositif + Guides mono (4 mars)
+
+**Nouvelle affiche A4 : Découverte du dispositif**
+- Création `sources/affiches/A4_decouverte-dispositif.html` (213 lignes)
+- CSS affiches-print.css : +387 lignes de styles dédiés
+- PDF généré : `print/affiches/A4_decouverte-dispositif.pdf`
+- Ajout dans cards-index.json avec format A4-portrait
+
+**Nouveaux guides moniteurice**
+- `MEMO_TESTEUR_V260224.md` : mémo pour les testeurs du dispositif (36 lignes)
+- `PRESENTATION_BRIEF_MONOS_V260224.md` : brief de présentation aux moniteurices (78 lignes)
+- Dossier : `sources/documentation/guides-seances-topos/`
+
+**Afficheur de cartes étendu**
+- afficheur-cartes.js : +81 lignes pour afficher la nouvelle affiche A4
+- afficheur-cartes.html : +3 lignes
+
+**Autres**
+- QR code ajouté : `assets/images/qrcode_anacoluthe.png`
+- Cartes rôles R1-R4 : mises à jour mineures
+- Mise à jour `DISCOURS_ACCUEIL_MARSEILLAN.md`
+
+**Fichiers créés**
+- `sources/affiches/A4_decouverte-dispositif.html`
+- `sources/documentation/guides-seances-topos/MEMO_TESTEUR_V260224.md`
+- `sources/documentation/guides-seances-topos/PRESENTATION_BRIEF_MONOS_V260224.md`
+- `assets/images/qrcode_anacoluthe.png`
+
+---
+
+### Session 24 - Documentation TECH_INTENTIONS (30 janv)
+
+**Mise à jour TECH_INTENTIONS.md**
+- +93 lignes de documentation technique
+- Couverture des ajouts récents (afficheur-cartes, pipeline affiches, modales)
+
+**Fichiers modifiés**
+- `sources/documentation/TECH_INTENTIONS.md`
+
+---
+
+### Session 23 - Outillage, UX fil-semaine, refacto atelier-cartes (29 janv)
+
+**Modales cartes dans fil-semaine.html**
+- Ouverture directe des modales au lieu de rediriger vers anacoluthe.html
+- Nouvelle fonction `initModalOnly()` dans cards-loader.js (auto-détection du mode)
+- Interception des clics sur liens `anacoluthe.html?card=XX`
+- Ajout structure HTML modale + CSS cards.css + scripts JS dans fil-semaine.html
+- Poids ajouté : ~20 KB transférés avec gzip
+
+**Refacto atelier-cartes (afficheur-cartes.html)**
+- Extraction CSS inline → fichier séparé `assets/css/afficheur-cartes.css` (~830 lignes externalisées)
+- Nettoyage HTML de afficheur-cartes.html
+
+**Affiches dans l'atelier-cartes**
+- afficheur-cartes.js étendu (+302 lignes) pour afficher les affiches A4 dans le montreur de cartes
+- Support preview et navigation des affiches
+
+**Workflow GH Actions amélioré**
+- Ajout marqueur `[livrets]` pour réassemblage rapide des livrets sans regénérer les cartes A6
+- Disponible en dropdown manuel et via marqueur dans les commits
+
+**Nettoyage PDFs proto obsolètes**
+- Suppression de 12 fichiers : J1-J4_proto.pdf, M5-M7_proto.pdf, 5 livrets
+
+**Mémos affiches clarifiés**
+- Retouches texte mineures sur A1m, A2m, A3m
+
+**Fichiers créés**
+- `assets/css/afficheur-cartes.css`
+
+**Fichiers modifiés**
+- `assets/js/cards-loader.js` (+64 lignes)
+- `assets/js/afficheur-cartes.js` (+302 lignes)
+- `afficheur-cartes.html` (refacto CSS → fichier externe)
+- `fil-semaine.html` (+18 lignes)
+- `.github/workflows/generate-print.yml` (+37 lignes)
+- `sources/affiches/A1_routines_memo.md`, `A2_tableau_memo.md`, `A3_marque_page_memo.md`
+
+---
+
+### Session 22 - Fin des protos : J3 et J4 validés (28 janv)
+
+**J3 Rediscuter le cadre : sorti du proto**
+- Renommage `J3_rediscuter_accords_programme_proto.md` → `J3_rediscuter_accords_programme.md`
+- Mise à jour refs : cards-index.json, sw.js, tableau_suivi_cartes.md
+
+**J4 Demande-retour moniteurice : sorti du proto**
+- Renommage `J4_demande_feedback_mono_proto.md` → `J4_demande_retour_mono.md` (renommé aussi le préfixe)
+- Mise à jour refs : cards-index.json, sw.js, assemble-booklets.js, tableau_suivi_cartes.md
+- Documentation CARTES_JOKER_INTENTIONS.md et PRESENTATION_V5.md mises à jour
+
+**Tous les protos sont maintenant validés**
+- 7 moments (M1-M7) : tous passés en passe Fond ✅
+- 4 Joker (J1-J4) : tous passés en passe Fond ✅
+- Premiers PDFs Joker et moments tardifs générés par CI
+
+**Fichiers modifiés**
+- `sources/cartes/joker/J3_rediscuter_accords_programme.md` (renommé)
+- `sources/cartes/joker/J4_demande_retour_mono.md` (renommé)
+- `assets/data/cards-index.json`
+- `sw.js`
+- `scripts/assemble-booklets.js`
+- `sources/suivi/tableau_suivi_cartes.md`
+- `sources/documentation/CARTES_JOKER_INTENTIONS.md`
+- `sources/documentation/PRESENTATION_V5.md`
 
 ---
 
@@ -648,64 +793,71 @@ sources/suivi/
 | Élément | Qté | Statut |
 |---------|-----|--------|
 | Cartes rôles | 4 | ✅ COMPLET |
-| Cartes moments-clés | 7 | 🟡 PROTOS À VALIDER |
-| Cartes Joker | 4 | 🟠 PROTOS À VALIDER |
-| Affiches A4 | 3 | ✅ COMPLET |
-| Mémos affiches A6 | 3 | ✅ COMPLET |
+| Cartes moments-clés | 7 | ✅ COMPLET |
+| Cartes Joker | 4 | ✅ COMPLET |
+| Affiches A4 | 4 | ✅ COMPLET (A4 Découverte ajoutée 4 mars) |
+| Mémos affiches A6 | 4 | ✅ COMPLET (A4m ajouté 5 mars) |
 | Site web | 1 | ✅ EN LIGNE |
 | Page suivi | 1 | ✅ EN LIGNE |
 | Générateur PDF | 1 | ✅ OPÉRATIONNEL |
+| Guides mono | 2 | 🟡 CRÉÉS (mémo testeur + brief monos) |
 | Guides | ? | ⬜ À DÉFINIR |
 
-**Total éléments fixes** : 21 (hors guides)
+**Total éléments fixes** : 23 (19 cartes + 4 affiches, hors guides)
 
-**Progression** : ~49% (voir suivi.html)
+**Progression Phase 1** : toutes les cartes et affiches ont leur passe Fond validée. Passes Forme/Design/Print/Site à vérifier sur les ajouts récents (A4a, A4m).
 
 ---
 
-## 🟡 PROTOS À VALIDER
+## ✅ INVENTAIRE COMPLET (23 éléments)
 
-### Cartes moments-clés (7)
+### Cartes moments-clés (7) - Tous validés
 
 | # | Moment | Timing | Fichier |
 |---|--------|--------|---------|
-| M1 | Accueil & Présentations | J1 après-midi | `M1_accueil_presentations.md` |
+| M1 | Accueil & Présentations | J1 après-midi | `M1_accueil_presentations.md` ✅ |
 | M2 | Accords d'équipage | J1 soir | `M2_accords_equipage.md` ✅ |
-| M3 | Introduction rôles | J1 soir | `M3_introduction_roles_proto.md` |
-| M4 | Brief matin | J2-J6 | `M4_brief_matin_proto.md` |
-| M5 | Débrief soir | J2-J6 | `M5_debrief_soir_proto.md` |
+| M3 | Découverte rôles | J1 soir | `M3_decouverte_roles.md` ✅ |
+| M4 | Brief matin | J2-J6 | `M4_brief_matin.md` ✅ |
+| M5 | Débrief soir | J2-J6 | `M5_debrief_soir.md` ✅ |
 | M6 | Mi-parcours | J3-J4 | `M6_mi_parcours.md` ✅ |
-| M7 | Débrief final | J6 | `M7_debrief_final_proto.md` |
+| M7 | Débrief final | J6 | `M7_debrief_final.md` ✅ |
 
-### Cartes Joker (4)
+### Cartes Joker (4) - Tous validés
 
 | # | Carte | Fichier |
 |---|-------|---------|
-| J1 | Gérer un désaccord-conflit | `sources/cartes/joker/J1_desaccord_conflit.md` |
-| J2 | Temps sans navigation | `J2_temps_sans_navigation_proto.md` |
-| J3 | Rediscuter accords/programme | `J3_rediscuter_accords_programme_proto.md` |
-| J4 | Demande-retour moniteurice | `J4_demande_feedback_mono.md` |
+| J1 | Gérer un désaccord-conflit | `J1_desaccord_conflit.md` ✅ |
+| J2 | Temps sans navigation | `J2_temps_sans_navigation.md` ✅ |
+| J3 | Rediscuter le cadre | `J3_rediscuter_accords_programme.md` ✅ |
+| J4 | Demande-retour moniteurice | `J4_demande_retour_mono.md` ✅ |
 
-### Mémos affiches (3)
+### Affiches A4 (4) + Mémos A6 (4)
 
-| # | Mémo | Fichier | Statut |
-|---|------|---------|--------|
-| A1m | Routines quotidiennes | `sources/affiches/A1_routines_memo.md` | ✅ Forme validée |
-| A2m | Tableau d'équipage | `A2_tableau_memo.md` | ✅ Forme validée |
-| A3m | Marque-page LDB | `A3_marque_page_memo.md` | ✅ Forme validée |
+| # | Élément | Fichier | Statut |
+|---|---------|---------|--------|
+| A1a | Routines (affiche) | `A1_routines.html` | ✅ |
+| A1m | Routines (mémo) | `A1_routines_memo.md` | ✅ |
+| A2a | Tableau d'équipage (affiche) | `A2_tableau_equipage.html` | ✅ |
+| A2m | Tableau d'équipage (mémo) | `A2_tableau_memo.md` | ✅ |
+| A3a | Marque-page LDB (affiche) | `A3_marque_page.html` | ✅ |
+| A3m | Marque-page LDB (mémo) | `A3_marque_page_memo.md` | ✅ |
+| A4a | Découverte dispositif (affiche) | `A4_decouverte-dispositif.html` | ✅ Fond, passes suivantes à vérifier |
+| A4m | Découverte dispositif (mémo) | `A4_decouverte_memo.md` | ✅ Fond, passes suivantes à vérifier |
 
 ---
 
 ## 🔜 PROCHAINES ÉTAPES
 
 ### Priorité haute
-- [ ] Relecture/validation des 11 protos (7 moments + 4 Joker)
+- [ ] Vérifier passes Forme/Design/Print/Site sur A4a et A4m (nouveaux éléments)
+- [ ] Mettre à jour suivi.html pour refléter les 23 éléments (au lieu de 21)
+- [ ] Vérifier cohérence cards-index.json avec tous les nouveaux fichiers
 
-**Critères** : densité ~900 car/face, écriture inclusive, ton bienveillant, actions concrètes
-
-### Priorité basse
-- [ ] Définir format guides (mono + équipage)
+### Priorité moyenne
+- [ ] Définir format guides (mono + équipage) : 2 guides déjà créés (mémo testeur, brief monos)
 - [ ] Notice livret pour impression
+- [ ] Passe Forme globale sur les 23 éléments (relecture densité, écriture inclusive)
 
 ---
 

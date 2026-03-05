@@ -1,12 +1,20 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 28 Janvier 2026
+> Dernière mise à jour : 5 Mars 2026
 
 ## 🔥Sur le feu
 
-(rien en ce moment)
+- [ ] Vérifier passes Forme/Design/Print/Site sur A4a et A4m
 
 ## 👌 Cooked
+[X] Mémo A4 Découverte créé (5 mars 2026)
+[X] Affiche A4 Découverte dispositif : création HTML + CSS + PDF (4 mars 2026)
+[X] Guides mono : mémo testeur + brief monos créés (4 mars 2026)
+[X] Affiches intégrées au montreur de cartes (29 janv 2026)
+[X] Modales cartes dans fil-semaine.html (29 janv 2026)
+[X] Refacto atelier-cartes : CSS externalisé (29 janv 2026)
+[X] Workflow GH Actions : marqueur [livrets] pour réassemblage rapide (29 janv 2026)
+[X] J3 et J4 sortis du proto, PDFs générés (28 janv 2026)
 [X] Refonte de J4 : fond - condensation recto, ajout exemples, alignement pattern Joker (28 janv 2026)
 [X] Refonte de J3 : fond - structure 5→3 étapes, tour d'objection sociocratie, message clef "jugement→besoins" (28 janv 2026)
 [X] Refonte de J2 : fond et forme (27 janv 2026)
@@ -35,9 +43,9 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Éléments terminés | 17 |
-| En cours | 4 |
-| Total Phase 1 | 21 |
+| Éléments terminés (Fond) | 23 |
+| En cours (passes suivantes) | 2 (A4a, A4m) |
+| Total Phase 1 | 23 |
 
 ## 🎨 Affinage des Cartes & Affiches
 
@@ -61,6 +69,8 @@
 | A2m | [Tableau équipage (mémo A6)](../affiches/A2_tableau_memo.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Réécriture 20 janv |
 | A3a | [Marque-page LDB (affiche A4)](../affiches/A3_marque_page.html) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet (recto + verso) |
 | A3m | [Marque-page LDB (mémo A6)](../affiches/A3_marque_page_memo.md) |✅ | ✅ | ✅ | ✅ | ✅ | Réécriture 20 janv |
+| A4a | [Découverte dispositif (affiche A4)](../affiches/A4_decouverte-dispositif.html) | ✅ | 🔄 | 🔄 | ✅ | ⬜ | Créée 4 mars |
+| A4m | [Découverte dispositif (mémo A6)](../affiches/A4_decouverte_memo.md) | ✅ | 🔄 | 🔄 | ✅ | ⬜ | Créé 5 mars |
 | R1 | [Bosco](../cartes/roles/R1_bosco.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R2 | [Navigateurice](../cartes/roles/R2_navigateurice.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |
 | R3 | [Second soigneux](../cartes/roles/R3_second_soigneux.md) | ✅ | ✅ | ✅ | ✅ | ✅ | Complet |

@@ -2,7 +2,7 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 20 janvier 2026*
+*Dernière mise à jour : 5 mars 2026*
 
 ---
 
@@ -46,7 +46,7 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | index.html | home.js, pwa-status.js, external-links.js |
 | anacoluthe.html | vendor/marked.min.js, markdown-utils.js, cards-loader.js, external-links.js, pwa-status.js |
 | afficheur-cartes.html | vendor/marked.min.js, markdown-utils.js, afficheur-cartes.js, pwa-status.js |
-| fil-semaine.html | fil-semaine.js, external-links.js |
+| fil-semaine.html | vendor/marked.min.js, markdown-utils.js, cards-loader.js, fil-semaine.js, external-links.js |
 | ensavoirplus.html | scroll-spy.js, external-links.js, pwa-status.js |
 | print-render.html | markdown-utils.js, print-render.js |
 | print-render-a4.html | print-render-a4.js, twemoji (CDN) |
@@ -57,8 +57,8 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 |------|-------------|
 | index.html | style.css |
 | anacoluthe.html | style.css, cards.css |
-| afficheur-cartes.html | style.css, cards.css, cards-print.css |
-| fil-semaine.html | style.css, fil-semaine.css |
+| afficheur-cartes.html | afficheur-cartes.css, cards-print.css |
+| fil-semaine.html | style.css, fil-semaine.css, cards.css |
 | ensavoirplus.html | style.css |
 | print-render.html | cards-print.css |
 | print-render-a4.html | affiches-print.css |
@@ -81,7 +81,11 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | - | `external-links.js` | Ajouter à la doc |
 | - | `scroll-spy.js` | Ajouter à la doc |
 | - | `fil-semaine.js` | Ajouter à la doc |
+| - | `print-render-a4.js` | Ajouter à la doc |
+| - | `twemoji-init.js` | Ajouter à la doc |
+| - | `lightbox.js` | Ajouter à la doc |
 | - | `vendor/marked.min.js` | Documenter le dossier vendor |
+| - | `vendor/glightbox.min.js` | Documenter le dossier vendor |
 
 ### Architecture CSS documentée vs réelle
 
@@ -91,6 +95,9 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | `cards.css` | ✅ Oui | OK |
 | `cards-print.css` | ✅ Oui | OK |
 | - | `fil-semaine.css` | Ajouter à la doc |
+| - | `afficheur-cartes.css` | Ajouter à la doc (extrait de afficheur-cartes.html, 29 janv) |
+| - | `affiches-print.css` | Ajouter à la doc |
+| - | `vendor/glightbox.min.css` | Documenter le dossier vendor |
 
 ### Métriques (décembre 2025)
 
@@ -277,6 +284,15 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260119 | Renommage M1 Accueil & Présentations | docs, M1_accueil_presentations.md | ✅ Fait |
 | 260120 | Corrections critiques Phase 1 (C1, J1, P1, P2) | suivi.css, suivi-loader.js, render-cards.js | ✅ Fait |
 | 260120 | Corrections Phase 2 (C2, P3, P4, J2) | cards.css, assemble-booklets.js, generate-print.yml, print-render-a4.js | ✅ Fait |
+| 260129 | Extraction CSS afficheur-cartes inline → fichier externe | afficheur-cartes.html, afficheur-cartes.css | ✅ Fait |
+| 260129 | Modales cartes dans fil-semaine (initModalOnly) | cards-loader.js, fil-semaine.html | ✅ Fait |
+| 260129 | Affiches intégrées au montreur de cartes | afficheur-cartes.js | ✅ Fait |
+| 260129 | Workflow GH Actions marqueur [livrets] | generate-print.yml | ✅ Fait |
+| 260129 | Nettoyage 12 PDFs proto obsolètes | print/cartes/, print/livrets/ | ✅ Fait |
+| 260304 | Création affiche A4 Découverte dispositif | A4_decouverte-dispositif.html, affiches-print.css | ✅ Fait |
+| 260305 | Création mémo A4 Découverte | A4_decouverte_memo.md | ✅ Fait |
+| 260305 | Refacto CSS affiches + style A4 | affiches-print.css | ✅ Fait |
+| 260305 | Images preview A4 + optimisation images existantes | assets/images/ | ✅ Fait |
 
 ---
 

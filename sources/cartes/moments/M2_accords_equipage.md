@@ -53,4 +53,4 @@ Afficher dans le carré. On y reviendra en M6 et M7. → Suite : M3
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

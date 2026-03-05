@@ -65,4 +65,4 @@ Tenir le cap d'un projet, anticiper les obstacles, communiquer la stratégie à 
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

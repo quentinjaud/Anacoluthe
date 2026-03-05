@@ -52,4 +52,4 @@ Lae moniteurice peut : remercier, demander des précisions, proposer un ajusteme
 **Vérification** : les jours suivants, observer si l'ajustement demandé est effectif.
 
 ---
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

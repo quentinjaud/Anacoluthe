@@ -47,4 +47,4 @@ Notons nos premières attentes sur une feuille A4 qu'on laissera affichée au ca
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

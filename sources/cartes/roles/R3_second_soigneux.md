@@ -65,4 +65,4 @@ Faciliter la parole, nommer les non-dits, réguler les tensions avant qu'elles n
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

@@ -51,4 +51,4 @@ Notez dans le livre de bord : rôles du jour, séances prévueso . On y reviendr
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

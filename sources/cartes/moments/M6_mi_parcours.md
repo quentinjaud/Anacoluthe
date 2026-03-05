@@ -51,4 +51,4 @@ Formez des binômes. Chaque binôme choisit une thématique et prend 5 min pour 
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

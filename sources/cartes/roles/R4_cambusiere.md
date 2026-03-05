@@ -83,4 +83,4 @@ L'histoire du premier équipage féminin du Whitbread
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

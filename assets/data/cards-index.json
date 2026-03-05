@@ -253,11 +253,13 @@
       "subtitle": "Kit d'introduction pour lae moniteurice",
       "emoji": "🧭",
       "description": "Recto : qui je suis et pourquoi ce kit, composition du dispositif, appel à retours. Verso : les règles du jeu pour l'équipage.",
-      "tags": ["Moniteurice", "Équipage", "Proposition de valeur", "Kit"],
+      "tags": ["Moniteurice", "Équipage", "Mode d'emploi", "Découvrir"],
       "tagsTitle": "Contenu",
+      "path": "sources/affiches/A4_decouverte_memo.md",
       "htmlPath": "sources/affiches/A4_decouverte-dispositif.html",
+      "pdfPath": "print/cartes/A4_decouverte_memo.pdf",
       "affichePath": "print/affiches/A4_decouverte-dispositif.pdf",
-      "previewImages": [],
+      "previewImages": ["assets/images/affiche-A4-recto.png", "assets/images/affiche-A4-verso.png"],
       "proto": false
     }
   ],

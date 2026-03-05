@@ -53,4 +53,4 @@ APRES : **Feedbacks croisés** : chacun·e peut offrir un feedback positif à qu
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

@@ -53,4 +53,4 @@ Les cartes rôles restent accessibles dans le carré. Demain matin (M4), vous at
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

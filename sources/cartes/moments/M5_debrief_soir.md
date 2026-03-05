@@ -56,4 +56,4 @@ Dans le livre de bord à la dernière ligne avant de clôre la page de la journ�
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

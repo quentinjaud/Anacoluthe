@@ -6,6 +6,10 @@
 /* ===========================================
    VARIABLES COULEURS SECTIONS
    =========================================== */
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --fil-cream: #FFFDF9;
     --fil-teal: #e8f4f3;
@@ -178,6 +182,13 @@
     border-radius: 999px;
     padding: 0.6rem 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-decoration: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.fil-title-pill:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .fil-title-emoji {

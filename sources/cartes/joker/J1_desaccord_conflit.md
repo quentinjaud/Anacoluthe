@@ -54,4 +54,4 @@ Questions guides :
 **Vérification** : Le second soigneux du lendemain vérifie discrètement en débrief soir que la tension ne ressurgit pas.
 
 ---
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

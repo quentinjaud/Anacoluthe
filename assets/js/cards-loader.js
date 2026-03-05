@@ -84,8 +84,8 @@ function renderGallery() {
 
     gallery.innerHTML = filteredCards.map(card => createCardTile(card)).join('');
     
-    // Grille 4 colonnes pour les rôles et Joker (exactement 4 cartes)
-    if ((currentFilter === 'role' || currentFilter === 'joker') && filteredCards.length === 4) {
+    // Grille 4 colonnes pour les rôles, Joker et affiches (exactement 4 cartes)
+    if ((currentFilter === 'role' || currentFilter === 'joker' || currentFilter === 'affiche') && filteredCards.length === 4) {
         gallery.classList.add('gallery-4cols');
     } else {
         gallery.classList.remove('gallery-4cols');

@@ -64,4 +64,4 @@ Le soin préventif du matériel collectif (voiture, outils, vélos, matériel pa
 
 ---
 
-*Anacoluthe - CC-BY-NC-SA*
+*Anacoluthe.org - CC-BY-NC-SA*

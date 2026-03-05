@@ -50,7 +50,7 @@
     --sea-50: #e8f1f4;
 
     /* Blocs */
-    --bloc-bg: #f5f5f5;  /* gris léger */
+    --bloc-bg: #f9f7f6;  /* gris léger */
     --bloc-accent: #fff4c4;
 }
 
@@ -100,10 +100,11 @@
     font-weight: 800;
     color: var(--bleu-glenans);
     text-align: center;
-    margin-bottom: 6mm;
     text-transform: uppercase;
 }
-
+.affiche-header {
+    margin-bottom: 6mm;
+}
 /* ========================================
    SECTIONS
    ======================================== */
@@ -319,7 +320,6 @@ img.emoji {
 
 .affiche-a4-portrait .affiche-header h1 {
     font-size: 20pt;
-    margin-bottom: 6mm;
 }
 
 /* Conteneur sections qui s'étale jusqu'en bas */
@@ -375,10 +375,8 @@ img.emoji {
 /* Ligne Collectif */
 .collectif-line {
     background: var(--bloc-bg);
-    border-radius: 2mm;
-    padding: 1.5mm 3mm;
-    font-family: 'Merriweather', serif;
-    font-size: 8.5pt;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 9pt;
     font-weight: 300;
     flex-shrink: 0;
 }
@@ -414,9 +412,6 @@ img.emoji {
 }
 
 .section-wrapped .collectif-line {
-    background: white;
-    border-radius: 2mm;
-    padding: 1.5mm 3mm;
     font-weight: 400;
 }
 
@@ -457,7 +452,7 @@ img.emoji {
     font-family: 'Merriweather', serif;
     font-size: 7pt;
     font-weight: 300;
-    line-height: 1.2;
+    line-height: 1.4;
     color: var(--text-dark);
 }
 
@@ -547,6 +542,7 @@ img.emoji {
     justify-content: center;
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 7pt;
+    font-weight: 300;
     color: var(--text-light);
     font-style: italic;
     padding-top: 2mm;
@@ -1346,8 +1342,8 @@ img.emoji {
    TITRE RECTO : rouge Glénans (#C62828)
    Surcharge du bleu-glenans par défaut
    ---------------------------------------- */
-.page-recto .affiche-header h1 {
-    color: var(--brick-700);
+.affiche-header-rouge h1{
+    color: var(--brick-700)!important;
 }
 
 /* ----------------------------------------
@@ -1357,9 +1353,8 @@ img.emoji {
 .section-intro {
     background: var(--bloc-bg);
     border-radius: 3mm;
-    padding: 6mm 3mm 3mm 3mm;
-    margin-bottom: 3mm;
-    margin-top: 8mm;
+    padding: 5mm 3mm 3mm 3mm;
+    margin-top: 3mm;
     position: relative;
 }
 
@@ -1408,9 +1403,7 @@ img.emoji {
 .section-kit {
     background: var(--bloc-bg);
     border-radius: 3mm;
-    padding: 6mm 3mm 3mm 3mm;
-    margin-bottom: 3mm;
-    margin-top: 8mm;
+    padding: 5mm 3mm 3mm 3mm;
     position: relative;
 }
 
@@ -1440,29 +1433,29 @@ img.emoji {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3mm;
-    margin-top: 6mm;
+    margin-top: 1mm;
 }
 
 .kit-bloc {
     position: relative;
     background: white;
     border-radius: 2mm;
-    padding: 5mm 4mm 3mm 4mm;
-    margin-top: 4mm;
+    padding: 5mm 4mm 0mm 4mm;
+    margin-top: 5mm;
 }
 
-/* Badge titre à cheval sur le bord supérieur du bloc */
+/* Titre en pill, à cheval sur le bord supérieur */
 .kit-header {
     position: absolute;
     top: -3.5mm;
     left: 3mm;
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 10pt;
+    font-size: 11pt;
     font-weight: 700;
     color: white;
-    background: var(--bleu-glenans);
-    padding: 1mm 3mm;
-    border-radius: 1.5mm;
+    background: var(--brick-700);
+    padding: 1mm 4mm;
+    border-radius: 99mm;
 }
 
 .kit-header-sub {
@@ -1478,18 +1471,12 @@ img.emoji {
     padding: 0;
 }
 
-/* Chaque item : nom en gras + description courte */
+/* Chaque item : nom + description empilés, compact */
 .kit-item {
     display: flex;
     flex-direction: column;
-    gap: 1.5mm;
-    padding: 3mm 0;
-    border-bottom: 1px solid var(--sea-50);
-}
-
-.kit-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    gap: 0.5mm;
+    padding: 2mm 0;
 }
 
 .kit-item-name {
@@ -1503,15 +1490,16 @@ img.emoji {
     font-family: 'Merriweather', serif;
     font-size: 8.5pt;
     font-weight: 300;
+    font-style: italic;
     color: var(--text-light);
     line-height: 1.3;
 }
 
 .kit-note {
-    margin: 2mm 0 0 0;
-    font-size: 7.5pt;
+    margin: 2mm 0 3mm 0;
+    font-size: 8.5pt;
     font-weight: 300;
-    color: var(--text-light);
+    color: var(--brick-700);
     line-height: 1.35;
 }
 
@@ -1520,7 +1508,7 @@ img.emoji {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 11pt;
     font-weight: 800;
-    color: var(--bleu-glenans);
+    color: #b5651d;
 }
 
 .kit-url-sub {
@@ -1539,10 +1527,8 @@ img.emoji {
 .section-feedback {
     background: var(--sea-50);
     border-radius: 3mm;
-    padding: 6mm 3mm 3mm 3mm;
-    margin-top: 8mm;
+    padding: 4mm 3mm 3mm 3mm;
     position: relative;
-    flex-grow: 1;
 }
 
 .section-feedback .section-header {
@@ -1583,14 +1569,13 @@ img.emoji {
     margin-bottom: 0;
 }
 
-/* QR code dans le bloc "LES CARTES" */
+/* QR code + URL du site */
 .kit-url-bloc {
+    margin-top: 3mm;
     display: flex;
     align-items: center;
-    gap: 3mm;
-    margin-top: 3mm;
     padding: 2mm;
-    background: var(--sea-50);
+    background: #fff8f0;
     border-radius: 2mm;
 }
 
@@ -1614,58 +1599,150 @@ img.emoji {
 }
 
 /* ----------------------------------------
+   LÉGENDE DES TYPES DE CARTES (verso)
+   ---------------------------------------- */
+.types-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2mm;
+    margin-top: -5mm;
+}
+
+.type-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1mm;
+    padding: 5mm 2mm 2mm;
+    background: var(--bloc-bg);
+    border-radius: 2mm;
+}
+
+.type-icon {
+    position: absolute;
+    top: -3mm;
+    font-size: 14pt;
+}
+
+.type-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.type-title-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1.5mm;
+}
+
+.type-name {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.type-affiches .type-name { color: var(--bleu-glenans); }
+.type-roles .type-name { color: #b5651d; }
+.type-moments .type-name { color: var(--teal-700); }
+.type-jokers .type-name { color: var(--brick-700); }
+
+.type-ref {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+.type-desc {
+    font-family: 'Merriweather', serif;
+    font-size: 7.5pt;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-top: 0.5mm;
+}
+
+.type-avail {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 6pt;
+    font-weight: 300;
+    color: var(--text-light);
+    margin-top: auto;
+    padding-top: 1mm;
+}
+
+/* ----------------------------------------
    FIL DE LA SEMAINE (verso : 4 blocs pleine largeur)
    ---------------------------------------- */
 .fil-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3mm;
-    margin-top: 3mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin-top: 2mm;
 }
 
 .fil-bloc {
-    background: var(--sea-50);
-    border-radius: 2mm;
-    padding: 3mm 3.5mm;
+    position: relative;
+    border-radius: 3mm;
+    padding: 3mm 3mm 3mm 3mm;
 }
+.fil-bloc-teal { background: #e8f4f3; }
+.fil-bloc-teal .fil-bloc-title { color: var(--teal-700); }
+.fil-bloc-amber { background: #fff8f0; }
+.fil-bloc-amber .fil-bloc-title { color: #b5651d; }
+.fil-bloc-brick { background: #FFEBEE; }
+.fil-bloc-brick .fil-bloc-title { color: var(--brick-700); }
 
-/* En-tête de bloc : émoji + titre + quand */
+/* En-tête de bloc : titre en débord (même style que les autres affiches) */
 .fil-bloc-header {
+    position: absolute;
+    top: -5mm;
+    left: 3mm;
     display: flex;
     align-items: baseline;
     gap: 2mm;
-    margin-bottom: 2mm;
 }
 
 .fil-bloc-title {
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 10pt;
+    font-size: 14pt;
     font-weight: 700;
-    color: var(--bleu-glenans);
+    color: var(--teal-700);
+    text-transform: uppercase;
+    margin: 0;
 }
 
 .fil-bloc-when {
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 8pt;
+    font-size: 9pt;
     font-weight: 400;
     color: var(--text-light);
+    font-style: italic;
 }
 
 /* Sous-titre : intention du bloc */
 .fil-bloc-sub {
     font-family: 'Merriweather', serif;
-    font-size: 8pt;
+    font-size: 8.5pt;
     font-weight: 300;
-    color: var(--text-light);
-    margin-bottom: 2mm;
-    line-height: 1.35;
+    color: var(--text-dark);
+    margin-bottom: 3mm;
+    padding-top: 1mm;
+    line-height: 1.4;
 }
 
 /* Colonnes à l'intérieur du bloc */
 .fil-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3mm;
+    gap: 6mm;
 }
 
 .fil-cols-3 {
@@ -1674,12 +1751,14 @@ img.emoji {
 
 .fil-col-title {
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 7.5pt;
+    font-size: 9pt;
     font-weight: 700;
-    color: var(--bleu-glenans);
     text-transform: uppercase;
     margin-bottom: 1mm;
 }
+.fil-bloc-teal .fil-col-title { color: var(--teal-700); }
+.fil-bloc-amber .fil-col-title { color: #b5651d; }
+.fil-bloc-brick .fil-col-title { color: var(--brick-700); }
 
 /* Items dans les colonnes */
 .fil-item {
@@ -1711,6 +1790,56 @@ img.emoji {
     color: var(--teal-700);
     margin-bottom: 0.5mm;
 }
+
+/* Grille de cartes dans les fil-blocs */
+.fil-card-grid {
+    display: grid;
+    gap: 2mm;
+    margin-top: 4mm;
+}
+
+.fil-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2mm;
+    padding: 4mm 2mm 2mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
+}
+
+.fil-card-pill {
+    position: absolute;
+    top: -2mm;
+    left: 2mm;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 0.5mm 2mm;
+    border-radius: 2mm;
+}
+
+.fil-card-name {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.fil-card-desc {
+    font-family: 'Merriweather', serif;
+    font-size: 7pt;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.3;
+}
+
+/* Couleurs des pills par type de bloc */
+.fil-bloc-teal .fil-card-pill { color: var(--teal-700); background: #b2dfdb; }
+.fil-bloc-amber .fil-card-pill { color: #b5651d; background: #ffe0b2; }
+.fil-bloc-brick .fil-card-pill { color: var(--brick-700); background: #FFCDD2; }
 
 /* ----------------------------------------
    GRILLE 3 COLONNES (verso : les 3 affiches)

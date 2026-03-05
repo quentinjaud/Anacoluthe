@@ -258,7 +258,7 @@
       "htmlPath": "sources/affiches/A4_decouverte-dispositif.html",
       "affichePath": "print/affiches/A4_decouverte-dispositif.pdf",
       "previewImages": [],
-      "proto": true
+      "proto": false
     }
   ],
   "types": {

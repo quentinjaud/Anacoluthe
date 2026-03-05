@@ -2,10 +2,11 @@
  * ASSEMBLEUR - Assemble les PDFs A6 en livrets A4 (4-UP)
  * 
  * Usage: node scripts/assemble-booklets.js [target]
- *   target: 'all' | 'roles' | 'moments' | 'joker'
- * 
+ *   target: 'all' | 'roles' | 'moments' | 'joker' | 'memos' | 'affiches'
+ *
  * Input: /print/cartes/{id}.pdf (2 pages : recto + verso)
- * Output: /print/livrets/livret-{type}.pdf (A4, 4-UP, recto-verso)
+ *        /print/affiches/{id}.pdf (pour le livret affiches, format A4)
+ * Output: /print/livrets/livret-{type}.pdf (A4, 4-UP recto-verso ou concat A4)
  * 
  * Layout 4-UP avec ordre pour impression recto-verso bord long :
  * 
@@ -56,6 +57,12 @@ const CONFIG = {
     memos: {
       cards: ['A1_routines', 'A2_tableau', 'A3_marque-page'],
       title: 'Mémos Affiches'
+    },
+    affiches: {
+      cards: ['A1_routines', 'A2_tableau_equipage', 'A3_marque_page', 'A4_decouverte-dispositif'],
+      title: 'Affiches A4',
+      format: 'a4',
+      inputDir: 'print/affiches'
     }
   }
 };
@@ -111,9 +118,10 @@ function addCutMarks(page) {
 /**
  * Trouve le fichier PDF d'une carte (gestion des variantes de nommage)
  */
-function findCardPdf(cardId) {
-  const files = fs.existsSync(CONFIG.inputDir) 
-    ? fs.readdirSync(CONFIG.inputDir) 
+function findCardPdf(cardId, inputDir) {
+  const dir = inputDir || CONFIG.inputDir;
+  const files = fs.existsSync(dir)
+    ? fs.readdirSync(dir)
     : [];
   
   // Chercher par correspondance exacte ou par préfixe
@@ -126,26 +134,26 @@ function findCardPdf(cardId) {
     
     // Match exact
     if (baseName === cardId || baseName.toLowerCase() === cardId.toLowerCase()) {
-      return path.join(CONFIG.inputDir, file);
+      return path.join(dir, file);
     }
-    
+
     // Match par préfixe (R1, M1, S1, etc.)
     if (baseName.toUpperCase().startsWith(prefix.toUpperCase())) {
-      return path.join(CONFIG.inputDir, file);
+      return path.join(dir, file);
     }
   }
-  
+
   return null;
 }
 
 /**
  * Charge les PDFs des cartes d'un livret
  */
-async function loadCardPdfs(cardIds) {
+async function loadCardPdfs(cardIds, inputDir) {
   const cards = [];
-  
+
   for (const cardId of cardIds) {
-    const pdfPath = findCardPdf(cardId);
+    const pdfPath = findCardPdf(cardId, inputDir);
     
     if (pdfPath) {
       try {
@@ -189,53 +197,76 @@ async function embedA6Page(outputPdf, a4Page, sourcePdf, pageIndex, position) {
  */
 async function assembleBooklet(bookletName, bookletConfig) {
   console.log(`\n📚 Assemblage: ${bookletConfig.title}`);
-  
+
   // Charger les PDFs sources
-  const cards = await loadCardPdfs(bookletConfig.cards);
-  
+  const cards = await loadCardPdfs(bookletConfig.cards, bookletConfig.inputDir);
+
+  // Créer le PDF de sortie
+  const outputPdf = await PDFDocument.create();
+
+  // Mode A4 : concaténation simple des pages
+  if (bookletConfig.format === 'a4') {
+    let totalPages = 0;
+    for (const card of cards) {
+      if (!card.pdf) continue;
+      const pages = await outputPdf.copyPages(card.pdf, card.pdf.getPageIndices());
+      for (const page of pages) {
+        outputPdf.addPage(page);
+        totalPages++;
+      }
+    }
+
+    const outputPath = path.join(CONFIG.outputDir, `livret-${bookletName}.pdf`);
+    const pdfBytes = await outputPdf.save();
+    fs.writeFileSync(outputPath, pdfBytes);
+
+    const sheetsCount = Math.ceil(totalPages / 2);
+    console.log(`  ✅ ${outputPath} (${sheetsCount} feuille${sheetsCount > 1 ? 's' : ''} A4)`);
+
+    return { name: bookletName, path: outputPath, cards: cards.length, sheets: sheetsCount };
+  }
+
+  // Mode 4-UP A6 : assemblage classique
   // Compléter à un multiple de 4 cartes
   while (cards.length % 4 !== 0) {
     cards.push({ id: 'blank', pdf: null });
   }
-  
-  // Créer le PDF de sortie
-  const outputPdf = await PDFDocument.create();
-  
+
   // Traiter par groupes de 4 cartes (= 1 feuille A4 recto-verso)
   for (let i = 0; i < cards.length; i += 4) {
     const batch = cards.slice(i, i + 4);
-    
+
     // Page RECTO A4 : les 4 rectos des cartes
     const rectoPage = outputPdf.addPage([CONFIG.a4.width, CONFIG.a4.height]);
-    
+
     // Positions : topLeft, topRight, bottomLeft, bottomRight
     await embedA6Page(outputPdf, rectoPage, batch[0]?.pdf, 0, POSITIONS.topLeft);
     await embedA6Page(outputPdf, rectoPage, batch[1]?.pdf, 0, POSITIONS.topRight);
     await embedA6Page(outputPdf, rectoPage, batch[2]?.pdf, 0, POSITIONS.bottomLeft);
     await embedA6Page(outputPdf, rectoPage, batch[3]?.pdf, 0, POSITIONS.bottomRight);
-    
+
     addCutMarks(rectoPage);
-    
+
     // Page VERSO A4 : les 4 versos des cartes (miroir horizontal pour bord long)
     const versoPage = outputPdf.addPage([CONFIG.a4.width, CONFIG.a4.height]);
-    
+
     // Après retournement bord long : gauche↔droite s'inversent
     await embedA6Page(outputPdf, versoPage, batch[1]?.pdf, 1, POSITIONS.topLeft);
     await embedA6Page(outputPdf, versoPage, batch[0]?.pdf, 1, POSITIONS.topRight);
     await embedA6Page(outputPdf, versoPage, batch[3]?.pdf, 1, POSITIONS.bottomLeft);
     await embedA6Page(outputPdf, versoPage, batch[2]?.pdf, 1, POSITIONS.bottomRight);
-    
+
     addCutMarks(versoPage);
   }
-  
+
   // Sauvegarder
   const outputPath = path.join(CONFIG.outputDir, `livret-${bookletName}.pdf`);
   const pdfBytes = await outputPdf.save();
   fs.writeFileSync(outputPath, pdfBytes);
-  
+
   const sheetsCount = cards.length / 4;
   console.log(`  ✅ ${outputPath} (${sheetsCount} feuille${sheetsCount > 1 ? 's' : ''} A4)`);
-  
+
   return { name: bookletName, path: outputPath, cards: cards.length, sheets: sheetsCount };
 }
 

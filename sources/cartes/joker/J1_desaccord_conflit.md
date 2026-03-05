@@ -49,7 +49,7 @@ Questions guides :
 
 #### ⚓ ANCRAGE
 
-**Dans le livre de bord** : une ligne "Tension nommée et régulée" (sans détails personnels - le LDB peut être relu par d'autres).
+**Dans le livre de bord** : une ligne "Tension nommée et régulée" (sans détails personnels - le L.D.B. peut être relu par d'autres).
 
 **Vérification** : Le second soigneux du lendemain vérifie discrètement en débrief soir que la tension ne ressurgit pas.
 

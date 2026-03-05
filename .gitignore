@@ -22,3 +22,6 @@ npm-debug.log*
 .claude/settings.local.json
 print/debug*.png
 .grepai/
+
+# PDFs de rendu des livrets et carnets
+*.pdf

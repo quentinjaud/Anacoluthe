@@ -348,11 +348,16 @@ function updatePdfButtons(card) {
     const livretPaths = {
         'role': 'print/livrets/livret-roles.pdf',
         'moment': 'print/livrets/livret-moments.pdf',
-        'joker': 'print/livrets/livret-joker.pdf',
-        'affiche': 'print/livrets/livret-divers.pdf'
+        'joker': 'print/livrets/livret-joker.pdf'
     };
 
-    const livretPath = livretPaths[card.type];
+    let livretPath = livretPaths[card.type];
+    // Les affiches proposent un livret selon le mode
+    if (isAffiche) {
+        livretPath = isAfficheA4Mode
+            ? 'print/livrets/livret-affiches.pdf'
+            : 'print/livrets/livret-memos.pdf';
+    }
     if (livretPath) {
         pdfLivretBtn.href = livretPath;
         pdfLivretBtn.classList.remove('disabled');
@@ -479,7 +484,6 @@ async function renderPrintView(card, markdown) {
             rectoEl.style.height = 'auto';
             rectoEl.style.maxWidth = 'none';
             rectoEl.style.maxHeight = 'none';
-            rectoEl.style.minWidth = '900px';
             rectoEl.style.overflow = 'visible';
             rectoEl.style.border = 'none';
             rectoEl.style.boxShadow = 'none';
@@ -496,7 +500,7 @@ async function renderPrintView(card, markdown) {
             iframe.style.height = '0';
             iframe.style.border = 'none';
 
-            // Ajuster la hauteur après chargement (avant l'écriture pour éviter la race condition)
+            // Ajuster la hauteur après chargement
             iframe.onload = () => {
                 const height = iframe.contentWindow.document.body.scrollHeight;
                 iframe.style.height = height + 'px';
@@ -541,6 +545,11 @@ async function renderPrintView(card, markdown) {
             gap: 20px;
             align-items: center;
             background: transparent;
+        }
+        .affiche-a4,
+        .affiche-a4-portrait {
+            border-radius: 1.5mm;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
         }
     </style>
 </head>

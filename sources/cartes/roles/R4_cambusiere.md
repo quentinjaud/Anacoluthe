@@ -7,9 +7,8 @@
 
 ## ✨ Inspiré de Tracy Edwards
 
-Navigatrice britannique (née en 1962). Whitbread 1985-86 : seule femme à bord, reléguée à la cuisine malgré ses compétences en navigation. Elle transforme ce rôle stigmatisé en **observatoire privilégié des dynamiques d'équipage**.
-
-1989 : crée le premier équipage 100% féminin (Maiden), remporte 2 étapes. Première femme Yachtsman of the Year.
+Elle a couru la Whitbread 1985-86 : seule femme à bord, reléguée à la cuisine malgré ses compétences en navigation. Elle transforme ce rôle stigmatisé en **observatoire privilégié des dynamiques d'équipage**.
+Alors, en 1989, elle monte et skipe Maiden, premier équipage entièrement féminin engagé dans la Whitbread, qui termine deuxième de sa classe et remporte deux étapes. Et TOC !
 
 *« On m'avait dit que ma place était à la cambuse. J'y ai appris à lire l'équipage comme personne. »*
 

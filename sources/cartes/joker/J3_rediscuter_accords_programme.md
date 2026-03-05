@@ -40,7 +40,7 @@ Tour d'objection : "Y-a t'il une objection à ce que que ces nouveaux accords/pr
 
 ## ⚓ ANCRAGE
 
-Au LDB, colonne Observations : "Accords/programme ajustés - [ce qui change]". Lae second soigneux vérifie les jours suivants que ça tient.
+Au L.D.B., colonne Observations : "Accords/programme ajustés - [ce qui change]". Lae second soigneux vérifie les jours suivants que ça tient.
 
 ---
 *Anacoluthe.org - CC-BY-NC-SA*

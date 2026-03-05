@@ -28,7 +28,7 @@ Lae second soigneux du jour, en duo avec lae moniteurice, facilite ce moment d'�
 
 ## ⚓ ANCRAGE
 
-Au LDB, colonne Observations : "Journée à terre - [activités principales]". En fin de journée, un tour rapide : qu'est-ce qu'on a bien fait de ce temps contraint ?
+Au L.D.B., colonne Observations : "Journée à terre - [activités principales]". En fin de journée, un tour rapide : qu'est-ce qu'on a bien fait de ce temps contraint ?
 
 ---
 *Anacoluthe.org - CC-BY-NC-SA*

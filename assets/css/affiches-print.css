@@ -1325,13 +1325,7 @@ img.emoji {
 .notes-lines {
     height: 100%;
     min-height: 20mm;
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 8mm,
-        #d0d0d0 8mm,
-        #d0d0d0 8.15mm
-    );
+    background: transparent;
 }
 
 /* ========================================
@@ -1583,6 +1577,7 @@ img.emoji {
     width: 16mm;
     height: 16mm;
     flex-shrink: 0;
+    margin-right: 3mm;
 }
 
 .tel-number {

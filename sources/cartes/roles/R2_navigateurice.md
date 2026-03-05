@@ -7,7 +7,7 @@
 
 ## ✨ Inspiré de Capucine Trochet
 
-Navigatrice française (née en 1981), aventurière des mers et militante de la sobriété heureuse. Elle parcourt les océans sur de vieux gréements low-tech, sans GPS ni pilote automatique, en quête d'une navigation plus lente et plus consciente.
+Elle est une aventurière des mers et militante de la sobriété heureuse. Elle parcourt les océans sur de vieux gréements low-tech, sans GPS ni pilote automatique, en quête d'une navigation plus lente et plus consciente.
 
 Autrice de plusieurs récits d'aventure maritime, elle incarne une approche résiliente et poétique de la voile, où l'essentiel prime sur la performance.
 

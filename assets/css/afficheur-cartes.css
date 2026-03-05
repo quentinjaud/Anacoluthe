@@ -347,7 +347,7 @@ body.mode-print .preview-print {
 .print-card-face {
     border: 1px solid var(--border-light);
     border-radius: 3mm;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
 }
 
 /* Mode Puppeteer : retirer les effets de prévisualisation */
@@ -826,6 +826,7 @@ body.mode-print .skip-web {
     width: 100%;
     gap: 10px;
     align-items: center;
+    margin-top: 0;
 }
 
 /* Container affiche - iframe isolé */
@@ -834,7 +835,6 @@ body.mode-print .skip-web {
     height: auto;
     max-width: none !important;
     max-height: none;
-    min-width: 900px;
     border: none;
     box-shadow: none;
     background: transparent;
@@ -845,37 +845,7 @@ body.mode-print .skip-web {
 .preview-print.affiche-mode .affiche-iframe {
     border: none;
     overflow: visible;
-    min-width: 900px;
     width: 100%;
-}
-
-/* Scaling de l'iframe selon la taille d'écran */
-@media (min-width: 1800px) {
-    .preview-print.affiche-mode .affiche-iframe {
-        transform: scale(1.1);
-        transform-origin: top center;
-    }
-}
-
-@media (min-width: 1400px) and (max-width: 1799px) {
-    .preview-print.affiche-mode .affiche-iframe {
-        transform: scale(0.95);
-        transform-origin: top center;
-    }
-}
-
-@media (min-width: 1000px) and (max-width: 1399px) {
-    .preview-print.affiche-mode .affiche-iframe {
-        transform: scale(0.75);
-        transform-origin: top center;
-    }
-}
-
-@media (max-width: 999px) {
-    .preview-print.affiche-mode .affiche-iframe {
-        transform: scale(0.6);
-        transform-origin: top center;
-    }
 }
 
 /* Cacher le second viewer group (verso) en mode affiche */

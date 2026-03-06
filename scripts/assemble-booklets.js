@@ -35,6 +35,7 @@ const CONFIG = {
   
   // Repères de coupe
   mireLength: 14,  // ~5mm
+  mireOffset: 28.35,  // 10mm vers l'intérieur (hors marges non-imprimées)
   mireColor: rgb(0.7, 0.7, 0.7),
   mireThickness: 0.5,
   
@@ -58,6 +59,10 @@ const CONFIG = {
       cards: ['A1_routines', 'A2_tableau', 'A3_marque-page'],
       title: 'Mémos Affiches'
     },
+    m1x4: {
+      cards: ['M1_accueil-presentations', 'M1_accueil-presentations', 'M1_accueil-presentations', 'M1_accueil-presentations'],
+      title: 'M1 Accueil x4'
+    },
     affiches: {
       cards: ['A1_routines', 'A2_tableau_equipage', 'A3_marque_page', 'A4_decouverte-dispositif'],
       title: 'Affiches A4',
@@ -80,36 +85,36 @@ const POSITIONS = {
  */
 function addCutMarks(page) {
   const { width, height } = CONFIG.a4;
-  const { mireLength, mireColor, mireThickness } = CONFIG;
-  
+  const { mireLength, mireOffset, mireColor, mireThickness } = CONFIG;
+
   // Centre horizontal (coupe verticale) - en haut
   page.drawLine({
-    start: { x: width / 2, y: height - mireLength },
-    end: { x: width / 2, y: height },
+    start: { x: width / 2, y: height - mireOffset - mireLength },
+    end: { x: width / 2, y: height - mireOffset },
     thickness: mireThickness,
     color: mireColor
   });
-  
+
   // Centre horizontal (coupe verticale) - en bas
   page.drawLine({
-    start: { x: width / 2, y: 0 },
-    end: { x: width / 2, y: mireLength },
+    start: { x: width / 2, y: mireOffset },
+    end: { x: width / 2, y: mireOffset + mireLength },
     thickness: mireThickness,
     color: mireColor
   });
-  
+
   // Centre vertical (coupe horizontale) - à gauche
   page.drawLine({
-    start: { x: 0, y: height / 2 },
-    end: { x: mireLength, y: height / 2 },
+    start: { x: mireOffset, y: height / 2 },
+    end: { x: mireOffset + mireLength, y: height / 2 },
     thickness: mireThickness,
     color: mireColor
   });
-  
+
   // Centre vertical (coupe horizontale) - à droite
   page.drawLine({
-    start: { x: width - mireLength, y: height / 2 },
-    end: { x: width, y: height / 2 },
+    start: { x: width - mireOffset - mireLength, y: height / 2 },
+    end: { x: width - mireOffset, y: height / 2 },
     thickness: mireThickness,
     color: mireColor
   });

@@ -105,6 +105,13 @@
 .affiche-header {
     margin-bottom: 6mm;
 }
+
+.header-logo {
+    height: 1.1em;
+    width: auto;
+    vertical-align: -0.15em;
+}
+
 /* ========================================
    SECTIONS
    ======================================== */
@@ -539,7 +546,7 @@ img.emoji {
    ======================================== */
 .affiche-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 7pt;
     font-weight: 300;
@@ -1340,6 +1347,36 @@ img.emoji {
     color: var(--brick-700)!important;
 }
 
+.affiche-header-amber h1{
+    color: var(--amber-700)!important;
+}
+
+.affiche-header-teal h1{
+    color: var(--teal-700)!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+}
+
+.affiche-header-teal {
+    margin-bottom: 3mm ;
+}
+
+.affiche-header-teal h1 span {
+    text-align: left;
+}
+
+.page-verso .intro-text {
+    text-align: center;
+}
+
+.affiche-header-teal .header-logo {
+    height: 2.2em;
+    width: auto;
+    flex-shrink: 0;
+}
+
 /* ----------------------------------------
    INTRO PERSONNIFIÉE (recto)
    Section avec titre débordant, couleur Glénans
@@ -1347,7 +1384,7 @@ img.emoji {
 .section-intro {
     background: var(--bloc-bg);
     border-radius: 3mm;
-    padding: 5mm 3mm 3mm 3mm;
+    padding: 5mm 4mm 3mm 4mm;
     margin-top: 3mm;
     position: relative;
 }
@@ -1376,6 +1413,7 @@ img.emoji {
 
 .intro-text {
     font-family: 'Merriweather', serif;
+    text-align: justify;
     font-size: 9.5pt;
     font-weight: 300;
     line-height: 1.5;
@@ -1397,8 +1435,11 @@ img.emoji {
 .section-kit {
     background: var(--bloc-bg);
     border-radius: 3mm;
-    padding: 5mm 3mm 3mm 3mm;
+    padding: 5mm 4mm 3mm 4mm;
     position: relative;
+}
+.section-kit .intro-text {
+    text-align: justify;
 }
 
 .section-kit .section-header {
@@ -1481,7 +1522,7 @@ img.emoji {
 }
 
 .kit-item-desc {
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather Sans', sans-serif;
     font-size: 8.5pt;
     font-weight: 300;
     font-style: italic;
@@ -1568,16 +1609,28 @@ img.emoji {
     margin-top: 3mm;
     display: flex;
     align-items: center;
+    gap: 3mm;
     padding: 2mm;
     background: #fff8f0;
     border-radius: 2mm;
+}
+
+.kit-logo-img {
+    width: 16mm;
+    height: 16mm;
+    flex-shrink: 0;
+    border-radius: 2mm;
+}
+
+.kit-url-text {
+    flex: 1;
+    text-align: center;
 }
 
 .qr-img {
     width: 16mm;
     height: 16mm;
     flex-shrink: 0;
-    margin-right: 3mm;
 }
 
 .tel-number {
@@ -1654,7 +1707,7 @@ img.emoji {
 }
 
 .type-desc {
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather Sans', sans-serif;
     font-size: 7.5pt;
     font-weight: 300;
     font-style: italic;
@@ -1751,6 +1804,10 @@ img.emoji {
     text-transform: uppercase;
     margin-bottom: 1mm;
 }
+.fil-bloc-teal .fil-bloc-when { color: var(--teal-700); }
+.fil-bloc-amber .fil-bloc-when { color: #b5651d; }
+.fil-bloc-brick .fil-bloc-when { color: var(--brick-700); }
+
 .fil-bloc-teal .fil-col-title { color: var(--teal-700); }
 .fil-bloc-amber .fil-col-title { color: #b5651d; }
 .fil-bloc-brick .fil-col-title { color: var(--brick-700); }
@@ -1823,7 +1880,7 @@ img.emoji {
 }
 
 .fil-card-desc {
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather Sans', sans-serif;
     font-size: 7pt;
     font-weight: 300;
     font-style: italic;

@@ -1,13 +1,13 @@
-# 🌅 ACCUEIL & PRESENTATIONS
+# 🌅 ACCUEIL & PRÉSENTATIONS
 ###### Le premier après-midi - 20-30 min
 
 <!-- HEAD -->
 
-> Ce moment pose les fondations d'une semaine de coopération réelle. Exprimons nos attentes dès J1, pour donner les clés au·à la moniteurice pour construire un programme qui nous convient, et célébrons la diversité des motivations de chacun·e.
+> Ce moment pose les fondations d'une semaine de coopération réelle. Exprimons nos attentes dès maintenant, pour donner les clés à lae moniteurice pour construire un programme qui nous convient, et constatons la diversité des motivations de chacun·e.
 
 Vous êtes six inconnu·es qui allez partager 12m² pendant 6 jours. Avant de plonger dans l'action (courses, inventaire, topo sécu), prenons le temps de nous rencontrer vraiment.
 
-Sans expression des attentes, le·la moniteurice navigue à l'aveugle. Les déceptions de fin de stage viennent souvent d'espoirs jamais formulés. Vos attentes l'aideront à construire un programme qui combine vos envies, les impératifs météo et les objectifs du stage.
+Sans expression des attentes, lae moniteurice navigue à l'aveugle. Les déceptions de fin de stage viennent souvent d'espoirs jamais formulés. Vos attentes l'aideront à construire un programme qui combine vos envies, les impératifs météo et les objectifs techniques du stage.
 
 ## ✨ LE P'TIT TIP'S
 
@@ -41,7 +41,7 @@ Faisons plusieurs petits tours. Chacun·e répond en 1-2 phrases :
 
 #### ⚓ ANCRAGE
 
-Notons nos premières attentes sur une feuille A4 qu'on laissera affichée au carré. On y reviendra après la première navigation, puis à mi-parcours (M6) et enfin, à la fin du stage (M7) pour vérifier qu'on a tenu le cap.
+Notons nos premières attentes sur la fiche bilan qu'on laissera dispo' dans la table à carte. On y reviendra après la première navigation, puis à mi-parcours (M6) et enfin, à la fin du stage (M7) pour vérifier qu'on a tenu le cap.
 
 → Prochaine étape : avitaillement, puis **M2 Accords**.
 

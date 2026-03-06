@@ -306,6 +306,19 @@
 .type-joker .print-card-content hr { border-top-color: var(--brick-300); }
 .type-affiche .print-card-content hr { border-top-color: #7A9CC6; /* navy-300 */ }
 
+/* Signature (hr + dernier paragraphe) */
+.print-card-content hr + p:last-child {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 0.4em;
+}
+
+.type-role .print-card-content hr + p:last-child { color: var(--amber-700); }
+.type-moment .print-card-content hr + p:last-child { color: var(--teal-700); }
+.type-joker .print-card-content hr + p:last-child { color: var(--brick-700); }
+.type-affiche .print-card-content hr + p:last-child { color: #1E3A5F; }
+
 /* Liens */
 .print-card-content a {
     color: inherit;

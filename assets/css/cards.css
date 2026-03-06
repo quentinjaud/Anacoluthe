@@ -636,6 +636,11 @@
 .modal-joker .card-content hr { border-top-color: #E57373; /* brick-300 */ }
 .modal-affiche .card-content hr { border-top-color: #7A9CC6; /* navy-300 */ }
 
+/* Signature (hr + dernier paragraphe) - masquée en web */
+.card-content hr + p:last-child,
+.card-content hr + p:last-child + * { display: none; }
+.card-content hr:has(+ p:last-child) { display: none; }
+
 .card-content ul {
     margin: 0 0 1rem 1.5rem;
     padding: 0;

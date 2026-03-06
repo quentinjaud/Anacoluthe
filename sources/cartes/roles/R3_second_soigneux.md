@@ -1,5 +1,5 @@
 # 🤲 SECOND SOIGNEUX
-###### Le·la tisserand·e du collectif
+###### Tisserand·e du collectif
 
 <!-- HEAD -->
 

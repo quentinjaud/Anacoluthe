@@ -209,10 +209,18 @@ self.addEventListener('message', (event) => {
   }
   
   if (event.data && event.data.type === 'FORCE_UPDATE') {
-    // Forcer la mise à jour du cache
+    // Forcer la mise à jour du cache en bypassant le cache HTTP
     caches.delete(CACHE_NAME).then(() => {
       caches.open(CACHE_NAME).then((cache) => {
-        cache.addAll(PRECACHE_URLS).then(() => {
+        Promise.all(
+          PRECACHE_URLS.map((url) =>
+            fetch(url, { cache: 'reload' }).then((response) => {
+              if (response.ok) {
+                return cache.put(url, response);
+              }
+            })
+          )
+        ).then(() => {
           event.ports[0].postMessage({
             type: 'UPDATE_COMPLETE',
             version: CACHE_VERSION

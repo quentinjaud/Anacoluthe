@@ -463,6 +463,58 @@
     background: var(--rouge-glenans);
 }
 
+/* Bouton téléchargement PDF (header modale, à gauche du ×) */
+.card-modal-download {
+    position: absolute;
+    top: 0.75rem;
+    right: 3.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: var(--gris-glenans);
+    color: var(--blanc);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    gap: 0.3rem;
+    overflow: hidden;
+}
+
+.card-modal-download:hover {
+    background: var(--rouge-glenans);
+    color: var(--blanc);
+}
+
+.card-modal-download svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.card-modal-download .download-label {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .card-modal-download {
+        width: auto;
+        border-radius: 1.25rem;
+        padding: 0 0.75rem;
+    }
+
+    .card-modal-download .download-label {
+        display: inline;
+        font-family: 'Merriweather Sans', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+}
+
 /* Fond modale - crème uniforme */
 .card-modal-body {
     padding: 2rem;
@@ -1065,6 +1117,7 @@
 
 /* Prévisualisation affiche dans modale */
 .modal-affiche-preview {
+    position: relative;
     margin: 0 auto 1.5rem auto;
     border-radius: var(--radius-small);
     overflow: hidden;
@@ -1097,6 +1150,39 @@
 /* Indication cliquable */
 .modal-affiche-preview:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Bouton téléchargement affiche A4 (flottant sur l'aperçu) */
+.affiche-download-btn {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.65rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    background: var(--gris-glenans);
+    color: var(--blanc);
+    transition: background 0.2s ease;
+    opacity: 0.85;
+}
+
+.affiche-download-btn svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    flex-shrink: 0;
+}
+
+.affiche-download-btn:hover {
+    background: var(--rouge-glenans);
+    color: var(--blanc);
+    opacity: 1;
 }
 
 /* ===========================================

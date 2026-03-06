@@ -177,12 +177,28 @@ async function openCard(cardId) {
     const modal = document.getElementById('card-modal');
     const modalBody = document.getElementById('card-modal-body');
     const modalContent = modalBody.parentElement;
-    
+
+    // Supprimer un éventuel bouton téléchargement précédent
+    const existingDownloadBtn = modalContent.querySelector('.card-modal-download');
+    if (existingDownloadBtn) existingDownloadBtn.remove();
+
     // Afficher la modale avec un état de chargement
     modal.classList.add('open');
     modalBody.className = 'card-modal-body modal-' + card.type;
     modalBody.innerHTML = '<p class="loading">Chargement de la carte...</p>';
     document.body.style.overflow = 'hidden';
+
+    // Bouton téléchargement PDF dans le header (à gauche du ×)
+    if (card.pdfPath) {
+        const downloadBtn = document.createElement('a');
+        downloadBtn.href = card.pdfPath;
+        downloadBtn.download = '';
+        downloadBtn.className = 'card-modal-download';
+        downloadBtn.setAttribute('aria-label', 'Télécharger en PDF');
+        downloadBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span class="download-label">PDF</span>`;
+        const closeBtn = modalContent.querySelector('.card-modal-close');
+        modalContent.insertBefore(downloadBtn, closeBtn);
+    }
 
     try {
         // Déterminer le chemin (path pour cartes, memoPath pour affiches)
@@ -217,10 +233,15 @@ async function openCard(cardId) {
         // Ajouter l'image de prévisualisation pour les affiches
         let previewHtml = '';
         if (card.type === 'affiche' && card.previewImages && card.previewImages.length > 0) {
+            const afficheDownloadBtn = card.affichePath
+                ? `<a href="${card.affichePath}" download class="affiche-download-btn" aria-label="Télécharger l'affiche A4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Affiche PDF</span></a>`
+                : '';
+
             if (card.previewImages.length === 1) {
                 // Une seule image (A1, A2)
                 previewHtml = `
                     <div class="modal-affiche-preview">
+                        ${afficheDownloadBtn}
                         <img src="${card.previewImages[0]}" alt="${card.title}">
                     </div>`;
             } else {
@@ -230,6 +251,7 @@ async function openCard(cardId) {
                     .join('');
                 previewHtml = `
                     <div class="modal-affiche-preview modal-affiche-preview-dual">
+                        ${afficheDownloadBtn}
                         ${imagesHtml}
                     </div>`;
             }

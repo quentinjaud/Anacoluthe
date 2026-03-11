@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentations - Anacoluthe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
+    <style>
+        .presentations-page {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2em 1.5em;
+        }
+
+        .presentations-page .intro {
+            color: var(--text-muted);
+            margin-bottom: 2em;
+            line-height: 1.6;
+        }
+
+        .presentation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .presentation-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: var(--blanc);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-card);
+            padding: 1.2em 1.5em;
+            transition: border-color 0.3s ease, box-shadow 0.2s;
+        }
+
+        .presentation-card:hover {
+            border-color: var(--bleu-glenans);
+            box-shadow: 0 2px 8px rgba(0, 102, 173, 0.12);
+        }
+
+        .presentation-card h3 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-weight: 800;
+            margin: 0 0 0.3em 0;
+            color: var(--bleu-glenans);
+            font-size: 1.1em;
+        }
+
+        .presentation-card .meta {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.8em;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 0.4em;
+        }
+
+        .presentation-card p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .presentation-card .badge {
+            display: inline-block;
+            padding: 0.1em 0.5em;
+            border-radius: 3px;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: white;
+            margin-left: 0.5em;
+            vertical-align: middle;
+        }
+
+        .badge-bp { background: var(--teal-700); }
+
+        .tip {
+            margin-top: 2em;
+            padding: 1em;
+            background: var(--teal-50);
+            border-radius: var(--radius-small);
+            font-size: 0.85em;
+            color: var(--text-dark);
+            font-weight: 300;
+        }
+
+        .tip strong {
+            color: var(--teal-700);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-link">
+            <h1 class="site-title"><span class="accent-amber">¿</span><span class="accent-teal">¡</span> Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
+        </a>
+        <p class="site-subtitle">Découvrir le dispositif</p>
+    </header>
+
+    <main class="presentations-page">
+        <p class="intro">
+            Anacoluthe s'explique mieux en le montrant qu'en le racontant.
+            Ces présentations sont conçues pour faire découvrir le dispositif à différents publics :
+            moniteurices, pairs, partenaires.
+        </p>
+
+        <div class="presentation-list">
+
+            <a href="sources/presentations/atelier-bp.html" class="presentation-card">
+                <h3>Atelier Découverte <span class="badge badge-bp">Promo BP</span></h3>
+                <div class="meta">1h - 12 participant·es - Mars 2026</div>
+                <p>Présentation du dispositif, manipulation des cartes, travail en sous-groupes sur la transférabilité à d'autres contextes et bases.</p>
+            </a>
+
+            <!-- Futures présentations à ajouter ici -->
+            <!--
+            <a href="sources/presentations/brief-monos.html" class="presentation-card">
+                <h3>Brief moniteurices <span class="badge" style="background:var(--amber-700)">Brief samedi</span></h3>
+                <div class="meta">10 min - Brief samedi matin RTQ</div>
+                <p>Présentation rapide du dispositif aux moniteurices avant la semaine de stage.</p>
+            </a>
+            -->
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-credits">
+                <div class="footer-title">Anacoluthe V5</div>
+                <div class="footer-desc">Dispositif pédagogique pour apprendre l'organisation collective et le vivre ensemble par la voile habitable.<br>Projet support pour la validation des UC1-2 du <a href="decouvrir.html">BPJEPS</a>.<br><a href="suivi.html">🚧 Suivre le travail en cours</a></div>
+                <div class="footer-meta">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a> - Quentin Jaud
+                </div>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html" class="footer-nav-link accent-index">← Accueil</a>
+                <a href="anacoluthe.html" class="footer-nav-link accent-jeu">🃏 Les cartes</a>
+                <a href="fil-semaine.html" class="footer-nav-link accent-fil">🧵 Fil de la semaine</a>
+                <a href="ensavoirplus.html" class="footer-nav-link accent-info">📖 En savoir plus</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

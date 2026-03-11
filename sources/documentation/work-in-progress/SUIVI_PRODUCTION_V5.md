@@ -6,6 +6,45 @@
 
 ---
 
+## 🔄 DERNIÈRES MODIFICATIONS (260311)
+
+### Session 27-28 - Présentations reveal.js + atelier BP (11 mars)
+
+**Nouveau système de présentations HTML (reveal.js via CDN)**
+- Création dossier `sources/presentations/` pour les decks de slides
+- Thème Anacoluthe partagé : `anacoluthe-theme.css` (Merriweather/Merriweather Sans, palette bleu Glénans/teal/amber/brick)
+- reveal.js 5.2.1 chargé via CDN (pas de dépendance locale, pas de build)
+- Support notes présentateur (touche S), navigation clavier, hash URLs, barre de progression teal
+
+**Première présentation : Atelier Découverte Promo BP**
+- `sources/presentations/atelier-bp.html` : 14 slides
+- Public : 12 camarades promo BP (multi-support + croisière, toutes bases Glénans)
+- Arc narratif en entonnoir : accroche vécu → constat → besoins → réponses pédagogiques → principe de greffe → traduction en outils → boîte à outils → semaine J1-J6 → game design → manipulation → sous-groupes → restitution
+- Posture bienveillante : reconnaître ce que les moniteurices font déjà, Anacoluthe comme support partagé (pas comme critique)
+- Notes d'animation intégrées à chaque slide
+
+**Guide d'animation atelier**
+- `sources/guides-seances-topos/ATELIER_DECOUVERTE_BP_V260311.md`
+- Déroulé détaillé 1h : accroche (5 min), présentation (15 min), manipulation (10 min), sous-groupes (20 min), restitution (10 min)
+- Messages clefs par étape (blockquotes dans le guide)
+- Pièges à éviter, variantes, section retours post-atelier
+
+**Thème CSS affiné**
+- Font-sizes réduites : h1 1.6em, h2 1.1em, h3 0.9em, p/li 0.6em, blockquote 0.6em
+- Barre de progression native reveal.js stylée en teal-700
+
+**Page hub présentations**
+- Création `decouvrir.html` (même pattern que suivi.html)
+- Liste les présentations disponibles avec description et métadonnées
+
+**Fichiers créés**
+- `sources/presentations/anacoluthe-theme.css`
+- `sources/presentations/atelier-bp.html`
+- `decouvrir.html`
+- `sources/guides-seances-topos/ATELIER_DECOUVERTE_BP_V260311.md`
+
+---
+
 ## 🔄 DERNIÈRES MODIFICATIONS (260305)
 
 ### Session 26 - Cosmétique, style affiches et grid montreur (5 mars)

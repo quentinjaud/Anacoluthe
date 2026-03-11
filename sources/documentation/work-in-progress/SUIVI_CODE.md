@@ -50,6 +50,8 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | ensavoirplus.html | scroll-spy.js, external-links.js, pwa-status.js |
 | print-render.html | markdown-utils.js, print-render.js |
 | print-render-a4.html | print-render-a4.js, twemoji (CDN) |
+| decouvrir.html | aucun (page statique) |
+| sources/presentations/*.html | reveal.js 5.2.1 (CDN), RevealNotes plugin (CDN) |
 
 ### 4. Vérification des CSS chargés par page
 
@@ -62,6 +64,8 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | ensavoirplus.html | style.css |
 | print-render.html | cards-print.css |
 | print-render-a4.html | affiches-print.css |
+| decouvrir.html | style.css + inline styles |
+| sources/presentations/*.html | reveal.js reset+reveal+white (CDN), anacoluthe-theme.css (local) |
 
 ---
 
@@ -293,6 +297,13 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260305 | Création mémo A4 Découverte | A4_decouverte_memo.md | ✅ Fait |
 | 260305 | Refacto CSS affiches + style A4 | affiches-print.css | ✅ Fait |
 | 260305 | Images preview A4 + optimisation images existantes | assets/images/ | ✅ Fait |
+| 260311 | Système présentations reveal.js via CDN | sources/presentations/ | ✅ Fait |
+| 260311 | Thème Anacoluthe partagé pour slides | anacoluthe-theme.css | ✅ Fait |
+| 260311 | Page hub présentations | decouvrir.html | ✅ Fait |
+| 260311 | Première présentation : atelier BP (14 slides) | atelier-bp.html | ✅ Fait |
+| 260311 | Réduction font-sizes thème (p/li/blockquote 0.6em) | anacoluthe-theme.css | ✅ Fait |
+| 260311 | Barre de progression teal reveal.js | anacoluthe-theme.css | ✅ Fait |
+| 260311 | Guide animation atelier BP avec messages clefs | ATELIER_DECOUVERTE_BP_V260311.md | ✅ Fait |
 
 ---
 

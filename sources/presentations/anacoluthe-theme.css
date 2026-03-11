@@ -1,0 +1,216 @@
+/*
+ * Thème Anacoluthe pour reveal.js
+ * Aligné sur la charte graphique du site (assets/css/style.css)
+ * Fonts : Merriweather (serif, corps) + Merriweather Sans (sans-serif, titres)
+ * Palette : bleu Glénans, teal, amber, brick, navy
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@300;400;600;700;800&display=swap');
+
+/* ── Variables ── */
+
+:root {
+  --bleu-glenans: #0066AD;
+  --rouge-glenans: #F04839;
+  --text-dark: #2D3748;
+  --text-muted: #718096;
+  --navy-700: #1E3A5F;
+  --navy-100: #C9D5E3;
+  --navy-50: #E8EDF4;
+  --teal-700: #3d8b87;
+  --teal-100: #c5e4e2;
+  --teal-50: #e8f4f3;
+  --amber-700: #c96a30;
+  --amber-100: #ffe8d4;
+  --amber-50: #fff8f0;
+  --brick-700: #C62828;
+  --brick-100: #FFCDD2;
+  --brick-50: #FFEBEE;
+}
+
+/* ── Base ── */
+
+.reveal {
+  font-family: 'Merriweather', serif;
+  font-weight: 300;
+  color: var(--text-dark);
+}
+
+/* ── Titres ── */
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: var(--bleu-glenans);
+  text-transform: none;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.reveal h1 {
+  font-size: 1.6em;
+}
+
+.reveal h2 {
+  font-size: 1.1em;
+}
+
+.reveal h3 {
+  font-size: 0.9em;
+  color: var(--teal-700);
+}
+
+/* ── Texte ── */
+
+.reveal p,
+.reveal li {
+  font-size: 0.6em;
+  line-height: 1.6;
+}
+
+.reveal strong {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.reveal ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.reveal ul li::before {
+  content: "–";
+  color: var(--teal-700);
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+.reveal ol li::before {
+  content: none;
+}
+
+.reveal blockquote {
+  background: var(--navy-50);
+  border-left: 4px solid var(--bleu-glenans);
+  padding: 0.8em 1.2em;
+  font-style: normal;
+  font-size: 0.6em;
+  width: 85%;
+  margin: 0.5em auto;
+  text-align: left;
+}
+
+/* ── Table ── */
+
+.reveal table {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 400;
+}
+
+.reveal table th {
+  font-weight: 700;
+  color: var(--bleu-glenans);
+}
+
+/* ── Badges paquets ── */
+
+.badge {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 4px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: white;
+  margin: 0.15em;
+}
+
+.badge-role { background: var(--amber-700); }
+.badge-moment { background: var(--teal-700); }
+.badge-joker { background: var(--brick-700); }
+.badge-affiche { background: var(--navy-700); }
+
+/* ── Grille éléments ── */
+
+.elements-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8em;
+  margin-top: 0.8em;
+}
+
+.element-card {
+  border-radius: 8px;
+  padding: 0.8em;
+  text-align: center;
+}
+
+.element-card h4 {
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: 0.3em 0;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.element-card .emoji {
+  font-size: 1.8em;
+}
+
+.element-card p {
+  font-size: 0.65em;
+  margin: 0;
+}
+
+.element-card.role { background: var(--amber-50); border: 2px solid var(--amber-100); }
+.element-card.moment { background: var(--teal-50); border: 2px solid var(--teal-100); }
+.element-card.joker { background: var(--brick-50); border: 2px solid var(--brick-100); }
+.element-card.affiche { background: var(--navy-50); border: 2px solid var(--navy-100); }
+
+/* ── Slide de consigne ── */
+
+.consigne {
+  background: var(--teal-50);
+  border: 2px solid var(--teal-700);
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  text-align: left;
+  width: 85%;
+  margin: 0.5em auto;
+}
+
+.consigne ol {
+  padding-left: 1.2em;
+}
+
+.consigne li::before {
+  content: none;
+}
+
+.consigne li {
+  margin-bottom: 0.4em;
+}
+
+/* ── Utilitaires ── */
+
+.text-left { text-align: left; }
+.text-small { font-size: 0.7em !important; }
+.text-muted { color: var(--text-muted); }
+.mt-1 { margin-top: 0.5em; }
+.mt-2 { margin-top: 1em; }
+.accent-teal { color: var(--teal-700); }
+.accent-amber { color: var(--amber-700); }
+.accent-brick { color: var(--brick-700); }
+.accent-navy { color: var(--navy-700); }
+
+/* ── Barre de progression ── */
+
+.reveal .progress {
+  height: 4px;
+  color: var(--teal-700);
+}
+
+.reveal .progress span {
+  background: var(--teal-700);
+}

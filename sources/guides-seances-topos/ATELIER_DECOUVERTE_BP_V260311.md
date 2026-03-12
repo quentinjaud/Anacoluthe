@@ -39,53 +39,49 @@
 
 ### 2. Présentation (15 min)
 
-L'arc narratif suit une logique en entonnoir : du vécu qu'iels viennent de nommer, on remonte aux besoins, on montre que des réponses existent en pédagogie, et on montre comment Anacoluthe les traduit en outils concrets greffés sur l'existant.
+L'arc narratif suit une logique en entonnoir : vécu → constat → 4 frictions terrain → "ça tourne autour du quotidien" → principe de greffe → friction → outil → boîte à outils → semaine → game design.
 
 **Le constat (2 min)** - *Slide 3*
 > Message clef : "On fait déjà tout ça, chacun·e à sa façon. Mais sans outils partagés, ça repose sur chaque moniteurice individuellement."
 
-On enseigne le faire équipage avec les moyens du bord : son expérience, son intuition, son style. Ça marche, mais c'est fragile. Peu d'outillage partagé, peu de méthodes transmissibles. Résultat : la charge de régulation repose sur lae moniteurice seul·e, et c'est difficile à transmettre aux bénévoles.
+On enseigne le faire équipage avec les moyens du bord : son expérience, son intuition, son style. Ça marche, mais c'est fragile. Peu d'outillage partagé, peu de méthodes transmissibles. Résultat : la charge repose sur lae moniteurice seul·e, et c'est difficile à transmettre aux bénévoles.
 
-Relier aux situations nommées par le groupe : "Ce que vous décrivez, on le gère tous, mais chacun dans son coin. Anacoluthe essaie de mutualiser ça."
+Relier aux situations nommées par le groupe : "Ce que vous décrivez, on le gère tous, mais chacun dans son coin."
 
-**Les besoins (3 min)** - *Slide 4*
-> Message clef : "Quatre besoins qu'on connaît bien, auxquels on répond déjà comme on peut, et qu'on pourrait mieux outiller."
+**4 frictions terrain (3 min)** - *Slides 4a-4d*
+> Message clef : "En discutant avec des moniteurices, des RTQ et des responsables croisière, en lisant les rapports de mer, 4 frictions reviennent."
 
-Quatre besoins concrets, chacun avec ce qui manque aujourd'hui :
+Chaque friction a sa slide, en accent amber :
 
-- **Coopérer au quotidien** : la régulation, c'est souvent lae moniteurice qui la porte. Les stagiaires voudraient aider, mais iels n'ont pas de prise claire sur l'organisation.
-- **Ancrer les apprentissages** : on répète les mêmes consignes chaque matin. Sans repères visibles, les bonnes pratiques peinent à s'installer d'un jour à l'autre.
-- **Structurer la progression** : la semaine avance, mais les stagiaires ne voient pas toujours où iels en sont. Difficile de sentir qu'on progresse sans jalons.
-- **Débloquer les tensions** : quand ça coince entre stagiaires, c'est compliqué d'en parler sans que ça dérape. On gère, mais on manque d'un cadre pour que ce soit coopératif.
+- **Fluidifier le quotidien** : donner le rythme, organiser, relancer, c'est souvent lae moniteurice qui porte tout ça seul·e. Les stagiaires voudraient aider, mais iels n'ont pas de prise claire.
+- **Arrêter de répéter** : on dit les mêmes consignes chaque matin. Sans repères visibles, les bonnes pratiques peinent à s'installer d'un jour à l'autre.
+- **Rendre la progression visible** : la semaine avance, mais les stagiaires ne voient pas toujours où iels en sont. Difficile de progresser sans jalons.
+- **Gérer les accrocs** : quand ça coince entre stagiaires, c'est compliqué d'en parler sans que ça dérape. On gère, mais on manque d'un cadre coopératif.
 
-**Les réponses connues (3 min)** - *Slide 5*
-> Message clef : "On n'invente rien. La pédagogie et l'éducation populaire ont des réponses. Anacoluthe les met en forme."
+**"Ça tourne autour du quotidien, non ?"** - *Slide 5*
+> Message clef : "Le quotidien embarqué, c'est LA matière d'apprentissage de la coopération. Si le problème vit dans le quotidien, la solution doit y vivre aussi."
 
-Ce qu'on sait faire pour répondre à ces besoins :
-
-- **Distribuer des rôles** : donner à chacun·e une responsabilité claire. Quand tout le monde a une fonction identifiée, la régulation ne repose plus sur une seule personne.
-- **Afficher, ritualiser** : des supports visuels et des routines stables créent des repères. Ce qui est visible et répété finit par être intégré, sans avoir à le ré-expliquer.
-- **Baliser le temps** : des moments clés rythment la progression et rendent l'avancement visible. On sait où on en est, on sait ce qui vient.
-- **Donner la permission** : des outils explicites autorisent à nommer les problèmes. Pas besoin d'être "celui qui fait une remarque", l'outil légitime la parole.
+Le pivot de la présentation. Entre les moments de voile, il faut vivre ensemble en espace contraint. C'est la matière première du faire-ensemble. Et c'est exactement pour ça qu'Anacoluthe se greffe sur les routines existantes.
 
 **Le principe Anacoluthe (2 min)** - *Slide 6*
 > Message clef : "Se greffer sur ce que tu fais déjà. Garder ton style, avoir un support en plus."
 
-Anacoluthe traduit ces réponses en outils concrets, avec un principe fondateur : se greffer sur les routines existantes (brief, navigation, débrief), pas ajouter une activité supplémentaire. Chaque moniteurice garde sa patte, son style d'animation. Les outils structurent, iels ne prescrivent pas.
+Anacoluthe se branche sur les routines existantes (brief, navigation, débrief), pas ajouter une activité supplémentaire. Chaque moniteurice garde sa patte, son style d'animation. Les outils structurent, ils ne prescrivent pas. Ça allège la charge moniteurice, ça ne l'alourdit pas.
 
-**La boîte à outils (3 min)** - *Slides 7-8*
-> Message clef : "Chaque outil répond à un besoin précis. Tu prends ce qui te parle, tu laisses le reste."
+**Friction → outil (2 min)** - *Slide 7*
+> Message clef : "Chaque outil répond à une friction précise. Tu prends ce qui te parle, tu laisses le reste."
 
-Chaque réponse théorique devient un type d'outil :
+- Fluidifier le quotidien → **4 rôles coopératifs** inspirés de marins réels, qui distribuent l'organisation à l'équipage complet
+- Arrêter de répéter → **4 affiches** qui créent des repères visuels et soutiennent l'autonomie
+- Rendre la progression visible → **7 moments clés** de l'accueil au débrief final, qui structurent la semaine
+- Gérer les accrocs → **4 cartes joker** qui rendent coopérative la gestion des situations
 
-- Distribuer des rôles → **4 rôles coopératifs** inspirés de marins réels (Moitessier, Autissier, Trochet, Edwards), qui distribuent la régulation à l'équipage complet
-- Afficher, ritualiser → **4 affiches** (routines, tableau d'équipage, marque-page LDB, découverte) qui créent des repères visuels et soutiennent l'autonomie
-- Baliser le temps → **7 moments clés** de l'accueil au débrief final, qui structurent la progression de la semaine
-- Donner la permission → **4 cartes joker** (conflit, temps mort, rediscuter, retour moniteurice) qui rendent coopérative la gestion des situations
+**La boîte à outils (1 min)** - *Slide 8*
+> Message clef : "19 cartes A6 plastifiées + 4 affiches A4."
 
-Puis montrer la progression J1-J6 : poser le cadre, pratiquer, ancrer. Montrer le fil de la semaine sur le vidéo (fil-semaine.html) si possible.
+Grille visuelle des 4 types d'éléments. Puis montrer la progression J1-J6 : poser le cadre, pratiquer, ancrer. Montrer le fil de la semaine (fil-semaine.html) si possible.
 
-**Quelques choix de game design (2 min)** - *Slide 9*
+**Quelques choix de game design (2 min)** - *Slide 10*
 > Message clef : "Des choix de conception délibérés, testés, parfois corrigés."
 
 Raconter 2-3 choix de conception comme des histoires, pas comme une liste :

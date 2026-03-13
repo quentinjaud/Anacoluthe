@@ -2,7 +2,7 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 5 mars 2026*
+*Dernière mise à jour : 13 mars 2026*
 
 ---
 
@@ -304,6 +304,10 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260311 | Réduction font-sizes thème (p/li/blockquote 0.6em) | anacoluthe-theme.css | ✅ Fait |
 | 260311 | Barre de progression teal reveal.js | anacoluthe-theme.css | ✅ Fait |
 | 260311 | Guide animation atelier BP avec messages clefs | ATELIER_DECOUVERTE_BP_V260311.md | ✅ Fait |
+| 260313 | Slide partenaires (grille 4 photos rondes) | atelier-bp.html | ✅ Fait |
+| 260313 | CSS grille partenaires (.partenaires-grid) | anacoluthe-theme.css | ✅ Fait |
+| 260313 | Images partenaires (aude, damien, marie, animacoop) | assets/images/partenaires/ | ✅ Fait |
+| 260313 | Renommage slide "À vous d'explorer" | atelier-bp.html | ✅ Fait |
 
 ---
 

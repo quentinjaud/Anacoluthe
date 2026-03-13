@@ -1,12 +1,41 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260305*
+*Dernière mise à jour : 260313*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ---
 
-## 🔄 DERNIÈRES MODIFICATIONS (260311)
+## 🔄 DERNIÈRES MODIFICATIONS (260313)
+
+### Session 29 - Slide partenaires atelier BP (13 mars)
+
+**Nouvelle slide "Anacoluthe se construit en équipage" (slide 11)**
+- Présentation des 4 partenaires extérieurs : Aude Guittard (psychologie), Damien Falkouska (game design), Marie Puydebois (design), Communauté Animacoop (coopération)
+- Photos en grille 4 colonnes, vignettes rondes avec bordure teal
+- Positionnée avant la slide manipulation ("À vous d'explorer")
+- Contexte : projet libre CC-BY-NC-SA, contributeurices extérieur·es aux Glénans et au monde de la voile
+
+**CSS partenaires**
+- Nouveau bloc `.partenaires-grid` + `.partenaire-card` dans `anacoluthe-theme.css`
+- Photos 120x120px, border-radius 50%, object-fit cover
+
+**Renommage slide manipulation**
+- "À vous de regarder" → "À vous d'explorer"
+
+**Images ajoutées**
+- `assets/images/partenaires/aude.jpeg`
+- `assets/images/partenaires/damien.jpg`
+- `assets/images/partenaires/marie.jpg`
+- `assets/images/partenaires/animacoop.jpg`
+
+**Fichiers modifiés**
+- `sources/presentations/atelier-bp.html` (15 → 16 slides)
+- `sources/presentations/anacoluthe-theme.css`
+
+---
+
+## 🔄 MODIFICATIONS PRÉCÉDENTES (260311)
 
 ### Session 27-28 - Présentations reveal.js + atelier BP (11 mars)
 

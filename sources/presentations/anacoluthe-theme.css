@@ -260,6 +260,156 @@
   margin: 0;
 }
 
+/* ── Timeline processus V1→V5 ── */
+
+.timeline-processus {
+  width: 90%;
+  margin: 1em auto 0;
+}
+
+.timeline-row.versions {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+/* Ligne horizontale derrière les badges */
+.timeline-row.versions::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: linear-gradient(to right,
+    var(--navy-700) 0%, var(--navy-700) 35%,
+    var(--teal-700) 35%, var(--teal-700) 55%,
+    var(--amber-700) 55%, var(--amber-700) 75%,
+    var(--teal-700) 75%, var(--teal-700) 100%
+  );
+  transform: translateY(-50%);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.version-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  z-index: 1;
+}
+
+.version-badge {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.7em;
+  padding: 0.25em 0.65em;
+  border-radius: 999px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.version-badge.v-navy { background: var(--navy-700); }
+.version-badge.v-teal { background: var(--teal-700); }
+.version-badge.v-amber { background: var(--amber-700); }
+
+.version-label {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 0.45em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Boucle rythme du bord (slide semaine) */
+.fil-boucle-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  margin: 0.8em 0;
+}
+
+.fil-boucle-phase {
+  background: var(--navy-50);
+  border: 1px solid var(--navy-100);
+  border-radius: 12px;
+  padding: 0.5em 0.6em;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+}
+
+.fil-boucle-phase .fil-boucle-emoji {
+  font-size: 1.2em;
+}
+
+.fil-boucle-slide .fil-boucle-arrow {
+  font-size: 1.2em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Pivots positionnés entre les versions */
+.timeline-row.pivots-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 0.4em;
+  gap: 0;
+}
+
+.timeline-row.pivots-row:first-of-type {
+  margin-top: 0.8em;
+}
+
+.pivot-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.pivot-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  background: var(--navy-50);
+  border: 1.5px solid var(--navy-100);
+  border-radius: 8px;
+  padding: 0.3em 0.6em;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 0.42em;
+  white-space: nowrap;
+}
+
+.pivot-x {
+  color: var(--brick-700);
+  font-weight: 600;
+}
+
+.pivot-arrow {
+  color: var(--text-muted);
+}
+
+.pivot-ok {
+  color: var(--teal-700);
+  font-weight: 600;
+}
+
+/* Meta-tags (divergence/convergence) — même style que pivots */
+.meta-tag {
+  border-color: var(--text-muted);
+  background: transparent;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.meta-tag.meta-teal {
+  border-color: var(--teal-700);
+  color: var(--teal-700);
+}
+
 /* ── Barre de progression ── */
 
 .reveal .progress {

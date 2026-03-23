@@ -5,6 +5,7 @@
 ## 🔥Sur le feu
 
 - [ ] Vérifier passes Forme/Design/Print/Site sur A4a et A4m
+- [ ] fil-semaine.html : section "Poser le cadre" affiche le marque-page A3 au lieu de l'affiche A4 découverte — c'est l'A4 qui est le premier contact stagiaire, pas le marque-page
 
 ## 👌 Cooked
 [X] Mémo A4 Découverte créé (5 mars 2026)

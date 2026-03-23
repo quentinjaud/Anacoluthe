@@ -927,6 +927,30 @@ sources/suivi/
 - [ ] Notice livret pour impression
 - [ ] Passe Forme globale sur les 23 éléments (relecture densité, écriture inclusive)
 
+### Soutenance finale - Présentation web (à planifier)
+
+**Besoin** : utiliser le moteur Anacoluthe (CSS, DA, composants) pour créer la présentation de soutenance UC1-UC2, plutôt qu'un PowerPoint classique.
+
+**Architecture retenue** : Reveal.js + blocs HTML riches (scroll interne activé pour les contenus longs type timelines)
+- Slides classiques pour les points clés (titres, bilans)
+- Blocs HTML libres pour layouts riches : multi-colonnes, affichage de cartes, timelines verticales scrollables (ex: évolution des versions du jeu)
+- Réutilisation de la DA existante (palette, typo Merriweather, `anacoluthe-theme.css`)
+
+**Organisation inter-repos** : git submodule
+- Le repo Dossier_UC12 (`C:\Users\quent\Initiatives en cours\Dossier_UC12_anacoluthe`) est ajouté en submodule dans le repo Anacoluthe (ex: `sources/dossier-uc12/`)
+- Le **contenu** (fond, textes, données) vit dans le repo Dossier_UC12, dossier `soutenance/`
+- Le **conteneur** (HTML Reveal.js, CSS, build) vit dans le repo Anacoluthe, dossier `sources/presentations/`
+- Mise à jour : `git submodule update --remote` dans le repo Anacoluthe pour tirer les derniers contenus
+- Option : GitHub Action pour automatiser la mise à jour du submodule à chaque push du repo UC12
+
+**Hébergement** : GH Pages du repo Anacoluthe (route type `anacoluthe.org/soutenance/`)
+
+**À faire** :
+- [ ] Configurer le submodule git
+- [ ] Créer la structure `soutenance/` dans le repo UC12 (contenus)
+- [ ] Créer le conteneur Reveal.js dans `sources/presentations/soutenance.html`
+- [ ] Développer les composants spécifiques : timeline verticale scrollable, afficheur de cartes intégré
+
 ---
 
 ## 📚 DOCUMENTATION

@@ -158,6 +158,23 @@ body.mode-print .controls {
     flex-wrap: wrap;
 }
 
+/* Ligne outils : une seule ligne, boutons compacts */
+.controls-row-tools {
+    margin-top: 6px;
+    transition: all 0.3s ease;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+.controls-row-tools .download-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+}
+
+.controls-row-tools .checkbox-label {
+    font-size: 0.75rem;
+}
+
 .controls-row:last-child {
     margin-bottom: 0;
 }
@@ -251,6 +268,10 @@ body.view-print .print-only {
     display: inline-flex;
 }
 
+body.view-print .controls-row-tools.print-only {
+    display: flex;
+}
+
 /* Boutons ligne 2 (tous identiques) */
 .tool-btn,
 .download-btn {
@@ -271,6 +292,89 @@ body.view-print .print-only {
 .tool-btn:hover,
 .download-btn:hover {
     background: var(--bleu-glenans);
+    color: white;
+}
+
+/* Switch Couleur / N&B */
+.nb-switch-group {
+    display: inline-flex;
+    border: 1px solid var(--bleu-glenans);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.nb-switch-btn {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.6rem;
+    border: none;
+    background: white;
+    color: var(--bleu-glenans);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.nb-switch-btn + .nb-switch-btn {
+    border-left: 1px solid var(--bleu-glenans);
+}
+
+.nb-switch-btn.active {
+    background: var(--bleu-glenans);
+    color: white;
+}
+
+.nb-switch-btn:hover:not(.active) {
+    background: #e8f0f8;
+}
+
+/* Bouton N&B : style épuré documentaire */
+.nb-switch-btn[data-variant="nb"] {
+    border-left: 1px solid #000;
+}
+
+.nb-switch-btn[data-variant="nb"]:not(.active) {
+    color: #000;
+    border-color: #000;
+}
+
+.nb-switch-btn[data-variant="nb"].active {
+    background: #000;
+    color: white;
+}
+
+.nb-switch-btn[data-variant="nb"]:hover:not(.active) {
+    background: #f0f0f0;
+}
+
+/* Icône Lucide dans le bouton N&B */
+.nb-switch-btn[data-variant="nb"] img {
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.15em;
+}
+
+.nb-switch-btn[data-variant="nb"].active img {
+    filter: invert(1);
+}
+
+/* Bordure droite du groupe adaptée quand N&B est le dernier */
+.nb-switch-group:has(.nb-switch-btn[data-variant="nb"]:last-child) {
+    border-right-color: #000;
+}
+
+/* Mode N&B actif : toute la ligne outils bascule en style documentaire */
+.controls-row-tools.nb-active .download-btn,
+.controls-row-tools.nb-active .checkbox-label {
+    border-color: #000;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.controls-row-tools.nb-active .download-btn:hover {
+    background: #000;
     color: white;
 }
 

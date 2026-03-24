@@ -240,8 +240,10 @@
       "tagsTitle": "Contenu",
       "path": "sources/affiches/A3_marque_page_memo.md",
       "htmlPath": "sources/affiches/A3_marque_page.html",
+      "htmlNbPath": "sources/affiches/A3_marque_page_nb.html",
       "pdfPath": "print/cartes/A3_marque_page_memo.pdf",
       "affichePath": "print/affiches/A3_marque_page.pdf",
+      "afficheNbPath": "print/affiches/A3_marque_page_nb.pdf",
       "previewImages": ["assets/images/affiche-A3-recto.png", "assets/images/affiche-A3-verso.png"],
       "proto": false
     },

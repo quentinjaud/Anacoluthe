@@ -77,7 +77,8 @@ async function init() {
             
             setupModeButtons();
             setupReloadButton();
-            
+            setupNbSwitch();
+
             // Désactiver les boutons PDF par défaut
             document.getElementById('pdf-card-btn').classList.add('disabled');
             document.getElementById('pdf-livret-btn').classList.add('disabled');
@@ -189,6 +190,112 @@ function setupReloadButton() {
         // Retirer l'animation après un délai
         setTimeout(() => btn.classList.remove('spinning'), 500);
     });
+}
+
+/**
+ * Configure le switch Couleur / N&B
+ */
+function setupNbSwitch() {
+    const group = document.getElementById('nb-switch-group');
+    group.querySelectorAll('.nb-switch-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            // Toggle l'état actif
+            group.querySelectorAll('.nb-switch-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Basculer le style N&B sur toute la ligne outils
+            const toolsRow = group.closest('.controls-row-tools');
+            if (toolsRow) {
+                toolsRow.classList.toggle('nb-active', btn.dataset.variant === 'nb');
+            }
+
+            // Re-rendre l'aperçu et mettre à jour les boutons
+            const card = window._currentAfficheCard;
+            if (card) {
+                updatePdfButtons(card);
+                await renderAffichePreview(card);
+            }
+        });
+    });
+}
+
+/**
+ * Rend l'aperçu de l'affiche dans l'iframe (couleur ou N&B selon le switch)
+ */
+async function renderAffichePreview(card) {
+    const rectoEl = document.getElementById('card-recto');
+    if (!rectoEl) return;
+
+    const isNb = _isNbMode();
+    const htmlPath = isNb && card.htmlNbPath ? card.htmlNbPath : card.htmlPath;
+
+    const response = await fetch(htmlPath);
+    if (!response.ok) return;
+    const htmlText = await response.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlText, 'text/html');
+    const affichePages = doc.querySelectorAll('.affiche-a4, .affiche-a4-portrait');
+    if (!affichePages.length) return;
+
+    let afficheHtml = '';
+    affichePages.forEach(page => afficheHtml += page.outerHTML);
+
+    let localStyles = '';
+    doc.querySelectorAll('style').forEach(styleEl => localStyles += styleEl.outerHTML + '\n');
+
+    // CSS N&B additionnel si en mode N&B
+    const nbCssLink = isNb ? '<link rel="stylesheet" href="assets/css/affiches-print-nb.css">' : '';
+    const twemojiScript = isNb ? '' : `<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>`;
+    const twemojiInit = isNb ? '' : `if (typeof twemoji !== 'undefined') { twemoji.parse(document.body); }`;
+
+    const iframe = rectoEl.querySelector('iframe');
+    if (!iframe) return;
+
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDoc.open();
+    iframeDoc.write(`
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/affiches-print.css">
+    ${nbCssLink}
+    ${localStyles}
+    ${twemojiScript}
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            background: transparent;
+        }
+        .affiche-a4,
+        .affiche-a4-portrait {
+            border-radius: 1.5mm;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+    </style>
+</head>
+<body>
+    ${afficheHtml}
+    <script>${twemojiInit}</script>
+</body>
+</html>
+    `);
+    iframeDoc.close();
+
+    // Ajuster la hauteur après chargement
+    iframe.onload = () => {
+        const height = iframe.contentWindow.document.body.scrollHeight;
+        iframe.style.height = height + 'px';
+    };
 }
 
 /**
@@ -305,26 +412,32 @@ function updatePdfButtons(card) {
     const pdfLivretBtn = document.getElementById('pdf-livret-btn');
     const pdfAfficheBtn = document.getElementById('pdf-affiche-btn');
     const htmlAfficheBtn = document.getElementById('html-affiche-btn');
+    const nbSwitchGroup = document.getElementById('nb-switch-group');
 
     const isAffiche = card.type === 'affiche';
     const isAfficheA4Mode = isAffiche && card._forceMode === 'affiche';
+    const hasNbVersion = isAffiche && !!card.afficheNbPath;
 
-    // Adapter le texte du premier bouton selon le type et mode
+    // Stocker la carte courante pour le switch N&B
+    window._currentAfficheCard = hasNbVersion ? card : null;
+
+    // --- Bouton principal (mémo/carte/affiche) ---
     if (isAfficheA4Mode) {
-        pdfCardBtn.innerHTML = '📥 Télécharger le PDF A4';
-        pdfCardBtn.title = 'Télécharger le PDF de cette affiche A4';
-        // En mode affiche A4, le bouton principal pointe vers l'affiche
-        if (card.affichePath) {
-            pdfCardBtn.href = card.affichePath;
+        pdfCardBtn.style.display = '';
+        pdfCardBtn.innerHTML = '📥 Télécharger le PDF';
+        pdfCardBtn.title = 'Télécharger le PDF de cette affiche';
+        const pdfPath = _isNbMode() && card.afficheNbPath ? card.afficheNbPath : card.affichePath;
+        if (pdfPath) {
+            pdfCardBtn.href = pdfPath;
             pdfCardBtn.classList.remove('disabled');
         } else {
             pdfCardBtn.href = '#';
             pdfCardBtn.classList.add('disabled');
         }
     } else if (isAffiche) {
+        pdfCardBtn.style.display = '';
         pdfCardBtn.innerHTML = '📥 Télécharger le mémo';
         pdfCardBtn.title = 'Télécharger le mémo A6 de cette affiche';
-        // En mode mémo, le bouton principal pointe vers le mémo
         if (card.pdfPath) {
             pdfCardBtn.href = card.pdfPath;
             pdfCardBtn.classList.remove('disabled');
@@ -333,6 +446,7 @@ function updatePdfButtons(card) {
             pdfCardBtn.classList.add('disabled');
         }
     } else {
+        pdfCardBtn.style.display = '';
         pdfCardBtn.innerHTML = '📥 Télécharger la carte';
         pdfCardBtn.title = 'Télécharger le PDF de cette carte';
         if (card.pdfPath) {
@@ -344,15 +458,13 @@ function updatePdfButtons(card) {
         }
     }
 
-    // PDF livret par type
+    // --- Livret ---
     const livretPaths = {
         'role': 'print/livrets/livret-roles.pdf',
         'moment': 'print/livrets/livret-moments.pdf',
         'joker': 'print/livrets/livret-joker.pdf'
     };
-
     let livretPath = livretPaths[card.type];
-    // Les affiches proposent un livret selon le mode
     if (isAffiche) {
         livretPath = isAfficheA4Mode
             ? 'print/livrets/livret-affiches.pdf'
@@ -366,8 +478,8 @@ function updatePdfButtons(card) {
         pdfLivretBtn.classList.add('disabled');
     }
 
-    // Bouton affiche A4 - caché en mode A4 (puisque c'est le bouton principal)
-    if (isAffiche && !isAfficheA4Mode && card.affichePath) {
+    // --- Bouton affiche A4 (en mode mémo, pour les affiches sans N&B) ---
+    if (isAffiche && !isAfficheA4Mode && !hasNbVersion && card.affichePath) {
         pdfAfficheBtn.href = card.affichePath;
         pdfAfficheBtn.classList.remove('disabled');
         pdfAfficheBtn.style.display = '';
@@ -375,13 +487,29 @@ function updatePdfButtons(card) {
         pdfAfficheBtn.style.display = 'none';
     }
 
-    // Bouton HTML brut - visible uniquement en mode affiche A4
+    // --- Switch Couleur/N&B ---
+    if (isAfficheA4Mode && hasNbVersion) {
+        nbSwitchGroup.style.display = '';
+    } else {
+        nbSwitchGroup.style.display = 'none';
+    }
+
+    // --- Bouton HTML brut (adapté au mode N&B) ---
     if (isAfficheA4Mode && card.htmlPath) {
-        htmlAfficheBtn.href = card.htmlPath;
+        const htmlPath = _isNbMode() && card.htmlNbPath ? card.htmlNbPath : card.htmlPath;
+        htmlAfficheBtn.href = htmlPath;
         htmlAfficheBtn.style.display = '';
     } else {
         htmlAfficheBtn.style.display = 'none';
     }
+}
+
+/**
+ * Retourne true si le switch N&B est actif
+ */
+function _isNbMode() {
+    const activeBtn = document.querySelector('#nb-switch-group .nb-switch-btn.active');
+    return activeBtn && activeBtn.dataset.variant === 'nb';
 }
 
 /**
@@ -408,6 +536,14 @@ async function loadCard(cardId, forceReload = false) {
 
     // Ajouter le mode forcé à la carte pour que renderPrintView puisse le détecter
     card._forceMode = forceMode;
+
+    // Remettre le switch N&B sur Couleur
+    const nbBtns = document.querySelectorAll('#nb-switch-group .nb-switch-btn');
+    nbBtns.forEach(b => b.classList.remove('active'));
+    const couleurBtn = document.querySelector('#nb-switch-group .nb-switch-btn[data-variant="couleur"]');
+    if (couleurBtn) couleurBtn.classList.add('active');
+    const toolsRow = document.querySelector('.controls-row-tools');
+    if (toolsRow) toolsRow.classList.remove('nb-active');
 
     // Mettre à jour les boutons PDF et vérification
     updatePdfButtons(card);
@@ -825,6 +961,7 @@ function renderTechView(card, lastModified = null) {
                 <tr><th>Format</th><td>${card.format || '-'}</td></tr>
                 <tr><th>HTML Path</th><td><code>${card.htmlPath || '-'}</code></td></tr>
                 <tr><th>Affiche PDF</th><td><code>${card.affichePath || '-'}</code></td></tr>
+                <tr><th>Affiche N&B</th><td><code>${card.afficheNbPath || '-'}</code></td></tr>
             `;
         }
 

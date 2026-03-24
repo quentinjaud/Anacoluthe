@@ -1190,6 +1190,25 @@
     opacity: 1;
 }
 
+/* Groupe de 2 boutons (Couleur + N&B) au-dessus de l'aperçu */
+.affiche-download-group {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.affiche-download-group .affiche-download-btn {
+    position: static;
+}
+
+/* Bouton N&B : fond plus sombre pour différencier */
+.affiche-download-btn-nb {
+    background: #444;
+}
+
 /* ===========================================
    BOUTON ATELIER (footer modale desktop)
    =========================================== */

@@ -233,9 +233,18 @@ async function openCard(cardId) {
         // Ajouter l'image de prévisualisation pour les affiches
         let previewHtml = '';
         if (card.type === 'affiche' && card.previewImages && card.previewImages.length > 0) {
-            const afficheDownloadBtn = card.affichePath
-                ? `<a href="${card.affichePath}" download class="affiche-download-btn" aria-label="Télécharger l'affiche A4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Affiche PDF</span></a>`
-                : '';
+            const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+
+            let afficheDownloadBtn = '';
+            if (card.afficheNbPath && card.affichePath) {
+                // Deux boutons compacts : Couleur + N&B
+                afficheDownloadBtn = `<div class="affiche-download-group">
+                    <a href="${card.affichePath}" download class="affiche-download-btn" aria-label="Télécharger l'affiche couleur">${downloadIcon}<span>PDF Couleur</span></a>
+                    <a href="${card.afficheNbPath}" download class="affiche-download-btn affiche-download-btn-nb" aria-label="Télécharger l'affiche N&B">${downloadIcon}<span>PDF N&B</span></a>
+                </div>`;
+            } else if (card.affichePath) {
+                afficheDownloadBtn = `<a href="${card.affichePath}" download class="affiche-download-btn" aria-label="Télécharger l'affiche A4">${downloadIcon}<span>Affiche PDF</span></a>`;
+            }
 
             if (card.previewImages.length === 1) {
                 // Une seule image (A1, A2)

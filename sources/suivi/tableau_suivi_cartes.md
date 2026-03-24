@@ -1,13 +1,15 @@
 # Suivi de conception des cartes et artefacts
 
-> Dernière mise à jour : 5 Mars 2026
+> Dernière mise à jour : 24 Mars 2026
 
 ## 🔥Sur le feu
 
 - [ ] Vérifier passes Forme/Design/Print/Site sur A4a et A4m
 - [ ] fil-semaine.html : section "Poser le cadre" affiche le marque-page A3 au lieu de l'affiche A4 découverte — c'est l'A4 qui est le premier contact stagiaire, pas le marque-page
+- [ ] Versions N&B : généraliser aux affiches A1, A2, A4 (A3 fait, CSS partagé prêt)
 
 ## 👌 Cooked
+[X] A3 version N&B : style épuré documentaire, icônes Lucide, switch Couleur/N&B (24 mars 2026)
 [X] Mémo A4 Découverte créé (5 mars 2026)
 [X] Affiche A4 Découverte dispositif : création HTML + CSS + PDF (4 mars 2026)
 [X] Guides mono : mémo testeur + brief monos créés (4 mars 2026)

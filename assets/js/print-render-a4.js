@@ -4,6 +4,7 @@
  *
  * Params URL:
  *   ?affiche=A2    ID de l'affiche
+ *   ?nb=1          Version N&B (utilise htmlNbPath + CSS surcharge)
  *
  * Dépendances : twemoji, markdown-utils.js (applyTwemoji), affiches-print.css
  */
@@ -16,6 +17,7 @@
 async function init() {
     const params = new URLSearchParams(window.location.search);
     const afficheId = params.get('affiche');
+    const isNb = params.get('nb') === '1';
 
     const containerEl = document.getElementById('affiche-container');
 
@@ -36,14 +38,23 @@ async function init() {
         const affiche = allItems.find(a => a.id === afficheId);
         if (!affiche) throw new Error(`Affiche ${afficheId} non trouvée`);
 
-        // 3. Vérifier qu'on a un htmlPath
-        if (!affiche.htmlPath) {
+        // 3. Vérifier qu'on a un htmlPath (ou htmlNbPath en mode N&B)
+        const htmlPath = isNb && affiche.htmlNbPath ? affiche.htmlNbPath : affiche.htmlPath;
+        if (!htmlPath) {
             throw new Error(`Pas de htmlPath pour l'affiche ${afficheId}`);
         }
 
+        // 3b. En mode N&B, charger le CSS de surcharge
+        if (isNb) {
+            const nbLink = document.createElement('link');
+            nbLink.rel = 'stylesheet';
+            nbLink.href = 'assets/css/affiches-print-nb.css';
+            document.head.appendChild(nbLink);
+        }
+
         // 4. Charger le HTML de l'affiche
-        const htmlResponse = await fetch(affiche.htmlPath);
-        if (!htmlResponse.ok) throw new Error(`HTML non trouvé: ${affiche.htmlPath}`);
+        const htmlResponse = await fetch(htmlPath);
+        if (!htmlResponse.ok) throw new Error(`HTML non trouvé: ${htmlPath}`);
         const htmlText = await htmlResponse.text();
 
         // 5. Extraire le contenu du body (toutes les divs .affiche-a4 ou .affiche-a4-portrait)
@@ -76,8 +87,10 @@ async function init() {
             }
         }
 
-        // 7. Twemoji
-        applyTwemoji(containerEl);
+        // 7. Twemoji (pas en N&B, les icônes Lucide sont déjà dans le HTML)
+        if (!isNb) {
+            applyTwemoji(containerEl);
+        }
 
         // 8. Attendre les fonts
         await document.fonts.ready;

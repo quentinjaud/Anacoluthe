@@ -2,7 +2,7 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 13 mars 2026*
+*Dernière mise à jour : 24 mars 2026*
 
 ---
 
@@ -101,6 +101,7 @@ Méthode manuelle : ouvrir chaque fichier HTML et lister les `<script src="...">
 | - | `fil-semaine.css` | Ajouter à la doc |
 | - | `afficheur-cartes.css` | Ajouter à la doc (extrait de afficheur-cartes.html, 29 janv) |
 | - | `affiches-print.css` | Ajouter à la doc |
+| - | `affiches-print-nb.css` | Surcharge N&B, scope `.print-nb` (ajout 24 mars) |
 | - | `vendor/glightbox.min.css` | Documenter le dossier vendor |
 
 ### Métriques (décembre 2025)
@@ -308,6 +309,14 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260313 | CSS grille partenaires (.partenaires-grid) | anacoluthe-theme.css | ✅ Fait |
 | 260313 | Images partenaires (aude, damien, marie, animacoop) | assets/images/partenaires/ | ✅ Fait |
 | 260313 | Renommage slide "À vous d'explorer" | atelier-bp.html | ✅ Fait |
+| 260324 | CSS surcharge N&B style "épuré documentaire" | affiches-print-nb.css | ✅ Fait |
+| 260324 | 22 icônes Lucide SVG (remplacement emojis N&B) | assets/icons/lucide/ | ✅ Fait |
+| 260324 | Affiche A3 version N&B (HTML séparé + classe .print-nb) | A3_marque_page_nb.html | ✅ Fait |
+| 260324 | Champs htmlNbPath/afficheNbPath dans index | cards-index.json | ✅ Fait |
+| 260324 | Support paramètre ?nb=1 rendu Puppeteer | print-render-a4.js | ✅ Fait |
+| 260324 | Rendu automatique PDF N&B si htmlNbPath existe | render-cards.js | ✅ Fait |
+| 260324 | Switch Couleur/N&B : toggle aperçu, PDF, HTML brut | afficheur-cartes.html, afficheur-cartes.js | ✅ Fait |
+| 260324 | Style NB dynamique boutons toolbar (.nb-mode-active) | afficheur-cartes.css | ✅ Fait |
 
 ---
 

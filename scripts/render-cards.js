@@ -315,6 +315,61 @@ async function renderCard(browser, card, baseUrl) {
       const orientation = format === 'A4-portrait' ? 'portrait' : 'paysage';
       console.log(`  ✅ ${baseName}.pdf (A4 ${orientation})`);
 
+      // Version N&B si htmlNbPath existe
+      if (card.htmlNbPath) {
+        // Reconfigurer le viewport pour le format A4 (peut avoir changé après screenshots)
+        await page.setViewport({
+          width: viewportWidth,
+          height: viewportHeight,
+          deviceScaleFactor: CONFIG.deviceScaleFactor
+        });
+
+        const nbUrl = `${baseUrl}/${formatConfig.renderPage}?${formatConfig.paramName}=${card.id}&nb=1`;
+        await page.goto(nbUrl, {
+          waitUntil: 'networkidle0',
+          timeout: CONFIG.navigationTimeout
+        });
+
+        try {
+          await page.waitForSelector('body.affiche-ready', { timeout: CONFIG.readyTimeout });
+        } catch (err) {
+          const hasError = await page.$('body.affiche-error');
+          if (hasError) {
+            throw new Error(`Erreur de chargement pour l'affiche N&B ${card.id}`);
+          }
+          await new Promise(r => setTimeout(r, 1000));
+        }
+
+        // Détecter multi-pages N&B
+        const nbPageCount = await page.evaluate(() => {
+          return document.querySelectorAll('.affiche-a4, .affiche-a4-portrait').length;
+        });
+        if (nbPageCount > 1) {
+          const nbViewportHeight = Math.round(formatConfig.height * nbPageCount * 96 / 25.4);
+          await page.setViewport({
+            width: viewportWidth,
+            height: nbViewportHeight,
+            deviceScaleFactor: CONFIG.deviceScaleFactor
+          });
+          await new Promise(r => setTimeout(r, 200));
+        }
+
+        await page.evaluateHandle('document.fonts.ready');
+        await new Promise(r => setTimeout(r, 200));
+
+        const nbPdfBuffer = await page.pdf({
+          width: `${formatConfig.width}mm`,
+          height: `${formatConfig.height}mm`,
+          printBackground: true,
+          margin: { top: 0, right: 0, bottom: 0, left: 0 }
+        });
+
+        const nbBaseName = path.basename(card.htmlNbPath, '.html');
+        const nbOutputPath = path.join(CONFIG.affichesDir, `${nbBaseName}.pdf`);
+        fs.writeFileSync(nbOutputPath, nbPdfBuffer);
+        console.log(`  ✅ ${nbBaseName}.pdf (A4 ${orientation} N&B)`);
+      }
+
       // Si l'affiche a aussi un mémo A6 (path markdown), le générer aussi
       if (card.path) {
         const a6Format = CONFIG.formats['A6'];

@@ -1,13 +1,70 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260313*
+*Dernière mise à jour : 260324*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ## Retours atelier BP - 260324
 - Penser à des versions des affiches imprimées low-tech, en NB, pour accepter les disparitions.
 - Un gros bouton "télécharger le kit complet" pour les monos, en bas de la grille des cartes
-- 
+
+---
+
+## 🔄 DERNIÈRES MODIFICATIONS (260324)
+
+### Session 30 - Affiches N&B low-tech (24 mars)
+
+**Contexte** : retour atelier BP, les affiches ne seront pas toujours plastifiees. Besoin d'une version imprimable en laser N&B, a usage unique, distribuable aux monos.
+
+**Style "epure documentaire" pour impression N&B**
+- Test de 3 styles CSS (documentaire, contraste fort, fanzine), choix du documentaire
+- Fond blanc partout, bordures fines noires, zero aplat de couleur
+- Gravite Beaufort/Douglas : hachures diagonales CSS (leger → dense → gris fonce)
+- Fichier de surcharge : `assets/css/affiches-print-nb.css` (charge apres `affiches-print.css`, scope `.print-nb`)
+
+**Icones Lucide (remplacement emojis)**
+- Test de 4 libs (Lucide, Tabler, Bootstrap Icons, Phosphor), choix de Lucide (trait fin, MIT)
+- 22 SVG telecharges dans `assets/icons/lucide/` (ISC, ~1KB chacun)
+- Integration via `<img src>` (meme pattern que Twemoji, zero casse CSS)
+- Rotations aleatoires -8 a +8 degres par icone (`--icon-rot` CSS custom property)
+- Twemoji desactive en version N&B
+
+**Architecture fichiers N&B**
+- 1 HTML separe par affiche : `A3_marque_page_nb.html` (classe `.print-nb` sur les conteneurs)
+- 1 CSS de surcharge partage : `affiches-print-nb.css` (reutilisable pour A1, A2 quand generalisees)
+- Champs `htmlNbPath` et `afficheNbPath` dans `cards-index.json`
+
+**Pipeline PDF N&B (Puppeteer)**
+- `print-render-a4.js` : parametre `?nb=1` charge le CSS N&B et le HTML N&B, skip Twemoji
+- `render-cards.js` : apres le rendu couleur, rendu automatique N&B si `htmlNbPath` existe
+- PDF genere dans `print/affiches/A3_marque_page_nb.pdf`
+
+**Switch Couleur / N&B dans l'afficheur**
+- Toggle switch compact (2 boutons groupes) visible quand l'affiche a un `htmlNbPath`
+- Bascule l'apercu (iframe charge le HTML couleur ou N&B)
+- Bascule le lien PDF (couleur ou N&B)
+- Bascule le lien HTML brut (couleur ou N&B)
+- Quand N&B actif : tous les boutons de la toolbar passent en style N&B (bordures noires, texte noir, fond blanc) via classe `.nb-mode-active`
+- Boutons compacts sur une seule ligne (flex-wrap nowrap, font-size reduit)
+
+**Fichiers crees**
+- `assets/css/affiches-print-nb.css`
+- `assets/icons/lucide/` (22 SVG)
+- `sources/affiches/A3_marque_page_nb.html`
+- `sources/affiches/A3_marque_page_test_nb.html` (comparaison 3 styles, a supprimer)
+- `sources/affiches/test_icones_comparaison.html` (comparaison 4 libs, a supprimer)
+
+**Fichiers modifies**
+- `assets/data/cards-index.json` (champs htmlNbPath, afficheNbPath pour A3)
+- `assets/js/print-render-a4.js` (support ?nb=1)
+- `scripts/render-cards.js` (rendu N&B automatique)
+- `afficheur-cartes.html` (switch Couleur/N&B + restructuration boutons)
+- `assets/js/afficheur-cartes.js` (logique switch, rechargement apercu, toggle style NB)
+- `assets/css/afficheur-cartes.css` (styles switch, mode NB dynamique boutons)
+
+**Prochaines etapes**
+- Generaliser la version N&B aux affiches A1 et A2
+- Bouton "telecharger le kit complet" (demande atelier BP)
 
 ---
 

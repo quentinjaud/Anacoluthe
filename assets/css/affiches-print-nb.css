@@ -1,0 +1,320 @@
+/**
+ * ANACOLUTHE - CSS PRINT N&B (SURCHARGE)
+ * =======================================
+ * Style "épuré documentaire" pour impression laser N&B
+ * Charge APRÈS affiches-print.css, surcharge via .print-nb
+ *
+ * Principes :
+ * - Fond blanc partout, bordures fines noires
+ * - Gravité par hachures/remplissage progressif
+ * - Icônes Lucide (SVG N&B) à la place des emojis
+ * - Zéro aplat de couleur
+ */
+
+/* ========================================
+   GLOBAL
+   ======================================== */
+.print-nb {
+    background: white;
+}
+
+.print-nb .affiche-header h1 {
+    color: #000;
+}
+
+.print-nb .affiche-footer {
+    color: #000;
+}
+
+/* ========================================
+   ICONES LUCIDE (remplacent les emojis)
+   Les <img> dans .section-icon se dimensionnent
+   comme les emojis texte qu'elles remplacent
+   ======================================== */
+.print-nb .section-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.print-nb .section-icon img {
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.1em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Titres principaux : icône un peu plus grande */
+.print-nb .affiche-header h1 img {
+    height: 0.85em;
+    width: 0.85em;
+    vertical-align: -0.05em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Piliers : icône rôle d'emoji */
+.print-nb .pilier-emoji img {
+    height: 1.2em;
+    width: 1.2em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Rôles : icône header */
+.print-nb .role-header .role-emoji img {
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.05em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Paquets : icône header */
+.print-nb .paquet-header img {
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.1em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Masquer les éventuels Twemoji convertis */
+.print-nb img.emoji {
+    display: none;
+}
+
+/* ========================================
+   SECTIONS GENERIQUES
+   Fond blanc + bordure fine noire
+   ======================================== */
+.print-nb .section-pourquoi-ldb,
+.print-nb .section-piliers,
+.print-nb .section-ritual,
+.print-nb .section-memo,
+.print-nb .section-notes {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+/* Tous les titres de section en noir */
+.print-nb .section-pourquoi-ldb .section-header h2,
+.print-nb .section-comment-ldb .section-header h2,
+.print-nb .section-echelle .section-header h2,
+.print-nb .ldb-sidebar-header h2,
+.print-nb .section-piliers .section-header h2,
+.print-nb .section-ritual .section-header h2,
+.print-nb .section-memo .section-header h2,
+.print-nb .section-notes .section-header h2 {
+    color: #000;
+}
+
+/* ========================================
+   BLOC POURQUOI LDB
+   ======================================== */
+.print-nb .section-pourquoi-ldb .pourquoi-list li::before {
+    color: #000;
+}
+
+/* Comment le remplir : items sur fond gris léger */
+.print-nb .section-comment-ldb .comment-list li {
+    background: #f5f5f5;
+}
+
+.print-nb .section-comment-ldb .comment-list .checkbox {
+    border-color: #000;
+}
+
+/* ========================================
+   TABLES ECHELLES (Beaufort, Douglas)
+   ======================================== */
+
+/* Wrappers : fond blanc, bordure fine */
+.print-nb .echelle-beaufort-section .section-wrapper,
+.print-nb .echelle-douglas-section .section-wrapper {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+/* Headers tableaux */
+.print-nb .echelle-table th {
+    color: #000;
+    border-bottom: 1pt solid #000;
+    background: transparent;
+}
+
+.print-nb .echelle-beaufort th,
+.print-nb .echelle-douglas th {
+    border-bottom-color: #000;
+    color: #000;
+}
+
+/* Lignes alternées : gris très léger */
+.print-nb .echelle-beaufort tbody tr:nth-child(even),
+.print-nb .echelle-douglas tbody tr:nth-child(even) {
+    background: #f0f0f0;
+}
+
+/* ----------------------------------------
+   GRAVITE PAR HACHURES - Beaufort
+   ---------------------------------------- */
+
+/* Force 0-3 : fond blanc (calme) */
+.print-nb .echelle-beaufort tr[data-force="0"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="1"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="2"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="3"] td:first-child {
+    background: white;
+    color: #000;
+}
+
+/* Force 4-6 : hachures légères (attention) */
+.print-nb .echelle-beaufort tr[data-force="4"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="5"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="6"] td:first-child {
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 1.5px,
+        #ccc 1.5px,
+        #ccc 2px
+    );
+    color: #000;
+}
+
+/* Force 7-8 : hachures denses (danger) */
+.print-nb .echelle-beaufort tr[data-force="7"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="8"] td:first-child {
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 1px,
+        #999 1px,
+        #999 2px
+    );
+    color: #000;
+}
+
+/* Force 9-12 : gris foncé (extrême) */
+.print-nb .echelle-beaufort tr[data-force="9"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="10"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="11"] td:first-child,
+.print-nb .echelle-beaufort tr[data-force="12"] td:first-child {
+    background: #666;
+    color: white;
+    font-weight: 800;
+}
+
+/* ----------------------------------------
+   GRAVITE PAR HACHURES - Douglas
+   ---------------------------------------- */
+
+/* Degré 0-3 : fond blanc (calme) */
+.print-nb .echelle-douglas tr[data-degre="0"] td:first-child,
+.print-nb .echelle-douglas tr[data-degre="1"] td:first-child,
+.print-nb .echelle-douglas tr[data-degre="2"] td:first-child,
+.print-nb .echelle-douglas tr[data-degre="3"] td:first-child {
+    background: white;
+    color: #000;
+}
+
+/* Degré 4-5 : hachures légères */
+.print-nb .echelle-douglas tr[data-degre="4"] td:first-child,
+.print-nb .echelle-douglas tr[data-degre="5"] td:first-child {
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 1.5px,
+        #ccc 1.5px,
+        #ccc 2px
+    );
+    color: #000;
+}
+
+/* Degré 6-7 : hachures denses */
+.print-nb .echelle-douglas tr[data-degre="6"] td:first-child,
+.print-nb .echelle-douglas tr[data-degre="7"] td:first-child {
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 1px,
+        #999 1px,
+        #999 2px
+    );
+    color: #000;
+}
+
+/* Degré 8-9 : gris foncé */
+.print-nb .echelle-douglas tr[data-degre="8"] td:first-child,
+.print-nb .echelle-douglas tr[data-degre="9"] td:first-child {
+    background: #666;
+    color: white;
+    font-weight: 800;
+}
+
+/* ========================================
+   SIDEBAR LDB
+   ======================================== */
+.print-nb .ldb-sidebar {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .ldb-name {
+    color: #000;
+    background: #f0f0f0;
+    border: 0.3pt solid #999;
+}
+
+/* ========================================
+   PILIERS COOPERATIFS (verso)
+   ======================================== */
+.print-nb .pilier {
+    background: white;
+    border: 0.3pt solid #ccc;
+}
+
+.print-nb .pilier-title {
+    color: #000;
+}
+
+/* ========================================
+   RITUELS (verso)
+   ======================================== */
+.print-nb .ritual-checkbox .checkbox {
+    border-color: #000;
+}
+
+/* ========================================
+   MEMO ROLES (verso)
+   ======================================== */
+.print-nb .role-bloc.role-bosco,
+.print-nb .role-bloc.role-nav,
+.print-nb .role-bloc.role-second,
+.print-nb .role-bloc.role-cambuse {
+    background: white;
+    border: 0.3pt solid #ccc;
+}
+
+.print-nb .role-bloc .role-header {
+    color: #000;
+}
+
+/* ========================================
+   MEMO PAQUETS (verso)
+   ======================================== */
+.print-nb .paquet-bloc {
+    border: 0.3pt solid #ccc;
+}
+
+.print-nb .paquet-bloc .paquet-header,
+.print-nb .paquet-affiches .paquet-header,
+.print-nb .paquet-roles .paquet-header,
+.print-nb .paquet-moments .paquet-header,
+.print-nb .paquet-joker .paquet-header {
+    color: #000;
+}
+
+/* ========================================
+   CITATION FINALE (si présente)
+   ======================================== */
+.print-nb .citation-finale {
+    background: white;
+    border-left: 2pt solid #000;
+}

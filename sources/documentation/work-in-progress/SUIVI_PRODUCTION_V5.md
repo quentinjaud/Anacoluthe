@@ -4,6 +4,11 @@
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
+## Retours atelier BP - 260324
+- Penser à des versions des affiches imprimées low-tech, en NB, pour accepter les disparitions.
+- Un gros bouton "télécharger le kit complet" pour les monos, en bas de la grille des cartes
+- 
+
 ---
 
 ## 🔄 DERNIÈRES MODIFICATIONS (260313)
@@ -11,7 +16,7 @@
 ### Session 29 - Slide partenaires atelier BP (13 mars)
 
 **Nouvelle slide "Anacoluthe se construit en équipage" (slide 11)**
-- Présentation des 4 partenaires extérieurs : Aude Guittard (psychologie), Damien Falkouska (game design), Marie Puydebois (design), Communauté Animacoop (coopération)
+- Présentation des 4 partenaires extérieurs : Aude Guittard (psychologie), Damien Falkouska (game design), Juliette Huron (design), Communauté Animacoop (coopération)
 - Photos en grille 4 colonnes, vignettes rondes avec bordure teal
 - Positionnée avant la slide manipulation ("À vous d'explorer")
 - Contexte : projet libre CC-BY-NC-SA, contributeurices extérieur·es aux Glénans et au monde de la voile

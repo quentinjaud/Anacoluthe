@@ -555,59 +555,53 @@ footer {
     background-color: var(--blanc);
     border-top: 1px solid var(--border-light);
     box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
-    padding: 2rem;
-    padding-bottom: 4.5rem;
+    padding: 1.5rem;
 }
 
 .footer-content {
     max-width: 900px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* Colonne crédits (gauche) */
+/* Signature compacte */
 .footer-credits {
-    flex: 1;
-}
-
-.footer-title {
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.4rem;
-}
-
-.footer-desc {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 0.6rem;
+    text-align: center;
+    line-height: 1.5;
 }
 
-.footer-meta {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.footer-meta a {
+.footer-credits a {
     color: var(--text-muted);
     border-bottom-color: transparent;
 }
 
-.footer-meta a:hover {
+.footer-credits a:hover {
     color: var(--bleu-glenans);
     border-bottom-color: var(--bleu-glenans);
 }
 
-/* Colonne navigation (droite) */
+.footer-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.footer-meta {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+/* Ligne de boutons centrée */
 .footer-nav {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
     gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .footer-nav-link {
@@ -683,19 +677,32 @@ footer {
     border-color: #C75146;
 }
 
+.footer-nav-link.accent-download {
+    color: #2e7d32;
+    border-color: rgba(46, 125, 50, 0.3);
+}
+.footer-nav-link.accent-download:hover {
+    background: #2e7d32;
+    color: white;
+    border-color: #2e7d32;
+}
+
+.footer-nav-link.accent-suivi {
+    color: #e67e22;
+    border-color: rgba(230, 126, 34, 0.3);
+}
+.footer-nav-link.accent-suivi:hover {
+    background: #e67e22;
+    color: white;
+    border-color: #e67e22;
+}
+
 /* Responsive footer */
 @media (max-width: 600px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-    }
-    
     .footer-nav {
-        align-items: center;
+        gap: 0.4rem;
     }
-    
+
     .footer-tool-desc {
         text-align: center;
     }
@@ -812,10 +819,6 @@ footer p {
 /* Espace pour la nav fixe */
 main {
     padding-bottom: 2rem;
-}
-
-footer {
-    padding-bottom: 4.5rem;
 }
 
 /* ===========================================

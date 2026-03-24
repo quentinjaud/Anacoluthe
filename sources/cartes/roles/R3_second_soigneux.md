@@ -41,11 +41,9 @@ Nommer les tensions avant qu'elles ne s'enkystent, proposer des outils.
 - Faire circuler la parole équitablement
 - Proposer une carte Joker si une tension apparaît
 
-## 🗣️ Questions pour t'aider
+## 🗣️ Un outil magique
 
-- Comment va chacun·e aujourd'hui ?
-- Y a-t-il une tension qui mériterait qu'on en parle ?
-- Qu'est-ce qu'on a bien fait ensemble aujourd'hui ?
+Si quelqu'un dit ou demande quelque chose de dérangeant et que tu veux désamorcer, demande-lui simplement de répéter ce qu'iel vient de dire. Parfois, il suffit de se répéter pour se rendre compte de ce qu'on a dit.
 
 ## 💡 Et à terre ?
 

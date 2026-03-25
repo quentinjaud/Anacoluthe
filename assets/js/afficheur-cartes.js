@@ -205,8 +205,18 @@ function setupNbSwitch() {
 
             // Basculer le style N&B sur toute la ligne outils
             const toolsRow = group.closest('.controls-row-tools');
+            const isNb = btn.dataset.variant === 'nb';
             if (toolsRow) {
-                toolsRow.classList.toggle('nb-active', btn.dataset.variant === 'nb');
+                toolsRow.classList.toggle('nb-active', isNb);
+                // Swapper emojis ↔ icônes Lucide sur les boutons
+                toolsRow.querySelectorAll('.nb-swappable .btn-icon').forEach(icon => {
+                    const parent = icon.closest('.nb-swappable');
+                    if (isNb) {
+                        icon.innerHTML = `<img src="${parent.dataset.icon}" alt="" class="lucide-btn-icon">`;
+                    } else {
+                        icon.innerHTML = parent.dataset.emoji;
+                    }
+                });
             }
 
             // Re-rendre l'aperçu et mettre à jour les boutons
@@ -424,7 +434,7 @@ function updatePdfButtons(card) {
     // --- Bouton principal (mémo/carte/affiche) ---
     if (isAfficheA4Mode) {
         pdfCardBtn.style.display = '';
-        pdfCardBtn.innerHTML = '📥 Télécharger le PDF';
+        _setBtnLabel(pdfCardBtn, 'Télécharger le PDF');
         pdfCardBtn.title = 'Télécharger le PDF de cette affiche';
         const pdfPath = _isNbMode() && card.afficheNbPath ? card.afficheNbPath : card.affichePath;
         if (pdfPath) {
@@ -436,7 +446,7 @@ function updatePdfButtons(card) {
         }
     } else if (isAffiche) {
         pdfCardBtn.style.display = '';
-        pdfCardBtn.innerHTML = '📥 Télécharger le mémo';
+        _setBtnLabel(pdfCardBtn, 'Télécharger le mémo');
         pdfCardBtn.title = 'Télécharger le mémo A6 de cette affiche';
         if (card.pdfPath) {
             pdfCardBtn.href = card.pdfPath;
@@ -447,7 +457,7 @@ function updatePdfButtons(card) {
         }
     } else {
         pdfCardBtn.style.display = '';
-        pdfCardBtn.innerHTML = '📥 Télécharger la carte';
+        _setBtnLabel(pdfCardBtn, 'Télécharger la carte');
         pdfCardBtn.title = 'Télécharger le PDF de cette carte';
         if (card.pdfPath) {
             pdfCardBtn.href = card.pdfPath;
@@ -501,6 +511,31 @@ function updatePdfButtons(card) {
         htmlAfficheBtn.style.display = '';
     } else {
         htmlAfficheBtn.style.display = 'none';
+    }
+}
+
+/**
+ * Met à jour le label d'un bouton nb-swappable sans écraser le <span class="btn-icon">
+ */
+function _setBtnLabel(btn, label) {
+    const iconSpan = btn.querySelector('.btn-icon');
+    if (iconSpan) {
+        // Conserver le span icône, remplacer le texte après
+        const isNb = _isNbMode();
+        if (isNb) {
+            iconSpan.innerHTML = `<img src="${btn.dataset.icon}" alt="" class="lucide-btn-icon">`;
+        } else {
+            iconSpan.innerHTML = btn.dataset.emoji;
+        }
+        // Remplacer le texte (noeud texte après le span)
+        const textNode = iconSpan.nextSibling;
+        if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+            textNode.textContent = ' ' + label;
+        }
+    } else {
+        // Fallback : pas de span, recréer la structure
+        const emoji = btn.dataset.emoji || '';
+        btn.innerHTML = `<span class="btn-icon">${emoji}</span> ${label}`;
     }
 }
 

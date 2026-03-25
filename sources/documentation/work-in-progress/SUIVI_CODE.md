@@ -2,7 +2,32 @@
 
 Audit et suivi du code (HTML, JS, CSS) : écarts documentation/code, nettoyage, méthodes de vérification.
 
-*Dernière mise à jour : 24 mars 2026*
+*Dernière mise à jour : 25 mars 2026*
+
+---
+
+## MODIFICATIONS SESSION 31 (25 mars 2026)
+
+### Fichiers créés
+- `sources/affiches/A1_routines_nb.html` (N&B, 31 icônes Lucide)
+- `sources/affiches/A2_tableau_equipage_nb.html` (N&B, 24 icônes Lucide)
+- `sources/affiches/A4_decouverte-dispositif_nb.html` (N&B, 45 icônes Lucide)
+- `assets/images/logo-anacoluthe-nb.svg` (logo nuances de gris)
+- 32 nouveaux SVG dans `assets/icons/lucide/` (total : 55)
+
+### Fichiers modifiés
+- `assets/css/affiches-print-nb.css` : +450 lignes, sections A1/A2/A4
+- `assets/js/afficheur-cartes.js` : helper `_setBtnLabel()`, swap icônes N&B, correction `updatePdfButtons()` qui écrasait la structure `<span class="btn-icon">`
+- `afficheur-cartes.html` : boutons restructurés avec `data-emoji`/`data-icon` et classe `nb-swappable`
+- `assets/css/afficheur-cartes.css` : styles `.lucide-btn-icon`, checkbox `accent-color` en mode N&B
+- `assets/data/cards-index.json` : `htmlNbPath` + `afficheNbPath` pour A1, A2, A4
+- `sources/affiches/A3_marque_page_nb.html` : icône Joker → `message-square-warning.svg`
+- `.gitignore` : ajout `.superpowers/`
+
+### Points d'attention
+- `affiches-print-nb.css` ligne 390 : `.print-nb .section-header { margin-bottom: 1mm }` est global (pas scopé A2), volontaire
+- A4 NB : classe `affiche-header-rouge` retirée intentionnellement du recto pour éviter héritage couleur
+- A2 NB : `🤲` → `hand-helping.svg` (pas `heart-handshake`), choix volontaire car emoji source différent de `🤝`
 
 ---
 

@@ -5,12 +5,62 @@
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ## Retours atelier BP - 260324
-- Penser à des versions des affiches imprimées low-tech, en NB, pour accepter les disparitions.
-- Un gros bouton "télécharger le kit complet" pour les monos, en bas de la grille des cartes
+X Penser à des versions des affiches imprimées low-tech, en NB, pour accepter les disparitions.
+X Un gros bouton "télécharger le kit complet" pour les monos, en bas de la grille des cartes
+-
 
 ---
 
-## 🔄 DERNIÈRES MODIFICATIONS (260324)
+## 🔄 DERNIÈRES MODIFICATIONS (260325)
+
+### Session 31 - Généralisation N&B à toutes les affiches (25 mars)
+
+**Contexte** : suite session 30, extension des versions N&B à A1 Routines, A2 Tableau d'équipage et A4 Découverte du dispositif. Les 4 affiches ont maintenant une version impression laser N&B.
+
+**Nouvelles icônes Lucide**
+- 32 nouveaux SVG téléchargés dans `assets/icons/lucide/` (total : 55 SVG)
+- Choix validés pour emojis ambigus : 🐝→sparkles, 🧘→heart-pulse, 🃏→message-square-warning
+- Correction A3 NB : Joker passe de triangle-alert à message-square-warning (cohérence inter-affiches)
+
+**Affiches N&B créées**
+- `A1_routines_nb.html` : 31 icônes SVG, 1 page portrait
+- `A2_tableau_equipage_nb.html` : 24 icônes SVG, 1 page paysage
+- `A4_decouverte-dispositif_nb.html` : 45 icônes SVG, 2 pages (recto moniteurice + verso équipage)
+- Logo N&B dédié : `assets/images/logo-anacoluthe-nb.svg` (nuances de gris, utilisé dans A4 NB)
+
+**Surcharges CSS ajoutées (affiches-print-nb.css)**
+- Section A1 : role-cards, section-routine, notes-column, checkboxes
+- Section A2 : blocs intentions, slider météo (icônes opacity 0.4), instructions en #666
+- Section A4 : headers rouge/teal → N&B, section-intro/kit avec bordures, kit-headers en pills N&B, types-grid, fil-blocs (teal/amber/brick → blanc), fil-cards/pills, tel-number, logo grayscale
+
+**Easter egg afficheur : swap emojis → Lucide en mode N&B**
+- Boutons download (PDF, livret, affiche, HTML brut) : emojis remplacés par icônes Lucide au toggle N&B
+- Structure HTML : `<span class="btn-icon">` + data-emoji/data-icon pour swap JS
+- Helper `_setBtnLabel()` dans afficheur-cartes.js : met à jour le texte sans casser la structure icône
+- Checkbox "Ajuster le texte" : accent-color noir en mode N&B
+- Bouton "Couleur" reste intact (emoji + style bleu) = seul élément coloré en mode N&B
+
+**Fichiers créés**
+- `sources/affiches/A1_routines_nb.html`
+- `sources/affiches/A2_tableau_equipage_nb.html`
+- `sources/affiches/A4_decouverte-dispositif_nb.html`
+- `assets/images/logo-anacoluthe-nb.svg`
+- 32 SVG dans `assets/icons/lucide/`
+
+**Fichiers modifiés**
+- `assets/css/affiches-print-nb.css` (+450 lignes de surcharges A1, A2, A4)
+- `assets/data/cards-index.json` (htmlNbPath + afficheNbPath pour A1, A2, A4)
+- `sources/affiches/A3_marque_page_nb.html` (icône Joker → message-square-warning)
+- `afficheur-cartes.html` (structure boutons nb-swappable)
+- `assets/js/afficheur-cartes.js` (swap icônes, _setBtnLabel)
+- `assets/css/afficheur-cartes.css` (lucide-btn-icon, checkbox accent-color)
+- `.gitignore` (.superpowers/)
+
+**Prochaines étapes**
+- Bouton "télécharger le kit complet" (demande atelier BP)
+- Supprimer les fichiers de test session 30 (A3_marque_page_test_nb.html, test_icones_comparaison.html)
+
+---
 
 ### Session 30 - Affiches N&B low-tech (24 mars)
 

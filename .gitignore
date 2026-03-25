@@ -21,6 +21,7 @@ npm-debug.log*
 # Claude Code (config locale)
 .claude/
 .grepai/
+.superpowers/
 
 # Fichiers de debug print
 print/debug*.png

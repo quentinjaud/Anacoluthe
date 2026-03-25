@@ -378,6 +378,22 @@ body.view-print .controls-row-tools.print-only {
     color: white;
 }
 
+/* Icônes Lucide dans les boutons en mode N&B */
+.lucide-btn-icon {
+    height: 0.85em;
+    width: 0.85em;
+    vertical-align: -0.1em;
+}
+
+.controls-row-tools.nb-active .download-btn:hover .lucide-btn-icon {
+    filter: invert(1);
+}
+
+/* Checkbox en N&B */
+.controls-row-tools.nb-active .checkbox-label input[type="checkbox"] {
+    accent-color: #000;
+}
+
 .tool-btn.spinning {
     animation: spin 0.5s linear;
 }

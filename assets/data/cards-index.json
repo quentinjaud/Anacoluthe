@@ -206,8 +206,10 @@
       "tagsTitle": "5 phases",
       "path": "sources/affiches/A1_routines_memo.md",
       "htmlPath": "sources/affiches/A1_routines.html",
+      "htmlNbPath": "sources/affiches/A1_routines_nb.html",
       "pdfPath": "print/cartes/A1_routines_memo.pdf",
       "affichePath": "print/affiches/A1_routines.pdf",
+      "afficheNbPath": "print/affiches/A1_routines_nb.pdf",
       "previewImages": ["assets/images/affiche-A1-routines.png"],
       "proto": false
     },
@@ -223,8 +225,10 @@
       "tagsTitle": "Sections",
       "path": "sources/affiches/A2_tableau_memo.md",
       "htmlPath": "sources/affiches/A2_tableau_equipage.html",
+      "htmlNbPath": "sources/affiches/A2_tableau_equipage_nb.html",
       "pdfPath": "print/cartes/A2_tableau_memo.pdf",
       "affichePath": "print/affiches/A2_tableau_equipage.pdf",
+      "afficheNbPath": "print/affiches/A2_tableau_equipage_nb.pdf",
       "previewImages": ["assets/images/affiche-tableau-equipage.png"],
       "proto": false
     },
@@ -259,8 +263,10 @@
       "tagsTitle": "Contenu",
       "path": "sources/affiches/A4_decouverte_memo.md",
       "htmlPath": "sources/affiches/A4_decouverte-dispositif.html",
+      "htmlNbPath": "sources/affiches/A4_decouverte-dispositif_nb.html",
       "pdfPath": "print/cartes/A4_decouverte_memo.pdf",
       "affichePath": "print/affiches/A4_decouverte-dispositif.pdf",
+      "afficheNbPath": "print/affiches/A4_decouverte-dispositif_nb.pdf",
       "previewImages": ["assets/images/affiche-A4-recto.png", "assets/images/affiche-A4-verso.png"],
       "proto": false
     }

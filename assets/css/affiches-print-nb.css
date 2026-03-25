@@ -267,7 +267,7 @@
    ======================================== */
 .print-nb .pilier {
     background: white;
-    border: 0.3pt solid #ccc;
+    border: 0.3pt solid #444;
 }
 
 .print-nb .pilier-title {
@@ -289,7 +289,7 @@
 .print-nb .role-bloc.role-second,
 .print-nb .role-bloc.role-cambuse {
     background: white;
-    border: 0.3pt solid #ccc;
+    border: 0.3pt solid #444;
 }
 
 .print-nb .role-bloc .role-header {
@@ -300,7 +300,7 @@
    MEMO PAQUETS (verso)
    ======================================== */
 .print-nb .paquet-bloc {
-    border: 0.3pt solid #ccc;
+    border: 0.3pt solid #444;
 }
 
 .print-nb .paquet-bloc .paquet-header,
@@ -317,4 +317,449 @@
 .print-nb .citation-finale {
     background: white;
     border-left: 2pt solid #000;
+}
+
+/* ========================================
+   A1 - ROUTINES QUOTIDIENNES
+   ======================================== */
+
+/* Sections routine : fond blanc, bordure fine */
+.print-nb .section-routine .section-wrapper {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+/* Headers de section en noir */
+.print-nb .section-routine .section-header h2 {
+    color: #000;
+}
+
+/* Ligne collectif */
+.print-nb .collectif-line {
+    color: #000;
+}
+
+/* Cartes rôles : bordure noire, fond blanc */
+.print-nb .role-card {
+    background: white;
+    border: 0.5pt solid #666;
+}
+
+.print-nb .role-card.role-bosco,
+.print-nb .role-card.role-nav,
+.print-nb .role-card.role-second,
+.print-nb .role-card.role-cambuse {
+    background: white;
+    border-color: #000;
+}
+
+/* Emoji rôle en N&B */
+.print-nb .role-emoji img {
+    height: 1.2em;
+    width: 1.2em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Checkboxes en noir */
+.print-nb .task-checkbox {
+    border-color: #000;
+}
+
+/* Notes grid */
+.print-nb .notes-column {
+    background: white;
+    border: 0.3pt solid #666;
+}
+
+.print-nb .notes-column .role-header {
+    color: #000;
+}
+
+.print-nb .notes-column .checkbox {
+    border-color: #000;
+}
+
+/* ========================================
+   A2 - TABLEAU D'EQUIPAGE
+   ======================================== */
+
+/* Sections en noir */
+.print-nb .section .section-header h2 {
+    color: #000;
+}
+.print-nb .section-header {
+    margin-bottom: 1mm;
+}
+
+/* Blocs intentions : fond blanc, bordure */
+.print-nb .bloc {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .bloc.accent-patience,
+.print-nb .bloc.accent-parole,
+.print-nb .bloc.accent-energie,
+.print-nb .bloc.accent-ecoute,
+.print-nb .bloc.accent-precision,
+.print-nb .bloc.accent-cooperation {
+    background: white;
+    border-color: #000;
+}
+
+/* Blocs éditables : garder la bordure */
+.print-nb .bloc.editable {
+    border: 0.5pt solid #000;
+    background: white;
+}
+
+/* Texte des intentions en noir */
+.print-nb .bloc .text-line strong,
+.print-nb .bloc .text-line .light {
+    color: #000;
+}
+
+/* Emoji dans les blocs intentions */
+.print-nb .emoji-line img {
+    height: 1.4em;
+    width: 1.4em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+/* Slider météo : fond blanc, bordure */
+.print-nb .meteo-slider {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .meteo-slider img {
+    height: 1.2em;
+    width: 1.2em;
+    transform: rotate(var(--icon-rot, 0deg));
+    opacity: 0.4;
+}
+
+/* Instructions en gris léger */
+.print-nb .instruction {
+    color: #666;
+}
+
+/* ========================================
+   A4 - DECOUVERTE DU DISPOSITIF
+   ======================================== */
+
+/* Headers colorés → N&B */
+.print-nb .affiche-header-rouge,
+.print-nb .affiche-header-teal {
+    background: white;
+    border-bottom: 0;
+}
+
+.print-nb .affiche-header-rouge h1,
+.print-nb .affiche-header-teal h1 {
+    color: #000;
+}
+
+.print-nb .affiche-header-teal h1 span {
+    color: #000;
+}
+
+.print-nb .affiche-header-rouge .header-logo,
+.print-nb .affiche-header-teal .header-logo {
+    height: 2.5em;
+    width: auto;
+    border-color: #000;
+}
+
+/* Section intro & section kit */
+.print-nb .section-intro,
+.print-nb .section-kit {
+    padding-top: 4mm;
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .section-intro .section-header,
+.print-nb .section-kit .section-header {
+    color: #000;
+}
+
+.print-nb .section-intro .section-header h2,
+.print-nb .section-kit .section-header h2 {
+    color: #000;
+}
+
+.print-nb .section-intro .section-icon,
+.print-nb .section-kit .section-icon {
+    color: #000;
+}
+
+/* Intro text */
+.print-nb .intro-text {
+    color: #000;
+}
+
+.print-nb .intro-text p {
+    color: #000;
+}
+
+/* Kit blocs */
+.print-nb .kit-bloc {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .kit-header {
+    color: #000;
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .kit-header img {
+    height: 0.85em;
+    width: 0.85em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+.print-nb .kit-header-sub {
+    color: #666;
+}
+
+.print-nb .kit-list {
+    margin-bottom: 1mm;
+}
+
+.print-nb .kit-item-name {
+    color: #000;
+}
+
+.print-nb .kit-item {
+    padding-top: 1.5mm ;
+    padding-bottom: 1.5mm;
+}
+
+.print-nb .kit-item-name img {
+    height: 1em;
+    width: 1em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+.print-nb .kit-item-desc {
+    color: #333;
+}
+
+.print-nb .kit-note {
+    margin-top : 4px;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.print-nb .kit-url {
+    color: #000;
+}
+
+.print-nb .kit-url-sub {
+    color: #666;
+}
+
+/* Kit URL bloc */
+.print-nb .kit-url-bloc {
+    background: white;
+    border: none;
+    margin-top: 1mm;
+}
+
+.print-nb .kit-url-text {
+    color: #000;
+}
+
+.print-nb .kit-logo-img {
+    filter: grayscale(1);
+}
+
+.print-nb .tel-number {
+    color: #000;
+}
+
+/* Section feedback */
+.print-nb .section-feedback {
+    padding-top: 4mm;
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .section-feedback {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .section-feedback .section-header {
+    color: #000;
+}
+
+.print-nb .section-feedback .section-header h2 {
+    color: #000;
+}
+
+.print-nb .section-feedback .section-icon {
+    color: #000;
+}
+
+.print-nb .section-feedback .intro-text {
+    color: #000;
+}
+
+/* --- VERSO --- */
+
+/* Types grid */
+.print-nb .type-item {
+    border: 0.5pt solid #000;
+    background: white;
+}
+
+.print-nb .type-icon img {
+    height: 1.2em;
+    width: 1.2em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+.print-nb .type-name {
+    color: #000;
+}
+
+.print-nb .type-affiches .type-name,
+.print-nb .type-roles .type-name,
+.print-nb .type-moments .type-name,
+.print-nb .type-jokers .type-name {
+    color: #000;
+}
+
+.print-nb .type-ref {
+    color: #666;
+}
+
+.print-nb .type-desc {
+    color: #333;
+}
+
+.print-nb .type-avail {
+    color: #000;
+}
+
+.print-nb .type-avail img {
+    height: 0.9em;
+    width: 0.9em;
+}
+
+/* Fil blocs : tous en noir/blanc */
+.print-nb .fil-bloc {
+    background: white;
+    border: 0.5pt solid #000;
+}
+
+.print-nb .fil-bloc-teal,
+.print-nb .fil-bloc-amber,
+.print-nb .fil-bloc-brick {
+    background: white;
+}
+
+.print-nb .fil-bloc-header {
+    color: #000;
+}
+
+.print-nb .fil-bloc-title {
+    color: #000;
+}
+
+.print-nb .fil-bloc-teal .fil-bloc-title,
+.print-nb .fil-bloc-amber .fil-bloc-title,
+.print-nb .fil-bloc-brick .fil-bloc-title {
+    color: #000;
+}
+
+.print-nb .fil-bloc-title img {
+    height: 1em;
+    width: 1em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+.print-nb .fil-bloc-when {
+    color: #666;
+}
+
+.print-nb .fil-bloc-teal .fil-bloc-when,
+.print-nb .fil-bloc-amber .fil-bloc-when,
+.print-nb .fil-bloc-brick .fil-bloc-when {
+    color: #666;
+}
+
+.print-nb .fil-bloc-sub {
+    color: #333;
+}
+
+.print-nb .fil-col-title {
+    color: #000;
+}
+
+.print-nb .fil-col-title img {
+    height: 1.2em;
+    width: 1.2em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+.print-nb .fil-bloc-teal .fil-col-title,
+.print-nb .fil-bloc-amber .fil-col-title,
+.print-nb .fil-bloc-brick .fil-col-title {
+    color: #000;
+}
+
+.print-nb .fil-item-desc {
+    color: #333;
+}
+
+.print-nb .fil-sub-time {
+    color: #666;
+}
+
+/* Fil cards */
+.print-nb .fil-card {
+    background: white;
+    border: 0.3pt solid #ccc;
+}
+
+.print-nb .fil-card-pill {
+    background: #f0f0f0;
+    color: #000;
+    border: 0.3pt solid #999;
+}
+
+.print-nb .fil-bloc-teal .fil-card-pill,
+.print-nb .fil-bloc-amber .fil-card-pill,
+.print-nb .fil-bloc-brick .fil-card-pill {
+    background: #f0f0f0;
+    color: #000;
+}
+
+.print-nb .fil-card-pill img {
+    height: 0.9em;
+    width: 0.9em;
+    transform: rotate(var(--icon-rot, 0deg));
+}
+
+.print-nb .fil-card-name {
+    color: #000;
+}
+
+.print-nb .fil-card-desc {
+    color: #333;
+}
+
+/* Intro text verso */
+.print-nb .fil-grid .intro-text {
+    color: #000;
+}
+
+/* Accent inline style → neutraliser */
+.print-nb .fil-bloc-header .fil-bloc-title span[style] {
+    color: #000 !important;
 }

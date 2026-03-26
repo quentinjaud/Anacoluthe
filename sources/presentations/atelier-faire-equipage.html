@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire équipage, ça s'apprend et ça s'anime</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/logo-anacoluthe.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css">
+    <link rel="stylesheet" href="anacoluthe-theme.css">
+    <style>
+        /* ── Courbe Tuckman ── */
+        .tuckman-curve {
+            position: relative;
+            width: 88%;
+            height: 220px;
+            margin: 1.2em auto 0;
+        }
+        .tuckman-curve svg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .tuckman-curve .curve-line {
+            fill: none;
+            stroke: var(--navy-100);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        .tuckman-curve .curve-line.active {
+            stroke: var(--bleu-glenans);
+            stroke-width: 4;
+        }
+        .tuckman-phase {
+            position: absolute;
+            text-align: center;
+            transform: translate(-50%, -7px);
+            font-family: 'Merriweather Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .tuckman-phase.active {
+            transform: translate(-50%, -9px);
+        }
+        .tuckman-phase .phase-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--navy-100);
+            margin: 0 auto 0.3em;
+            transition: all 0.3s ease;
+        }
+        .tuckman-phase.active .phase-dot {
+            background: var(--bleu-glenans);
+            width: 18px; height: 18px;
+            box-shadow: 0 0 12px rgba(0,102,173,0.4);
+        }
+        .tuckman-phase .phase-name {
+            font-size: 0.55em;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+        .tuckman-phase.active .phase-name {
+            color: var(--bleu-glenans);
+            font-size: 0.6em;
+        }
+        .tuckman-phase .phase-sub {
+            font-size: 0.4em;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 0.15em;
+        }
+        .tuckman-phase.active .phase-sub {
+            color: var(--text-dark);
+        }
+        .tuckman-phase.dimmed .phase-dot { background: var(--navy-100); opacity: 0.4; }
+        .tuckman-phase.dimmed .phase-name { opacity: 0.4; }
+        .tuckman-phase.dimmed .phase-sub { opacity: 0.3; }
+
+        .tuckman-axis {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.4em;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ── Schéma problème vs polarité ── */
+        .pvp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2em;
+            width: 88%;
+            margin: 0.8em auto 0;
+        }
+        .pvp-card {
+            border-radius: 10px;
+            padding: 0.8em;
+            text-align: left;
+        }
+        .pvp-card.probleme {
+            background: var(--teal-50);
+            border: 2px solid var(--teal-700);
+        }
+        .pvp-card.polarite {
+            background: var(--amber-50);
+            border: 2px solid var(--amber-700);
+        }
+        .pvp-card h3 {
+            margin: 0 0 0.3em;
+            font-size: 0.7em !important;
+        }
+        .pvp-card.probleme h3 { color: var(--teal-700) !important; }
+        .pvp-card.polarite h3 { color: var(--amber-700) !important; }
+        .pvp-card p {
+            font-size: 0.5em !important;
+            margin-bottom: 0.3em;
+        }
+        .pvp-card .pvp-example {
+            font-style: italic;
+            color: var(--text-muted);
+        }
+        .pvp-card .pvp-process {
+            font-weight: 600;
+        }
+
+        /* ── 5 éléments Johnson & Johnson ── */
+        .jj-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5em;
+            width: 92%;
+            margin: 0.8em auto 0;
+        }
+        .jj-card {
+            background: var(--teal-50);
+            border: 1.5px solid var(--teal-100);
+            border-radius: 8px;
+            padding: 0.5em 0.4em;
+            text-align: center;
+        }
+        .jj-card .jj-num {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1em;
+            color: var(--teal-700);
+        }
+        .jj-card h4 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.45em;
+            font-weight: 700;
+            color: var(--teal-700);
+            margin: 0.2em 0;
+        }
+        .jj-card p {
+            font-size: 0.38em !important;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        /* ── Stigmergie cairns ── */
+        .stigmergie-compare {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0.8em;
+            width: 85%;
+            margin: 0.8em auto 0;
+            align-items: center;
+        }
+        .stigmergie-box {
+            border-radius: 10px;
+            padding: 0.7em;
+            text-align: center;
+        }
+        .stigmergie-box.avant {
+            background: var(--brick-50);
+            border: 2px solid var(--brick-100);
+        }
+        .stigmergie-box.apres {
+            background: var(--teal-50);
+            border: 2px solid var(--teal-100);
+        }
+        .stigmergie-box h4 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.55em;
+            font-weight: 700;
+            margin: 0 0 0.3em;
+        }
+        .stigmergie-box.avant h4 { color: var(--brick-700); }
+        .stigmergie-box.apres h4 { color: var(--teal-700); }
+        .stigmergie-box p { font-size: 0.45em !important; margin: 0.2em 0; }
+        .stigmergie-arrow {
+            font-size: 1.5em;
+            color: var(--text-muted);
+        }
+
+        /* ── Rituels tableau ── */
+        .rituels-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5em;
+            width: 88%;
+            margin: 0.6em auto 0;
+        }
+        .rituel-card {
+            background: var(--navy-50);
+            border: 1.5px solid var(--navy-100);
+            border-radius: 8px;
+            padding: 0.5em;
+            text-align: left;
+        }
+        .rituel-card h4 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.5em;
+            font-weight: 700;
+            color: var(--navy-700);
+            margin: 0 0 0.2em;
+        }
+        .rituel-card p { font-size: 0.42em !important; margin: 0; }
+
+        /* ── ICE visuel ── */
+        .ice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8em;
+            width: 80%;
+            margin: 1em auto 0;
+        }
+        .ice-card {
+            border-radius: 10px;
+            padding: 0.6em;
+            text-align: center;
+        }
+        .ice-card .ice-emoji { font-size: 1.6em; }
+        .ice-card h4 {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.55em;
+            font-weight: 700;
+            color: var(--navy-700);
+            margin: 0.3em 0 0.2em;
+        }
+        .ice-card p { font-size: 0.42em !important; margin: 0; }
+        .ice-card {
+            background: var(--navy-50);
+            border: 2px solid var(--navy-100);
+        }
+
+        /* ── (CSS barres autorité supprimé - modèle rouge/jaune/vert retiré) ── */
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ═══════════ TITRE ═══════════ -->
+            <section>
+                <h1>Faire équipage</h1>
+                <h3 style="font-size: 0.8em; color: var(--teal-700);">ça s'apprend et ça s'anime</h3>
+                <p class="text-muted text-small" style="margin-top: 1.5em;">Atelier moniteurices - 3h</p>
+                <aside class="notes">
+                    Accueillir. Vérifier le matériel. Lancer les binômes tournants dès que tout le monde est là.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 0 : INTERCONNAISSANCE ═══════════ -->
+            <section>
+                <h2>Binômes tournants</h2>
+                <div class="consigne">
+                    <p><strong>3 rounds de 3 min</strong> - 1 min 30 chacun·e - on écoute, on ne rebondit pas</p>
+                    <ol>
+                        <li><strong>Round 1</strong> : Qui tu es, d'où tu viens, quelle filière ?</li>
+                        <li><strong>Round 2</strong> : Un moment où un équipage a vraiment bien fonctionné. Qu'est-ce qui faisait que ça marchait ?</li>
+                        <li><strong>Round 3</strong> : Un moment où c'était difficile entre les gens à bord. Qu'est-ce qui s'est passé ?</li>
+                    </ol>
+                    <p style="margin-top: 0.5em;"><em>Puis : chacun·e présente son·sa dernier·ère partenaire.</em></p>
+                </div>
+                <aside class="notes">
+                    Strict sur le temps. Signaler chaque changement. Pendant la restitution, noter au paperboard : colonne "ça marchait" / "c'était dur". Ce tableau sert de fil rouge.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 1 : ICE ═══════════ -->
+            <section>
+                <h2>Environnement ICE</h2>
+                <p class="text-left" style="width: 80%; margin: 0 auto 0.5em;">En contexte isolé, confiné, extrême : les dynamiques de groupe s'accélèrent.</p>
+                <div class="ice-grid">
+                    <div class="ice-card">
+                        <div class="ice-emoji">🏝️</div>
+                        <h4>Isolé</h4>
+                        <p>Coupé du quotidien, pas de sortie, pas de réseau</p>
+                    </div>
+                    <div class="ice-card">
+                        <div class="ice-emoji">🚢</div>
+                        <h4>Confiné</h4>
+                        <p>Espace réduit, proximité imposée, pas d'intimité</p>
+                    </div>
+                    <div class="ice-card">
+                        <div class="ice-emoji">🌊</div>
+                        <h4>Extrême</h4>
+                        <p>Météo, inconfort, fatigue, gestion du risque</p>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 1em;">Ce qui prendrait des semaines à terre se joue en 6 jours sur un bateau. C'est une contrainte ET une opportunité pédagogique.</blockquote>
+                <aside class="notes">
+                    Demander au groupe de relier chaque caractéristique à l'embarqué. Pas un cours, une discussion.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 1 : TUCKMAN (tous allumés) ═══════════ -->
+            <section>
+                <h2>Les paradigmes de Tuckman</h2>
+                <p class="text-small text-muted" style="text-align: center;">5 modes de fonctionnement d'un groupe - pas des étapes, des paradigmes</p>
+                <div class="tuckman-curve">
+                    <svg viewBox="0 0 800 180" preserveAspectRatio="none">
+                        <path class="curve-line active" d="M 20,148 C 35,146 50,140 64,135 C 110,120 185,25 240,25 C 295,25 370,50 416,75 C 460,95 540,108 592,110 C 640,112 708,130 736,140 L 775,150" />
+                    </svg>
+                    <div class="tuckman-phase active" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                        <div class="phase-sub">Le groupe se forme</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                        <div class="phase-sub">Les tensions émergent</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                        <div class="phase-sub">Le groupe se structure</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                        <div class="phase-sub">Le groupe produit</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                        <div class="phase-sub">Le groupe se sépare</div>
+                    </div>
+                    <div class="tuckman-axis">
+                        <span>Début de stage</span>
+                        <span>Fin de stage</span>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 0.5em; font-size: 0.5em;">Un équipage peut boucler plusieurs fois Storm-Norm-Perf dans la semaine. La courbe montre une tendance, pas un calendrier.</blockquote>
+                <aside class="notes">
+                    Relier chaque paradigme aux situations du bloc 0. Ce schéma reste affiché, on y revient à chaque bloc.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 2 : FORMING ═══════════ -->
+            <section>
+                <h2><span class="accent-teal">Formation</span> - Le groupe se forme</h2>
+                <div class="tuckman-curve" style="height: 120px; margin-top: 0.5em;">
+                    <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path class="curve-line" d="M 20,98 C 35,97 50,93 64,90 C 110,80 185,17 240,17 C 295,17 370,33 416,50 C 460,63 540,72 592,73 C 640,75 708,87 736,93 L 775,100" />
+                    </svg>
+                    <div class="tuckman-phase active" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                    </div>
+                </div>
+                <div style="width: 85%; margin: 0 auto;">
+                    <p class="text-left"><strong>Interconnaissance</strong> : se connaître avant de travailler ensemble</p>
+                    <p class="text-left"><strong>Accords de groupe</strong> : co-construire un cadre explicite</p>
+                </div>
+                <blockquote style="margin-top: 0.5em;">Les accords portent sur ce que l'équipage peut co-décider : organisation quotidienne, ambiance, rythme. La sécurité reste du ressort de lae moniteurice.</blockquote>
+                <aside class="notes">
+                    Distribuer M2. Ancrage terrain : "Dans les équipages qui marchaient, il y avait un cadre posé en début de stage ?" Geste de posture : laisser le groupe formuler ses propres règles.
+                </aside>
+            </section>
+
+            <!-- Formation : outil Anacoluthe -->
+            <section>
+                <h2><span class="accent-teal">Formation</span> - Outils Anacoluthe</h2>
+                <p class="text-left" style="width: 85%; margin: 0.5em auto;">Pour illustrer : voici ce qui existe dans le dispositif pour soutenir ce geste.</p>
+                <div style="display: flex; gap: 0.8em; width: 85%; margin: 0.5em auto;">
+                    <div style="flex: 1; background: var(--teal-50); border: 2px solid var(--teal-100); border-radius: 8px; padding: 0.6em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.55em; color: var(--teal-700); margin: 0 0 0.3em;"><span class="badge badge-moment">M2</span> Accords d'équipage</h4>
+                        <p style="font-size: 0.42em;">7 questions-guides en pop-corn → engagements mesurables → tour de non-objection</p>
+                    </div>
+                    <div style="flex: 1; background: var(--brick-50); border: 2px solid var(--brick-100); border-radius: 8px; padding: 0.6em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.55em; color: var(--brick-700); margin: 0 0 0.3em;"><span class="badge badge-joker">J3</span> Rediscuter les accords</h4>
+                        <p style="font-size: 0.42em;">Quand les tensions apparaissent : les accords sont modifiables, pas un contrat gravé dans le marbre</p>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 0.8em;"><strong>Geste de posture</strong> : créer un espace de parole équitable. Laisser le groupe formuler ses propres règles.</blockquote>
+                <aside class="notes">
+                    Cet atelier ne forme pas au dispositif. Les cartes sont des illustrations : "voici ce qui existe pour soutenir ce qu'on vient de voir."
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 3 : STORMING ═══════════ -->
+            <section>
+                <h2><span class="accent-brick">Turbulence</span> - Les tensions émergent</h2>
+                <div class="tuckman-curve" style="height: 120px; margin-top: 0.5em;">
+                    <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path class="curve-line" d="M 20,98 C 35,97 50,93 64,90 C 110,80 185,17 240,17 C 295,17 370,33 416,50 C 460,63 540,72 592,73 C 640,75 708,87 736,93 L 775,100" />
+                    </svg>
+                    <div class="tuckman-phase dimmed" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                    </div>
+                </div>
+                <blockquote>Sur un bateau de 5-6, les tensions c'est rarement "le groupe diverge". C'est plutôt deux personnes qui s'accrochent sur des façons de faire incompatibles.</blockquote>
+                <aside class="notes">
+                    "Repensez aux situations difficiles du bloc 0. C'est ça, non ? Du 1 contre 1." Normaliser : c'est prévisible, pas un échec.
+                </aside>
+            </section>
+
+            <!-- Turbulence : Problème vs Polarité -->
+            <section>
+                <h2><span class="accent-brick">Problème</span> ou <span class="accent-amber">Polarité</span> ?</h2>
+                <p class="text-small text-muted" style="text-align: center;">La première question face à une tension</p>
+                <div class="pvp-grid">
+                    <div class="pvp-card probleme">
+                        <h3>Problème</h3>
+                        <p>Se résout par une <strong>décision</strong></p>
+                        <p class="pvp-example">"Qui fait la vaisselle ce soir ?"</p>
+                        <p class="pvp-process" style="margin-top: 0.4em; color: var(--teal-700);">Diverger sur le problème → diverger sur les solutions → converger</p>
+                    </div>
+                    <div class="pvp-card polarite">
+                        <h3>Polarité</h3>
+                        <p>Se gère par <strong>intégration</strong> des deux pôles</p>
+                        <p class="pvp-example">"L'un·e a besoin de cadre, l'autre de souplesse"</p>
+                        <p class="pvp-process" style="margin-top: 0.4em; color: var(--amber-700);">Reconnaître les deux pôles → chercher l'équilibre → accepter la tension</p>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 0.6em;">Si on traite une polarité comme un problème, le pôle écarté revient toujours.<br>Si on traite un problème comme une polarité, le groupe s'enlise.</blockquote>
+                <aside class="notes">
+                    Exercice rapide : donner 4 situations, le groupe diagnostique. Source : Interpole / Centre Tenir.
+                </aside>
+            </section>
+
+            <!-- Turbulence : Joker -->
+            <section>
+                <h2><span class="accent-brick">Turbulence</span> - Outils Anacoluthe</h2>
+                <div style="display: flex; gap: 0.8em; width: 85%; margin: 0.8em auto;">
+                    <div style="flex: 1; background: var(--brick-50); border: 2px solid var(--brick-100); border-radius: 8px; padding: 0.6em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.55em; color: var(--brick-700); margin: 0 0 0.3em;"><span class="badge badge-joker">J1</span> Gérer un conflit</h4>
+                        <p style="font-size: 0.42em;"><strong>1.</strong> Cadrage <strong>2.</strong> Expression OSBD <strong>3.</strong> Terrain commun</p>
+                    </div>
+                    <div style="flex: 1; background: var(--brick-50); border: 2px solid var(--brick-100); border-radius: 8px; padding: 0.6em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.55em; color: var(--brick-700); margin: 0 0 0.3em;"><span class="badge badge-joker">J3</span> Rediscuter les accords</h4>
+                        <p style="font-size: 0.42em;">Quand la tension vient du cadre lui-même : le rouvrir, pas le subir</p>
+                    </div>
+                </div>
+                <blockquote>Les Joker structurent ce que vous n'avez pas envie d'inventer dans l'urgence.</blockquote>
+                <blockquote style="background: var(--brick-50); border-color: var(--brick-700);"><strong>Geste de posture</strong> : accueillir les tensions au lieu de les éteindre. Résister à l'envie de résoudre à la place du groupe.</blockquote>
+                <aside class="notes">
+                    "Qu'est-ce qui vous fait le plus peur dans la gestion d'un conflit à bord ?" Distribuer J1 et J3.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 4 : NORMING ═══════════ -->
+            <section>
+                <h2><span class="accent-amber">Structuration</span> - Le groupe se structure</h2>
+                <div class="tuckman-curve" style="height: 120px; margin-top: 0.5em;">
+                    <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path class="curve-line" d="M 20,98 C 35,97 50,93 64,90 C 110,80 185,17 240,17 C 295,17 370,33 416,50 C 460,63 540,72 592,73 C 640,75 708,87 736,93 L 775,100" />
+                    </svg>
+                    <div class="tuckman-phase dimmed" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                    </div>
+                </div>
+                <div class="elements-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 0.5em;">
+                    <div class="element-card role">
+                        <div class="emoji">⚓</div>
+                        <h4>R1 Bosco</h4>
+                        <p>Gardien du bateau</p>
+                    </div>
+                    <div class="element-card role">
+                        <div class="emoji">🧭</div>
+                        <h4>R2 Navigateurice</h4>
+                        <p>Vision stratégique</p>
+                    </div>
+                    <div class="element-card role" style="border-width: 3px; border-color: var(--amber-700);">
+                        <div class="emoji">🤲</div>
+                        <h4>R3 Second soigneux</h4>
+                        <p><strong>Rôle pivot :</strong> facilitation déléguée</p>
+                    </div>
+                    <div class="element-card role">
+                        <div class="emoji">🍳</div>
+                        <h4>R4 Cambusier·ère</h4>
+                        <p>Attention aux besoins</p>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 0.5em;">Les rôles tournent. Pas parce que c'est démocratique, mais parce que la cristallisation tue l'apprentissage.</blockquote>
+                <aside class="notes">
+                    Distribuer R1-R4. Focus R3 : anime les débriefs, co-facilite les Joker. Ancrage terrain : "Comment étaient distribués les rôles dans les équipages qui marchaient ?" REPI et maturité en vocabulaire rapide.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 5 : PERFORMING ═══════════ -->
+            <section>
+                <h2><span class="accent-navy">Coopération</span> - Le groupe produit</h2>
+                <div class="tuckman-curve" style="height: 120px; margin-top: 0.5em;">
+                    <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path class="curve-line" d="M 20,98 C 35,97 50,93 64,90 C 110,80 185,17 240,17 C 295,17 370,33 416,50 C 460,63 540,72 592,73 C 640,75 708,87 736,93 L 775,100" />
+                    </svg>
+                    <div class="tuckman-phase dimmed" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                    </div>
+                </div>
+                <blockquote style="font-size: 0.65em; background: var(--navy-50); border-color: var(--navy-700);">L'investissement en coopération en début de semaine se rentabilise en apprentissage technique ensuite.</blockquote>
+                <aside class="notes">
+                    L'argument massue. "Vous avez déjà vécu un stage où l'équipage tournait tout seul ?" Relier aux blocs précédents.
+                </aside>
+            </section>
+
+            <!-- Coopération : 5 éléments -->
+            <section>
+                <h2><span class="accent-navy">5 conditions</span> de l'apprentissage coopératif</h2>
+                <p class="text-small text-muted" style="text-align: center;">Johnson & Johnson - Le dispositif Anacoluthe les crée toutes</p>
+                <div class="jj-grid">
+                    <div class="jj-card">
+                        <div class="jj-num">1</div>
+                        <h4>Interdépendance positive</h4>
+                        <p>La réussite de chacun·e dépend de tou·tes</p>
+                        <p style="color: var(--teal-700); font-weight: 600; margin-top: 0.3em;">→ Rôles R1-R4</p>
+                    </div>
+                    <div class="jj-card">
+                        <div class="jj-num">2</div>
+                        <h4>Responsabilité individuelle</h4>
+                        <p>Chacun·e rend compte</p>
+                        <p style="color: var(--teal-700); font-weight: 600; margin-top: 0.3em;">→ Rotation + A2</p>
+                    </div>
+                    <div class="jj-card">
+                        <div class="jj-num">3</div>
+                        <h4>Interactions face-à-face</h4>
+                        <p>Contact direct et fréquent</p>
+                        <p style="color: var(--teal-700); font-weight: 600; margin-top: 0.3em;">→ Structurel</p>
+                    </div>
+                    <div class="jj-card">
+                        <div class="jj-num">4</div>
+                        <h4>Compétences sociales enseignées</h4>
+                        <p>Pas supposées acquises</p>
+                        <p style="color: var(--teal-700); font-weight: 600; margin-top: 0.3em;">→ M2, M5, J4</p>
+                    </div>
+                    <div class="jj-card">
+                        <div class="jj-num">5</div>
+                        <h4>Auto-évaluation de groupe</h4>
+                        <p>Le groupe se regarde fonctionner</p>
+                        <p style="color: var(--teal-700); font-weight: 600; margin-top: 0.3em;">→ Débrief M5</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Concrètement : rediriger les questions vers le groupe, déléguer, valoriser le silence (compter jusqu'à 30).
+                </aside>
+            </section>
+
+            <!-- Coopération : Stigmergie -->
+            <section>
+                <h2><span class="accent-navy">Stigmergie</span> - Le groupe lit le mur</h2>
+                <div class="stigmergie-compare">
+                    <div class="stigmergie-box avant">
+                        <h4>Sans traces</h4>
+                        <p>Lae moniteurice répète les consignes</p>
+                        <p>L'équipage attend les instructions</p>
+                        <p>Tout repose sur une personne</p>
+                    </div>
+                    <div class="stigmergie-arrow">→</div>
+                    <div class="stigmergie-box apres">
+                        <h4>Avec traces</h4>
+                        <p>Le tableau A2 dit qui fait quoi</p>
+                        <p>L'affiche A1 rappelle les routines</p>
+                        <p>Le groupe se coordonne seul</p>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 0.6em;">Les cairns en montagne : chaque caillou posé guide le·la suivant·e, sans qu'iels se soient parlé. Les affiches Anacoluthe sont vos cairns.</blockquote>
+                <blockquote style="background: var(--navy-50); border-color: var(--navy-700);"><strong>Geste de posture</strong> : passer de "je facilite la coopération" à "je facilite l'apprentissage".</blockquote>
+                <aside class="notes">
+                    Montrer les affiches A1 et A2. Le groupe lit le mur, pas lae moniteurice.
+                </aside>
+            </section>
+
+            <!-- Coopération : Rituels -->
+            <section>
+                <h2><span class="accent-navy">Rituels</span> - Le groupe est en vie</h2>
+                <p class="text-small text-muted" style="text-align: center;">"Cette régularité prouve au groupe qu'il est en vie"</p>
+                <div class="rituels-grid">
+                    <div class="rituel-card">
+                        <h4><span class="badge badge-moment" style="font-size: 0.8em;">M4</span> Brief matin</h4>
+                        <p>Se synchroniser, météo perso, répartir les rôles</p>
+                    </div>
+                    <div class="rituel-card">
+                        <h4><span class="badge badge-moment" style="font-size: 0.8em;">M5</span> Débrief soir</h4>
+                        <p>Exprimer, réguler, célébrer. Le Caillou force le négatif</p>
+                    </div>
+                    <div class="rituel-card">
+                        <h4><span class="badge badge-role" style="font-size: 0.8em;">A2</span> Rotation des rôles</h4>
+                        <p>Éviter la cristallisation, apprendre en changeant de perspective</p>
+                    </div>
+                    <div class="rituel-card">
+                        <h4><span class="badge badge-affiche" style="font-size: 0.8em;">A1</span> Routines visibles</h4>
+                        <p>Savoir quoi faire sans demander : stigmergie en action</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Niveaux d'autorité en vocabulaire rapide : l'autonomie de l'équipage grandit du début à la fin de stage.
+                </aside>
+            </section>
+
+            <!-- ═══════════ BLOC 6 : ADJOURNING ═══════════ -->
+            <section>
+                <h2><span class="accent-teal">Dissolution</span> - Le groupe se sépare</h2>
+                <div class="tuckman-curve" style="height: 120px; margin-top: 0.5em;">
+                    <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path class="curve-line" d="M 20,98 C 35,97 50,93 64,90 C 110,80 185,17 240,17 C 295,17 370,33 416,50 C 460,63 540,72 592,73 C 640,75 708,87 736,93 L 775,100" />
+                    </svg>
+                    <div class="tuckman-phase dimmed" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                    </div>
+                    <div class="tuckman-phase dimmed" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                    </div>
+                </div>
+                <p class="text-left" style="width: 85%; margin: 0.3em auto; font-size: 0.6em;"><strong>Sans débrief structuré, moins de 15% des apprentissages sont transférés.</strong></p>
+                <div style="display: flex; gap: 0.5em; width: 85%; margin: 0.5em auto;">
+                    <div style="flex: 1; background: var(--teal-50); border: 1.5px solid var(--teal-100); border-radius: 8px; padding: 0.5em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.5em; color: var(--teal-700); margin: 0 0 0.2em;"><span class="badge badge-moment" style="font-size: 0.8em;">M5</span> Débrief soir</h4>
+                        <p style="font-size: 0.4em; margin: 0;">Entraînement quotidien au feedback. Le Caillou.</p>
+                    </div>
+                    <div style="flex: 1; background: var(--teal-50); border: 1.5px solid var(--teal-100); border-radius: 8px; padding: 0.5em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.5em; color: var(--teal-700); margin: 0 0 0.2em;"><span class="badge badge-moment" style="font-size: 0.8em;">M7</span> Débrief final</h4>
+                        <p style="font-size: 0.4em; margin: 0;">Qu'ai-je appris ? Qu'est-ce que je ramène à terre ?</p>
+                    </div>
+                    <div style="flex: 1; background: var(--brick-50); border: 1.5px solid var(--brick-100); border-radius: 8px; padding: 0.5em;">
+                        <h4 style="font-family: 'Merriweather Sans', sans-serif; font-size: 0.5em; color: var(--brick-700); margin: 0 0 0.2em;"><span class="badge badge-joker" style="font-size: 0.8em;">J4</span> Feedback</h4>
+                        <p style="font-size: 0.4em; margin: 0;">Je vois / ça me fait / j'aurais besoin / je propose</p>
+                    </div>
+                </div>
+                <blockquote style="margin-top: 0.5em;"><strong>Geste de posture</strong> : accompagner la séparation. Aider le groupe à emporter des éléments à transposer à terre.</blockquote>
+                <aside class="notes">
+                    "Vous faites quoi le dernier soir, actuellement ?" La célébration est un geste pédagogique, pas un bonus.
+                </aside>
+            </section>
+
+            <!-- ═══════════ CLÔTURE ═══════════ -->
+            <section>
+                <h2>Faire équipage</h2>
+                <h3 style="font-size: 0.7em;">ça s'apprend <em>et</em> ça s'anime</h3>
+                <div class="tuckman-curve" style="height: 140px; margin-top: 0.5em;">
+                    <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path class="curve-line active" d="M 20,98 C 35,97 50,93 64,90 C 110,80 185,17 240,17 C 295,17 370,33 416,50 C 460,63 540,72 592,73 C 640,75 708,87 736,93 L 775,100" />
+                    </svg>
+                    <div class="tuckman-phase active" style="left: 8%; top: 75%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Formation</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 30%; top: 14%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Turbulence</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 52%; top: 42%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Structuration</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 74%; top: 61%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Coopération</div>
+                    </div>
+                    <div class="tuckman-phase active" style="left: 92%; top: 78%;">
+                        <div class="phase-dot"></div>
+                        <div class="phase-name">Dissolution</div>
+                    </div>
+                </div>
+                <div class="consigne" style="margin-top: 0.5em;">
+                    <p><strong>Engagement</strong> : écrivez une intention concrète pour votre prochaine semaine d'encadrement.</p>
+                    <p><em>On fait ensemble ce que vous ferez avec votre équipage en fin de stage.</em></p>
+                </div>
+                <aside class="notes">
+                    Tour de parole. Post-it. Créer le groupe WhatsApp. Distribuer les ressources.
+                </aside>
+            </section>
+
+            <!-- Ressources -->
+            <section>
+                <h2>Pour approfondir</h2>
+                <div style="width: 85%; margin: 0.5em auto; text-align: left; font-size: 0.5em; line-height: 1.8;">
+                    <p><strong>Dynamiques de groupe</strong><br>
+                    Interpole - interpole.xyz | Animacoop - source.animacoop.net<br>
+                    Les écolohumanistes - "Un collectif qui vit bien"</p>
+                    <p><strong>Apprentissage coopératif</strong><br>
+                    Connac - "Apprendre avec les pédagogies coopératives"<br>
+                    P2PU - docs.p2pu.org (facilitation du peer learning)</p>
+                    <p><strong>Stigmergie</strong><br>
+                    Lilian Ricaud - lilianricaud.com | Interpole - fiche stigmergie</p>
+                    <p><strong>Projets cousins</strong><br>
+                    Metacartes "Faire Ensemble" - metacartes.cc</p>
+                    <p style="margin-top: 0.8em;"><strong>anacoluthe.org</strong></p>
+                </div>
+                <aside class="notes">
+                    Tout ça c'est un commun, celui de l'apprentissage de la coopération.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'none',
+            progress: true,
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>

@@ -8,6 +8,7 @@
     "render:roles": "node scripts/render-cards.js roles",
     "render:moments": "node scripts/render-cards.js moments",
     "render:joker": "node scripts/render-cards.js joker",
+    "render:promo": "node scripts/render-promo.js",
     "assemble": "node scripts/assemble-booklets.js",
     "assemble:roles": "node scripts/assemble-booklets.js roles",
     "assemble:moments": "node scripts/assemble-booklets.js moments",

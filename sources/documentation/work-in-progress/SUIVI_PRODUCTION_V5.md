@@ -4,11 +4,6 @@
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
-## Retours atelier BP - 260324
-X Penser à des versions des affiches imprimées low-tech, en NB, pour accepter les disparitions.
-X Un gros bouton "télécharger le kit complet" pour les monos, en bas de la grille des cartes
--
-
 ---
 
 ## 🔄 DERNIÈRES MODIFICATIONS (260325)

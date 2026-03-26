@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=210mm, height=297mm">
+    <title>Affiche promo - Anacoluthe</title>
+    <link rel="stylesheet" href="../assets/css/affiches-print.css">
+
+    <!-- Twemoji direct (pas lazy-load, on veut le rendu immédiat pour Puppeteer) -->
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"></script>
+
+    <style>
+        /* ==========================================
+           AFFICHE PROMO - Styles spécifiques print
+           ==========================================
+           Complète affiches-print.css qui fournit :
+           - .affiche-a4-portrait (210×297mm, padding 8mm)
+           - .affiche-header, .affiche-footer
+           - .section-intro, .intro-text
+           - Variables couleurs, fonts
+           ========================================== */
+
+        /* --- FORCER LES FONDS EN PRINT --- */
+        * {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* --- CONTENEUR PRINCIPAL --- */
+        .affiche-a4-portrait {
+            padding: 10mm 12mm;
+        }
+
+        /* --- TAGLINE (logo + message principal) --- */
+        .promo-tagline-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5mm;
+            margin-top: 5mm;
+            flex-shrink: 0;
+        }
+
+        .promo-tagline-logo {
+            height: 20mm;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .promo-tagline {
+            font-family: 'Merriweather', serif;
+            font-size: 30pt;
+            font-weight: 700;
+            color: var(--brick-700);
+            text-align: left;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* --- MIDDLE : sections intermédiaires réparties verticalement --- */
+        .promo-middle {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        /* --- INTRO --- */
+        .promo-intro {
+            flex-shrink: 0;
+            margin-bottom: 2mm;
+            padding: 0 4mm;
+        }
+
+        .promo-intro .intro-text {
+            font-size: 11pt;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .promo-intro .intro-text strong {
+            font-weight: 700;
+            color: var(--bleu-glenans);
+        }
+
+        /* --- BLOC titre + contenu (espacement inter-blocs via space-between) --- */
+        .promo-block {
+            flex-shrink: 0;
+        }
+
+        /* --- SECTION TITRE (h2 avec slash) --- */
+        .promo-section-title {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 20pt;
+            font-weight: 800;
+            color: var(--bleu-glenans);
+            text-align: center;
+            margin: 0mm 0 2mm 0;
+        }
+
+        .promo-section-title .slash {
+            color: var(--brick-700);
+            font-weight: 800;
+            margin-right: 1mm;
+        }
+
+        .promo-section-title .highlight {
+            color: white;
+            background: var(--bleu-glenans);
+            padding: 0.5mm 0.5mm;
+        }
+
+        /* ==========================================
+           3 PILIERS (pills) + QR latéral
+           ========================================== */
+        .promo-piliers-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2mm;
+        }
+
+        .promo-piliers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2mm;
+        }
+
+        /* QR latéral à côté des piliers */
+        .promo-qr-side {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1mm;
+            transform: rotate(3deg);
+        }
+
+        .promo-qr-side img {
+            width: 30mm;
+            height: 30mm;
+            border-radius: 1.5mm;
+        }
+
+        /* Pont texte + flèche entre piliers et QR */
+        .promo-qr-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5mm;
+            flex-shrink: 0;
+        }
+
+        .promo-qr-bridge-text {
+            font-family: 'Merriweather', serif;
+            font-size: 7pt;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--bleu-glenans);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .promo-qr-bridge-arrow {
+            width: 12mm;
+            height: 8mm;
+            color: var(--bleu-glenans);
+        }
+
+        .promo-pilier {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5mm;
+            background: white;
+            border: 0.3mm solid var(--bleu-glenans);
+            border-radius: 99mm;
+            padding: 2mm 5mm;
+            margin: -1mm 0mm;
+        }
+
+        .promo-pilier:nth-child(1) { transform: rotate(-1.5deg); }
+        .promo-pilier:nth-child(2) { transform: rotate(1deg); }
+        .promo-pilier:nth-child(3) { transform: rotate(-0.5deg); }
+
+        .promo-pilier-emoji {
+            font-size: 16pt;
+        }
+
+        .promo-pilier-text {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 12pt;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        .promo-pilier-text strong {
+            font-weight: 800;
+            color: var(--bleu-glenans);
+        }
+
+        /* CTA principal : APPRENDRE mis en avant */
+        .promo-pilier--cta {
+            background: var(--brick-700);
+            border-color: var(--brick-700);
+            transform: rotate(0deg) scale(1.08);
+            gap: 4mm;
+            padding: 3mm 6mm;
+        }
+
+        .promo-pilier--cta .promo-pilier-text {
+            color: white;
+            font-size: 14pt;
+        }
+
+        .promo-pilier--cta .promo-pilier-text strong {
+            color: white;
+        }
+
+        .promo-pilier--cta .promo-pilier-emoji {
+            filter: drop-shadow(0 0.5mm 1mm rgba(255, 255, 255, 0.3));
+        }
+
+        /* ==========================================
+           PROMESSES (POV moniteurice)
+           ========================================== */
+        .promo-promesses {
+            display: flex;
+            justify-content: space-around;
+            gap: -1.5mm;
+            padding: 0 2mm;
+        }
+
+        .promo-promesse {
+            border-radius: 2.5mm;
+            padding: 5mm 3mm 4mm 3mm;
+            flex: 1;
+            border: 0.3mm solid var(--border-light);
+            text-align: center;
+            position: relative;
+            margin-top: 8mm;
+        }
+
+        .promo-promesse:nth-child(1) { background: var(--amber-50); border-color: var(--amber-700); transform: rotate(-2deg); }
+        .promo-promesse:nth-child(2) { background: var(--brick-50); border-color: var(--brick-700); transform: rotate(1.5deg); }
+        .promo-promesse:nth-child(3) { background: var(--teal-50); border-color: var(--teal-700); transform: rotate(-1deg); }
+        .promo-promesse:nth-child(4) { background: var(--navy-50); border-color: var(--navy-700); transform: rotate(2deg); }
+
+        .promo-promesse-emoji {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20pt;
+            width: 9mm;
+            height: 9mm;
+            position: absolute;
+            top: -5mm;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .promo-promesse-text {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 10pt;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .promo-promesse:nth-child(1) .promo-promesse-text { color: var(--amber-700); }
+        .promo-promesse:nth-child(2) .promo-promesse-text { color: var(--brick-700); }
+        .promo-promesse:nth-child(3) .promo-promesse-text { color: var(--teal-700); }
+        .promo-promesse:nth-child(4) .promo-promesse-text { color: var(--navy-700); }
+
+        /* ==========================================
+           ATELIERS
+           ========================================== */
+        .promo-ateliers-intro {
+            font-family: 'Merriweather', sans-serif;
+            font-size: 8pt;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 2mm;
+        }
+
+        .promo-ateliers-grid {
+            display: flex;
+            gap: 3mm;
+        }
+
+        .promo-atelier {
+            flex: 1;
+            background: var(--teal-50);
+            border: 0.3mm solid var(--teal-700);
+            border-radius: 2.5mm;
+            padding: 6mm 4mm 3mm 4mm;
+            position: relative;
+            margin-top: 5mm;
+        }
+
+        .promo-atelier-emoji {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20pt;
+            width: 10mm;
+            height: 10mm;
+            position: absolute;
+            top: -5mm;
+            left: 4mm;
+           transform: rotate(3deg);
+        }
+
+        .promo-atelier-content {
+            font-family: 'Merriweather Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5mm;
+        }
+
+        .promo-atelier-name {
+            font-size: 12pt;
+            font-weight: 800;
+            color: var(--teal-700);
+            display: block;
+        }
+
+        .promo-atelier-desc {
+            font-size: 9pt;
+            font-weight: 400;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .promo-atelier-takeaway {
+            font-size: 9pt;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.35;
+        }
+
+        .promo-atelier-takeaway strong {
+            color: var(--teal-700);
+        }
+
+        .promo-atelier-meta {
+            font-size: 7pt;
+            font-weight: 700;
+            color: var(--teal-700);
+            letter-spacing: 0.3pt;
+        }
+
+        /* --- FOOTER --- */
+        .promo-footer {
+            display: flex;
+            justify-content: center;
+            gap: 2mm;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 6pt;
+            font-weight: 300;
+            color: var(--text-light);
+            font-style: italic;
+            padding-top: 2mm;
+            flex-shrink: 0;
+        }
+
+        .promo-footer strong {
+            font-weight: 600;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body class="affiche-ready">
+
+<div class="affiche-a4-portrait">
+
+    <!-- ========================================
+         1. HEADER BRANDING (secondaire)
+
+    <header class="affiche-header promo-header">
+        <h1>
+            <span class="accent-amber">¿</span><span class="accent-teal">¡</span>
+            Anacoluthe
+            <span class="accent-brick">!</span><span class="accent-navy">?</span>
+        </h1>
+    </header>
+         ======================================== -->
+
+    <!-- ========================================
+         2. TAGLINE (logo + message principal)
+         ======================================== -->
+    <div class="promo-tagline-row">
+        <img src="../assets/images/logo-anacoluthe.svg" alt="Logo Anacoluthe" class="promo-tagline-logo">
+        <p class="promo-tagline">Faire équipage,<br>ça s'apprend, et ça s'anime !</p>
+    </div>
+
+    <!-- Sections intermédiaires : répartition verticale -->
+    <div class="promo-middle">
+
+    <!-- ========================================
+         3. INTRO
+         ======================================== -->
+    <section class="promo-intro">
+        <div class="intro-text">
+            <p>Merci pour votre <strong>engagement</strong> et la <strong>passion</strong> que vous transmettez chaque semaine ! Animer le vivre-ensemble à bord, c'est exigeant, on le sait. Gérer les tensions, porter seul·e l'organisation, relancer la motivation après une nav difficile : cette charge s'accumule au fil de la semaine.</p>
+            <p>Et si vos stagiaires prenaient en main une partie de cette charge ? Pas par magie : avec un cadre clair et des outils qui les guident. Aux Glénans, on apprend à naviguer ET à <strong>vivre ensemble</strong>. <strong>Anacoluthe</strong>, c'est le dispositif qui rend ça concret pour vous et pour eux.</p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         4. TROIS PILIERS
+         ======================================== -->
+    <section class="promo-block">
+       <!-- <h2 class="promo-section-title"><span class="slash">/</span> La démarche, c'est <span class="highlight">3 piliers</span></h2>-->
+
+        <div class="promo-piliers-row">
+            <div class="promo-piliers">
+                <div class="promo-pilier promo-pilier--cta">
+                    <span class="promo-pilier-emoji">🎓</span>
+                    <span class="promo-pilier-text"><strong>Des formations</strong> du vendredi</span>
+                </div>
+                <div class="promo-pilier">
+                    <span class="promo-pilier-emoji">💬</span>
+                    <span class="promo-pilier-text"><strong>Une communauté</strong> WhatsApp</span>
+                </div>
+                <div class="promo-pilier">
+                    <span class="promo-pilier-emoji">🃏</span>
+                    <span class="promo-pilier-text"><strong>Un jeu pédagogique</strong> pour vos stages en embarqué</span>
+                </div>
+            </div>
+            <div class="promo-qr-bridge">
+                <span class="promo-qr-bridge-text">Rejoindre<br>l'aventure</span>
+                <svg class="promo-qr-bridge-arrow" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 32 C16 34, 24 8, 48 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <path d="M42 6 L50 12 L40 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+            <div class="promo-qr-side">
+                <img src="../assets/images/qrcode_anacoluthe_decouvrir.png" alt="QR code vers anacoluthe.org">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         5. PROMESSES (POV moniteurice)
+         ======================================== -->
+    <section class="promo-block">
+        <h2 class="promo-section-title"><span class="slash">/</span> Ce que ça <span class="highlight">change pour vous</span></h2>
+
+        <div class="promo-promesses">
+            <div class="promo-promesse">
+                <span class="promo-promesse-emoji">🤝</span>
+                <span class="promo-promesse-text">Vos stagiaires s'entraident pour apprendre ensemble</span>
+            </div>
+            <div class="promo-promesse">
+                <span class="promo-promesse-emoji">⚡</span>
+                <span class="promo-promesse-text">Les frictions se régulent, vous n'êtes plus l'arbitre</span>
+            </div>
+            <div class="promo-promesse">
+                <span class="promo-promesse-emoji">🧭</span>
+                <span class="promo-promesse-text">L'équipage s'organise, votre charge mentale baisse</span>
+            </div>
+            <div class="promo-promesse">
+                <span class="promo-promesse-emoji">🌱</span>
+                <span class="promo-promesse-text">Iels repartent avec des compétences nommables</span>
+            </div>
+        </div>
+    </section>
+
+    </div><!-- /.promo-middle -->
+
+    <!-- ========================================
+         6. SECTION BASSE (ateliers, ancré en bas)
+         ======================================== -->
+    <section class="promo-block">
+        <h2 class="promo-section-title"><span class="slash">/</span> Deux ateliers pour <span class="highlight">se lancer</span></h2>
+
+        <p class="promo-ateliers-intro">Le vendredi matin, ateliers de 3h, en petit groupe (4-8 personnes). Aucun prérequis. Les deux se complètent mais sont indépendants.</p>
+
+        <div class="promo-ateliers-grid">
+            <div class="promo-atelier">
+                <span class="promo-atelier-emoji">🎓</span>
+                <div class="promo-atelier-content">
+                    <span class="promo-atelier-name">Animer le faire-équipage</span>
+                    <span class="promo-atelier-desc">Pourquoi un équipage traverse des turbulences, et comment accompagner chaque phase de la semaine. On pose des clefs de lecture sur la dynamique de groupe en contexte embarqué, et on travaille la posture de facilitateurice.</span>
+                    <span class="promo-atelier-takeaway"><strong>Vous repartez avec :</strong> des repères pour décrypter ce qui se joue dans un groupe, et des gestes concrets pour chaque phase de la semaine.</span>
+                </div>
+            </div>
+            <div class="promo-atelier">
+                <span class="promo-atelier-emoji">🃏</span>
+                <div class="promo-atelier-content">
+                    <span class="promo-atelier-name">Fluidifier la semaine avec Anacoluthe</span>
+                    <span class="promo-atelier-desc">Prendre en main le dispositif concret : cartes, affiches, routines. On manipule le matériel, on s'entraîne à le greffer sur le brief, la nav et le débrief que vous faites déjà.</span>
+                    <span class="promo-atelier-takeaway"><strong>Vous repartez avec :</strong> un kit prêt à embarquer et l'aisance pour l'animer dès votre prochain stage.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         8. FOOTER
+         ======================================== -->
+    <footer class="promo-footer">
+        <span><strong>Anacoluthe</strong> · Jeu pédagogique sous licence CC-BY-NC-SA 4.0 · Quentin Jaud</span>
+    </footer>
+
+</div>
+
+<!-- Twemoji : parse immédiat -->
+<script>
+    if (typeof twemoji !== 'undefined') {
+        twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    }
+</script>
+</body>
+</html>

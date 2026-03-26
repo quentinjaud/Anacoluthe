@@ -54,7 +54,11 @@
     --brick-50: #FFEBEE;
     --brick-100: #FFCDD2;
     --brick-700: #C62828;
-    
+
+    /* Navy - Affiches */
+    --navy-50: #E8EDF4;
+    --navy-100: #C9D5E3;
+    --navy-700: #1E3A5F;
 
     /* Utilitaires */
     --radius-card: 16px;
@@ -142,8 +146,8 @@ header h1 {
 }
 .slash {
     color: var(--rouge-glenans);
-    font-weight: 800;
-    margin-right: 0.5rem;
+    font-weight: 900;
+    margin-right: 0.2rem;
 }
 
 .highlight {
@@ -585,6 +589,37 @@ footer {
     border-bottom-color: var(--bleu-glenans);
 }
 
+.footer-credits-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-credits-text {
+    flex: 7;
+    text-align: left;
+}
+
+.footer-credits-side {
+    flex: 3;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .footer-credits-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .footer-credits-text {
+        text-align: center;
+    }
+
+    .footer-credits-side {
+        text-align: center;
+    }
+}
+
 .footer-title {
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 700;
@@ -695,6 +730,16 @@ footer {
     background: #e67e22;
     color: white;
     border-color: #e67e22;
+}
+
+.footer-nav-link.accent-former {
+    color: var(--teal-700);
+    border-color: rgba(61, 139, 135, 0.3);
+}
+.footer-nav-link.accent-former:hover {
+    background: var(--teal-700);
+    color: white;
+    border-color: var(--teal-700);
 }
 
 /* Responsive footer */
@@ -2464,6 +2509,196 @@ body.home-page footer {
     background: var(--bleu-glenans);
     color: white;
     border-color: var(--bleu-glenans);
+}
+
+/* ===========================================
+   PAGE DÉCOUVRIR (decouvrir.html)
+   =========================================== */
+
+.decouvrir-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2em 1.5em;
+}
+
+.decouvrir-page .intro {
+    color: var(--text-muted);
+    margin-bottom: 2em;
+    line-height: 1.6;
+}
+
+.decouvrir-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.decouvrir-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--blanc);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-card);
+    padding: 1.2em 1.5em;
+    transition: border-color 0.3s ease, box-shadow 0.2s;
+}
+
+.decouvrir-card:hover {
+    border-color: var(--bleu-glenans);
+    box-shadow: 0 2px 8px rgba(0, 102, 173, 0.12);
+}
+
+.decouvrir-card h3 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 800;
+    margin: 0 0 0.3em 0;
+    color: var(--bleu-glenans);
+    font-size: 1.1em;
+}
+
+.decouvrir-card .meta {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.8em;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 0.4em;
+}
+
+.decouvrir-card p {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--text-dark);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.decouvrir-card .badge {
+    display: inline-block;
+    padding: 0.1em 0.5em;
+    border-radius: 3px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: white;
+    margin-left: 0.5em;
+    vertical-align: middle;
+}
+
+.badge-bp { background: var(--teal-700); }
+
+/* Section ateliers */
+.ateliers-section {
+    margin-bottom: 2.5em;
+}
+
+.ateliers-section h2,
+.communaute-section h2,
+.decouvrir-presentations h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.8em;
+    color: var(--teal-700);
+    margin: 0 0 0.3em 0;
+}
+
+.decouvrir-page .slash {
+    color: var(--navy-700);
+    font-weight: 800;
+}
+
+.decouvrir-presentations h2 {
+    margin-bottom: 0.8em;
+}
+
+.ateliers-intro {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.atelier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-left: -3em;
+    margin-right: -3em;
+}
+
+@media (max-width: 600px) {
+    .atelier-grid {
+        margin-left: 0;
+        margin-right: 0;
+        grid-template-columns: 1fr;
+    }
+}
+
+.atelier-card {
+    position: relative;
+    background: var(--teal-50);
+    border: 1.5px solid rgba(61, 139, 135, 0.2);
+    border-radius: var(--radius-card);
+    padding: 2em 1.3em 1.2em;
+    margin-top: 1.8em;
+}
+
+.atelier-card-emoji {
+    position: absolute;
+    top: -0.6em;
+    left: 0.5em;
+    font-size: 2.5em;
+    line-height: 1;
+}
+
+.atelier-card-name {
+    display: block;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    color: var(--teal-700);
+    margin-bottom: 0.5em;
+}
+
+.atelier-card-desc {
+    display: block;
+    font-size: 0.85em;
+    color: var(--text-dark);
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 0.6em;
+}
+
+.atelier-card-takeaway {
+    display: block;
+    font-size: 0.8em;
+    color: var(--teal-700);
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+/* Section communauté */
+.communaute-section {
+    margin-bottom: 2.5em;
+}
+
+.communaute-text {
+    font-size: 0.9em;
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-weight: 300;
+    margin: 0 0 0.5em 0;
+}
+
+.communaute-link-placeholder {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
 }
 
 /* ===========================================

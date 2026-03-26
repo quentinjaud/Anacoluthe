@@ -3,130 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentations - Anacoluthe</title>
+    <title>Se former - Anacoluthe</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
-    <style>
-        .presentations-page {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 2em 1.5em;
-        }
 
-        .presentations-page .intro {
-            color: var(--text-muted);
-            margin-bottom: 2em;
-            line-height: 1.6;
-        }
-
-        .presentation-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-
-        .presentation-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: var(--blanc);
-            border: 2px solid var(--border-light);
-            border-radius: var(--radius-card);
-            padding: 1.2em 1.5em;
-            transition: border-color 0.3s ease, box-shadow 0.2s;
-        }
-
-        .presentation-card:hover {
-            border-color: var(--bleu-glenans);
-            box-shadow: 0 2px 8px rgba(0, 102, 173, 0.12);
-        }
-
-        .presentation-card h3 {
-            font-family: 'Merriweather Sans', sans-serif;
-            font-weight: 800;
-            margin: 0 0 0.3em 0;
-            color: var(--bleu-glenans);
-            font-size: 1.1em;
-        }
-
-        .presentation-card .meta {
-            font-family: 'Merriweather Sans', sans-serif;
-            font-size: 0.8em;
-            font-weight: 300;
-            color: var(--text-muted);
-            margin-bottom: 0.4em;
-        }
-
-        .presentation-card p {
-            margin: 0;
-            font-size: 0.9em;
-            color: var(--text-dark);
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        .presentation-card .badge {
-            display: inline-block;
-            padding: 0.1em 0.5em;
-            border-radius: 3px;
-            font-family: 'Merriweather Sans', sans-serif;
-            font-size: 0.75em;
-            font-weight: 600;
-            color: white;
-            margin-left: 0.5em;
-            vertical-align: middle;
-        }
-
-        .badge-bp { background: var(--teal-700); }
-
-        .tip {
-            margin-top: 2em;
-            padding: 1em;
-            background: var(--teal-50);
-            border-radius: var(--radius-small);
-            font-size: 0.85em;
-            color: var(--text-dark);
-            font-weight: 300;
-        }
-
-        .tip strong {
-            color: var(--teal-700);
-        }
-    </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="header-link">
             <h1 class="site-title"><span class="accent-amber">¿</span><span class="accent-teal">¡</span> Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
         </a>
-        <p class="site-subtitle">Découvrir le dispositif</p>
+        <p class="site-subtitle">Se former à la coopération, et au jeu lui-même.</p>
     </header>
 
-    <main class="presentations-page">
+    <main class="decouvrir-page">
         <p class="intro">
-            Anacoluthe s'explique mieux en le montrant qu'en le racontant.
-            Ces présentations sont conçues pour faire découvrir le dispositif à différents publics :
-            moniteurices, pairs, partenaires.
+            Animer le vivre-ensemble à bord, c'est exigeant : gérer les tensions, porter seul·e l'organisation, relancer la motivation.
+            Anacoluthe propose un cadre clair et des outils concrets pour que vos stagiaires prennent en main une partie de cette charge.
+            Le vendredi matin, deux ateliers complémentaires pour s'y préparer.
         </p>
 
-        <div class="presentation-list">
+        <section class="ateliers-section">
+            <h2><span class="slash">/</span> Deux ateliers pour se lancer</h2>
+            <p class="ateliers-intro">Ateliers de 3h, en petit groupe (4-8 personnes). Aucun prérequis. Les deux se complètent mais sont indépendants.</p>
 
-            <a href="sources/presentations/atelier-bp.html" class="presentation-card">
-                <h3>Atelier Découverte <span class="badge badge-bp">Promo BP</span></h3>
-                <div class="meta">1h - 12 participant·es - Mars 2026</div>
-                <p>Présentation du dispositif, manipulation des cartes, travail en sous-groupes sur la transférabilité à d'autres contextes et bases.</p>
-            </a>
+            <div class="atelier-grid">
+                <div class="atelier-card">
+                    <span class="atelier-card-emoji">🎓</span>
+                    <span class="atelier-card-name">Animer le faire-équipage</span>
+                    <span class="atelier-card-desc">Pourquoi un équipage traverse des turbulences, et comment accompagner chaque phase de la semaine. On pose des clefs de lecture sur la dynamique de groupe en contexte embarqué, et on travaille la posture de facilitateurice.</span>
+                    <span class="atelier-card-takeaway"><strong>Vous repartez avec :</strong> des repères pour décrypter ce qui se joue dans un groupe, et des gestes concrets pour chaque phase de la semaine.</span>
+                </div>
+                <div class="atelier-card">
+                    <span class="atelier-card-emoji">🃏</span>
+                    <span class="atelier-card-name">Fluidifier la semaine avec Anacoluthe</span>
+                    <span class="atelier-card-desc">Prendre en main le dispositif concret : cartes, affiches, routines. On manipule le matériel, on s'entraîne à le greffer sur le brief, la nav et le débrief que vous faites déjà.</span>
+                    <span class="atelier-card-takeaway"><strong>Vous repartez avec :</strong> un kit prêt à embarquer et l'aisance pour l'animer dès votre prochain stage.</span>
+                </div>
+            </div>
+        </section>
 
-            <!-- Futures présentations à ajouter ici -->
-            <!--
-            <a href="sources/presentations/brief-monos.html" class="presentation-card">
-                <h3>Brief moniteurices <span class="badge" style="background:var(--amber-700)">Brief samedi</span></h3>
-                <div class="meta">10 min - Brief samedi matin RTQ</div>
-                <p>Présentation rapide du dispositif aux moniteurices avant la semaine de stage.</p>
-            </a>
-            -->
+        <section class="communaute-section">
+            <h2><span class="slash">/</span> Faire communauté</h2>
+            <p class="communaute-text">
+                Anacoluthe se construit en équipage. Un espace d'échange entre moniteurices pour partager ses expériences, poser ses questions et faire avancer le dispositif ensemble.
+            </p>
+            <p class="communaute-link-placeholder">Lien à venir.</p>
+        </section>
 
-        </div>
+        <section class="decouvrir-presentations">
+            <h2><span class="slash">/</span> Présentations</h2>
+            <p class="ateliers-intro">Ces présentations ne forment pas : elles sensibilisent à des thématiques abordées dans le jeu.</p>
+
+            <div class="decouvrir-list">
+
+                <a href="sources/presentations/atelier-bp.html" class="decouvrir-card">
+                    <h3>Atelier Découverte <span class="badge badge-bp">Promo BP</span></h3>
+                    <div class="meta">1h - 12 participant·es - Mars 2026</div>
+                    <p>Présentation du dispositif, manipulation des cartes, travail en sous-groupes sur la transférabilité à d'autres contextes et bases.</p>
+                </a>
+
+                <!-- Futures présentations à ajouter ici -->
+
+            </div>
+        </section>
 
     </main>
 
@@ -138,12 +78,18 @@
                 <a href="fil-semaine.html" class="footer-nav-link accent-fil">🧵 Fil de la semaine</a>
                 <a href="ensavoirplus.html" class="footer-nav-link accent-info">📖 En savoir plus</a>
                 <a href="print/livrets/kit-complet.pdf" class="footer-nav-link accent-download" download>📥 Télécharger tout le jeu</a>
-                <a href="suivi.html" class="footer-nav-link accent-suivi">🚧 Suivre le travail en cours</a>
             </nav>
             <div class="footer-credits">
-                <span class="footer-title">Anacoluthe</span> · Dispositif pédagogique pour apprendre l'organisation collective et le vivre ensemble par la voile habitable.
-                <br>Projet support pour la validation des UC1-2 du <a href="decouvrir.html">BPJEPS</a>.
-                <br><span class="footer-meta"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">CC-BY-NC-SA 4.0</a> · Quentin Jaud</span>
+                <div class="footer-credits-row">
+                    <div class="footer-credits-text">
+                        <span class="footer-title">Anacoluthe</span> · Dispositif pédagogique pour apprendre l'organisation collective et le vivre ensemble par la voile habitable.
+                        <br>Projet support pour la validation des UC1-2 du BPJEPS.
+                        <br><span class="footer-meta"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">CC-BY-NC-SA 4.0</a> · Quentin Jaud</span>
+                    </div>
+                    <div class="footer-credits-side">
+                        <a href="suivi.html" class="footer-nav-link accent-suivi">🚧 Suivre le travail en cours</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

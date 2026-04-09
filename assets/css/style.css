@@ -634,9 +634,9 @@ footer {
 /* Ligne de boutons centrée */
 .footer-nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
-    white-space: nowrap;
 }
 
 .footer-nav-link {
@@ -745,7 +745,12 @@ footer {
 /* Responsive footer */
 @media (max-width: 600px) {
     .footer-nav {
-        gap: 0.4rem;
+        gap: 0.35rem;
+    }
+
+    .footer-nav-link {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
     }
 
     .footer-tool-desc {

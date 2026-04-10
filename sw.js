@@ -5,7 +5,7 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.2.0';
+const CACHE_VERSION = '1.3.0';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
 
 // Ressources essentielles à précacher
@@ -69,6 +69,7 @@ const PRECACHE_URLS = [
   '/sources/affiches/A1_routines_memo.md',
   '/sources/affiches/A2_tableau_memo.md',
   '/sources/affiches/A3_marque_page_memo.md',
+  '/sources/affiches/A4_decouverte_memo.md',
   
   // Manifest
   '/manifest.json'
@@ -208,6 +209,22 @@ self.addEventListener('message', (event) => {
     self.skipWaiting();
   }
   
+  if (event.data && event.data.type === 'CHECK_CACHE') {
+    caches.open(CACHE_NAME).then((cache) => {
+      Promise.all(
+        PRECACHE_URLS.map((url) => cache.match(url).then((r) => !!r))
+      ).then((results) => {
+        const cached = results.filter(Boolean).length;
+        event.ports[0].postMessage({
+          type: 'CACHE_STATUS',
+          total: PRECACHE_URLS.length,
+          cached: cached,
+          complete: cached === PRECACHE_URLS.length
+        });
+      });
+    });
+  }
+
   if (event.data && event.data.type === 'FORCE_UPDATE') {
     // Forcer la mise à jour du cache en bypassant le cache HTTP
     caches.delete(CACHE_NAME).then(() => {

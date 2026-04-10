@@ -1407,6 +1407,20 @@ main {
     white-space: nowrap;
 }
 
+/* Badge cache hors-ligne */
+.pwa-prefooter-cache {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: transparent;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.pwa-prefooter-cache.ready {
+    color: #22C55E;
+}
+
 /* Séparateur */
 .pwa-prefooter-sep {
     width: 1px;
@@ -1516,7 +1530,11 @@ main {
     .pwa-prefooter-text {
         font-size: 0.6rem;
     }
-    
+
+    .pwa-prefooter-cache {
+        font-size: 0.5rem;
+    }
+
     .pwa-prefooter-btn {
         font-size: 0.6rem;
         padding: 0.3rem 0.5rem;
@@ -1529,11 +1547,15 @@ main {
         padding: 0.3rem 0.5rem;
         gap: 0.3rem;
     }
-    
+
     .pwa-prefooter-text {
         font-size: 0.55rem;
     }
-    
+
+    .pwa-prefooter-cache {
+        display: none;
+    }
+
     .pwa-prefooter-btn {
         font-size: 0.55rem;
         padding: 0.25rem 0.4rem;

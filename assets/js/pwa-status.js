@@ -16,7 +16,8 @@
     lastSync: null,
     version: null,
     deferredInstallPrompt: null,
-    isInstalled: false
+    isInstalled: false,
+    cacheReady: false
   };
 
   // Clé localStorage pour la date de sync
@@ -95,6 +96,7 @@
       <div class="pwa-prefooter-status">
         <span class="pwa-prefooter-dot online" id="prefooter-dot"></span>
         <span class="pwa-prefooter-text" id="prefooter-text">En ligne</span>
+        <span class="pwa-prefooter-cache" id="prefooter-cache"></span>
       </div>
       <div class="pwa-prefooter-sep"></div>
       <button class="pwa-prefooter-btn btn-refresh" id="prefooter-refresh" title="Mettre à jour les cartes">
@@ -231,8 +233,40 @@
     }
   }
 
+  // === Cache status ===
+
+  function checkCacheStatus() {
+    if (!navigator.serviceWorker.controller) return;
+
+    const messageChannel = new MessageChannel();
+    messageChannel.port1.onmessage = (event) => {
+      if (event.data.type === 'CACHE_STATUS') {
+        state.cacheReady = event.data.complete;
+        updatePrefooterCacheBadge();
+      }
+    };
+
+    navigator.serviceWorker.controller.postMessage(
+      { type: 'CHECK_CACHE' },
+      [messageChannel.port2]
+    );
+  }
+
+  function updatePrefooterCacheBadge() {
+    const badge = document.getElementById('prefooter-cache');
+    if (!badge) return;
+
+    if (state.cacheReady) {
+      badge.textContent = '✓ Prêt hors-ligne';
+      badge.classList.add('ready');
+    } else {
+      badge.textContent = '';
+      badge.classList.remove('ready');
+    }
+  }
+
   // === Service Worker ===
-  
+
   function registerServiceWorker() {
     if (!('serviceWorker' in navigator)) {
       console.log('[PWA] Service Worker non supporté');
@@ -256,8 +290,9 @@
           });
         });
         
-        // Demander la version actuelle
+        // Demander la version actuelle et vérifier le cache
         getVersion();
+        checkCacheStatus();
       })
       .catch((error) => {
         console.error('[PWA] Erreur enregistrement SW:', error);
@@ -270,6 +305,7 @@
         updateSyncTime();
         updateUI();
         hideUpdateToast();
+        checkCacheStatus();
       }
       
       if (event.data.type === 'VERSION') {
@@ -283,6 +319,7 @@
         updateSyncTime();
         updateUI();
         hideUpdateToast();
+        checkCacheStatus();
       }
     });
   }
@@ -463,6 +500,7 @@
     // Nouveau pre-footer
     updatePrefooterStatus();
     updatePrefooterInstallBtn();
+    updatePrefooterCacheBadge();
     
     // Legacy (gardés pour compatibilité mais masqués par CSS)
     updateStatusIndicator();

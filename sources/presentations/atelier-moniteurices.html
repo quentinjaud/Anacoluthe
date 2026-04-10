@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anacoluthe - Présentation moniteurices</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/logo-anacoluthe.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css">
+    <link rel="stylesheet" href="anacoluthe-theme.css">
+    <style>
+        /* Styles spécifiques pitch moniteurices */
+        .jour1-table { width: 100%; font-size: 0.65em; border-collapse: collapse; margin: 0.5em 0; }
+        .jour1-table th { background: var(--navy, #2c3e6b); color: white; padding: 0.4em 0.6em; text-align: left; }
+        .jour1-table td { padding: 0.4em 0.6em; border-bottom: 1px solid #eee; vertical-align: top; }
+        .jour1-table tr:nth-child(even) { background: #f8f9fa; }
+        .jour1-table .badge-inline { display: inline-block; padding: 0.1em 0.4em; border-radius: 4px; font-weight: 600; font-size: 0.9em; }
+        .jour1-table .badge-moment { background: var(--teal, #2a9d8f); color: white; }
+        .jour1-table .badge-gris { background: #ddd; color: #666; }
+
+        .message-cle { background: var(--teal, #2a9d8f); color: white; padding: 0.5em 1em; border-radius: 8px; font-size: 0.75em; margin-top: 0.5em; text-align: center; }
+
+        /* ── Courbe Tuckman (repris de atelier-faire-equipage) ── */
+        .tuckman-curve {
+            position: relative;
+            width: 80%;
+            height: 250px;
+            margin: 1.2em auto 0;
+            padding-bottom: 30px;
+        }
+        .tuckman-curve svg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .tuckman-curve .curve-line {
+            fill: none;
+            stroke: var(--navy-100, #c5cbe0);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        .tuckman-curve .curve-line.active {
+            stroke: var(--bleu-glenans, #0066ad);
+            stroke-width: 4;
+        }
+        .tuckman-phase {
+            position: absolute;
+            text-align: center;
+            transform: translate(-50%, -7px);
+            font-family: 'Merriweather Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .tuckman-phase.active {
+            transform: translate(-50%, -9px);
+        }
+        .tuckman-phase .phase-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--navy-100, #c5cbe0);
+            margin: 0 auto 0.3em;
+            transition: all 0.3s ease;
+        }
+        .tuckman-phase.active .phase-dot {
+            background: var(--bleu-glenans, #0066ad);
+            width: 18px; height: 18px;
+            box-shadow: 0 0 12px rgba(0,102,173,0.4);
+        }
+        .tuckman-phase .phase-name {
+            font-size: 0.55em;
+            font-weight: 700;
+            color: var(--text-muted, #888);
+            transition: color 0.3s ease;
+        }
+        .tuckman-phase.active .phase-name {
+            color: var(--bleu-glenans, #0066ad);
+            font-size: 0.6em;
+        }
+        .tuckman-phase .phase-sub {
+            font-size: 0.4em;
+            font-weight: 400;
+            color: var(--text-muted, #888);
+            margin-top: 0.15em;
+        }
+        .tuckman-phase.active .phase-sub {
+            color: var(--text-dark, #333);
+        }
+        .tuckman-phase.dimmed .phase-dot { background: var(--navy-100, #c5cbe0); opacity: 0.4; }
+        .tuckman-phase.dimmed .phase-name { opacity: 0.4; }
+        .tuckman-phase.dimmed .phase-sub { opacity: 0.3; }
+        .tuckman-axis-y {
+            position: absolute;
+            left: -40px; top: 10%; bottom: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 0.38em;
+            color: var(--text-muted, #888);
+        }
+        .tuckman-axis-y span {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Visuel ICE ── */
+        .ice-visual {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            margin: 1em 0;
+        }
+        .ice-item {
+            text-align: center;
+            font-size: 0.8em;
+        }
+        .ice-item .ice-emoji { font-size: 2.5em; display: block; margin-bottom: 0.3em; }
+        .ice-item .ice-label { font-weight: 700; color: var(--navy, #2c3e6b); }
+
+        /* ── Visuel Stigmergie ── */
+        .cairns-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;
+            margin: 1em 0;
+            font-size: 1.3em;
+        }
+        .cairn-arrow { color: var(--text-muted, #888); font-size: 0.6em; }
+
+        /* ── Tips J1 ── */
+        .tip-card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--teal, #2a9d8f);
+            border-radius: 0 8px 8px 0;
+            padding: 0.8em 1.2em;
+            margin: 1em auto;
+            width: 85%;
+            text-align: left;
+            font-size: 0.8em;
+        }
+        .tip-card .tip-emoji { font-size: 1.8em; float: left; margin-right: 0.5em; margin-top: -0.1em; }
+
+        /* ── J1 greffe ── */
+        .greffe-list { list-style: none; padding: 0; margin: 0.5em 0; font-size: 0.75em; width: 95%; margin-left: auto; margin-right: auto; }
+        .greffe-list li { display: flex; align-items: baseline; gap: 1em; padding: 0.35em 0; border-bottom: 1px solid #eee; }
+        .greffe-list .greffe-existant { flex: 0 0 40%; text-align: right; }
+        .greffe-list .greffe-anacoluthe { flex: 1; color: var(--bleu-glenans, #0066ad); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1 : Titre -->
+            <section>
+                <h1>Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
+                <h3 style="font-size: 0.9em">Comment structurer l'apprentissage <br>du faire-équipage ?</h3>
+                <aside class="notes">
+                    - 20 min max
+                    - Objectif : adoption du dispositif sur leur bateau cette semaine
+                    - Kits imprimés à distribuer pendant la manipulation
+                </aside>
+            </section>
+
+            <!-- SLIDE 2 : Les 4 frictions -->
+            <section>
+                <h2><span class="accent-amber">⚙️ Vous connaissez ça ?</span></h2>
+                <ul class="text-center">
+                    <li><strong>Tout repose sur vous</strong><br>Donner le rythme, organiser, relancer, c'est souvent vous, seul·e</li>
+                    <li><strong>Les mêmes consignes, chaque matin</strong><br>Sans repères visibles, rien ne s'installe</li>
+                    <li><strong>On avance, mais vers où ?</strong><br>La semaine file, les stagiaires ne voient pas leur progression</li>
+                    <li><strong>Quand ça coince, on fait comment ?</strong><br>Tensions à bord, pas de cadre pour en parler</li>
+                </ul>
+                <p class="text-small text-muted" style="margin-top: 1em;">4 frictions liées au manque d'outils coopératifs dans l'équipage.</p>
+                <aside class="notes">
+                    - Interpeller, laisser réagir, rebondir sur le vécu
+                    - Conversation, pas exposé (petit groupe)
+                    - Racine commune : pas d'outils coopératifs → tout sur la mono
+                </aside>
+            </section>
+
+            <!-- SLIDE 3a : Tuckman -->
+            <section>
+                <h2>📈 Un groupe qui se forme et coopère passe généralement par ces 5 phases</h2>
+                <img src="../../assets/images/5-phases-de-Tuckman.png" alt="Les 5 phases de Tuckman : Formation, Turbulence, Structuration, Coopération, Dissolution" style="max-width: 75%; margin: 0.5em auto; display: block;">
+                <blockquote style="margin-top: 0.8em;">Les tensions de Jour 3, c'est prévisible, pas un échec.</blockquote>
+                <p class="text-small text-muted">Tuckman 1965</p>
+                <aside class="notes">
+                    - 5 phases prévisibles, transposées sur la semaine de stage
+                    - Turbulence = normal, pas un échec d'animation
+                    - Peut boucler plusieurs fois dans la semaine (pas linéaire)
+                </aside>
+            </section>
+
+            <!-- SLIDE 3b : ICE -->
+            <section>
+                <h2>🔑 Pourquoi c'est si intense</h2>
+                <div class="ice-visual">
+                    <div class="ice-item">
+                        <span class="ice-emoji">🏝️</span>
+                        <span class="ice-label">Isolé</span>
+                    </div>
+                    <div class="ice-item">
+                        <span class="ice-emoji">📦</span>
+                        <span class="ice-label">Confiné</span>
+                    </div>
+                    <div class="ice-item">
+                        <span class="ice-emoji">🌊</span>
+                        <span class="ice-label">Extrême</span>
+                    </div>
+                </div>
+                <p class=" text-small text-left">Sous-marins, stations polaires, bateaux : mêmes dynamiques. Ces phases qui prennent des semaines à terre se compriment en 6 jours.</p>
+                <blockquote>C'est pour ça que Jour 1 est si chargé.</blockquote>
+                <p class="text-small text-muted">Psychologie des environnements extrêmes</p>
+                <aside class="notes">
+                    - ICE = cadre de la recherche sur les environnements extrêmes
+                    - Compression des dynamiques de groupe
+                    - Explique l'intensité du Jour 1 et la prévisibilité de la Turbulence
+                </aside>
+            </section>
+
+            <!-- SLIDE 3c : Stigmergie -->
+            <section>
+                <h2>🐜La coordination sans consignes</h2>
+                <div class="cairns-visual">
+                    <span>🪨</span>
+                    <span class="cairn-arrow">→</span>
+                    <span>🪨</span>
+                    <span class="cairn-arrow">→</span>
+                    <span>🪨</span>
+                    <span class="cairn-arrow">→</span>
+                    <span>🪨</span>
+                    <span class="cairn-arrow">→</span>
+                    <span>⛰️</span>
+                </div>
+                <p class="text-small text-left">Les cairns en montagne : chaque caillou posé guide le suivant, sans que les randonneurs se soient parlé.</p>
+                <p class="text-small text-left">C'est la <strong>stigmergie</strong> : coordination par les traces laissées dans l'environnement.</p>
+                <blockquote>Les affiches Anacoluthe dans le carré, ce sont vos cairns. Le groupe se régule en lisant le mur.</blockquote>
+                <aside class="notes">
+                    - Stigmergie = le groupe lit l'environnement, pas les consignes
+                    - Affiches routines, tableau d'équipage = traces visibles
+                    - Moins de consignes à répéter chaque matin
+                </aside>
+            </section>
+
+            <!-- SLIDE 4 : Le principe -->
+            <section>
+                <h2>🌱 Le principe : <span class="accent-teal">greffer</span>, pas ajouter</h2>
+                <ul class="text-left">
+                    <li>Anacoluthe se branche sur les routines existantes : brief, navigation, débrief</li>
+                    <li>Chaque moniteurice garde sa patte, son style d'animation</li>
+                    <li>Les outils structurent, ils ne prescrivent pas</li>
+                </ul>
+                <blockquote>
+                    Ça allège la charge moniteurice, ça ne l'alourdit pas.
+                </blockquote>
+                <aside class="notes">
+                    - Garder son style, juste un squelette
+                    - Si question temps → teaser slide Jour 1
+                </aside>
+            </section>
+
+            <!-- SLIDE 5 : Friction → outil -->
+            <section>
+                <h2>🔗 Friction → outil</h2>
+                <ul class="text-center">
+                    <li>⚙️ <strong>Fluidifier le quotidien</strong><br><strong><span class="accent-amber"> des rôles clairs</span></strong> qui distribuent l'organisation à l'équipage</li>
+                    <li>🔁 <strong>Arrêter de répéter</strong><br><strong><span class="accent-navy">des affiches</span></strong> qui posent des repères visuels et soutiennent l'autonomie</li>
+                    <li>🧭 <strong>Rendre la progression visible</strong><br><strong><span class="accent-teal">des cartes pour les moments clés</span></strong> de l'accueil au débrief final</li>
+                    <li>🔓 <strong>Gérer les accrocs</strong><br><strong><span class="accent-brick">des cartes joker</span></strong> à la demande si un accroc advient</li>
+                </ul>
+                <aside class="notes">
+                    - Faire circuler les cartes physiques
+                    - Chaque outil ← une friction terrain, rien par hasard
+                </aside>
+            </section>
+
+            <!-- SLIDE 6 : La boîte à outils -->
+            <section>
+                <h2>🧰 Dans la boîte à out's</h2>
+                <div class="elements-grid">
+                    <div class="element-card affiche">
+                        <div class="emoji">📋</div>
+                        <h4>Affiches</h4>
+                        <p>Découverte du jeu, routines, tableau d'équipage, marque-page LDB et leur petit mémo</p>
+                    </div>
+                    <div class="element-card role">
+                        <div class="emoji">🎭</div>
+                        <h4>4 rôles</h4>
+                        <p>Bosco, navigateurice, second soigneux, cambusier·ère</p>
+                    </div>
+                    <div class="element-card moment">
+                        <div class="emoji">⏱️</div>
+                        <h4>7 moments</h4>
+                        <p>accueil, accords, rôles, brief, débrief, mi-parcours, final</p>
+                    </div>
+                    <div class="element-card joker">
+                        <div class="emoji">🃏</div>
+                        <h4>4 joker</h4>
+                        <p>Conflit, temps mort, rediscuter les accords, retour moniteurice</p>
+                    </div>
+                </div>
+                <p class="text-small text-muted mt-1">Au total : 4 affiches A4 et 19 cartes A6</p>
+                <aside class="notes">
+                    - Rôles + affiches = quotidien / Moments = semaine / Joker = à la demande
+                    - Rapide, vue d'ensemble. Manipulation après.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7 : Journée type -->
+            <section>
+                <h2>🔄 Le rythme du bord</h2>
+                <p class="text-center" style="font-style: italic; color: var(--text-muted); font-size: 0.8em;">Chaque jour, quelques rituels simples structurent la journée.</p>
+                <div class="fil-boucle-slide">
+                    <div class="fil-boucle-phase">
+                        <span class="fil-boucle-emoji">🌅</span>
+                        <strong>Matin</strong>
+                        <span class="text-small"><span class="badge badge-moment">M4 Brief</span> <span class="badge badge-affiche">📋 Tableau</span></span>
+                        <span class="text-small text-muted" style="font-size: 0.4em!important;">Météo perso (2 min) + rôles du jour (2 min) + brief technique habituel</span>
+                    </div>
+                    <span class="fil-boucle-arrow">→</span>
+                    <div class="fil-boucle-phase">
+                        <span class="fil-boucle-emoji">⛵</span>
+                        <strong>Journée</strong>
+                        <span class="text-small"><span class="badge badge-role">🎭 Rôles</span> <span class="badge badge-affiche">📋 Routines</span></span>
+                        <span class="text-small text-muted" style="font-size: 0.4em!important;">Chacun·e incarne son rôle, les affiches guident</span>
+                    </div>
+                    <span class="fil-boucle-arrow">→</span>
+                    <div class="fil-boucle-phase">
+                        <span class="fil-boucle-emoji">🌙</span>
+                        <strong>Soir</strong>
+                        <span class="text-small"><span class="badge badge-moment">M5 Débrief</span></span>
+                        <span class="text-small text-muted" style="font-size: 0.4em!important;">Météo + "qu'est-ce qui a marché ensemble ?" + "un truc qui a coincé"</span>
+                    </div>
+                </div>
+                <p class="text-small text-muted" style="margin-top: 0.5em;">10 min le matin, 15 min le soir. Les rôles tournent chaque jour.</p>
+                <aside class="notes">
+                    - Boucle quotidienne : 10 min matin, 15 min soir
+                    - Brief = brief habituel + 4 min (météo perso + rôles)
+                    - Débrief = pas un cours, juste coopération + Caillou
+                </aside>
+            </section>
+
+            <!-- SLIDE 8a : Votre Jour 1 habituel -->
+            <section>
+                <h2>📅 Votre Jour 1</h2>
+                <p class="text-center" style="font-style: italic; color: var(--text-muted); font-size: 0.8em;">Vous faites déjà tout ça :</p>
+                <ul class="text-left" style="font-size: 0.85em;">
+                    <li>✔️ Interconnaissance, brise-glace</li>
+                    <li>✔️ Attentes des stagiaires</li>
+                    <li>✔️ Avitaillement</li>
+                    <li>✔️ Inventaire et vérification du bateau</li>
+                    <li>✔️ Topo sécurité</li>
+                    <li>✔️ Accords d'équipage</li>
+                    <li>✔️ Premier repas</li>
+                </ul>
+                <aside class="notes">
+                    - Faire reconnaître, hochements de tête
+                    - Jour 1 déjà chargé, pas question d'en rajouter
+                    - Transition : "Anacoluthe ne rajoute rien, il se greffe dessus"
+                </aside>
+            </section>
+
+            <!-- SLIDE 8b : Avec Anacoluthe, la charge se distribue -->
+            <section>
+                <h2>📅 Avec Anacoluthe, la charge se distribue</h2>
+                <ul class="greffe-list">
+                    <li>
+                        <span class="greffe-existant">Interconnaissance, brise-glace</span>
+                        <span class="greffe-anacoluthe">→ <span class="badge badge-moment">M1</span> structure les questions</span>
+                    </li>
+                    <li>
+                        <span class="greffe-existant">Attentes des stagiaires</span>
+                        <span class="greffe-anacoluthe">→ <span class="badge badge-moment">M1</span> couvre ça (4 tours de partage)</span>
+                    </li>
+                    <li>
+                        <span class="greffe-existant">Avitaillement + inventaire</span>
+                        <span class="greffe-anacoluthe">→ le créneau ambassadeurice ⤵</span>
+                    </li>
+                    <li>
+                        <span class="greffe-existant">Topo CQ</span>
+                        <span class="greffe-anacoluthe" style="color: var(--text-muted, #888); font-weight: 400;">→ votre programme, rien ne change</span>
+                    </li>
+                    <li>
+                        <span class="greffe-existant">Accords d'équipage</span>
+                        <span class="greffe-anacoluthe">→ <span class="badge badge-moment">M2</span> fournit 7 questions-guides</span>
+                    </li>
+                    <li>
+                        <span class="greffe-existant">Premier repas</span>
+                        <span class="greffe-anacoluthe">→ moment naturel pour les accords ⤵</span>
+                    </li>
+                </ul>
+                <div class="message-cle">Les cartes guident, les stagiaires portent une partie. <br>Vous facilitez.</div>
+                <aside class="notes">
+                    - Même programme, mais structuré et distribué
+                    - M1 remplace le brise-glace bricolé par un cadre
+                    - M2 remplace les accords improvisés par des questions testées
+                    - ⤵ = tips concrets dans les slides suivantes
+                </aside>
+            </section>
+
+            <!-- SLIDE 8c : Tip - L'ambassadeurice -->
+            <section>
+                <h2>💡 L'ambassadeurice</h2>
+                <div class="tip-card">
+                    <span class="tip-emoji">🧭</span>
+                    <p>Pendant que l'équipage est aux courses, certains stagiaires restent pour l'inventaire. Confiez le kit à l'un·e d'entre elleux : <strong>"Explore ça, c'est toi qui présenteras ce soir."</strong></p>
+                    <p>Ce sera votre premier·ère allié·e à bord. Le soir, iel présente le jeu aux autres et lance la discussion sur les accords d'équipage.</p>
+                </div>
+                <aside class="notes">
+                    - Distribue la charge dès la première heure
+                    - Stagiaire investi·e = adoption facilitée
+                    - Fonctionne aussi avec un binôme
+                </aside>
+            </section>
+
+            <!-- SLIDE 8d : Tip - L'affiche qui parle -->
+            <section>
+                <h2>💡 L'affiche qui parle toute seule</h2>
+                <div class="tip-card">
+                    <span class="tip-emoji">📋</span>
+                    <p>Posez l'affiche "découverte" sur la table du carré <strong>dès l'arrivée</strong>. Pas d'explication.</p>
+                    <p>Les stagiaires la trouvent, la lisent, posent des questions. L'intro se fait sans créneau dédié.</p>
+                </div>
+                <aside class="notes">
+                    - Stigmergie en action : l'environnement communique
+                    - Zéro temps d'animation nécessaire
+                    - Les questions viennent naturellement
+                </aside>
+            </section>
+
+            <!-- SLIDE 8e : Tip - Les accords au repas -->
+            <section>
+                <h2>💡 Les accords au premier repas</h2>
+                <div class="tip-card">
+                    <span class="tip-emoji">🍽️</span>
+                    <p>Le premier repas ensemble est un moment naturel de discussion. Glissez M2 là : <strong>"Puisqu'on est tous là, on se dit comment on veut vivre cette semaine ?"</strong></p>
+                    <p>Pas de créneau formel. Ça vit dans le repas.</p>
+                </div>
+                <aside class="notes">
+                    - Moment déjà convivial, pas besoin de formaliser
+                    - M2 fournit les 7 questions si la discussion cale
+                    - Accords notés et affichés après
+                </aside>
+            </section>
+
+            <!-- SLIDE 8f : Tip - Les rôles au J2 -->
+            <section>
+                <h2>💡 Les rôles, ça peut attendre le J2</h2>
+                <div class="tip-card">
+                    <span class="tip-emoji">☀️</span>
+                    <p>Si le soir est trop chargé, décalez M3 (découverte des rôles) au <strong>premier brief du J2 matin</strong>.</p>
+                    <p>Ça allège le Jour 1, et ça donne un contenu concret au tout premier brief.</p>
+                </div>
+                <div class="message-cle">Jour 1 = le seul jour un peu chargé. Ensuite c'est juste brief (10 min) + débrief (15 min).</div>
+                <aside class="notes">
+                    - Permission de ne pas tout faire le soir
+                    - M3 au J2 matin = transition naturelle vers le brief quotidien
+                    - Rassurer : après le J1 c'est léger
+                </aside>
+            </section>
+
+            <!-- SLIDE 9 : Manipulation -->
+            <section>
+                <h2>👐 À vous d'explorer</h2>
+                <p>Un kit est sur la table, explorez le site sur vos téléphones.</p>
+                <p>Parcourez, lisez, posez vos questions.</p>
+                <img src="../../assets/images/qrcode_anacoluthe.png" alt="QR code anacoluthe.org" style="width: 150px; margin: 0.5em auto; display: block;">
+                <p><strong style="font-size: 1.6em; color: var(--rouge-glenans);">anacoluthe.org</strong></p>
+                <aside class="notes">
+                    - 5 min libre, kits + site sur téléphones
+                    - Pas structurer, laisser les questions venir
+                    - Disponible, réponses au fil de l'eau
+                </aside>
+            </section>
+
+            <!-- SLIDE 10 : Vos retours comptent -->
+            <section>
+                <h2>🚧 Un projet en construction</h2>
+                <p class="text-left" style="font-size: 0.85em;">Anacoluthe est un projet de BP. Ce n'est pas un produit fini : c'est un dispositif qui se construit avec les retours du terrain.</p>
+                <ul class="text-left" style="font-size: 0.85em;">
+                    <li><strong>Cette semaine</strong> : testez ce qui vous parle, laissez le reste</li>
+                    <li><strong>En fin de semaine</strong> : on fait le point ensemble. Ce qui a marché, ce qui n'a pas pris, ce qu'il faudrait changer</li>
+                    <li><strong>Vos retours</strong> nourrissent directement le projet. Ils serviront aussi à en parler à d'autres moniteurices</li>
+                </ul>
+                <blockquote style="font-size: 0.85em;">Vous n'êtes pas utilisateurices d'un outil, vous êtes co-constructeurices.</blockquote>
+                <aside class="notes">
+                    - Projet BP = pas descendant, besoin de retours terrain
+                    - Dédramatiser : pas d'enjeu de performance, c'est un test
+                    - Proposer un créneau en fin de semaine pour débriefer
+                    - Leurs retours = matière pour le mémoire et pour convaincre d'autres monos
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealNotes],
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            transition: 'none',
+            progress: true
+        });
+    </script>
+</body>
+</html>

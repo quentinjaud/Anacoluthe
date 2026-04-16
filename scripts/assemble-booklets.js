@@ -61,7 +61,8 @@ const CONFIG = {
     },
     m1x4: {
       cards: ['M1_accueil-presentations', 'M1_accueil-presentations', 'M1_accueil-presentations', 'M1_accueil-presentations'],
-      title: 'M1 Accueil x4'
+      title: 'M1 Accueil x4',
+      skipInKit: true  // livret spécial, hors kit complet
     },
     affiches: {
       cards: ['A1_routines', 'A2_tableau_equipage', 'A3_marque_page', 'A4_decouverte-dispositif'],
@@ -316,9 +317,9 @@ async function main() {
     fs.mkdirSync(CONFIG.outputDir, { recursive: true });
   }
   
-  // Déterminer quels livrets assembler
-  const bookletNames = target === 'all' 
-    ? Object.keys(CONFIG.booklets)
+  // Déterminer quels livrets assembler (exclure skipInKit pour 'all')
+  const bookletNames = target === 'all'
+    ? Object.keys(CONFIG.booklets).filter(k => !CONFIG.booklets[k].skipInKit)
     : [target];
   
   const results = [];

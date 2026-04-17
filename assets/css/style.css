@@ -2728,6 +2728,90 @@ body.home-page footer {
     margin: 0;
 }
 
+.communaute-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2em;
+    align-items: center;
+}
+
+.communaute-col-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.communaute-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    align-self: flex-start;
+    padding: 0.7em 1.2em;
+    background-color: var(--teal-700);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.communaute-cta:hover {
+    background-color: var(--teal-50);
+    color: var(--teal-700);
+    outline: 1px solid var(--teal-700);
+    transform: translateY(-1px);
+}
+
+.communaute-cta-icon {
+    font-size: 1.1em;
+}
+
+.communaute-hint {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+.communaute-col-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.communaute-qr {
+    width: 160px;
+    height: 160px;
+    display: block;
+    border: 1px solid var(--teal-100);
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 6px;
+}
+
+.communaute-qr-caption {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75em;
+    color: var(--text-muted);
+    margin: 0;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .communaute-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    .communaute-col-qr {
+        order: 2;
+    }
+}
+
 /* ===========================================
    TWEMOJI - Emojis convertis en images SVG
    =========================================== */

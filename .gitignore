@@ -25,3 +25,11 @@ npm-debug.log*
 
 # Fichiers de debug print
 print/debug*.png
+print/affiches/A1_routines.pdf
+print/affiches/A2_tableau_equipage.pdf
+print/affiches/A3_marque_page.pdf
+print/affiches/A4_decouverte-dispositif.pdf
+print/cartes/A1_routines_memo.pdf
+print/cartes/A2_tableau_memo.pdf
+print/cartes/A3_marque_page_memo.pdf
+print/cartes/A4_decouverte_memo.pdf

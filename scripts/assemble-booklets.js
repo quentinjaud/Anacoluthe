@@ -64,6 +64,11 @@ const CONFIG = {
       title: 'M1 Accueil x4',
       skipInKit: true  // livret spécial, hors kit complet
     },
+    m2x4: {
+      cards: ['M2_accords-equipage', 'M2_accords-equipage', 'M2_accords-equipage', 'M2_accords-equipage'],
+      title: 'M2 Accords équipage x4',
+      skipInKit: true  // livret spécial, hors kit complet
+    },
     affiches: {
       cards: ['A1_routines', 'A2_tableau_equipage', 'A3_marque_page', 'A4_decouverte-dispositif'],
       title: 'Affiches A4',

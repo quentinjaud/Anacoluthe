@@ -39,7 +39,7 @@ Développer la capacité à diagnostiquer et réparer.
 ### Le soir
 - Ranger et rincer le matériel utilisé dans la journée
 - Préparer les outils pour les réparations du lendemain
-- Faire un point avec le·la moniteurice sur l'état général du bateau
+- Faire un point avec lae moniteurice sur l'état général du bateau
 
 ## 🗣️ Questions pour t'aider
 

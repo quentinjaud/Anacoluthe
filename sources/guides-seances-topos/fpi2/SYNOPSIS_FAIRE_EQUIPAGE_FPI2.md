@@ -17,6 +17,7 @@ L'atelier s'inscrit dans la **semaine 3 du ruban CQP Initiateur voile** : « Gé
 ## Public et différentiels
 
 Les stagiaires FPI2 ont **déjà un vécu d'encadrement** (stages P, accompagnements, parfois autonomie selon parcours). Pas de table rase. Différentiel principal vs atelier mère :
+
 - ils sont en **formation initiale certifiante**, pas en formation continue
 - leur horizon immédiat est la série de **stages P** qui suivent dans le cursus
 - leur identité d'**initiateurice** n'est pas encore stabilisée
@@ -29,7 +30,7 @@ Les stagiaires FPI2 ont **déjà un vécu d'encadrement** (stages P, accompagnem
    - **P1 après bloc 2** — animer un cercle d'accords M2 (12 min)
    - **P2 après bloc 3** — animer un Joker J1 sur cas conflit, avec OSBD complet (17 min, juste après l'avoir découvert)
    - **P3 après bloc 6** — animer un débrief Caillou M5 (8 min)
-   Chaque pratique : 1 personne anime, les autres jouent l'équipage. 6 stagiaires animent au total sur l'atelier (3 pratiques × 2 sous-groupes). Le formateurice circule, ne corrige pas, valorise les tentatives. Cas et contextes prêts dans `FICHES_CAS_FPI2.md`.
+     Chaque pratique : 1 personne anime, les autres jouent l'équipage. 6 stagiaires animent au total sur l'atelier (3 pratiques × 2 sous-groupes). Le formateurice circule, ne corrige pas, valorise les tentatives. Cas et contextes prêts dans `FICHES_CAS_FPI2.md`.
 4. **Vocabulaire harmonisé CQP** : "encadrant·e" / "initiateurice" plutôt que "moniteurice" — alignement avec le référentiel certif.
 5. **Clôture renforcée** :
    - Engagement individuel sur post-it (comme original)
@@ -38,21 +39,22 @@ Les stagiaires FPI2 ont **déjà un vécu d'encadrement** (stages P, accompagnem
 
 ## Architecture (vue d'ensemble V2)
 
-| Bloc | Durée | Phase | Mode | Contenu |
-|------|-------|-------|------|---------|
-| 0 | 15 min | — | Participatif | Interconnaissance R1/R2/R3 + restitution croisée |
-| Cadrage | 3 min | — | Cadrage | Situer l'atelier dans la semaine FPI2 + ce qu'il ne couvre pas |
-| 1 | 12 min | — | Vocabulaire | ICE + Tuckman |
-| 2 | 15 min | Formation | Former | Accords d'équipage (M2, J3) |
-| **P1** | **12 min** | — | **Pratiquer** | **Animer un cercle d'accords (sous-groupes simultanés)** |
-| 3 | 20 min | Turbulence | Former | Tensions 1v1, problème vs polarité (J1, J3) |
-| **P2** | **17 min** | — | **Pratiquer** | **Animer un Joker J1 sur cas conflit (OSBD complet)** |
-| Pause | 15 min | — | — | — |
-| 4 | 25 min | Structuration | Former + Vocab | Rôles, redevabilités, rotation (R1-R4, A2, M3) |
-| 5 | 25 min | Coopération | Former + Vocab | Apprentissage coopératif, rituels, stigmergie |
-| 6 | 12 min | Dissolution | Former | Débrief structuré (M5, M7, J4) |
-| **P3** | **8 min** | — | **Pratiquer** | **Animer un Caillou M5 (sous-groupes simultanés)** |
-| C | 15 min | — | Clôture | Retour Tuckman + engagement + binômes stage P + grille observation |
+
+| Bloc    | Durée     | Phase         | Mode           | Contenu                                                             |
+| --------- | ------------ | --------------- | ---------------- | --------------------------------------------------------------------- |
+| 0       | 15 min     | —            | Participatif   | Interconnaissance R1/R2/R3 + restitution croisée                   |
+| Cadrage | 3 min      | —            | Cadrage        | Situer l'atelier dans la semaine FPI2 + ce qu'il ne couvre pas      |
+| 1       | 12 min     | —            | Vocabulaire    | ICE + Tuckman                                                       |
+| 2       | 15 min     | Formation     | Former         | Accords d'équipage (M2, J3)                                        |
+| **P1**  | **12 min** | —            | **Pratiquer**  | **Animer un cercle d'accords (sous-groupes simultanés)**           |
+| 3       | 20 min     | Turbulence    | Former         | Tensions 1v1, problème vs polarité (J1, J3)                       |
+| **P2**  | **17 min** | —            | **Pratiquer**  | **Animer un Joker J1 sur cas conflit (OSBD complet)**               |
+| Pause   | 15 min     | —            | —             | —                                                                  |
+| 4       | 25 min     | Structuration | Former + Vocab | Rôles, redevabilités, rotation (R1-R4, A2, M3)                    |
+| 5       | 25 min     | Coopération  | Former + Vocab | Apprentissage coopératif, rituels, stigmergie                      |
+| 6       | 12 min     | Dissolution   | Former         | Débrief structuré (M5, M7, J4)                                    |
+| **P3**  | **8 min**  | —            | **Pratiquer**  | **Animer un Caillou M5 (sous-groupes simultanés)**                 |
+| C       | 15 min     | —            | Clôture       | Retour Tuckman + engagement + binômes stage P + grille observation |
 
 **Total** : 15+3+12+15+12+20+17 = 94 min · pause 15 · 25+25+12+8+15 = 85 min · = **194 min utiles + 15 min pause = 209 min ≈ 3h30**.
 

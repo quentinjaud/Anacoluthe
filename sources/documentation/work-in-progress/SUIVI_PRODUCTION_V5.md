@@ -1,12 +1,59 @@
 # SUIVI DE PRODUCTION ANACOLUTHE V5
 ## Document de travail courant
-*Dernière mise à jour : 260324*
+*Dernière mise à jour : 260511*
 
 *Historique détaillé et décisions passées → voir `ARCHIVES_PRODUCTION_V5.md`*
 
 ---
 
-## 🔄 DERNIÈRES MODIFICATIONS (260325)
+## 🔄 DERNIÈRES MODIFICATIONS (260511)
+
+### Session 32 - Fork FPI2 de l'atelier "faire équipage" (11 mai)
+
+**Contexte** : Quentin animera prochainement l'atelier "faire équipage" en semaine 3 du ruban CQP Initiateur voile (FPI2). Besoin d'adapter l'atelier mère (3h, formation continue, moniteurices en poste) à un public stagiaires CQP en formation initiale, sur une demi-journée (~3h30), avec ajustements posture/vocabulaire/cadrage institutionnel.
+
+**Méthodologie de production**
+- Lecture des 4 documents de l'atelier mère (atelier, conducteur, synopsis, déroulé CSV) + analyse du ruban semaine 3 fourni en image
+- 3 questions de cadrage (durée, scope, fil rouge BC N°2) avant d'écrire
+- Livraison V1 → auto-critique sollicitée (11 problèmes identifiés) → V2 corrigée
+
+**Différentiels V2 par rapport à l'atelier mère**
+- Cadrage FPI2 en transition (3 min) entre bloc 0 et bloc 1, *pas avant* — préserve le principe "interconnaissance avant qu'on parle d'interconnaissance"
+- Bloc 0 dissociation des perspectives : R2 côté équipier·e, R3 côté encadrant·e (paperboard lisible)
+- **Bloc 6bis V1 (mise en pratique en fin) abandonné en V2 au profit de 3 pratiques intercalées simultanées** : P1 cercle d'accords M2 après bloc 2, P2 Joker J1 conflit avec OSBD après bloc 3, P3 Caillou M5 après bloc 6 — sous-groupes en parallèle, pas de démo publique, retour ciblé posture
+- Vocabulaire harmonisé CQP : "encadrant·e" / "initiateurice" au lieu de "moniteurice"
+- Clôture étoffée : engagement individuel + binômes pair·es de débrief stage P + grille d'observation Tuckman A5 recto-verso embarquable
+- Encart synopsis : posture du formateurice en formation initiale (repère identitaire, double bind facilitation/évaluation)
+
+**Fichiers créés** (dans `sources/guides-seances-topos/faire-equipage/fpi2/`)
+- `SYNOPSIS_FAIRE_EQUIPAGE_FPI2.md` — synopsis différentiel, renvoie à l'atelier mère pour le cadrage théorique
+- `DEROULE_FAIRE_EQUIPAGE_FPI2.csv` — déroulé tabulaire complet (194 min utiles + 15 pause)
+- `FICHES_CAS_FPI2.md` — fiche-cas P1, 3 fiches-cas P2 (polarité cadre/souplesse, rythme/fatigue, non-respect d'accord), fiche-cas P3, grille d'observation Tuckman A5
+
+**Auto-évaluation honnête**
+- Pattern à corriger : la V1 livrée était médiocre (cadrage avant interconnaissance, 6bis en fin de session avec démo publique, arithmétique fausse, vocabulaire non aligné CQP). Les 11 défauts identifiés à la critique étaient identifiables *avant* livraison. À l'avenir : passe d'auto-relecture critique avant le premier livrable.
+- Points forts : itération V1→V2 propre, fiches-cas réellement produites (pas évoquées), critique honnête et hiérarchisée.
+
+**Notes pour la prochaine session (post-animation pilote)**
+- ⚠️ **Recueillir les retours de l'animation pilote** avant V3. Questions à poser à Quentin :
+  - Calibrage des 3 cas P2 : trop intense émotionnellement ? Difficulté équivalente entre les 3 ?
+  - P3 à 8 min après 3h d'atelier : fatigue cognitive ? Faut-il déplacer P3 plus tôt ?
+  - Grille d'observation A5 : effectivement embarquée en stage P par les stagiaires ? Réutilisée au point quotidien ?
+  - Bascule de mode formateurice pendant les pratiques : tenable ou retour automatique au "centre" ?
+  - Engagement binômes pair·es stage P : combien tiennent leur débrief 5 min en visio ?
+- Pistes V3 à explorer selon retours :
+  - Fiches-cas plus graduées (1 cas facile / 1 moyen / 1 dur en P2)
+  - Variante 1 jour complet : ajouter une 4e pratique "animer un brief M4" + simulation de point quotidien J3
+  - Conducteur narratif FPI2 dédié (si quelqu'un d'autre que Quentin doit animer) — actuellement le synopsis différentiel renvoie à 2 docs sources, coût d'entrée élevé pour un·e nouveau·elle formateurice
+  - Mini-grille d'auto-évaluation à remplir par le stagiaire en fin d'atelier (pas du tout = certif côté formateurice, juste un retour pédago)
+- Hors scope identifié à ne PAS absorber : CNV explicite, addictions, projet associatif (modules dédiés dans la semaine FPI2)
+- Articulation à clarifier : qui anime quoi dans la semaine FPI2 ? L'atelier "faire équipage" peut-il être positionné juste avant ou juste après l'atelier CNV pour bénéficier du renforcement OSBD ?
+
+**PR** : #2 (`claude/fpi2-workshop-fork-P2Xll` → `main`) — contient aussi 2 commits préalables sur l'atelier mère (versions courtes 2-3 pages + regroupement sous-dossier)
+
+---
+
+## 🔄 MODIFICATIONS PRÉCÉDENTES (260325)
 
 ### Session 31 - Généralisation N&B à toutes les affiches (25 mars)
 

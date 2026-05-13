@@ -2707,6 +2707,33 @@ body.home-page footer {
     font-weight: 400;
 }
 
+.atelier-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+    padding: 0.55em 1em;
+    background-color: #fff;
+    color: var(--teal-700);
+    text-decoration: none;
+    border: 1.5px solid var(--teal-700);
+    border-radius: 6px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.atelier-cta:hover {
+    background-color: var(--teal-700);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.atelier-cta-icon {
+    font-size: 1em;
+}
+
 /* Section communauté */
 .communaute-section {
     margin-bottom: 2.5em;

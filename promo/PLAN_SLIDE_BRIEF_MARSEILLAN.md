@@ -23,13 +23,13 @@
   > accueillir, répartir les rôles, briefer/débriefer, traverser une tension — c'est l'autre
   > moitié du métier.*
 - **Révélation** :
-  > ***Anacoluthe, c'est un kit déjà à bord pour t'épauler là-dessus.***
+  > ***Anacoluthe, c'est un dispositif pédagogique — un kit déjà à bord — pour t'épauler là-dessus.***
   > *Cartes et affiches sont déjà dans ton bateau — rien à aller chercher.*
 - **Repères** : déjà dans le bateau · à la carte · ça allège ta charge · rien d'obligatoire · tu restes chef·fe de bord.
 
 ---
 
-## SLIDE 2 — Les bouts du jeu et les frictions auxquelles ils répondent
+## SLIDE 2 — Les bouts du dispositif et les frictions auxquelles ils répondent
 
 > 📸 **Prends-le en photo** : ton SOS de poche, à ressortir le moment venu quand ça coince à bord.
 
@@ -45,10 +45,10 @@ Tableau 3 colonnes, ordonné J1→J6 :
 
 ---
 
-## SLIDE 3 — Le jeu complet + invitation
+## SLIDE 3 — Le dispositif complet + invitation
 
 - **GROS QR code → fil-semaine** : `fil-semaine.html` (anacoluthe.org/fil-semaine.html) = le
-  jeu complet déroulé **J1→J6**. QR : `assets/images/qrcode_anacoluthe_fil_semaine.png`.
+  dispositif complet déroulé **J1→J6**. QR : `assets/images/qrcode_anacoluthe_fil_semaine.png`.
 - **Invitation** :
   > *Fouillez-le **avant l'arrivée des stagiaires** — le créneau du samedi, entre le brief et 13h.*
 - **En petit** : le kit (cartes + affiches plastifiées + guide mono) est déjà à bord · les

@@ -31,6 +31,8 @@
 
 ## SLIDE 2 — Les bouts du jeu et les frictions auxquelles ils répondent
 
+> 📸 **Prends-le en photo** : ton SOS de poche, à ressortir le moment venu quand ça coince à bord.
+
 Tableau 3 colonnes, ordonné J1→J6 :
 
 | Quand ça coince à bord… | Tu piochent… | Ce que ça débloque |

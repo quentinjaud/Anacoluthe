@@ -24,7 +24,8 @@
   > moitié du métier.*
 - **Révélation** :
   > ***Anacoluthe, c'est un kit déjà à bord pour t'épauler là-dessus.***
-- **Repères** : à la carte · ça allège ta charge · rien d'obligatoire · tu restes chef·fe de bord.
+  > *Cartes et affiches sont déjà dans ton bateau — rien à aller chercher.*
+- **Repères** : déjà dans le bateau · à la carte · ça allège ta charge · rien d'obligatoire · tu restes chef·fe de bord.
 
 ---
 

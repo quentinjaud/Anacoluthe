@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=210mm, height=297mm">
+    <title>Anacoluthe, ton aide-mono - A4 recto-verso</title>
+    <link rel="stylesheet" href="../assets/css/affiches-print.css">
+
+    <!-- N&B : icônes Lucide en SVG, pas de twemoji (cf. affiches _nb) -->
+
+    <style>
+        /* ==========================================
+           A4 RECTO-VERSO "AIDE-MONO"
+           Complète affiches-print.css (variables, fonts,
+           .affiche-a4-portrait).
+           ========================================== */
+
+        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+        .affiche-a4-portrait {
+            padding: 13mm 14mm;
+            justify-content: space-between;
+        }
+
+        /* ========== RECTO ========== */
+
+        /* ① Accroche : titre court (question) + sous-titre.
+           N&B : noir profond, pas de couleur. */
+        .mr-accroche {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 22pt;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        .mr-accroche-sub {
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            font-size: 13.5pt;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.4;
+            margin: 3.5mm 0 0 0;
+        }
+
+        .mr-accroche-sub strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        /* Logo de branding, en tête (près du titre) */
+        .mr-header-logo {
+            height: 17mm;
+            width: auto;
+            display: block;
+            margin-bottom: 6mm;
+        }
+
+        /* ② Explication concrète (2 paragraphes : ce que c'est, puis pourquoi) */
+        .mr-explain {
+            margin: 8mm 0 0 0;
+        }
+
+        .mr-explain p {
+            font-family: 'Merriweather', serif;
+            font-size: 12.5pt;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.55;
+            margin: 0 0 3.5mm 0;
+        }
+
+        .mr-explain p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mr-explain strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        /* ④ Les 3 promesses : rangée de 3 encadrés filetés (N&B) */
+        .mr-promesses {
+            margin: 9mm 0 0 0;
+            display: flex;
+            gap: 4mm;
+        }
+
+        .mr-promesse {
+            flex: 1;
+            border: 0.5pt solid #1a1a1a;
+            border-radius: 2.5mm;
+            padding: 4mm 4mm 4.5mm 4mm;
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+        }
+
+        /* Icône Lucide (N&B), centrée horizontalement dans le bloc */
+        .mr-promesse-icon {
+            width: 100%;
+            text-align: center;
+        }
+
+        .mr-promesse-icon img {
+            width: 8mm;
+            height: 8mm;
+            display: inline-block;
+            transform: rotate(var(--icon-rot, 0deg));
+        }
+
+        .mr-promesse-label {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 10.5pt;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.1;
+        }
+
+        .mr-promesse-text {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 9.5pt;
+            font-weight: 300;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .mr-au-dos {
+            margin: 3.5mm 0 0 0;
+            font-family: 'Merriweather', serif;
+            font-size: 10.5pt;
+            font-style: italic;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        /* ⑤ Footer : 2 QR + 2 CTA, crédit centré dessous */
+        .mr-footer {
+            margin-top: 8mm;
+            padding-top: 4.5mm;
+            border-top: 0.4pt solid var(--border-light);
+        }
+
+        .mr-footer-ctas {
+            display: flex;
+            gap: 6mm;
+        }
+
+        .mr-footer-cta {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+        }
+
+        /* CTA de droite en miroir : QR poussé dans l'angle droit */
+        .mr-footer-cta--right {
+            flex-direction: row-reverse;
+        }
+
+        .mr-footer-cta--right .mr-footer-cta-text {
+            text-align: right;
+        }
+
+        .mr-footer-qr {
+            width: 20mm;
+            height: 20mm;
+            flex-shrink: 0;
+        }
+
+        .mr-footer-cta-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+        .mr-footer-cta-label {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 10pt;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .mr-footer-credit {
+            margin-top: 3.5mm;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7pt;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.35;
+        }
+
+        .mr-footer-credit strong {
+            font-weight: 600;
+            font-style: normal;
+            color: var(--text-dark);
+        }
+
+        /* ========== VERSO : le menu des frictions ========== */
+        .affiche-a4-portrait.page-verso {
+            justify-content: flex-start;
+        }
+
+        .mv-title {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 19pt;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.15;
+            padding-bottom: 5mm;
+            margin: 0;
+        }
+
+        .mv-bandeau {
+            font-family: 'Merriweather', serif;
+            font-size: 11pt;
+            font-style: italic;
+            color: #444;
+            line-height: 1.4;
+            margin: 2.5mm 0 0 0;
+        }
+
+        .mv-bandeau strong {
+            font-weight: 700;
+            font-style: normal;
+            color: #1a1a1a;
+        }
+
+        /* Liste de vignettes : empilées, remplit la hauteur restante */
+        .mv-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 2mm;
+            margin-top: 6mm;
+        }
+
+        .mv-vignette {
+            display: flex;
+            gap: 4.5mm;
+            border: 0.5pt solid #1a1a1a;
+            border-radius: 2.5mm;
+            padding: 3mm 4.5mm;
+            align-items: center;
+        }
+
+        /* Colonne gauche : numéro + icône + repère temps */
+        .mv-vig-aside {
+            flex-shrink: 0;
+            width: 23mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5mm;
+        }
+
+        .mv-vig-icon img {
+            width: 12mm;
+            height: 12mm;
+            display: block;
+            transform: rotate(var(--icon-rot, 0deg));
+        }
+
+        .mv-vig-when {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            color: #444;
+            text-align: center;
+        }
+
+        /* Corps : galère, outil à piocher, ce que ça débloque */
+        .mv-vig-body { flex: 1; }
+
+        .mv-vig-gripe {
+            font-family: 'Merriweather', serif;
+            font-size: 12pt;
+            font-weight: 700;
+            font-style: italic;
+            color: #1a1a1a;
+            line-height: 1.25;
+            margin: 1mm 0 3mm 0;
+            padding-left: 3mm;
+            border-left: 1.5pt solid #1a1a1a;
+        }
+
+        .mv-vig-tool {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 10pt;
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 1.3;
+            margin: 0 0 1.2mm 0;
+        }
+
+        .mv-vig-tool strong { font-weight: 800; }
+
+        .mv-vig-unlock {
+            font-family: 'Merriweather', serif;
+            font-size: 9pt;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.3;
+            margin-top: 1.4mm;
+            margin-bottom: 1mm;
+        }
+
+        /* Conseil posture (boîte grise) */
+        .mv-vig-posture {
+            margin: 2mm 0 0 0;
+            background: #f2f2f2;
+            border-radius: 1.5mm;
+            padding: 1.8mm 2.5mm;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-weight: 400;
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .mv-vig-posture strong {
+            font-style: normal;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        /* Étiquettes Pioche / Débloque */
+        .mv-lbl {
+            display: inline-block;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            padding: 0.3mm 1.6mm;
+            border-radius: 1mm;
+            margin-right: 1mm;
+            vertical-align: 0.4mm;
+        }
+
+        .mv-lbl-pioche { color: #fff; background: #1a1a1a; }
+        .mv-lbl-debloque { color: #1a1a1a; background: #fff; border: 0.5pt solid #1a1a1a; }
+
+        /* ========== PRINT : forcer A4 portrait, 2 pages ========== */
+        .page-recto { page-break-after: always; }
+        .page-verso { page-break-after: auto; }
+
+        @media print {
+            @page { size: 210mm 297mm portrait; margin: 0; }
+            .affiche-a4-portrait { box-shadow: none; }
+        }
+    </style>
+</head>
+<body class="affiche-ready">
+
+<!-- ============================================================
+     RECTO : la galère d'abord, puis le retournement
+     ============================================================ -->
+<div class="affiche-a4-portrait page-recto">
+
+    <!-- ① LOGO + ACCROCHE (titre + sous-titre) -->
+    <div>
+        <img src="../assets/images/logo-anacoluthe.svg" alt="Anacoluthe" class="mr-header-logo">
+        <h1 class="mr-accroche">Comment finir ta semaine d'embarqué <br>en étant moins fatigué·e ?</h1>
+        <p class="mr-accroche-sub">Partage la charge de l'organisation et du vivre-ensemble avec tes stagiaires,<br> aidé·e par <strong>Anacoluthe</strong>.</p>
+    </div>
+
+    <!-- ② EXPLICATION CONCRÈTE (ce que c'est, puis pourquoi) -->
+    <div class="mr-explain">
+        <p><strong>Concrètement,</strong> ce sont des <strong>cartes</strong> et des <strong>affiches</strong>, qui sont déjà à bord ou dispos en ligne. Elles matérialisent les <strong>rôles qui composent</strong> un équipage et les moments-clés qui rythment <strong>une semaine</strong>, de l'accueil au débrief final. Ça aide l'équipage à s'auto-organiser, et te permet de piloter au lieu de tout porter.</p>
+        <p><strong>Ce n'est pas une charge de plus.</strong> Anacoluthe se greffe sur ce que tu fais déjà : le brief, la nav, le débrief. Au fil des jours, l'équipage gagne en autonomie. Les tensions se règlent à plusieurs. Tu peux te recentrer sur la pédagogie de la voile en équipage.</p>
+        <p><strong>Pourquoi un support ?</strong> Le faire-équipage reste souvent invisible et difficile à aborder de front. Une carte ou une affiche le rend tangible : elle donne un objet commun à regarder, elle légitime d'y passer cinq minutes, et elle permet d'en parler sans pointer personne. On anime toujours plus facilement avec un support que dans le vide.</p>
+    </div>
+
+    <!-- ④ LES 3 PROMESSES -->
+    <div>
+        <div class="mr-promesses">
+            <div class="mr-promesse">
+                <span class="mr-promesse-icon"><img src="../assets/icons/lucide/layout-grid.svg" alt="" style="--icon-rot: -4deg"></span>
+                <span class="mr-promesse-label">À la carte</span>
+                <p class="mr-promesse-text">Pas besoin de tout utiliser : pioche ce qui t'appelle, là où ça coince le plus.</p>
+            </div>
+            <div class="mr-promesse">
+                <span class="mr-promesse-icon"><img src="../assets/icons/lucide/sailboat.svg" alt="" style="--icon-rot: 3deg"></span>
+                <span class="mr-promesse-label">Déjà à bord</span>
+                <p class="mr-promesse-text">Cartes et affiches sont dans ton bateau, et en ligne. Rien à préparer, rien à aller chercher.</p>
+            </div>
+            <div class="mr-promesse">
+                <span class="mr-promesse-icon"><img src="../assets/icons/lucide/compass.svg" alt="" style="--icon-rot: -2deg"></span>
+                <span class="mr-promesse-label">Tu restes chef·fe de bord</span>
+                <p class="mr-promesse-text">Ça t'épaule, ça ne te remplace pas. C'est l'équipage qui prend en main une partie de la charge.</p>
+            </div>
+        </div>
+        <p class="mr-au-dos">→ Au dos : pour chaque galère, l'outil qui peut aider à débloquer.</p>
+    </div>
+
+    <!-- ⑤ FOOTER : 2 QR + 2 CTA -->
+    <footer class="mr-footer">
+        <div class="mr-footer-ctas">
+            <div class="mr-footer-cta">
+                <img src="../assets/images/qrcode_anacoluthe_fil_semaine.png" alt="QR vers anacoluthe.org/fil-semaine" class="mr-footer-qr">
+                <div class="mr-footer-cta-text">
+                    <span class="mr-footer-cta-label">Comprendre une semaine type avec tout le dispositif</span>
+                </div>
+            </div>
+            <div class="mr-footer-cta mr-footer-cta--right">
+                <img src="../assets/images/qrcode_anacoluthe_cartes.png" alt="QR vers anacoluthe.org/afficheur-cartes" class="mr-footer-qr">
+                <div class="mr-footer-cta-text">
+                    <span class="mr-footer-cta-label">Retrouver toutes les cartes en ligne</span>
+                </div>
+            </div>
+        </div>
+        <div class="mr-footer-credit">
+            <strong>Anacoluthe</strong> · CC-BY-NC-SA 4.0 · Quentin Jaud
+        </div>
+    </footer>
+
+</div>
+
+<!-- ============================================================
+     VERSO : le menu des frictions (vignettes SOS) - Task 3
+     ============================================================ -->
+<div class="affiche-a4-portrait page-verso">
+
+    <!-- En-tête verso -->
+    <div>
+        <h1 class="mv-title">Si ça coince à bord, comment Anacoluthe peut aider ?</h1>
+    </div>
+
+    <!-- Les 5 vignettes SOS, ordre J1 → J6 -->
+    <div class="mv-list">
+
+        <!-- 1 -->
+        <article class="mv-vignette">
+            <div class="mv-vig-aside">
+                <span class="mv-vig-icon"><img src="../assets/icons/lucide/sunrise.svg" alt="" style="--icon-rot: -4deg"></span>
+                <span class="mv-vig-when">J1</span>
+            </div>
+            <div class="mv-vig-body">
+                <p class="mv-vig-gripe">La mayonnaise ne prend pas, tu as du mal à briser la glace.</p>
+                <p class="mv-vig-tool"><span class="mv-lbl mv-lbl-pioche">Pioche</span> le moment <strong>accueil + attentes</strong>, et surtout les <strong>accords d'équipage</strong>.</p>
+                <p class="mv-vig-unlock"><span class="mv-lbl mv-lbl-debloque">Ça Débloque</span> Tu sais qui tu as à bord : attentes, craintes, niveau de chacun·e. Ton programme colle à leurs envies. Et le groupe pose lui-même ses règles de vie, donc beaucoup moins à arbitrer ensuite.</p>
+                <p class="mv-vig-posture"><strong>TA POSTURE :</strong> écoute avant de cadrer. Pose les règles avec elles et eux, pas à leur place.</p>
+            </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="mv-vignette">
+            <div class="mv-vig-aside">
+                <span class="mv-vig-icon"><img src="../assets/icons/lucide/users.svg" alt="" style="--icon-rot: 3deg"></span>
+                <span class="mv-vig-when">Dès J1</span>
+            </div>
+            <div class="mv-vig-body">
+                <p class="mv-vig-gripe">L'équipage attend tes consignes pour tout.</p>
+                <p class="mv-vig-tool"><span class="mv-lbl mv-lbl-pioche">Pioche</span> les <strong>rôles tournants</strong> + l'affiche des <strong>routines</strong>.</p>
+                <p class="mv-vig-unlock"><span class="mv-lbl mv-lbl-debloque">Ça Débloque</span> Chacun·e prend un domaine et le fait tourner sur la semaine. L'équipage s'auto-organise sur l'intendance du quotidien. Ta charge baisse, tu n'es plus seul·e à tout décider.</p>
+                <p class="mv-vig-posture"><strong>TA POSTURE :</strong> délègue pour de vrai. Laisse-les essayer et ajuster sans reprendre la main au premier flottement.</p>
+            </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="mv-vignette">
+            <div class="mv-vig-aside">
+                <span class="mv-vig-icon"><img src="../assets/icons/lucide/drama.svg" alt="" style="--icon-rot: -3deg"></span>
+                <span class="mv-vig-when">J3-J4</span>
+            </div>
+            <div class="mv-vig-body">
+                <p class="mv-vig-gripe">Ça frotte, tu deviens l'arbitre.</p>
+                <p class="mv-vig-tool"><span class="mv-lbl mv-lbl-pioche">Pioche</span> la carte <strong>Joker « conflit »</strong>.</p>
+                <p class="mv-vig-unlock"><span class="mv-lbl mv-lbl-debloque">Ça Débloque</span> Tu nommes la tension au lieu de la laisser couver. Tu ouvres un temps pour en parler sans désigner de coupable. Le groupe cherche la sortie, tu n'es plus l'arbitre qui tranche seul·e.</p>
+                <p class="mv-vig-posture"><strong>TA POSTURE :</strong> reste neutre. Facilite l'échange, ne prends pas parti, ne minimise pas ce qui se joue.</p>
+            </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="mv-vignette">
+            <div class="mv-vig-aside">
+                <span class="mv-vig-icon"><img src="../assets/icons/lucide/anchor.svg" alt="" style="--icon-rot: 4deg"></span>
+                <span class="mv-vig-when">Mi-semaine</span>
+            </div>
+            <div class="mv-vig-body">
+                <p class="mv-vig-gripe">Ça patine, un·e décroche.</p>
+                <p class="mv-vig-tool"><span class="mv-lbl mv-lbl-pioche">Pioche</span> le <strong>point mi-parcours</strong>.</p>
+                <p class="mv-vig-unlock"><span class="mv-lbl mv-lbl-debloque">Ça Débloque</span> Vous faites le point à mi-chemin : ce qui marche, ce qui coince, ce qu'on veut pour la fin. On réembarque celui ou celle qui décroche et on ajuste le cap avant la dernière ligne droite.</p>
+                <p class="mv-vig-posture"><strong>TA POSTURE :</strong> donne la parole à l'équipage avant la tienne. Leur bilan d'abord.</p>
+            </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="mv-vignette">
+            <div class="mv-vig-aside">
+                <span class="mv-vig-icon"><img src="../assets/icons/lucide/moon.svg" alt="" style="--icon-rot: -3deg"></span>
+                <span class="mv-vig-when">Chaque soir</span>
+            </div>
+            <div class="mv-vig-body">
+                <p class="mv-vig-gripe">Le débrief ne parle que technique.</p>
+                <p class="mv-vig-tool"><span class="mv-lbl mv-lbl-pioche">Pioche</span> le <strong>tableau d'équipage</strong> et le <strong>débrief du soir</strong>.</p>
+                <p class="mv-vig-unlock"><span class="mv-lbl mv-lbl-debloque">Ça Débloque</span> Le débrief ne se limite plus à la barre et aux manœuvres. On nomme aussi comment on a coopéré, qui a aidé qui, ce qu'on garde pour demain. Les acquis humains deviennent visibles, et transférables à terre.</p>
+                <p class="mv-vig-posture"><strong>TA POSTURE :</strong> finis par du concret positif. Valorise un geste d'entraide précis vu dans la journée.</p>
+            </div>
+        </article>
+
+    </div>
+
+</div>
+
+</body>
+</html>

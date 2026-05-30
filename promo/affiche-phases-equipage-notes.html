@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=420mm, height=297mm">
+    <title>Les 5 étapes de la vie d'un équipage - Prise de notes</title>
+    <link rel="stylesheet" href="../assets/css/affiches-print.css">
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"></script>
+
+    <style>
+        * {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ========== COULEURS PAR PHASE (identique Haddock) ========== */
+        :root {
+            --formation-bg:     #e8eef4;
+            --formation-text:   #0066ad;
+            --turbulence-bg:    #FFEBEE;
+            --turbulence-text:  #C62828;
+            --structuration-bg: #fff8f0;
+            --structuration-text: #c96a30;
+            --cooperation-bg:   #e8f4f3;
+            --cooperation-text: #3d8b87;
+            --dissolution-bg:   #e8f1f4;
+            --dissolution-text: #4a7c91;
+
+            --creme:        #FFFFFF;
+            --text-dark:    #2D3748;
+            --text-light:   #718096;
+            --border-light: #D1D5DB;
+            --bloc-bg:      #f5f5f5;
+            --amber-700:    #c96a30;
+            --brick-700:    #C62828;
+            --rouge-anacoluthe: #C62828;
+        }
+
+        /* ========== CONTAINER A3 PAYSAGE ========== */
+        .affiche-a3-landscape {
+            position: relative;
+            width: 420mm;
+            height: 297mm;
+            background: var(--creme);
+            overflow: hidden;
+            font-family: 'Merriweather', serif;
+            color: var(--text-dark);
+        }
+
+        /* ========== TITRE PRINCIPAL CENTRÉ ========== */
+        .title-main {
+            position: absolute;
+            top: 10mm;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6mm;
+            z-index: 3;
+        }
+
+        .title-main .title-logo {
+            height: 17mm;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .title-main h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 28pt;
+            font-weight: 700;
+            color: var(--rouge-anacoluthe);
+            line-height: 1.1;
+            margin: 0;
+            letter-spacing: -0.2pt;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .title-credit {
+            position: absolute;
+            top: 33mm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Merriweather', serif;
+            font-size: 7.5pt;
+            font-style: italic;
+            color: var(--text-light);
+            z-index: 3;
+        }
+
+        .title-intro {
+            position: absolute;
+            top: 35mm;
+            left: 14mm;
+            width: 160mm;
+            margin: 0;
+            padding: 5mm 7mm 5.5mm 7mm;
+            background: white;
+            border: 0.5mm solid var(--formation-text);
+            border-radius: 3mm;
+            box-sizing: border-box;
+            z-index: 3;
+        }
+
+        .title-intro h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 13pt;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--formation-text);
+            margin: 0 0 2.5mm 0;
+            line-height: 1.2;
+        }
+
+        .title-intro p {
+            font-family: 'Merriweather', serif;
+            font-size: 10.5pt;
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.45;
+            text-align: left;
+            margin: 0;
+        }
+
+        /* ========== COURBE SERPENTINE SVG ========== */
+        .tuckman-courbe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ========== BADGE NUMÉRO (dans le bloc identif) ========== */
+        .phase-num {
+            position: absolute;
+            top: 1.5mm;
+            left: 3mm;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 13pt;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.5pt;
+            opacity: 0.85;
+        }
+
+        .formation     .phase-num { color: var(--formation-text); }
+        .turbulence    .phase-num { color: var(--turbulence-text); }
+        .structuration .phase-num { color: var(--structuration-text); }
+        .cooperation   .phase-num { color: var(--cooperation-text); }
+        .dissolution   .phase-num { color: var(--dissolution-text); }
+
+        /* ========== STRIP WRAPPER (1 par moment) ========== */
+        .phase-strip {
+            position: absolute;
+            width: 65mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .phase-strip > .phase-emoji-standalone { margin-bottom: 3mm; }
+        .phase-strip > .phase-identif          { margin-bottom: 3mm; }
+
+        /* ========== BLOC IDENTIFICATION ========== */
+        .phase-identif {
+            position: relative;
+            width: 100%;
+            background: white;
+            border: 0.6mm solid var(--border-light);
+            border-radius: 3mm;
+            padding: 3.5mm 3.5mm 4mm 3.5mm;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+        }
+
+        .phase-identif.formation     { border-color: var(--formation-text); }
+        .phase-identif.turbulence    { border-color: var(--turbulence-text); }
+        .phase-identif.structuration { border-color: var(--structuration-text); }
+        .phase-identif.cooperation   { border-color: var(--cooperation-text); }
+        .phase-identif.dissolution   { border-color: var(--dissolution-text); }
+
+        /* Emoji - en haut du strip, à distance fixe des autres blocs */
+        .phase-emoji-standalone {
+            position: relative;
+            width: 14mm;
+            height: 14mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17pt;
+            background: white;
+            border-radius: 50%;
+            border: 0.8mm solid var(--border-light);
+            z-index: 4;
+            box-sizing: border-box;
+        }
+
+        .phase-emoji-standalone.formation     { border-color: var(--formation-text); }
+        .phase-emoji-standalone.turbulence    { border-color: var(--turbulence-text); }
+        .phase-emoji-standalone.structuration { border-color: var(--structuration-text); }
+        .phase-emoji-standalone.cooperation   { border-color: var(--cooperation-text); }
+        .phase-emoji-standalone.dissolution   { border-color: var(--dissolution-text); }
+
+        .phase-emoji-standalone.formation     { transform: rotate(-4deg); }
+        .phase-emoji-standalone.turbulence    { transform: rotate(5deg);  }
+        .phase-emoji-standalone.structuration { transform: rotate(-2deg); }
+        .phase-emoji-standalone.cooperation   { transform: rotate(3deg);  }
+        .phase-emoji-standalone.dissolution   { transform: rotate(-3deg); }
+
+        .phase-head {
+            text-align: center;
+            margin-top: 1mm;
+        }
+
+        .phase-name {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 11pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            line-height: 1;
+        }
+
+        .formation     .phase-name { color: var(--formation-text); }
+        .turbulence    .phase-name { color: var(--turbulence-text); }
+        .structuration .phase-name { color: var(--structuration-text); }
+        .cooperation   .phase-name { color: var(--cooperation-text); }
+        .dissolution   .phase-name { color: var(--dissolution-text); }
+
+        .phase-when {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7pt;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-top: 0.5mm;
+        }
+
+        .phase-quote {
+            font-family: 'Merriweather', serif;
+            font-size: 7.5pt;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-dark);
+            text-align: center;
+            line-height: 1.3;
+            padding: 1.5mm 0;
+            border-top: 0.3pt solid rgba(0,0,0,0.08);
+            border-bottom: 0.3pt solid rgba(0,0,0,0.08);
+        }
+
+        .phase-desc {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7.5pt;
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        /* ========== BLOC TIPS (séparé) ========== */
+        .phase-tips-bloc {
+            position: relative;
+            width: 100%;
+            background: white;
+            border: 0.3mm solid var(--border-light);
+            border-radius: 2mm;
+            padding: 3mm 3mm 3.5mm 3mm;
+            box-sizing: border-box;
+        }
+
+        .phase-tips-bloc.formation     { border-color: var(--formation-text); }
+        .phase-tips-bloc.turbulence    { border-color: var(--turbulence-text); }
+        .phase-tips-bloc.structuration { border-color: var(--structuration-text); }
+        .phase-tips-bloc.cooperation   { border-color: var(--cooperation-text); }
+        .phase-tips-bloc.dissolution   { border-color: var(--dissolution-text); }
+
+        .phase-section-label {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 6.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            margin-bottom: 1.5mm;
+            text-align: center;
+        }
+
+        .formation     .phase-section-label { color: var(--formation-text); }
+        .turbulence    .phase-section-label { color: var(--turbulence-text); }
+        .structuration .phase-section-label { color: var(--structuration-text); }
+        .cooperation   .phase-section-label { color: var(--cooperation-text); }
+        .dissolution   .phase-section-label { color: var(--dissolution-text); }
+
+        .phase-tips {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2mm;
+        }
+
+        .phase-tips li {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7pt;
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.3;
+            padding-left: 2.5mm;
+            position: relative;
+        }
+
+        .phase-tips li::before {
+            content: "•";
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .formation     .phase-tips li::before { color: var(--formation-text); }
+        .turbulence    .phase-tips li::before { color: var(--turbulence-text); }
+        .structuration .phase-tips li::before { color: var(--structuration-text); }
+        .cooperation   .phase-tips li::before { color: var(--cooperation-text); }
+        .dissolution   .phase-tips li::before { color: var(--dissolution-text); }
+
+        /* ========== ZONE NOTES ========== */
+        .phase-notes {
+            width: 100%;
+            height: 38mm;
+        }
+
+        /* ========== BANDE CHAPEAU "compression du temps" ========== */
+        .chapeau-band {
+            position: absolute;
+            bottom: 30mm;
+            right: 14mm;
+            width: 160mm;
+            background: white;
+            border: 0.5mm solid var(--amber-700);
+            border-radius: 3mm;
+            padding: 5mm 7mm;
+            text-align: left;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .chapeau-band p {
+            font-family: 'Merriweather', serif;
+            font-size: 11pt;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .chapeau-band strong {
+            font-weight: 700;
+            font-style: normal;
+            color: var(--brick-700);
+        }
+
+        /* ========== FOOTER avec CTA ========== */
+        .vt-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            height: 14mm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 14mm;
+            z-index: 2;
+            gap: 6mm;
+        }
+
+        .vt-cta {
+            display: flex;
+            align-items: center;
+            gap: 2.5mm;
+            flex-shrink: 0;
+        }
+
+        .vt-cta.right { flex-direction: row-reverse; }
+
+        .footer-qr {
+            width: 13mm;
+            height: 13mm;
+            flex-shrink: 0;
+        }
+
+        .cta-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .cta-text .cta-label {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 8pt;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .cta-text .cta-url {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 7pt;
+            font-weight: 400;
+            color: var(--formation-text);
+            margin-top: 0.5mm;
+        }
+
+        .vt-cta.right .cta-text { text-align: right; }
+
+        .footer-credit {
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: 6.5pt;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-light);
+            text-align: center;
+            flex: 1;
+            line-height: 1.3;
+        }
+
+        .footer-credit strong {
+            font-weight: 600;
+            font-style: normal;
+            color: var(--text-dark);
+        }
+
+        /* ========== PRINT ========== */
+        @page {
+            size: 420mm 297mm landscape;
+            margin: 0;
+        }
+
+        @media print {
+            .affiche-a3-landscape { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="affiche-a3-landscape">
+
+    <!-- ========== TITRE PRINCIPAL CENTRÉ + LOGO ========== -->
+    <div class="title-main">
+        <img src="../assets/images/logo-anacoluthe.svg" alt="Logo Anacoluthe" class="title-logo">
+        <h1>Les 5 étapes de la vie d'un équipage</h1>
+    </div>
+
+    <!-- ========== COURBE SERPENTINE BEZIER ========== -->
+    <svg class="tuckman-courbe" viewBox="0 0 1587 1123" preserveAspectRatio="none">
+        <path d="M 80,359
+                 C 110,359 140,359 176,359
+                 C 212,359 390,420 482,416
+                 C 574,420 700,220 788,215
+                 C 876,220 1000,125 1094,125
+                 C 1188,125 1320,215 1400,215
+                 C 1480,215 1530,215 1550,215"
+              stroke="#2D3748"
+              stroke-width="3"
+              stroke-dasharray="10,9"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+              opacity="0.6"/>
+    </svg>
+
+    <!-- ========== MOMENT 1 : FORMATION ========== -->
+    <div class="phase-strip formation" style="top: 88mm; left: 14mm;">
+        <div class="phase-emoji-standalone formation">👋</div>
+        <article class="phase-identif formation">
+            <span class="phase-num">01</span>
+            <div class="phase-head">
+                <div class="phase-name">Formation</div>
+                <div class="phase-when">J1</div>
+            </div>
+            <p class="phase-quote">« on prend nos marques »</p>
+            <p class="phase-desc">
+                Le groupe se découvre. Politesse, observation mutuelle, on évite les sujets qui pourraient fâcher. Chacun·e teste sa place.
+            </p>
+        </article>
+        <div class="phase-notes formation"></div>
+    </div>
+
+    <!-- ========== MOMENT 2 : TURBULENCE (BUTÉE BASSE) ========== -->
+    <div class="phase-strip turbulence" style="top: 103mm; left: 95mm;">
+        <div class="phase-emoji-standalone turbulence">⚡</div>
+        <article class="phase-identif turbulence">
+            <span class="phase-num">02</span>
+            <div class="phase-head">
+                <div class="phase-name">Turbulence</div>
+                <div class="phase-when">J2-J4</div>
+            </div>
+            <p class="phase-quote">« ça frotte, c'est normal »</p>
+            <p class="phase-desc">
+                Les caractères s'affirment. Tensions un contre un. Blagues qui piquent, agacements visibles, désaccords sur les façons de faire.
+            </p>
+        </article>
+        <div class="phase-notes turbulence"></div>
+    </div>
+
+    <!-- ========== MOMENT 3 : STRUCTURATION ========== -->
+    <div class="phase-strip structuration" style="top: 50mm; left: 176mm;">
+        <div class="phase-emoji-standalone structuration">🧭</div>
+        <article class="phase-identif structuration">
+            <span class="phase-num">03</span>
+            <div class="phase-head">
+                <div class="phase-name">Structuration</div>
+                <div class="phase-when">J3-J5</div>
+            </div>
+            <p class="phase-quote">« les rôles s'installent »</p>
+            <p class="phase-desc">
+                Chacun·e trouve sa place. Les tours s'organisent. Risque : que ce soit toujours les mêmes qui fassent.
+            </p>
+        </article>
+        <div class="phase-notes structuration"></div>
+    </div>
+
+    <!-- ========== MOMENT 4 : COOPÉRATION (BUTÉE HAUTE) ========== -->
+    <div class="phase-strip cooperation" style="top: 26mm; left: 257mm;">
+        <div class="phase-emoji-standalone cooperation">🤝</div>
+        <article class="phase-identif cooperation">
+            <span class="phase-num">04</span>
+            <div class="phase-head">
+                <div class="phase-name">Coopération</div>
+                <div class="phase-when">J4-J6</div>
+            </div>
+            <p class="phase-quote">« l'équipage se régule seul »</p>
+            <p class="phase-desc">
+                Le groupe anticipe, se coordonne sans qu'on le pousse. L'apprentissage passe entre les stagiaires, plus seulement par lae moniteurice.
+            </p>
+        </article>
+        <div class="phase-notes cooperation"></div>
+    </div>
+
+    <!-- ========== MOMENT 5 : DISSOLUTION ========== -->
+    <div class="phase-strip dissolution" style="top: 50mm; left: 338mm;">
+        <div class="phase-emoji-standalone dissolution">🏁</div>
+        <article class="phase-identif dissolution">
+            <span class="phase-num">05</span>
+            <div class="phase-head">
+                <div class="phase-name">Dissolution</div>
+                <div class="phase-when">J6</div>
+            </div>
+            <p class="phase-quote">« on ramène à terre »</p>
+            <p class="phase-desc">
+                La fin approche. Les têtes partent déjà ailleurs. Risque d'oublier ce qu'on a appris ensemble.
+            </p>
+        </article>
+        <div class="phase-notes dissolution"></div>
+    </div>
+
+    <!-- ========== FOOTER avec CTA ========== -->
+    <footer class="vt-footer">
+        <div class="vt-cta left">
+            <img src="../assets/images/qrcode_anacoluthe_decouvrir.png" alt="QR vers anacoluthe.org/decouvrir" class="footer-qr">
+            <div class="cta-text">
+                <span class="cta-label">Découvrir Anacoluthe et/ou participer à un atelier moniteurice</span>
+                <span class="cta-url">→ anacoluthe.org/decouvrir</span>
+            </div>
+        </div>
+
+        <div class="footer-credit">
+            <strong>Anacoluthe !?</strong> · D'après le modèle de Tuckman (1965) · CC-BY-NC-SA 4.0 · Quentin Jaud
+        </div>
+
+        <div class="vt-cta right">
+            <img src="../assets/images/qrcode_anacoluthe_fil_semaine.png" alt="QR vers anacoluthe.org/fil-semaine" class="footer-qr">
+            <div class="cta-text">
+                <span class="cta-label">Voir une semaine type</span>
+                <span class="cta-url">→ anacoluthe.org/fil-semaine</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    if (window.twemoji) {
+        twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    }
+</script>
+
+</body>
+</html>

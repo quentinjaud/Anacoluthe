@@ -62,9 +62,10 @@
             Soutenance UC1-UC2 - BPJEPS voile habitable
         </p>
         <aside class="notes">
-            Les cartes sont posées sur la table avant que le jury s'assoie. Dix secondes de silence, le temps qu'il les regarde, puis la promesse : « Je vais vous montrer ce que cette démarche a réellement changé pour les moniteurices, ce qu'elle n'a pas réussi à établir, et ce que j'en ai appris. »
+            Aucun kit en main à ce stade : la promesse et le constat passent sans concurrent visuel. Un jury qui tient un objet le lit, il n'écoute plus.
+            La promesse : « Je vais vous montrer ce que cette démarche a réellement changé pour les moniteurices, ce qu'elle n'a pas réussi à établir, et ce que j'en ai appris. »
             Puis la scène de Gruissan.
-            Cette slide ne sert à rien d'autre qu'à poser la promesse. Aucun contenu à lire.
+            Cette slide ne sert qu'à poser la promesse. Aucun contenu à lire.
         </aside>
     </section>
 
@@ -99,9 +100,9 @@
                 <li><strong>4 jokers</strong><br>gérer une tension</li>
             </ul>
         </div>
-        <div class="zone">emplacement photo - les cartes du kit posées à plat</div>
         <aside class="notes">
-            Montrer les cartes physiques à ce moment, elles sont déjà sur la table.
+            Distribution des kits à ce moment, pas avant : « Prenez-les. » Quinze secondes de silence.
+            Chaque réponse énumérée, le jury la vérifie dans l'objet au moment où elle est nommée.
             Une phrase : « si le problème vit dans le quotidien, la réponse doit y vivre aussi ».
         </aside>
     </section>
@@ -118,6 +119,7 @@
         </div>
         <div class="zone">emplacement frise - 5 versions, à schématiser</div>
         <aside class="notes">
+            D'abord faire reposer les kits : « Posez-les une minute, parce que la façon dont ils sont arrivés là compte autant que ce qu'ils contiennent. » On reprend l'attention au moment où on en a le plus besoin.
             Point de bascule de la soutenance. La co-conception n'a pas seulement produit un dispositif, elle a formé celles et ceux qui l'ont conçu.
             Un projet conçu en bloc aurait livré le même objet sans former personne.
         </aside>
@@ -261,6 +263,10 @@
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
 <script>
+    // ?clean masque les reperes de wireframe (numero, duree) pour la projection
+    if (location.search.indexOf('clean') !== -1) {
+        document.querySelectorAll('.wf-tag').forEach(function (e) { e.style.display = 'none'; });
+    }
     Reveal.initialize({
         hash: true,
         slideNumber: 'c/t',

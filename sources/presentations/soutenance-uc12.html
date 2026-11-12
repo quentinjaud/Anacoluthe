@@ -10,20 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css">
     <link rel="stylesheet" href="anacoluthe-theme.css">
     <style>
-        /* Wireframe : les zones de contenu visuel restent des blocs vides, à remplir
-           quand la structure sera validée. Rien de définitif ici. */
-        .zone {
-            border: 2px dashed var(--navy-100);
-            border-radius: 6px;
-            color: var(--text-muted);
-            font-size: 0.42em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 2.2em;
-            margin: 0.5em 0;
-            font-family: monospace;
-        }
         .wf-tag {
             display: block;
             font-size: 0.28em;
@@ -47,173 +33,329 @@
             text-align: left;
             line-height: 1.45;
         }
+        /* Slide 1 : la question porte la slide, la marque passe en kicker. */
+        .kicker {
+            display: block;
+            font-size: 0.36em;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.2em;
+        }
+        .question {
+            font-size: 0.80em;
+            line-height: 1.32;
+            max-width: 88%;
+            margin: 0 auto;
+        }
+        /* Slide 3 : les quatre familles, cote a cote. */
+        .familles {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.7em;
+            margin-top: 1em;
+        }
+        .famille {
+            border-top: 3px solid var(--teal-700);
+            padding-top: 0.5em;
+            font-size: 0.42em;
+            line-height: 1.35;
+            text-align: left;
+        }
+        .famille strong { display: block; font-size: 1.2em; margin-bottom: 0.25em; }
+        /* Slide 10 : l'arc des cinq etapes, un geste par etape. */
+        .arc-cinq {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5em;
+            margin-top: 0.9em;
+        }
+        .arc-etape {
+            border-top: 3px solid var(--navy-100);
+            padding-top: 0.5em;
+            font-size: 0.40em;
+            line-height: 1.35;
+            text-align: left;
+        }
+        .arc-etape strong { display: block; font-size: 1.25em; margin-bottom: 0.35em; }
+        .arc-etape .geste { color: var(--teal-700); font-weight: 700; }
+        /* Slide 14 : l'ecart. */
+        .ecart { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8em; margin-top: 1.2em; }
+        .ecart-item { text-align: center; }
+        .ecart-item .reel { font-size: 1.6em; font-weight: 800; color: var(--teal-700); line-height: 1.05; }
+        .ecart-item .prevu { font-size: 0.40em; color: var(--text-muted); margin-top: 0.3em; }
+        .ecart-item .quoi { font-size: 0.42em; margin-top: 0.5em; }
+        /* Bandeau d'hypothese : masque par ?clean, jamais projete en l'etat. */
+        .hypothese {
+            border: 2px dashed var(--brick-700);
+            color: var(--brick-700);
+            font-family: monospace;
+            font-size: 0.30em;
+            padding: 0.6em 0.8em;
+            margin-top: 1.1em;
+            text-align: left;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
 
-    <!-- Ordre chronologique de l'enquete, pas du dispositif.
-         Total annonce : 19 min 15, marge sur les 20 min.
-         1 accroche | 2 diagnostic | 3 constats | 4 co-conception | 5 objet produit
-         6-8 bifurcations | 9 formation | 10 integration | 11 evaluation
-         12 perennite | 13 apports -->
+    <!-- La question, l'objet vite, le pourquoi de chaque piece, puis la demarche.
+         Total annonce : 18 min 30 sur 20 min.
+         1 question | 2 diagnostic | 3 objet | 4-7 une piece par slide
+         8 frise | 9 co-conception | 10 formation | 11 base | 12 intervenants
+         13 integration | 14 ecart | 15 evaluation | 16 ce qui reste | 17 apports -->
 
-    <!-- 1. ACCROCHE -->
+    <!-- 1. LA QUESTION -->
     <section>
-        <span class="wf-tag">1 / 13 - accroche 1 min 30</span>
-        <h1>Anacoluthe</h1>
-        <p class="grand-texte" style="margin-top: 0.6em">Les moyens d'animer le vivre-ensemble</p>
-        <p class="text-muted" style="font-size: 0.4em; margin-top: 1.2em">
-            Soutenance UC1-UC2 - BPJEPS voile habitable
-        </p>
+        <span class="wf-tag">1 / 17 - la question 45 s</span>
+        <span class="kicker">Anacoluthe - soutenance UC1-UC2 - BPJEPS voile habitable</span>
+        <p class="question">Comment donner aux moniteurices les moyens d'animer le vivre-ensemble dans un contexte qui génère autant de tensions que d'opportunités d'apprentissage ?</p>
         <aside class="notes">
-            Aucun kit en main à ce stade : la promesse et le constat passent sans concurrent visuel. Un jury qui tient un objet le lit, il n'écoute plus.
-            La promesse : « Je vais vous montrer ce que cette démarche a réellement changé pour les moniteurices, ce qu'elle n'a pas réussi à établir, et ce que j'en ai appris. »
-            Puis la scène de Gruissan.
-            Cette slide ne sert qu'à poser la promesse. Aucun contenu à lire.
+            Rien en main, rien à lire à l'écran. Trois temps, toujours les mêmes mots.
+
+            1. La scène, dite avant tout le reste :
+            « Mercredi matin, à bord d'un voilier Glénans au mouillage devant Gruissan. Cinq stagiaires et leur moniteurice s'apprêtent à naviguer vers Marseille. L'ambiance s'est tendue, sans que personne n'ose le dire : les stagiaires sont absorbés par la technique, la moniteurice n'est pas formée à accompagner le vivre-ensemble. J'ai vécu cette scène plusieurs fois pendant ma formation. Elle est à l'origine de ce projet. »
+
+            2. La question, à voix haute, telle qu'elle est écrite. Ne pas la paraphraser.
+
+            3. La promesse, en une respiration :
+            « Je vais vous montrer ce que cette démarche a réellement changé pour les moniteurices, ce qu'elle n'a pas réussi à établir, et ce que j'en ai appris. »
+
+            La question reste affichée pendant la scène : elle sert de légende à l'histoire, ce n'est pas un doublon.
         </aside>
     </section>
 
-    <!-- 2. DIAGNOSTIC -->
+    <!-- 2. LE DIAGNOSTIC -->
     <section>
-        <span class="wf-tag">2 / 13 - diagnostic 1 min 30</span>
-        <h2>Le diagnostic</h2>
-        <p class="grand-texte">Quatorze entretiens de janvier à mars 2025, des semaines d'observation en stage, les rapports de mer.</p>
-        <div class="zone">emplacement schéma - les trois sources du diagnostic, à dessiner</div>
+        <span class="wf-tag">2 / 17 - ce que j'ai cherché 45 s</span>
+        <h2>Ce que j'ai cherché</h2>
+        <p class="grand-texte">Quatorze entretiens, des semaines d'observation en stage, les rapports de mer.</p>
         <aside class="notes">
-            Cette slide n'existe que pour une chose : les quatre constats de la suivante ne sont pas une grille de concepteur, ils sortent d'une enquête.
-            Trois sources, dites en une phrase. Ne pas détailler la grille d'entretien, elle est en annexe 4.
-            Si une question vient sur la méthode, elle se traite en entretien, pas ici.
+            Une phrase, pas un exposé de méthode : la grille d'entretien est en annexe 4, le jury l'a lue.
+            Ce qui compte ici, c'est que la suite ne sorte pas d'un chapeau de concepteur.
+            Ne pas détailler les trois sources. Elles tiennent en une ligne, et la ligne est à l'écran.
         </aside>
     </section>
 
-    <!-- 3. CONSTATS -->
+    <!-- 3. L'OBJET -->
     <section>
-        <span class="wf-tag">3 / 13 - ce que le terrain révèle 2 min</span>
-        <h2>Quatre frictions</h2>
-        <ul class="liste-nette">
-            <li>Tout repose sur la moniteurice, seule face aux tensions</li>
-            <li>Les mêmes consignes, répétées chaque matin</li>
-            <li>On avance, mais sans jalons visibles</li>
-            <li>Quand ça coince, chacun bricole</li>
-        </ul>
-        <div class="zone">emplacement schéma - les quatre frictions situées sur une semaine de stage</div>
-        <aside class="notes">
-            Raconter comme une enquête : ce que les moniteurices m'ont dit, ce que j'ai vu en stage, ce que les rapports de mer confirment.
-            Ne pas les présenter comme des manques de personnes. Ce sont des situations que la structure laisse à gérer seul·es.
-            Ne pas annoncer qu'elles appellent quatre réponses. Chacune est un moment de la semaine, pas une case d'une matrice.
-        </aside>
-    </section>
-
-    <!-- 4. CO-CONCEPTION -->
-    <section>
-        <span class="wf-tag">4 / 13 - co-conception 2 min</span>
-        <h2>La co-conception</h2>
-        <p class="grand-texte">Neuf mois de séances, cinq versions, avec les moniteurices de Marseillan.</p>
-        <div class="encart">
-            Chaque séance était une séance d'animation : un animateur, des pairs, un objet à produire.
-            Nommer les situations, arbitrer entre deux cartes, défendre un choix devant le groupe,
-            c'est déjà la compétence qu'on veut transmettre aux stagiaires.
-        </div>
-        <div class="zone">emplacement frise - 5 versions, à schématiser</div>
-        <aside class="notes">
-            Les kits ne sont pas encore distribués, et c'est voulu : l'objet doit apparaître après son histoire. Distribué plus tôt, il faudrait ensuite reprendre l'attention par une consigne de rattrapage.
-            Point de bascule de la soutenance. La co-conception n'a pas seulement produit un dispositif, elle a formé celles et ceux qui l'ont conçu.
-            Un projet conçu en bloc aurait livré le même objet sans former personne.
-        </aside>
-    </section>
-
-    <!-- 5. L'OBJET -->
-    <section>
-        <span class="wf-tag">5 / 13 - l'objet 2 min</span>
-        <h2>Ce que les séances ont produit</h2>
-        <div class="deux-colonnes">
-            <ul class="liste-nette">
-                <li><strong>4 rôles coopératifs</strong><br>distribuer l'organisation</li>
-                <li><strong>Affiches embarquées</strong><br>des repères visuels</li>
-            </ul>
-            <ul class="liste-nette">
-                <li><strong>7 moments</strong><br>jalonner la semaine</li>
-                <li><strong>4 jokers</strong><br>gérer une tension</li>
-            </ul>
+        <span class="wf-tag">3 / 17 - l'objet 1 min</span>
+        <h2>Quatre familles, indépendantes</h2>
+        <p class="grand-texte">Chacune se comprend seule et vit sans les trois autres. On peut n'en prendre qu'un bout.</p>
+        <div class="familles">
+            <div class="famille"><strong>Les rôles</strong>quatre fonctions tournantes du bord</div>
+            <div class="famille"><strong>Les affiches</strong>trois repères en cabine</div>
+            <div class="famille"><strong>Les moments</strong>sept jalons de la semaine</div>
+            <div class="famille"><strong>Les jokers</strong>quatre façons de sortir d'une tension</div>
         </div>
         <aside class="notes">
-            Distribution des kits à ce moment, pas avant : « Prenez-les. » Quinze secondes de silence.
-            Chaque pièce énumérée, le jury la vérifie dans l'objet au moment où elle est nommée.
-            Ne pas rétablir la correspondance une pour une avec les quatre frictions : la démonstration n'en dépend pas.
-            Une phrase : « si le problème vit dans le quotidien, la réponse doit y vivre aussi ».
+            Le kit est posé devant eux depuis l'entrée, ou en main. Le montrer d'un geste, ne pas le décrire pièce par pièce : les quatre slides qui suivent le font.
+            La modularité est l'argument de cette slide, et il revient à chacune des quatre suivantes : personne n'est obligé de prendre les quatre familles. C'est ce qui rend le dispositif acceptable par une moniteurice qui ne veut pas d'un système de plus.
+            Dire l'indépendance comme une propriété vérifiée, pas comme une intention : une affiche seule fonctionne, un joker seul fonctionne, sans que les autres familles soient en place.
         </aside>
     </section>
 
-    <!-- 6. BIFURCATION 1 -->
+    <!-- 4. LES RÔLES -->
     <section>
-        <span class="wf-tag">6 / 13 - bifurcation 1 1 min 15</span>
-        <h2>La greffe sur les routines</h2>
-        <ul class="liste-nette">
-            <li><strong>Constat :</strong> utilisé quand tout allait bien, abandonné quand la navigation devenait exigeante</li>
-            <li><strong>Décision :</strong> sortir du module séparé, se greffer sur les routines du stage</li>
-            <li><strong>Effet :</strong> l'outil reste en place au moment où il sert</li>
-        </ul>
+        <span class="wf-tag">4 / 17 - les rôles 40 s</span>
+        <h2>Les rôles coopératifs</h2>
+        <p class="grand-texte">Tout reposait sur la moniteurice. Quatre rôles tournants distribuent l'organisation.</p>
+        <p class="text-muted" style="font-size: 0.42em">Bosco, navigateurice, second soigneux, cambusier. Et ça marche sans les trois autres familles.</p>
         <aside class="notes">
-            Apprentissage : un outil qu'on range quand ça se complique ne sert à rien, c'est justement quand ça se complique qu'il doit être là.
+            Le constat vient du terrain, pas d'un modèle : c'est ce que les moniteurices décrivent quand elles racontent une semaine difficile. Elles portent seules l'organisation, en plus de la technique.
+            La rotation est le point à ne pas perdre : des rôles fixes reproduisent le problème, des rôles qui tournent le distribuent.
+            Le second soigneux est le pivot : un stagiaire qu'on forme à faciliter, pas un rôle décoratif.
         </aside>
     </section>
 
-    <!-- 7. BIFURCATION 2 -->
+    <!-- 5. LES AFFICHES -->
     <section>
-        <span class="wf-tag">7 / 13 - bifurcation 2 1 min 15</span>
-        <h2>Des fonctions du bord</h2>
-        <ul class="liste-nette">
-            <li><strong>Constat :</strong> les moniteurices ne s'appropriaient pas les rôles fictifs</li>
-            <li><strong>Décision :</strong> revenir aux fonctions réelles du bord</li>
-            <li><strong>Effet :</strong> bosco, cuisine, nav, second soigneux - un langage qui est déjà le leur</li>
-        </ul>
-        <div class="zone">emplacement avant / après - rôles fictifs barrés, fonctions du bord</div>
+        <span class="wf-tag">5 / 17 - les affiches 40 s</span>
+        <h2>Les affiches embarquées</h2>
+        <p class="grand-texte">Les mêmes consignes, répétées chaque matin. Trois affiches fixes remplacent la répétition.</p>
+        <p class="text-muted" style="font-size: 0.42em">En cabine, lisibles sans qu'on les commente. Une affiche seule tient debout.</p>
         <aside class="notes">
-            Apprentissage : un outil pédagogique fonctionne quand il parle le langage de ceux qui l'utilisent.
-            Assumer l'abandon d'un travail de game design abouti.
+            L'argument est mécanique : ce qui est répété chaque matin coûte du temps d'animation et ne s'apprend pas. Ce qui est affiché se lit quand on en a besoin, y compris par un stagiaire seul.
+            Les trois affiches ne disent pas la même chose : l'une situe les étapes de la semaine, l'autre montre le tableau d'équipage, la troisième sensibilise.
         </aside>
     </section>
 
-    <!-- 8. BIFURCATION 3 -->
+    <!-- 6. LES MOMENTS -->
     <section>
-        <span class="wf-tag">8 / 13 - bifurcation 3 1 min 15</span>
-        <h2>Le passage au site</h2>
-        <ul class="liste-nette">
-            <li><strong>Constat :</strong> le dispositif doit devenir évolutif et partageable</li>
-            <li><strong>Décision :</strong> site autonome, génération des supports, intervenants extérieurs</li>
-            <li><strong>Effet :</strong> n'importe quelle base peut reprendre et adapter le dispositif</li>
-        </ul>
+        <span class="wf-tag">6 / 17 - les moments 40 s</span>
+        <h2>Les sept moments</h2>
+        <p class="grand-texte">On avance, mais sans jalons visibles. Sept cartes donnent des rendez-vous à la semaine.</p>
+        <p class="text-muted" style="font-size: 0.42em">Du premier brief au débrief final. Une carte suffit pour en installer un.</p>
         <aside class="notes">
-            Apprentissage : savoir s'entourer et lâcher le contrôle. Nommer les domaines des intervenants extérieurs sans jargon.
+            C'est la famille la plus proche du rituel existant, donc la plus facile à greffer : les moniteurices ont déjà des briefs et des débriefs. Les cartes ne créent pas de temps nouveaux, elles donnent une forme à ceux qui existent.
+            Ne pas énumérer les sept. En nommer deux, le brief du matin et le débrief final, et dire que les autres vivent dans le kit.
         </aside>
     </section>
 
-    <!-- 9. FORMATION -->
+    <!-- 7. LES JOKERS -->
     <section>
-        <span class="wf-tag">9 / 13 - formation 1 min 30</span>
-        <h2>La formation</h2>
-        <div class="deux-colonnes">
-            <ul class="liste-nette">
-                <li><strong>Vendredis formation</strong><br>moniteurices de la base</li>
-                <li><strong>FPI2</strong><br>formatrices et formateurs</li>
-                <li><strong>Accompagnement individuel</strong><br>arrivées en cours de saison</li>
-            </ul>
-            <div class="encart" style="font-size: 0.48em">
-                Ce que la formation vise n'est pas la maîtrise de l'outil, c'est l'autonomie d'animation.
-                Le kit soutient les routines, il ne remplace pas cette compétence.
+        <span class="wf-tag">7 / 17 - les jokers 40 s</span>
+        <h2>Les quatre jokers</h2>
+        <p class="grand-texte">Quand ça coince, chacun bricole. Quatre cartes donnent un protocole au lieu d'une improvisation.</p>
+        <p class="text-muted" style="font-size: 0.42em">Le seul bout qu'on peut sortir de la boîte et utiliser sans rien connaître du reste.</p>
+        <aside class="notes">
+            C'est la famille la plus autosuffisante, et donc l'argument de modularité le plus fort : un joker se lit dans l'instant, il ne suppose ni formation, ni lecture préalable.
+            Un joker n'éteint pas la tension, il donne une façon de la traverser. Le dire : le dispositif ne prétend pas supprimer les conflits.
+        </aside>
+    </section>
+
+    <!-- 8. LA FRISE -->
+    <section>
+        <span class="wf-tag">8 / 17 - cinq versions, trois pivots 2 min</span>
+        <h2>Cinq versions, neuf mois de terrain</h2>
+        <div class="timeline-processus">
+            <div class="timeline-row versions">
+                <div class="version-cell">
+                    <span class="version-badge v-navy">V1</span>
+                    <span class="version-label">Fiches mémo</span>
+                </div>
+                <div class="version-cell">
+                    <span class="version-badge v-navy">V2</span>
+                    <span class="version-label">Archétypes</span>
+                </div>
+                <div class="version-cell">
+                    <span class="version-badge v-teal">V3</span>
+                    <span class="version-label">"Frankenstein"</span>
+                </div>
+                <div class="version-cell">
+                    <span class="version-badge v-amber">V4</span>
+                    <span class="version-label">Greffe</span>
+                </div>
+                <div class="version-cell">
+                    <span class="version-badge v-teal">V5</span>
+                    <span class="version-label">Site + kits</span>
+                </div>
+            </div>
+            <div class="timeline-row pivots-row">
+                <div class="pivot-cell" style="grid-column: 1 / 4;">
+                    <div class="pivot-tag meta-tag"><span>le dispositif prend du volume</span></div>
+                </div>
+                <div class="pivot-cell" style="grid-column: 4 / 6;">
+                    <div class="pivot-tag meta-tag meta-teal"><span>convergence</span></div>
+                </div>
+            </div>
+            <div class="timeline-row pivots-row">
+                <div class="pivot-cell" style="grid-column: 3 / 5;">
+                    <div class="pivot-tag">
+                        <span class="pivot-x">Module séparé</span>
+                        <span class="pivot-arrow">→</span>
+                        <span class="pivot-ok">Greffe</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-row pivots-row">
+                <div class="pivot-cell" style="grid-column: 4 / 6;">
+                    <div class="pivot-tag">
+                        <span class="pivot-x">Rôles fictifs</span>
+                        <span class="pivot-arrow">→</span>
+                        <span class="pivot-ok">Fonctions du bord</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-row pivots-row">
+                <div class="pivot-cell" style="grid-column: 4 / 6;">
+                    <div class="pivot-tag">
+                        <span class="pivot-x">Tout seul</span>
+                        <span class="pivot-arrow">→</span>
+                        <span class="pivot-ok">Intervenants</span>
+                    </div>
+                </div>
             </div>
         </div>
         <aside class="notes">
-            Publics : BSC, moniteurices bénévoles, pigistes CQP.
-            Une sensibilisation ne change pas une pratique.
+            Une seule image pour trois corrections, et trois apprentissages à dire, un par pivot. Ne pas commenter les cinq versions en détail : les trois pivots portent tout.
+
+            Pivot 1, la greffe : le jeu n'était utilisé que quand tout allait bien. Dès que la navigation devenait exigeante, il passait à la trappe. Un outil qu'on range quand ça se complique ne sert à rien : c'est justement quand ça se complique qu'il doit être là.
+
+            Pivot 2, les fonctions du bord : les moniteurices ne s'appropriaient pas les personnages inventés. J'ai abandonné un travail de game design abouti pour revenir aux fonctions réelles. Un outil pédagogique fonctionne quand il parle le langage de ceux qui l'utilisent.
+
+            Pivot 3, les intervenants : à un moment, le projet dépasse ce que je sais faire seul. Il faut savoir s'entourer et lâcher le contrôle.
         </aside>
     </section>
 
-    <!-- 10. INTÉGRATION -->
+    <!-- 9. LA CO-CONCEPTION -->
     <section>
-        <span class="wf-tag">10 / 13 - intégration 1 min</span>
+        <span class="wf-tag">9 / 17 - la co-conception 1 min 30</span>
+        <h2>La co-conception</h2>
+        <p class="grand-texte">Neuf mois de séances avec les moniteurices de Marseillan. Chaque séance était elle-même une séance d'animation.</p>
+        <p class="text-muted" style="font-size: 0.44em">Nommer les situations, arbitrer entre deux cartes, défendre un choix devant le groupe : c'est déjà la compétence qu'on veut transmettre aux stagiaires.</p>
+        <aside class="notes">
+            Point de bascule de la soutenance. La co-conception n'a pas seulement produit un dispositif, elle a formé celles et ceux qui l'ont conçu.
+            « Un projet conçu en bloc aurait livré le même objet sans former personne. »
+            Les séances ont doté le groupe d'un vocabulaire commun et en ont fait des ambassadeurs du dispositif auprès de leurs collègues. Ça explique la suite : ce sont les mêmes personnes qu'on retrouve en formation.
+        </aside>
+    </section>
+
+    <!-- 10. LA FORMATION -->
+    <section>
+        <span class="wf-tag">10 / 17 - dans la formation 2 min</span>
+        <h2>Dans la formation</h2>
+        <p class="grand-texte">Cinq étapes dans la vie d'un équipage, et à chacune un geste à animer.</p>
+        <div class="arc-cinq">
+            <div class="arc-etape"><strong>Formation</strong><span class="geste">poser les accords</span><br>carte M2, puis J3</div>
+            <div class="arc-etape"><strong>Turbulence</strong><span class="geste">accueillir la tension</span><br>joker J1, problème ou polarité</div>
+            <div class="arc-etape"><strong>Structuration</strong><span class="geste">distribuer et faire tourner</span><br>rôles R1 à R4</div>
+            <div class="arc-etape"><strong>Coopération</strong><span class="geste">passer à l'apprentissage</span><br>rituels et traces</div>
+            <div class="arc-etape"><strong>Dissolution</strong><span class="geste">faire emporter</span><br>débrief final</div>
+        </div>
+        <aside class="notes">
+            Le squelette de l'atelier est le modèle de Tuckman, projeté sur la semaine du J1 au J6 et laissé affiché du début à la fin. En chapeau, l'environnement ICE, isolé, confiné, extrême, explique pourquoi ces phases qui prendraient des semaines à terre se compriment en six jours. C'est la même physique de groupe que dans un sous-marin.
+
+            La règle de tri, à dire en une phrase : on ne forme qu'aux concepts qui sont ensuite outillés par une carte ou une affiche. Le reste est nommé, pas enseigné. Cinq concepts formés, sept nommés, sur dix-huit possibles. C'est ce qui évite le survol.
+
+            L'atelier modélise ce qu'il enseigne : il commence par des binômes tournants avant de parler d'interconnaissance, et fait vivre l'écoute sans rebond avant de la nommer.
+
+            Il se termine comme se terminera leur semaine d'encadrement : un engagement action écrit sur un post-it, quelque chose de spécifique et d'observable, plus un groupe de suivi entre animateurices.
+
+            Ne pas détailler les dix-huit concepts. Le jury a le dossier, et il a surtout le kit en main.
+        </aside>
+    </section>
+
+    <!-- 11. LA BASE -->
+    <section>
+        <span class="wf-tag">11 / 17 - ce que la base pouvait porter 1 min 30</span>
+        <h2>Ce que la base pouvait porter</h2>
+        <ul class="liste-nette">
+            <li>Le vendredi formation existait déjà : un membre du bureau se libère pour qui le demande. Je m'y suis inséré.</li>
+            <li>Le brief du samedi est un rituel dense : chaque minute ajoutée déplace une information existante.</li>
+            <li>La bande passante du bureau a borné le nombre de formations, pas leur profondeur.</li>
+        </ul>
+        <div class="hypothese">HYPOTHÈSES À CONFIRMER EN INTERVIEW. Ne pas dire tel quel : la manière dont le créneau du vendredi a été obtenu, qui a arbitré, ce qui a résisté, et ce que le bureau dit du dispositif aujourd'hui.</div>
+        <aside class="notes">
+            C'est la slide de la compétence UC1 1-3, et la seule dont le récit n'est pas encore écrit. Le dossier donne les contraintes, pas mes gestes.
+
+            Ce qui est sûr et démontrable : je ne suis pas arrivé avec un dispositif à installer, je suis venu prendre un créneau qui existait. Le vendredi formation est un usage de la base, pas une invention du projet.
+
+            Ce qui est sûr aussi : l'écart au prévu s'explique par la capacité de la base, pas par un refus. Le bureau n'a pas bloqué, il n'avait pas de temps à donner. Ce n'est pas la même chose, et le dire ainsi est plus juste et plus solide.
+
+            [HYPOTHÈSE] Reste à écrire : comment j'ai obtenu le créneau, à qui je l'ai demandé, ce que j'ai proposé en échange, et ce que le bureau en dit aujourd'hui. Interview à faire.
+        </aside>
+    </section>
+
+    <!-- 12. LES INTERVENANTS -->
+    <section>
+        <span class="wf-tag">12 / 17 - faire appel à d'autres 1 min</span>
+        <h2>Faire appel à d'autres</h2>
+        <p class="grand-texte">Cinq personnes, quatre domaines que je ne maîtrisais pas. Le projet dépasse à un moment ce que je sais faire seul.</p>
+        <p class="text-muted" style="font-size: 0.44em">Jeu et expérience utilisateur, psychologie clinique, identité graphique, développement web. Mécénat de compétences, déclarations signées, licence libre.</p>
+        <aside class="notes">
+            L'apprentissage est là, et il est inconfortable : il a fallu abandonner le contrôle sur des parties du projet. Le dire comme un apprentissage, pas comme une fierté.
+            Le mécénat de compétences est un choix, pas un pis-aller : personne n'a été payé, personne n'était en lien de subordination, et les productions sont sous licence libre. L'annexe 3 porte les déclarations.
+            Ne pas citer les noms à l'oral. Les domaines suffisent, les noms sont dans le dossier.
+        </aside>
+    </section>
+
+    <!-- 13. L'INTÉGRATION -->
+    <section>
+        <span class="wf-tag">13 / 17 - l'intégration 35 s</span>
         <h2>L'outil de la base</h2>
         <ul class="liste-nette">
             <li>Briefs de démarrage, débriefs d'atterrissage</li>
@@ -221,13 +363,44 @@
             <li>Des moniteurices formés le portent et le proposent à leurs collègues</li>
         </ul>
         <aside class="notes">
-            Le vrai test de la greffe : le dispositif entre dans le fonctionnement normal, pas dans une case à part.
+            Le vrai test de la greffe, en trois lignes : le dispositif entre dans le fonctionnement normal, pas dans une case à part.
+            Ne pas s'y attarder. La slide suivante dit ce que ça a produit en volume, la seizième dit ce qui reste fragile.
         </aside>
     </section>
 
-    <!-- 11. ÉVALUATION -->
+    <!-- 14. L'ÉCART -->
     <section>
-        <span class="wf-tag">11 / 13 - évaluation 1 min 30</span>
+        <span class="wf-tag">14 / 17 - l'écart 1 min 15</span>
+        <h2>L'écart au prévu</h2>
+        <p class="grand-texte">Plus petit que prévu, et plus loin que prévu.</p>
+        <div class="ecart">
+            <div class="ecart-item">
+                <div class="reel">20</div>
+                <div class="prevu">sur 50 prévus</div>
+                <div class="quoi">moniteurices formés</div>
+            </div>
+            <div class="ecart-item">
+                <div class="reel">8</div>
+                <div class="prevu">sur 14 prévus</div>
+                <div class="quoi">bateaux équipés durablement</div>
+            </div>
+            <div class="ecart-item">
+                <div class="reel">3</div>
+                <div class="prevu">sans démarchage</div>
+                <div class="quoi">écoles extérieures</div>
+            </div>
+        </div>
+        <aside class="notes">
+            Slide à dire sans excuse et sans bravade.
+            Trois cents stagiaires touchés sur la saison, à peu près trois semaines de stage par moniteurice formé : ce chiffre est à dire à l'oral, il n'est pas à l'écran pour ne pas diluer les trois autres.
+            La cause est unique et elle est dans la slide précédente : la base ne pouvait pas porter la formation, qui est donc restée l'affaire d'une personne. Et parce que le kit s'utilise sans formation préalable, il a circulé par lui-même.
+            Ne pas s'excuser sur les vingt. Dire le chiffre, dire la cause, passer. Le jury a lu le dossier, il attend la cause, pas la justification.
+        </aside>
+    </section>
+
+    <!-- 15. CE QUE ÇA MESURE -->
+    <section>
+        <span class="wf-tag">15 / 17 - ce que ça mesure 1 min 15</span>
         <h2>Ce que ça mesure</h2>
         <div class="deux-colonnes">
             <ul class="liste-nette">
@@ -249,35 +422,37 @@
         </aside>
     </section>
 
-    <!-- 12. PÉRENNITÉ -->
+    <!-- 16. CE QUI RESTE -->
     <section>
-        <span class="wf-tag">12 / 13 - pérennité 1 min</span>
-        <h2>La pérennité sans décision</h2>
+        <span class="wf-tag">16 / 17 - ce qui reste 45 s</span>
+        <h2>Ce qui reste</h2>
         <ul class="liste-nette">
-            <li>Licence libre, reprise possible par d'autres bases et d'autres structures</li>
-            <li>Une infrastructure de mise à disposition</li>
+            <li>Une licence libre : d'autres structures peuvent reprendre et adapter</li>
+            <li>Une infrastructure : les fichiers sont accessibles sans moi</li>
             <li>Des personnes formées, et pas une décision de la structure</li>
         </ul>
+        <p class="text-muted" style="font-size: 0.44em">Le portage reste fragile : rien ne tient à une décision institutionnelle, et le déploiement repose encore sur une personne qui compense la bande passante de la base.</p>
         <aside class="notes">
-            Le titre dit ce que le contenu tient : rien ne repose sur une décision institutionnelle. Le projet déplace le problème du portage, il ne le résout pas.
+            Honnêteté : le projet déplace le problème du portage, il ne le résout pas. Le dire avant que le jury ne le dise.
+            Ne pas parler des autres bases Glénans : le dispositif n'a été déployé qu'à Marseillan. La diffusion réelle est extérieure, vers trois écoles.
         </aside>
     </section>
 
-    <!-- 13. APPORTS -->
+    <!-- 17. APPORTS ET RÉPONSE -->
     <section>
-        <span class="wf-tag">13 / 13 - apports et limites 1 min 30</span>
+        <span class="wf-tag">17 / 17 - apports et réponse 1 min 30</span>
         <h2>Apports et limites</h2>
         <ul class="liste-nette">
             <li><strong>Une démarche</strong> - co-concevoir avec celles et ceux qui vont utiliser</li>
-            <li><strong>Une formation</strong> - l'animation du vivre-ensemble s'apprend</li>
-            <li><strong>Un outil</strong> - intégré aux routines, pas à côté</li>
+            <li><strong>Une formation</strong> - cinq gestes d'animation, pas cinq concepts</li>
+            <li><strong>Un outil</strong> - modulaire, greffé sur les routines, pas à côté</li>
         </ul>
-        <p class="text-muted" style="font-size: 0.45em; margin-top: 1em">
-            Et la limite : un outil ne remplace pas une politique de formation.
-        </p>
+        <p class="grand-texte" style="font-size: 0.60em; margin-top: 0.9em">Ce que le projet donne aux moniteurices, c'est une façon de nommer ce qui se joue dans un équipage, et de le faire avec l'équipage plutôt que seul.</p>
+        <p class="text-muted" style="font-size: 0.44em; margin-top: 0.6em">Et la limite : un outil ne remplace pas une politique de formation.</p>
         <aside class="notes">
-            Répondre une dernière fois à la question initiale, avec ses limites.
-            Pas de nouvelle anecdote, pas de formule finale.
+            Répondre une dernière fois à la question de la slide 1, avec ses limites. Pas de nouvelle anecdote, pas de formule finale.
+            La réponse doit être reconnaissable comme la réponse à la question posée : nommer ce qui se joue, et le faire avec l'équipage. Les trois moyens sont la démarche, la formation, l'outil.
+            S'arrêter. Ne rien ajouter après la limite.
         </aside>
     </section>
 
@@ -287,9 +462,9 @@
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
 <script>
-    // ?clean masque les reperes de wireframe (numero, duree) pour la projection
+    // ?clean masque les reperes de wireframe et le bandeau d'hypothese
     if (location.search.indexOf('clean') !== -1) {
-        document.querySelectorAll('.wf-tag').forEach(function (e) { e.style.display = 'none'; });
+        document.querySelectorAll('.wf-tag, .hypothese').forEach(function (e) { e.style.display = 'none'; });
     }
     Reveal.initialize({
         hash: true,

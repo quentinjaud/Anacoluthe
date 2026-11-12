@@ -24,6 +24,9 @@
            la regle .reveal p { font-size: 0.6em } du theme gagne sur la classe et
            toutes les tailles ci-dessous sont ignorees silencieusement.
            Hierarchie voulue : la question domine, le contenu porte, le titre nomme. */
+        /* Le nom du dispositif est le plus grand texte du deck : c'est la slide
+           d'accueil, le jury doit lire le nom avant la question. */
+        .reveal h1 { font-size: 1.05em; line-height: 1.1; margin-bottom: 0.1em; }
         .reveal h2 { font-size: 0.52em; line-height: 1.25; }
         .reveal p.grand-texte { font-size: 0.78em; line-height: 1.38; }
         .reveal ul.liste-nette { font-size: 0.62em; line-height: 1.5; }
@@ -47,10 +50,16 @@
             margin-bottom: 1.2em;
         }
         .reveal p.question {
-            max-width: 88%;
+            max-width: 84%;
             margin: 0 auto;
-            font-size: 1.10em;
-            line-height: 1.30;
+            font-size: 0.88em;
+            line-height: 1.34;
+        }
+        .filet {
+            width: 9%;
+            height: 3px;
+            background: var(--teal-700);
+            margin: 1.1em auto;
         }
         /* Slide 3 : les quatre familles, cote a cote. */
         .familles {
@@ -114,11 +123,15 @@
 
     <!-- 1. LA QUESTION -->
     <section>
-        <span class="kicker">Anacoluthe - soutenance UC1-UC2 - BPJEPS voile habitable</span>
+        <span class="kicker">Soutenance UC1-UC2 - BPJEPS voile habitable</span>
+        <h1>Anacoluthe</h1>
+        <div class="filet"></div>
         <p class="question">Comment donner aux moniteurices les moyens d'animer le vivre-ensemble dans un contexte qui génère autant de tensions que d'opportunités d'apprentissage ?</p>
         <aside class="notes">
             [1 / 17 - la question 45 s]
-            Rien en main, rien à lire à l'écran, et surtout aucune histoire : ni la scène de Gruissan, ni le parcours de designer. Les deux sont dans l'introduction du dossier, le jury les a lues. Les redire ici, c'est utiliser la meilleure minute de la soutenance à répéter.
+            Le nom est affiché et se lit tout seul. Ne pas l'expliquer : l'anacoluthe est définie dans le dossier, et la définir ici serait une redite de plus.
+
+            Rien en main, rien à lire d'autre à l'écran, et surtout aucune histoire : ni la scène de Gruissan, ni le parcours de designer. Les deux sont dans l'introduction du dossier, le jury les a lues. Les redire ici, c'est utiliser la meilleure minute de la soutenance à répéter.
 
             1. La question, à voix haute, telle qu'elle est écrite. Ne pas la paraphraser, ne pas l'introduire par une phrase qui annonce qu'on va la poser.
 

@@ -20,12 +20,14 @@
             bottom: 14px;
             right: 22px;
         }
-        /* Titres plus petits que le defaut du theme : le contenu porte, pas le titre. */
-        .reveal h1 { font-size: 0.70em; line-height: 1.25; }
+        /* Echelle typographique. Les selecteurs portent .reveal et l'element, sinon
+           la regle .reveal p { font-size: 0.6em } du theme gagne sur la classe et
+           toutes les tailles ci-dessous sont ignorees silencieusement.
+           Hierarchie voulue : la question domine, le contenu porte, le titre nomme. */
         .reveal h2 { font-size: 0.52em; line-height: 1.25; }
-        .grand-texte { font-size: 1.05em; line-height: 1.35; }
-        .liste-nette { font-size: 0.62em; line-height: 1.5; }
-        .liste-nette li { margin-bottom: 0.45em; }
+        .reveal p.grand-texte { font-size: 0.78em; line-height: 1.38; }
+        .reveal ul.liste-nette { font-size: 0.62em; line-height: 1.5; }
+        .reveal .liste-nette li { font-size: 0.62em; margin-bottom: 0.45em; }
         .deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9em; }
         .encart {
             background: var(--navy-50);
@@ -44,11 +46,11 @@
             color: var(--text-muted);
             margin-bottom: 1.2em;
         }
-        .question {
-            font-size: 0.80em;
-            line-height: 1.32;
+        .reveal p.question {
             max-width: 88%;
             margin: 0 auto;
+            font-size: 1.10em;
+            line-height: 1.30;
         }
         /* Slide 3 : les quatre familles, cote a cote. */
         .familles {

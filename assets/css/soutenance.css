@@ -73,6 +73,9 @@ body {
   background: var(--bg-cream);
   color: var(--text-corps);
   font-family: var(--font-corps);
+  /* Corps en 300, comme les paragraphes du site : Merriweather variable
+     descend jusqu'a cette graisse, le texte se pose au lieu de peser. */
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -151,6 +154,7 @@ body {
 
 .corps {
   font-family: var(--font-corps);
+  font-weight: 300;
   font-size: var(--t-corps);
   line-height: 1.42;
   margin: 0;
@@ -168,6 +172,7 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-weight: 300;
   font-size: var(--t-liste);
   line-height: 1.45;
 }

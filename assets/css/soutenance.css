@@ -1,0 +1,476 @@
+/* ── Soutenance UC1-UC2 : feuille de style ──
+   Page unique, une section par écran, défilement qui s'aligne.
+   Échelle typographique en vh : la hauteur est la contrainte d'un
+   vidéoprojecteur, pas la largeur. Toutes les tailles ont un plancher en px
+   pour rester lisibles sur un écran 4:3 de faible hauteur. */
+
+/* ── Polices embarquées : la page ne dépend d'aucun CDN ── */
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/merriweather.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('../fonts/merriweather-sans.woff2') format('woff2');
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('../fonts/atkinson.woff2') format('woff2');
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root {
+  --bleu-glenans: #0066AD;
+  --navy-700: #1E3A5F;
+  --navy-100: #C9D5E3;
+  --teal-700: #3d8b87;
+  --teal-50: #e8f4f3;
+  --amber-700: #c96a30;
+  --amber-50: #fff8f0;
+  --brick-700: #C62828;
+  --text-dark: #2D3748;
+  --text-corps: #4A4542;
+  --text-muted: #718096;
+  --border-light: #D1D5DB;
+  --bg-cream: #FFFDF9;
+
+  --font-titre: 'Merriweather Sans', sans-serif;
+  --font-corps: 'Merriweather', Georgia, serif;
+  --font-legende: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+
+  /* Une seule échelle, en hauteur d'écran. */
+  --t-question: clamp(24px, 4.1vh, 56px);
+  --t-nom: clamp(30px, 6.2vh, 88px);
+  --t-titre: clamp(21px, 3.1vh, 42px);
+  --t-corps: clamp(16px, 2.45vh, 32px);
+  --t-liste: clamp(15px, 2.3vh, 30px);
+  --t-petit: clamp(12px, 1.65vh, 21px);
+  --t-kicker: clamp(10px, 1.25vh, 15px);
+  --t-chiffre: clamp(38px, 8vh, 110px);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: var(--bg-cream);
+}
+
+body {
+  margin: 0;
+  background: var(--bg-cream);
+  color: var(--text-corps);
+  font-family: var(--font-corps);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Une section = un écran ── */
+
+.ecran {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(20px, 5vh, 72px) clamp(22px, 7vw, 128px);
+  position: relative;
+}
+
+.ecran > * { max-width: 1500px; }
+
+/* L'ouverture se centre : elle doit porter, pas s'aligner sur la marge. */
+.ecran.centree { text-align: center; align-items: center; }
+.ecran.centree .question { max-width: 26ch; }
+.ecran.centree .filet { margin-left: auto; margin-right: auto; }
+
+/* ── Blocs de texte ── */
+
+.kicker {
+  display: block;
+  font-family: var(--font-legende);
+  font-size: var(--t-kicker);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: clamp(14px, 3vh, 40px);
+}
+
+.nom {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-nom);
+  line-height: 1.02;
+  color: var(--bleu-glenans);
+  margin: 0;
+}
+
+.filet {
+  width: clamp(40px, 6vw, 90px);
+  height: 3px;
+  background: var(--teal-700);
+  margin: clamp(14px, 3vh, 36px) 0;
+  border: 0;
+}
+
+.titre {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-titre);
+  line-height: 1.15;
+  color: var(--bleu-glenans);
+  margin: 0 0 clamp(12px, 2.6vh, 34px);
+}
+
+.question {
+  font-family: var(--font-corps);
+  font-size: var(--t-question);
+  line-height: 1.32;
+  color: var(--text-corps);
+  margin: 0;
+}
+
+.corps {
+  font-family: var(--font-corps);
+  font-size: var(--t-corps);
+  line-height: 1.42;
+  margin: 0;
+}
+
+.petit {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin: clamp(10px, 2.2vh, 28px) 0 0;
+}
+
+.liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--t-liste);
+  line-height: 1.45;
+}
+
+.liste li {
+  margin-bottom: clamp(10px, 2.1vh, 26px);
+  padding-left: clamp(16px, 1.6vw, 26px);
+  position: relative;
+}
+
+.liste li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: clamp(5px, 0.5vw, 8px);
+  height: clamp(5px, 0.5vw, 8px);
+  border-radius: 50%;
+  background: var(--teal-700);
+}
+
+.liste strong { color: var(--navy-700); }
+
+/* ── Slide 3 : les deux publics ── */
+
+.publics {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(8px, 1.2vw, 24px);
+  margin-top: clamp(10px, 2.5vh, 32px);
+}
+
+.public-bloc {
+  flex: 1;
+  background: var(--teal-50);
+  border-top: 3px solid var(--teal-700);
+  padding: clamp(12px, 1.6vw, 24px) clamp(12px, 1.4vw, 22px);
+}
+
+.public-bloc.projet {
+  background: #F4F6FA;
+  border-top-color: var(--navy-700);
+}
+
+.public-bloc h3 {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  color: var(--bleu-glenans);
+  margin: 0 0 0.5em;
+}
+
+.public-bloc p {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.public-fleche {
+  align-self: center;
+  font-family: var(--font-titre);
+  font-size: calc(var(--t-corps) * 1.5);
+  line-height: 1;
+  color: var(--teal-700);
+}
+
+/* ── Slide 4 : les quatre familles ── */
+
+.familles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1.4vw, 28px);
+  margin-top: clamp(10px, 2.2vh, 28px);
+}
+
+.famille {
+  border-top: 3px solid var(--teal-700);
+  padding-top: clamp(8px, 1.2vh, 16px);
+}
+
+.famille strong {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: var(--t-corps);
+  color: var(--bleu-glenans);
+  margin-bottom: 0.4em;
+}
+
+.famille span {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Slide 11 : la frise des versions ── */
+
+.frise {
+  margin-top: clamp(10px, 2.5vh, 30px);
+  position: relative;
+}
+
+.frise-ligne {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  padding-bottom: clamp(14px, 2.6vh, 30px);
+}
+
+.frise-ligne::before {
+  content: '';
+  position: absolute;
+  top: 0.85em;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  background: var(--navy-100);
+  z-index: 0;
+}
+
+.version {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  z-index: 1;
+}
+
+.badge {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-petit);
+  color: #fff;
+  background: var(--navy-700);
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+}
+
+.badge.teal { background: var(--teal-700); }
+.badge.amber { background: var(--amber-700); }
+
+.version span {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+}
+
+.corrections {
+  display: grid;
+  gap: clamp(6px, 1.2vh, 14px);
+  margin-top: clamp(8px, 1.5vh, 18px);
+}
+
+.correction {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  background: var(--teal-50);
+  border-left: 4px solid var(--teal-700);
+  padding: 0.5em 0.8em;
+}
+
+.correction .avant { color: var(--brick-700); font-weight: 700; }
+.correction .fleche { color: var(--text-muted); }
+.correction .apres { color: var(--teal-700); font-weight: 700; }
+
+/* ── Slide 12 : les cinq étapes ── */
+
+.arc {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(8px, 1vw, 20px);
+  margin-top: clamp(10px, 2.2vh, 26px);
+}
+
+.etape {
+  border-top: 3px solid var(--navy-100);
+  padding-top: clamp(8px, 1.2vh, 16px);
+}
+
+.etape strong {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: var(--t-corps);
+  color: var(--bleu-glenans);
+  margin-bottom: 0.35em;
+}
+
+.etape .geste {
+  display: block;
+  font-family: var(--font-legende);
+  font-weight: 700;
+  font-size: var(--t-petit);
+  color: var(--teal-700);
+  margin-bottom: 0.3em;
+}
+
+.etape span.detail {
+  font-family: var(--font-legende);
+  font-size: calc(var(--t-petit) * 0.92);
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* ── Slide 15 : l'écart ── */
+
+.ecart {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2vw, 40px);
+  margin-top: clamp(12px, 3vh, 40px);
+  text-align: center;
+}
+
+.ecart .chiffre {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-chiffre);
+  line-height: 1;
+  color: var(--teal-700);
+}
+
+.ecart .prevu {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  margin-top: 0.4em;
+}
+
+.ecart .quoi {
+  font-family: var(--font-corps);
+  font-size: var(--t-corps);
+  margin-top: 0.5em;
+}
+
+/* ── Slide 16 : mesure et réserve ── */
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(16px, 3vw, 56px);
+  align-items: center;
+}
+
+.encart {
+  background: var(--amber-50);
+  border-left: 4px solid var(--amber-700);
+  padding: clamp(12px, 1.6vw, 26px);
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ── Slide 18 : apports ── */
+
+.reponse {
+  font-family: var(--font-corps);
+  font-size: var(--t-corps);
+  line-height: 1.4;
+  margin: clamp(12px, 2.5vh, 30px) 0 0;
+  max-width: 60ch;
+}
+
+.limite {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  margin-top: clamp(10px, 2vh, 24px);
+}
+
+/* ── Chrome de navigation ── */
+
+#progression {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--teal-700);
+  width: 0;
+  z-index: 50;
+  transition: width 0.25s ease;
+}
+
+#numero {
+  position: fixed;
+  right: clamp(12px, 1.6vw, 26px);
+  bottom: clamp(10px, 1.4vh, 18px);
+  font-family: var(--font-legende);
+  font-size: var(--t-kicker);
+  color: var(--text-muted);
+  z-index: 50;
+}
+
+/* En projection, aucun curseur ne traîne sur la page. */
+body.projection { cursor: none; }
+
+/* ── Impression : une page par écran, pour le PDF de secours ── */
+
+@media print {
+  @page { size: 297mm 167mm; margin: 0; }
+  html { scroll-snap-type: none; background: #fff; }
+  body { background: #fff; }
+  .ecran {
+    min-height: 0;
+    height: 167mm;
+    page-break-after: always;
+    break-after: page;
+    padding: 14mm 16mm;
+  }
+  #progression, #numero { display: none; }
+}

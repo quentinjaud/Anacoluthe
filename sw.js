@@ -5,7 +5,7 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.3.0';
+const CACHE_VERSION = '1.4.0';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
 
 // Ressources essentielles à précacher
@@ -17,9 +17,11 @@ const PRECACHE_URLS = [
   '/afficheur-cartes.html',
   '/fil-semaine.html',
   '/ensavoirplus.html',
+  '/soutenance.html',
   
   // CSS
   '/assets/css/style.css',
+  '/assets/css/soutenance.css',
   '/assets/css/cards.css',
   '/assets/css/cards-print.css',
   '/assets/css/fil-semaine.css',
@@ -38,6 +40,11 @@ const PRECACHE_URLS = [
   // Data
   '/assets/data/cards-index.json',
   
+  // Polices embarquees pour la page de soutenance (hors-ligne fiable)
+  '/assets/fonts/merriweather.woff2',
+  '/assets/fonts/merriweather-sans.woff2',
+  '/assets/fonts/atkinson.woff2',
+
   // Images
   '/assets/images/logo-anacoluthe.svg',
   '/assets/images/icon-192.png',

@@ -460,10 +460,10 @@ body {
   z-index: 60;
   display: flex;
   justify-content: center;
-  /* Le bloc est volontairement plus haut que les pastilles : la carte de
-     l'écran courant remonte dans cet air, au lieu d'être rognée par le bord. */
-  padding: clamp(20px, 2.6vh, 30px) clamp(10px, 2vw, 28px) clamp(6px, 1vh, 12px);
-  padding-bottom: max(clamp(6px, 1vh, 12px), env(safe-area-inset-bottom));
+  /* Bloc volontairement plus court que les pastilles : la carte de l'écran
+     courant dépasse au-dessus du bandeau au lieu d'y être enfermée. */
+  padding: clamp(2px, 0.5vh, 6px) clamp(10px, 2vw, 28px);
+  padding-bottom: max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom));
   background: rgba(255, 253, 249, 0.94);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
@@ -481,12 +481,10 @@ body {
   /* safe center : centre quand ça tient, et laisse défiler sans couper
      le début quand ça déborde. */
   justify-content: safe center;
-  overflow-x: auto;
-  overflow-y: visible;
-  scrollbar-width: none;
-  /* Marge haute : sans elle, le clip horizontal de overflow coupe la carte
-     active qui remonte de quelques pixels. */
-  padding: 12px 0 2px;
+  /* Pas d'overflow ici : un overflow-x, même sur une piste qui tient,
+     clippe la carte active qui remonte au-dessus de la barre. Les dix-neuf
+     pastilles tiennent des 640 px de large, la projection est bien au-delà. */
+  padding: 0;
 }
 
 .fil-piste::-webkit-scrollbar { display: none; }
@@ -531,7 +529,7 @@ body {
   gap: 0.5em;
   background: var(--teal-100);
   border-color: var(--teal-700);
-  transform: translateY(clamp(-9px, -0.8vh, -5px));
+  transform: translateY(clamp(-20px, -1.6vh, -10px));
   filter: none;
   opacity: 1;
   box-shadow: 0 4px 12px rgba(30, 58, 95, 0.18);

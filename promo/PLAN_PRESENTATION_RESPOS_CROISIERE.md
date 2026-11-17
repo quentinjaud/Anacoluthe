@@ -17,7 +17,7 @@
 
 « Faites vos commandes. »
 
-Quentin a prototypé large (trop), en testant beaucoup. Ce n'est pas un pitch produit, c'est un catalogue d'idées testées soumis à la filière. On accroche par l'utile (sécurité, prévention des risques), on élève par le sens (objet associatif, éducation populaire), on bascule sur la vraie question (l'adhésion des monos), et on termine par une offre concrète et datée : gardez ce qui vous parle vraiment, je produis vos versions, intégrées à vos outils actuels, dans les mois qui viennent.
+Quentin a prototypé large (trop), en testant beaucoup. Ce n'est pas un pitch produit, c'est un catalogue d'idées testées soumis à la filière. On accroche par l'utile (sécurité, prévention des risques), on élève par le sens (objet associatif, éducation populaire), on bascule sur la vraie question (l'adhésion des moniteurices), et on termine par une offre concrète et datée : gardez ce qui vous parle vraiment, je produis vos versions, intégrées à vos outils actuels, dans les mois qui viennent.
 
 ## Posture
 
@@ -30,8 +30,11 @@ Quentin a prototypé large (trop), en testant beaucoup. Ce n'est pas un pitch pr
 
 ## Partie 1 : intro resserrée (environ 13 à 15 min)
 
-### S1 — Accroche
-Une scène de vécu croisière, pas un logo : un équipage techniquement au point mais où chacun·e rame dans son coin.
+### S1 — La question, puis Anacoluthe (les réponses)
+On inverse : on pose d'abord la question, puis on introduit Anacoluthe comme l'ensemble des réponses.
+- Question : comment outiller les moniteurices sur l'animation du vivre-ensemble en embarqué ?
+- Réponse : Anacoluthe, une démarche qui rassemble des outils, des formations, un site web.
+- Origine : un projet BP mené à Marseillan.
 
 ### S2 — Le constat
 Technique et sécurité-matériel : très bien outillées aux Glénans. Le facteur humain à bord (coordination, communication, fatigue, tensions) reste laissé à l'intuition de chaque moniteurice, alors qu'il pèse sur les risques.
@@ -45,40 +48,39 @@ Les Glénans ne sont pas qu'une école de voile : une association d'éducation p
 
 ### S5 — Posture : boîte à outils, pas programme
 - Greffe sur les routines existantes, pas une couche en plus.
-- C'est une boîte à outils : lae mono pioche ce qui sert son équipage, sa météo, son moment. Aucune carte obligatoire, on peut commencer avec une seule.
+- À la carte : lae moniteurice prend ce qui sert son équipage, sa météo, son moment. Aucune carte obligatoire, une seule suffit pour démarrer.
 
-### S6 — Ce que c'est, concrètement
-Inventaire présenté comme une boîte à outils (4 rôles, 7 moments, 4 Joker, 3 affiches et leurs mémos), pas comme une séquence. On montre 1 ou 2 outils réels.
-- On assume que c'est volontairement trop : un labo de prototypes testés, pas un produit fini à prendre tel quel. Cela prépare l'offre de la Partie 2.
+### S6 — Dans la boîte à outils
+Inventaire présenté comme une boîte à outils (4 rôles, 7 moments, 4 Joker, 3 affiches et leurs mémos), pas comme une séquence. Préciser les formats :
+- les cartes : des mini-guides, une A6 recto-verso chacune ;
+- les affiches : des A4 plastifiées, à bord des bateaux ;
+- le tout aussi consultable sur le web.
+Idée de fond (orale, prépare la Partie 2) : c'est volontairement trop, un labo de prototypes testés.
 
-### S7 — Une semaine type J1 vers J6
-Lae moniteurice modélise (J1-J2), l'équipage s'approprie (J5-J6). Le dispositif épouse le rythme du stage. La charge ne s'ajoute pas, elle se distribue à l'équipage.
-
-### S8 — Ce que ce n'est PAS
+### S7 — Ce que ce n'est PAS
 Ni test de personnalité, ni méthode de management, ni obligation, ni activité en plus. Recadrage net avant le pivot.
 
 ---
 
 ## Partie 2 : pivot et débat sur l'adhésion (environ 12 à 14 min)
 
-### S9 — Pivot
-« La vraie question n'est pas le contenu, c'est : est-ce que les monos vont s'en saisir ? C'est là qu'on a besoin de vous. »
+### S8 — Pivot
+« La vraie question n'est pas le contenu, c'est : est-ce que les moniteurices vont s'en saisir ? C'est là qu'on a besoin de vous. »
 
-### S10 — Les frictions d'adoption, par profil
-Tous les monos ne résistent pas pareil : bénévoles habitué·es résistant·es aux nouveaux outils, permanent·es aux habitudes ancrées, stagiaires occasionnel·les en manque de repères. Plus une friction transversale, structurelle : le samedi de bascule est déjà saturé (brief d'1h, armement, accueil des stagiaires).
+### S9 — Les frictions d'adoption, par profil
+Chaque profil résiste autrement : bénévoles habitué·es résistant·es aux nouveaux outils, permanent·es aux habitudes ancrées, stagiaires occasionnel·les en manque de repères. Plus une friction transversale, structurelle : le samedi de bascule est déjà saturé (brief d'1h, armement, accueil des stagiaires).
 
-### S11 — Garde-fous côté outil
-Greffe, boîte à outils (on pioche), la charge se distribue, guide autonome utilisable sans formation. On répond aux frictions de S10.
+### S10 — Garde-fous côté outil
+Greffe, boîte à outils (on pioche), la charge se distribue, guide autonome utilisable sans formation. On répond aux frictions de S9.
 
-### S12 — Adhésion : ce qui existe déjà
+### S11 — Adhésion : ce qui existe déjà
 État des lieux honnête des canaux actuels :
 - greffe sur le brief samedi matin (kit distribué avec les livres de bord, dans le PPT existant) ;
 - formation vendredi (3 à 4h, optionnelle) ;
-- affiche et guide pensés pour être auto-portants ;
-- communauté WhatsApp.
+- affiche et guide pensés pour être auto-portants.
 Assumé : on sait que c'est loin de suffire.
 
-### S13 — Intégrer dans VOS outils actuels : les points de greffe
+### S12 — Intégrer dans VOS outils actuels : les points de greffe
 Anacoluthe ne demande pas un temps nouveau, il se greffe sur ce qui existe déjà côté base :
 - le brief samedi matin (PPT et distribution avec les livres de bord) ;
 - le discours de 13h ;
@@ -87,27 +89,20 @@ Anacoluthe ne demande pas un temps nouveau, il se greffe sur ce qui existe déj�
 - la formation vendredi.
 C'est là que ça doit s'intégrer pour vivre, pas à côté.
 
-### S14 — Faites vos commandes
+### S13 — Faites vos commandes
 Le cœur honnête, en version positive :
 > Voilà ce que moi j'ai produit. C'est très, trop étoffé : j'ai testé plein de trucs. Je ne vous demande pas d'adopter mon kit tel quel. Qu'est-ce qu'on peut en garder pour vous, à intégrer dans vos processus et outils actuels ? Il me reste quelques mois pour produire VOS versions. Faites vos commandes.
 
 La dépendance (le dispositif ne se porte pas tout seul, Quentin seul non plus) est dite en creux et transformée en offre concrète et datée.
 
-### S15 — Le menu et la discussion
-Un catalogue concret de livrables producibles, pour rendre la commande actionnable :
-- guide mono autonome ;
-- notice équipage avec les livres de bord ;
-- slides à ajouter au brief samedi ;
-- script du discours 13h ;
-- conducteur du débrief jeudi ;
-- protocoles brief matin et débrief soir ;
-- conducteur de formation vendredi.
+### S14 — Discussion qualitative
+On quitte le quantitatif (pas de catalogue de livrables à cocher) pour le qualitatif. Deux questions ouvertes :
+- Qu'est-ce qui vous rend curieux·euse, que vous auriez envie de tester ?
+- Qu'est-ce qu'on doit bidouiller ensemble pour en faire une version OK pour vous ?
 
-La discussion s'ouvre sur deux niveaux :
-- La commande : qu'est-ce que vous voulez que je produise pour vous ?
-- Les spécifications : comment loger l'amorce dans le samedi sans alourdir une journée déjà pleine, quel format avec les livres de bord, comment rendre les ateliers du vendredi réguliers, qu'est-ce qui donnerait à un·e mono l'envie de piocher dedans.
+La liste des livrables producibles reste en notes présentateur, comme aide-mémoire pour répondre « ça, je peux te le fabriquer » : guide moniteurice autonome, notice équipage avec les livres de bord, slides à ajouter au brief samedi, script du discours 13h, conducteur du débrief jeudi, protocoles brief matin et débrief soir, conducteur de formation vendredi.
 
-### S16 — Clôture et suite
+### S15 — Clôture et suite
 Le deal et le calendrier : quelques mois pour produire les versions commandées. Comment la commande se précise et se suit (qui pilote côté filière, échéances), accès au matériel actuel (QR vers le site et l'afficheur).
 
 ---
@@ -129,9 +124,8 @@ Le deal et le calendrier : quelques mois pour produire les versions commandées.
 ## Sources et visuels dans le repo
 
 - Thème deck : `sources/presentations/anacoluthe-theme.css`.
-- Stratégie d'adhésion (base du menu S15, profils S10, points de greffe S13) : `sources/documentation/FORMATIONS_ANIMATEURICES_INTENTIONS.md`.
+- Stratégie d'adhésion (base du menu S14, profils S9, points de greffe S12) : `sources/documentation/FORMATIONS_ANIMATEURICES_INTENTIONS.md`.
 - Formulations réutilisables (charge qui se distribue, affiche qui parle toute seule) : `sources/presentations/atelier-moniteurices.html`.
 - Frictions terrain et posture : `sources/guides-seances-topos/ATELIER_DECOUVERTE_BP_V260311.md`.
 - Logo : `assets/images/logo-anacoluthe.svg`.
 - QR site et afficheur : `assets/images/qrcode_anacoluthe.png`, `assets/images/qrcode_anacoluthe_fil_semaine.png`.
-- QR communauté WhatsApp : `assets/images/QRcode_anacoluthe_commu-whatsapp.png`.

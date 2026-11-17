@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anacoluthe - Réunion responsables croisière</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/logo-anacoluthe.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css">
+    <link rel="stylesheet" href="anacoluthe-theme.css">
+    <style>
+        /* ============================================================
+           Deck « Réunion responsables croisière » — styles spécifiques.
+
+           Le thème partagé (anacoluthe-theme.css) fournit palette, polices
+           et titres. Ici : une colonne de contenu unique (mêmes bords, même
+           centre pour tous les blocs) et une échelle typographique
+           centralisée en variables (source unique de vérité).
+
+           Convention : toutes les règles sont scopées sous .reveal, afin de
+           passer systématiquement devant les règles du thème (qui forcent
+           .reveal p et .reveal li à 0.6em).
+           ============================================================ */
+
+        /* Taille de base du deck : réduite par rapport au 42px par défaut du
+           thème white de reveal, pour aérer et limiter les retours à la ligne.
+           Tout le reste est en em de cette base, la hiérarchie est préservée. */
+        .reveal { font-size: 34px; }
+
+        /* ── Titres : davantage d'air sous les titres ── */
+        .reveal .slides section h1 { margin-bottom: 0.5em; }
+        .reveal .slides section h2 { margin-bottom: 0.8em; }
+        .reveal .slides section h3 { margin-bottom: 0.6em; }
+
+        :root {
+            /* Colonne de contenu : largeur unique => mêmes bords, même centre */
+            --cw: 95%;
+            --cw-max: 900px;
+
+            /* Échelle typographique (em du root reveal) */
+            --fs-lead: 0.85em;     /* phrase-clé */
+            --fs-list: 0.72em;     /* listes de corps */
+            --fs-caption: 0.58em;  /* légende discrète */
+            --fs-encadre: 0.9em;   /* encadré message clé */
+            --fs-table: 0.62em;    /* tableau profils */
+            --fs-greffe: 0.52em;   /* lignes de greffe (denses) */
+            --fs-question: 0.6em;  /* texte des cartes-questions */
+            --fs-card: 0.5em;      /* texte d'une carte étroite */
+            --fs-card-h: 0.6em;    /* titre d'une carte étroite */
+        }
+
+        /* ── Colonne de contenu : partagée par tous les blocs de corps ── */
+        .reveal .slides section > .lead,
+        .reveal .slides section > .deck-list,
+        .reveal .slides section > .nope-list,
+        .reveal .slides section > blockquote,
+        .reveal .slides section > .message-cle,
+        .reveal .slides section > .caption,
+        .reveal .slides section > .deux-col,
+        .reveal .slides section > .elements-grid,
+        .reveal .slides section > .profil-table,
+        .reveal .slides section > .greffe-list,
+        .reveal .slides section > .question-cards,
+        .reveal .slides section > .url {
+            width: var(--cw);
+            max-width: var(--cw-max);
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        /* ── Phrase-clé : centrée ── */
+        .reveal .lead { font-size: var(--fs-lead); line-height: 1.5; text-align: center; text-wrap: balance; margin: 0.5em auto; color: var(--text-dark); }
+        .reveal .lead strong { font-weight: 700; color: var(--navy-700); }
+
+        /* ── Listes de corps : alignées à gauche dans la colonne ── */
+        .reveal .deck-list { list-style: none; padding: 0; text-align: left; margin: 0.9em auto; }
+        .reveal .deck-list li { font-size: var(--fs-list); line-height: 1.5; margin-bottom: 0.7em; }
+        .reveal .deck-list strong { font-weight: 700; color: var(--navy-700); }
+
+        /* ── Liste « ce que ce n'est pas » ── */
+        .reveal .nope-list { list-style: none; padding: 0; text-align: left; margin: 0.9em auto; }
+        .reveal .nope-list li { font-family: 'Merriweather Sans', sans-serif; font-size: var(--fs-list); padding: 0.4em 0; color: var(--text-muted); }
+        .reveal .nope-list .x { color: var(--brick-700); font-weight: 800; margin-right: 0.5em; }
+
+        /* ── Légende discrète : centrée ── */
+        .reveal .caption { font-size: var(--fs-caption); line-height: 1.4; color: var(--text-muted); text-align: center; margin-top: 0.9em; }
+        .reveal .caption strong { color: var(--navy-700); }
+
+        /* ── Encadré message clé ── */
+        .reveal .message-cle {
+            background: var(--teal-700); color: #fff;
+            font-family: 'Merriweather Sans', sans-serif;
+            font-size: var(--fs-encadre); font-weight: 600; text-align: center;
+            padding: 0.6em 1em; border-radius: 8px; margin: 0.6em auto;
+        }
+        .reveal .message-cle.brick { background: var(--brick-700); }
+        .reveal .message-cle.tight { font-size: 0.62em; white-space: nowrap; padding: 0.5em 0.8em; }
+
+        /* ── Deux colonnes (constat, semaine) ── */
+        .reveal .deux-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin: 0.7em auto; }
+        .reveal .col-bloc { border-radius: 10px; padding: 0.7em 0.9em; text-align: left; }
+        .reveal .col-bloc.ok { background: var(--teal-50); border: 2px solid var(--teal-100); }
+        .reveal .col-bloc.faible { background: var(--amber-50); border: 2px solid var(--amber-100); }
+        .reveal .col-bloc h4 { font-family: 'Merriweather Sans', sans-serif; font-size: var(--fs-card-h); font-weight: 700; margin: 0 0 0.4em; }
+        .reveal .col-bloc.ok h4 { color: var(--teal-700); }
+        .reveal .col-bloc.faible h4 { color: var(--amber-700); }
+        .reveal .col-bloc p { font-size: var(--fs-card); line-height: 1.5; margin: 0; }
+
+        /* ── Tableau profils (S10) ── */
+        .reveal .profil-table { border-collapse: collapse; font-size: var(--fs-table); }
+        .reveal .profil-table th { background: var(--navy-700); color: #fff; font-family: 'Merriweather Sans', sans-serif; padding: 0.38em 0.7em; text-align: left; }
+        .reveal .profil-table td { padding: 0.38em 0.7em; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+        .reveal .profil-table tr:nth-child(even) { background: #f8f9fa; }
+        .reveal .profil-table .profil-nom { font-family: 'Merriweather Sans', sans-serif; font-weight: 700; color: var(--navy-700); }
+
+        /* ── Lignes de greffe (S13) : existant → Anacoluthe ── */
+        .reveal .greffe-list { list-style: none; padding: 0; margin: 0.5em auto; }
+        .reveal .greffe-list li { display: flex; align-items: baseline; gap: 0.8em; font-size: var(--fs-greffe); line-height: 1.35; padding: 0.28em 0; border-bottom: 1px solid #eee; }
+        .reveal .greffe-list .greffe-existant { flex: 0 0 42%; text-align: right; color: var(--text-muted); font-weight: 600; }
+        .reveal .greffe-list .greffe-fleche { flex-shrink: 0; color: var(--text-muted); }
+        .reveal .greffe-list .greffe-ana { flex: 1; text-align: left; color: var(--bleu-glenans); font-weight: 600; }
+
+        /* ── Deux cartes-questions (S15) ── */
+        .reveal .question-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; margin: 1.1em auto; }
+        .reveal .question-card { background: var(--navy-50); border: 2px solid var(--navy-100); border-radius: 12px; padding: 1em 1.1em; text-align: left; }
+        .reveal .question-card .q-num { font-family: 'Merriweather Sans', sans-serif; font-weight: 800; font-size: 1.1em; color: var(--bleu-glenans); display: block; margin-bottom: 0.2em; }
+        .reveal .question-card p { font-size: var(--fs-question); line-height: 1.5; margin: 0; }
+
+        /* ── Images : aperçu affiche (S6), QR (S16) ── */
+        .reveal .affiche-thumb { display: block; height: 165px; margin: 0.7em auto 0; border: 1px solid var(--navy-100); border-radius: 4px; box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+        .reveal .tuckman-img { display: block; margin: 0.6em auto; max-width: var(--cw-max); max-height: 430px; width: auto; height: auto; border-radius: 4px; }
+        .reveal .qr { display: block; width: 135px; margin: 0.7em auto 0.2em; }
+        .reveal .url { text-align: center; margin: 0.2em auto; }
+        .reveal .url strong { font-size: 1.4em; color: var(--rouge-glenans); }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- S1 : La question d'abord, puis Anacoluthe (les réponses) -->
+            <section>
+                <h3>Comment outiller les moniteurices sur l'animation <br>du vivre-ensemble en embarqué ?</h3>
+                <h1>Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
+                <p class="lead">Des <strong>outils</strong>, des <strong>formations</strong>, un <strong>site web</strong>.</p>
+                <aside class="notes">
+                    - On pose d'abord la question, puis on introduit les réponses
+                    - Anacoluthe = la démarche qui rassemble ces réponses : des outils (cartes, affiches), des formations (ateliers du vendredi, FPI2, stage P), un site web (anacoluthe.org)
+                    - Origine : projet BP à Marseillan
+                    - 20 à 30 min puis discussion ; objectif affiché : votre avis critique
+                    - En creux : ça ne se porte pas tout seul, j'ai besoin de vous
+                </aside>
+            </section>
+
+            <!-- S2 : Le constat -->
+            <section>
+                <h2>Le constat</h2>
+                <div class="deux-col">
+                    <div class="col-bloc ok">
+                        <h4>Très bien outillé</h4>
+                        <p>La technique, la nav, la sécurité-matériel. On sait former, transmettre, évaluer.</p>
+                    </div>
+                    <div class="col-bloc faible">
+                        <h4>Laissé à l'intuition</h4>
+                        <p>Le facteur humain à bord : coordination, communication, fatigue, tensions. Chaque moniteurice gère à sa façon.</p>
+                    </div>
+                </div>
+                <p class="lead">Or ce facteur humain <strong>pèse sur les risques</strong>.</p>
+                <aside class="notes">
+                    - Pas un reproche : un constat partagé
+                    - 4 frictions terrain possibles à citer : fluidifier le quotidien, arrêter de répéter, rendre la progression visible, gérer les accrocs
+                    - Ce sont les frictions que le dispositif résout, pas l'adoption
+                </aside>
+            </section>
+
+            <!-- S3 : Sécurité et prévention -->
+            <section>
+                <h2>Coordonner mieux, c'est prévenir</h2>
+                <p class="lead">Rôles clairs, briefs et débriefs, désaccords gérés à temps : autant de situations qui <strong>dérapent moins</strong>.</p>
+                <div class="message-cle brick tight">Un vivre-ensemble un peu plus cadré, c'est moins d'appels RTQ.</div>
+                <aside class="notes">
+                    - C'est l'argument qui vous parle, à vous responsables croisière
+                    - Cohérent avec l'objectif OO3 du doc formation : réduire les sollicitations RTQ pour tensions relationnelles
+                    - Ne pas survendre : on dit "moins", pas "zéro"
+                </aside>
+            </section>
+
+            <!-- S4 : Objet associatif et éducation populaire -->
+            <section>
+                <h2>L'ADN des Glénans : une école de vie</h2>
+                <blockquote>École de formation à la mer, et, par elle, à la vie collective.</blockquote>
+                <p class="lead">Anacoluthe sert la mission d'éducation populaire des Glénans : Aider les encadrants et les stagiaires à acquérir des savoir-être, à s'émanciper.</p>
+                <aside class="notes">
+                    - Citation issue des statuts Glénans
+                    - C'est ce qui donne sa légitimité au dispositif : pas un gadget plaqué
+                    - L'éduc pop a une place forte, même chez les responsables croisière
+                </aside>
+            </section>
+
+            <!-- S5 : Posture boîte à outils -->
+            <section>
+                <h2>Une boîte à outils, pas un programme</h2>
+                <ul class="deck-list">
+                    <li>🌱 <strong>Une greffe</strong> sur les routines existantes (brief, nav, débrief), pas une couche en plus.</li>
+                    <li>🧰 <strong>À la carte.</strong> Lae moniteurice prend ce qui sert son équipage, sa météo, son moment. Aucune carte obligatoire, une seule suffit pour démarrer.</li>
+                </ul>
+                <aside class="notes">
+                    - Point d'adhésion majeur : désamorce le "tout ou rien" et le "trop lourd"
+                    - À dire vite et clairement
+                </aside>
+            </section>
+
+            <!-- S6 : Ce que c'est, concrètement -->
+            <section>
+                <h2>Dans la boîte à outils</h2>
+                <div class="elements-grid">
+                    <div class="element-card role"><span class="emoji">👥</span><h4>4 cartes rôles</h4><p>tournants, inspirés de marins réels</p></div>
+                    <div class="element-card moment"><span class="emoji">🌅</span><h4>7 cartes moments</h4><p>de l'accueil au débrief final</p></div>
+                    <div class="element-card joker"><span class="emoji">🃏</span><h4>4 cartes Joker</h4><p>pour les accrocs, à la demande</p></div>
+                    <div class="element-card affiche"><span class="emoji">📋</span><h4>3 affiches</h4><p>+ leurs mémos</p></div>
+                </div>
+                <ul class="deck-list">
+                    <li>🃏 <strong>Les cartes</strong> : des mini-guides, une A6 recto-verso chacune.</li>
+                    <li>📋 <strong>Les affiches</strong> : des A4 plastifiées, à bord des bateaux.</li>
+                    <li>💻 <strong>Le tout</strong> est aussi consultable sur le web.</li>
+                </ul>
+                <aside class="notes">
+                    - Montrer 1 ou 2 outils réels en main si possible (carte rôle, carte débrief)
+                    - L'affiche A4 "Découverte" présente le kit à l'équipage
+                    - QR vers l'afficheur en clôture pour voir toutes les cartes
+                    - "Volontairement trop" prépare le "faites vos commandes"
+                </aside>
+            </section>
+
+            <!-- S7 option B : 5 phases (courbe) -->
+            <section>
+                <h2>Tout équipage traverse 5 phases</h2>
+                <img src="../../assets/images/5-phases-de-Tuckman.png" alt="Les 5 phases de Tuckman : Formation, Turbulence, Structuration, Coopération, Dissolution" class="tuckman-img">
+                <p class="caption">D'après le modèle de Tuckman. La turbulence est une étape normale, il faut simplement l'accompagner.</p>
+                <aside class="notes">
+                    - Même fond que l'option A, version visuelle (la courbe)
+                    - Détailler à l'oral ce qui outille chaque phase : accueil/accords → Joker → rôles/tableau → briefs/affiches → débrief final
+                    - Version simplifiée de l'atelier FPI
+                </aside>
+            </section>
+
+            <!-- S7 option A : 5 phases (tableau) -->
+            <section>
+                <h2>Anacoluthe aide au passage entre les phases</h2>
+                <table class="profil-table">
+                    <thead><tr><th>Phase</th><th>Ce qui se passe</th><th>Ce qui outille</th></tr></thead>
+                    <tbody>
+                        <tr><td class="profil-nom">👋 Formation · J1</td><td>On prend nos marques</td><td>Accueil, accords, découverte des rôles</td></tr>
+                        <tr><td class="profil-nom">⚡ Turbulence · J2-J4</td><td>Ça frotte (et c'est normal)</td><td>Cartes Joker, débrief du soir</td></tr>
+                        <tr><td class="profil-nom">🧭 Structuration · J3-J5</td><td>Les rôles s'installent</td><td>Les 4 rôles, tableau d'équipage</td></tr>
+                        <tr><td class="profil-nom">🤝 Coopération · J4-J6</td><td>L'équipage se régule seul</td><td>Briefs, débriefs, affiches</td></tr>
+                        <tr><td class="profil-nom">🏁 Dissolution · J6</td><td>On ramène à terre</td><td>Débrief final</td></tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    - Le fondement théorique : tout groupe traverse ces phases (Tuckman), comprimées en 6 jours à bord
+                    - Message clé : la turbulence est prévisible et normale, pas un échec
+                    - Chaque phase a ses outils : ce n'est pas au hasard
+                    - Version simplifiée de l'atelier FPI
+                </aside>
+            </section>
+
+            <!-- S8 : Pivot -->
+            <section>
+                <h2 class="accent-brick">La vraie question : l'adoption du dispositif</h2>
+                <p class="lead">Comment faciliter le fait que les moniteurices s'en saisissent ?</p>
+                <p class="lead"><strong>Tout se joue là.</strong></p>
+                <aside class="notes">
+                    - Le pivot : on assume que l'adhésion est le vrai sujet
+                    - Ralentir ici, laisser le silence
+                </aside>
+            </section>
+
+            <!-- S9 : Frictions d'adoption par profil -->
+            <section>
+                <h2>Chaque profil s'en saisit différemment</h2>
+                <table class="profil-table">
+                    <thead><tr><th>Profil</th><th>Ce qui freine l'adoption</th></tr></thead>
+                    <tbody>
+                        <tr><td class="profil-nom">Bénévoles habitué·es</td><td>expérience solide, résistance aux nouveaux outils</td></tr>
+                        <tr><td class="profil-nom">Permanent·es (BPJEPS)</td><td>habitudes (trop) ancrées, automatismes</td></tr>
+                        <tr><td class="profil-nom">Stagiaires occasionnel·les</td><td>en manque de repères, peu encadré·es</td></tr>
+                        <tr><td class="profil-nom">Pigistes de passage</td><td>découvrent la base et les outils Glénans</td></tr>
+                    </tbody>
+                </table>
+                <div class="message-cle brick">Et le samedi de bascule est déjà saturé : brief, armement, accueil.</div>
+                <aside class="notes">
+                    - Source : 5 profils du doc FORMATIONS_ANIMATEURICES_INTENTIONS
+                    - La friction transversale n'est pas le contenu, c'est le temps disponible le samedi
+                </aside>
+            </section>
+
+            <!-- S10 : Garde-fous côté outil -->
+            <section>
+                <h2>Pourquoi ça ne surcharge pas</h2>
+                <ul class="deck-list">
+                    <li>🌱 ça se <strong>greffe</strong> sur l'existant</li>
+                    <li>🧰 on <strong>pioche</strong>, rien d'obligatoire</li>
+                    <li>⚖️ la charge se <strong>distribue</strong> à l'équipage</li>
+                    <li>📖 un <strong>guide autonome</strong> : utilisable sans formation</li>
+                </ul>
+                <p class="caption">Léger, oui. Mais même léger, ça ne s'adopte pas tout seul.</p>
+                <aside class="notes">
+                    - On répond point par point aux freins de la slide précédente
+                    - "La charge se distribue" : formulation reprise du deck moniteurices
+                    - La dernière ligne fait le pont : un bon outil ne suffit pas à être adopté → slide suivante, les canaux d'adoption
+                </aside>
+            </section>
+
+            <!-- S11 : Ce qui existe déjà -->
+            <section>
+                <h2>Le faire adopter : ce qu'on a déjà</h2>
+                <ul class="deck-list">
+                    <li>📦 le <strong>brief samedi matin</strong> (kit distribué avec les livres de bord)</li>
+                    <li>📅 la <strong>formation vendredi</strong> (3 à 4h, optionnelle)</li>
+                    <li>🪧 l'<strong>affiche et le guide</strong>, pensés pour parler tout seuls</li>
+                </ul>
+                <p class="lead">On le sait : <strong>c'est loin de suffire</strong>.</p>
+                <aside class="notes">
+                    - État des lieux honnête, ne pas survendre les canaux
+                    - L'honnêteté sur l'insuffisance renforce la crédibilité
+                </aside>
+            </section>
+
+            <!-- S12 : Points de greffe dans VOS outils -->
+            <section>
+                <h2>Ça s'intègre dans <span class="accent-navy">VOS</span> outils</h2>
+                <ul class="greffe-list">
+                    <li><span class="greffe-existant">Brief samedi matin</span><span class="greffe-fleche">→</span><span class="greffe-ana">kit + guide avec les livres de bord</span></li>
+                    <li><span class="greffe-existant">Discours de 13h</span><span class="greffe-fleche">→</span><span class="greffe-ana">message éduc pop, opportunité relationnelle</span></li>
+                    <li><span class="greffe-existant">Brief matin</span><span class="greffe-fleche">→</span><span class="greffe-ana">+5 min : météo perso, rôles du jour</span></li>
+                    <li><span class="greffe-existant">Débrief soir</span><span class="greffe-fleche">→</span><span class="greffe-ana">+5-10 min : dimension humaine, ancrage</span></li>
+                    <li><span class="greffe-existant">Débrief jeudi (RTQ)</span><span class="greffe-fleche">→</span><span class="greffe-ana">retours d'usage + format mieux conduit</span></li>
+                    <li><span class="greffe-existant">Formation vendredi</span><span class="greffe-fleche">→</span><span class="greffe-ana">atelier "animer le faire-équipage"</span></li>
+                </ul>
+                <p class="caption">Pas un temps à côté : ça vit dans ce qui existe déjà.</p>
+                <aside class="notes">
+                    - Source : cartographie des moments piratables (doc FORMATIONS)
+                    - Le débrief jeudi mieux conduit = bénéfice direct pour lae RTQ
+                </aside>
+            </section>
+
+            <!-- S13 : Faites vos commandes -->
+            <section>
+                <h2 class="accent-brick">Faites vos commandes</h2>
+                <blockquote>
+                    Voilà ce que j'ai produit. C'est très, trop étoffé : j'ai testé plein de choses.
+                    Je ne vous demande pas d'adopter mon kit tel quel. Qu'est-ce qu'on peut en garder pour vous,
+                    à intégrer dans vos processus et vos outils actuels ?
+                    <br><br>
+                    Il me reste <strong>quelques mois</strong> pour produire <strong>VOS versions</strong>.
+                </blockquote>
+                <aside class="notes">
+                    - Le cœur honnête, en version positive
+                    - La dépendance (ni l'affiche seule, ni moi seul) est dite en creux et transformée en offre datée
+                    - Laisser respirer avant la discussion
+                </aside>
+            </section>
+
+            <!-- S14 : Discussion qualitative -->
+            <section>
+                <h2>À vous</h2>
+                <div class="question-cards">
+                    <div class="question-card">
+                        <span class="q-num">1</span>
+                        <p>Qu'est-ce qui vous <strong>rend curieux·euse</strong>, que vous auriez envie de tester ?</p>
+                    </div>
+                    <div class="question-card">
+                        <span class="q-num">2</span>
+                        <p>Qu'est-ce qu'on doit <strong>bidouiller ensemble</strong> pour en faire une version OK pour vous ?</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    - On quitte le quantitatif (pas de catalogue à cocher), on va au qualitatif : leur curiosité
+                    - Aide-mémoire de ce que je peux fabriquer si un sujet les intrigue :
+                      - guide moniteurice autonome
+                      - notice équipage avec les livres de bord
+                      - slides à ajouter au brief samedi
+                      - script du discours 13h
+                      - conducteur du débrief jeudi
+                      - protocoles brief matin / débrief soir
+                      - conducteur de formation vendredi
+                    - Noter tout ce qui se dit : c'est la commande
+                </aside>
+            </section>
+
+            <!-- S15 : Clôture et suite -->
+            <section>
+                <h2>La suite</h2>
+                <p class="lead">Quelques mois pour produire les versions que vous aurez choisies, intégrées à vos outils.</p>
+                <img src="../../assets/images/qrcode_anacoluthe.png" alt="QR code anacoluthe.org" class="qr">
+                <p class="url"><strong>anacoluthe.org</strong></p>
+                <p class="caption">Le dispositif complet et l'afficheur de cartes sont en ligne.</p>
+                <aside class="notes">
+                    - Préciser qui pilote côté filière et les échéances
+                    - QR vers le site et l'afficheur
+                    - Remercier
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealNotes],
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            transition: 'none',
+            progress: true
+        });
+    </script>
+</body>
+</html>

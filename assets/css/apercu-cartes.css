@@ -1,0 +1,484 @@
+/* =============================================================
+   Composant « aperçu des cartes » - repris de la page d'accueil
+   -------------------------------------------------------------
+   Provenance : assets/css/style.css, section APERÇU (regles .apercu*),
+   recopiees sans changement de valeur. Le deck de soutenance ne charge
+   pas style.css : ce fichier rend le composant disponible a l'identique
+   le jour ou un ecran le reprendra.
+
+   Trois variables manquaient au deck, elles sont declarees ici ; le
+   reste vient de soutenance.css.
+
+   Non branche : soutenance.html ne charge pas encore ce fichier. Le
+   style et les composants se travaillent plus tard (decision S12).
+   ============================================================= */
+
+:root {
+  --amber-100: #ffe8d4;
+  --blanc: #FFFFFF;
+  --radius-card: 16px;
+}
+
+.apercu-section {
+    padding: 2rem 0;
+}
+
+.apercu-section.section-fullwidth {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.apercu-section.section-fullwidth {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.apercu-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.apercu-intro {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.apercu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    align-items: start;
+    /* Align top pour éviter l'étirement */;
+}
+
+.apercu-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.apercu-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.apercu-stack {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.apercu-tile-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.apercu-fake-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: var(--radius-card);
+    pointer-events: none;
+}
+
+.apercu-fake-card.fake-1 {
+    z-index: 1;
+    transform: rotate(1.5deg) translate(2px, 3px);
+}
+
+.apercu-fake-card.fake-2 {
+    z-index: 0;
+    transform: rotate(-1deg) translate(-2px, 6px);
+}
+
+.apercu-tile {
+    position: relative;
+    z-index: 2;
+    background: var(--blanc);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    min-height: 280px;
+    /* Hauteur minimum pour uniformiser les piles */;
+}
+
+.apercu-stack:nth-child(1) .apercu-tile {
+    transform: rotate(-2deg);
+}
+
+.apercu-stack:nth-child(2) .apercu-tile {
+    transform: rotate(2.5deg);
+}
+
+.apercu-stack:nth-child(3) .apercu-tile {
+    transform: rotate(-1.5deg);
+}
+
+.apercu-stack:nth-child(4) .apercu-tile {
+    transform: rotate(1deg);
+}
+
+.apercu-stack:hover .apercu-tile {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transform: translateY(-4px) rotate(0deg);
+}
+
+.apercu-stack-footer {
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.apercu-stack-header {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.15rem;
+}
+
+.apercu-count {
+    display: inline-block;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    transform: rotate(-8deg);
+    margin-right: -0.2rem;
+    position: relative;
+    line-height: 0.8;
+    vertical-align: baseline;
+}
+
+.apercu-stack[data-type="affiche"] .apercu-count {
+    color: #1E3A5F;
+}
+
+.apercu-stack[data-type="role"] .apercu-count {
+    color: var(--amber-700);
+}
+
+.apercu-stack[data-type="moment"] .apercu-count {
+    color: var(--teal-700);
+}
+
+.apercu-stack[data-type="joker"] .apercu-count {
+    color: #C62828;
+}
+
+.apercu-stack-header .apercu-type-badge {
+    position: relative;
+    margin-left: -0.2rem;
+    z-index: 2;
+}
+
+.apercu-stack[data-type="role"] .apercu-tile {
+    background: var(--amber-50);
+    border-color: var(--teal-700);
+}
+
+.apercu-stack[data-type="role"]:hover .apercu-tile {
+    box-shadow: 0 6px 16px rgba(201, 106, 48, 0.2);
+}
+
+.apercu-stack[data-type="moment"] .apercu-tile {
+    background: var(--teal-50);
+    border-color: var(--amber-700);
+}
+
+.apercu-stack[data-type="moment"]:hover .apercu-tile {
+    box-shadow: 0 6px 16px rgba(61, 139, 135, 0.2);
+}
+
+.apercu-stack[data-type="joker"] .apercu-tile {
+    background: #FFEBEE;
+    border-color: var(--teal-700);
+}
+
+.apercu-stack[data-type="joker"]:hover .apercu-tile {
+    box-shadow: 0 6px 16px rgba(198, 40, 40, 0.2);
+}
+
+.apercu-stack[data-type="affiche"] .apercu-tile {
+    background: #E8EDF4;
+    border-color: #C62828;
+}
+
+.apercu-stack[data-type="affiche"]:hover .apercu-tile {
+    box-shadow: 0 6px 16px rgba(30, 58, 95, 0.2);
+}
+
+.apercu-tile-header {
+    margin-bottom: 0.5rem;
+}
+
+.apercu-type-badge {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    line-height: 1.1;
+}
+
+.apercu-stack[data-type="role"] .apercu-type-badge {
+    background: var(--amber-100);
+    color: var(--amber-700);
+}
+
+.apercu-stack[data-type="moment"] .apercu-type-badge {
+    background: var(--teal-100);
+    color: var(--teal-700);
+}
+
+.apercu-stack[data-type="joker"] .apercu-type-badge {
+    background: #FFCDD2;
+    color: #C62828;
+}
+
+.apercu-stack[data-type="affiche"] .apercu-type-badge {
+    background: #C9D5E3;
+    color: #1E3A5F;
+}
+
+.apercu-card-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    transition: opacity 0.15s ease;
+}
+
+.apercu-card-preview.shuffling {
+    opacity: 0.3;
+}
+
+.apercu-emoji {
+    font-size: 2rem;
+    line-height: 1;
+    transition: opacity 0.15s ease;
+}
+
+.apercu-emoji.shuffling {
+    opacity: 0.3;
+}
+
+.apercu-title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    border: none !important;
+    border-bottom: none !important;
+    transition: opacity 0.2s ease;
+}
+
+.apercu-title:hover {
+    opacity: 0.8;
+    border: none !important;
+    border-bottom: none !important;
+}
+
+.apercu-stack[data-type="role"] .apercu-title {
+    color: var(--amber-700);
+}
+
+.apercu-stack[data-type="moment"] .apercu-title {
+    color: var(--teal-700);
+}
+
+.apercu-stack[data-type="joker"] .apercu-title {
+    color: #C62828;
+}
+
+.apercu-stack[data-type="affiche"] .apercu-title {
+    color: #1E3A5F;
+}
+
+.apercu-subtitle {
+    font-family: 'Merriweather', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.apercu-stack[data-type="role"] .apercu-subtitle {
+    color: var(--teal-700);
+}
+
+.apercu-stack[data-type="moment"] .apercu-subtitle {
+    color: var(--amber-700);
+}
+
+.apercu-stack[data-type="joker"] .apercu-subtitle {
+    color: var(--bleu-glenans);
+}
+
+.apercu-stack[data-type="affiche"] .apercu-subtitle {
+    color: #C62828;
+}
+
+.apercu-description {
+    font-family: 'Merriweather', serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-top: 0.5rem;
+}
+
+.apercu-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.apercu-tag {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.15rem 0.4rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.apercu-stack[data-type="role"] .apercu-tag {
+    background: var(--amber-100);
+    color: var(--amber-700);
+}
+
+.apercu-stack[data-type="moment"] .apercu-tag {
+    background: var(--teal-100);
+    color: var(--teal-700);
+}
+
+.apercu-stack[data-type="joker"] .apercu-tag {
+    background: #FFCDD2;
+    color: #C62828;
+}
+
+.apercu-stack[data-type="affiche"] .apercu-tag {
+    background: #C9D5E3;
+    color: #1E3A5F;
+}
+
+.apercu-tile-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    justify-content: center;
+}
+
+.apercu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: rgba(255,255,255,0.6);
+    color: var(--text-muted);
+    /* Forcer bordure 4 côtés identiques */
+    border: 1px solid var(--border-light) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+.apercu-btn:hover {
+    background: var(--blanc);
+    color: var(--text-dark);
+    border: 1px solid var(--text-muted) !important;
+    border-bottom: 1px solid var(--text-muted) !important;
+}
+
+.apercu-stack[data-type="role"] .apercu-btn:hover {
+    color: var(--amber-700);
+    border: 1px solid var(--amber-700) !important;
+    border-bottom: 1px solid var(--amber-700) !important;
+}
+
+.apercu-stack[data-type="moment"] .apercu-btn:hover {
+    color: var(--teal-700);
+    border: 1px solid var(--teal-700) !important;
+    border-bottom: 1px solid var(--teal-700) !important;
+}
+
+.apercu-stack[data-type="joker"] .apercu-btn:hover {
+    color: #C62828;
+    border: 1px solid #C62828 !important;
+    border-bottom: 1px solid #C62828 !important;
+}
+
+.apercu-stack[data-type="affiche"] .apercu-btn:hover {
+    color: #1E3A5F;
+    border: 1px solid #1E3A5F !important;
+    border-bottom: 1px solid #1E3A5F !important;
+}
+
+.apercu-header-text {
+    display: block;
+    width: 100%;
+}
+
+.apercu-header-text {
+    display: inline;
+    width: auto;
+}
+
+/* ---- adaptatif, repris tel quel ---- */
+@media (max-width: 768px) {
+    .apercu-section.section-fullwidth {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .apercu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .apercu-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .apercu-header-text {
+        display: inline;
+        width: auto;
+    }
+}

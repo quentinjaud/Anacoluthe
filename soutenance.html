@@ -11,13 +11,35 @@
 </head>
 <body>
 
-<div id="progression"></div>
-<div id="numero" aria-hidden="true">1</div>
+<!-- Le fil : une pastille par écran, la ligne continue du site -->
+<nav class="fil" aria-label="Progression de la soutenance">
+  <div class="fil-piste">
+    <a class="pastille" href="#question"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
+    <a class="pastille" href="#pourquoi"><span aria-hidden="true">🌱</span><span class="bulle">Pourquoi cette initiative</span></a>
+    <a class="pastille" href="#travailler"><span aria-hidden="true">🧭</span><span class="bulle">Comment travailler</span></a>
+    <a class="pastille" href="#terrain"><span aria-hidden="true">⛵</span><span class="bulle">Le terrain</span></a>
+    <a class="pastille" href="#publics"><span aria-hidden="true">👥</span><span class="bulle">À qui je m'adresse</span></a>
+    <a class="pastille" href="#familles"><span aria-hidden="true">🧩</span><span class="bulle">Quatre familles</span></a>
+    <a class="pastille" href="#roles"><span aria-hidden="true">🔄</span><span class="bulle">Les rôles</span></a>
+    <a class="pastille" href="#affiches"><span aria-hidden="true">📌</span><span class="bulle">Les affiches</span></a>
+    <a class="pastille" href="#moments"><span aria-hidden="true">🗓️</span><span class="bulle">Les sept moments</span></a>
+    <a class="pastille" href="#jokers"><span aria-hidden="true">🃏</span><span class="bulle">Les quatre jokers</span></a>
+    <a class="pastille" href="#versions"><span aria-hidden="true">🧵</span><span class="bulle">Cinq versions</span></a>
+    <a class="pastille" href="#coconception"><span aria-hidden="true">🤝</span><span class="bulle">La co-conception</span></a>
+    <a class="pastille" href="#formation"><span aria-hidden="true">🎓</span><span class="bulle">Dans la formation</span></a>
+    <a class="pastille" href="#moyens"><span aria-hidden="true">💶</span><span class="bulle">Avec quels moyens</span></a>
+    <a class="pastille" href="#integration"><span aria-hidden="true">📎</span><span class="bulle">L'outil de la base</span></a>
+    <a class="pastille" href="#ecart"><span aria-hidden="true">📉</span><span class="bulle">L'écart au prévu</span></a>
+    <a class="pastille" href="#mesure"><span aria-hidden="true">📊</span><span class="bulle">Ce que ça mesure</span></a>
+    <a class="pastille" href="#reste"><span aria-hidden="true">🌾</span><span class="bulle">Ce qui reste</span></a>
+    <a class="pastille" href="#apports"><span aria-hidden="true">🎯</span><span class="bulle">Apports et limites</span></a>
+  </div>
+</nav>
 
 <main>
 
 <!-- 1. LA QUESTION -->
-<section class="ecran centree" id="question">
+<section class="ecran centree fond-creme" id="question">
   <span class="kicker">Soutenance UC1-UC2 · BPJEPS voile habitable</span>
   <h1 class="nom">¿¡ Anacoluthe ?!</h1>
   <hr class="filet">
@@ -27,7 +49,7 @@
 </section>
 
 <!-- 2. POURQUOI CETTE INITIATIVE · à compléter -->
-<section class="ecran" id="pourquoi">
+<section class="ecran fond-amber" id="pourquoi">
   <h2 class="titre">Pourquoi cette initiative ?</h2>
   <p class="corps">Histoire personnelle, année d'alternance, premiers entretiens.</p>
   <p class="petit">À compléter : d'où vient le projet, la question de départ, ce qui a
@@ -35,7 +57,7 @@
 </section>
 
 <!-- 3. COMMENT TRAVAILLER · à compléter -->
-<section class="ecran" id="travailler">
+<section class="ecran fond-creme" id="travailler">
   <h2 class="titre">Comment travailler ?</h2>
   <p class="corps">Les contraintes déjà connues sur la base, celles de l'alternance.</p>
   <p class="petit">À compléter : le cadre de travail, ce qu'il rend possible et ce qu'il
@@ -43,7 +65,7 @@
 </section>
 
 <!-- 4. LE TERRAIN -->
-<section class="ecran" id="terrain">
+<section class="ecran fond-teal" id="terrain">
   <h2 class="titre">Le terrain</h2>
   <p class="corps">Six jours, six inconnus, quelques mètres carrés.</p>
   <p class="petit">Marseillan, étang de Thau. Environ deux mille stagiaires par an, une
@@ -52,7 +74,7 @@
 </section>
 
 <!-- 5. LES DEUX PUBLICS -->
-<section class="ecran" id="publics">
+<section class="ecran fond-creme" id="publics">
   <h2 class="titre">À qui je m'adresse</h2>
   <div class="publics">
     <div class="public-bloc projet">
@@ -75,7 +97,7 @@
 </section>
 
 <!-- 6. L'OBJET -->
-<section class="ecran" id="familles">
+<section class="ecran fond-teal" id="familles">
   <h2 class="titre">Quatre familles, indépendantes</h2>
   <p class="corps">Chacune se comprend seule et vit sans les trois autres.
   On peut n'en prendre qu'un bout.</p>
@@ -88,7 +110,7 @@
 </section>
 
 <!-- 7. LES RÔLES -->
-<section class="ecran" id="roles">
+<section class="ecran fond-creme" id="roles">
   <h2 class="titre">Les rôles coopératifs</h2>
   <p class="corps">Tout reposait sur la moniteurice. Quatre rôles tournants
   distribuent l'organisation.</p>
@@ -97,7 +119,7 @@
 </section>
 
 <!-- 8. LES AFFICHES -->
-<section class="ecran" id="affiches">
+<section class="ecran fond-creme" id="affiches">
   <h2 class="titre">Les affiches embarquées</h2>
   <p class="corps">Les mêmes consignes, répétées chaque matin. Trois affiches
   fixes remplacent la répétition.</p>
@@ -106,7 +128,7 @@
 </section>
 
 <!-- 9. LES MOMENTS -->
-<section class="ecran" id="moments">
+<section class="ecran fond-creme" id="moments">
   <h2 class="titre">Les sept moments</h2>
   <p class="corps">On avance, mais sans jalons visibles. Sept cartes donnent
   des rendez-vous à la semaine.</p>
@@ -115,7 +137,7 @@
 </section>
 
 <!-- 10. LES JOKERS -->
-<section class="ecran" id="jokers">
+<section class="ecran fond-creme" id="jokers">
   <h2 class="titre">Les quatre jokers</h2>
   <p class="corps">Quand ça coince, chacun bricole. Quatre cartes donnent
   un protocole au lieu d'une improvisation.</p>
@@ -124,7 +146,7 @@
 </section>
 
 <!-- 11. LA FRISE -->
-<section class="ecran" id="versions">
+<section class="ecran fond-teal" id="versions">
   <h2 class="titre">Cinq versions, neuf mois de terrain</h2>
   <div class="frise">
     <div class="frise-ligne">
@@ -146,7 +168,7 @@
 </section>
 
 <!-- 12. LA CO-CONCEPTION -->
-<section class="ecran" id="coconception">
+<section class="ecran fond-amber" id="coconception">
   <h2 class="titre">La co-conception</h2>
   <p class="corps">Les moniteurices ont fabriqué le dispositif avec moi.
   En fabriquant, elles se sont formées.</p>
@@ -155,7 +177,7 @@
 </section>
 
 <!-- 13. LA FORMATION -->
-<section class="ecran" id="formation">
+<section class="ecran fond-teal" id="formation">
   <h2 class="titre">Dans la formation</h2>
   <p class="corps">Cinq étapes dans la vie d'un équipage,
   et à chacune un geste à animer.</p>
@@ -174,7 +196,7 @@
 </section>
 
 <!-- 14. LES MOYENS -->
-<section class="ecran" id="moyens">
+<section class="ecran fond-amber" id="moyens">
   <h2 class="titre">Avec quels moyens</h2>
   <ul class="liste">
     <li><strong>Du temps.</strong> 272,5 heures de portage sur deux saisons,
@@ -189,7 +211,7 @@
 </section>
 
 <!-- 15. L'OUTIL DE LA BASE -->
-<section class="ecran" id="integration">
+<section class="ecran fond-creme" id="integration">
   <h2 class="titre">L'outil de la base</h2>
   <ul class="liste">
     <li>Briefs de démarrage, débriefs d'atterrissage</li>
@@ -199,7 +221,7 @@
 </section>
 
 <!-- 16. L'ÉCART -->
-<section class="ecran" id="ecart">
+<section class="ecran fond-creme" id="ecart">
   <h2 class="titre">L'écart au prévu</h2>
   <p class="corps">Plus petit que prévu, et plus loin que prévu.</p>
   <div class="ecart">
@@ -222,7 +244,7 @@
 </section>
 
 <!-- 17. CE QUE ÇA MESURE -->
-<section class="ecran" id="mesure">
+<section class="ecran fond-teal" id="mesure">
   <h2 class="titre">Ce que ça mesure</h2>
   <div class="deux-colonnes">
     <ul class="liste">
@@ -239,7 +261,7 @@
 </section>
 
 <!-- 18. CE QUI RESTE -->
-<section class="ecran" id="reste">
+<section class="ecran fond-creme" id="reste">
   <h2 class="titre">Ce qui reste</h2>
   <ul class="liste">
     <li>Une licence libre : d'autres structures peuvent reprendre et adapter</li>
@@ -251,7 +273,7 @@
 </section>
 
 <!-- 19. APPORTS ET LIMITES -->
-<section class="ecran" id="apports">
+<section class="ecran fond-amber" id="apports">
   <h2 class="titre">Apports et limites</h2>
   <ul class="liste">
     <li><strong>Une démarche</strong> · co-concevoir avec celles et ceux qui vont utiliser</li>
@@ -267,11 +289,12 @@
 
 <script>
 /* Navigation : une section par écran, molette et clavier.
-   Aucune dépendance, aucun CDN. Les ancres de l'URL fonctionnent seules. */
+   Le fil du bas suit la position et garde la pastille active visible.
+   Aucune dépendance, aucun CDN : les ancres de l'URL fonctionnent seules. */
 (function () {
   var ecrans = Array.prototype.slice.call(document.querySelectorAll('.ecran'));
-  var barre = document.getElementById('progression');
-  var numero = document.getElementById('numero');
+  var pastilles = Array.prototype.slice.call(document.querySelectorAll('.pastille'));
+  var piste = document.querySelector('.fil-piste');
 
   function courant() {
     var y = window.scrollY + window.innerHeight / 3;
@@ -284,14 +307,30 @@
   function aller(i) {
     if (i < 0) i = 0;
     if (i > ecrans.length - 1) i = ecrans.length - 1;
-    ecrans[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    ecrans[i].scrollIntoView({ block: 'start' });
   }
 
-  function peindre() {
-    var i = courant();
-    numero.textContent = (i + 1) + ' / ' + ecrans.length;
-    var total = document.documentElement.scrollHeight - window.innerHeight;
-    barre.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
+  /* L'état actif vient d'un observateur d'intersection, pas de l'événement
+     scroll : un déplacement programmé (ancre, clavier) n'émet pas toujours
+     scroll, et le fil resterait figé sur la section précédente. */
+  var actif = 0;
+
+  function peindre(i) {
+    if (typeof i === 'number') actif = i;
+    i = actif;
+    pastilles.forEach(function (p, k) {
+      p.classList.toggle('active', k === i);
+      p.classList.toggle('vue', k < i);
+    });
+    /* Le fil se recale pour que la pastille courante reste au centre,
+       sans faire défiler la page : on agit sur le scrollLeft de la piste. */
+    var a = pastilles[i];
+    /* On ne recentre que si le fil déborde : sinon le défilement inutile
+       coupe les premières pastilles sur un grand écran. */
+    if (a && piste && piste.scrollWidth > piste.clientWidth + 4) {
+      var cible = a.offsetLeft - (piste.clientWidth - a.offsetWidth) / 2;
+      piste.scrollTo({ left: Math.max(0, cible), behavior: 'smooth' });
+    }
   }
 
   document.addEventListener('keydown', function (e) {
@@ -315,9 +354,19 @@
     document.body.classList.toggle('projection', !!document.fullscreenElement);
   });
 
-  window.addEventListener('scroll', peindre, { passive: true });
-  window.addEventListener('resize', peindre);
-  peindre();
+  /* Une surveillance légère plutôt qu'un écouteur de scroll : un déplacement
+     programmé (ancre, clavier, restauration de position) n'émet pas toujours
+     scroll, et le fil resterait figé sur la section précédente. */
+  var dernier = -1;
+  function surveiller() {
+    var i = courant();
+    if (i !== dernier) { dernier = i; peindre(i); }
+  }
+  window.addEventListener('scroll', surveiller, { passive: true });
+  window.addEventListener('resize', surveiller);
+  window.addEventListener('hashchange', surveiller);
+  window.addEventListener('load', surveiller);
+  surveiller();
 })();
 </script>
 

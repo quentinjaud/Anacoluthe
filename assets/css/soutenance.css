@@ -47,9 +47,11 @@
   --font-legende: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
 
   /* Une seule échelle, en hauteur d'écran. */
-  --t-question: clamp(24px, 4.1vh, 56px);
-  --t-nom: clamp(30px, 6.2vh, 88px);
-  --t-titre: clamp(21px, 3.1vh, 42px);
+  --t-question: clamp(28px, 5.2vh, 68px);
+  --t-nom: clamp(34px, 6.8vh, 96px);
+  /* Titres de section : 4,4 vh, la proportion du .fil-title du site
+     (2,5 rem sur une page de 900 px de haut). */
+  --t-titre: clamp(26px, 4.4vh, 60px);
   --t-corps: clamp(16px, 2.45vh, 32px);
   --t-liste: clamp(15px, 2.3vh, 30px);
   --t-petit: clamp(12px, 1.65vh, 21px);
@@ -103,7 +105,22 @@ body {
 
 /* L'ouverture se centre : elle doit porter, pas s'aligner sur la marge. */
 .ecran.centree { text-align: center; align-items: center; }
-.ecran.centree .question { max-width: 26ch; }
+.ecran.centree /* Le slash rouge qui ouvre les titres du site, en signature. */
+.titre::before {
+  content: '/';
+  /* rouge Glenans du site, pas le rouge brique des cartes */
+  color: #F04839;
+  font-weight: 900;
+  margin-right: 0.18em;
+}
+
+/* Mots portés d'un titre. */
+.accent-teal { color: var(--teal-700); }
+.accent-brick { color: var(--brick-700); }
+.accent-navy { color: var(--navy-700); }
+.accent-ambre { color: var(--amber-700, #B4521E); }
+
+.question { max-width: 26ch; }
 .ecran.centree .filet { margin-left: auto; margin-right: auto; }
 
 /* ── Blocs de texte ── */
@@ -143,6 +160,21 @@ body {
   color: var(--bleu-glenans);
   margin: 0 0 clamp(12px, 2.6vh, 34px);
 }
+
+/* Le slash rouge qui ouvre les titres du site, en signature. */
+.titre::before {
+  content: '/';
+  /* rouge Glenans du site, pas le rouge brique des cartes */
+  color: #F04839;
+  font-weight: 900;
+  margin-right: 0.18em;
+}
+
+/* Mots portés d'un titre. */
+.accent-teal { color: var(--teal-700); }
+.accent-brick { color: var(--brick-700); }
+.accent-navy { color: var(--navy-700); }
+.accent-ambre { color: var(--amber-700, #B4521E); }
 
 .question {
   font-family: var(--font-corps);

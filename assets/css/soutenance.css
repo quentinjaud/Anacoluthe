@@ -455,7 +455,9 @@ body {
   z-index: 60;
   display: flex;
   justify-content: center;
-  padding: clamp(6px, 1vh, 12px) clamp(10px, 2vw, 28px);
+  /* Le bloc est volontairement plus haut que les pastilles : la carte de
+     l'écran courant remonte dans cet air, au lieu d'être rognée par le bord. */
+  padding: clamp(20px, 2.6vh, 30px) clamp(10px, 2vw, 28px) clamp(6px, 1vh, 12px);
   padding-bottom: max(clamp(6px, 1vh, 12px), env(safe-area-inset-bottom));
   background: rgba(255, 253, 249, 0.94);
   -webkit-backdrop-filter: blur(6px);
@@ -475,8 +477,11 @@ body {
      le début quand ça déborde. */
   justify-content: safe center;
   overflow-x: auto;
+  overflow-y: visible;
   scrollbar-width: none;
-  padding: 2px 0;
+  /* Marge haute : sans elle, le clip horizontal de overflow coupe la carte
+     active qui remonte de quelques pixels. */
+  padding: 12px 0 2px;
 }
 
 .fil-piste::-webkit-scrollbar { display: none; }

@@ -458,19 +458,3 @@ body {
 
 /* En projection, aucun curseur ne traîne sur la page. */
 body.projection { cursor: none; }
-
-/* ── Impression : une page par écran, pour le PDF de secours ── */
-
-@media print {
-  @page { size: 297mm 167mm; margin: 0; }
-  html { scroll-snap-type: none; background: #fff; }
-  body { background: #fff; }
-  .ecran {
-    min-height: 0;
-    height: 167mm;
-    page-break-after: always;
-    break-after: page;
-    padding: 14mm 16mm;
-  }
-  #progression, #numero { display: none; }
-}

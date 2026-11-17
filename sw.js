@@ -5,7 +5,7 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.4.0';
+const CACHE_VERSION = '1.4.1';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
 
 // Ressources essentielles à précacher

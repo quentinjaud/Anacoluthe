@@ -481,18 +481,6 @@ body {
 
 .fil-piste::-webkit-scrollbar { display: none; }
 
-/* La ligne continue derrière les pastilles. */
-.fil-piste::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 2px;
-  background: var(--border-light);
-  z-index: 0;
-}
-
 .pastille {
   position: relative;
   z-index: 1;

@@ -5,8 +5,23 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.5.1';
+const CACHE_VERSION = '1.6.0';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
+
+/**
+ * Mode travail sur la page de soutenance.
+ *
+ * Tant que cette constante est à true, /soutenance.html et son CSS ne sont
+ * ni précachés, ni servis depuis le cache : chaque rechargement va chercher
+ * la version en ligne, y compris en contournant le cache HTTP du navigateur.
+ * Aucune incrémentation de version n'est nécessaire pendant les itérations.
+ *
+ * Pour retrouver la page hors-ligne avant la soutenance : passer à false,
+ * remettre les trois URL commentées dans PRECACHE_URLS, et incrémenter
+ * CACHE_VERSION.
+ */
+const DEV_NO_CACHE = true;
+const DEV_URLS = ['/soutenance.html', '/assets/css/soutenance.css'];
 
 // Ressources essentielles à précacher
 const PRECACHE_URLS = [
@@ -17,11 +32,11 @@ const PRECACHE_URLS = [
   '/afficheur-cartes.html',
   '/fil-semaine.html',
   '/ensavoirplus.html',
-  '/soutenance.html',
+  // '/soutenance.html',   // hors cache pendant les iterations (voir DEV_NO_CACHE)
   
   // CSS
   '/assets/css/style.css',
-  '/assets/css/soutenance.css',
+  // '/assets/css/soutenance.css',   // hors cache pendant les iterations
   '/assets/css/cards.css',
   '/assets/css/cards-print.css',
   '/assets/css/fil-semaine.css',
@@ -40,10 +55,11 @@ const PRECACHE_URLS = [
   // Data
   '/assets/data/cards-index.json',
   
-  // Polices embarquees pour la page de soutenance (hors-ligne fiable)
-  '/assets/fonts/merriweather.woff2',
-  '/assets/fonts/merriweather-sans.woff2',
-  '/assets/fonts/atkinson.woff2',
+  // Polices embarquees pour la page de soutenance : servies par le reseau
+  // pendant les iterations, a remettre dans le precache pour le hors-ligne.
+  // '/assets/fonts/merriweather.woff2',
+  // '/assets/fonts/merriweather-sans.woff2',
+  // '/assets/fonts/atkinson.woff2',
 
   // Images
   '/assets/images/logo-anacoluthe.svg',
@@ -158,6 +174,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   
+  // Mode travail : ces URL ne sont jamais servies depuis le cache.
+  if (DEV_NO_CACHE && DEV_URLS.indexOf(url.pathname) !== -1) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .catch(() => caches.match(event.request).then((r) => r || new Response(
+          'Hors ligne et absent du cache', { status: 503, statusText: 'Offline',
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' } })))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((cachedResponse) => {

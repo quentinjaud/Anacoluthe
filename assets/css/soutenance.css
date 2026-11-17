@@ -2,7 +2,12 @@
    Page unique, une section par écran, défilement qui s'aligne.
    Échelle typographique en vh : la hauteur est la contrainte d'un
    vidéoprojecteur, pas la largeur. Toutes les tailles ont un plancher en px
-   pour rester lisibles sur un écran 4:3 de faible hauteur. */
+   pour rester lisibles sur un écran 4:3 de faible hauteur.
+
+   Charte visuelle : sources/documentation/DESIGN_INTENTIONS.md
+   Conventions de code : sources/documentation/TECH_INTENTIONS.md
+   Les valeurs de palette et de typographie sont celles de assets/css/style.css,
+   qui fait foi. En cas d'écart avec la doc, c'est le CSS du site qui a raison. */
 
 /* ── Polices embarquées : la page ne dépend d'aucun CDN ── */
 
@@ -31,6 +36,7 @@
   --bleu-glenans: #0066AD;
   --navy-700: #1E3A5F;
   --navy-100: #C9D5E3;
+  --teal-100: #c5e4e2;
   --teal-700: #3d8b87;
   --teal-50: #e8f4f3;
   --amber-700: #c96a30;
@@ -105,22 +111,6 @@ body {
 
 /* L'ouverture se centre : elle doit porter, pas s'aligner sur la marge. */
 .ecran.centree { text-align: center; align-items: center; }
-.ecran.centree /* Le slash rouge qui ouvre les titres du site, en signature. */
-.titre::before {
-  content: '/';
-  /* rouge Glenans du site, pas le rouge brique des cartes */
-  color: #F04839;
-  font-weight: 900;
-  margin-right: 0.18em;
-}
-
-/* Mots portés d'un titre. */
-.accent-teal { color: var(--teal-700); }
-.accent-brick { color: var(--brick-700); }
-.accent-navy { color: var(--navy-700); }
-.accent-ambre { color: var(--amber-700, #B4521E); }
-
-.question { max-width: 26ch; }
 .ecran.centree .filet { margin-left: auto; margin-right: auto; }
 
 /* ── Blocs de texte ── */
@@ -176,12 +166,24 @@ body {
 .accent-navy { color: var(--navy-700); }
 .accent-ambre { color: var(--amber-700, #B4521E); }
 
+/* La question d'ouverture : quatre lignes pleines, césurées à la main.
+   La mesure suit la plus longue, pour que la phrase tienne sans se tasser.
+   Plafond en vw : sur un écran plus haut que large (16:10, 4:3), l'échelle
+   en vh grossirait la ligne au-delà de la largeur disponible et la césure
+   tomberait au mauvais endroit. */
 .question {
   font-family: var(--font-corps);
-  font-size: var(--t-question);
+  font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px);
   line-height: 1.32;
   color: var(--text-corps);
   margin: 0;
+  max-width: 100%;
+}
+
+/* Les fragments portés : le sujet, le verbe, les deux termes du couple. */
+.question strong {
+  font-weight: 700;
+  color: var(--navy-700);
 }
 
 .corps {
@@ -546,7 +548,7 @@ body {
 
 .pastille.vue {
   background: #fff;
-  border-color: var(--teal-100);
+  border-color: rgba(61, 139, 135, 0.18);
   filter: grayscale(0.25);
   opacity: 0.85;
 }
@@ -555,11 +557,13 @@ body {
    pour porter son titre, et passe en teal. Les autres restent des pastilles
    d'icône, plus petites et en retrait. */
 .pastille.active {
+  /* Meme hauteur que les pastilles d'icone : seule la largeur change.
+     Un height auto faisait respirer le bandeau a chaque changement d'ecran. */
   width: auto;
-  height: auto;
-  padding: clamp(4px, 0.5vh, 7px) clamp(8px, 0.85vw, 14px);
+  height: clamp(22px, 1.75vw, 32px);
+  padding: 0 clamp(8px, 0.85vw, 14px);
   gap: 0.5em;
-  background: var(--teal-100);
+  background: #fff;
   border-color: var(--teal-700);
   transform: translateY(clamp(-20px, -1.6vh, -10px));
   filter: none;

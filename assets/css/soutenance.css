@@ -650,3 +650,35 @@ body {
 body.projection { cursor: none; }
 body.projection .fil { opacity: 0; }
 body.projection .fil:hover { opacity: 1; }
+
+/* ── Emplacement réservé aux photos de la FPI ──
+   Écran « Ce que j'ai animé ». Trois cadres 16/9 pour que la composition soit
+   arrêtée dès maintenant, et que les photos prennent la place sans la déplacer.
+   Marqués par data-visuel="photos-fpi" : c'est là qu'on cherchera quoi mettre. */
+
+.visuel-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.4vw, 22px);
+  width: min(900px, 100%);
+  margin: clamp(16px, 3.4vh, 44px) 0 0;
+}
+
+.visuel-photos .vide {
+  aspect-ratio: 16 / 9;
+  border: 2px dashed var(--border-light);
+  border-radius: 16px;
+  background: #F4F3F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9AA3AF;
+}
+
+@media (max-width: 900px) {
+  .visuel-photos { grid-template-columns: 1fr; }
+}

@@ -275,6 +275,33 @@ body {
   color: var(--teal-700);
 }
 
+/* ── Slide 14 : les face-à-face ──
+   Même grille que les deux publics, mais les blocs portent des listes.
+   La taille tombe à --t-petit : quatre items courts tiennent sans déborder. */
+
+.public-bloc .liste {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.public-bloc .liste li {
+  margin-bottom: clamp(8px, 1.5vh, 18px);
+  padding-left: clamp(12px, 1.1vw, 18px);
+}
+
+.public-bloc .liste li::before {
+  top: 0.55em;
+  width: clamp(4px, 0.4vw, 6px);
+  height: clamp(4px, 0.4vw, 6px);
+}
+
+.public-bloc .liste strong {
+  font-family: var(--font-titre);
+  color: var(--bleu-glenans);
+}
+
 /* ── Slide 4 : les quatre familles ── */
 
 .familles {

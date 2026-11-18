@@ -532,7 +532,7 @@ body {
   padding: clamp(2px, 0.5vh, 6px) clamp(10px, 2vw, 28px);
   padding-bottom: max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom));
   /* Réserve à droite pour le numéro de l'écran (.numero). */
-  padding-right: calc(clamp(10px, 1.6vw, 28px) + clamp(64px, 5.5vw, 96px));
+  padding-right: calc(clamp(10px, 1.6vw, 28px) + clamp(84px, 7.5vw, 130px));
   background: rgba(255, 253, 249, 0.94);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
@@ -717,13 +717,13 @@ body {
   display: flex;
   align-items: baseline;
   gap: 0.3em;
-  padding: 0.3em 0.75em;
+  padding: 0.25em 0.7em;
   border-radius: 2rem;
   background: var(--blanc);
   border: 1px solid var(--border-light);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   font-family: var(--font-legende);
-  font-size: clamp(11px, 0.9vw, 15px);
+  font-size: clamp(15px, 1.35vw, 24px);
   line-height: 1.2;
   pointer-events: none;
 }

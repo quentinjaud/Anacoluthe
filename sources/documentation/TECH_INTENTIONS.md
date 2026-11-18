@@ -276,7 +276,8 @@ Anacoluthe/
 │   │   └── cards-index.json    # Index des cartes (métadonnées)
 │   │
 │   └── images/
-│       └── logo-anacoluthe.svg
+│       ├── logo-anacoluthe.svg
+│       └── soutenance/         # Images propres au deck de soutenance
 │
 ├── sources/
 │   ├── cartes/                 # Contenu markdown des cartes

@@ -25,12 +25,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Atkinson Hyperlegible Next';
-  src: url('../fonts/atkinson.woff2') format('woff2');
-  font-weight: 100 800;
-  font-display: swap;
-}
 
 :root {
   --bleu-glenans: #0066AD;
@@ -43,14 +37,14 @@
   --amber-50: #fff8f0;
   --brick-700: #C62828;
   --text-dark: #2D3748;
-  --text-corps: #4A4542;
+  --text-corps: #2D3748;   /* --text-dark du site */
   --text-muted: #718096;
   --border-light: #D1D5DB;
   --bg-cream: #FFFDF9;
 
   --font-titre: 'Merriweather Sans', sans-serif;
   --font-corps: 'Merriweather', Georgia, serif;
-  --font-legende: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --font-legende: 'Merriweather Sans', sans-serif;   /* labels et tags, comme le site */
 
   /* Une seule échelle, en hauteur d'écran. */
   --t-question: clamp(28px, 5.2vh, 68px);
@@ -183,7 +177,7 @@ body {
 /* Les fragments portés : le sujet, le verbe, les deux termes du couple. */
 .question strong {
   font-weight: 700;
-  color: var(--navy-700);
+  color: var(--bleu-glenans);
 }
 
 .corps {
@@ -195,7 +189,8 @@ body {
 }
 
 .petit {
-  font-family: var(--font-legende);
+  font-family: var(--font-corps);
+  font-weight: 300;
   font-size: var(--t-petit);
   line-height: 1.45;
   color: var(--text-muted);
@@ -241,14 +236,15 @@ body {
 
 .public-bloc {
   flex: 1;
-  background: var(--teal-50);
-  border-top: 3px solid var(--teal-700);
-  padding: clamp(12px, 1.6vw, 24px) clamp(12px, 1.4vw, 22px);
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: clamp(14px, 1.8vw, 28px) clamp(14px, 1.6vw, 26px);
 }
 
 .public-bloc.projet {
-  background: #F4F6FA;
-  border-top-color: var(--navy-700);
+  background: var(--navy-50, #E8EDF4);
+  border-color: var(--navy-100);
 }
 
 .public-bloc h3 {
@@ -260,7 +256,8 @@ body {
 }
 
 .public-bloc p {
-  font-family: var(--font-legende);
+  font-family: var(--font-corps);
+  font-weight: 300;
   font-size: var(--t-petit);
   line-height: 1.4;
   color: var(--text-muted);
@@ -280,7 +277,7 @@ body {
    La taille tombe à --t-petit : quatre items courts tiennent sans déborder. */
 
 .public-bloc .liste {
-  font-family: var(--font-legende);
+  font-family: var(--font-corps);
   font-size: var(--t-petit);
   line-height: 1.4;
   color: var(--text-muted);
@@ -484,9 +481,12 @@ body {
 
 .encart {
   background: var(--amber-50);
+  border: 1px solid var(--amber-100, #ffe8d4);
   border-left: 4px solid var(--amber-700);
+  border-radius: 8px;
   padding: clamp(12px, 1.6vw, 26px);
-  font-family: var(--font-legende);
+  font-family: var(--font-corps);
+  font-style: italic;
   font-size: var(--t-petit);
   line-height: 1.5;
   color: var(--text-muted);
@@ -503,7 +503,7 @@ body {
 }
 
 .limite {
-  font-family: var(--font-legende);
+  font-family: var(--font-corps);
   font-size: var(--t-petit);
   color: var(--text-muted);
   margin-top: clamp(10px, 2vh, 24px);
@@ -757,8 +757,9 @@ body.projection .fil:hover { opacity: 1; }
 .raci {
   margin: clamp(14px, 3vh, 40px) 0 0;
   padding: clamp(12px, 1.6vw, 26px);
-  border-left: 4px solid var(--teal-700);
-  background: rgba(255,255,255,0.6);
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
   font-size: var(--t-liste);
   font-weight: 300;
   line-height: 1.5;
@@ -776,10 +777,10 @@ body.projection .fil:hover { opacity: 1; }
 /* Écran 9 : trois voies, une image chacune. */
 .trois-voies { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 3vw, 48px); margin-top: clamp(14px, 3vh, 40px); }
 .trois-voies h3 { font-family: var(--font-titre); font-size: var(--t-liste); color: var(--navy-700); margin: 0.6em 0 0.2em; }
-.trois-voies p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-family: var(--font-legende); }
+.trois-voies p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-family: var(--font-corps); font-weight: 300; font-style: italic; color: var(--text-muted); }
 .trois-voies .photo-cadre { aspect-ratio: 4 / 3; }
 .vignette { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #fff; display: flex; justify-content: center; }
-.vignette img { height: 140%; transform: rotate(-3deg) translateY(6%); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.vignette img { height: 140%; transform: rotate(-3deg) translateY(6%); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
 /* Écran 11 : le composant de l'accueil, mis à l'échelle de la projection (S12).
    Pas de bouton, des cartes du dessous opaques et plus décalées. */
@@ -809,7 +810,7 @@ body.projection .fil:hover { opacity: 1; }
   z-index: 1;
   pointer-events: none;
 }
-.affiches-bas img { box-shadow: 0 10px 30px rgba(0,0,0,0.18); background: #fff; }
+.affiches-bas img { box-shadow: 0 4px 16px rgba(0,0,0,0.12); background: #fff; }
 .affiches-bas .a-portrait { height: clamp(260px, 62vh, 760px); }
 .affiches-bas .a-paysage { height: clamp(190px, 44vh, 540px); }
 .affiches-bas img:nth-child(1) { transform: rotate(-5deg); }
@@ -823,56 +824,62 @@ body.projection .fil:hover { opacity: 1; }
   bottom: 0;
   width: clamp(420px, 46vw, 900px);
   transform: translate(22%, 30%) rotate(-8deg);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   z-index: 1;
   pointer-events: none;
 }
 #formation .ateliers { max-width: 58%; }
 
-/* Écrans 13 à 15 : les mini-cartes du fil de semaine (S9), à l'échelle. */
-.minicartes { display: flex; justify-content: center; gap: clamp(8px, 1.2vw, 20px); margin-top: clamp(16px, 3.5vh, 44px); }
+/* Écrans 13 à 15 : les mini-cartes du fil de semaine (S9), à l'échelle.
+   Même anatomie que .fil-tool du site : dans la carte, l'emoji et le code
+   (R1, M1, J1) à la couleur de la famille ; sous la carte, le nom en
+   Merriweather Sans 700, à la même couleur. Rôles ambre, moments teal,
+   jokers brique, comme style.css. */
+.minicartes { display: flex; justify-content: center; align-items: flex-start; gap: clamp(10px, 1.6vw, 28px); margin-top: clamp(16px, 3.5vh, 44px); }
+.outil { display: flex; flex-direction: column; align-items: center; text-align: center; width: clamp(90px, 10vw, 170px); }
 .minicarte {
-  width: clamp(96px, 11vw, 180px);
+  width: clamp(80px, 8.4vw, 150px);
   aspect-ratio: 3 / 4;
   background: #fff;
   border: 1px solid var(--border-light);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.4em;
-  padding: 0.5em;
-  text-align: center;
-  font-family: var(--font-titre);
-  font-weight: 700;
-  font-size: var(--t-petit);
-  line-height: 1.2;
+  gap: 0.25em;
 }
-.minicarte span { font-size: 2.2em; }
-.minicarte.role { border-color: var(--navy-100); color: var(--navy-700); }
-.minicarte.moment { border-color: var(--teal-100); color: var(--teal-700); }
-.minicarte.joker { border-color: #FFCDD2; color: var(--brick-700); }
+.mc-emoji { font-size: clamp(28px, 4.6vh, 56px); line-height: 1; }
+.mc-emoji img.emoji, .mc-emoji .emoji { width: 1em; height: 1em; }
+.mc-code { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-petit); }
+.outil-nom { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-petit); line-height: 1.25; margin-top: 0.75em; }
+.outil.role .minicarte { border-color: var(--amber-100, #ffe8d4); }
+.outil.role .mc-code, .outil.role .outil-nom { color: var(--amber-700); }
+.outil.moment .minicarte { border-color: var(--teal-100); }
+.outil.moment .mc-code, .outil.moment .outil-nom { color: var(--teal-700); }
+.outil.joker .minicarte { border-color: var(--brick-100, #FFCDD2); }
+.outil.joker .mc-code, .outil.joker .outil-nom { color: var(--brick-700); }
+/* Rotations du site : -3, +3, -1,5 degrés ; l'éventail garde ses angles (S9). */
+.ligne .outil:nth-child(3n+1) .minicarte { transform: rotate(-3deg); }
+.ligne .outil:nth-child(3n+2) .minicarte { transform: rotate(3deg); }
+.ligne .outil:nth-child(3n) .minicarte { transform: rotate(-1.5deg); }
 .eventail { gap: 0; }
-.eventail .minicarte { margin: 0 -1.2vw; transform-origin: 50% 120%; }
-.eventail .minicarte:nth-child(1) { transform: rotate(-13deg); }
-.eventail .minicarte:nth-child(2) { transform: rotate(-7deg) translateY(-6px); }
-.eventail .minicarte:nth-child(3) { transform: rotate(4deg) translateY(-6px); }
-.eventail .minicarte:nth-child(4) { transform: rotate(12deg); }
-.ligne .minicarte { width: clamp(78px, 9.5vw, 160px); }
-.ligne .minicarte:nth-child(odd) { transform: rotate(-1.5deg); }
-.ligne .minicarte:nth-child(even) { transform: rotate(1.5deg); }
+.eventail { gap: clamp(4px, 0.6vw, 12px); }
+.eventail .outil:nth-child(1) .minicarte { transform: rotate(-13deg); }
+.eventail .outil:nth-child(2) .minicarte { transform: rotate(-7deg) translateY(-6px); }
+.eventail .outil:nth-child(3) .minicarte { transform: rotate(4deg) translateY(-6px); }
+.eventail .outil:nth-child(4) .minicarte { transform: rotate(12deg); }
 
 /* Écran 16 : deux captures. */
-.duo-captures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 48px); max-width: 1100px; width: 100%; }
+.duo-captures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 48px); max-width: 1400px; width: 100%; }
 .duo-captures .photo-cadre { aspect-ratio: 16 / 10; }
 
 /* Écran 18 : le tracé nu, quatre blocs composés dessous (S14). */
 .phases { position: relative; width: 100%; max-width: 1660px; }
 .phases-trace { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .phases-blocs { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.6vw, 28px); margin-top: clamp(10px, 2.4vh, 30px); }
-.phases-blocs div { display: flex; flex-direction: column; gap: 0.25em; font-size: var(--t-petit); font-family: var(--font-legende); line-height: 1.4; }
+.phases-blocs div { display: flex; flex-direction: column; gap: 0.25em; font-size: var(--t-petit); font-family: var(--font-corps); font-weight: 300; line-height: 1.4; }
 .phases-blocs strong { font-family: var(--font-titre); font-size: calc(var(--t-liste) * 0.9); color: var(--navy-700); }
 .phases-blocs .date { color: var(--teal-700); font-weight: 700; }
 
@@ -902,3 +909,59 @@ body.projection .fil:hover { opacity: 1; }
 .familles-v2 .apercu-type-badge { font-size: var(--t-petit); }
 .vignette { position: relative; }
 .vignette img { position: absolute; height: auto; width: 64%; left: 18%; top: 10%; transform: rotate(-3deg); }
+
+/* ══ Accord fin avec la DA du site ════════════════════════════════════
+   Sources : assets/css/style.css (.slash, .highlight, .site-subtitle,
+   .objectif-card), assets/css/fil-semaine.css (.fil-question, .fil-tool). */
+
+/* Le mot porté d'un titre, surligné comme sur l'accueil et « En savoir plus ». */
+.highlight {
+  background-color: var(--bleu-glenans);
+  color: #fff;
+  padding: 0 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+/* La question qui ferme un titre : point brique précédé d'une espace, comme le site. */
+.titre .accent-brick { font-weight: 800; }
+
+/* L'ouverture reprend l'en-tête du site : le nom, puis le sous-titre italique rouge. */
+.sous-titre {
+  font-family: var(--font-titre);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(16px, 2.9vh, 38px);
+  color: #F04839;
+  margin: clamp(6px, 1.4vh, 18px) 0 clamp(28px, 6vh, 80px);
+}
+
+/* Emojis Twemoji : à la taille du texte qui les porte, comme sur le site. */
+img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -0.1em; }
+.apercu-emoji img.emoji { vertical-align: middle; }
+.pastille img.emoji { vertical-align: middle; }
+
+/* Captures du site (écrans 9 et 16), prises sur anacoluthe.org le 18/11/2026,
+   pastille PWA masquée. Une capture est un objet posé : bord fin, coins de
+   8 px comme les sections du site, ombre légère (S10). */
+.capture { margin: 0; }
+.capture img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #fff;
+}
+.trois-voies .capture img { aspect-ratio: 4 / 3; }
+.capture figcaption {
+  font-family: var(--font-corps);
+  font-weight: 300;
+  font-style: italic;
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  margin-top: 0.6em;
+  text-align: center;
+}

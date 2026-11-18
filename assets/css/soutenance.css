@@ -531,6 +531,8 @@ body {
      courant dépasse au-dessus du bandeau au lieu d'y être enfermée. */
   padding: clamp(2px, 0.5vh, 6px) clamp(10px, 2vw, 28px);
   padding-bottom: max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom));
+  /* Réserve à droite pour le numéro de l'écran (.numero). */
+  padding-right: calc(clamp(10px, 1.6vw, 28px) + clamp(64px, 5.5vw, 96px));
   background: rgba(255, 253, 249, 0.94);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
@@ -705,11 +707,46 @@ body {
 
 .pastille:hover .bulle { opacity: 1; }
 
+/* Le numéro de l'écran, à droite du fil, en pastille du site.
+   Le chiffre prend l'accent de l'acte (data-acte posé par le script). */
+.numero {
+  position: fixed;
+  right: clamp(10px, 1.6vw, 28px);
+  bottom: max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom));
+  z-index: 61;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+  padding: 0.3em 0.75em;
+  border-radius: 2rem;
+  background: var(--blanc);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-legende);
+  font-size: clamp(11px, 0.9vw, 15px);
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+.numero-courant {
+  font-weight: 800;
+  color: var(--acte-encre, var(--navy-700));
+  font-variant-numeric: tabular-nums;
+}
+
+.numero-total {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
 /* En projection, le fil s'efface et le curseur disparaît : rien ne doit
    rester à l'écran que le propos. Il revient au premier mouvement de souris. */
 body.projection { cursor: none; }
 body.projection .fil { opacity: 0; }
 body.projection .fil:hover { opacity: 1; }
+/* Le numéro reste en projection, plus discret : c'est lui que le jury cite. */
+body.projection .numero { opacity: 0.7; box-shadow: none; }
 
 /* ── Emplacement réservé aux photos de la FPI ──
    Écran « Ce que j'ai animé ». Trois cadres 16/9 pour que la composition soit

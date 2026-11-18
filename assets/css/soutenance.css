@@ -980,3 +980,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
   margin-top: 0.6em;
   text-align: center;
 }
+
+/* Écran 4 : deux extraits des statuts, posés comme des bandes de papier.
+   Le surlignage teal-100 est dans l'image, il désigne les fragments du titre. */
+.statuts { display: flex; flex-direction: column; gap: clamp(10px, 2vh, 26px); max-width: 1180px; width: 100%; margin-top: clamp(6px, 1.4vh, 18px); }
+.statut { display: block; height: auto; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.statut-buts { width: 82%; transform: rotate(-1deg); }
+.statut-preambule { width: 100%; margin-left: 3%; transform: rotate(0.6deg); }
+#objetassociation .petit { margin-top: clamp(8px, 1.6vh, 20px); }

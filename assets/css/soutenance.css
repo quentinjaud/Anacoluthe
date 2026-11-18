@@ -972,4 +972,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .statut { display: block; height: auto; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 .statut-buts { width: 82%; transform: rotate(-1deg); }
 .statut-preambule { width: 100%; margin-left: 3%; transform: rotate(0.6deg); }
-#objetassociation .petit { margin-top: clamp(8px, 1.6vh, 20px); }
+#objetassociation .petit { margin-top: clamp(4px, 1vh, 12px); }
+.statuts-et-photo { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(20px, 3.4vw, 64px); align-items: center; width: 100%; max-width: 1660px; }
+.statuts-et-photo .statuts { max-width: none; }
+.photo-posee { display: block; width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transform: rotate(1.5deg); }
+@media (max-width: 900px) { .statuts-et-photo { grid-template-columns: 1fr; } }

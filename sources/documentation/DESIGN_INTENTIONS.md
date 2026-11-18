@@ -4,6 +4,8 @@ Référence pour les décisions **visuelles** : couleurs, typographie, emojis, s
 
 Pour l'architecture code et les conventions techniques → voir `TECH_INTENTIONS.md`
 
+**Le CSS fait foi.** Les valeurs ci-dessous recopient `assets/css/style.css` et `assets/data/cards-index.json`. En cas d'écart, c'est le code qui a raison, et ce fichier qui se corrige. Dernier alignement : novembre 2026.
+
 ---
 
 ## 🎯 Philosophie
@@ -16,7 +18,7 @@ Un design **léger, accessible et chaleureux** qui reflète l'esprit du projet :
 
 | Principe | Traduction |
 |----------|------------|
-| **Légèreté** | Couleurs pastel, pas d'ombres, site web minimal |
+| **Légèreté** | Couleurs pastel, ombres très légères, site web minimal |
 | **Lisibilité** | Contraste suffisant, hiérarchie claire |
 | **Chaleur** | Tons chauds (ambre, corail), coins arrondis, emojis |
 | **Simplicité** | Peu d'éléments décoratifs, mise en page aérée |
@@ -24,7 +26,7 @@ Un design **léger, accessible et chaleureux** qui reflète l'esprit du projet :
 
 ### Ce qu'on évite
 
-- ❌ Ombres portées
+- ❌ Ombres marquées (au-delà des valeurs listées en « Éléments graphiques »)
 - ❌ Dégradés complexes
 - ❌ Typographies fantaisie
 - ❌ Surcharge graphique
@@ -49,9 +51,9 @@ Liens simples avec emoji 📺, pas d'iframes :
 | Nom | Hex | Usage |
 |-----|-----|-------|
 | **Bleu Glénans** | `#0066ad` | Référence institutionnelle |
-| **Rouge Glénans** | `#e03121` | Référence institutionnelle |
+| **Rouge Glénans** | `#F04839` | Slash des titres, sous-titre d'en-tête |
 | **Teal Anacoluthe** | `#3d8b87` | Signature moments-clés |
-| **Corail Anacoluthe** | `#ff8a5b` | Signature Joker |
+| **Corail Anacoluthe** | `#ff8a5b` | Ancienne signature Joker, remplacée par la brique. Variable conservée, plus utilisée |
 
 ### Système par type de carte
 
@@ -61,8 +63,8 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 |------|------|--------|-------|
 | **Rôles** (R1-R4) | `#fff8f0` | `#ffe8d4` | `#c96a30` |
 | **Moments** (M1-M7) | `#e8f4f3` | `#c5e4e2` | `#3d8b87` |
-| **Joker** (J1-J4) | `#fff5f2` | `#ffe4db` | `#d9634a` |
-| **Affiches** (A1-A3) | `#f8fafc` | `#e2e8f0` | `#475569` |
+| **Joker** (J1-J4) | `#FFEBEE` | `#FFCDD2` | `#C62828` (brique) |
+| **Affiches** (A1-A4) | `#E8EDF4` | `#C9D5E3` | `#1E3A5F` (navy) |
 
 ### Couleurs utilitaires
 
@@ -85,6 +87,8 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 | **Sous-titres** | Merriweather Sans | 600 |
 | **Corps** | Merriweather (serif) | 300 |
 | **Labels/Tags** | Merriweather Sans | 600 |
+| **Sous-titre d'en-tête** | Merriweather Sans italique, rouge Glénans | 300 |
+| **Légendes sous un objet** | Merriweather italique, texte secondaire | 300 |
 
 ### Tailles
 
@@ -100,6 +104,8 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 
 ### Par carte
 
+Source de vérité : le champ `emoji` de `assets/data/cards-index.json`, que le site affiche partout où il montre une carte.
+
 **Rôles :**
 | Carte | Emoji | Nom |
 |-------|-------|-----|
@@ -111,39 +117,55 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 **Moments :**
 | Carte | Emoji | Nom |
 |-------|-------|-----|
-| M1 | 👋 | Accueil & Présentations |
+| M1 | 🌅 | Accueil & Attentes |
 | M2 | 🤝 | Accords d'équipage |
-| M3 | 🎭 | Introduction rôles |
+| M3 | 👥 | Découverte des rôles |
 | M4 | ☀️ | Brief matin |
 | M5 | 🌙 | Débrief soir |
 | M6 | ⚓ | Mi-parcours |
-| M7 | 🏁 | Débrief final |
+| M7 | 🎯 | Débrief final |
 
 **Joker :**
 | Carte | Emoji | Nom |
 |-------|-------|-----|
-| J1 | 🆘 | Conflit/désaccord |
+| J1 | ⚡ | Gérer un désaccord-conflit |
 | J2 | ⏸️ | Temps sans navigation |
-| J3 | 🔄 | Rediscuter accords |
-| J4 | 💬 | Demande/feedback mono |
+| J3 | 🔄 | Rediscuter le cadre |
+| J4 | 💬 | Demande-retour moniteurice |
 
-**Affiches :**
-| Affiche | Emoji | Nom |
-|---------|-------|-----|
+**Affiches et mémos :**
+| Pièce | Emoji | Nom |
+|-------|-------|-----|
 | A1 | 🔂 | Routines quotidiennes |
 | A2 | 📋 | Tableau d'équipage |
-| A3 | 📖 | Marque-page LDB |
+| A3 | 📖 | Marque-page Livre de bord |
+| A4 | 🧭 | Découverte du dispositif (mémo de présentation, non affiché à bord) |
+
+**Variantes connues, à arbitrer** : `fil-semaine.html` illustre certaines cartes avec d'autres emojis (M1 🎯, M2 📜, M3 🎭, M6 ⚖️, J2 🌧️), et les titres markdown de deux affiches en portent d'autres (`A1_routines_memo.md` 🔁, `A2_tableau_memo.md` 🌊).
 
 ### Natifs vs Twemoji
 
 | Contexte | Emojis | Raison |
 |----------|--------|--------|
-| Site public | **Natifs** | Légèreté (0 KB) |
+| Site public | **Twemoji** depuis le CDN, chargé après le rendu par `assets/js/twemoji-init.js`, emojis natifs en repli hors ligne | Rendu identique d'un appareil à l'autre, sans retarder l'affichage |
 | Atelier / PDFs | **Twemoji** | Rendu identique cross-platform |
 
 ---
 
 ## 📐 Éléments graphiques
+
+### Titres de section
+
+La signature du site, sur l'accueil, « En savoir plus », « Se former » et la soutenance :
+
+```html
+<h2><span class="slash">/</span> Qu'est-ce qu'on <span class="highlight">y gagne</span><span class="accent-brick"> ?</span></h2>
+```
+
+- **Slash** : rouge Glénans, graisse 900, en tête du titre.
+- **Mot porté** : un seul par titre, en blanc sur bleu Glénans (`.highlight`).
+- **Question** : un titre interrogatif se ferme sur un point d'interrogation brique, précédé d'une espace.
+- **Nom** : `¿¡ Anacoluthe !?`, les quatre signes en ambre, teal, brique et navy.
 
 ### Coins arrondis
 
@@ -157,6 +179,16 @@ Chaque type a 3 niveaux : fond (50), accent (100), texte (700).
 
 - Épaisseur : 1px
 - Couleur : `#D1D5DB`
+
+### Ombres
+
+Uniquement légères, sur ce qui flotte ou se pose (en-tête, pastilles, mini-cartes, affiches posées) :
+- Repos : `0 2px 8px rgba(0,0,0,0.04)` à `0.1`
+- Survol : `0 4px 12px rgba(0,0,0,0.12)`
+
+### Mini-cartes (fil de la semaine)
+
+Représentation d'une carte du kit dans une page (`.fil-tool-card`) : 90 × 120 px, fond blanc, coins de 8 px, bord d'1 px à la couleur 100 de la famille, ombre de repos. Dans la carte, l'emoji et le code (M1, R1, J1) ; sous la carte, le nom en Merriweather Sans 700 à la couleur 700 de la famille, puis une légende en Merriweather italique. Rotations : -3°, +3°, -1,5°.
 
 ### Emoji débordant (cartes)
 
@@ -219,6 +251,12 @@ Contenu visible en PDF, masqué sur web (ex: QR codes).
 - **Responsive** : Mobile-first
 - **Fond** : `#FFFDF9`
 - **Gap grille cartes** : 2.5rem (pour emoji débordant)
+
+### Soutenance (`soutenance.html`)
+
+- Même charte que le site, à l'échelle d'un vidéoprojecteur (tailles en vh)
+- Polices Merriweather et Merriweather Sans embarquées dans `assets/fonts/`
+- Images propres au deck dans `assets/images/soutenance/`
 
 ---
 

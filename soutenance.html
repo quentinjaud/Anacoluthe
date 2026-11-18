@@ -14,39 +14,52 @@
 </head>
 <body>
 
-<!-- Le fil : une pastille par écran, la ligne continue du site.
+<!-- Le fil : une pastille par écran, regroupées par acte dans des plateaux
+     de pills comme la barre basse du site (ensavoirplus). Une ligne continue
+     relie les actes, le chemin parcouru passe en teal.
      Ordre et ancres : arc narratif révision 40, proposition V2 (S15). -->
 <nav class="fil" aria-label="Progression de la soutenance">
   <div class="fil-piste">
-    <a class="pastille" href="#question"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
-    <a class="pastille" href="#commande"><span aria-hidden="true">📜</span><span class="bulle">D'où vient la question</span></a>
-    <a class="pastille" href="#referentiels"><span aria-hidden="true">📋</span><span class="bulle">Les référentiels</span></a>
-    <a class="pastille" href="#objetassociation"><span aria-hidden="true">🌱</span><span class="bulle">Par la mer, à la vie collective</span></a>
-    <a class="pastille" href="#terrain"><span aria-hidden="true">⛵</span><span class="bulle">Le terrain</span></a>
-    <a class="pastille" href="#publics"><span aria-hidden="true">👥</span><span class="bulle">Deux publics</span></a>
-    <a class="pastille" href="#travailler"><span aria-hidden="true">🧭</span><span class="bulle">Comment travailler</span></a>
-    <a class="pastille" href="#diag"><span aria-hidden="true">🔍</span><span class="bulle">Le diagnostic</span></a>
-    <a class="pastille" href="#proposition-monos"><span aria-hidden="true">🎁</span><span class="bulle">Ce que le projet apporte</span></a>
-    <a class="pastille" href="#demo-v5"><span aria-hidden="true">⏩</span><span class="bulle">La V5</span></a>
-    <a class="pastille" href="#familles"><span aria-hidden="true">🧩</span><span class="bulle">La boîte à outils</span></a>
-    <a class="pastille" href="#affiches"><span aria-hidden="true">📌</span><span class="bulle">Les affiches</span></a>
-    <a class="pastille" href="#roles"><span aria-hidden="true">🔄</span><span class="bulle">Les rôles</span></a>
-    <a class="pastille" href="#moments"><span aria-hidden="true">🗓️</span><span class="bulle">Les sept moments</span></a>
-    <a class="pastille" href="#jokers"><span aria-hidden="true">🃏</span><span class="bulle">Les quatre jokers</span></a>
-    <a class="pastille" href="#siteweb"><span aria-hidden="true">🌐</span><span class="bulle">Le site</span></a>
-    <a class="pastille" href="#deroulement"><span aria-hidden="true">🛤️</span><span class="bulle">Le chemin</span></a>
-    <a class="pastille" href="#phasesderoulé"><span aria-hidden="true">〰️</span><span class="bulle">Quatre phases</span></a>
-    <a class="pastille" href="#faceafaces"><span aria-hidden="true">🗣️</span><span class="bulle">Ce que j'ai animé</span></a>
-    <a class="pastille" href="#versions"><span aria-hidden="true">🧵</span><span class="bulle">Cinq versions</span></a>
-    <a class="pastille" href="#coconception"><span aria-hidden="true">🤝</span><span class="bulle">La co-conception</span></a>
-    <a class="pastille" href="#formation"><span aria-hidden="true">🎓</span><span class="bulle">Les ateliers</span></a>
-    <a class="pastille" href="#moyens"><span aria-hidden="true">💶</span><span class="bulle">Avec quels moyens</span></a>
-    <a class="pastille" href="#integration"><span aria-hidden="true">📎</span><span class="bulle">L'outil de la base</span></a>
-    <a class="pastille" href="#ecart"><span aria-hidden="true">📉</span><span class="bulle">L'écart au prévu</span></a>
-    <a class="pastille" href="#mesure"><span aria-hidden="true">📊</span><span class="bulle">Ce que ça mesure</span></a>
-    <a class="pastille" href="#cap10ans"><span aria-hidden="true">🧭</span><span class="bulle">Le cap à dix ans</span></a>
-    <a class="pastille" href="#reste"><span aria-hidden="true">🌾</span><span class="bulle">Ce qui reste</span></a>
-    <a class="pastille" href="#apports"><span aria-hidden="true">🎯</span><span class="bulle">Apports et limites</span></a>
+    <span class="fil-ligne" aria-hidden="true"><span class="fil-parcouru"></span></span>
+    <div class="acte acte-1" role="group" aria-label="Acte 1 · Ouverture">
+      <a class="pastille" href="#question"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
+      <a class="pastille" href="#commande"><span aria-hidden="true">📜</span><span class="bulle">D'où vient la question</span></a>
+    </div>
+    <div class="acte acte-2" role="group" aria-label="Acte 2 · Terrain, cadre, publics">
+      <a class="pastille" href="#referentiels"><span aria-hidden="true">📋</span><span class="bulle">Les référentiels</span></a>
+      <a class="pastille" href="#objetassociation"><span aria-hidden="true">🌱</span><span class="bulle">Par la mer, à la vie collective</span></a>
+      <a class="pastille" href="#terrain"><span aria-hidden="true">⛵</span><span class="bulle">Le terrain</span></a>
+      <a class="pastille" href="#publics"><span aria-hidden="true">👥</span><span class="bulle">Deux publics</span></a>
+      <a class="pastille" href="#travailler"><span aria-hidden="true">🧭</span><span class="bulle">Comment travailler</span></a>
+      <a class="pastille" href="#diag"><span aria-hidden="true">🔍</span><span class="bulle">Le diagnostic</span></a>
+      <a class="pastille" href="#proposition-monos"><span aria-hidden="true">🎁</span><span class="bulle">Ce que le projet apporte</span></a>
+      <a class="pastille" href="#demo-v5"><span aria-hidden="true">⏩</span><span class="bulle">La V5</span></a>
+    </div>
+    <div class="acte acte-3" role="group" aria-label="Acte 3 · Le dispositif en main">
+      <a class="pastille" href="#familles"><span aria-hidden="true">🧩</span><span class="bulle">La boîte à outils</span></a>
+      <a class="pastille" href="#affiches"><span aria-hidden="true">📌</span><span class="bulle">Les affiches</span></a>
+      <a class="pastille" href="#roles"><span aria-hidden="true">🔄</span><span class="bulle">Les rôles</span></a>
+      <a class="pastille" href="#moments"><span aria-hidden="true">🗓️</span><span class="bulle">Les sept moments</span></a>
+      <a class="pastille" href="#jokers"><span aria-hidden="true">🃏</span><span class="bulle">Les quatre jokers</span></a>
+      <a class="pastille" href="#siteweb"><span aria-hidden="true">🌐</span><span class="bulle">Le site</span></a>
+    </div>
+    <div class="acte acte-4" role="group" aria-label="Acte 4 · La fabrication comme formation">
+      <a class="pastille" href="#deroulement"><span aria-hidden="true">🛤️</span><span class="bulle">Le chemin</span></a>
+      <a class="pastille" href="#phasesderoulé"><span aria-hidden="true">〰️</span><span class="bulle">Quatre phases</span></a>
+      <a class="pastille" href="#faceafaces"><span aria-hidden="true">🗣️</span><span class="bulle">Ce que j'ai animé</span></a>
+      <a class="pastille" href="#versions"><span aria-hidden="true">🧵</span><span class="bulle">Cinq versions</span></a>
+      <a class="pastille" href="#coconception"><span aria-hidden="true">🤝</span><span class="bulle">La co-conception</span></a>
+      <a class="pastille" href="#formation"><span aria-hidden="true">🎓</span><span class="bulle">Les ateliers</span></a>
+    </div>
+    <div class="acte acte-5" role="group" aria-label="Acte 5 · Le bilan">
+      <a class="pastille" href="#moyens"><span aria-hidden="true">💶</span><span class="bulle">Avec quels moyens</span></a>
+      <a class="pastille" href="#integration"><span aria-hidden="true">📎</span><span class="bulle">L'outil de la base</span></a>
+      <a class="pastille" href="#ecart"><span aria-hidden="true">📉</span><span class="bulle">L'écart au prévu</span></a>
+      <a class="pastille" href="#mesure"><span aria-hidden="true">📊</span><span class="bulle">Ce que ça mesure</span></a>
+      <a class="pastille" href="#cap10ans"><span aria-hidden="true">🧭</span><span class="bulle">Le cap à dix ans</span></a>
+      <a class="pastille" href="#reste"><span aria-hidden="true">🌾</span><span class="bulle">Ce qui reste</span></a>
+      <a class="pastille" href="#apports"><span aria-hidden="true">🎯</span><span class="bulle">Apports et limites</span></a>
+    </div>
   </div>
 </nav>
 
@@ -595,6 +608,13 @@
   var ecrans = Array.prototype.slice.call(document.querySelectorAll('.ecran'));
   var pastilles = Array.prototype.slice.call(document.querySelectorAll('.pastille'));
   var piste = document.querySelector('.fil-piste');
+  var actes = Array.prototype.slice.call(document.querySelectorAll('.acte'));
+  var parcouru = document.querySelector('.fil-parcouru');
+  /* Chaque pill reçoit une fois son inclinaison, entre -2° et +2° :
+     tirée au chargement, elle reste la même si on revient sur l'écran. */
+  pastilles.forEach(function (p) {
+    p.style.setProperty('--incl', (Math.random() * 4 - 2).toFixed(2) + 'deg');
+  });
 
   function courant() {
     var y = window.scrollY + window.innerHeight / 3;
@@ -615,6 +635,19 @@
      scroll, et le fil resterait figé sur la section précédente. */
   var actif = 0;
 
+  /* La ligne parcourue s'arrête au centre de la pastille courante. Recalculée
+     aussi en fin de transition : la pastille active s'élargit en 0,22 s. */
+  function majLigne() {
+    var a = pastilles[actif];
+    if (!parcouru || !a) return;
+    var rp = piste.getBoundingClientRect();
+    var ra = a.getBoundingClientRect();
+    parcouru.style.width = Math.max(0, ra.left + ra.width / 2 - rp.left) + 'px';
+  }
+  if (piste) piste.addEventListener('transitionend', function (e) {
+    if (e.propertyName === 'width') majLigne();
+  });
+
   function peindre(i) {
     if (typeof i === 'number') actif = i;
     i = actif;
@@ -622,6 +655,15 @@
       p.classList.toggle('active', k === i);
       p.classList.toggle('vue', k < i);
     });
+    /* Les plateaux d'acte : celui en cours, ceux déjà traversés. */
+    var acteCourant = pastilles[i] ? pastilles[i].closest('.acte') : null;
+    var passe = true;
+    actes.forEach(function (a) {
+      if (a === acteCourant) passe = false;
+      a.classList.toggle('en-cours', a === acteCourant);
+      a.classList.toggle('passe', passe && a !== acteCourant);
+    });
+    majLigne();
     /* Le fil se recale pour que la pastille courante reste au centre,
        sans faire défiler la page : on agit sur le scrollLeft de la piste. */
     var a = pastilles[i];
@@ -663,7 +705,7 @@
     if (i !== dernier) { dernier = i; peindre(i); }
   }
   window.addEventListener('scroll', surveiller, { passive: true });
-  window.addEventListener('resize', surveiller);
+  window.addEventListener('resize', function () { surveiller(); peindre(); });
   window.addEventListener('hashchange', surveiller);
   window.addEventListener('load', surveiller);
   surveiller();

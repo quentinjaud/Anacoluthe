@@ -35,6 +35,10 @@
   --teal-50: #e8f4f3;
   --amber-700: #c96a30;
   --amber-50: #fff8f0;
+  --amber-100: #ffe8d4;
+  --brick-50: #FFEBEE;
+  --brick-100: #FFCDD2;
+  --blanc: #FFFFFF;
   --brick-700: #C62828;
   --text-dark: #2D3748;
   --text-corps: #2D3748;   /* --text-dark du site */
@@ -510,8 +514,9 @@ body {
 }
 
 /* ── Le fil : progression en bas, une pastille par écran ──
-   Repris du principe du fil de la semaine : une ligne continue, des
-   repères posés dessus, et le chemin parcouru qui se colore. */
+   Les pastilles sont groupées par acte dans des plateaux de pills (barre
+   basse du site), posés sur une ligne continue dont le chemin parcouru
+   passe en teal (fil de la semaine). */
 
 .fil {
   position: fixed;
@@ -536,19 +541,73 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  gap: clamp(4px, 0.55vw, 11px);
-  width: 100%;
-  max-width: 1080px;
+  /* L'écart entre deux actes laisse voir la ligne qui les relie. */
+  gap: clamp(10px, 1.3vw, 22px);
+  /* Largeur au contenu : la ligne part du premier acte et s'arrête au
+     dernier, au lieu de courir sur toute la barre. */
+  width: max-content;
+  max-width: 100%;
   /* safe center : centre quand ça tient, et laisse défiler sans couper
      le début quand ça déborde. */
   justify-content: safe center;
   /* Pas d'overflow ici : un overflow-x, même sur une piste qui tient,
-     clippe la carte active qui remonte au-dessus de la barre. Les dix-neuf
-     pastilles tiennent des 640 px de large, la projection est bien au-delà. */
+     clippe la carte active qui remonte au-dessus de la barre. Les
+     vingt-neuf pastilles tiennent dès 1024 px, la projection est au-delà. */
   padding: 0;
 }
 
 .fil-piste::-webkit-scrollbar { display: none; }
+
+/* La ligne continue : grise d'un bout à l'autre, teal jusqu'à l'écran courant.
+   Elle passe derrière les plateaux et ne se voit qu'entre les actes. */
+.fil-ligne {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--border-light);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.fil-parcouru {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--teal-700);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Un plateau par acte : le dessin des pills de la barre basse du site
+   (style.css, .bottom-nav-pills). Les teintes suivent les quatre accents
+   du titre (ambre, teal, brique, navy), puis reviennent à l'ambre. */
+.acte {
+  /* Fonds allégés : la teinte -100 mêlée à moitié au crème du bandeau.
+     La couleur repère l'acte sans prendre le pas sur la projection. */
+  --acte-teinte: var(--amber-100);
+  --acte-encre: var(--amber-700);
+  --acte-fond: color-mix(in srgb, var(--acte-teinte) 50%, var(--bg-cream));
+  /* Pas de position ici : les pastilles doivent garder la piste pour
+     offsetParent, le recentrage du fil s'en sert. */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(1px, 0.2vw, 4px);
+  padding: clamp(2px, 0.25vw, 4px);
+  border-radius: 2rem;
+  background: var(--acte-fond);
+  transition: background 0.22s ease;
+}
+
+.acte-2 { --acte-teinte: var(--teal-100);  --acte-encre: var(--teal-700); }
+.acte-3 { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
+.acte-4 { --acte-teinte: var(--navy-100);  --acte-encre: var(--navy-700); }
+
+/* L'acte en cours : pas de bordure, un fond un peu plus soutenu pour le focus. */
+.acte.en-cours { --acte-fond: color-mix(in srgb, var(--acte-teinte) 85%, var(--bg-cream)); }
 
 .pastille {
   position: relative;
@@ -561,40 +620,35 @@ body {
   justify-content: center;
   gap: 0.45em;
   border-radius: 999px;
-  border: 1px solid var(--border-light);
-  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid transparent;
+  background: transparent;
   font-size: clamp(10px, 0.85vw, 14px);
   line-height: 1;
   text-decoration: none;
-  filter: grayscale(0.6);
-  opacity: 0.62;
   white-space: nowrap;
   transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease,
-              opacity 0.22s ease, padding 0.22s ease, width 0.22s ease;
+              box-shadow 0.22s ease, padding 0.22s ease, width 0.22s ease;
 }
 
-.pastille.vue {
-  background: #fff;
-  border-color: rgba(61, 139, 135, 0.18);
-  filter: grayscale(0.25);
-  opacity: 0.85;
-}
+.pastille:hover { background: rgba(255, 255, 255, 0.6); }
 
-/* La carte de l'écran courant : elle remonte au-dessus du fil, s'élargit
-   pour porter son titre, et passe en teal. Les autres restent des pastilles
-   d'icône, plus petites et en retrait. */
+/* Écrans déjà passés : un fond blanc léger, l'emoji reste en couleur. */
+.pastille.vue { background: rgba(255, 255, 255, 0.55); }
+
+/* La pill de l'écran courant : blanche avec ombre, comme la pill active du
+   site, et elle remonte au-dessus du bandeau en chevauchant sa bordure. */
 .pastille.active {
-  /* Meme hauteur que les pastilles d'icone : seule la largeur change.
-     Un height auto faisait respirer le bandeau a chaque changement d'ecran. */
+  /* Même hauteur que les pastilles d'icône : seule la largeur change.
+     Un height auto faisait respirer le bandeau à chaque changement d'écran. */
   width: auto;
   height: clamp(22px, 1.75vw, 32px);
   padding: 0 clamp(8px, 0.85vw, 14px);
   gap: 0.5em;
-  background: #fff;
-  border-color: var(--teal-700);
-  transform: translateY(clamp(-20px, -1.6vh, -10px));
-  filter: none;
-  opacity: 1;
+  background: var(--blanc, #fff);
+  border-color: var(--acte-encre);
+  /* Légère inclinaison, tirée au hasard entre -2° et +2° (script),
+     comme les cartes posées du fil de la semaine. */
+  transform: translateY(clamp(-20px, -1.6vh, -10px)) rotate(var(--incl, 0deg));
   box-shadow: 0 4px 12px rgba(30, 58, 95, 0.18);
 }
 
@@ -604,6 +658,7 @@ body {
 
 .pastille .bulle { display: none; }
 
+/* Libellé en capitales espacées, la typographie des pills du site. */
 .pastille.active .bulle {
   display: inline;
   position: static;
@@ -613,11 +668,12 @@ body {
   padding: 0;
   opacity: 1;
   pointer-events: none;
-  font-family: var(--font-titre);
+  font-family: var(--font-legende);
   font-weight: 700;
-  font-size: clamp(11px, 0.95vw, 16px);
-  letter-spacing: 0.01em;
-  color: var(--teal-700);
+  font-size: clamp(9px, 0.78vw, 13px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--acte-encre);
 }
 
 .pastille:focus-visible {

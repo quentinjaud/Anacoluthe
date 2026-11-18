@@ -776,9 +776,6 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
   color: #9AA3AF;
 }
 
-@media (max-width: 900px) {
-  .visuel-photos { grid-template-columns: 1fr; }
-}
 
 /* ══ V2 du deck, 29 écrans (S15) ══════════════════════════════════════
    Composants ajoutés pour les écrans neufs de l'arc révision 40.
@@ -1010,10 +1007,6 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 /* Écran 29 : la question rouverte, en retrait. */
 .question-rappel { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); max-width: 80ch; margin: 0 0 clamp(10px, 2vh, 26px); }
 
-@media (max-width: 900px) {
-  .texte-et-photo, .texte-et-photos, .texte-et-cartes, .besoins, .trois-voies, .duo-captures, .phases-blocs, .moyens { grid-template-columns: 1fr; }
-  #formation .ateliers { max-width: none; }
-}
 
 /* Correctifs de rendu V2. */
 .version .badge { color: #fff; }                       /* .version span grisait les pastilles */
@@ -1091,17 +1084,15 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .statuts-et-photo { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(20px, 3.4vw, 64px); align-items: center; width: 100%; max-width: 1660px; }
 .statuts-et-photo .statuts { max-width: none; }
 .photo-posee { display: block; width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transform: rotate(1.5deg); }
-@media (max-width: 900px) { .statuts-et-photo { grid-template-columns: 1fr; } }
 /* Écran 17 : photo verticale, bornée en hauteur pour tenir dans l'écran. */
 .photo-posee.photo-portrait { width: auto; max-width: 100%; max-height: 64vh; justify-self: center; }
 
-/* Écran 5 : mosaïque de photos de la base, pastille équipe posée en coin. */
-.texte-et-photo.terrain { grid-template-columns: 0.9fr 1.1fr; }
-.mosaique-terrain { position: relative; width: 100%; aspect-ratio: 1 / 0.82; max-height: 64vh; justify-self: center; }
-.mosaique-terrain .photo-posee { position: absolute; height: auto; object-fit: cover; border: 4px solid #fff; }
-.m-quai   { left: 0;   top: 2%;     width: 56%; aspect-ratio: 4 / 3; transform: rotate(-2deg); z-index: 2; }
-.m-spi    { right: 2%; top: 0;      width: 34%; aspect-ratio: 3 / 4; transform: rotate(3deg); z-index: 1; }
-.m-chenal { left: 26%; bottom: 0;   width: 48%; aspect-ratio: 4 / 3; transform: rotate(1.5deg); z-index: 3; }
-.m-phare  { right: 0;  bottom: 6%;  width: 25%; aspect-ratio: 3 / 4; transform: rotate(-3deg); z-index: 4; }
-.pastille-photo { position: absolute; left: -4%; bottom: 4%; width: 34%; height: auto; background: #fff; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transform: rotate(-4deg); z-index: 5; }
-@media (max-width: 900px) { .texte-et-photo.terrain { grid-template-columns: 1fr; } .pastille-photo { left: 0; } }
+/* Écran 5 : photos de la base sur une ligne, posées en vrac (hauteurs, angles et décalages variés), pastille équipe en recouvrement. */
+.ligne-terrain { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1660px; margin: clamp(10px, 3vh, 40px) 0 clamp(28px, 7vh, 80px); }
+.ligne-terrain .photo-posee { width: auto; max-width: none; height: clamp(150px, 34vh, 400px); object-fit: cover; border: 4px solid #fff; flex-shrink: 1; min-width: 0; }
+.l-quai   { aspect-ratio: 3 / 2; transform: rotate(-2.5deg) translateY(-3%); z-index: 2; }
+.l-spi    { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(3deg) translateY(6%); z-index: 3; }
+.l-chenal { aspect-ratio: 4 / 3; margin-left: -2%; transform: rotate(-1deg) translateY(-5%); z-index: 1; }
+.l-phare  { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(-3.5deg) translateY(4%); z-index: 4; }
+.ligne-terrain .pastille-photo { position: absolute; left: 50%; bottom: -10%; width: clamp(150px, 19%, 300px); height: auto; background: #fff; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transform: translateX(-8%) rotate(4deg); z-index: 5; }
+.terrain-chiffres { text-align: center; align-self: center; }

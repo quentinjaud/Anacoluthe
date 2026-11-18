@@ -599,14 +599,15 @@ body {
   padding: clamp(2px, 0.25vw, 4px);
   border-radius: 2rem;
   background: var(--acte-fond);
-  transition: box-shadow 0.22s ease;
+  transition: background 0.22s ease;
 }
 
 .acte-2 { --acte-teinte: var(--teal-100);  --acte-encre: var(--teal-700); }
 .acte-3 { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
 .acte-4 { --acte-teinte: var(--navy-100);  --acte-encre: var(--navy-700); }
 
-.acte.en-cours { box-shadow: inset 0 0 0 1px var(--acte-encre); }
+/* L'acte en cours : pas de bordure, un fond un peu plus soutenu pour le focus. */
+.acte.en-cours { --acte-fond: color-mix(in srgb, var(--acte-teinte) 85%, var(--bg-cream)); }
 
 .pastille {
   position: relative;

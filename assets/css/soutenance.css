@@ -1069,6 +1069,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
   background: #fff;
 }
 .trois-voies .capture img { aspect-ratio: 4 / 3; }
+/* Écran 9 : photo verticale recadrée en 4:3 sur la table et les visages. */
+.trois-voies .photo-formation img { object-position: 50% 38%; }
 .capture figcaption {
   font-family: var(--font-corps);
   font-weight: 300;

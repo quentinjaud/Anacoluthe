@@ -749,8 +749,8 @@ body.projection .fil:hover { opacity: 1; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.14);
 }
 .pile .fond { top: 0; left: 2%; width: 86%; transform: rotate(-2deg); opacity: 0.55; filter: saturate(0.6); }
-.pile-ffvoile .n1 { top: 46%; left: 6%; width: 92%; transform: rotate(1deg); }
-.pile-ffvoile .n5 { bottom: 4%; right: 0; width: 88%; transform: rotate(-1deg); }
+.pile-ffvoile .n1 { top: 30%; left: 6%; width: 92%; transform: rotate(1deg); }
+.pile-ffvoile .n5 { bottom: 20%; right: 0; width: 88%; transform: rotate(-1deg); }
 .pile-cqp .feuille { padding: 0.4em 0.6em; box-sizing: border-box; }
 .pile-cqp .c1 { top: 8%; left: 0; width: 92%; transform: rotate(-1.5deg); }
 .pile-cqp .c2 { top: 34%; right: 0; width: 92%; transform: rotate(1deg); }

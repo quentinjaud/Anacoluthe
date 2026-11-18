@@ -149,11 +149,12 @@ body {
   margin: 0 0 clamp(12px, 2.6vh, 34px);
 }
 
-/* Le slash rouge qui ouvre les titres du site, en signature. */
+/* Le slash qui ouvre les titres du site, en signature. Il prend l'accent
+   de l'acte en cours (data-acte sur la section), comme le plateau du fil.
+   Repli : le rouge Glénans du site. */
 .titre::before {
   content: '/';
-  /* rouge Glenans du site, pas le rouge brique des cartes */
-  color: #F04839;
+  color: var(--acte-encre, #F04839);
   font-weight: 900;
   margin-right: 0.18em;
 }
@@ -602,9 +603,12 @@ body {
   transition: background 0.22s ease;
 }
 
-.acte-2 { --acte-teinte: var(--teal-100);  --acte-encre: var(--teal-700); }
-.acte-3 { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
-.acte-4 { --acte-teinte: var(--navy-100);  --acte-encre: var(--navy-700); }
+/* Les sections portent aussi leur acte (data-acte) : le slash des titres
+   prend le même accent que le plateau du fil. Actes 1 et 5 : ambre. */
+[data-acte] { --acte-teinte: var(--amber-100); --acte-encre: var(--amber-700); }
+.acte-2, [data-acte="2"] { --acte-teinte: var(--teal-100);  --acte-encre: var(--teal-700); }
+.acte-3, [data-acte="3"] { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
+.acte-4, [data-acte="4"] { --acte-teinte: var(--navy-100);  --acte-encre: var(--navy-700); }
 
 /* L'acte en cours : pas de bordure, un fond un peu plus soutenu pour le focus. */
 .acte.en-cours { --acte-fond: color-mix(in srgb, var(--acte-teinte) 85%, var(--bg-cream)); }

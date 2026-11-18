@@ -1096,3 +1096,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .l-phare  { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(-3.5deg) translateY(4%); z-index: 4; }
 .ligne-terrain .pastille-photo { position: absolute; left: 50%; bottom: -10%; width: clamp(150px, 19%, 300px); height: auto; background: #fff; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transform: translateX(-8%) rotate(4deg); z-index: 5; }
 .terrain-chiffres { text-align: center; align-self: center; }
+
+/* Écran 2 : trois sources de la question. L'organigramme est large, il se
+   contient sur fond blanc au lieu d'être recadré. Les cadres en attente
+   tiennent la place des photos à venir (rapports de mer, encadrement bénévole en croisière). */
+.trois-sources .organigramme img { object-fit: contain; object-position: center; padding: 2%; box-sizing: border-box; }
+.trois-sources .photo-boc img { object-position: 50% 60%; }
+.photo-attente { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; border: 2px dashed var(--border-light); border-radius: 8px; background: #fff; text-align: center; font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }

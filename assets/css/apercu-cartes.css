@@ -9,8 +9,8 @@
    Trois variables manquaient au deck, elles sont declarees ici ; le
    reste vient de soutenance.css.
 
-   Non branche : soutenance.html ne charge pas encore ce fichier. Le
-   style et les composants se travaillent plus tard (decision S12).
+   Branche depuis la V2 du deck (S15) : ecran #familles, adapte a la
+   projection par .familles-v2 dans soutenance.css.
    ============================================================= */
 
 :root {

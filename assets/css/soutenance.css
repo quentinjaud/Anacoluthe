@@ -682,3 +682,223 @@ body.projection .fil:hover { opacity: 1; }
 @media (max-width: 900px) {
   .visuel-photos { grid-template-columns: 1fr; }
 }
+
+/* ══ V2 du deck, 29 écrans (S15) ══════════════════════════════════════
+   Composants ajoutés pour les écrans neufs de l'arc révision 40.
+   Les photos absentes sont des cadres réservés (.vide), marqués par
+   data-visuel : c'est là qu'on cherchera quoi mettre. */
+
+/* Une seconde phrase portée, détachée de la première. */
+.corps.appui { margin-top: clamp(14px, 3vh, 40px); }
+.corps strong { font-weight: 700; color: var(--navy-700); }
+
+/* Cadre réservé générique, même dessin que les photos FPI. */
+.vide {
+  border: 2px dashed var(--border-light);
+  border-radius: 16px;
+  background: #F4F3F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9AA3AF;
+}
+.photo-cadre { aspect-ratio: 4 / 3; width: 100%; }
+.photo-carre { aspect-ratio: 1; width: min(46vh, 520px); }
+
+/* Texte à gauche, image à droite. */
+.texte-et-photo,
+.texte-et-photos,
+.texte-et-cartes {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(20px, 4vw, 72px);
+  align-items: center;
+}
+
+/* Écran 4 : trois photos dispersées, sans légende. */
+.photos-eparses { position: relative; height: clamp(220px, 46vh, 560px); }
+.photos-eparses .vide { position: absolute; width: 58%; aspect-ratio: 4 / 3; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.photos-eparses .vide:nth-child(1) { top: 0; left: 4%; transform: rotate(-4deg); }
+.photos-eparses .vide:nth-child(2) { top: 26%; right: 0; transform: rotate(3deg); }
+.photos-eparses .vide:nth-child(3) { bottom: 0; left: 14%; transform: rotate(-1.5deg); }
+
+/* Écran 3 : un libellé par colonne, comme un extrait de document. */
+.extraits { align-items: stretch; }
+.citation {
+  font-family: var(--font-corps);
+  font-style: italic;
+  font-size: var(--t-corps);
+  line-height: 1.4;
+  color: var(--navy-700);
+  margin: 0.4em 0 0;
+}
+.citation.grande { font-size: calc(var(--t-corps) * 1.2); max-width: 32ch; }
+
+/* Écran 6 : un besoin par profil, sous la chaîne. */
+.besoins {
+  margin-top: clamp(16px, 3.5vh, 44px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2vw, 32px);
+  font-size: var(--t-liste);
+  font-weight: 300;
+  line-height: 1.4;
+}
+.besoins p { margin: 0; border-top: 3px solid var(--amber-700); padding-top: 0.5em; }
+.besoins strong { display: block; font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.05em; color: var(--amber-700); }
+
+/* Écran 7 : qui approuve quoi. */
+.raci {
+  margin: clamp(14px, 3vh, 40px) 0 0;
+  padding: clamp(12px, 1.6vw, 26px);
+  border-left: 4px solid var(--teal-700);
+  background: rgba(255,255,255,0.6);
+  font-size: var(--t-liste);
+  font-weight: 300;
+  line-height: 1.5;
+}
+.raci p { margin: 0.2em 0; display: flex; gap: 0.6em; flex-wrap: wrap; }
+.raci .fleche { color: var(--text-muted); }
+.raci .raci-titre { font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-700); }
+.raci .raci-moi { margin-top: 0.6em; font-style: italic; }
+
+/* Écran 8 : les trois objectifs, mot pour mot. */
+.objectifs { list-style: none; margin: clamp(14px, 3vh, 40px) 0 0; padding: 0; font-size: var(--t-liste); font-weight: 300; line-height: 1.4; }
+.objectifs li { display: flex; gap: 0.8em; align-items: baseline; margin-bottom: clamp(8px, 1.8vh, 22px); }
+.objectifs .badge { flex: none; }
+
+/* Écran 9 : trois voies, une image chacune. */
+.trois-voies { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 3vw, 48px); margin-top: clamp(14px, 3vh, 40px); }
+.trois-voies h3 { font-family: var(--font-titre); font-size: var(--t-liste); color: var(--navy-700); margin: 0.6em 0 0.2em; }
+.trois-voies p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-family: var(--font-legende); }
+.trois-voies .photo-cadre { aspect-ratio: 4 / 3; }
+.vignette { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #fff; display: flex; justify-content: center; }
+.vignette img { height: 140%; transform: rotate(-3deg) translateY(6%); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+
+/* Écran 11 : le composant de l'accueil, mis à l'échelle de la projection (S12).
+   Pas de bouton, des cartes du dessous opaques et plus décalées. */
+.familles-v2 { max-width: 1660px; width: 100%; margin: clamp(10px, 2.4vh, 32px) 0 0; gap: clamp(14px, 2vw, 36px); }
+.familles-v2 .apercu-tile { min-height: clamp(150px, 26vh, 300px); }
+.familles-v2 .apercu-fake-card { background: #fff; }
+.familles-v2 .apercu-fake-card.fake-1 { transform: rotate(2deg) translate(6px, 8px); }
+.familles-v2 .apercu-fake-card.fake-2 { transform: rotate(-1.5deg) translate(-8px, 15px); }
+.familles-v2 .apercu-title { font-size: calc(var(--t-liste) * 0.95); }
+.familles-v2 .apercu-subtitle { font-size: var(--t-petit); }
+.familles-v2 .apercu-emoji { font-size: clamp(28px, 5vh, 56px); }
+.familles-v2 .apercu-count { font-size: clamp(24px, 4.4vh, 52px); }
+.familles-v2 .besoin { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 300; font-size: var(--t-liste); line-height: 1.35; }
+
+/* Le bout d'affiche : le débordement est un dispositif (S11).
+   L'image est derrière, le texte devant ; la coupe est franche. */
+.ecran.deborde { overflow: hidden; }
+.ecran.deborde > :not(img):not(.affiches-bas) { position: relative; z-index: 2; }
+.affiches-bas {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 24%);
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(16px, 2.6vw, 48px);
+  z-index: 1;
+  pointer-events: none;
+}
+.affiches-bas img { box-shadow: 0 10px 30px rgba(0,0,0,0.18); background: #fff; }
+.affiches-bas .a-portrait { height: clamp(260px, 62vh, 760px); }
+.affiches-bas .a-paysage { height: clamp(190px, 44vh, 540px); }
+.affiches-bas img:nth-child(1) { transform: rotate(-5deg); }
+.affiches-bas img:nth-child(2) { transform: rotate(2deg); }
+.affiches-bas img:nth-child(3) { transform: rotate(-2.5deg); }
+#affiches { justify-content: flex-start; padding-top: clamp(40px, 12vh, 160px); }
+
+.a3-coin {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(420px, 46vw, 900px);
+  transform: translate(22%, 30%) rotate(-8deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  z-index: 1;
+  pointer-events: none;
+}
+#formation .ateliers { max-width: 58%; }
+
+/* Écrans 13 à 15 : les mini-cartes du fil de semaine (S9), à l'échelle. */
+.minicartes { display: flex; justify-content: center; gap: clamp(8px, 1.2vw, 20px); margin-top: clamp(16px, 3.5vh, 44px); }
+.minicarte {
+  width: clamp(96px, 11vw, 180px);
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  padding: 0.5em;
+  text-align: center;
+  font-family: var(--font-titre);
+  font-weight: 700;
+  font-size: var(--t-petit);
+  line-height: 1.2;
+}
+.minicarte span { font-size: 2.2em; }
+.minicarte.role { border-color: var(--navy-100); color: var(--navy-700); }
+.minicarte.moment { border-color: var(--teal-100); color: var(--teal-700); }
+.minicarte.joker { border-color: #FFCDD2; color: var(--brick-700); }
+.eventail { gap: 0; }
+.eventail .minicarte { margin: 0 -1.2vw; transform-origin: 50% 120%; }
+.eventail .minicarte:nth-child(1) { transform: rotate(-13deg); }
+.eventail .minicarte:nth-child(2) { transform: rotate(-7deg) translateY(-6px); }
+.eventail .minicarte:nth-child(3) { transform: rotate(4deg) translateY(-6px); }
+.eventail .minicarte:nth-child(4) { transform: rotate(12deg); }
+.ligne .minicarte { width: clamp(78px, 9.5vw, 160px); }
+.ligne .minicarte:nth-child(odd) { transform: rotate(-1.5deg); }
+.ligne .minicarte:nth-child(even) { transform: rotate(1.5deg); }
+
+/* Écran 16 : deux captures. */
+.duo-captures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 48px); max-width: 1100px; width: 100%; }
+.duo-captures .photo-cadre { aspect-ratio: 16 / 10; }
+
+/* Écran 18 : le tracé nu, quatre blocs composés dessous (S14). */
+.phases { position: relative; width: 100%; max-width: 1660px; }
+.phases-trace { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.phases-blocs { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.6vw, 28px); margin-top: clamp(10px, 2.4vh, 30px); }
+.phases-blocs div { display: flex; flex-direction: column; gap: 0.25em; font-size: var(--t-petit); font-family: var(--font-legende); line-height: 1.4; }
+.phases-blocs strong { font-family: var(--font-titre); font-size: calc(var(--t-liste) * 0.9); color: var(--navy-700); }
+.phases-blocs .date { color: var(--teal-700); font-weight: 700; }
+
+/* Écran 20 : la thèse sous la frise. */
+.frise-these { margin: clamp(10px, 2.4vh, 30px) 0; }
+
+/* Écran 23 : besoins puis ressources, sans les fondre. */
+.moyens { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(6px, 1.4vh, 18px) clamp(20px, 4vw, 72px); font-size: var(--t-liste); font-weight: 300; line-height: 1.4; max-width: 1200px; }
+.moyens-entete { font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--amber-700); border-bottom: 2px solid var(--amber-700); padding-bottom: 0.3em; }
+
+/* Écran 26 : le chiffre principal. */
+.pourcent { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-chiffre); color: var(--navy-700); margin: clamp(10px, 2vh, 24px) 0 0; line-height: 1; }
+.pourcent span { font-size: 0.32em; font-weight: 400; color: var(--text-muted); vertical-align: middle; }
+
+/* Écran 29 : la question rouverte, en retrait. */
+.question-rappel { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); max-width: 80ch; margin: 0 0 clamp(10px, 2vh, 26px); }
+
+@media (max-width: 900px) {
+  .texte-et-photo, .texte-et-photos, .texte-et-cartes, .besoins, .trois-voies, .duo-captures, .phases-blocs, .moyens { grid-template-columns: 1fr; }
+  #formation .ateliers { max-width: none; }
+}
+
+/* Correctifs de rendu V2. */
+.version .badge { color: #fff; }                       /* .version span grisait les pastilles */
+.public-bloc .citation { font-family: var(--font-corps); font-size: var(--t-corps); color: var(--navy-700); margin-top: 0.5em; }
+.ecran > .affiches-bas { max-width: none; }
+.familles-v2 .apercu-type-badge { font-size: var(--t-petit); }
+.vignette { position: relative; }
+.vignette img { position: absolute; height: auto; width: 64%; left: 18%; top: 10%; transform: rotate(-3deg); }

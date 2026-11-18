@@ -730,6 +730,7 @@ body.projection .fil:hover { opacity: 1; }
 
 /* Écran 3 : un libellé par colonne, comme un extrait de document. */
 .extraits { align-items: stretch; }
+.extraits .public-bloc { background: none; border: none; border-radius: 0; box-shadow: none; padding: 0; }
 .citation {
   font-family: var(--font-corps);
   font-style: italic;
@@ -742,7 +743,7 @@ body.projection .fil:hover { opacity: 1; }
 
 /* Écran 3 : les extraits de référentiels en pile de feuilles.
    Au fond le document entier, devant les lignes qui comptent. */
-.pile { position: relative; height: clamp(200px, 44vh, 540px); margin-top: 0.6em; }
+.pile { position: relative; height: clamp(200px, 44vh, 540px); margin: 0.6em 0 clamp(12px, 3vh, 40px); }
 .pile img {
   position: absolute; display: block; height: auto; background: #fff;
   box-shadow: 0 6px 18px rgba(0,0,0,0.14);
@@ -751,9 +752,9 @@ body.projection .fil:hover { opacity: 1; }
 .pile-ffvoile .n1 { top: 46%; left: 6%; width: 92%; transform: rotate(1deg); }
 .pile-ffvoile .n5 { bottom: 4%; right: 0; width: 88%; transform: rotate(-1deg); }
 .pile-cqp .feuille { padding: 0.4em 0.6em; box-sizing: border-box; }
-.pile-cqp .c1 { top: 14%; left: 0; width: 92%; transform: rotate(-1.5deg); }
-.pile-cqp .c2 { top: 33%; right: 0; width: 92%; transform: rotate(1deg); }
-.pile-cqp .c3 { top: 52%; left: 3%; width: 96%; transform: rotate(-0.5deg); }
+.pile-cqp .c1 { top: 8%; left: 0; width: 92%; transform: rotate(-1.5deg); }
+.pile-cqp .c2 { top: 34%; right: 0; width: 92%; transform: rotate(1deg); }
+.pile-cqp .c3 { top: 58%; left: 3%; width: 96%; transform: rotate(-0.5deg); }
 
 /* Écran 6 : un besoin par profil, sous la chaîne. */
 .besoins {

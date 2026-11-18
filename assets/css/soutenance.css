@@ -1095,13 +1095,13 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 17 : photo verticale, bornée en hauteur pour tenir dans l'écran. */
 .photo-posee.photo-portrait { width: auto; max-width: 100%; max-height: 64vh; justify-self: center; }
 
-/* Écran 5 : mosaïque de photos de la base, pastille équipe posée en coin. */
-.texte-et-photo.terrain { grid-template-columns: 0.9fr 1.1fr; }
-.mosaique-terrain { position: relative; width: 100%; aspect-ratio: 1 / 0.82; max-height: 64vh; justify-self: center; }
-.mosaique-terrain .photo-posee { position: absolute; height: auto; object-fit: cover; border: 4px solid #fff; }
-.m-quai   { left: 0;   top: 2%;     width: 56%; aspect-ratio: 4 / 3; transform: rotate(-2deg); z-index: 2; }
-.m-spi    { right: 2%; top: 0;      width: 34%; aspect-ratio: 3 / 4; transform: rotate(3deg); z-index: 1; }
-.m-chenal { left: 26%; bottom: 0;   width: 48%; aspect-ratio: 4 / 3; transform: rotate(1.5deg); z-index: 3; }
-.m-phare  { right: 0;  bottom: 6%;  width: 25%; aspect-ratio: 3 / 4; transform: rotate(-3deg); z-index: 4; }
-.pastille-photo { position: absolute; left: -4%; bottom: 4%; width: 34%; height: auto; background: #fff; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transform: rotate(-4deg); z-index: 5; }
-@media (max-width: 900px) { .texte-et-photo.terrain { grid-template-columns: 1fr; } .pastille-photo { left: 0; } }
+/* Écran 5 : photos de la base sur une ligne, posées en vrac (hauteurs, angles et décalages variés), pastille équipe en recouvrement. */
+.ligne-terrain { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1660px; margin: clamp(10px, 3vh, 40px) 0 clamp(28px, 7vh, 80px); }
+.ligne-terrain .photo-posee { width: auto; max-width: none; height: clamp(150px, 34vh, 400px); object-fit: cover; border: 4px solid #fff; flex-shrink: 1; min-width: 0; }
+.l-quai   { aspect-ratio: 3 / 2; transform: rotate(-2.5deg) translateY(-3%); z-index: 2; }
+.l-spi    { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(3deg) translateY(6%); z-index: 3; }
+.l-chenal { aspect-ratio: 4 / 3; margin-left: -2%; transform: rotate(-1deg) translateY(-5%); z-index: 1; }
+.l-phare  { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(-3.5deg) translateY(4%); z-index: 4; }
+.ligne-terrain .pastille-photo { position: absolute; left: 50%; bottom: -10%; width: clamp(150px, 19%, 300px); height: auto; background: #fff; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transform: translateX(-8%) rotate(4deg); z-index: 5; }
+.terrain-chiffres { text-align: center; align-self: center; }
+@media (max-width: 900px) { .ligne-terrain { flex-wrap: wrap; } .ligne-terrain .photo-posee { height: 16vh; } .ligne-terrain .pastille-photo { position: relative; left: auto; bottom: auto; width: 60%; margin-top: -4%; transform: rotate(3deg); } }

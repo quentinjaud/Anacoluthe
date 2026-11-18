@@ -1101,4 +1101,5 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
    contient sur fond blanc au lieu d'être recadré. Les cadres en attente
    tiennent la place des photos à venir (rapports de mer, année de Bocquinat). */
 .trois-sources .organigramme img { object-fit: contain; object-position: center; padding: 2%; box-sizing: border-box; }
+.trois-sources .photo-boc img { object-position: 50% 60%; }
 .photo-attente { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; border: 2px dashed var(--border-light); border-radius: 8px; background: #fff; text-align: center; font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }

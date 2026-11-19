@@ -982,7 +982,7 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
   right: 0;
   bottom: 0;
   width: clamp(420px, 46vw, 900px);
-  transform: translate(22%, 30%) rotate(-8deg);
+  transform: translate(10%, 2%) rotate(-6deg);
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   z-index: 1;
   pointer-events: none;

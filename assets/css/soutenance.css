@@ -879,10 +879,32 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .raci .raci-titre { font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-700); }
 .raci .raci-moi { margin-top: 0.6em; font-style: italic; }
 
-/* Écran 8 : les trois objectifs, mot pour mot. */
-.objectifs { list-style: none; margin: clamp(14px, 3vh, 40px) 0 0; padding: 0; font-size: var(--t-liste); font-weight: 300; line-height: 1.4; }
-.objectifs li { display: flex; gap: 0.8em; align-items: baseline; margin-bottom: clamp(8px, 1.8vh, 22px); }
-.objectifs .badge { flex: none; }
+/* Écran 8 : les trois objectifs, mot pour mot, en cartes reprises de
+   .objectif-card (ensavoirplus.html, style.css) : emoji à cheval sur le bord,
+   titre court au mot fort bleu, libellé exact en dessous. */
+.objectifs-cartes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2.5vw, 40px); margin-top: clamp(28px, 6vh, 72px); }
+.objectif-carte {
+  position: relative;
+  background: var(--blanc);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: clamp(28px, 5vh, 60px) clamp(14px, 1.6vw, 28px) clamp(16px, 3vh, 36px);
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.objectif-carte .objectif-emoji {
+  position: absolute; top: 0; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(28px, 5vh, 60px); line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
+}
+.objectif-carte .objectif-emoji img.emoji { vertical-align: middle; }
+.objectif-carte h3 { font-family: var(--font-titre); font-size: var(--t-liste); font-weight: 500; color: var(--text-dark); margin: 0.6em 0 0.5em; line-height: 1.25; }
+.objectif-carte h3 strong { font-weight: 800; color: var(--bleu-glenans); }
+.objectif-carte p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-weight: 300; color: var(--text-muted); }
+@media (max-width: 700px) {
+  .objectifs-cartes { grid-template-columns: 1fr; gap: clamp(28px, 5vh, 48px); }
+}
 
 /* Écran 9 : trois voies, une image chacune. */
 .trois-voies { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 3vw, 48px); margin-top: clamp(14px, 3vh, 40px); }

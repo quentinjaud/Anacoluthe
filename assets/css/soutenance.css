@@ -1404,3 +1404,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }
 /* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
 .pp-bulle { justify-content: center; align-items: center; text-align: center; }
+/* Capacités : trois cartes, les stagiaires au bout de la chaîne en ambre. */
+#capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; }
+#capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }

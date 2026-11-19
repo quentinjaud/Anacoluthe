@@ -1289,3 +1289,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #reste .ecart-idees.bilan.trois { margin-top: clamp(20px, 3.6vh, 40px); }
 #reste .bilan.trois .idee strong { font-size: var(--t-petit); }
 #reste .bilan.trois .idee { padding-top: clamp(22px, 3.6vh, 42px); }
+/* Écran 28 : chaque apprentissage suivi de ce que je ferais autrement, en flèche. */
+.lecons { list-style: none; margin: clamp(12px, 2.4vh, 28px) 0 0; padding: 0; display: flex; flex-direction: column; gap: clamp(14px, 2.8vh, 32px); }
+.lecons li { display: flex; flex-direction: column; gap: 0.3em; padding-left: 0.9em; border-left: 3px solid var(--teal-100); }
+.lecons .appris { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.lecons .autrement { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--teal-700); line-height: 1.35; }
+.lecons .autrement::before { content: '→ '; font-weight: 700; }
+.fleche-kicker { color: var(--teal-700); }

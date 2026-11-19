@@ -1209,3 +1209,15 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .appui-constat .qui { color: var(--text-muted); font-style: italic; white-space: nowrap; }
 .condition strong { color: var(--bleu-glenans); font-weight: 800; }
 @media (max-width: 700px) { .constats { grid-template-columns: 1fr; } }
+
+/* Écrans 22 et 25 : emoji à cheval sur le bord, comme .objectif-carte (écran 8),
+   calé à gauche sur le texte des cartes. */
+.moyen, .constat { position: relative; padding-top: clamp(26px, 4.4vh, 52px); }
+.moyens, .constats { margin-top: clamp(18px, 3.4vh, 40px); }
+.emoji-cheval {
+  position: absolute; top: 0; left: clamp(14px, 1.6vw, 28px);
+  transform: translateY(-50%);
+  font-size: clamp(26px, 4.4vh, 52px); line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
+}
+.emoji-cheval img.emoji { vertical-align: middle; }

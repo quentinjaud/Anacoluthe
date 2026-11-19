@@ -380,6 +380,7 @@ body {
 .badge.amber { background: var(--amber-700); }
 
 .version span {
+  text-align: center;
   font-family: var(--font-legende);
   font-size: var(--t-petit);
   color: var(--text-muted);

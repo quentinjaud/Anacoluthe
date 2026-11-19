@@ -1033,6 +1033,7 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 /* Écran 16 : deux captures. */
 .duo-captures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 48px); max-width: 1400px; width: 100%; }
 .duo-captures .photo-cadre { aspect-ratio: 16 / 10; }
+#siteweb .duo-captures { grid-template-columns: repeat(3, 1fr); max-width: 1660px; gap: clamp(12px, 2vw, 36px); }
 
 /* Écran 18 : le tracé nu, quatre blocs composés dessous (S14). */
 .phases { position: relative; width: 100%; max-width: 1660px; }

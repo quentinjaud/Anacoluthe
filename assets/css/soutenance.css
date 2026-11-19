@@ -1398,3 +1398,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #produit .capture { aspect-ratio: 4 / 3; overflow: hidden; }
 #produit .capture img { width: 100%; height: 100%; object-fit: cover; }
 #produit .capture.photo-attente { display: flex; align-items: center; justify-content: center; }
+/* Écran des capacités visées : les deux personas, une liste chacune. */
+#capacites .ecart-kicker { margin-top: clamp(14px, 2.6vh, 32px); }
+#capacites .personas { margin-top: clamp(10px, 2vh, 24px); }
+#capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }

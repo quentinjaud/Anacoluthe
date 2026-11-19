@@ -1264,3 +1264,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .bilan-moi .liste li { margin-bottom: 0.7em; }
 .ecart-idees.bilan.empile { grid-template-columns: 1fr; gap: clamp(26px, 4.6vh, 52px); margin-top: clamp(22px, 4vh, 44px); }
 @media (max-width: 700px) { .bilan-moi { grid-template-columns: 1fr; } }
+/* Écran 27 : la question posée à l'association, en grand, puis trois cartes. */
+.question-structure { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.35); line-height: 1.25; color: var(--bleu-glenans); max-width: 40ch; margin: clamp(8px, 1.6vh, 20px) 0 0; }
+.ecart-idees.bilan.trois { grid-template-columns: repeat(3, 1fr); max-width: 1500px; }
+.bilan.trois .idee .voies { font-size: var(--t-petit); }
+@media (max-width: 700px) { .ecart-idees.bilan.trois { grid-template-columns: 1fr; } }

@@ -1402,3 +1402,5 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #capacites .ecart-kicker { margin-top: clamp(14px, 2.6vh, 32px); }
 #capacites .personas { margin-top: clamp(10px, 2vh, 24px); }
 #capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }
+/* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
+.pp-bulle { justify-content: center; align-items: center; text-align: center; }

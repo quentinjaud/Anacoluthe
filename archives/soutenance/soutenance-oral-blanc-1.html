@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- ARCHIVE : deck de l'oral blanc n°1 du 2026-11-19 (28 écrans, commit 02422b4).
+     Figé, ne plus modifier. Le deck vivant est /soutenance.html.
+     Retours et refonte : Dossier_UC12_anacoluthe/soutenance/CHECKLIST_ORAL_BLANC_1.md, S39 à S51. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archive oral blanc 1 · Soutenance Anacoluthe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Support de soutenance BPJEPS voile habitable, UC1-UC2.">
+<link rel="icon" type="image/svg+xml" href="../../assets/images/logo-anacoluthe.svg">
+<!-- Charte : sources/documentation/DESIGN_INTENTIONS.md
+     Code : assets/css/soutenance.css, qui recopie assets/css/style.css -->
+<link rel="stylesheet" href="../../assets/css/soutenance.css">
+<link rel="stylesheet" href="../../assets/css/apercu-cartes.css">
+<link rel="stylesheet" href="../../assets/css/vendor/glightbox.min.css">
+</head>
+<body>
+
+<!-- Le fil : une pastille par écran, regroupées par acte dans des plateaux
+     de pills comme la barre basse du site (ensavoirplus). Une ligne continue
+     relie les actes, le chemin parcouru passe en teal.
+     Ordre et ancres : arc narratif révision 40, proposition V2 (S15). -->
+<nav class="fil" aria-label="Progression de la soutenance">
+  <div class="fil-piste">
+    <span class="fil-ligne" aria-hidden="true"><span class="fil-parcouru"></span></span>
+    <div class="acte acte-1" role="group" aria-label="Acte 1 · Ouverture">
+      <a class="pastille" href="#question"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
+      <a class="pastille" href="#commande"><span aria-hidden="true">📜</span><span class="bulle">D'où vient cette question ?</span></a>
+    </div>
+    <div class="acte acte-2" role="group" aria-label="Acte 2 · Terrain, cadre, publics">
+      <a class="pastille" href="#referentiels"><span aria-hidden="true">📋</span><span class="bulle">Les référentiels</span></a>
+      <a class="pastille" href="#objetassociation"><span aria-hidden="true">🌱</span><span class="bulle">Par la mer, à la vie collective</span></a>
+      <a class="pastille" href="#terrain"><span aria-hidden="true">⛵</span><span class="bulle">Le terrain</span></a>
+      <a class="pastille" href="#publics"><span aria-hidden="true">👥</span><span class="bulle">Deux publics</span></a>
+      <a class="pastille" href="#travailler"><span aria-hidden="true">🧭</span><span class="bulle">Comment travailler</span></a>
+      <a class="pastille" href="#diag"><span aria-hidden="true">🔍</span><span class="bulle">Le diagnostic</span></a>
+      <a class="pastille" href="#proposition-monos"><span aria-hidden="true">🎁</span><span class="bulle">Ce que le projet apporte</span></a>
+      <a class="pastille" href="#demo-v5"><span aria-hidden="true">⏩</span><span class="bulle">La V5</span></a>
+    </div>
+    <div class="acte acte-3" role="group" aria-label="Acte 3 · Le dispositif en main">
+      <a class="pastille" href="#familles"><span aria-hidden="true">🧩</span><span class="bulle">La boîte à outils</span></a>
+      <a class="pastille" href="#affiches"><span aria-hidden="true">📌</span><span class="bulle">Les affiches</span></a>
+      <a class="pastille" href="#roles"><span aria-hidden="true">🔄</span><span class="bulle">Les rôles</span></a>
+      <a class="pastille" href="#moments"><span aria-hidden="true">🗓️</span><span class="bulle">Les sept moments</span></a>
+      <a class="pastille" href="#jokers"><span aria-hidden="true">🃏</span><span class="bulle">Les quatre jokers</span></a>
+      <a class="pastille" href="#siteweb"><span aria-hidden="true">🌐</span><span class="bulle">Le site</span></a>
+    </div>
+    <div class="acte acte-4" role="group" aria-label="Acte 4 · La fabrication comme formation">
+      <a class="pastille" href="#phasesderoulé"><span aria-hidden="true">〰️</span><span class="bulle">Quatre phases</span></a>
+      <a class="pastille" href="#deroulement"><span aria-hidden="true">🛤️</span><span class="bulle">La démarche</span></a>
+      <a class="pastille" href="#faceafaces"><span aria-hidden="true">🗣️</span><span class="bulle">Ce que j'ai animé</span></a>
+      <a class="pastille" href="#versions"><span aria-hidden="true">🧵</span><span class="bulle">Cinq versions</span></a>
+      <a class="pastille" href="#formation"><span aria-hidden="true">🎓</span><span class="bulle">Les ateliers</span></a>
+    </div>
+    <div class="acte acte-5" role="group" aria-label="Acte 5 · Le bilan">
+      <a class="pastille" href="#moyens"><span aria-hidden="true">💶</span><span class="bulle">Avec quels moyens</span></a>
+      <a class="pastille" href="#integration"><span aria-hidden="true">📎</span><span class="bulle">Ce qui reste</span></a>
+      <a class="pastille" href="#ecart"><span aria-hidden="true">📉</span><span class="bulle">L'écart au prévu</span></a>
+      <a class="pastille" href="#mesure"><span aria-hidden="true">📊</span><span class="bulle">Les retours</span></a>
+      <a class="pastille" href="#cap10ans"><span aria-hidden="true">🧭</span><span class="bulle">Le cap à dix ans</span></a>
+      <a class="pastille" href="#reste"><span aria-hidden="true">❔</span><span class="bulle">Bilan pour la structure</span></a>
+      <a class="pastille" href="#apports"><span aria-hidden="true">🪢</span><span class="bulle">Bilan pour moi</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Le numéro de l'écran, à droite du fil : le jury peut dire « revenons à
+     la page 12 ». Hors du nav pour rester visible en projection, quand le
+     fil s'efface. Taper le numéro puis Entrée y ramène. -->
+<div class="numero" aria-live="polite"><span class="numero-courant">1</span><span class="numero-total">/ 28</span></div>
+
+<main>
+
+<!-- ═══ ACTE 1 · OUVERTURE ═══ -->
+
+<!-- 1. LA QUESTION -->
+<section data-acte="1" class="ecran centree fond-creme" id="question">
+  <h1 class="nom"><span class="accent-ambre">¿</span><span class="accent-teal">¡</span> Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
+  <p class="sous-titre">Soutenance UC1-UC2 · BPJEPS voile habitable</p>
+  <p class="question">Comment donner aux <strong>moniteurices</strong><br>
+  les moyens <strong>d'animer le vivre-ensemble</strong><br>
+  dans un contexte qui génère autant de <strong>tensions</strong><br>
+  que <strong>d'opportunités d'apprentissage</strong>&nbsp;?</p>
+</section>
+
+<!-- 2. D'OÙ VIENT LA QUESTION -->
+<section data-acte="1" class="ecran fond-amber" id="commande">
+  <h2 class="titre">D'où vient cette <span class="highlight">question</span>&nbsp;?</h2>
+  <div class="trois-voies trois-sources">
+    <div>
+      <div class="capture organigramme"><img src="../../assets/images/soutenance/organigramme-marseillan.webp" alt="Extrait de l'organigramme de la base de Marseillan : sous le chef de base, Romain Gauvrit, adjoint nautique et responsable croisière, son assistant nautique et l'adjointe voile légère"></div>
+      <h3>Les échanges avec Romain Gauvrit</h3>
+      <p>responsable croisière</p>
+    </div>
+    <div>
+      <!-- PLACEHOLDER : photo des rapports de mer, demandée à Romain -->
+      <div class="capture photo-attente" role="img" aria-label="Photo des rapports de mer à venir"><span>Photo des rapports de mer<br>à venir</span></div>
+      <h3>Les rapports de mer</h3>
+      <p>des tensions humaines<br> qui finissent en incidents techniques</p>
+    </div>
+    <div>
+      <div class="capture photo-boc"><img src="../../assets/images/soutenance/photo-annee-boc.webp" alt="Huit moniteurices en tenue de navigation posent en riant sur la plage de la base, l'étang en arrière-plan"></div>
+      <h3>Mon encadrement bénévole en croisière</h3>
+      <p>et ce que j'y ai observé de la coopération</p>
+    </div>
+  </div>
+  <p class="corps appui">Pour la technique&nbsp;: cartes de progression, manuel, fiches.
+  <strong>Pour le vivre-ensemble, très peu d'outils.</strong></p>
+</section>
+
+<!-- ═══ ACTE 2 · TERRAIN, CADRE, PUBLICS ═══ -->
+
+<!-- 3. LES RÉFÉRENTIELS -->
+<section data-acte="2" class="ecran fond-teal" id="referentiels">
+  <h2 class="titre">Ce que les <span class="highlight">référentiels</span> demandent déjà</h2>
+  <div class="publics extraits">
+    <div class="public-bloc">
+      <h3>Les stagiaires · carte de progression FFVoile</h3>
+      <div class="pile pile-ffvoile">
+        <img class="fond" src="../../assets/images/soutenance/referentiels/ffvoile-tableau-organisation.webp"
+             alt="Carte de progression FFVoile, domaine Organisation individuelle et collective, niveaux 1 à 5">
+        <img class="feuille n1" src="../../assets/images/soutenance/referentiels/ffvoile-ligne-niveau1.png"
+             alt="Niveau 1 : Naviguer en groupe de pratiquants solidaires">
+        <img class="feuille n5" src="../../assets/images/soutenance/referentiels/ffvoile-lignes-niveau5.png"
+             alt="Niveau 5 : Gérer et coordonner l'équipage lors des différentes manœuvres ; Organiser les tâches collectives, gérer un équipage, en habitable ; Organiser des quarts">
+      </div>
+    </div>
+    <div class="public-bloc">
+      <h3>Les moniteurices · CQP-IV</h3>
+      <div class="pile pile-cqp">
+        <img class="feuille c1" src="../../assets/images/soutenance/referentiels/cqp-rncp-discours-attitude.png"
+             alt="Communiquer avec les pratiquants tout au long d'une séance d'initiation et d'apprentissage de voile pour en assurer le bon déroulement en veillant à adapter son discours et son attitude suivant les situations rencontrées.">
+        <img class="feuille c2" src="../../assets/images/soutenance/referentiels/cqp-rncp-qualite-relationnelle.png"
+             alt="Communiquer avec les autres usagers du lieu de pratique en veillant au bon déroulement de ses activités et celles des autres afin d'anticiper d'éventuelles difficultés et d'assurer une bonne qualité relationnelle.">
+        <img class="feuille c3" src="../../assets/images/soutenance/referentiels/cqp-rncp-integrite.png"
+             alt="C.1.2.3 : Prévoir les mesures de sécurité au cours des séances d'initiation et d'apprentissage de voile en tenant compte des obligations légales et des règles de sécurité afin d'assurer l'intégrité physique, morale et psychique des pratiquants et des tiers.">
+      </div>
+    </div>
+  </div>
+  <p class="corps appui">Ces compétences figurent déjà au programme.
+  Le projet donne des outils pour les travailler.</p>
+</section>
+
+<!-- 4. PAR LA MER, À LA VIE COLLECTIVE
+     Le titre est un montage de deux extraits des statuts : les points de
+     suspension disent la sélection, le surlignage des extraits la montre. -->
+<section data-acte="2" class="ecran fond-creme" id="objetassociation">
+  <h2 class="titre">«&nbsp;…&nbsp;par la mer, …&nbsp;à la <span class="highlight">vie collective</span>&nbsp;»</h2>
+  <div class="statuts-et-photo">
+    <div class="statuts">
+      <img class="statut statut-buts" src="../../assets/images/soutenance/statuts-buts.png" alt="Statuts des Glénans, buts de l'association : « Créer, entre les hommes et les femmes de tous les pays, des liens par la mer »">
+      <img class="statut statut-preambule" src="../../assets/images/soutenance/statuts-preambule.png" alt="Statuts des Glénans : « École de formation à la mer et, par elle, à la vie collective, le CNG, devenu Les Glénans en 1992, a, dès l'origine, fondé son action sur l'engagement bénévole de ses membres »">
+      <p class="petit">Extraits des statuts des Glénans.</p>
+    </div>
+    <img class="photo-posee" src="../../assets/images/soutenance/photo-rassemblement-base.webp" alt="Un rassemblement en cercle sous les pins de la base, une centaine de personnes autour d'une prise de parole">
+  </div>
+</section>
+
+<!-- 5. LE TERRAIN -->
+<section data-acte="2" class="ecran fond-teal" id="terrain">
+  <h2 class="titre">Le <span class="highlight">terrain</span></h2>
+  <div class="ligne-terrain">
+    <img class="photo-posee l-quai" src="../../assets/images/soutenance/photo-quai-base.webp" alt="Un pot au coucher du soleil sur le quai de la base, tables le long des croiseurs amarrés">
+    <img class="photo-posee l-spi" src="../../assets/images/soutenance/photo-spi-glenans.webp" alt="Spinnaker rouge des Glénans gonflé sous le ciel bleu, vu depuis le pont">
+    <img class="photo-posee l-chenal" src="../../assets/images/soutenance/photo-chenal-croiseurs.webp" alt="Deux croiseurs et leurs équipages dans le chenal de la base">
+    <img class="photo-posee l-phare" src="../../assets/images/soutenance/photo-phare-marseillan.webp" alt="Le phare des Onglous au crépuscule, derrière la végétation">
+    <img class="pastille-photo" src="../../assets/images/soutenance/equipe-marseillan.webp" alt="Affiche de l'équipe permanente de la base de Marseillan, portraits et fonctions">
+  </div>
+  <p class="corps terrain-chiffres"><strong>La voile habitable à Marseillan, par an :</strong> environ 2&nbsp;000 stagiaires, une centaine de moniteurices, 12 à 14 voiliers.</p>
+</section>
+
+<!-- 6. DEUX PUBLICS, DEUX NIVEAUX -->
+<section data-acte="2" class="ecran fond-amber" id="publics">
+  <h2 class="titre">Deux publics, deux <span class="highlight">niveaux</span></h2>
+  <div class="publics">
+    <div class="public-bloc projet">
+      <h3>Le projet</h3>
+      <p>former et outiller celles et ceux qui encadrent</p>
+    </div>
+    <div class="public-fleche">→</div>
+    <div class="public-bloc">
+      <h3>Les moniteurices</h3>
+      <p>animer le vivre-ensemble et l'enseigner</p>
+    </div>
+    <div class="public-fleche">→</div>
+    <div class="public-bloc">
+      <h3>Les stagiaires</h3>
+      <p>apprendre à coopérer en même temps qu'à naviguer</p>
+    </div>
+  </div>
+  <div class="besoins">
+    <p><strong>bénévoles occasionnels</strong> ne pas rester démunis face à une tension</p>
+    <p><strong>contractuels CQP</strong> être reconnus aussi sur la conduite du groupe</p>
+    <p><strong>RTQ</strong> être moins sollicités</p>
+  </div>
+</section>
+
+<!-- 7. COMMENT TRAVAILLER
+     Une ligne par chaîne : du contexte au choix de méthode (intro « deux piliers », P2 §2.3).
+     La dernière chaîne a deux sources, qui convergent sur le design. -->
+<section data-acte="2" class="ecran fond-creme" id="travailler">
+  <h2 class="titre">Comment <span class="highlight">travailler</span><span class="accent-brick"> ?</span></h2>
+  <div class="chaines">
+    <p class="chaines-tete">Le contexte</p><span aria-hidden="true"></span><p class="chaines-tete">Le choix de méthode</p>
+
+    <div class="chaine-sources">
+      <p class="source"><strong>Une association d'éducation populaire</strong>« formation à la mer et, par elle, à la vie collective »</p>
+    </div>
+    <span class="chaine-fleche" aria-hidden="true">→</span>
+    <p class="methode"><strong>S'inspirer de l'éducation populaire</strong>faire avec les moniteurices plutôt que pour elleux</p>
+
+    <div class="chaine-sources">
+      <p class="source"><strong>Peu de temps, pas de budget</strong>sur base, l'apprenti est surtout un encadrant</p>
+    </div>
+    <span class="chaine-fleche" aria-hidden="true">→</span>
+    <p class="methode"><strong>Avancer par itérations</strong>des cycles courts : tester en stage, recueillir, ajuster</p>
+
+    <div class="chaine-sources">
+      <p class="source"><strong>Une réponse incertaine</strong>personne ne savait quelle forme prendrait l'outil</p>
+      <p class="source"><strong>Une expérience mobilisable</strong>le design d'initiatives sociales, mon métier d'avant</p>
+    </div>
+    <span class="chaine-fleche" aria-hidden="true">→</span>
+    <p class="methode"><strong>Utiliser les méthodes du design</strong>prototyper tôt, faire réagir sur un objet, réviser</p>
+  </div>
+</section>
+
+<!-- 8. LE DIAGNOSTIC -->
+<section data-acte="2" class="ecran fond-teal" id="diag">
+  <h2 class="titre">Du diagnostic aux <span class="highlight">objectifs</span></h2>
+  <p class="corps">14 entretiens, 3 ateliers de pair-à-pair et des échanges informels</p>
+  <div class="objectifs-cartes">
+    <div class="objectif-carte">
+      <span class="objectif-emoji">⚡</span>
+      <span class="badge">OS1</span>
+      <h3>Prévenir les <strong>incidents</strong></h3>
+      <p>Réduire les dysfonctionnements d'équipage sources d'incidents</p>
+    </div>
+    <div class="objectif-carte">
+      <span class="objectif-emoji">🌱</span>
+      <span class="badge teal">OS2</span>
+      <h3><strong>Éducation</strong> populaire</h3>
+      <p>Contribuer à la mission d'éducation populaire des Glénans</p>
+    </div>
+    <div class="objectif-carte">
+      <span class="objectif-emoji">📈</span>
+      <span class="badge amber">OS3</span>
+      <h3>Progression <strong>technique</strong></h3>
+      <p>Améliorer la progression technique sur les items d'organisation collective et de sens marin</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CE QUE LE PROJET APPORTE -->
+<section data-acte="2" class="ecran fond-amber" id="proposition-monos">
+  <h2 class="titre">Ce que le projet <span class="highlight">apporte</span></h2>
+  <p class="corps">Du vocabulaire et des compétences pour animer le vivre-ensemble.</p>
+  <div class="trois-voies">
+    <div>
+      <div class="capture photo-formation"><img src="../../assets/images/soutenance/photo-formation-table.webp" alt="Six personnes autour d'une table couverte de fiches et de feutres, penchées sur des documents de travail pendant un atelier"></div>
+      <h3>Former</h3>
+      <p>des ateliers, sur des créneaux qui existaient déjà</p>
+    </div>
+    <div>
+      <div class="vignette"><img src="../../assets/images/affiche-A1-routines.png" alt="Affiche des routines quotidiennes"></div>
+      <h3>Outiller</h3>
+      <p>des affiches et des cartes calées sur les rituels du stage</p>
+    </div>
+    <div>
+      <div class="capture"><img src="../../assets/images/soutenance/capture-site-accueil.webp" alt="Capture de la page d'accueil d'anacoluthe.org"></div>
+      <h3>Diffuser</h3>
+      <p>un site, des fichiers libres, imprimables à la demande</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. ON SAUTE DANS LE TEMPS -->
+<section data-acte="2" class="ecran centree fond-creme" id="demo-v5">
+  <div class="capture photo-kit-v5"><img src="../../assets/images/soutenance/photo-kit-v5.webp" alt="Les affiches de la boîte à outils, plastifiées, étalées sur une table en bois ; la feuille « Routines quotidiennes » sort de la plastifieuse"></div>
+  <p class="corps appui">Découvrons la version définitive de la boîte à outils embarquée.</p>
+</section>
+
+<!-- ═══ ACTE 3 · LE DISPOSITIF EN MAIN ═══ -->
+
+<!-- 11. UNE BOÎTE À OUTILS, QUATRE FAMILLES
+     Composant de l'accueil (S12), contenu en dur : le deck ne charge pas cards-index.json. -->
+<section data-acte="3" class="ecran fond-creme" id="familles">
+  <h2 class="titre">Une <span class="highlight">boîte à outils</span> à 4 compartiments</h2>
+  <div class="apercu-grid familles-v2">
+    <div class="apercu-stack" data-type="affiche">
+      <div class="apercu-stack-header"><span class="apercu-count">3</span><span class="apercu-type-badge">🖼️ Affiches</span></div>
+      <div class="apercu-tile-wrapper">
+        <div class="apercu-fake-card fake-2"></div><div class="apercu-fake-card fake-1"></div>
+        <div class="apercu-tile">
+          <div class="apercu-tile-header"><span class="apercu-emoji">🔂</span></div>
+          <div class="apercu-card-preview">
+            <span class="apercu-title">Routines quotidiennes</span>
+            <span class="apercu-subtitle">Répartir les charges du quotidien</span>
+          </div>
+        </div>
+      </div>
+      <p class="besoin">un outil formel là où on improvisait</p>
+    </div>
+    <div class="apercu-stack" data-type="role">
+      <div class="apercu-stack-header"><span class="apercu-count">4</span><span class="apercu-type-badge">🔧 Rôles</span></div>
+      <div class="apercu-tile-wrapper">
+        <div class="apercu-fake-card fake-2"></div><div class="apercu-fake-card fake-1"></div>
+        <div class="apercu-tile">
+          <div class="apercu-tile-header"><span class="apercu-emoji">🔧</span></div>
+          <div class="apercu-card-preview">
+            <span class="apercu-title">Bosco</span>
+            <span class="apercu-subtitle">Le·la gardien·ne du bateau</span>
+          </div>
+        </div>
+      </div>
+      <p class="besoin">distribuer l'organisation</p>
+    </div>
+    <div class="apercu-stack" data-type="moment">
+      <div class="apercu-stack-header"><span class="apercu-count">7</span><span class="apercu-type-badge">📅 Moments</span></div>
+      <div class="apercu-tile-wrapper">
+        <div class="apercu-fake-card fake-2"></div><div class="apercu-fake-card fake-1"></div>
+        <div class="apercu-tile">
+          <div class="apercu-tile-header"><span class="apercu-emoji">🌅</span></div>
+          <div class="apercu-card-preview">
+            <span class="apercu-title">Accueil &amp; Attentes</span>
+            <span class="apercu-subtitle">Le premier après-midi</span>
+          </div>
+        </div>
+      </div>
+      <p class="besoin">une forme pour les moments clefs</p>
+    </div>
+    <div class="apercu-stack" data-type="joker">
+      <div class="apercu-stack-header"><span class="apercu-count">4</span><span class="apercu-type-badge">🃏 Jokers</span></div>
+      <div class="apercu-tile-wrapper">
+        <div class="apercu-fake-card fake-2"></div><div class="apercu-fake-card fake-1"></div>
+        <div class="apercu-tile">
+          <div class="apercu-tile-header"><span class="apercu-emoji">⚡</span></div>
+          <div class="apercu-card-preview">
+            <span class="apercu-title">Gérer un désaccord</span>
+            <span class="apercu-subtitle">Quand la tension monte</span>
+          </div>
+        </div>
+      </div>
+      <p class="besoin">savoir par où commencer</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. LES AFFICHES : rangée entière sous le texte (S11) -->
+<section data-acte="3" class="ecran fond-creme deborde" id="affiches">
+  <h2 class="titre">Les affiches <span class="highlight">embarquées</span></h2>
+  <p class="corps">Les consignes répétées chaque matin sont affichées&nbsp;:<br>la moniteurice a moins à les redire.</p>
+  <div class="affiches-bas" aria-hidden="true">
+    <img class="a-paysage" src="../../assets/images/affiche-tableau-equipage.png" alt="">
+    <img class="a-portrait" src="../../assets/images/affiche-A1-routines.png" alt="">
+    <img class="a-portrait" src="../../assets/images/affiche-A3-recto.png" alt="">
+    <img class="a-portrait" src="../../assets/images/affiche-A3-verso.png" alt="">
+  </div>
+</section>
+
+<!-- 13. LES RÔLES : l'éventail (S9) -->
+<section data-acte="3" class="ecran fond-amber" id="roles">
+  <div class="texte-et-cartes">
+    <div>
+      <h2 class="titre">Les rôles <span class="highlight">coopératifs</span></h2>
+      <p class="corps">L'organisation du bord reposait surtout sur la moniteurice.<br>
+      Quatre rôles tournants la répartissent dans l'équipage.</p>
+    </div>
+    <div class="roles-droite">
+      <div class="role-detail">
+        <img src="../../assets/images/soutenance/role-second-soigneux-recto.webp" alt="Carte Second soigneux, recto : description du rôle, figure inspirante, compétences cultivées">
+        <img src="../../assets/images/soutenance/role-second-soigneux-verso.webp" alt="Carte Second soigneux, verso : missions du matin, en navigation et du soir, questions pour s'aider">
+      </div>
+      <div class="minicartes eventail" aria-hidden="true">
+        <div class="outil role"><div class="minicarte"><span class="mc-emoji">🔧</span><span class="mc-code">R1</span></div><span class="outil-nom">Bosco</span></div>
+        <div class="outil role"><div class="minicarte"><span class="mc-emoji">🧭</span><span class="mc-code">R2</span></div><span class="outil-nom">Navigateurice</span></div>
+        <div class="outil role"><div class="minicarte"><span class="mc-emoji">🤲</span><span class="mc-code">R3</span></div><span class="outil-nom">Second soigneux</span></div>
+        <div class="outil role"><div class="minicarte"><span class="mc-emoji">🍳</span><span class="mc-code">R4</span></div><span class="outil-nom">Cambusier·ère</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. LES SEPT MOMENTS -->
+<section data-acte="3" class="ecran fond-teal" id="moments">
+  <div class="texte-et-cartes">
+    <div>
+      <h2 class="titre">Les sept <span class="highlight">moments</span></h2>
+      <p class="corps">Accueil, briefs, débriefs existent déjà.<br>
+      Sept cartes proposent un déroulé pour y faire coopérer l'équipage.</p>
+    </div>
+    <div class="carte-detail">
+      <img src="../../assets/images/soutenance/moment-accords-recto.webp" alt="Carte Accords d'équipage, recto : intention, enjeu du vivre-ensemble à bord, conseil d'animation">
+      <img src="../../assets/images/soutenance/moment-accords-verso.webp" alt="Carte Accords d'équipage, verso : explorer les thèmes, reformuler et valider, ancrage">
+    </div>
+  </div>
+  <div class="minicartes ligne" aria-hidden="true">
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">🌅</span><span class="mc-code">M1</span></div><span class="outil-nom">Accueil</span></div>
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">🤝</span><span class="mc-code">M2</span></div><span class="outil-nom">Accords</span></div>
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">👥</span><span class="mc-code">M3</span></div><span class="outil-nom">Rôles</span></div>
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">☀️</span><span class="mc-code">M4</span></div><span class="outil-nom">Brief</span></div>
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">🌙</span><span class="mc-code">M5</span></div><span class="outil-nom">Débrief</span></div>
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">⚓</span><span class="mc-code">M6</span></div><span class="outil-nom">Mi-parcours</span></div>
+      <div class="outil moment"><div class="minicarte"><span class="mc-emoji">🎯</span><span class="mc-code">M7</span></div><span class="outil-nom">Débrief final</span></div>
+    </div>
+</section>
+
+<!-- 15. LES QUATRE JOKERS -->
+<section data-acte="3" class="ecran fond-brick" id="jokers">
+  <div class="texte-et-cartes">
+    <div>
+      <h2 class="titre">Les quatre <span class="highlight">jokers</span></h2>
+      <p class="corps appui">Quand la tension monte, l'équipage
+      <strong>suit un protocole au lieu d'improviser.</strong></p>
+    </div>
+    <div class="roles-droite">
+      <div class="carte-detail">
+        <img src="../../assets/images/soutenance/joker-desaccord-recto.webp" alt="Carte Gérer un désaccord-conflit, recto : quand la tension monte, sans et avec régulation, point d'attention">
+        <img src="../../assets/images/soutenance/joker-desaccord-verso.webp" alt="Carte Gérer un désaccord-conflit, verso : poser le cadre, tour d'expression et reformulation, terrain commun, ancrage">
+      </div>
+      <div class="minicartes eventail" aria-hidden="true">
+        <div class="outil joker"><div class="minicarte"><span class="mc-emoji">⚡</span><span class="mc-code">J1</span></div><span class="outil-nom">Désaccord</span></div>
+        <div class="outil joker"><div class="minicarte"><span class="mc-emoji">⏸️</span><span class="mc-code">J2</span></div><span class="outil-nom">Sans navigation</span></div>
+        <div class="outil joker"><div class="minicarte"><span class="mc-emoji">🔄</span><span class="mc-code">J3</span></div><span class="outil-nom">Rediscuter le cadre</span></div>
+        <div class="outil joker"><div class="minicarte"><span class="mc-emoji">💬</span><span class="mc-code">J4</span></div><span class="outil-nom">Retour au monit.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. LE SITE -->
+<section data-acte="3" class="ecran fond-creme" id="siteweb">
+  <h2 class="titre">Le site <span class="highlight">anacoluthe.org</span></h2>
+  <div class="duo-captures">
+    <figure class="capture"><img src="../../assets/images/soutenance/capture-site-fil-semaine.webp" alt="Capture de la page Le fil de la semaine"><figcaption>Comprendre comment ça marche</figcaption></figure>
+    <figure class="capture"><img src="../../assets/images/soutenance/capture-site-cartes.webp" alt="Capture de la galerie des cartes"><figcaption>Consulter toutes les cartes</figcaption></figure>
+    <figure class="capture"><img src="../../assets/images/soutenance/capture-site-atelier-cartes.webp" alt="Capture de l'atelier à cartes, sur le marque-page du livre de bord en recto-verso"><figcaption>Assembler et imprimer des kits</figcaption></figure>
+  </div>
+</section>
+
+<!-- ═══ ACTE 4 · LA FABRICATION COMME FORMATION ═══ -->
+
+<!-- 17. QUATRE PHASES : le tracé d'origine, nu (S14) -->
+<section data-acte="4" class="ecran fond-creme" id="phasesderoulé">
+  <h2 class="titre">Quatre <span class="highlight">phases</span></h2>
+  <div class="phases">
+    <img class="phases-trace" src="../../assets/images/soutenance/trace-4-phases.png" alt="Tracé du design de projet : une ouverture, un nœud, des branches, une traîne">
+    <div class="phases-blocs">
+      <div><strong>1 · diagnostic et cadrage</strong><span class="date">janvier à mars 2025</span><span>14 entretiens, 3 ateliers</span></div>
+      <div><strong>2 · conception itérative</strong><span class="date">avril à décembre 2025</span><span>cinq versions</span></div>
+      <div><strong>3 · déploiement et formation</strong><span class="date">mars à octobre 2026</span><span>22 formées, 8 bateaux</span></div>
+      <div><strong>4 · évaluation et capitalisation</strong><span class="date">juin à octobre 2026</span><span>43 questionnaires, 9 entretiens</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. LA DÉMARCHE -->
+<section data-acte="4" class="ecran fond-amber" id="deroulement">
+  <div class="texte-et-photo">
+    <div>
+      <h2 class="titre">Concevoir l'outil,<br>c'était déjà <span class="highlight">former</span></h2>
+      <p class="corps appui">Les moniteurices se sont formées en le fabriquant.<br>
+      Sa diffusion a lancé des discussions dans la base.</p>
+      <p class="petit">Pendant les ateliers, elles ont nommé des tensions, choisi entre deux cartes,
+      défendu un choix devant le groupe&nbsp;: les gestes mêmes qu'on attend d'elles à bord.</p>
+    </div>
+    <img class="photo-posee photo-portrait" src="../../assets/images/soutenance/photo-atelier-baton.webp" alt="Cinq personnes penchées autour d'un long bâton orange, chacune le soutenant du bout de l'index, concentrées pour le faire descendre ensemble">
+  </div>
+</section>
+
+<!-- 19. CE QUE J'AI ANIMÉ -->
+<section data-acte="4" class="ecran fond-teal" id="faceafaces">
+  <h2 class="titre">Ce que j'ai <span class="highlight">animé</span></h2>
+  <div class="publics">
+    <div class="public-bloc">
+      <h3>Avec les moniteurices</h3>
+      <ul class="liste">
+        <li>co-concevoir l'outil</li>
+        <li>les former</li>
+        <li>le tester en escadre avec celles qui co-encadraient</li>
+      </ul>
+    </div>
+    <div class="public-bloc">
+      <h3>Avec les stagiaires</h3>
+      <ul class="liste">
+        <li>des stages avec le kit à bord</li>
+        <li>des ateliers express de co-conception</li>
+      </ul>
+    </div>
+  </div>
+  <div class="visuel-photos">
+    <img class="photo-posee" src="../../assets/images/soutenance/photo-animer-atelier.webp" alt="Atelier en plein air à la base : des moniteurices autour d'une table, penchées sur des feuilles imprimées, l'un d'eux pointe un passage du doigt">
+    <img class="photo-posee" src="../../assets/images/soutenance/photo-animer-briefing.webp" alt="Au carré d'un voilier, une monitrice tient une ardoise « Prépa BTO » où les tâches du départ sont réparties entre les équipiers">
+    <img class="photo-posee" src="../../assets/images/soutenance/photo-animer-carte.webp" alt="Cinq stagiaires autour de la table à cartes, penchées sur une carte marine, prennent des notes">
+  </div>
+</section>
+
+<!-- 20. CINQ VERSIONS -->
+<section data-acte="4" class="ecran fond-creme" id="versions">
+  <h2 class="titre">Cinq <span class="highlight">versions</span>, neuf mois</h2>
+  <div class="frise">
+    <div class="frise-ligne">
+      <div class="version"><span class="badge">V1</span><span>Trois fiches pratiques</span></div>
+      <div class="version"><span class="badge">V2</span><span>Des personnages à jouer</span></div>
+      <div class="version"><span class="badge teal">V3</span><span>Des cartes pour les moments spécifiques, beaucoup de cartes</span></div>
+      <div class="version"><span class="badge amber">V4</span><span>Élagage des cartes</span></div>
+      <div class="version"><span class="badge teal">V5</span><span>Greffer la boîte à outils à l'existant</span></div>
+    </div>
+    <div class="corrections">
+      <div class="correction" style="--de:1; --a:3"><span class="avant">Conçu seul</span>
+        <span class="fleche">→</span><span class="apres">Avec des spécialistes</span></div>
+      <div class="correction" style="--de:2; --a:5"><span class="avant">Des personnages incarnés</span>
+        <span class="fleche">→</span><span class="apres">Des rôles fonctionnels</span></div>
+      <div class="correction" style="--de:3; --a:5"><span class="avant">En plus du stage</span>
+        <span class="fleche">→</span><span class="apres">Dedans</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. LES ATELIERS : le A3 entre par le coin bas droit (S10, S11) -->
+<section data-acte="4" class="ecran fond-teal deborde" id="formation">
+  <h2 class="titre">Les ateliers de <span class="highlight">formation</span></h2>
+  <ul class="liste ateliers">
+    <li>Arpentage · co-développement · apports sur la coopération</li>
+    <li>Quatre ateliers de 2&nbsp;h&nbsp;: <strong>12 des 22</strong> moniteurices formées y sont passées</li>
+    <li>Annoncés le samedi au démarrage des stages, pour le vendredi suivant</li>
+  </ul>
+  <img class="a3-coin" src="../../assets/images/soutenance/affiche-phases-a3.png" alt="" aria-hidden="true">
+</section>
+
+<!-- ═══ ACTE 5 · LE BILAN ═══ -->
+
+<!-- 22. AVEC QUELS MOYENS -->
+<section data-acte="5" class="ecran fond-amber" id="moyens">
+  <h2 class="titre">Avec quels <span class="highlight">moyens</span><span class="accent-brick"> ?</span></h2>
+  <div class="moyens">
+    <div class="moyen"><span class="emoji-cheval" aria-hidden="true">⏱️</span><p class="besoin">Il fallait du temps hors face-à-face</p><div><p class="ressource">les créneaux qui existaient déjà</p><p class="precision">formation du vendredi et formations pédagogiques initiales</p></div><p class="chiffres"><strong>1</strong> FPI2 · <strong>4</strong> ateliers du vendredi · <strong>10&nbsp;h</strong> d'atelier</p></div>
+    <div class="moyen"><span class="emoji-cheval" aria-hidden="true">🖨️</span><p class="besoin">Il fallait imprimer, plastifier</p><div><p class="ressource">l'imprimante et le stock de la base</p></div><p class="chiffres"><strong>247</strong> feuilles A4 · <strong>172</strong> plastifiées · <strong>36&nbsp;€</strong> imputés</p></div>
+    <div class="moyen"><span class="emoji-cheval" aria-hidden="true">🧠</span><p class="besoin">Il fallait des compétences que je n'avais pas</p><div><p class="ressource">le mécénat de compétences</p></div><p class="chiffres"><strong>6</strong> intervenant·es · <strong>13</strong> ateliers · <strong>5&nbsp;000&nbsp;€</strong> valorisés</p></div>
+  </div>
+</section>
+
+<!-- 23. CE QUI EST ENTRÉ DANS LA BASE -->
+<section data-acte="5" class="ecran fond-creme" id="integration">
+  <div class="texte-et-photos">
+    <div>
+      <h2 class="titre">Après le projet,<br> ce qui <span class="highlight">reste</span></h2>
+      <ul class="liste">
+        <li>Une partie des supports de démarrage de stage rénovés</li>
+        <li>Huit bateaux équipés durablement&nbsp;: affiches collées, kits complets dans la table à carte</li>
+        <li>Des kits et de la documentation en ressourcerie, aux côtés des autres supports</li>
+      </ul>
+    </div>
+    <div class="vis-a-vis">
+      <img class="photo-posee" src="../../assets/images/soutenance/photo-checklist-cdb.webp" alt="La check-list du chef de bord scotchée à bord : météo, plan de navigation, briefings, quarts, livre de bord">
+      <img class="photo-posee" src="../../assets/images/affiche-A1-routines.png" alt="L'affiche Anacoluthe des routines quotidiennes">
+    </div>
+  </div>
+</section>
+
+<!-- 24. L'ÉCART -->
+<section data-acte="5" class="ecran fond-brick" id="ecart">
+  <h2 class="titre">L'<span class="highlight">écart</span> au prévu</h2>
+  <div class="ecart">
+    <div class="en-deca">
+      <div class="chiffre">22</div>
+      <div class="prevu">sur 50 prévus</div>
+      <div class="quoi">moniteurices formées</div>
+    </div>
+    <div class="en-deca">
+      <div class="chiffre">8</div>
+      <div class="prevu">sur 14 prévus</div>
+      <div class="quoi">bateaux équipés durablement</div>
+    </div>
+    <div>
+      <div class="chiffre">3</div>
+      <div class="prevu">sans démarchage</div>
+      <div class="quoi">écoles extérieures</div>
+    </div>
+  </div>
+  <p class="ecart-kicker">Ce qui explique l'écart</p>
+  <div class="ecart-idees">
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🔍</span><strong>3 contraintes sous-estimées</strong>
+      <ul class="voies contraintes">
+        <li>ma disponibilité hors face-à-face</li>
+        <li>des leviers d'accès saturés, dont le brief du samedi</li>
+        <li>une inertie de calendrier</li>
+      </ul></div>
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🔀</span><strong>Une formation sous-planifiée</strong>
+      <span>elle demandait plus de planification que la <span class="nowrap">co-conception</span></span>
+      <span class="sous-titre-voies">5 voies de formation-sensibilisation&nbsp;:</span>
+      <ul class="voies">
+        <li>ateliers du vendredi</li>
+        <li>atelier FPI2</li>
+        <li>accompagnements individuels</li>
+        <li>apports dans les briefs de démarrage</li>
+        <li>matériaux distribués rénovés</li>
+      </ul></div>
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">👤</span><strong>Je n'ai pas réussi à déléguer</strong><span>les voies étaient transposables, mais elles sont globalement restées sur moi</span></div>
+  </div>
+</section>
+
+<!-- 25. CE QUE MONTRENT LES RETOURS -->
+<section data-acte="5" class="ecran fond-teal" id="mesure">
+  <h2 class="titre">Les tensions se disent plus tôt, l'équipage est plus <span class="highlight">autonome</span></h2>
+  <div class="constats">
+    <div class="constat">
+      <span class="emoji-cheval" aria-hidden="true">💬</span>
+      <h3>La parole</h3>
+      <p class="item">«&nbsp;Les tensions ont été exprimées avant de dégrader le climat&nbsp;»</p>
+      <div class="barres">
+        <div class="barre avec"><span class="lib">avec kit</span><span class="piste"><span style="width:68%"></span></span><strong>19/28</strong></div>
+        <div class="barre sans"><span class="lib">sans kit</span><span class="piste"><span style="width:27%"></span></span><strong>4/15</strong></div>
+      </div>
+      <p class="appui-constat"><strong>5 moniteurices sur 6</strong> le constatent aussi.</p>
+    </div>
+    <div class="constat">
+      <span class="emoji-cheval" aria-hidden="true">🧩</span>
+      <h3>L'organisation</h3>
+      <p class="item">«&nbsp;Les moments d'organisation ont été fluides&nbsp;»</p>
+      <div class="barres">
+        <div class="barre avec"><span class="lib">avec kit</span><span class="piste"><span style="width:82%"></span></span><strong>23/28</strong></div>
+        <div class="barre sans"><span class="lib">sans kit</span><span class="piste"><span style="width:47%"></span></span><strong>7/15</strong></div>
+      </div>
+    </div>
+  </div>
+  <p class="condition"><span>Pour que ça marche</span> des outils <strong>et</strong> des encadrant·es formé·es. Sans sensibilisation - formation, le kit reste souvent dans la table à cartes.</p>
+</section>
+
+<!-- 26. LE CAP À DIX ANS -->
+<section data-acte="5" class="ecran fond-creme" id="cap10ans">
+  <div class="texte-et-photo">
+    <div>
+      <h2 class="titre">Le <span class="highlight">cap</span> à dix ans</h2>
+      <p class="citation grande">« En 2035, l'association Les Glénans est un lieu
+      d'expérimentation de nouveaux possibles »</p>
+      <p class="petit">Cap voté par le conseil d'administration, novembre 2025.</p>
+      <p class="corps appui"><strong>Les stages portent déjà ces axes,<br>avec peu d'outils pour les travailler.</strong></p>
+    </div>
+    <div class="courrier-cap">
+      <img class="photo-posee couverture" src="../../assets/images/soutenance/courrier-glenans-122-couverture.webp" alt="Couverture du Courrier des Glénans n°122, avril 2026, numéro spécial Assemblée générale : des adhérent·es autour d'une table devant le fort">
+      <img class="photo-posee extrait" src="../../assets/images/soutenance/courrier-cap-10-ans-extrait.webp" alt="Extrait du Courrier des Glénans : « Du Parcours Océan au CAP à 10 ans », texte de la résolution du conseil d'administration et ses trois axes">
+    </div>
+  </div>
+</section>
+
+<!-- 27. BILAN POUR LA STRUCTURE : ce que l'initiative a montré, puis la
+     question du changement d'échelle et ses trois voies (QJ, 19/11). -->
+<section data-acte="5" class="ecran fond-amber" id="reste">
+  <h2 class="titre">Bilan pour la <span class="highlight">structure</span></h2>
+  <p class="ecart-kicker">Ce que l'initiative a montré</p>
+  <ul class="acquis">
+    <li><strong>Outiller et former au <span class="nowrap">vivre-ensemble</span>, c'est faisable</strong><span>des créneaux existants, le matériel de la base</span></li>
+    <li><strong>Les effets sont réels</strong><span>les tensions se disent plus tôt, l'équipage est plus autonome</span></li>
+    <li><strong>C'est aligné sur le cap à <span class="nowrap">dix ans</span></strong><span>autonomie, interdépendance, faire société</span></li>
+  </ul>
+  <p class="question-structure">Comment passer à une plus grande échelle&nbsp;?</p>
+  <div class="ecart-idees bilan trois">
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">📦</span><strong>Diffuser les outils tels quels</strong>
+      <span>kits, site, licence libre</span></div>
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🎓</span><strong>Aider le CEB à s'en inspirer</strong>
+      <span>pour le refaire à sa sauce, dans la formation des moniteurices</span></div>
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">⛵</span><strong>Aider les bases à outiller le <span class="nowrap">vivre-ensemble</span></strong>
+      <span>et faire de la coopération à bord un vrai sujet</span></div>
+  </div>
+</section>
+
+<!-- 28. BILAN POUR MOI : chaque apprentissage avec ce que je ferais autrement (P5 §5.1), et ensuite -->
+<section data-acte="5" class="ecran fond-creme" id="apports">
+  <h2 class="titre">Bilan pour <span class="highlight">moi</span></h2>
+  <div class="bilan-moi">
+    <div>
+      <p class="ecart-kicker">Ce que ça m'a appris <span class="fleche-kicker">→</span> ce que je ferais autrement</p>
+      <ul class="lecons">
+        <li><span class="appris">J'ai sous-estimé la conduite au profit de la conception</span><span class="autrement">chiffrer dès le départ le temps de formation</span></li>
+        <li><span class="appris">Ma disponibilité a fait exister le projet, sans pouvoir se transmettre</span><span class="autrement">mettre davantage d'énergie dans le plaidoyer en interne</span></li>
+        <li><span class="appris">Un projet d'animation se conduit comme un processus social</span><span class="autrement">l'informel d'abord, avec les salariés et le CEB</span></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ecart-kicker">Et ensuite</p>
+      <div class="ecart-idees bilan empile">
+        <div class="idee"><span class="emoji-cheval" aria-hidden="true">🌱</span><strong>Continuer à faire vivre le dispositif</strong>
+          <span>Il me tient à cœur, et la licence CC-BY-NC-SA le laisse ouvert. Comment l'entretenir et l'animer au-delà de Marseillan&nbsp;?</span></div>
+        <div class="idee"><span class="emoji-cheval" aria-hidden="true">🪢</span><strong>Mêler mes deux métiers</strong>
+          <span>Formateur à la coopération et designer d'organisation, moniteur de voile&nbsp;: j'ai expérimenté le mélange. Qu'en faire ensuite&nbsp;?</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Emojis : Twemoji depuis le CDN, comme le site (S18). Sans réseau, les emojis natifs restent. -->
+<script src="../../assets/js/twemoji-init.js" defer></script>
+<!-- Lightbox : clic sur une image pour l'agrandir (GLightbox, embarqué) -->
+<script src="../../assets/js/vendor/glightbox.min.js"></script>
+<script src="../../assets/js/soutenance-lightbox.js"></script>
+<script>
+/* Navigation : une section par écran, molette et clavier.
+   Le fil du bas suit la position et garde la pastille active visible.
+   Aucune dépendance, aucun CDN : les ancres de l'URL fonctionnent seules. */
+(function () {
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll('.ecran'));
+  /* Une pastille par écran, retrouvée par son ancre et non par sa position :
+     un écran supprimé ou déplacé ne décale plus le fil. */
+  var pastilles = ecrans.map(function (e) {
+    var p = document.querySelector('.pastille[href="#' + e.id + '"]');
+    if (!p) console.warn('Fil : pas de pastille pour #' + e.id);
+    return p;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.pastille'), function (p) {
+    if (pastilles.indexOf(p) < 0) console.warn('Fil : pastille orpheline ' + p.getAttribute('href'));
+  });
+  var piste = document.querySelector('.fil-piste');
+  var actes = Array.prototype.slice.call(document.querySelectorAll('.acte'));
+  var parcouru = document.querySelector('.fil-parcouru');
+  var numero = document.querySelector('.numero');
+  var numeroCourant = document.querySelector('.numero-courant');
+  if (numero) numero.querySelector('.numero-total').textContent = '/ ' + ecrans.length;
+  /* Chaque pill reçoit une fois son inclinaison, entre -2° et +2° :
+     tirée au chargement, elle reste la même si on revient sur l'écran. */
+  pastilles.forEach(function (p) {
+    if (p) p.style.setProperty('--incl', (Math.random() * 4 - 2).toFixed(2) + 'deg');
+  });
+
+  function courant() {
+    var y = window.scrollY + window.innerHeight / 3;
+    for (var i = ecrans.length - 1; i >= 0; i--) {
+      if (ecrans[i].offsetTop <= y) return i;
+    }
+    return 0;
+  }
+
+  function aller(i) {
+    if (i < 0) i = 0;
+    if (i > ecrans.length - 1) i = ecrans.length - 1;
+    ecrans[i].scrollIntoView({ block: 'start' });
+  }
+
+  /* L'état actif vient d'un observateur d'intersection, pas de l'événement
+     scroll : un déplacement programmé (ancre, clavier) n'émet pas toujours
+     scroll, et le fil resterait figé sur la section précédente. */
+  var actif = 0;
+
+  /* La ligne parcourue s'arrête au centre de la pastille courante. Recalculée
+     aussi en fin de transition : la pastille active s'élargit en 0,22 s. */
+  function majLigne() {
+    var a = pastilles[actif];
+    if (!parcouru || !a) return;
+    var rp = piste.getBoundingClientRect();
+    var ra = a.getBoundingClientRect();
+    parcouru.style.width = Math.max(0, ra.left + ra.width / 2 - rp.left) + 'px';
+  }
+  if (piste) piste.addEventListener('transitionend', function (e) {
+    if (e.propertyName === 'width') majLigne();
+  });
+
+  function peindre(i) {
+    if (typeof i === 'number') actif = i;
+    i = actif;
+    pastilles.forEach(function (p, k) {
+      if (!p) return;
+      p.classList.toggle('active', k === i);
+      p.classList.toggle('vue', k < i);
+    });
+    /* Les plateaux d'acte : celui en cours, ceux déjà traversés. */
+    var acteCourant = pastilles[i] ? pastilles[i].closest('.acte') : null;
+    var passe = true;
+    actes.forEach(function (a) {
+      if (a === acteCourant) passe = false;
+      a.classList.toggle('en-cours', a === acteCourant);
+      a.classList.toggle('passe', passe && a !== acteCourant);
+    });
+    majLigne();
+    if (numeroCourant) {
+      numeroCourant.textContent = i + 1;
+      numero.setAttribute('data-acte', acteCourant ? acteCourant.className.replace(/.*acte-(\d).*/, '$1') : '1');
+    }
+    /* Le fil se recale pour que la pastille courante reste au centre,
+       sans faire défiler la page : on agit sur le scrollLeft de la piste. */
+    var a = pastilles[i];
+    /* On ne recentre que si le fil déborde : sinon le défilement inutile
+       coupe les premières pastilles sur un grand écran. */
+    if (a && piste && piste.scrollWidth > piste.clientWidth + 4) {
+      var cible = a.offsetLeft - (piste.clientWidth - a.offsetWidth) / 2;
+      piste.scrollTo({ left: Math.max(0, cible), behavior: 'smooth' });
+    }
+  }
+
+  /* Aller à un numéro : taper les chiffres puis Entrée. La saisie s'oublie
+     après deux secondes sans frappe. */
+  var saisie = '', minuteur = null;
+
+  document.addEventListener('keydown', function (e) {
+    /* Lightbox ouverte : les touches lui appartiennent (flèches, Échap). */
+    if (document.body.classList.contains('glightbox-open')) return;
+    var k = e.key;
+    if (/^[0-9]$/.test(k)) {
+      saisie += k;
+      clearTimeout(minuteur);
+      minuteur = setTimeout(function () { saisie = ''; }, 2000);
+      return;
+    }
+    if (k === 'Enter' && saisie) {
+      e.preventDefault();
+      aller(parseInt(saisie, 10) - 1);
+      saisie = '';
+      return;
+    }
+    if (k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'ArrowRight') {
+      e.preventDefault(); aller(courant() + 1);
+    } else if (k === 'ArrowUp' || k === 'PageUp' || k === 'ArrowLeft') {
+      e.preventDefault(); aller(courant() - 1);
+    } else if (k === 'Home') {
+      e.preventDefault(); aller(0);
+    } else if (k === 'End') {
+      e.preventDefault(); aller(ecrans.length - 1);
+    } else if (k === 'f' || k === 'F') {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
+  });
+
+  /* Le curseur disparaît en plein écran : rien ne doit traîner sur la projection. */
+  document.addEventListener('fullscreenchange', function () {
+    document.body.classList.toggle('projection', !!document.fullscreenElement);
+  });
+
+  /* Une surveillance légère plutôt qu'un écouteur de scroll : un déplacement
+     programmé (ancre, clavier, restauration de position) n'émet pas toujours
+     scroll, et le fil resterait figé sur la section précédente. */
+  var dernier = -1;
+  function surveiller() {
+    var i = courant();
+    if (i !== dernier) { dernier = i; peindre(i); }
+  }
+  window.addEventListener('scroll', surveiller, { passive: true });
+  window.addEventListener('resize', function () { surveiller(); peindre(); });
+  window.addEventListener('hashchange', surveiller);
+  window.addEventListener('load', surveiller);
+  surveiller();
+})();
+</script>
+
+</body>
+</html>

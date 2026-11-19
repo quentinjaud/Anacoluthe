@@ -863,21 +863,38 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .besoins p { margin: 0; border-top: 3px solid var(--amber-700); padding-top: 0.5em; }
 .besoins strong { display: block; font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.05em; color: var(--amber-700); }
 
-/* Écran 7 : qui approuve quoi. */
-.raci {
-  margin: clamp(14px, 3vh, 40px) 0 0;
-  padding: clamp(12px, 1.6vw, 26px);
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
-  font-size: var(--t-liste);
+/* Écran 7 : du contexte au choix de méthode, une chaîne par ligne.
+   Contexte en carte blanche, méthode en teal ; la 3e ligne empile deux sources. */
+.chaines {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(8px, 1.6vh, 20px) clamp(10px, 1.6vw, 28px);
+  margin-top: clamp(12px, 3vh, 40px);
+  font-size: var(--t-petit);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.4;
 }
-.raci p { margin: 0.2em 0; display: flex; gap: 0.6em; flex-wrap: wrap; }
-.raci .fleche { color: var(--text-muted); }
-.raci .raci-titre { font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-700); }
-.raci .raci-moi { margin-top: 0.6em; font-style: italic; }
+.chaines p { margin: 0; }
+.chaines .chaines-tete { font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-700); }
+.chaine-sources { display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px); }
+.chaines .source, .chaines .methode {
+  padding: clamp(10px, 1.3vw, 20px) clamp(12px, 1.4vw, 22px);
+  border-radius: 16px;
+  color: var(--text-muted);
+}
+.chaines .source { background: #fff; border: 1px solid var(--border-light); }
+.chaines .methode { background: var(--teal-50); border: 1px solid var(--teal-100); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+.chaines strong { display: block; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; margin-bottom: 0.2em; color: var(--navy-700); }
+.chaines .methode strong { color: var(--teal-700); }
+.chaine-fleche { font-family: var(--font-titre); font-size: calc(var(--t-corps) * 1.4); line-height: 1; color: var(--teal-700); }
+@media (max-width: 700px) {
+  .chaines { grid-template-columns: 1fr; }
+  .chaines > span:not(.chaine-fleche) { display: none; }
+  .chaines .chaines-tete { display: none; }
+  .chaine-fleche { transform: rotate(90deg); justify-self: center; }
+  .chaines .methode { margin-bottom: 1em; }
+}
 
 /* Écran 8 : les trois objectifs, mot pour mot, en cartes reprises de
    .objectif-card (ensavoirplus.html, style.css) : emoji à cheval sur le bord,

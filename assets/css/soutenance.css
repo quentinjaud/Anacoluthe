@@ -1181,3 +1181,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #moments .carte-detail { margin-bottom: 0; }
 #moments .carte-detail img { height: clamp(200px, 40vh, 500px); }
 #moments .minicartes.ligne { margin-top: clamp(14px, 3vh, 40px); }
+
+/* Écran 23 : la check-list du chef de bord et l'affiche des routines, côte à côte. */
+.vis-a-vis { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 1.6vw, 28px); }
+.vis-a-vis .photo-posee { width: auto; max-width: 48%; max-height: 62vh; object-fit: contain; background: #fff; }
+.vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg); }
+.vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg); }
+#integration .texte-et-photos { grid-template-columns: 1fr 1fr; }
+#integration .vis-a-vis .photo-posee { height: min(50vh, 540px); width: auto; max-width: none; min-width: 0; }

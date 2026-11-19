@@ -380,15 +380,23 @@ body {
 .badge.amber { background: var(--amber-700); }
 
 .version span {
+  text-align: center;
   font-family: var(--font-legende);
   font-size: var(--t-petit);
   color: var(--text-muted);
 }
 
+/* Chaque correction couvre les versions qu'elle relie : 10 demi-colonnes,
+   la version n occupe les demi-colonnes 2n-1 et 2n. */
 .corrections {
   display: grid;
-  gap: clamp(6px, 1.2vh, 14px);
+  grid-template-columns: repeat(10, 1fr);
+  gap: clamp(6px, 1.2vh, 14px) 0;
   margin-top: clamp(8px, 1.5vh, 18px);
+}
+.corrections .correction {
+  grid-column: calc(var(--de) * 2 - 1) / calc(var(--a) * 2 + 1);
+  justify-content: space-between;
 }
 
 .correction {

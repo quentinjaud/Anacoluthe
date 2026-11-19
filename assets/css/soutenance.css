@@ -1221,3 +1221,13 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
 }
 .emoji-cheval img.emoji { vertical-align: middle; }
+
+/* Écran 24 : les chiffres en deçà du prévu en couleur chaude, la bonne surprise
+   garde le teal. Les causes en idées clefs, cartes à emoji comme les écrans 22 et 25. */
+.ecart .en-deca .chiffre { color: var(--brick-700); }
+.ecart-kicker { font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(22px, 4.5vh, 56px) 0 0; }
+.ecart-idees { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); margin-top: clamp(22px, 4vh, 48px); }
+.idee { position: relative; background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(26px, 4.4vh, 52px) clamp(14px, 1.6vw, 28px) clamp(14px, 2.4vh, 28px); display: flex; flex-direction: column; gap: 0.3em; }
+.idee strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.idee > span:not(.emoji-cheval) { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); }
+@media (max-width: 700px) { .ecart-idees { grid-template-columns: 1fr; gap: clamp(28px, 5vh, 48px); } }

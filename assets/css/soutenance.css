@@ -14,14 +14,14 @@
 @font-face {
   font-family: 'Merriweather';
   src: url('../fonts/merriweather.woff2') format('woff2');
-  font-weight: 300 700;
+  font-weight: 400 700;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Merriweather Sans';
   src: url('../fonts/merriweather-sans.woff2') format('woff2');
-  font-weight: 300 800;
+  font-weight: 400 800;
   font-display: swap;
 }
 
@@ -42,7 +42,9 @@
   --brick-700: #C62828;
   --text-dark: #2D3748;
   --text-corps: #2D3748;   /* --text-dark du site */
-  --text-muted: #718096;
+  --text-muted: #4A5568;   /* foncé après l'oral blanc : 7,4:1 sur crème (était #718096, 4:1) */
+  --teal-texte: #245F5B;   /* teal pour du texte : 7,2:1 sur crème */
+  --amber-texte: #8A4214;  /* ambre pour du texte : 7,2:1 sur crème */
   --border-light: #D1D5DB;
   --bg-cream: #FFFDF9;
 
@@ -51,15 +53,15 @@
   --font-legende: 'Merriweather Sans', sans-serif;   /* labels et tags, comme le site */
 
   /* Une seule échelle, en hauteur d'écran. */
-  --t-question: clamp(28px, 5.2vh, 68px);
+  --t-question: clamp(30px, 5.6vh, 72px);
   --t-nom: clamp(34px, 6.8vh, 96px);
   /* Titres de section : 4,4 vh, la proportion du .fil-title du site
      (2,5 rem sur une page de 900 px de haut). */
-  --t-titre: clamp(26px, 4.4vh, 60px);
-  --t-corps: clamp(16px, 2.45vh, 32px);
-  --t-liste: clamp(15px, 2.3vh, 30px);
-  --t-petit: clamp(12px, 1.65vh, 21px);
-  --t-kicker: clamp(10px, 1.25vh, 15px);
+  --t-titre: clamp(30px, 5vh, 66px);
+  --t-corps: clamp(20px, 3vh, 38px);
+  --t-liste: clamp(19px, 2.85vh, 36px);
+  --t-petit: clamp(17px, 2.4vh, 30px);
+  --t-kicker: clamp(14px, 1.9vh, 22px);
   --t-chiffre: clamp(38px, 8vh, 110px);
 }
 
@@ -81,7 +83,7 @@ body {
   font-family: var(--font-corps);
   /* Corps en 300, comme les paragraphes du site : Merriweather variable
      descend jusqu'a cette graisse, le texte se pose au lieu de peser. */
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -160,7 +162,7 @@ body {
 }
 
 /* Mots portés d'un titre. */
-.accent-teal { color: var(--teal-700); }
+.accent-teal { color: var(--teal-texte); }
 .accent-brick { color: var(--brick-700); }
 .accent-navy { color: var(--navy-700); }
 .accent-ambre { color: var(--amber-700, #B4521E); }
@@ -187,7 +189,7 @@ body {
 
 .corps {
   font-family: var(--font-corps);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--t-corps);
   line-height: 1.42;
   margin: 0;
@@ -195,7 +197,7 @@ body {
 
 .petit {
   font-family: var(--font-corps);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--t-petit);
   line-height: 1.45;
   color: var(--text-muted);
@@ -206,7 +208,7 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--t-liste);
   line-height: 1.45;
 }
@@ -262,7 +264,7 @@ body {
 
 .public-bloc p {
   font-family: var(--font-corps);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--t-petit);
   line-height: 1.4;
   color: var(--text-muted);
@@ -274,7 +276,7 @@ body {
   font-family: var(--font-titre);
   font-size: calc(var(--t-corps) * 1.5);
   line-height: 1;
-  color: var(--teal-700);
+  color: var(--teal-texte);
 }
 
 /* ── Slide 14 : les face-à-face ──
@@ -412,7 +414,7 @@ body {
 
 .correction .avant { color: var(--brick-700); font-weight: 700; }
 .correction .fleche { color: var(--text-muted); }
-.correction .apres { color: var(--teal-700); font-weight: 700; }
+.correction .apres { color: var(--teal-texte); font-weight: 700; }
 
 /* ── Slide 12 : les cinq étapes ── */
 
@@ -441,7 +443,7 @@ body {
   font-family: var(--font-legende);
   font-weight: 700;
   font-size: var(--t-petit);
-  color: var(--teal-700);
+  color: var(--teal-texte);
   margin-bottom: 0.3em;
 }
 
@@ -467,7 +469,7 @@ body {
   font-weight: 800;
   font-size: var(--t-chiffre);
   line-height: 1;
-  color: var(--teal-700);
+  color: var(--teal-texte);
 }
 
 .ecart .prevu {
@@ -616,6 +618,10 @@ body {
 /* Les sections portent aussi leur acte (data-acte) : le slash des titres
    prend le même accent que le plateau du fil. Actes 1 et 5 : ambre. */
 [data-acte] { --acte-teinte: var(--amber-100); --acte-encre: var(--amber-700); }
+[data-acte] { --acte-texte: var(--amber-texte); }
+[data-acte="2"] { --acte-texte: var(--teal-texte); }
+[data-acte="3"] { --acte-texte: #7A2E27; }
+[data-acte="4"] { --acte-texte: var(--navy-700); }
 .acte-2, [data-acte="2"] { --acte-teinte: var(--teal-100);  --acte-encre: var(--teal-700); }
 .acte-3, [data-acte="3"] { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
 .acte-4, [data-acte="4"] { --acte-teinte: var(--navy-100);  --acte-encre: var(--navy-700); }
@@ -865,11 +871,11 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(10px, 2vw, 32px);
   font-size: var(--t-liste);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.4;
 }
 .besoins p { margin: 0; border-top: 3px solid var(--amber-700); padding-top: 0.5em; }
-.besoins strong { display: block; font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.05em; color: var(--amber-700); }
+.besoins strong { display: block; font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.05em; color: var(--amber-texte); }
 
 /* Écran 7 : du contexte au choix de méthode, une chaîne par ligne.
    Contexte en carte blanche, méthode en teal ; la 3e ligne empile deux sources. */
@@ -880,11 +886,11 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
   gap: clamp(8px, 1.6vh, 20px) clamp(10px, 1.6vw, 28px);
   margin-top: clamp(12px, 3vh, 40px);
   font-size: var(--t-petit);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.4;
 }
 .chaines p { margin: 0; }
-.chaines .chaines-tete { font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-700); }
+.chaines .chaines-tete { font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-texte); }
 .chaine-sources { display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px); }
 .chaines .source, .chaines .methode {
   padding: clamp(10px, 1.3vw, 20px) clamp(12px, 1.4vw, 22px);
@@ -894,8 +900,8 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .chaines .source { background: #fff; border: 1px solid var(--border-light); }
 .chaines .methode { background: var(--teal-50); border: 1px solid var(--teal-100); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
 .chaines strong { display: block; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; margin-bottom: 0.2em; color: var(--navy-700); }
-.chaines .methode strong { color: var(--teal-700); }
-.chaine-fleche { font-family: var(--font-titre); font-size: calc(var(--t-corps) * 1.4); line-height: 1; color: var(--teal-700); }
+.chaines .methode strong { color: var(--teal-texte); }
+.chaine-fleche { font-family: var(--font-titre); font-size: calc(var(--t-corps) * 1.4); line-height: 1; color: var(--teal-texte); }
 @media (max-width: 700px) {
   .chaines { grid-template-columns: 1fr; }
   .chaines > span:not(.chaine-fleche) { display: none; }
@@ -926,7 +932,7 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .objectif-carte .objectif-emoji img.emoji { vertical-align: middle; }
 .objectif-carte h3 { font-family: var(--font-titre); font-size: var(--t-liste); font-weight: 500; color: var(--text-dark); margin: 0.6em 0 0.5em; line-height: 1.25; }
 .objectif-carte h3 strong { font-weight: 800; color: var(--bleu-glenans); }
-.objectif-carte p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-weight: 300; color: var(--text-muted); }
+.objectif-carte p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-weight: 400; color: var(--text-muted); }
 @media (max-width: 700px) {
   .objectifs-cartes { grid-template-columns: 1fr; gap: clamp(28px, 5vh, 48px); }
 }
@@ -934,7 +940,7 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 /* Écran 9 : trois voies, une image chacune. */
 .trois-voies { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 3vw, 48px); margin-top: clamp(14px, 3vh, 40px); }
 .trois-voies h3 { font-family: var(--font-titre); font-size: var(--t-liste); color: var(--navy-700); margin: 0.6em 0 0.2em; }
-.trois-voies p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-family: var(--font-corps); font-weight: 300; font-style: italic; color: var(--text-muted); }
+.trois-voies p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-family: var(--font-corps); font-weight: 400; font-style: italic; color: var(--text-muted); }
 .trois-voies .photo-cadre { aspect-ratio: 4 / 3; }
 .vignette { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #fff; display: flex; justify-content: center; }
 .vignette img { height: 140%; transform: rotate(-3deg) translateY(6%); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
@@ -950,7 +956,7 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .familles-v2 .apercu-subtitle { font-size: var(--t-petit); }
 .familles-v2 .apercu-emoji { font-size: clamp(28px, 5vh, 56px); }
 .familles-v2 .apercu-count { font-size: clamp(24px, 4.4vh, 52px); }
-.familles-v2 .besoin { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 300; font-style: italic; font-size: var(--t-liste); line-height: 1.35; }
+.familles-v2 .besoin { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: var(--t-liste); line-height: 1.35; }
 
 /* Le bout d'affiche : le débordement est un dispositif (S11).
    L'image est derrière, le texte devant ; la coupe est franche. */
@@ -1014,9 +1020,9 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .mc-code { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-petit); }
 .outil-nom { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-petit); line-height: 1.25; margin-top: 0.75em; }
 .outil.role .minicarte { border-color: var(--amber-100, #ffe8d4); }
-.outil.role .mc-code, .outil.role .outil-nom { color: var(--amber-700); }
+.outil.role .mc-code, .outil.role .outil-nom { color: var(--amber-texte); }
 .outil.moment .minicarte { border-color: var(--teal-100); }
-.outil.moment .mc-code, .outil.moment .outil-nom { color: var(--teal-700); }
+.outil.moment .mc-code, .outil.moment .outil-nom { color: var(--teal-texte); }
 .outil.joker .minicarte { border-color: var(--brick-100, #FFCDD2); }
 .outil.joker .mc-code, .outil.joker .outil-nom { color: var(--brick-700); }
 /* Rotations du site : -3, +3, -1,5 degrés ; l'éventail garde ses angles (S9). */
@@ -1039,9 +1045,9 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .phases { position: relative; width: 100%; max-width: 1660px; }
 .phases-trace { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .phases-blocs { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.6vw, 28px); margin-top: clamp(10px, 2.4vh, 30px); }
-.phases-blocs div { display: flex; flex-direction: column; gap: 0.25em; font-size: var(--t-petit); font-family: var(--font-corps); font-weight: 300; line-height: 1.4; }
+.phases-blocs div { display: flex; flex-direction: column; gap: 0.25em; font-size: var(--t-petit); font-family: var(--font-corps); font-weight: 400; line-height: 1.4; }
 .phases-blocs strong { font-family: var(--font-titre); font-size: calc(var(--t-liste) * 0.9); color: var(--navy-700); }
-.phases-blocs .date { color: var(--teal-700); font-weight: 700; }
+.phases-blocs .date { color: var(--teal-texte); font-weight: 700; }
 
 /* Écran 20 : la thèse sous la frise. */
 .frise-these { margin: clamp(10px, 2.4vh, 30px) 0; }
@@ -1051,12 +1057,12 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .moyens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(12px, 2vw, 32px); max-width: 1300px; margin-bottom: clamp(12px, 2.6vh, 34px); }
 .moyen { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(14px, 2.4vh, 30px) clamp(14px, 1.6vw, 28px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
 .moyen p { margin: 0; }
-.moyen .besoin { font-family: var(--font-corps); font-size: calc(var(--t-petit) * 1.3); font-weight: 300; color: var(--text-muted); line-height: 1.35; }
-.moyen .ressource { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-liste); color: var(--amber-700); line-height: 1.25; margin-top: 0.7em; }
+.moyen .besoin { font-family: var(--font-corps); font-size: calc(var(--t-petit) * 1.3); font-weight: 400; color: var(--text-muted); line-height: 1.35; }
+.moyen .ressource { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-liste); color: var(--amber-texte); line-height: 1.25; margin-top: 0.7em; }
 .moyen .ressource::before { content: '→ '; }
-.moyen .chiffres { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); line-height: 1.4; margin-top: 1em; padding-top: 0.8em; border-top: 1px solid var(--amber-100); align-self: start; }
+.moyen .chiffres { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--text-muted); line-height: 1.4; margin-top: 1em; padding-top: 0.8em; border-top: 1px solid var(--amber-100); align-self: start; }
 .moyen .chiffres strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); font-size: 1.25em; }
-.moyen .precision { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--amber-700); line-height: 1.35; margin-top: 0.4em; }
+.moyen .precision { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--amber-texte); line-height: 1.35; margin-top: 0.4em; }
 @media (max-width: 700px) { .moyens { grid-template-columns: 1fr; } }
 
 /* Écran 26 : le chiffre principal. */
@@ -1093,7 +1099,7 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 /* L'ouverture reprend l'en-tête du site : le nom, puis le sous-titre italique rouge. */
 .sous-titre {
   font-family: var(--font-titre);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   font-size: clamp(16px, 2.9vh, 38px);
   color: #F04839;
@@ -1125,7 +1131,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .trois-voies .photo-formation img { object-position: 50% 38%; }
 .capture figcaption {
   font-family: var(--font-corps);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   font-size: var(--t-petit);
   color: var(--text-muted);
@@ -1229,10 +1235,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .ecart-idees { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); margin-top: clamp(22px, 4vh, 48px); }
 .idee { position: relative; background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(26px, 4.4vh, 52px) clamp(14px, 1.6vw, 28px) clamp(14px, 2.4vh, 28px); display: flex; flex-direction: column; gap: 0.3em; }
 .idee strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
-.idee > span:not(.emoji-cheval) { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); }
+.idee > span:not(.emoji-cheval) { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--text-muted); }
 @media (max-width: 700px) { .ecart-idees { grid-template-columns: 1fr; gap: clamp(28px, 5vh, 48px); } }
 .ecart-idees { align-items: stretch; }
-.voies { list-style: none; margin: 0.3em 0 0; padding: 0; font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--navy-700); line-height: 1.5; }
+.voies { list-style: none; margin: 0.3em 0 0; padding: 0; font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--navy-700); line-height: 1.5; }
 .voies li::before, .pastille-prevue, .pastille-nee { content: ''; display: inline-block; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--amber-700); margin-right: 0.5em; vertical-align: 0.1em; }
 .voies li.prevue::before, .pastille-prevue { background: var(--teal-700); }
 .legende-voies { margin-top: 0.4em; font-size: calc(var(--t-petit) * 0.85) !important; }
@@ -1272,9 +1278,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 27 : trois acquis en ligne, coche teal, avant la question d'échelle. */
 .acquis { list-style: none; margin: clamp(8px, 1.6vh, 20px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); max-width: 1500px; }
 .acquis li { display: flex; flex-direction: column; gap: 0.2em; padding-left: 1.5em; position: relative; }
-.acquis li::before { content: '✓'; position: absolute; left: 0; top: 0; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--teal-700); }
+.acquis li::before { content: '✓'; position: absolute; left: 0; top: 0; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--teal-texte); }
 .acquis strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
-.acquis li > span { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); }
+.acquis li > span { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--text-muted); }
 #reste .question-structure { margin-top: clamp(20px, 4vh, 48px); }
 .bilan.trois .idee > span:not(.emoji-cheval) { font-size: var(--t-petit); color: var(--text-muted); }
 @media (max-width: 700px) { .acquis { grid-template-columns: 1fr; } }
@@ -1284,7 +1290,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #reste .acquis li { padding-left: 0; gap: 0.35em; }
 #reste .acquis li::before { position: static; display: inline-flex; align-items: center; justify-content: center; width: 1.6em; height: 1.6em; border-radius: 50%; background: var(--teal-700); color: #fff; font-size: var(--t-liste); margin-bottom: 0.3em; }
 #reste .acquis strong { font-size: calc(var(--t-corps) * 1.12); color: var(--navy-700); }
-#reste .acquis li > span { font-size: var(--t-petit); color: var(--teal-700); font-weight: 400; }
+#reste .acquis li > span { font-size: var(--t-petit); color: var(--teal-texte); font-weight: 400; }
 #reste .question-structure { font-size: var(--t-corps); margin-top: clamp(18px, 3.4vh, 40px); }
 #reste .ecart-idees.bilan.trois { margin-top: clamp(20px, 3.6vh, 40px); }
 #reste .bilan.trois .idee strong { font-size: var(--t-petit); }
@@ -1293,9 +1299,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .lecons { list-style: none; margin: clamp(12px, 2.4vh, 28px) 0 0; padding: 0; display: flex; flex-direction: column; gap: clamp(14px, 2.8vh, 32px); }
 .lecons li { display: flex; flex-direction: column; gap: 0.3em; padding-left: 0.9em; border-left: 3px solid var(--teal-100); }
 .lecons .appris { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
-.lecons .autrement { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--teal-700); line-height: 1.35; }
+.lecons .autrement { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--teal-texte); line-height: 1.35; }
 .lecons .autrement::before { content: '→ '; font-weight: 700; }
-.fleche-kicker { color: var(--teal-700); }
+.fleche-kicker { color: var(--teal-texte); }
 
 /* Lightbox : toute image d'écran s'agrandit au clic (assets/js/soutenance-lightbox.js).
    Les affiches posées en décor sont sous pointer-events: none ; leurs images
@@ -1307,18 +1313,18 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Trois publics reliés : la flèche porte le lien, pas une hiérarchie. */
 .public-lien { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.2em; max-width: 9em; text-align: center; }
-.public-lien span:last-child { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-700); line-height: 1.3; }
-.public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-700); margin-bottom: 0.6em; }
+.public-lien span:last-child { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); line-height: 1.3; }
+.public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-texte); margin-bottom: 0.6em; }
 #publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
 
 /* Deux personas. */
 .personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2.4vw, 40px); max-width: 1400px; }
 .persona { background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: clamp(16px, 3vh, 36px) clamp(16px, 2vw, 32px); display: flex; flex-direction: column; gap: 0.5em; }
 .persona h3 { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.2); color: var(--bleu-glenans); margin: 0; }
-.persona-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-700); margin: 0; }
+.persona-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-texte); margin: 0; }
 .persona-besoin { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--navy-700); margin: 0; line-height: 1.4; }
 .persona-citation { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); border-left: 3px solid var(--teal-100); padding-left: 0.8em; margin: 0.4em 0; line-height: 1.45; }
-.persona-kit { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--teal-700); margin: auto 0 0; }
+.persona-kit { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--teal-texte); margin: auto 0 0; }
 .persona-kit strong { color: var(--navy-700); }
 @media (max-width: 700px) { .personas { grid-template-columns: 1fr; } }
 
@@ -1328,7 +1334,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .pp-bulle:nth-child(odd) { transform: rotate(-0.8deg); }
 .pp-bulle:nth-child(even) { transform: rotate(0.8deg); }
 .pp-bulle strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
-.pp-bulle span { font-family: var(--font-corps); font-weight: 300; font-size: var(--t-petit); color: var(--text-muted); line-height: 1.4; }
+.pp-bulle span { font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); color: var(--text-muted); line-height: 1.4; }
 .pp-bulle.pp-moi { background: var(--amber-50); border-color: var(--amber-100); }
 @media (max-width: 900px) { .pp-bulles { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .pp-bulles { grid-template-columns: 1fr; } }
@@ -1337,7 +1343,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .phases-blocs div span:last-child { color: var(--navy-700); }
 
 /* Écrans de phase : repère de phase, format de l'animation, intentions. */
-.phase-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.16em; color: var(--acte-encre, var(--text-muted)); margin: 0 0 0.6em; }
+.phase-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.16em; color: var(--acte-texte, var(--text-muted)); margin: 0 0 0.6em; }
 .format { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--navy-700); line-height: 1.45; margin: 0; }
 .intentions { margin-top: clamp(8px, 1.6vh, 20px); }
 .intentions li { margin-bottom: clamp(6px, 1.2vh, 14px); }
@@ -1346,8 +1352,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Pépites du kit : un bloc bordé à l'accent de l'acte. */
 .pepite { margin-top: clamp(14px, 2.8vh, 32px); padding: 0.2em 0 0.2em 1em; border-left: 4px solid var(--acte-encre, var(--teal-700)); display: flex; flex-direction: column; gap: 0.25em; }
 .pepite strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); }
-.pepite span { font-family: var(--font-corps); font-weight: 300; font-size: var(--t-petit); color: var(--text-muted); line-height: 1.45; }
-.pepite-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.14em; color: var(--acte-encre, var(--text-muted)); margin: 0; }
+.pepite span { font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); color: var(--text-muted); line-height: 1.45; }
+.pepite-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.14em; color: var(--acte-texte, var(--text-muted)); margin: 0; }
 .pepite-joker { flex-direction: row; align-items: center; gap: clamp(10px, 1.4vw, 24px); }
 .pepite-joker > div:last-child { display: flex; flex-direction: column; gap: 0.25em; }
 .pepite-joker .outil { width: auto; }
@@ -1357,7 +1363,21 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #experimentee .carte-detail img, #stagiaires .role-detail img { height: clamp(200px, 50vh, 600px); }
 
 /* Contenu encore à fournir : visible, à retirer avant l'oral. */
-.a-completer { font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--amber-700); border: 2px dashed var(--amber-100); border-radius: 10px; padding: 0.6em 0.9em; margin: clamp(12px, 2.4vh, 28px) 0 0; }
+.a-completer { font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--amber-texte); border: 2px dashed var(--amber-100); border-radius: 10px; padding: 0.6em 0.9em; margin: clamp(12px, 2.4vh, 28px) 0 0; }
 #preconisations .citation { margin: 0; }
 #preconisations .ecart-idees { margin-top: clamp(16px, 3vh, 36px); }
 #encadrants .liste, #experimentee .liste { margin-top: clamp(10px, 2vh, 24px); }
+
+/* Après la hausse des tailles (oral blanc n°1) : écrans les plus denses. */
+#ecart .ecart .chiffre { font-size: clamp(34px, 6.4vh, 88px); }
+#ecart .ecart-kicker { margin-top: clamp(14px, 2.6vh, 34px); }
+#ecart .ecart-idees { margin-top: clamp(14px, 2.6vh, 32px); }
+#ecart .idee { padding-top: clamp(18px, 3vh, 36px); }
+#ecart .idee .voies { display: flex; flex-wrap: wrap; column-gap: 0.9em; }
+#ecart .idee .voies li { white-space: nowrap; }
+/* Vidéoprojecteur 4:3 ou 16:10 : les cartes recto-verso rétrécissent pour laisser respirer le texte. */
+@media (max-aspect-ratio: 3/2) {
+  #stagiaires .texte-et-cartes, #experimentee .texte-et-cartes, #debutante .texte-et-cartes { grid-template-columns: 1.35fr 0.65fr; }
+  #stagiaires .role-detail img, #experimentee .carte-detail img { height: clamp(160px, 30vh, 420px); }
+  #stagiaires .role-detail, #experimentee .carte-detail { flex-direction: column; align-items: center; }
+}

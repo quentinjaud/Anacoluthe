@@ -968,11 +968,12 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
   pointer-events: none;
 }
 .affiches-bas img { box-shadow: 0 4px 16px rgba(0,0,0,0.12); background: #fff; }
-.affiches-bas .a-portrait { height: clamp(260px, 62vh, 760px); }
-.affiches-bas .a-paysage { height: clamp(190px, 44vh, 540px); }
+.affiches-bas .a-portrait { height: clamp(220px, 50vh, 620px); }
+.affiches-bas .a-paysage { height: clamp(160px, 37vh, 450px); }
 .affiches-bas img:nth-child(1) { transform: translateY(-12vh) rotate(-5deg); }
 .affiches-bas img:nth-child(2) { transform: rotate(2deg); }
 .affiches-bas img:nth-child(3) { transform: rotate(-2.5deg); }
+.affiches-bas img:nth-child(4) { transform: rotate(3deg); }
 #affiches { justify-content: flex-start; padding-top: clamp(40px, 12vh, 160px); }
 
 .a3-coin {

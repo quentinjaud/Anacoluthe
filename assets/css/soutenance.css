@@ -1047,8 +1047,14 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 .frise-these { margin: clamp(10px, 2.4vh, 30px) 0; }
 
 /* Écran 23 : besoins puis ressources, sans les fondre. */
-.moyens { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(6px, 1.4vh, 18px) clamp(20px, 4vw, 72px); font-size: var(--t-liste); font-weight: 300; line-height: 1.4; max-width: 1200px; }
-.moyens-entete { font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--amber-700); border-bottom: 2px solid var(--amber-700); padding-bottom: 0.3em; }
+/* Écran 22 : une carte par paire, le besoin en petit, la ressource en grand. */
+.moyens { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); max-width: 1300px; margin-bottom: clamp(12px, 2.6vh, 34px); }
+.moyen { background: #fff; border: 1px solid var(--amber-100); border-top: 4px solid var(--amber-700); border-radius: 12px; padding: clamp(14px, 2.4vh, 30px) clamp(14px, 1.6vw, 28px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.moyen p { margin: 0; }
+.moyen .besoin { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); line-height: 1.35; }
+.moyen .ressource { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-liste); color: var(--amber-700); line-height: 1.25; margin-top: 0.7em; }
+.moyen .ressource::before { content: '→ '; }
+@media (max-width: 700px) { .moyens { grid-template-columns: 1fr; } }
 
 /* Écran 26 : le chiffre principal. */
 .pourcent { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-chiffre); color: var(--navy-700); margin: clamp(10px, 2vh, 24px) 0 0; line-height: 1; }

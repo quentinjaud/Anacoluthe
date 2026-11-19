@@ -48,7 +48,6 @@
       <a class="pastille" href="#phasesderoulé"><span aria-hidden="true">〰️</span><span class="bulle">Quatre phases</span></a>
       <a class="pastille" href="#faceafaces"><span aria-hidden="true">🗣️</span><span class="bulle">Ce que j'ai animé</span></a>
       <a class="pastille" href="#versions"><span aria-hidden="true">🧵</span><span class="bulle">Cinq versions</span></a>
-      <a class="pastille" href="#coconception"><span aria-hidden="true">🤝</span><span class="bulle">La co-conception</span></a>
       <a class="pastille" href="#formation"><span aria-hidden="true">🎓</span><span class="bulle">Les ateliers</span></a>
     </div>
     <div class="acte acte-5" role="group" aria-label="Acte 5 · Le bilan">
@@ -636,7 +635,16 @@
    Aucune dépendance, aucun CDN : les ancres de l'URL fonctionnent seules. */
 (function () {
   var ecrans = Array.prototype.slice.call(document.querySelectorAll('.ecran'));
-  var pastilles = Array.prototype.slice.call(document.querySelectorAll('.pastille'));
+  /* Une pastille par écran, retrouvée par son ancre et non par sa position :
+     un écran supprimé ou déplacé ne décale plus le fil. */
+  var pastilles = ecrans.map(function (e) {
+    var p = document.querySelector('.pastille[href="#' + e.id + '"]');
+    if (!p) console.warn('Fil : pas de pastille pour #' + e.id);
+    return p;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.pastille'), function (p) {
+    if (pastilles.indexOf(p) < 0) console.warn('Fil : pastille orpheline ' + p.getAttribute('href'));
+  });
   var piste = document.querySelector('.fil-piste');
   var actes = Array.prototype.slice.call(document.querySelectorAll('.acte'));
   var parcouru = document.querySelector('.fil-parcouru');
@@ -646,7 +654,7 @@
   /* Chaque pill reçoit une fois son inclinaison, entre -2° et +2° :
      tirée au chargement, elle reste la même si on revient sur l'écran. */
   pastilles.forEach(function (p) {
-    p.style.setProperty('--incl', (Math.random() * 4 - 2).toFixed(2) + 'deg');
+    if (p) p.style.setProperty('--incl', (Math.random() * 4 - 2).toFixed(2) + 'deg');
   });
 
   function courant() {
@@ -685,6 +693,7 @@
     if (typeof i === 'number') actif = i;
     i = actif;
     pastilles.forEach(function (p, k) {
+      if (!p) return;
       p.classList.toggle('active', k === i);
       p.classList.toggle('vue', k < i);
     });

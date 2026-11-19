@@ -35,4 +35,34 @@
     });
     lightbox.open();
   });
+
+  /* Blocs sans image affichée (piles de la boîte à outils) : data-visuels porte
+     la liste des visuels à ouvrir, séparés par « | ». Clic ou Entrée. */
+  function ouvrirVisuels(bloc) {
+    var hrefs = bloc.getAttribute('data-visuels').split('|');
+    if (lightbox) lightbox.destroy();
+    lightbox = GLightbox({
+      elements: hrefs.map(function (h) { return { href: h.trim(), type: 'image' }; }),
+      openEffect: 'zoom',
+      closeEffect: 'zoom',
+      zoomable: true,
+      draggable: true,
+      loop: false
+    });
+    lightbox.open();
+  }
+  document.addEventListener('click', function (e) {
+    var bloc = e.target.closest('.ecran [data-visuels]');
+    if (!bloc) return;
+    e.preventDefault();
+    ouvrirVisuels(bloc);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    var bloc = document.activeElement && document.activeElement.closest && document.activeElement.closest('.ecran [data-visuels]');
+    if (!bloc) return;
+    e.preventDefault();
+    e.stopPropagation();
+    ouvrirVisuels(bloc);
+  }, true);
 })();

@@ -1296,3 +1296,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .lecons .autrement { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--teal-700); line-height: 1.35; }
 .lecons .autrement::before { content: '→ '; font-weight: 700; }
 .fleche-kicker { color: var(--teal-700); }
+
+/* Lightbox : toute image d'écran s'agrandit au clic (assets/js/soutenance-lightbox.js).
+   Les affiches posées en décor sont sous pointer-events: none ; leurs images
+   redeviennent cliquables. En projection, le curseur reste masqué. */
+.affiches-bas img,
+.a3-coin { pointer-events: auto; }
+.ecran img:not([data-no-zoom]) { cursor: zoom-in; }
+body.projection .ecran img { cursor: none; }

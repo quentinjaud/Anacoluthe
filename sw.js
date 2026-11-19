@@ -17,11 +17,11 @@ const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
  * Aucune incrémentation de version n'est nécessaire pendant les itérations.
  *
  * Pour retrouver la page hors-ligne avant la soutenance : passer à false,
- * remettre les trois URL commentées dans PRECACHE_URLS, et incrémenter
+ * remettre les URL commentées dans PRECACHE_URLS, et incrémenter
  * CACHE_VERSION.
  */
 const DEV_NO_CACHE = true;
-const DEV_URLS = ['/soutenance.html', '/assets/css/soutenance.css'];
+const DEV_URLS = ['/soutenance.html', '/assets/css/soutenance.css', '/assets/js/soutenance-lightbox.js'];
 
 // Ressources essentielles à précacher
 const PRECACHE_URLS = [
@@ -51,6 +51,9 @@ const PRECACHE_URLS = [
   '/assets/js/external-links.js',
   '/assets/js/scroll-spy.js',
   '/assets/js/vendor/marked.min.js',
+  // '/assets/js/soutenance-lightbox.js',   // hors cache pendant les iterations
+  // '/assets/js/vendor/glightbox.min.js',   // lightbox de la soutenance, a precacher avec elle
+  // '/assets/css/vendor/glightbox.min.css',
   
   // Data
   '/assets/data/cards-index.json',

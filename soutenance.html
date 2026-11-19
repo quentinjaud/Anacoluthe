@@ -11,6 +11,7 @@
      Code : assets/css/soutenance.css, qui recopie assets/css/style.css -->
 <link rel="stylesheet" href="assets/css/soutenance.css">
 <link rel="stylesheet" href="assets/css/apercu-cartes.css">
+<link rel="stylesheet" href="assets/css/vendor/glightbox.min.css">
 </head>
 <body>
 
@@ -692,6 +693,9 @@
 
 <!-- Emojis : Twemoji depuis le CDN, comme le site (S18). Sans réseau, les emojis natifs restent. -->
 <script src="assets/js/twemoji-init.js" defer></script>
+<!-- Lightbox : clic sur une image pour l'agrandir (GLightbox, embarqué) -->
+<script src="assets/js/vendor/glightbox.min.js"></script>
+<script src="assets/js/soutenance-lightbox.js"></script>
 <script>
 /* Navigation : une section par écran, molette et clavier.
    Le fil du bas suit la position et garde la pastille active visible.
@@ -789,6 +793,8 @@
   var saisie = '', minuteur = null;
 
   document.addEventListener('keydown', function (e) {
+    /* Lightbox ouverte : les touches lui appartiennent (flèches, Échap). */
+    if (document.body.classList.contains('glightbox-open')) return;
     var k = e.key;
     if (/^[0-9]$/.test(k)) {
       saisie += k;

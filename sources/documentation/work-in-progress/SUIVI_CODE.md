@@ -342,6 +342,7 @@ Pistes d'analyse pour alléger et nettoyer le code.
 | 260324 | Rendu automatique PDF N&B si htmlNbPath existe | render-cards.js | ✅ Fait |
 | 260324 | Switch Couleur/N&B : toggle aperçu, PDF, HTML brut | afficheur-cartes.html, afficheur-cartes.js | ✅ Fait |
 | 260324 | Style NB dynamique boutons toolbar (.nb-mode-active) | afficheur-cartes.css | ✅ Fait |
+| 261119 | Lightbox soutenance : clic sur une image pour l'agrandir, galerie par écran, navigation clavier suspendue pendant le zoom | soutenance-lightbox.js, soutenance.html, soutenance.css, sw.js | ✅ Fait |
 
 ---
 

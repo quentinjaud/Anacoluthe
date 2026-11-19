@@ -1162,9 +1162,12 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .visuel-photos .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(4%); }
 .visuel-photos .photo-posee:nth-child(3) { transform: rotate(-1deg); }
 
-/* Écran 13 : la carte R3 en recto-verso au-dessus de l'éventail. */
+/* Écrans 13 et 14 : une carte en recto-verso (R3 au-dessus de l'éventail, M2 à côté du texte). */
 #roles { justify-content: flex-start; padding-top: clamp(30px, 8vh, 110px); }
-.role-detail { display: flex; justify-content: center; gap: clamp(2px, 0.3vw, 6px); margin-bottom: clamp(14px, 3vh, 40px); }
-.role-detail img { height: clamp(220px, 44vh, 560px); width: auto; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-.role-detail img:nth-child(1) { transform: rotate(-2deg); }
-.role-detail img:nth-child(2) { transform: rotate(2deg); }
+.role-detail, .carte-detail { display: flex; justify-content: center; gap: clamp(2px, 0.3vw, 6px); margin-bottom: clamp(14px, 3vh, 40px); }
+.role-detail img, .carte-detail img { height: clamp(220px, 44vh, 560px); width: auto; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.role-detail img:nth-child(1), .carte-detail img:nth-child(1) { transform: rotate(-2deg); }
+.role-detail img:nth-child(2), .carte-detail img:nth-child(2) { transform: rotate(2deg); }
+#moments .carte-detail { margin-bottom: 0; }
+#moments .carte-detail img { height: clamp(200px, 40vh, 500px); }
+#moments .minicartes.ligne { margin-top: clamp(14px, 3vh, 40px); }

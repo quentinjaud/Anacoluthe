@@ -1163,7 +1163,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Écran 13 : la carte R3 en recto-verso au-dessus de l'éventail. */
 #roles { justify-content: flex-start; padding-top: clamp(30px, 8vh, 110px); }
-.role-detail { display: flex; justify-content: center; gap: clamp(12px, 1.6vw, 32px); margin-bottom: clamp(14px, 3vh, 40px); }
+.role-detail { display: flex; justify-content: center; gap: clamp(2px, 0.3vw, 6px); margin-bottom: clamp(14px, 3vh, 40px); }
 .role-detail img { height: clamp(220px, 44vh, 560px); width: auto; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
 .role-detail img:nth-child(1) { transform: rotate(-2deg); }
 .role-detail img:nth-child(2) { transform: rotate(2deg); }

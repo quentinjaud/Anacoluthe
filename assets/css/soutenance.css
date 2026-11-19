@@ -1144,3 +1144,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 10 : photo verticale du kit plastifié, entière. */
 .photo-kit-v5 img { aspect-ratio: auto; width: auto; max-width: 100%; height: min(62vh, 720px); object-fit: contain; margin: 0 auto; }
 .photo-attente { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; border: 2px dashed var(--border-light); border-radius: 8px; background: #fff; text-align: center; font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }
+
+/* Écran 19 : trois photos d'animation, recadrées au même format, posées en léger désordre. */
+#faceafaces .visuel-photos { width: 100%; }
+.visuel-photos .photo-posee { aspect-ratio: 4 / 3; object-fit: cover; border: 4px solid #fff; }
+.visuel-photos .photo-posee:nth-child(1) { transform: rotate(-2deg); }
+.visuel-photos .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(4%); }
+.visuel-photos .photo-posee:nth-child(3) { transform: rotate(-1deg); }

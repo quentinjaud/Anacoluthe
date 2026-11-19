@@ -1374,10 +1374,22 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #ecart .ecart-idees { margin-top: clamp(14px, 2.6vh, 32px); }
 #ecart .idee { padding-top: clamp(18px, 3vh, 36px); }
 #ecart .idee .voies { display: flex; flex-wrap: wrap; column-gap: 0.9em; }
-#ecart .idee .voies li { white-space: nowrap; }
+#ecart .ecart-idees { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 /* Vidéoprojecteur 4:3 ou 16:10 : les cartes recto-verso rétrécissent pour laisser respirer le texte. */
 @media (max-aspect-ratio: 3/2) {
   #stagiaires .texte-et-cartes, #experimentee .texte-et-cartes, #debutante .texte-et-cartes { grid-template-columns: 1.35fr 0.65fr; }
   #stagiaires .role-detail img, #experimentee .carte-detail img { height: clamp(160px, 30vh, 420px); }
   #stagiaires .role-detail, #experimentee .carte-detail { flex-direction: column; align-items: center; }
+}
+/* 4:3 : les listes de l'écart passent en ligne, séparées par un point médian. */
+@media (max-aspect-ratio: 3/2) {
+  #ecart .idee .voies { display: block; }
+  #ecart .idee .voies li { display: inline; }
+  #ecart .idee .voies li::before { display: none; }
+  #ecart .idee .voies li:not(:last-child)::after { content: ' · '; color: var(--text-muted); }
+}
+@media (max-aspect-ratio: 3/2) {
+  #ecart .ecart .chiffre { font-size: clamp(30px, 5.2vh, 70px); }
+  #ecart .titre { margin-bottom: clamp(6px, 1.2vh, 16px); }
+  #ecart .ecart-kicker { margin-top: clamp(10px, 1.8vh, 24px); }
 }

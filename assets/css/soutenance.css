@@ -1221,3 +1221,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
 }
 .emoji-cheval img.emoji { vertical-align: middle; }
+
+/* Écran 26 : couverture du Courrier des Glénans, extrait du cap posé dessus. */
+.courrier-cap { position: relative; display: grid; justify-items: end; padding-bottom: 8vh; }
+.courrier-cap .couverture { width: auto; max-width: 78%; max-height: 58vh; border: 4px solid #fff; transform: rotate(2deg); }
+.courrier-cap .extrait {
+  position: absolute; left: 0; bottom: 0; width: 82%; max-width: none;
+  background: #fff; border: 4px solid #fff; transform: rotate(-2.5deg);
+}

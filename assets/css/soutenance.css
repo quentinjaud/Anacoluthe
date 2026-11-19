@@ -1269,3 +1269,12 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .ecart-idees.bilan.trois { grid-template-columns: repeat(3, 1fr); max-width: 1500px; }
 .bilan.trois .idee .voies { font-size: var(--t-petit); }
 @media (max-width: 700px) { .ecart-idees.bilan.trois { grid-template-columns: 1fr; } }
+/* Écran 27 : trois acquis en ligne, coche teal, avant la question d'échelle. */
+.acquis { list-style: none; margin: clamp(8px, 1.6vh, 20px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); max-width: 1500px; }
+.acquis li { display: flex; flex-direction: column; gap: 0.2em; padding-left: 1.5em; position: relative; }
+.acquis li::before { content: '✓'; position: absolute; left: 0; top: 0; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--teal-700); }
+.acquis strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.acquis li > span { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); }
+#reste .question-structure { margin-top: clamp(20px, 4vh, 48px); }
+.bilan.trois .idee > span:not(.emoji-cheval) { font-size: var(--t-petit); color: var(--text-muted); }
+@media (max-width: 700px) { .acquis { grid-template-columns: 1fr; } }

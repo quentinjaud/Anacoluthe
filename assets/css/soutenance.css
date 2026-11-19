@@ -1049,11 +1049,13 @@ body.projection .numero { opacity: 0.7; box-shadow: none; }
 /* Écran 23 : besoins puis ressources, sans les fondre. */
 /* Écran 22 : une carte par paire, le besoin en petit, la ressource en grand. */
 .moyens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(12px, 2vw, 32px); max-width: 1300px; margin-bottom: clamp(12px, 2.6vh, 34px); }
-.moyen { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-top: 4px solid var(--amber-700); border-radius: 12px; padding: clamp(14px, 2.4vh, 30px) clamp(14px, 1.6vw, 28px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.moyen { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-top: 4px solid var(--amber-700); border-radius: 12px; padding: clamp(14px, 2.4vh, 30px) clamp(14px, 1.6vw, 28px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
 .moyen p { margin: 0; }
 .moyen .besoin { font-family: var(--font-corps); font-size: calc(var(--t-petit) * 1.3); font-weight: 300; color: var(--text-muted); line-height: 1.35; }
 .moyen .ressource { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-liste); color: var(--amber-700); line-height: 1.25; margin-top: 0.7em; }
 .moyen .ressource::before { content: '→ '; }
+.moyen .chiffres { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--text-muted); line-height: 1.4; margin-top: 1em; padding-top: 0.8em; border-top: 1px solid var(--amber-100); align-self: start; }
+.moyen .chiffres strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); font-size: 1.25em; }
 .moyen .precision { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 300; color: var(--amber-700); line-height: 1.35; margin-top: 0.4em; }
 @media (max-width: 700px) { .moyens { grid-template-columns: 1fr; } }
 

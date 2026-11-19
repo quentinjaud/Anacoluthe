@@ -1239,3 +1239,5 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .legende-voies b { margin-right: 0.3em !important; }
 .voies.contraintes li::before { background: var(--brick-700); }
 .nowrap { white-space: nowrap; }
+.idee .sous-titre-voies { margin-top: 0.6em; color: var(--navy-700) !important; font-weight: 400 !important; }
+.voies:not(.contraintes):not(.deleguees) li::before { background: var(--navy-700); }

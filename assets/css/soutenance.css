@@ -1204,7 +1204,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .barre.sans .piste span { background: #A9B4BE; }
 .barre strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); font-size: 1.2em; text-align: right; }
 .appui-constat { font-family: var(--font-corps); font-size: var(--t-petit); color: var(--navy-700); margin: 1em 0 0; padding-top: 0.8em; border-top: 1px solid var(--teal-100); }
-.condition { font-family: var(--font-corps); font-size: var(--t-corps); color: var(--navy-700); max-width: 1300px; margin: clamp(14px, 3vh, 36px) 0 0.4em; padding: 0.7em 1em; background: #fff; border-left: 5px solid var(--bleu-glenans); border-radius: 0 10px 10px 0; }
+.condition { font-family: var(--font-corps); font-size: var(--t-corps); color: var(--navy-700); max-width: 1300px; margin: clamp(14px, 3vh, 36px) 0 0.4em; padding: 0.7em 1em; background: #fff; border: 1px solid var(--teal-100); border-radius: 12px; }
 .condition > span { display: block; font-family: var(--font-titre); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: 0.06em; color: var(--bleu-glenans); margin-bottom: 0.2em; }
 .appui-constat .qui { color: var(--text-muted); font-style: italic; white-space: nowrap; }
 .condition strong { color: var(--bleu-glenans); font-weight: 800; }

@@ -1,5 +1,6 @@
 /* ── Soutenance UC1-UC2 : feuille de style ──
    Page unique, une section par écran, défilement qui s'aligne.
+   Format de projection unique : 1920 x 1080 (S53). Seule taille à vérifier.
    Échelle typographique en vh : la hauteur est la contrainte d'un
    vidéoprojecteur, pas la largeur. Toutes les tailles ont un plancher en px
    pour rester lisibles sur un écran 4:3 de faible hauteur.

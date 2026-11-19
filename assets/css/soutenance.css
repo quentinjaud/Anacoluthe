@@ -1238,4 +1238,4 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .legende-voies { margin-top: 0.4em; font-size: calc(var(--t-petit) * 0.85) !important; }
 .legende-voies b { margin-right: 0.3em !important; }
 .voies.contraintes li::before { background: var(--brick-700); }
-.idee .cle { font-weight: 700; color: var(--brick-700); }
+.nowrap { white-space: nowrap; }

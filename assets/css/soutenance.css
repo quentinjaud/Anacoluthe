@@ -1299,8 +1299,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Lightbox : toute image d'écran s'agrandit au clic (assets/js/soutenance-lightbox.js).
    Les affiches posées en décor sont sous pointer-events: none ; leurs images
-   redeviennent cliquables. En projection, le curseur reste masqué. */
+   redeviennent cliquables. Pas de curseur dédié. */
 .affiches-bas img,
 .a3-coin { pointer-events: auto; }
-.ecran img:not([data-no-zoom]) { cursor: zoom-in; }
-body.projection .ecran img { cursor: none; }

@@ -44,7 +44,7 @@
     </div>
     <div class="acte acte-3" role="group" aria-label="Acte 3 · Focus outils">
       <a class="pastille" href="#e14-mode-emploi"><span aria-hidden="true">📄</span><span class="bulle">Une boîte autonome</span></a>
-      <a class="pastille" href="#e15-conception"><span aria-hidden="true">💎</span><span class="bulle">Le double diamant</span></a>
+      <a class="pastille" href="#e15-conception"><span aria-hidden="true">💎</span><span class="bulle">Diverger, converger</span></a>
       <a class="pastille" href="#e16-boite"><span aria-hidden="true">🧰</span><span class="bulle">Une carte, un besoin</span></a>
       <a class="pastille" href="#e17-affiches-base"><span aria-hidden="true">📢</span><span class="bulle">Les affiches sur la base</span></a>
     </div>
@@ -383,40 +383,76 @@
   </div>
 </section>
 
-<!-- LA CONCEPTION DE LA BOÎTE À OUTILS (S79) : le double diamant du design, chaque phase dite
-     par ce qui s'est fait dans Anacoluthe. Messages repris de l'oral blanc (« Cinq versions,
+<!-- LA CONCEPTION DE LA BOÎTE À OUTILS (S79) : deux cycles divergence puis convergence
+     (inspiration graphique : sketchyideas.co), chaque geste dit par ce qui s'est fait dans Anacoluthe. Messages repris de l'oral blanc (« Cinq versions,
      neuf mois », « Comment travailler ? »). Message clef : la co-conception garantit qu'une
      carte sert efficacement un besoin partagé. -->
 <section data-acte="3" class="ecran" id="e15-conception">
   <h2 class="titre">La <span class="highlight">co-conception</span> assure l'adéquation besoin - outil</h2>
-  <div class="double-diamant">
-    <svg viewBox="0 0 1660 300" role="img" aria-label="Double diamant du design : découvrir et définir, puis développer et livrer, avec au centre un besoin partagé">
-      <polygon class="dd-diverge" points="0,160 400,40 400,280"/>
-      <polygon class="dd-converge" points="400,40 800,160 400,280"/>
-      <line class="dd-lien" x1="800" y1="160" x2="860" y2="160"/>
-      <polygon class="dd-diverge" points="860,160 1260,40 1260,280"/>
-      <polygon class="dd-converge" points="1260,40 1660,160 1260,280"/>
-      <text class="dd-phase" x="270" y="160">Découvrir</text>
-      <text class="dd-geste" x="270" y="196">ouvrir</text>
-      <text class="dd-phase" x="530" y="160">Définir</text>
-      <text class="dd-geste" x="530" y="196">trier</text>
-      <text class="dd-phase" x="1130" y="160">Développer</text>
-      <text class="dd-geste" x="1130" y="196">ouvrir</text>
-      <text class="dd-phase" x="1390" y="160">Livrer</text>
-      <text class="dd-geste" x="1390" y="196">trier</text>
-      <line class="dd-lien" x1="830" y1="48" x2="830" y2="160" stroke-dasharray="6 6"/>
-      <g class="dd-pivot">
-        <rect x="690" y="0" width="280" height="48" rx="24"/>
-        <text x="830" y="33">un besoin partagé</text>
-      </g>
+  <div class="cycles-dc">
+    <svg viewBox="0 0 1660 300" role="img" aria-label="Deux cycles de divergence puis convergence : d'abord les besoins, puis les cartes, avec au centre un besoin partagé">
+      <defs><marker id="dc-pointe" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dc-pointe"/></marker></defs>
+      <polyline class="dc-contour" points="370,48 0,160 370,272"/>
+      <polyline class="dc-contour" points="430,48 800,160 430,272"/>
+      <line class="dc-diverge" x1="60" y1="160" x2="225" y2="115" marker-end="url(#dc-pointe)"/>
+      <line class="dc-diverge" x1="60" y1="160" x2="225" y2="160" marker-end="url(#dc-pointe)"/>
+      <line class="dc-diverge" x1="60" y1="160" x2="225" y2="205" marker-end="url(#dc-pointe)"/>
+      <circle class="dc-idee" cx="354" cy="103" r="9"/>
+      <circle class="dc-idee" cx="434" cy="90" r="9"/>
+      <circle class="dc-idee" cx="406" cy="138" r="9"/>
+      <circle class="dc-idee" cx="289" cy="161" r="9"/>
+      <circle class="dc-idee" cx="292" cy="93" r="9"/>
+      <circle class="dc-idee" cx="379" cy="214" r="9"/>
+      <circle class="dc-idee" cx="429" cy="233" r="9"/>
+      <circle class="dc-idee" cx="485" cy="125" r="9"/>
+      <circle class="dc-idee" cx="351" cy="212" r="9"/>
+      <circle class="dc-idee" cx="319" cy="173" r="9"/>
+      <circle class="dc-idee" cx="442" cy="148" r="9"/>
+      <circle class="dc-idee" cx="352" cy="174" r="9"/>
+      <circle class="dc-idee" cx="470" cy="193" r="9"/>
+      <circle class="dc-idee" cx="515" cy="97" r="9"/>
+      <circle class="dc-idee" cx="481" cy="233" r="9"/>
+      <circle class="dc-idee" cx="391" cy="187" r="9"/>
+      <circle class="dc-idee" cx="290" cy="193" r="9"/>
+      <circle class="dc-idee" cx="307" cy="119" r="9"/>
+      <polygon class="dc-converge" points="520,136 640,136 640,116 768,160 640,204 640,184 520,184"/>
+      <text class="dc-cycle" x="400" y="22">cycle 1 · les besoins</text>
+      <line class="dc-lien" x1="800" y1="160" x2="860" y2="160"/>
+      <polyline class="dc-contour" points="1230,48 860,160 1230,272"/>
+      <polyline class="dc-contour" points="1290,48 1660,160 1290,272"/>
+      <line class="dc-diverge" x1="920" y1="160" x2="1085" y2="115" marker-end="url(#dc-pointe)"/>
+      <line class="dc-diverge" x1="920" y1="160" x2="1085" y2="160" marker-end="url(#dc-pointe)"/>
+      <line class="dc-diverge" x1="920" y1="160" x2="1085" y2="205" marker-end="url(#dc-pointe)"/>
+      <circle class="dc-idee" cx="1231" cy="221" r="9"/>
+      <circle class="dc-idee" cx="1155" cy="152" r="9"/>
+      <circle class="dc-idee" cx="1270" cy="223" r="9"/>
+      <circle class="dc-idee" cx="1336" cy="220" r="9"/>
+      <circle class="dc-idee" cx="1203" cy="146" r="9"/>
+      <circle class="dc-idee" cx="1370" cy="103" r="9"/>
+      <circle class="dc-idee" cx="1178" cy="116" r="9"/>
+      <circle class="dc-idee" cx="1279" cy="121" r="9"/>
+      <circle class="dc-idee" cx="1225" cy="171" r="9"/>
+      <circle class="dc-idee" cx="1369" cy="191" r="9"/>
+      <circle class="dc-idee" cx="1261" cy="179" r="9"/>
+      <circle class="dc-idee" cx="1301" cy="87" r="9"/>
+      <circle class="dc-idee" cx="1231" cy="143" r="9"/>
+      <circle class="dc-idee" cx="1160" cy="182" r="9"/>
+      <circle class="dc-idee" cx="1218" cy="87" r="9"/>
+      <circle class="dc-idee" cx="1135" cy="103" r="9"/>
+      <circle class="dc-idee" cx="1141" cy="221" r="9"/>
+      <circle class="dc-idee" cx="1338" cy="104" r="9"/>
+      <polygon class="dc-converge" points="1380,136 1500,136 1500,116 1628,160 1500,204 1500,184 1380,184"/>
+      <text class="dc-cycle" x="1260" y="22">cycle 2 · les cartes</text>
+      <line class="dc-lien" x1="830" y1="70" x2="830" y2="160" stroke-dasharray="6 6"/>
+      <g class="dc-pivot"><rect x="690" y="22" width="280" height="48" rx="24"/><text x="830" y="55">un besoin partagé</text></g>
     </svg>
   </div>
-  <div class="dd-concret">
-    <p><strong>14 entretiens, 3 ateliers</strong>&nbsp;: les moniteurices nomment les tensions vécues à bord</p>
-    <p><strong>Des besoins partagés</strong>&nbsp;: s'organiser, s'écouter, se dire les choses</p>
+  <div class="dc-concret">
+    <p><span class="dc-geste dc-div">Diverger</span><strong>14 entretiens, 3 ateliers</strong>&nbsp;: les moniteurices nomment les tensions vécues à bord</p>
+    <p><span class="dc-geste dc-conv">Converger</span><strong>Des besoins partagés</strong>&nbsp;: s'organiser, s'écouter, se dire les choses</p>
     <span aria-hidden="true"></span>
-    <p><strong>V1 à V3</strong>&nbsp;: on prototype avec moniteurices et stagiaires, on teste en stage</p>
-    <p><strong>V4, V5</strong>&nbsp;: on élague. Ne restent que les cartes qui servent un besoin</p>
+    <p><span class="dc-geste dc-div">Diverger</span><strong>V1 à V3</strong>&nbsp;: on prototype avec moniteurices et stagiaires, on teste en stage</p>
+    <p><span class="dc-geste dc-conv">Converger</span><strong>V4, V5</strong>&nbsp;: on élague. Ne restent que les cartes qui servent un besoin</p>
   </div>
 </section>
 

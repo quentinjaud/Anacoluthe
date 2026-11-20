@@ -1478,7 +1478,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .faf-carte strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
 .faf-carte .faf-quand { font-family: var(--font-legende); color: var(--text-muted); }
 .faf-carte b, .faf-pour b { display: block; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; color: var(--acte-texte); }
-.faf-carte .faf-support { margin-top: auto; }
 .faf-a-completer { font-family: var(--font-legende); color: var(--amber-texte); }
 /* Écran 19 : avec les stagiaires, deux photos du kit en usage. */
 #e19-stagiaires .texte-et-photos { grid-template-columns: 0.9fr 1.1fr; }

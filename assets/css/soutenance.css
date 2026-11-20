@@ -1434,8 +1434,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Écran 2 : trois sources, chacune avec ce qu'elle a apporté, le constat en chute (S85, S97). */
 #e02-commande .trois-voies { max-width: 1500px; }
-#e02-commande .trois-voies h3 { font-size: var(--t-liste); line-height: 1.3; }
-#e02-commande .trois-voies p { font-size: var(--t-petit); color: var(--navy-700); }
+#e02-commande .trois-voies h3 { min-height: 2.6em; font-size: var(--t-petit); line-height: 1.3; color: var(--text-muted); margin: 0 0 0.5em; }
+#e02-commande .trois-voies p { margin-top: 0.5em; font-size: var(--t-corps); line-height: 1.3; color: var(--navy-700); }
 #e02-commande .corps.appui { margin-top: clamp(18px, 3.4vh, 40px); }
 
 /* Écran 9 : quatre phases en cartes reliées, l'enjeu de chacune en couleur d'acte (S87). */

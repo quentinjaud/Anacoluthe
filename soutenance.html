@@ -846,14 +846,27 @@
      programmé (ancre, clavier, restauration de position) n'émet pas toujours
      scroll, et le fil resterait figé sur la section précédente. */
   var dernier = -1;
+  /* L'ancre de l'URL suit l'écran courant : un rechargement ou un lien copié
+     ramène au même écran. replaceState n'empile pas l'historique. On attend
+     le chargement : avant, la page n'a pas encore rejoint l'ancre demandée. */
+  var ancreSuit = false;
+  function majAncre(i) {
+    if (!ancreSuit || !ecrans[i]) return;
+    var id = ecrans[i].id;
+    if (location.hash.slice(1) === id) return;
+    try { history.replaceState(null, '', '#' + id); } catch (e) { /* cadre isolé */ }
+  }
   function surveiller() {
     var i = courant();
-    if (i !== dernier) { dernier = i; peindre(i); }
+    if (i !== dernier) { dernier = i; peindre(i); majAncre(i); }
   }
   window.addEventListener('scroll', surveiller, { passive: true });
   window.addEventListener('resize', function () { surveiller(); peindre(); });
   window.addEventListener('hashchange', surveiller);
-  window.addEventListener('load', surveiller);
+  window.addEventListener('load', function () {
+    surveiller();
+    setTimeout(function () { ancreSuit = true; majAncre(courant()); }, 300);
+  });
   surveiller();
 })();
 </script>

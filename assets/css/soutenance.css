@@ -1438,3 +1438,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 14 : le zoom sur les quatre familles (haut du verso), posé par-dessus le recto-verso (S73). */
 #e14-mode-emploi .mode-emploi-visuels { position: relative; width: fit-content; justify-self: center; min-width: 0; }
 #e14-mode-emploi .zoom-familles { position: absolute; z-index: 2; right: -4%; top: 34%; width: 104%; max-width: none; height: auto; transform: rotate(-1deg); background: #fff; border: 1px solid var(--border-light); border-radius: 10px; box-shadow: 0 10px 32px rgba(0,0,0,0.22); }
+
+/* Écran 15 : le profil de moniteurice que sert chaque paire de compartiments (S43, S74).
+   Même grille que les piles : chaque profil couvre deux colonnes. */
+.profils-compartiments { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; width: 100%; margin: clamp(14px, 2.6vh, 32px) auto 0; }
+.profils-compartiments p { grid-column: span 2; margin: 0; padding: 0.35em 0.8em; border-bottom: 3px solid var(--acte-teinte); font-family: var(--font-corps); font-size: var(--t-liste); color: var(--navy-700); text-align: center; }
+.profils-compartiments strong { font-family: var(--font-titre); font-weight: 800; }

@@ -1454,10 +1454,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Un paragraphe suivi d'une liste : un interligne entre les deux, partout (S77). */
 .corps + .liste { margin-top: clamp(12px, 2.2vh, 28px); }
 
-/* Écran 15 : au-dessus de chaque pile, la pépite de la famille, dans sa couleur (S78).
-   Les décomptes (3 affiches, 4 rôles...) passent à l'oral. */
-.familles-v2 .pepite-tag { margin: 0 0 clamp(10px, 2vh, 22px); letter-spacing: 0.08em; }
-.familles-v2 .pepite-affiche { color: var(--navy-700); }
-.familles-v2 .pepite-role { color: var(--amber-texte); }
-.familles-v2 .pepite-moment { color: var(--teal-texte); }
-.familles-v2 .pepite-joker { color: #7A2E27; }
+
+/* Écran 15 : une phrase pour les quatre pépites, alignée sur la grille des piles (S78). */
+.pepites-kicker { max-width: 1200px; width: 100%; margin: clamp(14px, 2.6vh, 32px) auto clamp(14px, 2.4vh, 28px); }

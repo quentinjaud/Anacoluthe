@@ -1411,6 +1411,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e08-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
 /* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
 .phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }
+.phases-blocs.pourquoi strong { font-size: calc(var(--t-corps) * 1.2); line-height: 1.15; color: var(--acte-texte); }
 #e11-enjeux .phases-trace { max-height: 44vh; object-fit: contain; object-position: left center; }
 #e15-diagnostic .attente-paperboard { aspect-ratio: 3 / 4; height: 62vh; width: auto; padding: 1em; justify-self: center; display: flex; align-items: center; justify-content: center; }
 /* Boîte à outils (S62) : sous chaque pile, pour qui c'est une pépite. Clic : le visuel. */

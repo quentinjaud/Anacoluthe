@@ -1,0 +1,1500 @@
+/* ── Soutenance UC1-UC2 : feuille de style ──
+   Page unique, une section par écran, défilement qui s'aligne.
+   Format de projection unique : 1920 x 1080 (S53). Seule taille à vérifier.
+   Échelle typographique en vh : la hauteur est la contrainte d'un
+   vidéoprojecteur, pas la largeur. Toutes les tailles ont un plancher en px
+   pour rester lisibles sur un écran 4:3 de faible hauteur.
+
+   Charte visuelle : sources/documentation/DESIGN_INTENTIONS.md
+   Conventions de code : sources/documentation/TECH_INTENTIONS.md
+   Les valeurs de palette et de typographie sont celles de assets/css/style.css,
+   qui fait foi. En cas d'écart avec la doc, c'est le CSS du site qui a raison. */
+
+/* ── Polices embarquées : la page ne dépend d'aucun CDN ── */
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../assets/fonts/merriweather.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('../../assets/fonts/merriweather-sans.woff2') format('woff2');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+
+:root {
+  --bleu-glenans: #0066AD;
+  --navy-700: #1E3A5F;
+  --navy-100: #C9D5E3;
+  --navy-50: #EEF2F7;      /* fond de l'acte 4, au niveau des autres -50 (S70) */
+  --teal-100: #c5e4e2;
+  --teal-700: #3d8b87;
+  --teal-50: #e8f4f3;
+  --amber-700: #c96a30;
+  --amber-50: #fff8f0;
+  --amber-100: #ffe8d4;
+  --brick-50: #FFEBEE;
+  --brick-100: #FFCDD2;
+  --blanc: #FFFFFF;
+  --brick-700: #C62828;
+  --text-dark: #2D3748;
+  --text-corps: #2D3748;   /* --text-dark du site */
+  --text-muted: #454F61;   /* 7,2:1 au moins sur tous les fonds d'acte, 8,2:1 sur crème (S70) */
+  --teal-texte: #205652;   /* teal pour du texte : 7,2:1 sur tous les fonds d'acte (S70) */
+  --amber-texte: #7D3C12;  /* ambre pour du texte : 7,2:1 sur tous les fonds d'acte (S70) */
+  --border-light: #D1D5DB;
+  --bg-cream: #FFFDF9;
+
+  --font-titre: 'Merriweather Sans', sans-serif;
+  --font-corps: 'Merriweather', Georgia, serif;
+  --font-legende: 'Merriweather Sans', sans-serif;   /* labels et tags, comme le site */
+
+  /* Une seule échelle, en hauteur d'écran. */
+  --t-question: clamp(30px, 5.6vh, 72px);
+  --t-nom: clamp(34px, 6.8vh, 96px);
+  /* Titres de section : 4,4 vh, la proportion du .fil-title du site
+     (2,5 rem sur une page de 900 px de haut). */
+  --t-titre: clamp(30px, 5vh, 66px);
+  --t-corps: clamp(20px, 3vh, 38px);
+  --t-liste: clamp(19px, 2.85vh, 36px);
+  --t-petit: clamp(17px, 2.4vh, 30px);
+  --t-kicker: clamp(18px, 2.6vh, 34px);   /* kickers en majuscules : 28 px à 1080, au-dessus de --t-petit (S75) */
+  --t-chiffre: clamp(38px, 8vh, 110px);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-snap-type: y mandatory;
+  /* Pas de défilement animé : une section doit s'afficher net, comme un
+     changement de slide. Sur 19 écrans, une animation smooth donne
+     l'impression de surfer et casse le rythme de la parole. */
+  scroll-behavior: auto;
+  background: var(--bg-cream);
+}
+
+body {
+  margin: 0;
+  background: var(--bg-cream);
+  color: var(--text-corps);
+  font-family: var(--font-corps);
+  /* Corps en 300, comme les paragraphes du site : Merriweather variable
+     descend jusqu'a cette graisse, le texte se pose au lieu de peser. */
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Fonds de section : la teinte -50 de l'acte (S70) ──
+   Ambre pour les actes 1 et 5, teal, brique, navy pour les actes 2 à 4. */
+
+.ecran[data-acte]    { background: var(--amber-50); }
+.ecran[data-acte="2"] { background: var(--teal-50); }
+.ecran[data-acte="3"] { background: var(--brick-50); }
+.ecran[data-acte="4"] { background: var(--navy-50); }
+
+/* ── Une section = un écran ── */
+
+.ecran {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(20px, 5vh, 72px) clamp(22px, 7vw, 128px);
+  position: relative;
+}
+
+.ecran > * { max-width: 1500px; }
+
+/* L'ouverture se centre : elle doit porter, pas s'aligner sur la marge. */
+.ecran.centree { text-align: center; align-items: center; }
+.ecran.centree .filet { margin-left: auto; margin-right: auto; }
+
+/* ── Blocs de texte ── */
+
+.kicker {
+  display: block;
+  font-family: var(--font-legende);
+  font-size: var(--t-kicker);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: clamp(14px, 3vh, 40px);
+}
+
+.nom {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-nom);
+  line-height: 1.02;
+  color: var(--bleu-glenans);
+  margin: 0;
+}
+
+.filet {
+  width: clamp(40px, 6vw, 90px);
+  height: 3px;
+  background: var(--teal-700);
+  margin: clamp(14px, 3vh, 36px) 0;
+  border: 0;
+}
+
+.titre {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-titre);
+  line-height: 1.15;
+  color: var(--bleu-glenans);
+  margin: 0 0 clamp(12px, 2.6vh, 34px);
+}
+
+/* Le slash qui ouvre les titres du site, en signature. Il prend l'accent
+   de l'acte en cours (data-acte sur la section), comme le plateau du fil.
+   Repli : le rouge Glénans du site. */
+.titre::before {
+  content: '/';
+  color: var(--acte-encre, #F04839);
+  font-weight: 900;
+  margin-right: 0.18em;
+}
+
+/* Mots portés d'un titre. */
+.accent-teal { color: var(--teal-texte); }
+.accent-brick { color: var(--brick-700); }
+.accent-navy { color: var(--navy-700); }
+.accent-ambre { color: var(--amber-700, #B4521E); }
+
+/* La question d'ouverture : quatre lignes pleines, césurées à la main.
+   La mesure suit la plus longue, pour que la phrase tienne sans se tasser.
+   Plafond en vw : sur un écran plus haut que large (16:10, 4:3), l'échelle
+   en vh grossirait la ligne au-delà de la largeur disponible et la césure
+   tomberait au mauvais endroit. */
+.question {
+  font-family: var(--font-corps);
+  font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px);
+  line-height: 1.32;
+  color: var(--text-corps);
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Les fragments portés : le sujet, le verbe, les deux termes du couple. */
+.question strong {
+  font-weight: 700;
+  color: var(--bleu-glenans);
+}
+
+.corps {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  font-size: var(--t-corps);
+  line-height: 1.42;
+  margin: 0;
+}
+
+.petit {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  font-size: var(--t-petit);
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin: clamp(10px, 2.2vh, 28px) 0 0;
+}
+
+.liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: var(--t-liste);
+  line-height: 1.45;
+}
+
+.liste li {
+  margin-bottom: clamp(10px, 2.1vh, 26px);
+  padding-left: clamp(16px, 1.6vw, 26px);
+  position: relative;
+}
+
+.liste li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: clamp(5px, 0.5vw, 8px);
+  height: clamp(5px, 0.5vw, 8px);
+  border-radius: 50%;
+  background: var(--teal-700);
+}
+
+.liste strong { color: var(--navy-700); }
+
+/* ── Slide 3 : les deux publics ── */
+
+.publics {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(8px, 1.2vw, 24px);
+  margin-top: clamp(10px, 2.5vh, 32px);
+}
+
+.public-bloc {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: clamp(14px, 1.8vw, 28px) clamp(14px, 1.6vw, 26px);
+}
+
+.public-bloc.projet {
+  background: var(--navy-50, #E8EDF4);
+  border-color: var(--navy-100);
+}
+
+.public-bloc h3 {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  color: var(--bleu-glenans);
+  margin: 0 0 0.5em;
+}
+
+.public-bloc p {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  font-size: var(--t-petit);
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.public-fleche {
+  align-self: center;
+  font-family: var(--font-titre);
+  font-size: calc(var(--t-corps) * 1.5);
+  line-height: 1;
+  color: var(--teal-texte);
+}
+
+/* ── Slide 14 : les face-à-face ──
+   Même grille que les deux publics, mais les blocs portent des listes.
+   La taille tombe à --t-petit : quatre items courts tiennent sans déborder. */
+
+.public-bloc .liste {
+  font-family: var(--font-corps);
+  font-size: var(--t-petit);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.public-bloc .liste li {
+  margin-bottom: clamp(8px, 1.5vh, 18px);
+  padding-left: clamp(12px, 1.1vw, 18px);
+}
+
+.public-bloc .liste li::before {
+  top: 0.55em;
+  width: clamp(4px, 0.4vw, 6px);
+  height: clamp(4px, 0.4vw, 6px);
+}
+
+.public-bloc .liste strong {
+  font-family: var(--font-titre);
+  color: var(--bleu-glenans);
+}
+
+/* ── Slide 4 : les quatre familles ── */
+
+.familles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1.4vw, 28px);
+  margin-top: clamp(10px, 2.2vh, 28px);
+}
+
+.famille {
+  border-top: 3px solid var(--teal-700);
+  padding-top: clamp(8px, 1.2vh, 16px);
+}
+
+.famille strong {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: var(--t-corps);
+  color: var(--bleu-glenans);
+  margin-bottom: 0.4em;
+}
+
+.famille span {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Slide 11 : la frise des versions ── */
+
+.frise {
+  margin-top: clamp(10px, 2.5vh, 30px);
+  position: relative;
+}
+
+.frise-ligne {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  padding-bottom: clamp(14px, 2.6vh, 30px);
+}
+
+.frise-ligne::before {
+  content: '';
+  position: absolute;
+  top: 0.85em;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  background: var(--navy-100);
+  z-index: 0;
+}
+
+.version {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  z-index: 1;
+}
+
+.badge {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-petit);
+  color: #fff;
+  background: var(--navy-700);
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+}
+
+.badge.teal { background: var(--teal-700); }
+.badge.amber { background: var(--amber-700); }
+
+.version span {
+  text-align: center;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+}
+
+/* Chaque correction couvre les versions qu'elle relie : 10 demi-colonnes,
+   la version n occupe les demi-colonnes 2n-1 et 2n. */
+.corrections {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: clamp(6px, 1.2vh, 14px) 0;
+  margin-top: clamp(8px, 1.5vh, 18px);
+}
+.corrections .correction {
+  grid-column: calc(var(--de) * 2 - 1) / calc(var(--a) * 2 + 1);
+  justify-content: space-between;
+}
+
+.correction {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  background: var(--teal-50);
+  border-left: 4px solid var(--teal-700);
+  padding: 0.5em 0.8em;
+}
+
+.correction .avant { color: var(--brick-700); font-weight: 700; }
+.correction .fleche { color: var(--text-muted); }
+.correction .apres { color: var(--teal-texte); font-weight: 700; }
+
+/* ── Slide 12 : les cinq étapes ── */
+
+.arc {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(8px, 1vw, 20px);
+  margin-top: clamp(10px, 2.2vh, 26px);
+}
+
+.etape {
+  border-top: 3px solid var(--navy-100);
+  padding-top: clamp(8px, 1.2vh, 16px);
+}
+
+.etape strong {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: var(--t-corps);
+  color: var(--bleu-glenans);
+  margin-bottom: 0.35em;
+}
+
+.etape .geste {
+  display: block;
+  font-family: var(--font-legende);
+  font-weight: 700;
+  font-size: var(--t-petit);
+  color: var(--teal-texte);
+  margin-bottom: 0.3em;
+}
+
+.etape span.detail {
+  font-family: var(--font-legende);
+  font-size: calc(var(--t-petit) * 0.92);
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* ── Slide 15 : l'écart ── */
+
+.ecart {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2vw, 40px);
+  margin-top: clamp(12px, 3vh, 40px);
+  text-align: center;
+}
+
+.ecart .chiffre {
+  font-family: var(--font-titre);
+  font-weight: 800;
+  font-size: var(--t-chiffre);
+  line-height: 1;
+  color: var(--teal-texte);
+}
+
+.ecart .prevu {
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  margin-top: 0.4em;
+}
+
+.ecart .quoi {
+  font-family: var(--font-corps);
+  font-size: var(--t-corps);
+  margin-top: 0.5em;
+}
+
+/* ── Slide 16 : mesure et réserve ── */
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(16px, 3vw, 56px);
+  align-items: center;
+}
+
+.encart {
+  background: var(--amber-50);
+  border: 1px solid var(--amber-100, #ffe8d4);
+  border-left: 4px solid var(--amber-700);
+  border-radius: 8px;
+  padding: clamp(12px, 1.6vw, 26px);
+  font-family: var(--font-corps);
+  font-style: italic;
+  font-size: var(--t-petit);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ── Slide 18 : apports ── */
+
+.reponse {
+  font-family: var(--font-corps);
+  font-size: var(--t-corps);
+  line-height: 1.4;
+  margin: clamp(12px, 2.5vh, 30px) 0 0;
+  max-width: 60ch;
+}
+
+.limite {
+  font-family: var(--font-corps);
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  margin-top: clamp(10px, 2vh, 24px);
+}
+
+/* ── Le fil : progression en bas, une pastille par écran ──
+   Les pastilles sont groupées par acte dans des plateaux de pills (barre
+   basse du site), posés sur une ligne continue dont le chemin parcouru
+   passe en teal (fil de la semaine). */
+
+.fil {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  /* Bloc volontairement plus court que les pastilles : la carte de l'écran
+     courant dépasse au-dessus du bandeau au lieu d'y être enfermée. */
+  padding: clamp(2px, 0.5vh, 6px) clamp(10px, 2vw, 28px);
+  padding-bottom: max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom));
+  /* Réserve à droite pour le numéro de l'écran (.numero). */
+  padding-right: calc(clamp(10px, 1.6vw, 28px) + clamp(84px, 7.5vw, 130px));
+  background: rgba(255, 253, 249, 0.94);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border-light);
+  transition: opacity 0.3s ease;
+}
+
+.fil-piste {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* L'écart entre deux actes laisse voir la ligne qui les relie. */
+  gap: clamp(10px, 1.3vw, 22px);
+  /* Largeur au contenu : la ligne part du premier acte et s'arrête au
+     dernier, au lieu de courir sur toute la barre. */
+  width: max-content;
+  max-width: 100%;
+  /* safe center : centre quand ça tient, et laisse défiler sans couper
+     le début quand ça déborde. */
+  justify-content: safe center;
+  /* Pas d'overflow ici : un overflow-x, même sur une piste qui tient,
+     clippe la carte active qui remonte au-dessus de la barre. Les
+     vingt-neuf pastilles tiennent dès 1024 px, la projection est au-delà. */
+  padding: 0;
+}
+
+.fil-piste::-webkit-scrollbar { display: none; }
+
+/* La ligne continue : grise d'un bout à l'autre, teal jusqu'à l'écran courant.
+   Elle passe derrière les plateaux et ne se voit qu'entre les actes. */
+.fil-ligne {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--border-light);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.fil-parcouru {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--teal-700);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Un plateau par acte : le dessin des pills de la barre basse du site
+   (style.css, .bottom-nav-pills). Les teintes suivent les quatre accents
+   du titre (ambre, teal, brique, navy), puis reviennent à l'ambre. */
+.acte {
+  /* Fonds allégés : la teinte -100 mêlée à moitié au crème du bandeau.
+     La couleur repère l'acte sans prendre le pas sur la projection. */
+  --acte-teinte: var(--amber-100);
+  --acte-encre: var(--amber-700);
+  --acte-fond: color-mix(in srgb, var(--acte-teinte) 50%, var(--bg-cream));
+  /* Pas de position ici : les pastilles doivent garder la piste pour
+     offsetParent, le recentrage du fil s'en sert. */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(1px, 0.2vw, 4px);
+  padding: clamp(2px, 0.25vw, 4px);
+  border-radius: 2rem;
+  background: var(--acte-fond);
+  transition: background 0.22s ease;
+}
+
+/* Les sections portent aussi leur acte (data-acte) : le slash des titres
+   prend le même accent que le plateau du fil. Actes 1 et 5 : ambre. */
+[data-acte] { --acte-teinte: var(--amber-100); --acte-encre: var(--amber-700); }
+[data-acte] { --acte-texte: var(--amber-texte); }
+[data-acte="2"] { --acte-texte: var(--teal-texte); }
+[data-acte="3"] { --acte-texte: #7A2E27; }
+[data-acte="4"] { --acte-texte: var(--navy-700); }
+.acte-2, [data-acte="2"] { --acte-teinte: var(--teal-100);  --acte-encre: var(--teal-700); }
+.acte-3, [data-acte="3"] { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
+.acte-4, [data-acte="4"] { --acte-teinte: var(--navy-100);  --acte-encre: var(--navy-700); }
+
+/* L'acte en cours : pas de bordure, un fond un peu plus soutenu pour le focus. */
+.acte.en-cours { --acte-fond: color-mix(in srgb, var(--acte-teinte) 85%, var(--bg-cream)); }
+
+.pastille {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: clamp(22px, 1.75vw, 32px);
+  height: clamp(22px, 1.75vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: clamp(10px, 0.85vw, 14px);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease,
+              box-shadow 0.22s ease, padding 0.22s ease, width 0.22s ease;
+}
+
+.pastille:hover { background: rgba(255, 255, 255, 0.6); }
+
+/* Écrans déjà passés : un fond blanc léger, l'emoji reste en couleur. */
+.pastille.vue { background: rgba(255, 255, 255, 0.55); }
+
+/* La pill de l'écran courant : blanche avec ombre, comme la pill active du
+   site, et elle remonte au-dessus du bandeau en chevauchant sa bordure. */
+.pastille.active {
+  /* Même hauteur que les pastilles d'icône : seule la largeur change.
+     Un height auto faisait respirer le bandeau à chaque changement d'écran. */
+  width: auto;
+  height: clamp(22px, 1.75vw, 32px);
+  padding: 0 clamp(8px, 0.85vw, 14px);
+  gap: 0.5em;
+  background: var(--blanc, #fff);
+  border-color: var(--acte-encre);
+  /* Légère inclinaison, tirée au hasard entre -2° et +2° (script),
+     comme les cartes posées du fil de la semaine. */
+  transform: translateY(clamp(-20px, -1.6vh, -10px)) rotate(var(--incl, 0deg));
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.18);
+}
+
+.pastille.active > span:first-child {
+  font-size: clamp(13px, 1.15vw, 19px);
+}
+
+.pastille .bulle { display: none; }
+
+/* Libellé en capitales espacées, la typographie des pills du site. */
+.pastille.active .bulle {
+  display: inline;
+  position: static;
+  transform: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  opacity: 1;
+  pointer-events: none;
+  font-family: var(--font-legende);
+  font-weight: 700;
+  font-size: clamp(9px, 0.78vw, 13px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--acte-encre);
+}
+
+.pastille:focus-visible {
+  outline: 2px solid var(--navy-700);
+  outline-offset: 2px;
+}
+
+.pastille .bulle {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-legende);
+  font-size: 12px;
+  color: var(--text-dark);
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 4px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.pastille:hover .bulle { opacity: 1; }
+
+/* Le numéro de l'écran, à droite du fil, en pastille du site.
+   Le chiffre prend l'accent de l'acte (data-acte posé par le script). */
+.numero {
+  position: fixed;
+  right: clamp(10px, 1.6vw, 28px);
+  bottom: max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom));
+  z-index: 61;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+  padding: 0.25em 0.7em;
+  border-radius: 2rem;
+  background: var(--blanc);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-legende);
+  font-size: clamp(15px, 1.35vw, 24px);
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+.numero-courant {
+  font-weight: 800;
+  color: var(--acte-encre, var(--navy-700));
+  font-variant-numeric: tabular-nums;
+}
+
+.numero-total {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+/* En projection, le fil s'efface et le curseur disparaît : rien ne doit
+   rester à l'écran que le propos. Il revient au premier mouvement de souris. */
+body.projection { cursor: none; }
+body.projection .fil { opacity: 0; }
+body.projection .fil:hover { opacity: 1; }
+/* Le numéro reste en projection, plus discret : c'est lui que le jury cite. */
+body.projection .numero { opacity: 0.7; box-shadow: none; }
+
+/* ── Emplacement réservé aux photos de la FPI ──
+   Écran « Ce que j'ai animé ». Trois cadres 16/9 pour que la composition soit
+   arrêtée dès maintenant, et que les photos prennent la place sans la déplacer.
+   Marqués par data-visuel="photos-fpi" : c'est là qu'on cherchera quoi mettre. */
+
+.visuel-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.4vw, 22px);
+  width: min(900px, 100%);
+  margin: clamp(16px, 3.4vh, 44px) 0 0;
+}
+
+.visuel-photos .vide {
+  aspect-ratio: 16 / 9;
+  border: 2px dashed var(--border-light);
+  border-radius: 16px;
+  background: #F4F3F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9AA3AF;
+}
+
+
+/* ══ V2 du deck, 29 écrans (S15) ══════════════════════════════════════
+   Composants ajoutés pour les écrans neufs de l'arc révision 40.
+   Les photos absentes sont des cadres réservés (.vide), marqués par
+   data-visuel : c'est là qu'on cherchera quoi mettre. */
+
+/* Une seconde phrase portée, détachée de la première. */
+.corps.appui { margin-top: clamp(14px, 3vh, 40px); }
+.corps strong { font-weight: 700; color: var(--navy-700); }
+
+/* Cadre réservé générique, même dessin que les photos FPI. */
+.vide {
+  border: 2px dashed var(--border-light);
+  border-radius: 16px;
+  background: #F4F3F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  font-family: var(--font-legende);
+  font-size: var(--t-petit);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9AA3AF;
+}
+.photo-cadre { aspect-ratio: 4 / 3; width: 100%; }
+.photo-carre { aspect-ratio: 1; width: min(46vh, 520px); }
+
+/* Texte à gauche, image à droite. */
+.texte-et-photo,
+.texte-et-photos,
+.texte-et-cartes {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(20px, 4vw, 72px);
+  align-items: center;
+}
+
+/* Écran 4 : trois photos dispersées, sans légende. */
+.photos-eparses { position: relative; height: clamp(220px, 46vh, 560px); }
+.photos-eparses .vide { position: absolute; width: 58%; aspect-ratio: 4 / 3; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.photos-eparses .vide:nth-child(1) { top: 0; left: 4%; transform: rotate(-4deg); }
+.photos-eparses .vide:nth-child(2) { top: 26%; right: 0; transform: rotate(3deg); }
+.photos-eparses .vide:nth-child(3) { bottom: 0; left: 14%; transform: rotate(-1.5deg); }
+
+/* Écran 3 : un libellé par colonne, comme un extrait de document. */
+.extraits { align-items: stretch; }
+.extraits .public-bloc { background: none; border: none; border-radius: 0; box-shadow: none; padding: 0; }
+.citation {
+  font-family: var(--font-corps);
+  font-style: italic;
+  font-size: var(--t-corps);
+  line-height: 1.4;
+  color: var(--navy-700);
+  margin: 0.4em 0 0;
+}
+.citation.grande { font-size: calc(var(--t-corps) * 1.2); max-width: 32ch; }
+
+/* Écran 3 : les extraits de référentiels en pile de feuilles.
+   Au fond le document entier, devant les lignes qui comptent. */
+.pile { position: relative; height: clamp(200px, 44vh, 540px); margin: 0.6em 0 clamp(12px, 3vh, 40px); }
+.pile img {
+  position: absolute; display: block; height: auto; background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+.pile .fond { top: 0; left: 2%; width: 86%; transform: rotate(-2deg); opacity: 0.55; filter: saturate(0.6); }
+.pile-ffvoile .n1 { top: 30%; left: -1%; width: 92%; transform: rotate(1.2deg); }
+.pile-ffvoile .n5 { bottom: 20%; left: 4%; width: 88%; transform: rotate(-0.7deg); }
+.pile-cqp .feuille { padding: 0.4em 0.6em; box-sizing: border-box; }
+.pile-cqp .c1 { top: 8%; left: 0; width: 92%; transform: rotate(-1.5deg); }
+.pile-cqp .c2 { top: 34%; right: 0; width: 92%; transform: rotate(1deg); }
+.pile-cqp .c3 { top: 58%; left: 3%; width: 96%; transform: rotate(-0.5deg); }
+
+/* Écran 6 : un besoin par profil, sous la chaîne. */
+.besoins {
+  margin-top: clamp(16px, 3.5vh, 44px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2vw, 32px);
+  font-size: var(--t-liste);
+  font-weight: 400;
+  line-height: 1.4;
+}
+.besoins p { margin: 0; border-top: 3px solid var(--amber-700); padding-top: 0.5em; }
+.besoins strong { display: block; font-family: var(--font-titre); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.05em; color: var(--amber-texte); }
+
+/* Écran 7 : du contexte au choix de méthode, une chaîne par ligne.
+   Contexte en carte blanche, méthode en teal ; la 3e ligne empile deux sources. */
+.chaines {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(8px, 1.6vh, 20px) clamp(10px, 1.6vw, 28px);
+  margin-top: clamp(12px, 3vh, 40px);
+  font-size: var(--t-petit);
+  font-weight: 400;
+  line-height: 1.4;
+}
+.chaines p { margin: 0; }
+.chaines .chaines-tete { font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-texte); }
+.chaine-sources { display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px); }
+.chaines .source, .chaines .methode {
+  padding: clamp(10px, 1.3vw, 20px) clamp(12px, 1.4vw, 22px);
+  border-radius: 16px;
+  color: var(--text-muted);
+}
+.chaines .source { background: #fff; border: 1px solid var(--border-light); }
+.chaines .methode { background: var(--teal-50); border: 1px solid var(--teal-100); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+.chaines strong { display: block; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; margin-bottom: 0.2em; color: var(--navy-700); }
+.chaines .methode strong { color: var(--teal-texte); }
+.chaine-fleche { font-family: var(--font-titre); font-size: calc(var(--t-corps) * 1.4); line-height: 1; color: var(--teal-texte); }
+@media (max-width: 700px) {
+  .chaines { grid-template-columns: 1fr; }
+  .chaines > span:not(.chaine-fleche) { display: none; }
+  .chaines .chaines-tete { display: none; }
+  .chaine-fleche { transform: rotate(90deg); justify-self: center; }
+  .chaines .methode { margin-bottom: 1em; }
+}
+
+/* Écran 8 : les trois objectifs, mot pour mot, en cartes reprises de
+   .objectif-card (ensavoirplus.html, style.css) : emoji à cheval sur le bord,
+   titre court au mot fort bleu, libellé exact en dessous. */
+.objectifs-cartes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2.5vw, 40px); margin-top: clamp(28px, 6vh, 72px); }
+.objectif-carte {
+  position: relative;
+  background: var(--blanc);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: clamp(28px, 5vh, 60px) clamp(14px, 1.6vw, 28px) clamp(16px, 3vh, 36px);
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.objectif-carte .objectif-emoji {
+  position: absolute; top: 0; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(28px, 5vh, 60px); line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
+}
+.objectif-carte .objectif-emoji img.emoji { vertical-align: middle; }
+.objectif-carte h3 { font-family: var(--font-titre); font-size: var(--t-liste); font-weight: 500; color: var(--text-dark); margin: 0.6em 0 0.5em; line-height: 1.25; }
+.objectif-carte h3 strong { font-weight: 800; color: var(--bleu-glenans); }
+.objectif-carte p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-weight: 400; color: var(--text-muted); }
+@media (max-width: 700px) {
+  .objectifs-cartes { grid-template-columns: 1fr; gap: clamp(28px, 5vh, 48px); }
+}
+
+/* Écran 9 : trois voies, une image chacune. */
+.trois-voies { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 3vw, 48px); margin-top: clamp(14px, 3vh, 40px); }
+.trois-voies h3 { font-family: var(--font-titre); font-size: var(--t-liste); color: var(--navy-700); margin: 0.6em 0 0.2em; }
+.trois-voies p { margin: 0; font-size: var(--t-petit); line-height: 1.45; font-family: var(--font-corps); font-weight: 400; font-style: italic; color: var(--text-muted); }
+.trois-voies .photo-cadre { aspect-ratio: 4 / 3; }
+.vignette { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #fff; display: flex; justify-content: center; }
+.vignette img { height: 140%; transform: rotate(-3deg) translateY(6%); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+/* Écran 11 : le composant de l'accueil, mis à l'échelle de la projection (S12).
+   Pas de bouton, des cartes du dessous opaques et plus décalées. */
+.familles-v2 { max-width: 1660px; width: 100%; margin: clamp(10px, 2.4vh, 32px) 0 0; gap: clamp(14px, 2vw, 36px); }
+.familles-v2 .apercu-tile { min-height: clamp(150px, 26vh, 300px); }
+.familles-v2 .apercu-fake-card { background: #fff; }
+.familles-v2 .apercu-fake-card.fake-1 { transform: rotate(2deg) translate(6px, 8px); }
+.familles-v2 .apercu-fake-card.fake-2 { transform: rotate(-1.5deg) translate(-8px, 15px); }
+.familles-v2 .apercu-title { font-size: calc(var(--t-liste) * 0.95); }
+.familles-v2 .apercu-subtitle { font-size: var(--t-petit); }
+.familles-v2 .apercu-emoji { font-size: clamp(28px, 5vh, 56px); }
+.familles-v2 .apercu-count { font-size: clamp(24px, 4.4vh, 52px); }
+.familles-v2 .besoin { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: var(--t-liste); line-height: 1.35; }
+
+/* Le bout d'affiche : le débordement est un dispositif (S11).
+   L'image est derrière, le texte devant ; la coupe est franche. */
+.ecran.deborde { overflow: hidden; }
+.ecran.deborde > :not(img):not(.affiches-bas) { position: relative; z-index: 2; }
+.affiches-bas {
+  position: absolute;
+  left: 50%;
+  bottom: 12vh;
+  transform: translate(-50%, 0);
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.affiches-bas img { box-shadow: 0 4px 16px rgba(0,0,0,0.12); background: #fff; }
+.affiches-bas img + img { margin-left: -2.5vw; }   /* légers chevauchements : marges libres à gauche et à droite */
+.affiches-bas .a-portrait { height: clamp(220px, 50vh, 620px); }
+.affiches-bas .a-paysage { height: clamp(160px, 37vh, 450px); }
+.affiches-bas img:nth-child(1) { transform: translateY(-12vh) rotate(-5deg); }
+.affiches-bas img:nth-child(2) { transform: translateY(-4vh) rotate(2deg); }
+.affiches-bas img:nth-child(3) { transform: translateY(2vh) rotate(-2.5deg); }
+.affiches-bas img:nth-child(4) { transform: translateY(-6vh) rotate(3deg); }
+#affiches { justify-content: flex-start; padding-top: clamp(40px, 12vh, 160px); }
+
+.a3-coin {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(420px, 46vw, 900px);
+  transform: translate(10%, 2%) rotate(-6deg);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 1;
+  pointer-events: none;
+}
+#formation .ateliers { max-width: 58%; }
+
+/* Écrans 13 à 15 : les mini-cartes du fil de semaine (S9), à l'échelle.
+   Même anatomie que .fil-tool du site : dans la carte, l'emoji et le code
+   (R1, M1, J1) à la couleur de la famille ; sous la carte, le nom en
+   Merriweather Sans 700, à la même couleur. Rôles ambre, moments teal,
+   jokers brique, comme style.css. */
+.minicartes { display: flex; justify-content: center; align-items: flex-start; gap: clamp(10px, 1.6vw, 28px); margin-top: clamp(16px, 3.5vh, 44px); }
+.outil { display: flex; flex-direction: column; align-items: center; text-align: center; width: clamp(90px, 10vw, 170px); }
+.minicarte {
+  width: clamp(80px, 8.4vw, 150px);
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+}
+.mc-emoji { font-size: clamp(28px, 4.6vh, 56px); line-height: 1; }
+.mc-emoji img.emoji, .mc-emoji .emoji { width: 1em; height: 1em; }
+.mc-code { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-petit); }
+.outil-nom { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-petit); line-height: 1.25; margin-top: 0.75em; }
+.outil.role .minicarte { border-color: var(--amber-100, #ffe8d4); }
+.outil.role .mc-code, .outil.role .outil-nom { color: var(--amber-texte); }
+.outil.moment .minicarte { border-color: var(--teal-100); }
+.outil.moment .mc-code, .outil.moment .outil-nom { color: var(--teal-texte); }
+.outil.joker .minicarte { border-color: var(--brick-100, #FFCDD2); }
+.outil.joker .mc-code, .outil.joker .outil-nom { color: var(--brick-700); }
+/* Rotations du site : -3, +3, -1,5 degrés ; l'éventail garde ses angles (S9). */
+.ligne .outil:nth-child(3n+1) .minicarte { transform: rotate(-3deg); }
+.ligne .outil:nth-child(3n+2) .minicarte { transform: rotate(3deg); }
+.ligne .outil:nth-child(3n) .minicarte { transform: rotate(-1.5deg); }
+.eventail { gap: 0; }
+.eventail { gap: clamp(4px, 0.6vw, 12px); }
+.eventail .outil:nth-child(1) .minicarte { transform: rotate(-13deg); }
+.eventail .outil:nth-child(2) .minicarte { transform: rotate(-7deg) translateY(-6px); }
+.eventail .outil:nth-child(3) .minicarte { transform: rotate(4deg) translateY(-6px); }
+.eventail .outil:nth-child(4) .minicarte { transform: rotate(12deg); }
+
+/* Écran 16 : deux captures. */
+.duo-captures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 48px); max-width: 1400px; width: 100%; }
+.duo-captures .photo-cadre { aspect-ratio: 16 / 10; }
+#siteweb .duo-captures { grid-template-columns: repeat(3, 1fr); max-width: 1660px; gap: clamp(12px, 2vw, 36px); }
+
+/* Écran 18 : le tracé nu, quatre blocs composés dessous (S14). */
+.phases { position: relative; width: 100%; max-width: 1660px; }
+.phases-trace { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.phases-blocs { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.6vw, 28px); margin-top: clamp(10px, 2.4vh, 30px); }
+.phases-blocs div { display: flex; flex-direction: column; gap: 0.25em; font-size: var(--t-petit); font-family: var(--font-corps); font-weight: 400; line-height: 1.4; }
+.phases-blocs strong { font-family: var(--font-titre); font-size: calc(var(--t-liste) * 0.9); color: var(--navy-700); }
+.phases-blocs .date { color: var(--teal-texte); font-weight: 700; }
+
+/* Écran 20 : la thèse sous la frise. */
+.frise-these { margin: clamp(10px, 2.4vh, 30px) 0; }
+
+/* Écran 23 : besoins puis ressources, sans les fondre. */
+/* Écran 22 : une carte par paire, le besoin en petit, la ressource en grand. */
+.moyens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(12px, 2vw, 32px); max-width: 1300px; margin-bottom: clamp(12px, 2.6vh, 34px); }
+.moyen { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(14px, 2.4vh, 30px) clamp(14px, 1.6vw, 28px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.moyen p { margin: 0; }
+.moyen .besoin { font-family: var(--font-corps); font-size: calc(var(--t-petit) * 1.3); font-weight: 400; color: var(--text-muted); line-height: 1.35; }
+.moyen .ressource { font-family: var(--font-titre); font-weight: 700; font-size: var(--t-liste); color: var(--amber-texte); line-height: 1.25; margin-top: 0.7em; }
+.moyen .ressource::before { content: '→ '; }
+.moyen .chiffres { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--text-muted); line-height: 1.4; margin-top: 1em; padding-top: 0.8em; border-top: 1px solid var(--amber-100); align-self: start; }
+.moyen .chiffres strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); font-size: 1.25em; }
+.moyen .precision { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--amber-texte); line-height: 1.35; margin-top: 0.4em; }
+@media (max-width: 700px) { .moyens { grid-template-columns: 1fr; } }
+
+/* Écran 26 : le chiffre principal. */
+.pourcent { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-chiffre); color: var(--navy-700); margin: clamp(10px, 2vh, 24px) 0 0; line-height: 1; }
+.pourcent span { font-size: 0.32em; font-weight: 400; color: var(--text-muted); vertical-align: middle; }
+
+/* Écran 29 : la question rouverte, en retrait. */
+.question-rappel { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); max-width: 80ch; margin: 0 0 clamp(10px, 2vh, 26px); }
+
+
+/* Correctifs de rendu V2. */
+.version .badge { color: #fff; }                       /* .version span grisait les pastilles */
+.public-bloc .citation { font-family: var(--font-corps); font-size: var(--t-corps); color: var(--navy-700); margin-top: 0.5em; }
+.ecran > .affiches-bas { max-width: none; }
+.familles-v2 .apercu-type-badge { font-size: var(--t-liste); padding: 0.25em 0.75em; }
+.vignette { position: relative; }
+.vignette img { position: absolute; height: auto; width: 64%; left: 18%; top: 10%; transform: rotate(-3deg); }
+
+/* ══ Accord fin avec la DA du site ════════════════════════════════════
+   Sources : assets/css/style.css (.slash, .highlight, .site-subtitle,
+   .objectif-card), assets/css/fil-semaine.css (.fil-question, .fil-tool). */
+
+/* Le mot porté d'un titre, surligné comme sur l'accueil et « En savoir plus ». */
+.highlight {
+  background-color: var(--bleu-glenans);
+  color: #fff;
+  padding: 0 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+/* La question qui ferme un titre : point brique précédé d'une espace, comme le site. */
+.titre .accent-brick { font-weight: 800; }
+
+/* L'ouverture reprend l'en-tête du site : le nom, puis le sous-titre italique rouge. */
+.sous-titre {
+  font-family: var(--font-titre);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(16px, 2.9vh, 38px);
+  color: #F04839;
+  margin: clamp(6px, 1.4vh, 18px) 0 clamp(28px, 6vh, 80px);
+}
+
+/* Emojis Twemoji : à la taille du texte qui les porte, comme sur le site. */
+img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -0.1em; }
+.apercu-emoji img.emoji { vertical-align: middle; }
+.pastille img.emoji { vertical-align: middle; }
+
+/* Captures du site (écrans 9 et 16), prises sur anacoluthe.org le 18/11/2026,
+   pastille PWA masquée. Une capture est un objet posé : bord fin, coins de
+   8 px comme les sections du site, ombre légère (S10). */
+.capture { margin: 0; }
+.capture img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #fff;
+}
+.trois-voies .capture img { aspect-ratio: 4 / 3; }
+/* Écran 9 : photo verticale recadrée en 4:3 sur la table et les visages. */
+.trois-voies .photo-formation img { object-position: 50% 38%; }
+.capture figcaption {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  font-style: italic;
+  font-size: var(--t-petit);
+  color: var(--text-muted);
+  margin-top: 0.6em;
+  text-align: center;
+}
+
+/* Écran 4 : deux extraits des statuts, posés comme des bandes de papier.
+   Le surlignage teal-100 est dans l'image, il désigne les fragments du titre. */
+.statuts { display: flex; flex-direction: column; gap: clamp(10px, 2vh, 26px); max-width: 1180px; width: 100%; margin-top: clamp(6px, 1.4vh, 18px); }
+.statut { display: block; height: auto; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.statut-buts { width: 82%; transform: rotate(-1deg); }
+.statut-preambule { width: 100%; margin-left: 3%; transform: rotate(0.6deg); }
+#e03-statuts .petit { margin-top: clamp(4px, 1vh, 12px); }
+.statuts-et-photo { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(20px, 3.4vw, 64px); align-items: center; width: 100%; max-width: 1660px; }
+.statuts-et-photo .statuts { max-width: none; }
+.photo-posee { display: block; width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transform: rotate(1.5deg); }
+/* Écran 17 : photo verticale, bornée en hauteur pour tenir dans l'écran. */
+.photo-posee.photo-portrait { width: auto; max-width: 100%; max-height: 64vh; justify-self: center; }
+
+/* Écran 5 : photos de la base sur une ligne, posées en vrac (hauteurs, angles et décalages variés), pastille équipe en recouvrement. */
+.ligne-terrain { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1660px; margin: clamp(10px, 3vh, 40px) 0 clamp(28px, 7vh, 80px); }
+.ligne-terrain .photo-posee { width: auto; max-width: none; height: clamp(150px, 34vh, 400px); object-fit: cover; border: 4px solid #fff; flex-shrink: 1; min-width: 0; }
+.l-quai   { aspect-ratio: 3 / 2; transform: rotate(-2.5deg) translateY(-3%); z-index: 2; }
+.l-spi    { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(3deg) translateY(6%); z-index: 3; }
+.l-chenal { aspect-ratio: 4 / 3; margin-left: -2%; transform: rotate(-1deg) translateY(-5%); z-index: 1; }
+.l-phare  { aspect-ratio: 3 / 4; margin-left: -2.5%; transform: rotate(-3.5deg) translateY(4%); z-index: 4; }
+.ligne-terrain .pastille-photo { position: absolute; left: 50%; bottom: -10%; width: clamp(150px, 19%, 300px); height: auto; background: #fff; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transform: translateX(-8%) rotate(4deg); z-index: 5; }
+.terrain-chiffres { text-align: center; align-self: center; }
+
+/* Écran 2 : trois sources de la question. L'organigramme est large, il se
+   contient sur fond blanc au lieu d'être recadré. Les cadres en attente
+   tiennent la place des photos à venir (rapports de mer, encadrement bénévole en croisière). */
+.trois-sources .organigramme img { object-fit: contain; object-position: center; padding: 2%; box-sizing: border-box; }
+.trois-sources .photo-boc img { object-position: 50% 60%; }
+/* Écran 10 : photo verticale du kit plastifié, entière. */
+.photo-kit-v5 img { aspect-ratio: auto; width: auto; max-width: 100%; height: min(62vh, 720px); object-fit: contain; margin: 0 auto; }
+.photo-attente { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; border: 2px dashed var(--border-light); border-radius: 8px; background: #fff; text-align: center; font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }
+
+/* Écran 19 : trois photos d'animation, recadrées au même format, posées en léger désordre. */
+#faceafaces .visuel-photos { width: 100%; }
+.visuel-photos .photo-posee { aspect-ratio: 4 / 3; object-fit: cover; border: 4px solid #fff; }
+.visuel-photos .photo-posee:nth-child(1) { transform: rotate(-2deg); }
+.visuel-photos .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(4%); }
+.visuel-photos .photo-posee:nth-child(3) { transform: rotate(-1deg); }
+
+/* Écrans 13 et 14 : une carte en recto-verso (R3 au-dessus de l'éventail, M2 à côté du texte). */
+#roles { justify-content: flex-start; padding-top: clamp(30px, 8vh, 110px); }
+.role-detail, .carte-detail { display: flex; justify-content: center; gap: clamp(2px, 0.3vw, 6px); margin-bottom: clamp(14px, 3vh, 40px); }
+.role-detail img, .carte-detail img { height: clamp(220px, 44vh, 560px); width: auto; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.role-detail img:nth-child(1), .carte-detail img:nth-child(1) { transform: rotate(-2deg); }
+.role-detail img:nth-child(2), .carte-detail img:nth-child(2) { transform: rotate(2deg); }
+#moments .carte-detail { margin-bottom: 0; }
+#moments .carte-detail img { height: clamp(200px, 40vh, 500px); }
+#moments .minicartes.ligne { margin-top: clamp(14px, 3vh, 40px); }
+
+/* Écran 23 : la check-list du chef de bord et l'affiche des routines, côte à côte. */
+.vis-a-vis { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 1.6vw, 28px); }
+.vis-a-vis .photo-posee { width: auto; max-width: 48%; max-height: 62vh; object-fit: contain; background: #fff; }
+.vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg); }
+.vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg); }
+#e23-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
+#e23-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
+/* De la check-list d'avant à l'affiche du kit (S82) : la nouvelle chevauche l'ancienne,
+   la flèche passe par-dessus les deux. */
+#e23-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
+#e23-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
+#e23-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
+#e23-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.vav-fleche { flex: 0 0 auto; width: clamp(80px, 7vw, 136px); height: auto; overflow: visible; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
+.vav-fleche path { stroke: var(--acte-encre); stroke-width: 12; stroke-linecap: round; fill: none; }
+.vav-fleche .vav-pointe { fill: var(--acte-encre); stroke-linejoin: round; stroke-width: 6; }
+.vav-fleche .vav-halo { stroke: #fff; stroke-width: 24; stroke-linejoin: round; fill: #fff; }
+
+/* Écran 25 : deux constats, chacun avec son libellé, ses barres et son appui. */
+.constats { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 32px); max-width: 1300px; }
+.constat { background: #fff; border: 1px solid var(--teal-100); border-radius: 12px; padding: clamp(14px, 2.4vh, 30px) clamp(16px, 1.8vw, 30px); }
+.constat h3 { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); margin: 0; }
+.constat .item { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); margin: 0.4em 0 0.9em; }
+.barres { display: grid; gap: 0.5em; }
+.barre { display: grid; grid-template-columns: 5.5em 1fr 3.6em; align-items: center; gap: 0.6em; font-size: var(--t-petit); }
+.barre .lib { color: var(--text-muted); }
+.barre .piste { height: 0.9em; background: #EEF2F4; border-radius: 99px; overflow: hidden; }
+.barre .piste span { display: block; height: 100%; border-radius: 99px; }
+.barre.avec .piste span { background: var(--teal-700); }
+.barre.sans .piste span { background: #A9B4BE; }
+.barre strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); font-size: 1.2em; text-align: right; }
+.appui-constat { font-family: var(--font-corps); font-size: var(--t-petit); color: var(--navy-700); margin: 1em 0 0; padding-top: 0.8em; border-top: 1px solid var(--teal-100); }
+.condition { font-family: var(--font-corps); font-size: var(--t-corps); color: var(--navy-700); max-width: 1300px; margin: clamp(14px, 3vh, 36px) 0 0.4em; padding: 0.7em 1em; background: #fff; border: 1px solid var(--teal-100); border-radius: 12px; }
+.condition > span { display: block; font-family: var(--font-titre); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.06em; color: var(--bleu-glenans); margin-bottom: 0.2em; }
+.appui-constat .qui { color: var(--text-muted); font-style: italic; white-space: nowrap; }
+.condition strong { color: var(--bleu-glenans); font-weight: 800; }
+@media (max-width: 700px) { .constats { grid-template-columns: 1fr; } }
+
+/* Écrans 22 et 25 : emoji à cheval sur le bord, comme .objectif-carte (écran 8),
+   calé à gauche sur le texte des cartes. */
+.moyen, .constat { position: relative; padding-top: clamp(26px, 4.4vh, 52px); }
+.moyens, .constats { margin-top: clamp(18px, 3.4vh, 40px); }
+.emoji-cheval {
+  position: absolute; top: 0; left: clamp(14px, 1.6vw, 28px);
+  transform: translateY(-50%);
+  font-size: clamp(26px, 4.4vh, 52px); line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
+}
+.emoji-cheval img.emoji { vertical-align: middle; }
+
+/* Écran 24 : les chiffres en deçà du prévu en couleur chaude, la bonne surprise
+   garde le teal. Les causes en idées clefs, cartes à emoji comme les écrans 22 et 25. */
+.ecart .en-deca .chiffre { color: var(--brick-700); }
+.ecart-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(22px, 4.5vh, 56px) 0 0; }
+.ecart-idees { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); margin-top: clamp(22px, 4vh, 48px); }
+.idee { position: relative; background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(26px, 4.4vh, 52px) clamp(14px, 1.6vw, 28px) clamp(14px, 2.4vh, 28px); display: flex; flex-direction: column; gap: 0.3em; }
+.idee strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.idee > span:not(.emoji-cheval) { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--text-muted); }
+@media (max-width: 700px) { .ecart-idees { grid-template-columns: 1fr; gap: clamp(28px, 5vh, 48px); } }
+.ecart-idees { align-items: stretch; }
+.voies { list-style: none; margin: 0.3em 0 0; padding: 0; font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--navy-700); line-height: 1.5; }
+.voies li::before, .pastille-prevue, .pastille-nee { content: ''; display: inline-block; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--amber-700); margin-right: 0.5em; vertical-align: 0.1em; }
+.voies li.prevue::before, .pastille-prevue { background: var(--teal-700); }
+.legende-voies { margin-top: 0.4em; font-size: calc(var(--t-petit) * 0.85) !important; }
+.legende-voies b { margin-right: 0.3em !important; }
+.voies.contraintes li::before { background: var(--brick-700); }
+.nowrap { white-space: nowrap; }
+.idee .sous-titre-voies { margin-top: 0.6em; color: var(--navy-700) !important; font-weight: 400 !important; }
+.voies:not(.contraintes):not(.deleguees) li::before { background: var(--navy-700); }
+/* Puces discrètes : petit point gris, sans code couleur. */
+.idee .voies li::before { width: 0.3em; height: 0.3em; margin-right: 0.6em; vertical-align: 0.2em; background: var(--text-muted) !important; opacity: 0.7; }
+/* Écran 26 : couverture du Courrier des Glénans, extrait du cap posé dessus. */
+.courrier-cap { position: relative; display: grid; justify-items: end; padding-bottom: 14vh; }
+.courrier-cap .couverture { width: auto; max-width: 70%; max-height: 54vh; border: 4px solid #fff; transform: rotate(2deg); }
+.courrier-cap .extrait {
+  position: absolute; left: -8%; bottom: 0; width: 104%; max-width: none;
+  background: #fff; border: 4px solid #fff; transform: rotate(-2.5deg);
+}
+/* Écrans 27 et 28 : les deux bilans, deux cartes à emoji comme l'écran 24, bordure neutre. */
+.ecart-idees.bilan { grid-template-columns: repeat(2, 1fr); max-width: 1300px; }
+.bilan .idee { border-color: var(--amber-100); }
+.bilan .idee .voies { font-size: var(--t-liste); line-height: 1.45; margin-top: 0.5em; }
+.bilan .idee .voies li { margin-bottom: 0.35em; }
+.bilan .idee > span:not(.emoji-cheval) { font-size: var(--t-liste); line-height: 1.45; color: var(--navy-700); margin-top: 0.4em; }
+@media (max-width: 700px) { .ecart-idees.bilan { grid-template-columns: 1fr; } }
+/* Écran 28 : les apprentissages à gauche, les deux suites empilées à droite. */
+.bilan-moi { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(16px, 3vw, 56px); max-width: 1500px; align-items: start; }
+.bilan-moi .ecart-kicker { margin-top: clamp(10px, 2vh, 24px); }
+.bilan-moi .liste { margin-top: clamp(10px, 2vh, 24px); }
+.bilan-moi .liste li { margin-bottom: 0.7em; }
+.ecart-idees.bilan.empile { grid-template-columns: 1fr; gap: clamp(26px, 4.6vh, 52px); margin-top: clamp(22px, 4vh, 44px); }
+@media (max-width: 700px) { .bilan-moi { grid-template-columns: 1fr; } }
+/* Écran 27 : la question posée à l'association, en grand, puis trois cartes. */
+.question-structure { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.35); line-height: 1.25; color: var(--bleu-glenans); max-width: 40ch; margin: clamp(8px, 1.6vh, 20px) 0 0; }
+.ecart-idees.bilan.trois { grid-template-columns: repeat(3, 1fr); max-width: 1500px; }
+.bilan.trois .idee .voies { font-size: var(--t-petit); }
+@media (max-width: 700px) { .ecart-idees.bilan.trois { grid-template-columns: 1fr; } }
+/* Écran 27 : trois acquis en ligne, coche teal, avant la question d'échelle. */
+.acquis { list-style: none; margin: clamp(8px, 1.6vh, 20px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); max-width: 1500px; }
+.acquis li { display: flex; flex-direction: column; gap: 0.2em; padding-left: 1.5em; position: relative; }
+.acquis li::before { content: '✓'; position: absolute; left: 0; top: 0; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--teal-texte); }
+.acquis strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.acquis li > span { font-family: var(--font-corps); font-size: var(--t-petit); font-weight: 400; color: var(--text-muted); }
+#reste .question-structure { margin-top: clamp(20px, 4vh, 48px); }
+.bilan.trois .idee > span:not(.emoji-cheval) { font-size: var(--t-petit); color: var(--text-muted); }
+@media (max-width: 700px) { .acquis { grid-template-columns: 1fr; } }
+/* Écran 27 : les trois constats passent au premier plan, dans un bandeau teal,
+   coche blanche dans une pastille ; la question d'échelle et ses voies en second. */
+#reste .acquis { background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 14px; padding: clamp(16px, 3vh, 36px) clamp(16px, 2vw, 36px); margin-top: clamp(10px, 2vh, 24px); gap: clamp(16px, 2.6vw, 44px); }
+#reste .acquis li { padding-left: 0; gap: 0.35em; }
+#reste .acquis li::before { position: static; display: inline-flex; align-items: center; justify-content: center; width: 1.6em; height: 1.6em; border-radius: 50%; background: var(--teal-700); color: #fff; font-size: var(--t-liste); margin-bottom: 0.3em; }
+#reste .acquis strong { font-size: calc(var(--t-corps) * 1.12); color: var(--navy-700); }
+#reste .acquis li > span { font-size: var(--t-petit); color: var(--teal-texte); font-weight: 400; }
+#reste .question-structure { font-size: var(--t-corps); margin-top: clamp(18px, 3.4vh, 40px); }
+#reste .ecart-idees.bilan.trois { margin-top: clamp(20px, 3.6vh, 40px); }
+#reste .bilan.trois .idee strong { font-size: var(--t-petit); }
+#reste .bilan.trois .idee { padding-top: clamp(22px, 3.6vh, 42px); }
+/* Écran 28 : chaque apprentissage suivi de ce que je ferais autrement, en flèche. */
+.lecons { list-style: none; margin: clamp(12px, 2.4vh, 28px) 0 0; padding: 0; display: flex; flex-direction: column; gap: clamp(14px, 2.8vh, 32px); }
+.lecons li { display: flex; flex-direction: column; gap: 0.3em; padding-left: 0.9em; border-left: 3px solid var(--teal-100); }
+.lecons .appris { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.lecons .autrement { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--teal-texte); line-height: 1.35; }
+.lecons .autrement::before { content: '→ '; font-weight: 700; }
+.fleche-kicker { color: var(--teal-texte); }
+
+/* Lightbox : toute image d'écran s'agrandit au clic (assets/js/soutenance-lightbox.js).
+   Les affiches posées en décor sont sous pointer-events: none ; leurs images
+   redeviennent cliquables. Pas de curseur dédié. */
+.affiches-bas img,
+.a3-coin { pointer-events: auto; }
+
+/* ── V2 après l'oral blanc n°1 (S39 à S51) ── */
+
+/* Trois publics reliés : la flèche porte le lien, pas une hiérarchie. */
+.public-lien { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.2em; flex: 0 0 auto; text-align: center; }
+.public-lien span:last-child { max-width: 9em; font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); line-height: 1.3; }
+.public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-texte); margin-bottom: 0.6em; }
+#e07-publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
+#e07-publics .publics { max-width: 1664px; }
+#e07-publics .public-bloc { flex: 1 1 0; min-width: 0; }
+#e07-publics .public-lien span:last-child, #e07-publics .public-qui { letter-spacing: 0.04em; }
+
+/* Deux personas. */
+.personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2.4vw, 40px); max-width: 1400px; }
+.persona { position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: clamp(26px, 4.4vh, 52px) clamp(16px, 2vw, 32px) clamp(16px, 3vh, 36px); display: flex; flex-direction: column; gap: 0.5em; }
+/* Emoji à cheval par persona (S72) : 🌱 débutante, 🧭 expérimentée, ⛵ stagiaire, comme dans le fil. */
+.personas { margin-top: clamp(26px, 4.4vh, 52px); }
+.persona h3 { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.2); color: var(--bleu-glenans); margin: 0; }
+.persona-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-texte); margin: 0; }
+.persona-besoin { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--navy-700); margin: 0; line-height: 1.4; }
+.persona-citation { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); border-left: 3px solid var(--teal-100); padding-left: 0.8em; margin: 0.4em 0; line-height: 1.45; }
+.persona-kit { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--teal-texte); margin: auto 0 0; }
+.persona-kit strong { color: var(--navy-700); }
+@media (max-width: 700px) { .personas { grid-template-columns: 1fr; } }
+
+/* Parties prenantes en bulles. */
+.pp-bulles { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); max-width: 1500px; margin-top: clamp(8px, 2vh, 24px); }
+.pp-bulle { background: #fff; border: 1px solid var(--teal-100); border-radius: 2.2em; padding: clamp(14px, 2.6vh, 32px) clamp(18px, 2vw, 36px); display: flex; flex-direction: column; gap: 0.35em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.pp-bulle:nth-child(odd) { transform: rotate(-0.8deg); }
+.pp-bulle:nth-child(even) { transform: rotate(0.8deg); }
+.pp-bulle strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.25; }
+.pp-bulle span { font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); color: var(--text-muted); line-height: 1.4; }
+.pp-bulle.pp-moi { background: var(--amber-50); border-color: var(--amber-100); }
+@media (max-width: 900px) { .pp-bulles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .pp-bulles { grid-template-columns: 1fr; } }
+
+/* Les blocs de phase portent les publics : une ligne de plus. */
+.phases-blocs div span:last-child { color: var(--navy-700); }
+
+/* Écrans de phase : repère de phase, format de l'animation, intentions. */
+.phase-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.16em; color: var(--acte-texte, var(--text-muted)); margin: 0 0 0.6em; }
+.format { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--navy-700); line-height: 1.45; margin: 0; }
+.intentions { margin-top: clamp(8px, 1.6vh, 20px); }
+.intentions li { margin-bottom: clamp(6px, 1.2vh, 14px); }
+.texte-et-photo .ecart-kicker { margin-top: clamp(14px, 2.8vh, 32px); }
+
+/* Pépites du kit : un bloc bordé à l'accent de l'acte. */
+.pepite { margin-top: clamp(14px, 2.8vh, 32px); padding: 0.2em 0 0.2em 1em; border-left: 4px solid var(--acte-encre, var(--teal-700)); display: flex; flex-direction: column; gap: 0.25em; }
+.pepite strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); }
+.pepite span { font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); color: var(--text-muted); line-height: 1.45; }
+.pepite-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.14em; color: var(--acte-texte, var(--text-muted)); margin: 0; }
+.pepite-joker { flex-direction: row; align-items: center; gap: clamp(10px, 1.4vw, 24px); }
+.pepite-joker > div:last-child { display: flex; flex-direction: column; gap: 0.25em; }
+.pepite-joker .outil { width: auto; }
+.pepite-joker .minicarte { width: clamp(54px, 5.4vw, 90px); transform: rotate(-4deg); }
+.affiche-pepite { width: auto; max-width: 100%; max-height: 70vh; justify-self: center; }
+
+/* Contenu encore à fournir : visible, à retirer avant l'oral. */
+.a-completer { font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--amber-texte); border: 2px dashed var(--amber-100); border-radius: 10px; padding: 0.6em 0.9em; margin: clamp(12px, 2.4vh, 28px) 0 0; }
+#e26-preconisations .citation { margin: 0; }
+#e26-preconisations .ecart-idees { margin-top: clamp(16px, 3vh, 36px); }
+#e22-brief .liste { margin-top: clamp(10px, 2vh, 24px); }
+
+/* Après la hausse des tailles (oral blanc n°1) : écrans les plus denses. */
+#e24-ecart .ecart .chiffre { font-size: clamp(34px, 6.4vh, 88px); }
+#e24-ecart .ecart-kicker { margin-top: clamp(14px, 2.6vh, 34px); }
+#e24-ecart .ecart-idees { margin-top: clamp(10px, 1.8vh, 24px); }
+#e24-ecart .idee { padding-top: clamp(18px, 3vh, 36px); }
+#e24-ecart .idee .voies { display: flex; flex-wrap: wrap; column-gap: 0.9em; }
+#e24-ecart .ecart-idees { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* 4:3 : les listes de l'écart passent en ligne, séparées par un point médian. */
+@media (max-aspect-ratio: 3/2) {
+  #e24-ecart .idee .voies { display: block; }
+  #e24-ecart .idee .voies li { display: inline; }
+  #e24-ecart .idee .voies li::before { display: none; }
+  #e24-ecart .idee .voies li:not(:last-child)::after { content: ' · '; color: var(--text-muted); }
+}
+@media (max-aspect-ratio: 3/2) {
+  #e24-ecart .ecart .chiffre { font-size: clamp(30px, 5.2vh, 70px); }
+  #e24-ecart .titre { margin-bottom: clamp(6px, 1.2vh, 16px); }
+  #e24-ecart .ecart-kicker { margin-top: clamp(10px, 1.8vh, 24px); }
+}
+/* Écran « Ce que le projet a produit » : trois vignettes au même format. */
+#e13-produit .capture { aspect-ratio: 4 / 3; overflow: hidden; }
+#e13-produit .capture img { width: 100%; height: 100%; object-fit: cover; }
+#e13-produit .capture.photo-attente { display: flex; align-items: center; justify-content: center; }
+/* Écran des capacités visées : les deux personas, une liste chacune. */
+#e09-capacites .ecart-kicker { margin-top: clamp(14px, 2.6vh, 32px); }
+#e09-capacites .personas { margin-top: clamp(30px, 4.6vh, 56px); }
+#e09-capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }
+/* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
+.pp-bulle { justify-content: center; align-items: center; text-align: center; }
+/* Capacités : trois cartes, les stagiaires au bout de la chaîne en ambre. */
+#e09-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; }
+#e09-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
+/* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
+.phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }
+.phases-blocs.pourquoi strong { font-size: calc(var(--t-corps) * 1.2); line-height: 1.15; color: var(--acte-texte); }
+#e12-enjeux .phases-trace { max-height: 44vh; object-fit: contain; object-position: left center; }
+/* Boîte à outils (S62) : sous chaque pile, pour qui c'est une pépite. Clic : le visuel. */
+.familles-v2 .pepite-pour { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); }
+.familles-v2 .pepite-pour strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); }
+.familles-v2.pepites .apercu-stack:focus-visible { outline: 3px solid var(--bleu-glenans); outline-offset: 6px; border-radius: 12px; }
+/* Emplacements photo au format portrait, côté droit des écrans de phase. */
+.attente-portrait { aspect-ratio: 3 / 4; height: 60vh; width: auto; justify-self: center; padding: 1em; }
+
+/* Écran 13 : le mode d'emploi, l'affiche A4 recto-verso à côté du texte. */
+#e14-mode-emploi .texte-et-photos { grid-template-columns: 0.72fr 1.28fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(10px, 2.4vh, 30px); }
+#e14-mode-emploi .vis-a-vis .photo-posee { height: min(58vh, 630px); width: auto; max-width: none; min-width: 0; }
+
+/* Écran 6 : les contraintes à gauche, la méthode qui en découle à droite (S71). */
+.contraintes-methode { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 2.6vw, 48px); align-items: stretch; max-width: 1560px; margin-top: clamp(18px, 4vh, 52px); }
+.contraintes-methode .cm-bloc { position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: clamp(26px, 4.4vh, 52px) clamp(18px, 2vw, 36px) clamp(16px, 3vh, 36px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.contraintes-methode .cm-bloc .ecart-kicker { margin: 0 0 clamp(10px, 2vh, 24px); font-size: var(--t-corps); }
+.contraintes-methode .cm-donc { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.2em; }
+.contraintes-methode .cm-donc span:first-child { font-family: var(--font-titre); font-size: var(--t-titre); line-height: 1; color: var(--acte-encre); }
+.contraintes-methode .cm-donc span:last-child { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--acte-texte); }
+
+/* Écran 14 : le zoom sur les quatre familles (haut du verso), posé par-dessus le recto-verso (S73). */
+#e14-mode-emploi .mode-emploi-visuels { position: relative; width: fit-content; justify-self: center; min-width: 0; }
+#e14-mode-emploi .zoom-familles { position: absolute; z-index: 2; right: -4%; top: 34%; width: 104%; max-width: none; height: auto; transform: rotate(-1deg); background: #fff; border: 1px solid var(--border-light); border-radius: 10px; box-shadow: 0 10px 32px rgba(0,0,0,0.22); }
+
+
+/* Kickers en majuscules : un cran plus gras pour la projection (S75). */
+.kicker, .ecart-kicker, .condition > span, .public-lien span:last-child, .public-bloc .public-qui,
+.persona-tag, .phase-tag, .pepite-tag, .contraintes-methode .cm-donc span:last-child, .chaines .chaines-tete { font-weight: 600; }
+
+/* Écran 16 : les affiches de communication sur la base, à droite du texte (S76). */
+#e17-affiches-base .texte-et-photos { grid-template-columns: 0.85fr 1.15fr; }
+#e17-affiches-base .vis-a-vis .photo-posee { height: min(64vh, 690px); width: auto; max-width: none; min-width: 0; }
+
+/* Un paragraphe suivi d'une liste : un interligne entre les deux, partout (S77). */
+.corps + .liste { margin-top: clamp(12px, 2.2vh, 28px); }
+
+
+/* Écran 15 : la phrase des besoins auxquels répondent les pépites, alignée sur la grille des piles (S78). */
+.pepites-kicker { max-width: 1200px; width: 100%; margin: clamp(14px, 2.6vh, 32px) auto clamp(14px, 2.4vh, 28px); }
+.pepites-kicker strong { color: var(--navy-700); }
+
+/* Écran 15 : deux cycles divergence puis convergence, chaque geste dit par le concret d'Anacoluthe (S79).
+   Inspiration graphique : losange ouvert, flèches qui s'écartent, nuage d'idées, flèche qui resserre.
+   Le SVG est à l'échelle 1 à 1920 : ses textes restent au-dessus de --t-petit. */
+.cycles-dc { width: 100%; max-width: 1660px; margin-top: clamp(16px, 3vh, 36px); }
+.cycles-dc svg { display: block; width: 100%; height: auto; overflow: visible; }
+.cycles-dc .dc-contour { fill: none; stroke: var(--navy-700); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.cycles-dc .dc-diverge { stroke: var(--amber-700); stroke-width: 9; stroke-linecap: round; }
+.cycles-dc .dc-pointe { fill: var(--amber-700); }
+.cycles-dc .dc-idee { fill: var(--amber-100); stroke: var(--navy-700); stroke-width: 2; }
+.cycles-dc .dc-converge { fill: var(--navy-100); }
+.cycles-dc .dc-lien { stroke: var(--navy-700); stroke-width: 3; }
+.cycles-dc .dc-boucle { fill: none; stroke: var(--navy-700); stroke-width: 3; stroke-dasharray: 10 9; }
+.cycles-dc .dc-pointe-boucle { fill: var(--navy-700); }
+.cycles-dc .dc-pivot rect { fill: #fff; stroke: var(--navy-700); stroke-width: 2; }
+.cycles-dc .dc-pivot text { font-family: var(--font-titre); font-weight: 800; font-size: 26px; fill: var(--navy-700); text-anchor: middle; }
+.dc-concret { display: grid; grid-template-columns: 400fr 400fr 60fr 400fr 400fr; margin-top: clamp(10px, 2vh, 24px); }
+.dc-concret p { margin: 0; padding: 0 clamp(10px, 1.2vw, 22px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
+.dc-concret p strong { font-family: var(--font-titre); font-weight: 800; }
+.dc-concret .dc-geste { display: block; margin-bottom: 0.3em; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; }
+.dc-concret .dc-div { color: var(--amber-texte); }
+.dc-concret .dc-conv { color: var(--navy-700); }
+
+/* Écran 18 : les quatre face-à-face avec les moniteurices, une carte chacun (S81). */
+.faf-cartes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 32px); max-width: 1664px; margin-top: clamp(36px, 6vh, 72px); }
+.faf-carte { position: relative; display: flex; flex-direction: column; gap: 0.55em; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(28px, 4.6vh, 54px) clamp(14px, 1.4vw, 26px) clamp(16px, 2.6vh, 30px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.35; color: var(--navy-700); }
+.faf-carte strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
+.faf-carte .faf-quand { font-family: var(--font-legende); color: var(--text-muted); }
+.faf-carte b, .faf-pour b { display: block; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; color: var(--acte-texte); }
+.faf-a-completer { font-family: var(--font-legende); color: var(--amber-texte); }
+/* Écran 19 : avec les stagiaires, deux photos du kit en usage. */
+#e19-stagiaires .texte-et-photos { grid-template-columns: 0.9fr 1.1fr; }
+#e19-stagiaires .vis-a-vis .photo-posee { height: min(52vh, 560px); width: auto; max-width: 48%; object-fit: cover; }
+.faf-pour { margin-top: clamp(18px, 3.4vh, 40px); }
+.faf-pour b { display: inline; margin-right: 0.4em; }
+
+/* Écran 20 : avec les encadrants, deux cartes (S81). */
+.faf-cartes.faf-deux { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1200px; }
+#e20-encadrants .faf-cartes { margin-top: clamp(40px, 6.4vh, 76px); }

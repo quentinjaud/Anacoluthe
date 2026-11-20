@@ -7,9 +7,10 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Support de soutenance BPJEPS voile habitable, UC1-UC2.">
 <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
-<!-- V2 après l'oral blanc n°1 (19/11/2026). La V1 est archivée dans
-     archives/soutenance/soutenance-oral-blanc-1.html.
-     Refonte : Dossier_UC12_anacoluthe/soutenance/CHECKLIST_ORAL_BLANC_1.md.
+<!-- V3 après l'oral blanc n°2 (20/11/2026), 20 écrans. Les decks des oraux
+     blancs sont archivés dans archives/soutenance/soutenance-oral-blanc-1.html
+     et soutenance-oral-blanc-2.html.
+     Refonte : Dossier_UC12_anacoluthe/soutenance/CHECKLIST_ORAL_BLANC_2.md.
      Charte : sources/documentation/DESIGN_INTENTIONS.md
      Code : assets/css/soutenance.css, qui recopie assets/css/style.css -->
 <link rel="stylesheet" href="assets/css/soutenance.css">
@@ -21,46 +22,39 @@
 <!-- Le fil : une pastille par écran, regroupées par acte dans des plateaux
      de pills comme la barre basse du site (ensavoirplus). Une ligne continue
      relie les actes, le chemin parcouru passe en teal.
-     Ordre et ancres : refonte après l'oral blanc n°1 (S39 à S51). -->
+     Ordre et ancres : refonte après l'oral blanc n°2 (S84). -->
 <nav class="fil" aria-label="Progression de la soutenance">
   <div class="fil-piste">
     <span class="fil-ligne" aria-hidden="true"><span class="fil-parcouru"></span></span>
     <div class="acte acte-1" role="group" aria-label="Acte 1 · Problématique et origines">
       <a class="pastille" href="#e01-question"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
       <a class="pastille" href="#e02-commande"><span aria-hidden="true">📜</span><span class="bulle">D'où vient cette question ?</span></a>
-      <a class="pastille" href="#e03-statuts"><span aria-hidden="true">🌱</span><span class="bulle">Par la mer, à la vie collective</span></a>
-      <a class="pastille" href="#e04-referentiels"><span aria-hidden="true">📋</span><span class="bulle">Les référentiels</span></a>
-      <a class="pastille" href="#e05-terrain"><span aria-hidden="true">⛵</span><span class="bulle">Le terrain</span></a>
-      <a class="pastille" href="#e06-contraintes"><span aria-hidden="true">🧱</span><span class="bulle">Contraintes et méthode</span></a>
+      <a class="pastille" href="#e03-referentiels"><span aria-hidden="true">📋</span><span class="bulle">Les référentiels</span></a>
+      <a class="pastille" href="#e04-terrain"><span aria-hidden="true">⛵</span><span class="bulle">Le terrain</span></a>
+      <a class="pastille" href="#e05-contraintes"><span aria-hidden="true">🧱</span><span class="bulle">Contraintes et méthode</span></a>
     </div>
     <div class="acte acte-2" role="group" aria-label="Acte 2 · Déroulé général">
-      <a class="pastille" href="#e07-publics"><span aria-hidden="true">👥</span><span class="bulle">Trois publics</span></a>
-      <a class="pastille" href="#e08-personas"><span aria-hidden="true">🎭</span><span class="bulle">Deux moniteurices types</span></a>
-      <a class="pastille" href="#e09-capacites"><span aria-hidden="true">🎯</span><span class="bulle">Être capable de</span></a>
-      <a class="pastille" href="#e10-equipe"><span aria-hidden="true">🤝</span><span class="bulle">Une équipe pour y arriver</span></a>
-      <a class="pastille" href="#e11-phases"><span aria-hidden="true">〰️</span><span class="bulle">Quatre phases</span></a>
-      <a class="pastille" href="#e12-enjeux"><span aria-hidden="true">🧩</span><span class="bulle">L'enjeu majeur de chaque phase</span></a>
-      <a class="pastille" href="#e13-produit"><span aria-hidden="true">🎁</span><span class="bulle">Ce qui a été produit</span></a>
+      <a class="pastille" href="#e06-publics"><span aria-hidden="true">👥</span><span class="bulle">Trois publics</span></a>
+      <a class="pastille" href="#e07-capacites"><span aria-hidden="true">🎯</span><span class="bulle">Être capable de</span></a>
+      <a class="pastille" href="#e08-equipe"><span aria-hidden="true">🤝</span><span class="bulle">Une équipe pour y arriver</span></a>
+      <a class="pastille" href="#e09-phases"><span aria-hidden="true">〰️</span><span class="bulle">Quatre phases, quatre enjeux</span></a>
+      <a class="pastille" href="#e10-produit"><span aria-hidden="true">🎁</span><span class="bulle">Ce qui a été produit</span></a>
     </div>
     <div class="acte acte-3" role="group" aria-label="Acte 3 · Focus outils">
-      <a class="pastille" href="#e14-mode-emploi"><span aria-hidden="true">📄</span><span class="bulle">Une boîte autonome</span></a>
-      <a class="pastille" href="#e15-conception"><span aria-hidden="true">💎</span><span class="bulle">Diverger, converger</span></a>
-      <a class="pastille" href="#e16-boite"><span aria-hidden="true">🧰</span><span class="bulle">Une carte, un besoin</span></a>
-      <a class="pastille" href="#e17-affiches-base"><span aria-hidden="true">📢</span><span class="bulle">Les affiches sur la base</span></a>
+      <a class="pastille" href="#e11-mode-emploi"><span aria-hidden="true">📄</span><span class="bulle">Une boîte autonome</span></a>
+      <a class="pastille" href="#e12-conception"><span aria-hidden="true">🔁</span><span class="bulle">Un cycle de co-conception</span></a>
+      <a class="pastille" href="#e13-boite"><span aria-hidden="true">🧰</span><span class="bulle">Des pépites</span></a>
+      <a class="pastille" href="#e14-affiches-base"><span aria-hidden="true">📢</span><span class="bulle">Les affiches sur la base</span></a>
     </div>
-    <div class="acte acte-4" role="group" aria-label="Acte 4 · Face-à-face pédagogiques">
-      <a class="pastille" href="#e18-moniteurices"><span aria-hidden="true">🧑‍🤝‍🧑</span><span class="bulle">Avec les moniteurices</span></a>
-      <a class="pastille" href="#e19-stagiaires"><span aria-hidden="true">⛵</span><span class="bulle">Avec les stagiaires</span></a>
-      <a class="pastille" href="#e20-encadrants"><span aria-hidden="true">📣</span><span class="bulle">Avec les encadrants</span></a>
-      <a class="pastille" href="#e21-vendredi"><span aria-hidden="true">🎓</span><span class="bulle">Les ateliers du vendredi</span></a>
-      <a class="pastille" href="#e22-brief"><span aria-hidden="true">🗣️</span><span class="bulle">Outiller le brief</span></a>
+    <div class="acte acte-4" role="group" aria-label="Acte 4 · Focus formation">
+      <a class="pastille" href="#e15-vendredi"><span aria-hidden="true">🎓</span><span class="bulle">Les ateliers du vendredi</span></a>
     </div>
     <div class="acte acte-5" role="group" aria-label="Acte 5 · Bilans">
-      <a class="pastille" href="#e23-ce-qui-reste"><span aria-hidden="true">📎</span><span class="bulle">Ce qui reste</span></a>
-      <a class="pastille" href="#e24-ecart"><span aria-hidden="true">📉</span><span class="bulle">L'écart au prévu</span></a>
-      <a class="pastille" href="#e25-mesure"><span aria-hidden="true">📊</span><span class="bulle">Les retours</span></a>
-      <a class="pastille" href="#e26-preconisations"><span aria-hidden="true">🗺️</span><span class="bulle">Préconisations</span></a>
-      <a class="pastille" href="#e27-bilan-moi"><span aria-hidden="true">🪢</span><span class="bulle">Bilan pour moi</span></a>
+      <a class="pastille" href="#e16-ce-qui-reste"><span aria-hidden="true">📎</span><span class="bulle">Ce qui reste</span></a>
+      <a class="pastille" href="#e17-mesure"><span aria-hidden="true">📊</span><span class="bulle">Les retours</span></a>
+      <a class="pastille" href="#e18-ecart"><span aria-hidden="true">📉</span><span class="bulle">Insuffisances et continuités</span></a>
+      <a class="pastille" href="#e19-perspectives"><span aria-hidden="true">🗺️</span><span class="bulle">Perspectives</span></a>
+      <a class="pastille" href="#e20-bilan-moi"><span aria-hidden="true">🪢</span><span class="bulle">Bilan pour moi</span></a>
     </div>
   </div>
 </nav>
@@ -68,7 +62,7 @@
 <!-- Le numéro de l'écran, à droite du fil : le jury peut dire « revenons à
      la page 12 ». Hors du nav pour rester visible en projection, quand le
      fil s'efface. Taper le numéro puis Entrée y ramène. -->
-<div class="numero" aria-live="polite"><span class="numero-courant">1</span><span class="numero-total">/ 27</span></div>
+<div class="numero" aria-live="polite"><span class="numero-courant">1</span><span class="numero-total">/ 20</span></div>
 
 <main>
 
@@ -85,48 +79,32 @@
   que <strong>d'opportunités d'apprentissage</strong>&nbsp;?</p>
 </section>
 
-<!-- 2. D'OÙ VIENT LA QUESTION -->
+<!-- 2. D'OÙ VIENT LA QUESTION (S85) : le constat d'abord, en titre. Les trois sources
+     en dessous, plus petites : elles disent où le constat s'est fait. -->
 <section data-acte="1" class="ecran" id="e02-commande">
-  <h2 class="titre">D'où vient cette <span class="highlight">question</span>&nbsp;?</h2>
+  <p class="phase-tag">D'où vient cette question</p>
+  <h2 class="titre">Pour parler <span class="highlight">vivre-ensemble</span>, ni outils ni contenus pédagogiques</h2>
+  <p class="corps appui">La technique, elle, a ses cartes de progression, son manuel, ses fiches.</p>
   <div class="trois-voies trois-sources">
     <div>
       <div class="capture photo-boc"><img src="assets/images/soutenance/photo-annee-boc.webp" alt="Huit moniteurices en tenue de navigation posent en riant sur la plage de la base, l'étang en arrière-plan"></div>
       <h3>Mon encadrement bénévole en croisière</h3>
-      <p>et ce que j'y ai observé de la coopération</p>
     </div>
     <div>
       <div class="capture organigramme"><img src="assets/images/soutenance/organigramme-marseillan.webp" alt="Extrait de l'organigramme de la base de Marseillan : sous le chef de base, Romain Gauvrit, adjoint nautique et responsable croisière, son assistant nautique et l'adjointe voile légère"></div>
-      <h3>Les échanges avec Romain Gauvrit</h3>
-      <p>responsable croisière</p>
+      <h3>Les échanges avec Romain Gauvrit, responsable croisière</h3>
     </div>
     <div>
       <!-- PLACEHOLDER : photo des rapports de mer, demandée à Romain -->
       <div class="capture photo-attente" role="img" aria-label="Photo des rapports de mer à venir"><span>Photo des rapports de mer<br>à venir</span></div>
-      <h3>Les rapports de mer</h3>
-      <p>des tensions humaines<br> qui finissent en incidents techniques</p>
+      <h3>Les rapports de mer&nbsp;: des tensions qui finissent en incidents</h3>
     </div>
   </div>
-  <p class="corps appui">Pour la technique&nbsp;: cartes de progression, manuel, fiches.
-  <br><strong>Pour le vivre-ensemble, très peu d'outils.</strong></p>
 </section>
 
-<!-- 4. PAR LA MER, À LA VIE COLLECTIVE
-     Le titre est un montage de deux extraits des statuts : les points de
-     suspension disent la sélection, le surlignage des extraits la montre. -->
-<section data-acte="1" class="ecran" id="e03-statuts">
-  <h2 class="titre">«&nbsp;…&nbsp;par la mer, …&nbsp;à la <span class="highlight">vie collective</span>&nbsp;»</h2>
-  <div class="statuts-et-photo">
-    <div class="statuts">
-      <img class="statut statut-buts" src="assets/images/soutenance/statuts-buts.png" alt="Statuts des Glénans, buts de l'association : « Créer, entre les hommes et les femmes de tous les pays, des liens par la mer »">
-      <img class="statut statut-preambule" src="assets/images/soutenance/statuts-preambule.png" alt="Statuts des Glénans : « École de formation à la mer et, par elle, à la vie collective, le CNG, devenu Les Glénans en 1992, a, dès l'origine, fondé son action sur l'engagement bénévole de ses membres »">
-      <p class="petit">Extraits des statuts des Glénans.</p>
-    </div>
-    <img class="photo-posee" src="assets/images/soutenance/photo-rassemblement-base.webp" alt="Un rassemblement en cercle sous les pins de la base, une centaine de personnes autour d'une prise de parole">
-  </div>
-</section>
 
 <!-- 3. LES RÉFÉRENTIELS -->
-<section data-acte="1" class="ecran" id="e04-referentiels">
+<section data-acte="1" class="ecran" id="e03-referentiels">
   <h2 class="titre">Ce que les <span class="highlight">référentiels</span> demandent déjà</h2>
   <div class="publics extraits">
     <div class="public-bloc">
@@ -157,7 +135,7 @@
 </section>
 
 <!-- 5. LE TERRAIN -->
-<section data-acte="1" class="ecran" id="e05-terrain">
+<section data-acte="1" class="ecran" id="e04-terrain">
   <h2 class="titre">Le <span class="highlight">terrain</span></h2>
   <div class="ligne-terrain">
     <img class="photo-posee l-quai" src="assets/images/soutenance/photo-quai-base.webp" alt="Un pot au coucher du soleil sur le quai de la base, tables le long des croiseurs amarrés">
@@ -172,7 +150,7 @@
 
 <!-- 6. LES CONTRAINTES ET LA MÉTHODE (S71) : fin du cadrage, avant le déroulé.
      Chaque contrainte pèse sur la manière de faire. -->
-<section data-acte="1" class="ecran" id="e06-contraintes">
+<section data-acte="1" class="ecran" id="e05-contraintes">
   <h2 class="titre">Des <span class="highlight">méthodes</span> qui découlent des <span class="highlight">contraintes</span></h2>
   <div class="contraintes-methode">
     <div class="cm-bloc">
@@ -203,7 +181,7 @@
 
 <!-- TROIS PUBLICS, RELIÉS (S47, S49) : pas de hiérarchie, des liens.
      Les RTQ ne sont plus un sous-public des moniteurices. -->
-<section data-acte="2" class="ecran" id="e07-publics">
+<section data-acte="2" class="ecran" id="e06-publics">
   <h2 class="titre">Trois publics, <span class="highlight">reliés</span></h2>
   <div class="publics">
     <div class="public-bloc">
@@ -227,38 +205,17 @@
   <p class="corps appui">Le projet s'adresse aux trois, et s'appuie sur ce qui les relie.</p>
 </section>
 
-<!-- DEUX PERSONAS (S48) : la compétence et l'habitude décident, pas le statut.
-     Portraits composites, verbatims réels de P1.2. -->
-<section data-acte="2" class="ecran" id="e08-personas">
-  <h2 class="titre">Deux moniteurices <span class="highlight">types</span></h2>
-  <div class="personas">
-    <div class="persona">
-      <span class="emoji-cheval" aria-hidden="true">🌱</span>
-      <p class="persona-tag">en FPI ou juste après</p>
-      <h3>La débutante</h3>
-      <p class="persona-besoin">s'organiser, se faire aider par son équipage</p>
-      <p class="persona-citation">« Je sens bien quand ça coince, mais je ne sais pas toujours comment relancer sans être maladroit. »</p>
-    </div>
-    <div class="persona">
-      <span class="emoji-cheval" aria-hidden="true">🧭</span>
-      <p class="persona-tag">parfois de mauvaises habitudes</p>
-      <h3>L'expérimentée</h3>
-      <p class="persona-besoin">aller plus loin, être légitime sur l'animation au-delà de la technique</p>
-      <p class="persona-citation">« Les stagiaires me respectent pour la manœuvre, mais dès qu'il s'agit de gérer un conflit, je perds mes moyens. »</p>
-    </div>
-  </div>
-</section>
 
 <!-- CAPACITÉS VISÉES PAR LA DÉMARCHE (S56, S57) : OO2 décliné par persona, et les stagiaires
      au bout de la chaîne (objet associatif : par la mer, à la vie collective).
      Niveau démarche, distinct des intentions d'atelier des écrans de phase 1. -->
-<section data-acte="2" class="ecran" id="e09-capacites">
+<section data-acte="2" class="ecran" id="e07-capacites">
   <h2 class="titre">Ce qu'on veut leur faire <span class="highlight">acquérir</span></h2>
   <p class="ecart-kicker">À l'issue de la démarche, est capable de ...</p>
   <div class="personas capacites">
     <div class="persona">
       <span class="emoji-cheval" aria-hidden="true">🌱</span>
-      <p class="persona-tag">animer un stage en autonomie</p>
+      <p class="persona-tag">en FPI ou juste après</p>
       <h3>La débutante</h3>
       <ul class="liste">
         <li>organiser la vie à bord en s'appuyant sur son équipage</li>
@@ -267,7 +224,7 @@
     </div>
     <div class="persona">
       <span class="emoji-cheval" aria-hidden="true">🧭</span>
-      <p class="persona-tag">animer un stage en autonomie</p>
+      <p class="persona-tag">parfois de mauvaises habitudes</p>
       <h3>L'expérimentée</h3>
       <ul class="liste">
         <li>animer les moments clefs pour faire coopérer l'équipage</li>
@@ -290,7 +247,7 @@
 
 <!-- PARTIES PRENANTES (S41) : une bulle par partie prenante, ses actions pour le projet.
      Liste fermée par QJ le 19/11. Domaines des intervenants, pas leurs noms. -->
-<section data-acte="2" class="ecran" id="e10-equipe">
+<section data-acte="2" class="ecran" id="e08-equipe">
   <h2 class="titre">Une <span class="highlight">équipe</span> pour y arriver</h2>
   <div class="pp-bulles">
     <div class="pp-bulle pp-moi"><strong>Moi, porteur du projet</strong><span>j'anime la co-conception et les formations</span></div>
@@ -302,45 +259,32 @@
   </div>
 </section>
 
-<!-- QUATRE PHASES, VUE D'ENSEMBLE (S42) : remontées en tête, les blocs portent
-     les publics et les actions, les résultats passent à l'acte 5. -->
-<section data-acte="2" class="ecran" id="e11-phases">
-  <h2 class="titre">Quatre <span class="highlight">phases</span> sur deux saisons</h2>
-  <div class="phases">
-    <img class="phases-trace" src="assets/images/soutenance/trace-4-phases.png" alt="Tracé du design de projet : une ouverture, un nœud, des branches, une traîne">
-    <div class="phases-blocs">
-      <div><strong>1 · diagnostic et cadrage</strong><span class="date">janvier à mars 2025</span><span>moniteurices&nbsp;: entretiens, ateliers de diagnostic et de co-conception</span><span>→ la V1</span></div>
-      <div><strong>2 · conception itérative</strong><span class="date">avril à décembre 2025</span><span>moniteurices testeurs&nbsp;: co-conception · stagiaires&nbsp;: tests en stage</span><span>→ V2 à V5</span></div>
-      <div><strong>3 · déploiement et formation</strong><span class="date">mars à octobre 2026</span><span>moniteurices&nbsp;: ateliers-formations, FPI2 et vendredis · encadrants&nbsp;: briefs de démarrage</span></div>
-      <div><strong>4 · évaluation et capitalisation</strong><span class="date">juin à octobre 2026</span><span>stagiaires&nbsp;: questionnaires · moniteurices&nbsp;: entretiens</span></div>
-    </div>
-  </div>
+
+<!-- QUATRE PHASES, UN ENJEU CHACUNE (S87) : fusion des anciens écrans des phases et
+     de leurs enjeux. Le tracé du design de projet sort, jugé peu clair à l'oral blanc n°2. -->
+<section data-acte="2" class="ecran" id="e09-phases">
+  <h2 class="titre">Quatre <span class="highlight">phases</span>, un enjeu chacune</h2>
+  <ol class="phases-enjeux">
+    <li><span class="pe-num">1</span><span class="pe-nom">Diagnostic et cadrage</span><span class="pe-date">janvier à mars 2025</span>
+      <strong class="pe-enjeu">Comprendre le terrain</strong><span class="pe-pour">pour ne pas se tromper de problème, et valider la commande</span></li>
+    <li><span class="pe-num">2</span><span class="pe-nom">Conception itérative</span><span class="pe-date">avril à décembre 2025</span>
+      <strong class="pe-enjeu">Prototyper rapidement</strong><span class="pe-pour">pour être vite utile aux moniteurices</span></li>
+    <li><span class="pe-num">3</span><span class="pe-nom">Déploiement et formation</span><span class="pe-date">mars à octobre 2026</span>
+      <strong class="pe-enjeu">Déployer dans les contraintes</strong><span class="pe-pour">un outil efficace aux équipages, des formations adaptées aux moniteurices</span></li>
+    <li><span class="pe-num">4</span><span class="pe-nom">Évaluation et capitalisation</span><span class="pe-date">juin à octobre 2026</span>
+      <strong class="pe-enjeu">Évaluer pour évoluer</strong><span class="pe-pour">pour dégager des perspectives et assurer la pérennité</span></li>
+  </ol>
 </section>
 
-<!-- LES ENJEUX DE CHAQUE PHASE (S59) : le même tracé, l'utilité de chaque phase.
-     Écran jumeau du précédent, pour que le jury lise un calque de plus. -->
-<section data-acte="2" class="ecran" id="e12-enjeux">
-  <h2 class="titre">L'<span class="highlight">enjeu majeur</span> de chaque phase</h2>
-  <div class="phases">
-    <img class="phases-trace" src="assets/images/soutenance/trace-4-phases.png" alt="Tracé du design de projet : une ouverture, un nœud, des branches, une traîne">
-    <div class="phases-blocs pourquoi">
-      <div><strong>1 · comprendre le terrain</strong><span>pour ne pas se tromper de problème, et valider la commande avec le chef de base et les responsables croisière</span></div>
-      <div><strong>2 · prototyper rapidement</strong><span>pour être vite utile aux moniteurices, tout en affinant ce qui manque dans leurs formations pédagogiques</span></div>
-      <div><strong>3 · déployer dans les contraintes</strong><span>un outil efficace aux équipages, et des formations adaptées à leurs besoins</span></div>
-      <div><strong>4 · évaluer pour évoluer</strong><span>pour faire des préconisations et assurer la pérennité du projet</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CE QUE L'ÉQUIPE A PRODUIT (S55) : vue d'ensemble rapide, un produit par public.
-     Photo des outils des encadrants à fournir. -->
-<section data-acte="2" class="ecran" id="e13-produit">
+<!-- CE QUE L'ÉQUIPE A PRODUIT (S55, S88) : écran de transition vers les focus.
+     Une image, un produit, un public. Photo des outils des encadrants à fournir. -->
+<section data-acte="2" class="ecran" id="e10-produit">
   <h2 class="titre">Ce que l'équipe a <span class="highlight">produit</span></h2>
   <div class="trois-voies">
     <div>
       <div class="capture"><img src="assets/images/soutenance/photo-kit-v5.webp" alt="Les affiches de la boîte à outils, plastifiées, étalées sur une table en bois ; la feuille « Routines quotidiennes » sort de la plastifieuse"></div>
       <h3>Une boîte à outils</h3>
-      <p>pour les équipages, en embarqué</p>
+      <p>pour les équipages</p>
     </div>
     <div>
       <div class="capture photo-formation"><img src="assets/images/soutenance/photo-formation-table.webp" alt="Six personnes autour d'une table couverte de fiches et de feutres, penchées sur des documents de travail pendant un atelier"></div>
@@ -351,7 +295,7 @@
       <!-- PLACEHOLDER : photo des supports de démarrage rénovés -->
       <div class="capture photo-attente" role="img" aria-label="Photo des outils des encadrants à venir"><span>Photo des supports<br>de démarrage à venir</span></div>
       <h3>Des outils rénovés</h3>
-      <p>pour les encadrants des moniteurices&nbsp;: supports et briefs de démarrage</p>
+      <p>pour les encadrants</p>
     </div>
   </div>
 </section>
@@ -361,7 +305,7 @@
 
 <!-- UNE BOÎTE À OUTILS AUTONOME (S67, S73) : zoom sur la boîte à outils.
      Imprimé à bord, blocs indépendants, mode d'emploi rangé avec le kit (l'affiche A4). -->
-<section data-acte="3" class="ecran" id="e14-mode-emploi">
+<section data-acte="3" class="ecran" id="e11-mode-emploi">
   <h2 class="titre">Une boîte à outils <span class="highlight">autonome</span></h2>
   <div class="texte-et-photos">
     <div>
@@ -381,88 +325,34 @@
   </div>
 </section>
 
-<!-- LA CONCEPTION DE LA BOÎTE À OUTILS (S79) : deux cycles divergence puis convergence
-     (inspiration graphique : sketchyideas.co), chaque geste dit par ce qui s'est fait dans Anacoluthe. Messages repris de l'oral blanc (« Cinq versions,
-     neuf mois », « Comment travailler ? »). Message clef : la co-conception garantit qu'une
-     carte sert efficacement un besoin partagé. -->
-<section data-acte="3" class="ecran" id="e15-conception">
-  <h2 class="titre">La <span class="highlight">co-conception</span> assure l'adéquation besoin - outil</h2>
-  <div class="cycles-dc">
-    <svg viewBox="0 -30 1660 340" role="img" aria-label="Deux cycles de divergence puis convergence : au début un trouble partagé, au milieu un besoin commun, à la fin un outil utilisé. Une boucle ramène la fin du second cycle à son début : de V1 à V5, les tests en stage nourrissent la version suivante">
-      <defs><marker id="dc-pointe" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dc-pointe"/></marker><marker id="dc-pointe-boucle" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="dc-pointe-boucle"/></marker></defs>
-      <path class="dc-boucle" d="M1650,128 C1610,-70 910,-70 872,128" marker-end="url(#dc-pointe-boucle)"/>
-      <polyline class="dc-contour" points="370,48 0,160 370,272"/>
-      <polyline class="dc-contour" points="430,48 800,160 430,272"/>
-      <line class="dc-diverge" x1="60" y1="160" x2="225" y2="115" marker-end="url(#dc-pointe)"/>
-      <line class="dc-diverge" x1="60" y1="160" x2="225" y2="160" marker-end="url(#dc-pointe)"/>
-      <line class="dc-diverge" x1="60" y1="160" x2="225" y2="205" marker-end="url(#dc-pointe)"/>
-      <circle class="dc-idee" cx="354" cy="103" r="9"/>
-      <circle class="dc-idee" cx="434" cy="90" r="9"/>
-      <circle class="dc-idee" cx="406" cy="138" r="9"/>
-      <circle class="dc-idee" cx="289" cy="161" r="9"/>
-      <circle class="dc-idee" cx="292" cy="93" r="9"/>
-      <circle class="dc-idee" cx="379" cy="214" r="9"/>
-      <circle class="dc-idee" cx="429" cy="233" r="9"/>
-      <circle class="dc-idee" cx="485" cy="125" r="9"/>
-      <circle class="dc-idee" cx="351" cy="212" r="9"/>
-      <circle class="dc-idee" cx="319" cy="173" r="9"/>
-      <circle class="dc-idee" cx="442" cy="148" r="9"/>
-      <circle class="dc-idee" cx="352" cy="174" r="9"/>
-      <circle class="dc-idee" cx="470" cy="193" r="9"/>
-      <circle class="dc-idee" cx="515" cy="97" r="9"/>
-      <circle class="dc-idee" cx="481" cy="233" r="9"/>
-      <circle class="dc-idee" cx="391" cy="187" r="9"/>
-      <circle class="dc-idee" cx="290" cy="193" r="9"/>
-      <circle class="dc-idee" cx="307" cy="119" r="9"/>
-      <polygon class="dc-converge" points="520,136 640,136 640,116 768,160 640,204 640,184 520,184"/>
-      <line class="dc-lien" x1="800" y1="160" x2="860" y2="160"/>
-      <polyline class="dc-contour" points="1230,48 860,160 1230,272"/>
-      <polyline class="dc-contour" points="1290,48 1660,160 1290,272"/>
-      <line class="dc-diverge" x1="920" y1="160" x2="1085" y2="115" marker-end="url(#dc-pointe)"/>
-      <line class="dc-diverge" x1="920" y1="160" x2="1085" y2="160" marker-end="url(#dc-pointe)"/>
-      <line class="dc-diverge" x1="920" y1="160" x2="1085" y2="205" marker-end="url(#dc-pointe)"/>
-      <circle class="dc-idee" cx="1231" cy="221" r="9"/>
-      <circle class="dc-idee" cx="1155" cy="152" r="9"/>
-      <circle class="dc-idee" cx="1270" cy="223" r="9"/>
-      <circle class="dc-idee" cx="1336" cy="220" r="9"/>
-      <circle class="dc-idee" cx="1203" cy="146" r="9"/>
-      <circle class="dc-idee" cx="1370" cy="103" r="9"/>
-      <circle class="dc-idee" cx="1178" cy="116" r="9"/>
-      <circle class="dc-idee" cx="1279" cy="121" r="9"/>
-      <circle class="dc-idee" cx="1225" cy="171" r="9"/>
-      <circle class="dc-idee" cx="1369" cy="191" r="9"/>
-      <circle class="dc-idee" cx="1261" cy="179" r="9"/>
-      <circle class="dc-idee" cx="1301" cy="87" r="9"/>
-      <circle class="dc-idee" cx="1231" cy="143" r="9"/>
-      <circle class="dc-idee" cx="1160" cy="182" r="9"/>
-      <circle class="dc-idee" cx="1218" cy="87" r="9"/>
-      <circle class="dc-idee" cx="1135" cy="103" r="9"/>
-      <circle class="dc-idee" cx="1141" cy="221" r="9"/>
-      <circle class="dc-idee" cx="1338" cy="104" r="9"/>
-      <polygon class="dc-converge" points="1380,136 1500,136 1500,116 1628,160 1500,204 1500,184 1380,184"/>
-      <line class="dc-lien" x1="0" y1="160" x2="0" y2="252" stroke-dasharray="6 6"/>
-      <line class="dc-lien" x1="830" y1="160" x2="830" y2="252" stroke-dasharray="6 6"/>
-      <line class="dc-lien" x1="1660" y1="160" x2="1660" y2="252" stroke-dasharray="6 6"/>
-      <g class="dc-pivot"><rect class="dc-pill" x="-24" y="252" width="294" height="48" rx="24"/><text x="123" y="285">un trouble partagé</text></g>
-      <g class="dc-pivot"><rect class="dc-pill" x="683" y="252" width="294" height="48" rx="24"/><text x="830" y="285">un besoin commun</text></g>
-      <g class="dc-pivot"><rect class="dc-pill" x="1448" y="252" width="236" height="48" rx="24"/><text x="1566" y="285">un outil utilisé</text></g>
+<!-- UN CYCLE DE CO-CONCEPTION (S89) : remplace les deux cycles divergence-convergence,
+     jugés peu clairs à l'oral blanc n°2. Cinq étapes, puis retour au début : un tour par version. -->
+<section data-acte="3" class="ecran" id="e12-conception">
+  <h2 class="titre">Un cycle de <span class="highlight">co-conception</span>, de la V1 à la V5</h2>
+  <div class="cycle-cc">
+    <ol>
+      <li><span class="cc-num">1</span><strong>Prototyper</strong><span>avec les intervenants thématiques</span></li>
+      <li><span class="cc-num">2</span><strong>Tester</strong><span>avec les moniteurices testeurs</span></li>
+      <li><span class="cc-num">3</span><strong>Tester en stage</strong><span>auprès d'un public plus large</span></li>
+      <li><span class="cc-num">4</span><strong>Recueillir les retours</strong><span>des moniteurices et des stagiaires</span></li>
+      <li><span class="cc-num">5</span><strong>Penser les modifications</strong><span>en atelier</span></li>
+    </ol>
+    <svg class="cc-boucle" viewBox="0 0 1660 150" role="img" aria-label="Après l'étape 5, retour à l'étape 1 : un tour par version">
+      <defs><marker id="cc-pointe" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="cc-pointe"/></marker></defs>
+      <path d="M1510,6 V70 Q1510,104 1476,104 H184 Q150,104 150,70 V22" marker-end="url(#cc-pointe)"/>
+      <rect class="cc-pill" x="530" y="80" width="600" height="48" rx="24"/>
+      <text x="830" y="113">retour au début&nbsp;: un tour par version</text>
     </svg>
   </div>
-  <div class="dc-concret">
-    <p><span class="dc-geste dc-div">Diverger</span><strong>14 entretiens, 3 ateliers</strong>&nbsp;: les moniteurices nomment les tensions vécues à bord</p>
-    <p><span class="dc-geste dc-conv">Converger</span><strong>Des besoins communs</strong>&nbsp;: s'organiser, s'écouter, se dire les choses</p>
-    <span aria-hidden="true"></span>
-    <p><span class="dc-geste dc-div">Diverger</span><strong>V1 à V3</strong>&nbsp;: on prototype avec moniteurices et stagiaires, on teste en stage</p>
-    <p><span class="dc-geste dc-conv">Converger</span><strong>V4, V5</strong>&nbsp;: on élague. Ne restent que les cartes qui servent vraiment un besoin</p>
-  </div>
+  <p class="corps appui">Cinq tours, de quatre à six semaines chacun.</p>
 </section>
 
 <!-- LA BOÎTE À OUTILS, UNE PÉPITE PAR COMPARTIMENT (S62, S74) : reprise de l'écran
      des quatre familles de l'oral blanc. Sous chaque pile, pour qui c'est une pépite.
      Un clic sur une pile ouvre le visuel (assets/js/soutenance-lightbox.js, data-visuels). -->
-<section data-acte="3" class="ecran" id="e16-boite">
-  <h2 class="titre">Une carte &gt; un besoin <span class="highlight">spécifique</span></h2>
-  <p class="corps pepites-kicker">Le vivre-ensemble, c'est <strong>pouvoir</strong> s'organiser collectivement, s'écouter, se dire les choses, se questionner soi-même…</p>
+<section data-acte="3" class="ecran" id="e13-boite">
+  <h2 class="titre">Des <span class="highlight">pépites</span>, chacune pour un public</h2>
+  <p class="corps pepites-kicker">Quatre exemples, un par famille du kit&nbsp;: <strong>chaque carte répond au besoin d'un public précis</strong>.</p>
   <div class="apercu-grid familles-v2 pepites">
     <div class="apercu-stack" data-type="affiche" data-visuels="assets/images/affiche-A1-routines.png" data-alt="Affiche des routines quotidiennes" role="button" tabindex="0" aria-label="Voir Routines quotidiennes">
       <div class="apercu-tile-wrapper">
@@ -521,7 +411,7 @@
 
 <!-- LES AFFICHES SUR LA BASE (S76) : pour que le kit soit pris en compte, on en parle
      aussi hors des bateaux. Faire savoir l'initiative, acculturer au vocabulaire. -->
-<section data-acte="3" class="ecran" id="e17-affiches-base">
+<section data-acte="3" class="ecran" id="e14-affiches-base">
   <h2 class="titre">Hors des bateaux, des affiches sur la <span class="highlight">base</span></h2>
   <div class="texte-et-photos">
     <div>
@@ -539,72 +429,12 @@
 </section>
 
 
-<!-- ═══ ACTE 4 · FACE-À-FACE PÉDAGOGIQUES ═══ -->
+<!-- ═══ ACTE 4 · FOCUS FORMATION ═══ -->
 
-<!-- AVEC LES MONITEURICES (S80, S81) : quatre face-à-face, chacun avec son objectif et son support.
-     Un écran par public (S81) : moniteurices, stagiaires, encadrants. -->
-<section data-acte="4" class="ecran" id="e18-moniteurices">
-  <h2 class="titre">Les moments d'animations avec les <span class="highlight">moniteurices</span></h2>
-  <div class="faf-cartes">
-    <div class="faf-carte"><span class="emoji-cheval" aria-hidden="true">🔍</span>
-      <strong>Ateliers de diagnostic et de prototypage</strong>
-      <span class="faf-quand">3 ateliers de 1&nbsp;h&nbsp;30, février-mars 2025</span>
-      <span><b>Pour</b> nommer les tensions vécues, prototyper une réponse entre pairs</span></div>
-    <div class="faf-carte"><span class="emoji-cheval" aria-hidden="true">🛤️</span>
-      <strong>Échanges de co-conception</strong>
-      <span class="faf-quand">12 testeurs, de la V2 à la V5</span>
-      <span><b>Pour</b> tester une version, rapporter un retour précis, arbitrer entre deux cartes</span></div>
-    <div class="faf-carte"><span class="emoji-cheval" aria-hidden="true">🎓</span>
-      <strong>Ateliers-formations</strong>
-      <span class="faf-quand">FPI2 et vendredis, un même conducteur</span>
-      <span><b>Pour</b> relier le diagnostic à sa pratique, choisir dans le kit pour le prochain stage</span></div>
-    <div class="faf-carte"><span class="emoji-cheval" aria-hidden="true">⚓</span>
-      <strong>Tutorats en escadre</strong>
-      <span class="faf-quand">briefs et débriefs, en cours d'escadre</span>
-      <span><b>Pour</b> prendre en main le kit en situation</span></div>
-  </div>
-</section>
-
-
-
-
-<!-- AVEC LES STAGIAIRES (S81) : l'encadrement avec le kit, et la co-conception sur le fil. -->
-<section data-acte="4" class="ecran" id="e19-stagiaires">
-  <h2 class="titre">Avec les <span class="highlight">stagiaires</span>, le kit à bord</h2>
-  <div class="texte-et-photos">
-    <div>
-      <ul class="liste">
-        <li><strong>L'encadrement avec le kit</strong>&nbsp;: des stages avec le kit à bord, certaines semaines sans, pour comparer</li>
-        <li><strong>La co-conception sur le fil</strong>&nbsp;: des ateliers express pendant le stage</li>
-      </ul>
-      <p class="corps faf-pour"><b>Pour</b> vivre le kit, et le faire évoluer</p>
-    </div>
-    <div class="vis-a-vis">
-      <img class="photo-posee" src="assets/images/soutenance/photo-animer-briefing.webp" alt="Dans le carré, une stagiaire tient le tableau d'équipage du jour face à un équipier">
-      <img class="photo-posee" src="assets/images/soutenance/photo-animer-carte.webp" alt="Cinq stagiaires autour de la table à cartes, penchées sur une carte marine, prennent des notes">
-    </div>
-  </div>
-</section>
-
-<!-- AVEC LES ENCADRANTS DES MONITEURICES (S81) : deux actions, avant le focus sur le brief. -->
-<section data-acte="4" class="ecran" id="e20-encadrants">
-  <h2 class="titre">Les moments d'animations avec les <span class="highlight">encadrants</span></h2>
-  <p class="corps">RTQ et responsables croisière encadrent les moniteurices&nbsp;: ce sont eux qui briefent chaque samedi.</p>
-  <div class="faf-cartes faf-deux">
-    <div class="faf-carte"><span class="emoji-cheval" aria-hidden="true">📣</span>
-      <strong>Briefs sur le dispositif</strong>
-      <span class="faf-quand">au fil du projet</span>
-      <span><b>Pour</b> suivre le projet, et savoir en parler aux moniteurices</span></div>
-    <div class="faf-carte"><span class="emoji-cheval" aria-hidden="true">🔗</span>
-      <strong>Intégration à leurs outils</strong>
-      <span class="faf-quand">avec les responsables croisière</span>
-      <span><b>Pour</b> que le dispositif entre dans le brief du samedi</span></div>
-  </div>
-</section>
 
 <!-- FOCUS · LES ATELIERS DU VENDREDI (S80, S81) : fusion des écrans ateliers-formations, FPI2 et vendredi.
      Un même conducteur pour le FPI2 et les vendredis. Support : l'A3 des ateliers. -->
-<section data-acte="4" class="ecran" id="e21-vendredi">
+<section data-acte="4" class="ecran" id="e15-vendredi">
   <div class="texte-et-photo">
     <div>
       <p class="phase-tag">Phase 3 · ateliers-formations</p>
@@ -622,28 +452,11 @@
   </div>
 </section>
 
-<!-- FOCUS · OUTILLER LE BRIEF (S47, S49, S80, S81) : briefs sur le dispositif,
-     intégration à leurs outils avec les responsables croisière. Écart au dossier : P4 §4.1. -->
-<section data-acte="4" class="ecran" id="e22-brief">
-  <div class="texte-et-photo">
-    <div>
-      <p class="phase-tag">Phase 3 · les encadrants</p>
-      <h2 class="titre">Outiller le <span class="highlight">brief</span></h2>
-      <p class="corps">RTQ et responsables croisière briefent les moniteurices chaque samedi.</p>
-      <ul class="liste">
-        <li>des briefs sur ce qui se passe dans le projet</li>
-        <li>le dispositif intégré à leurs outils&nbsp;: des briefs de démarrage et de déploiement testés avec eux</li>
-        <li>une formation au kit, pour mieux en parler aux moniteurices</li>
-      </ul>
-    </div>
-    <div class="capture photo-kit-v5"><img src="assets/images/soutenance/photo-kit-v5.webp" alt="Les affiches de la boîte à outils, plastifiées, étalées sur une table en bois ; la feuille « Routines quotidiennes » sort de la plastifieuse"></div>
-  </div>
-</section>
 
 <!-- ═══ ACTE 5 · BILANS ═══ -->
 
 <!-- 23. CE QUI EST ENTRÉ DANS LA BASE -->
-<section data-acte="5" class="ecran" id="e23-ce-qui-reste">
+<section data-acte="5" class="ecran" id="e16-ce-qui-reste">
   <div class="texte-et-photos">
     <div>
       <h2 class="titre">Après le projet,<br> ce qui <span class="highlight">reste</span></h2>
@@ -661,95 +474,85 @@
   </div>
 </section>
 
-<!-- 24. L'ÉCART -->
-<section data-acte="5" class="ecran" id="e24-ecart">
-  <h2 class="titre">L'<span class="highlight">écart</span> au prévu</h2>
-  <div class="ecart">
-    <div class="en-deca">
-      <div class="chiffre">22</div>
-      <div class="prevu">sur 50 prévus</div>
-      <div class="quoi">moniteurices formées</div>
-    </div>
-    <div class="en-deca">
-      <div class="chiffre">8</div>
-      <div class="prevu">sur 14 prévus</div>
-      <div class="quoi">bateaux équipés durablement</div>
-    </div>
-    <div>
-      <div class="chiffre">3</div>
-      <div class="prevu">sans démarchage</div>
-      <div class="quoi">écoles extérieures</div>
-    </div>
-  </div>
-  <p class="ecart-kicker">Ce qui explique l'écart</p>
-  <div class="ecart-idees">
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🔍</span><strong>3 contraintes sous-estimées</strong>
-      <ul class="voies contraintes">
-        <li>ma disponibilité hors face-à-face</li>
-        <li>des leviers d'accès saturés, dont le brief du samedi</li>
-        <li>une inertie de calendrier</li>
-      </ul></div>
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🔀</span><strong>Une formation sous-planifiée</strong>
-      <span>elle demandait plus de planification que la <span class="nowrap">co-conception</span></span>
-      <span class="sous-titre-voies">5 voies de formation-sensibilisation&nbsp;:</span>
-      <ul class="voies">
-        <li>ateliers du vendredi</li>
-        <li>atelier FPI2</li>
-        <li>accompagnements individuels</li>
-        <li>apports dans les briefs de démarrage</li>
-        <li>matériaux distribués rénovés</li>
-      </ul></div>
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">👤</span><strong>Je n'ai pas réussi à déléguer</strong><span>les voies étaient transposables, mais elles sont globalement restées sur moi</span></div>
-  </div>
-</section>
-
-<!-- 25. CE QUE MONTRENT LES RETOURS -->
-<section data-acte="5" class="ecran" id="e25-mesure">
+<!-- 17. CE QUE MONTRENT LES RETOURS (S91) : quanti des stagiaires à gauche,
+     quali des moniteurices à droite, chacun avec sa source. -->
+<section data-acte="5" class="ecran" id="e17-mesure">
   <p class="phase-tag">Phase 4 · évaluer</p>
   <h2 class="titre">Les tensions se disent plus tôt, l'équipage est plus <span class="highlight">autonome</span></h2>
-  <div class="constats">
+  <div class="constats retours">
     <div class="constat">
-      <span class="emoji-cheval" aria-hidden="true">💬</span>
-      <h3>La parole</h3>
+      <span class="emoji-cheval" aria-hidden="true">📊</span>
+      <h3>Les stagiaires</h3>
+      <p class="source">43 questionnaires, 28 avec kit, 15 sans</p>
       <p class="item">«&nbsp;Les tensions ont été exprimées avant de dégrader le climat&nbsp;»</p>
       <div class="barres">
         <div class="barre avec"><span class="lib">avec kit</span><span class="piste"><span style="width:68%"></span></span><strong>19/28</strong></div>
         <div class="barre sans"><span class="lib">sans kit</span><span class="piste"><span style="width:27%"></span></span><strong>4/15</strong></div>
       </div>
-      <p class="appui-constat"><strong>5 moniteurices sur 6</strong> le constatent aussi.</p>
-    </div>
-    <div class="constat">
-      <span class="emoji-cheval" aria-hidden="true">🧩</span>
-      <h3>L'organisation</h3>
       <p class="item">«&nbsp;Les moments d'organisation ont été fluides&nbsp;»</p>
       <div class="barres">
         <div class="barre avec"><span class="lib">avec kit</span><span class="piste"><span style="width:82%"></span></span><strong>23/28</strong></div>
         <div class="barre sans"><span class="lib">sans kit</span><span class="piste"><span style="width:47%"></span></span><strong>7/15</strong></div>
       </div>
     </div>
+    <div class="constat">
+      <span class="emoji-cheval" aria-hidden="true">💬</span>
+      <h3>Les moniteurices</h3>
+      <p class="source">6 entretiens à Marseillan</p>
+      <p class="quali"><strong>5 sur 6</strong> décrivent des tensions dites plus tôt dans la semaine</p>
+      <blockquote>«&nbsp;Cette saison, les choses sont dites vers le mardi au débrief. Et on peut encore faire quelque chose.&nbsp;»<cite>Laure</cite></blockquote>
+      <blockquote>«&nbsp;Au brief du soir à partir de la mi-stage, ils se débrouillent un peu plus là-dessus, et je peux me concentrer sur la voile.&nbsp;»<cite>Franck</cite></blockquote>
+    </div>
   </div>
-  <p class="condition"><span>Pour que ça marche</span> des outils <strong>et</strong> des encadrant·es formé·es. Sans sensibilisation - formation, le kit reste souvent dans la table à cartes.</p>
 </section>
 
-<!-- PRÉCONISATIONS (S45) : ne redit ni l'écart, ni ce qui est resté, ni les effets.
-     Le cap à dix ans en chapeau. Contenu à arbitrer par QJ. -->
-<section data-acte="5" class="ecran" id="e26-preconisations">
-  <h2 class="titre">Ce que je <span class="highlight">préconise</span></h2>
+<!-- 18. INSUFFISANCES ET CONTINUITÉS (S92) : l'écart au prévu relu en deux colonnes,
+     ce qui n'a pas suffi, et ce qui peut continuer. Après les retours (S84). -->
+<section data-acte="5" class="ecran" id="e18-ecart">
+  <h2 class="titre">Des <span class="highlight">insuffisances</span>, des continuités possibles</h2>
+  <div class="ic-colonnes">
+    <div class="ic-col ic-insuffisances">
+      <p class="ecart-kicker">Ce qui n'a pas suffi</p>
+      <div class="ecart">
+        <div class="en-deca"><div class="chiffre">22</div><div class="prevu">sur 50 prévues</div><div class="quoi">moniteurices formées</div></div>
+        <div class="en-deca"><div class="chiffre">8</div><div class="prevu">sur 14 prévus</div><div class="quoi">bateaux équipés</div></div>
+      </div>
+      <ul class="liste">
+        <li>une formation sous-planifiée, que je n'ai pas réussi à déléguer</li>
+        <li>trois contraintes sous-estimées&nbsp;: ma disponibilité, des leviers d'accès saturés, l'inertie du calendrier</li>
+      </ul>
+    </div>
+    <div class="ic-col ic-continuites">
+      <p class="ecart-kicker">Ce qui peut continuer</p>
+      <div class="ecart">
+        <div><div class="chiffre">3</div><div class="prevu">sans démarchage</div><div class="quoi">écoles extérieures</div></div>
+      </div>
+      <ul class="liste">
+        <li>le kit utilisé sans formation, en FPI et formation continue à Concarneau, en FPI à Marseillan</li>
+        <li>cinq voies de formation transposables, à confier à d'autres</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PERSPECTIVES (S93) : remplacent les préconisations. Le cap à dix ans en chapeau.
+     Former en plus d'outiller : des contenus de formation pour les responsables pédagogiques. -->
+<section data-acte="5" class="ecran" id="e19-perspectives">
+  <h2 class="titre">Des <span class="highlight">perspectives</span></h2>
   <p class="citation">« En 2035, l'association Les Glénans est un lieu d'expérimentation de nouveaux possibles »</p>
   <p class="petit">Cap à dix ans voté par le conseil d'administration, novembre 2025&nbsp;: autonomie et interdépendance par la navigation, faire société.</p>
   <div class="ecart-idees bilan trois">
     <div class="idee"><span class="emoji-cheval" aria-hidden="true">📦</span><strong>Diffuser les outils tels quels</strong>
       <span>kits, site, licence libre</span></div>
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🎓</span><strong>Aider le CEB à s'en inspirer</strong>
-      <span>pour le refaire à sa sauce, dans la formation des moniteurices</span></div>
+    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🎓</span><strong>Former, en plus d'outiller</strong>
+      <span>donner à tous les responsables pédagogiques des contenus de formation à l'animation</span></div>
     <div class="idee"><span class="emoji-cheval" aria-hidden="true">⛵</span><strong>Aider les bases à outiller le <span class="nowrap">vivre-ensemble</span></strong>
       <span>et faire de la coopération à bord un vrai sujet</span></div>
   </div>
-  <p class="a-completer">À développer : pour chaque préconisation, qui, quoi, quand, avec quels moyens. Court, moyen, long terme.</p>
 </section>
 
 <!-- 28. BILAN POUR MOI : chaque apprentissage avec ce que je ferais autrement (P5 §5.1), et ensuite -->
-<section data-acte="5" class="ecran" id="e27-bilan-moi">
+<section data-acte="5" class="ecran" id="e20-bilan-moi">
   <h2 class="titre">Bilan pour <span class="highlight">moi</span></h2>
   <div class="bilan-moi">
     <div>

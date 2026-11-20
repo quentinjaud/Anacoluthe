@@ -1432,11 +1432,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* ══ Après l'oral blanc n°2 (S84 et suivantes) ══════════════════════════ */
 
-/* Écran 2 : le constat en titre, les trois sources plus petites dessous (S85). */
-#e02-commande .titre { max-width: 26ch; }
-#e02-commande .corps.appui { margin-top: clamp(6px, 1.2vh, 16px); color: var(--text-muted); }
-#e02-commande .trois-voies { max-width: 1400px; margin-top: clamp(22px, 4vh, 48px); }
-#e02-commande .trois-voies h3 { font-size: var(--t-petit); line-height: 1.35; }
+/* Écran 2 : trois sources, chacune avec ce qu'elle a apporté, le constat en chute (S85, S97). */
+#e02-commande .trois-voies { max-width: 1500px; }
+#e02-commande .trois-voies h3 { font-size: var(--t-liste); line-height: 1.3; }
+#e02-commande .trois-voies p { font-size: var(--t-petit); color: var(--navy-700); }
+#e02-commande .corps.appui { margin-top: clamp(18px, 3.4vh, 40px); }
 
 /* Écran 9 : quatre phases en cartes reliées, l'enjeu de chacune en couleur d'acte (S87). */
 .phases-enjeux { list-style: none; padding: 0; margin: clamp(30px, 5vh, 60px) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px; max-width: 1664px; counter-reset: none; }

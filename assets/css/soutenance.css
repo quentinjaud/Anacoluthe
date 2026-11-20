@@ -1455,5 +1455,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .corps + .liste { margin-top: clamp(12px, 2.2vh, 28px); }
 
 
-/* Écran 15 : une phrase pour les quatre pépites, alignée sur la grille des piles (S78). */
+/* Écran 15 : la phrase des besoins auxquels répondent les pépites, alignée sur la grille des piles (S78). */
 .pepites-kicker { max-width: 1200px; width: 100%; margin: clamp(14px, 2.6vh, 32px) auto clamp(14px, 2.4vh, 28px); }
+.pepites-kicker strong { color: var(--navy-700); }

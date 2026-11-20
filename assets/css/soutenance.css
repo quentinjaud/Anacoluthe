@@ -1322,7 +1322,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Deux personas. */
 .personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2.4vw, 40px); max-width: 1400px; }
-.persona { background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: clamp(16px, 3vh, 36px) clamp(16px, 2vw, 32px); display: flex; flex-direction: column; gap: 0.5em; }
+.persona { position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: clamp(26px, 4.4vh, 52px) clamp(16px, 2vw, 32px) clamp(16px, 3vh, 36px); display: flex; flex-direction: column; gap: 0.5em; }
+/* Emoji à cheval par persona (S72) : 🌱 débutante, 🧭 expérimentée, ⛵ stagiaire, comme dans le fil. */
+.personas { margin-top: clamp(26px, 4.4vh, 52px); }
 .persona h3 { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.2); color: var(--bleu-glenans); margin: 0; }
 .persona-tag { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-texte); margin: 0; }
 .persona-besoin { font-family: var(--font-corps); font-size: var(--t-liste); color: var(--navy-700); margin: 0; line-height: 1.4; }
@@ -1402,7 +1404,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e13-produit .capture.photo-attente { display: flex; align-items: center; justify-content: center; }
 /* Écran des capacités visées : les deux personas, une liste chacune. */
 #e09-capacites .ecart-kicker { margin-top: clamp(14px, 2.6vh, 32px); }
-#e09-capacites .personas { margin-top: clamp(10px, 2vh, 24px); }
+#e09-capacites .personas { margin-top: clamp(30px, 4.6vh, 56px); }
 #e09-capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }
 /* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
 .pp-bulle { justify-content: center; align-items: center; text-align: center; }
@@ -1428,7 +1430,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 6 : les contraintes à gauche, la méthode qui en découle à droite (S71). */
 .contraintes-methode { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 2.6vw, 48px); align-items: stretch; max-width: 1560px; margin-top: clamp(18px, 4vh, 52px); }
 .contraintes-methode .cm-bloc { position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: clamp(26px, 4.4vh, 52px) clamp(18px, 2vw, 36px) clamp(16px, 3vh, 36px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-.contraintes-methode .cm-bloc .ecart-kicker { margin: 0 0 clamp(10px, 2vh, 24px); }
+.contraintes-methode .cm-bloc .ecart-kicker { margin: 0 0 clamp(10px, 2vh, 24px); font-size: var(--t-corps); }
 .contraintes-methode .cm-donc { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.2em; }
 .contraintes-methode .cm-donc span:first-child { font-family: var(--font-titre); font-size: var(--t-titre); line-height: 1; color: var(--acte-encre); }
 .contraintes-methode .cm-donc span:last-child { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--acte-texte); }

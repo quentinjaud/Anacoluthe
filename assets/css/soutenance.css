@@ -1409,7 +1409,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e08-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
 /* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
 .phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }
-#e13-enjeux .phases-trace { max-height: 44vh; object-fit: contain; object-position: left center; }
+#e12-enjeux .phases-trace { max-height: 44vh; object-fit: contain; object-position: left center; }
 #e14-diagnostic .attente-paperboard { aspect-ratio: 3 / 4; height: 62vh; width: auto; padding: 1em; justify-self: center; display: flex; align-items: center; justify-content: center; }
 /* Boîte à outils (S62) : sous chaque pile, pour qui c'est une pépite. Clic : le visuel. */
 .familles-v2 .pepite-pour { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); }

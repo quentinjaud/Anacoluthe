@@ -1186,14 +1186,14 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .vis-a-vis .photo-posee { width: auto; max-width: 48%; max-height: 62vh; object-fit: contain; background: #fff; }
 .vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg); }
 .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg); }
-#e16-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
-#e16-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
+#e18-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
+#e18-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
 /* De la check-list d'avant à l'affiche du kit (S82) : la nouvelle chevauche l'ancienne,
    la flèche passe par-dessus les deux. */
-#e16-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
-#e16-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
-#e16-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
-#e16-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+#e18-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
+#e18-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
+#e18-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
+#e18-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .vav-fleche { flex: 0 0 auto; width: clamp(80px, 7vw, 136px); height: auto; overflow: visible; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
 .vav-fleche path { stroke: var(--acte-encre); stroke-width: 12; stroke-linecap: round; fill: none; }
 .vav-fleche .vav-pointe { fill: var(--acte-encre); stroke-linejoin: round; stroke-width: 6; }
@@ -1370,8 +1370,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Contenu encore à fournir : visible, à retirer avant l'oral. */
 .a-completer { font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--amber-texte); border: 2px dashed var(--amber-100); border-radius: 10px; padding: 0.6em 0.9em; margin: clamp(12px, 2.4vh, 28px) 0 0; }
-#e19-perspectives .citation { margin: 0; }
-#e19-perspectives .ecart-idees { margin-top: clamp(36px, 6vh, 64px); }
+#e21-perspectives .citation { margin: 0; }
+#e21-perspectives .ecart-idees { margin-top: clamp(36px, 6vh, 64px); }
 
 /* Écran « Ce que le projet a produit » : trois vignettes au même format. */
 #e10-produit .capture { aspect-ratio: 4 / 3; overflow: hidden; }
@@ -1485,3 +1485,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .ic-col .ecart .chiffre { font-size: clamp(34px, 6.4vh, 88px); }
 .ic-col .ecart .quoi { font-size: var(--t-liste); }
 .ic-col .liste { margin-top: clamp(14px, 2.6vh, 30px); }
+
+/* Écran 17 : outiller le brief, un interligne avant la liste (S96). */
+#e17-brief .liste { margin-top: clamp(10px, 2vh, 24px); }

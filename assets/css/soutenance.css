@@ -1450,3 +1450,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 16 : les affiches de communication sur la base, à droite du texte (S76). */
 #e16-affiches-base .texte-et-photos { grid-template-columns: 0.85fr 1.15fr; }
 #e16-affiches-base .vis-a-vis .photo-posee { height: min(64vh, 690px); width: auto; max-width: none; min-width: 0; }
+
+/* Un paragraphe suivi d'une liste : un interligne entre les deux, partout (S77). */
+.corps + .liste { margin-top: clamp(12px, 2.2vh, 28px); }

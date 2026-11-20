@@ -1470,6 +1470,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .cycles-dc .dc-idee { fill: var(--amber-100); stroke: var(--navy-700); stroke-width: 2; }
 .cycles-dc .dc-converge { fill: var(--navy-100); }
 .cycles-dc .dc-lien { stroke: var(--navy-700); stroke-width: 3; }
+.cycles-dc .dc-boucle { fill: none; stroke: var(--navy-700); stroke-width: 3; stroke-dasharray: 10 9; }
+.cycles-dc .dc-pointe-boucle { fill: var(--navy-700); }
+.cycles-dc .dc-boucle-texte { font-family: var(--font-legende); font-weight: 600; font-size: 26px; fill: var(--navy-700); text-anchor: middle; }
 .cycles-dc .dc-pivot rect { fill: #fff; stroke: var(--navy-700); stroke-width: 2; }
 .cycles-dc .dc-pivot text { font-family: var(--font-titre); font-weight: 800; font-size: 26px; fill: var(--navy-700); text-anchor: middle; }
 .dc-concret { display: grid; grid-template-columns: 400fr 400fr 60fr 400fr 400fr; margin-top: clamp(10px, 2vh, 24px); }

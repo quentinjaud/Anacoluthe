@@ -44,8 +44,8 @@
     </div>
     <div class="acte acte-3" role="group" aria-label="Acte 3 · Focus outils">
       <a class="pastille" href="#e14-mode-emploi"><span aria-hidden="true">📄</span><span class="bulle">Une boîte autonome</span></a>
-      <a class="pastille" href="#e15-boite"><span aria-hidden="true">🧰</span><span class="bulle">Une carte, un besoin</span></a>
-      <a class="pastille" href="#e16-conception"><span aria-hidden="true">💎</span><span class="bulle">Le double diamant</span></a>
+      <a class="pastille" href="#e15-conception"><span aria-hidden="true">💎</span><span class="bulle">Le double diamant</span></a>
+      <a class="pastille" href="#e16-boite"><span aria-hidden="true">🧰</span><span class="bulle">Une carte, un besoin</span></a>
       <a class="pastille" href="#e17-affiches-base"><span aria-hidden="true">📢</span><span class="bulle">Les affiches sur la base</span></a>
     </div>
     <div class="acte acte-4" role="group" aria-label="Acte 4 · Focus animations">
@@ -383,10 +383,47 @@
   </div>
 </section>
 
+<!-- LA CONCEPTION DE LA BOÎTE À OUTILS (S79) : le double diamant du design, chaque phase dite
+     par ce qui s'est fait dans Anacoluthe. Messages repris de l'oral blanc (« Cinq versions,
+     neuf mois », « Comment travailler ? »). Message clef : la co-conception garantit qu'une
+     carte sert efficacement un besoin partagé. -->
+<section data-acte="3" class="ecran" id="e15-conception">
+  <h2 class="titre">La <span class="highlight">co-conception</span> assure l'adéquation besoin - outil</h2>
+  <div class="double-diamant">
+    <svg viewBox="0 0 1660 300" role="img" aria-label="Double diamant du design : découvrir et définir, puis développer et livrer, avec au centre un besoin partagé">
+      <polygon class="dd-diverge" points="0,160 400,40 400,280"/>
+      <polygon class="dd-converge" points="400,40 800,160 400,280"/>
+      <line class="dd-lien" x1="800" y1="160" x2="860" y2="160"/>
+      <polygon class="dd-diverge" points="860,160 1260,40 1260,280"/>
+      <polygon class="dd-converge" points="1260,40 1660,160 1260,280"/>
+      <text class="dd-phase" x="270" y="160">Découvrir</text>
+      <text class="dd-geste" x="270" y="196">ouvrir</text>
+      <text class="dd-phase" x="530" y="160">Définir</text>
+      <text class="dd-geste" x="530" y="196">trier</text>
+      <text class="dd-phase" x="1130" y="160">Développer</text>
+      <text class="dd-geste" x="1130" y="196">ouvrir</text>
+      <text class="dd-phase" x="1390" y="160">Livrer</text>
+      <text class="dd-geste" x="1390" y="196">trier</text>
+      <line class="dd-lien" x1="830" y1="48" x2="830" y2="160" stroke-dasharray="6 6"/>
+      <g class="dd-pivot">
+        <rect x="690" y="0" width="280" height="48" rx="24"/>
+        <text x="830" y="33">un besoin partagé</text>
+      </g>
+    </svg>
+  </div>
+  <div class="dd-concret">
+    <p><strong>14 entretiens, 3 ateliers</strong>&nbsp;: les moniteurices nomment les tensions vécues à bord</p>
+    <p><strong>Des besoins partagés</strong>&nbsp;: s'organiser, s'écouter, se dire les choses</p>
+    <span aria-hidden="true"></span>
+    <p><strong>V1 à V3</strong>&nbsp;: on prototype avec moniteurices et stagiaires, on teste en stage</p>
+    <p><strong>V4, V5</strong>&nbsp;: on élague. Ne restent que les cartes qui servent un besoin</p>
+  </div>
+</section>
+
 <!-- LA BOÎTE À OUTILS, UNE PÉPITE PAR COMPARTIMENT (S62, S74) : reprise de l'écran
      des quatre familles de l'oral blanc. Sous chaque pile, pour qui c'est une pépite.
      Un clic sur une pile ouvre le visuel (assets/js/soutenance-lightbox.js, data-visuels). -->
-<section data-acte="3" class="ecran" id="e15-boite">
+<section data-acte="3" class="ecran" id="e16-boite">
   <h2 class="titre">Une carte &gt; un besoin <span class="highlight">spécifique</span></h2>
   <p class="corps pepites-kicker">Le vivre-ensemble, c'est <strong>pouvoir</strong> s'organiser collectivement, s'écouter, se dire les choses, se questionner soi-même…</p>
   <div class="apercu-grid familles-v2 pepites">
@@ -442,44 +479,6 @@
       </div>
       <p class="pepite-pour"><strong>pour les stagiaires</strong>, et les moniteurices peu intéressées par le dispositif</p>
     </div>
-  </div>
-</section>
-
-
-<!-- LA CONCEPTION DE LA BOÎTE À OUTILS (S79) : le double diamant du design, chaque phase dite
-     par ce qui s'est fait dans Anacoluthe. Messages repris de l'oral blanc (« Cinq versions,
-     neuf mois », « Comment travailler ? »). Message clef : la co-conception garantit qu'une
-     carte sert efficacement un besoin partagé. -->
-<section data-acte="3" class="ecran" id="e16-conception">
-  <h2 class="titre">La <span class="highlight">co-conception</span> assure l'adéquation besoin - outil</h2>
-  <div class="double-diamant">
-    <svg viewBox="0 0 1660 300" role="img" aria-label="Double diamant du design : découvrir et définir, puis développer et livrer, avec au centre un besoin partagé">
-      <polygon class="dd-diverge" points="0,160 400,40 400,280"/>
-      <polygon class="dd-converge" points="400,40 800,160 400,280"/>
-      <line class="dd-lien" x1="800" y1="160" x2="860" y2="160"/>
-      <polygon class="dd-diverge" points="860,160 1260,40 1260,280"/>
-      <polygon class="dd-converge" points="1260,40 1660,160 1260,280"/>
-      <text class="dd-phase" x="270" y="160">Découvrir</text>
-      <text class="dd-geste" x="270" y="196">ouvrir</text>
-      <text class="dd-phase" x="530" y="160">Définir</text>
-      <text class="dd-geste" x="530" y="196">trier</text>
-      <text class="dd-phase" x="1130" y="160">Développer</text>
-      <text class="dd-geste" x="1130" y="196">ouvrir</text>
-      <text class="dd-phase" x="1390" y="160">Livrer</text>
-      <text class="dd-geste" x="1390" y="196">trier</text>
-      <line class="dd-lien" x1="830" y1="48" x2="830" y2="160" stroke-dasharray="6 6"/>
-      <g class="dd-pivot">
-        <rect x="690" y="0" width="280" height="48" rx="24"/>
-        <text x="830" y="33">un besoin partagé</text>
-      </g>
-    </svg>
-  </div>
-  <div class="dd-concret">
-    <p><strong>14 entretiens, 3 ateliers</strong>&nbsp;: les moniteurices nomment les tensions vécues à bord</p>
-    <p><strong>Des besoins partagés</strong>&nbsp;: s'organiser, s'écouter, se dire les choses</p>
-    <span aria-hidden="true"></span>
-    <p><strong>V1 à V3</strong>&nbsp;: on prototype avec moniteurices et stagiaires, on teste en stage</p>
-    <p><strong>V4, V5</strong>&nbsp;: on élague. Ne restent que les cartes qui servent un besoin</p>
   </div>
 </section>
 

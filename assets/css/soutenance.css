@@ -31,6 +31,7 @@
   --bleu-glenans: #0066AD;
   --navy-700: #1E3A5F;
   --navy-100: #C9D5E3;
+  --navy-50: #EEF2F7;      /* fond de l'acte 4, au niveau des autres -50 (S70) */
   --teal-100: #c5e4e2;
   --teal-700: #3d8b87;
   --teal-50: #e8f4f3;
@@ -43,7 +44,7 @@
   --brick-700: #C62828;
   --text-dark: #2D3748;
   --text-corps: #2D3748;   /* --text-dark du site */
-  --text-muted: #454F61;   /* 7:1 sur le fond d'écran le plus foncé (acte 4), 8,2:1 sur crème (S70) */
+  --text-muted: #454F61;   /* 7,2:1 au moins sur tous les fonds d'acte, 8,2:1 sur crème (S70) */
   --teal-texte: #205652;   /* teal pour du texte : 7,2:1 sur tous les fonds d'acte (S70) */
   --amber-texte: #7D3C12;  /* ambre pour du texte : 7,2:1 sur tous les fonds d'acte (S70) */
   --border-light: #D1D5DB;
@@ -88,11 +89,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Fonds de section : la teinte légère de l'acte (S70) ──
-   La teinte -100 de l'acte mêlée à 35 % au crème, comme le plateau du fil.
-   --acte-teinte est posée par [data-acte], plus bas. */
+/* ── Fonds de section : la teinte -50 de l'acte (S70) ──
+   Ambre pour les actes 1 et 5, teal, brique, navy pour les actes 2 à 4. */
 
-.ecran[data-acte] { background: color-mix(in srgb, var(--acte-teinte) 35%, var(--bg-cream)); }
+.ecran[data-acte]    { background: var(--amber-50); }
+.ecran[data-acte="2"] { background: var(--teal-50); }
+.ecran[data-acte="3"] { background: var(--brick-50); }
+.ecran[data-acte="4"] { background: var(--navy-50); }
 
 /* ── Une section = un écran ── */
 

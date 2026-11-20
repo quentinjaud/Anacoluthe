@@ -1198,11 +1198,16 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg); }
 #e23-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
 #e23-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
-/* De la check-list d'avant à l'affiche du kit (S82). La flèche décale le rang de la 2e image : son inclinaison est reprise ici. */
-#e23-ce-qui-reste .vis-a-vis .photo-posee:last-child { transform: rotate(1.5deg); }
-.vav-fleche { flex: 0 0 auto; width: clamp(60px, 5.6vw, 108px); height: auto; overflow: visible; }
+/* De la check-list d'avant à l'affiche du kit (S82) : la nouvelle chevauche l'ancienne,
+   la flèche passe par-dessus les deux. */
+#e23-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
+#e23-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
+#e23-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
+#e23-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.vav-fleche { flex: 0 0 auto; width: clamp(80px, 7vw, 136px); height: auto; overflow: visible; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
 .vav-fleche path { stroke: var(--acte-encre); stroke-width: 12; stroke-linecap: round; fill: none; }
 .vav-fleche .vav-pointe { fill: var(--acte-encre); stroke-linejoin: round; stroke-width: 6; }
+.vav-fleche .vav-halo { stroke: #fff; stroke-width: 24; stroke-linejoin: round; fill: #fff; }
 
 /* Écran 25 : deux constats, chacun avec son libellé, ses barres et son appui. */
 .constats { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 32px); max-width: 1300px; }

@@ -1142,16 +1142,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
   text-align: center;
 }
 
-/* Écran 4 : deux extraits des statuts, posés comme des bandes de papier.
-   Le surlignage teal-100 est dans l'image, il désigne les fragments du titre. */
-.statuts { display: flex; flex-direction: column; gap: clamp(10px, 2vh, 26px); max-width: 1180px; width: 100%; margin-top: clamp(6px, 1.4vh, 18px); }
-.statut { display: block; height: auto; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.statut-buts { width: 82%; transform: rotate(-1deg); }
-.statut-preambule { width: 100%; margin-left: 3%; transform: rotate(0.6deg); }
-#e03-statuts .petit { margin-top: clamp(4px, 1vh, 12px); }
-.statuts-et-photo { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(20px, 3.4vw, 64px); align-items: center; width: 100%; max-width: 1660px; }
-.statuts-et-photo .statuts { max-width: none; }
-.photo-posee { display: block; width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transform: rotate(1.5deg); }
 /* Écran 17 : photo verticale, bornée en hauteur pour tenir dans l'écran. */
 .photo-posee.photo-portrait { width: auto; max-width: 100%; max-height: 64vh; justify-self: center; }
 
@@ -1196,14 +1186,14 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .vis-a-vis .photo-posee { width: auto; max-width: 48%; max-height: 62vh; object-fit: contain; background: #fff; }
 .vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg); }
 .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg); }
-#e23-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
-#e23-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
+#e18-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
+#e18-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
 /* De la check-list d'avant à l'affiche du kit (S82) : la nouvelle chevauche l'ancienne,
    la flèche passe par-dessus les deux. */
-#e23-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
-#e23-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
-#e23-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
-#e23-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+#e18-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
+#e18-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
+#e18-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
+#e18-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .vav-fleche { flex: 0 0 auto; width: clamp(80px, 7vw, 136px); height: auto; overflow: visible; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
 .vav-fleche path { stroke: var(--acte-encre); stroke-width: 12; stroke-linecap: round; fill: none; }
 .vav-fleche .vav-pointe { fill: var(--acte-encre); stroke-linejoin: round; stroke-width: 6; }
@@ -1328,10 +1318,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .public-lien { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.2em; flex: 0 0 auto; text-align: center; }
 .public-lien span:last-child { max-width: 9em; font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); line-height: 1.3; }
 .public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-texte); margin-bottom: 0.6em; }
-#e07-publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
-#e07-publics .publics { max-width: 1664px; }
-#e07-publics .public-bloc { flex: 1 1 0; min-width: 0; }
-#e07-publics .public-lien span:last-child, #e07-publics .public-qui { letter-spacing: 0.04em; }
+#e06-publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
+#e06-publics .publics { max-width: 1664px; }
+#e06-publics .public-bloc { flex: 1 1 0; min-width: 0; }
+#e06-publics .public-lien span:last-child, #e06-publics .public-qui { letter-spacing: 0.04em; }
 
 /* Deux personas. */
 .personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2.4vw, 40px); max-width: 1400px; }
@@ -1380,46 +1370,26 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Contenu encore à fournir : visible, à retirer avant l'oral. */
 .a-completer { font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--amber-texte); border: 2px dashed var(--amber-100); border-radius: 10px; padding: 0.6em 0.9em; margin: clamp(12px, 2.4vh, 28px) 0 0; }
-#e26-preconisations .citation { margin: 0; }
-#e26-preconisations .ecart-idees { margin-top: clamp(16px, 3vh, 36px); }
-#e22-brief .liste { margin-top: clamp(10px, 2vh, 24px); }
+#e21-perspectives .citation { margin: 0; }
+#e21-perspectives .ecart-idees { margin-top: clamp(36px, 6vh, 64px); }
 
-/* Après la hausse des tailles (oral blanc n°1) : écrans les plus denses. */
-#e24-ecart .ecart .chiffre { font-size: clamp(34px, 6.4vh, 88px); }
-#e24-ecart .ecart-kicker { margin-top: clamp(14px, 2.6vh, 34px); }
-#e24-ecart .ecart-idees { margin-top: clamp(10px, 1.8vh, 24px); }
-#e24-ecart .idee { padding-top: clamp(18px, 3vh, 36px); }
-#e24-ecart .idee .voies { display: flex; flex-wrap: wrap; column-gap: 0.9em; }
-#e24-ecart .ecart-idees { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-/* 4:3 : les listes de l'écart passent en ligne, séparées par un point médian. */
-@media (max-aspect-ratio: 3/2) {
-  #e24-ecart .idee .voies { display: block; }
-  #e24-ecart .idee .voies li { display: inline; }
-  #e24-ecart .idee .voies li::before { display: none; }
-  #e24-ecart .idee .voies li:not(:last-child)::after { content: ' · '; color: var(--text-muted); }
-}
-@media (max-aspect-ratio: 3/2) {
-  #e24-ecart .ecart .chiffre { font-size: clamp(30px, 5.2vh, 70px); }
-  #e24-ecart .titre { margin-bottom: clamp(6px, 1.2vh, 16px); }
-  #e24-ecart .ecart-kicker { margin-top: clamp(10px, 1.8vh, 24px); }
-}
 /* Écran « Ce que le projet a produit » : trois vignettes au même format. */
-#e13-produit .capture { aspect-ratio: 4 / 3; overflow: hidden; }
-#e13-produit .capture img { width: 100%; height: 100%; object-fit: cover; }
-#e13-produit .capture.photo-attente { display: flex; align-items: center; justify-content: center; }
+#e10-produit .capture { aspect-ratio: 4 / 3; overflow: hidden; }
+#e10-produit .capture img { width: 100%; height: 100%; object-fit: cover; }
+#e10-produit .capture.photo-attente { display: flex; align-items: center; justify-content: center; }
 /* Écran des capacités visées : les deux personas, une liste chacune. */
-#e09-capacites .ecart-kicker { margin-top: clamp(14px, 2.6vh, 32px); }
-#e09-capacites .personas { margin-top: clamp(30px, 4.6vh, 56px); }
-#e09-capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }
+#e07-capacites .ecart-kicker { margin-top: clamp(14px, 2.6vh, 32px); }
+#e07-capacites .personas { margin-top: clamp(30px, 4.6vh, 56px); }
+#e07-capacites .liste li { margin-bottom: clamp(6px, 1.2vh, 14px); }
 /* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
 .pp-bulle { justify-content: center; align-items: center; text-align: center; }
 /* Capacités : trois cartes, les stagiaires au bout de la chaîne en ambre. */
-#e09-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; }
-#e09-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
+#e07-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; }
+#e07-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
 /* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
 .phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }
 .phases-blocs.pourquoi strong { font-size: calc(var(--t-corps) * 1.2); line-height: 1.15; color: var(--acte-texte); }
-#e12-enjeux .phases-trace { max-height: 44vh; object-fit: contain; object-position: left center; }
+#e09-phases .phases-trace { max-height: 44vh; object-fit: contain; object-position: left center; }
 /* Boîte à outils (S62) : sous chaque pile, pour qui c'est une pépite. Clic : le visuel. */
 .familles-v2 .pepite-pour { margin: clamp(18px, 3vh, 34px) 0 0; font-family: var(--font-corps); font-weight: 400; font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); }
 .familles-v2 .pepite-pour strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); }
@@ -1428,8 +1398,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .attente-portrait { aspect-ratio: 3 / 4; height: 60vh; width: auto; justify-self: center; padding: 1em; }
 
 /* Écran 13 : le mode d'emploi, l'affiche A4 recto-verso à côté du texte. */
-#e14-mode-emploi .texte-et-photos { grid-template-columns: 0.72fr 1.28fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(10px, 2.4vh, 30px); }
-#e14-mode-emploi .vis-a-vis .photo-posee { height: min(58vh, 630px); width: auto; max-width: none; min-width: 0; }
+#e11-mode-emploi .texte-et-photos { grid-template-columns: 0.72fr 1.28fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(10px, 2.4vh, 30px); }
+#e11-mode-emploi .vis-a-vis .photo-posee { height: min(58vh, 630px); width: auto; max-width: none; min-width: 0; }
 
 /* Écran 6 : les contraintes à gauche, la méthode qui en découle à droite (S71). */
 .contraintes-methode { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 2.6vw, 48px); align-items: stretch; max-width: 1560px; margin-top: clamp(18px, 4vh, 52px); }
@@ -1440,8 +1410,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .contraintes-methode .cm-donc span:last-child { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--acte-texte); }
 
 /* Écran 14 : le zoom sur les quatre familles (haut du verso), posé par-dessus le recto-verso (S73). */
-#e14-mode-emploi .mode-emploi-visuels { position: relative; width: fit-content; justify-self: center; min-width: 0; }
-#e14-mode-emploi .zoom-familles { position: absolute; z-index: 2; right: -4%; top: 34%; width: 104%; max-width: none; height: auto; transform: rotate(-1deg); background: #fff; border: 1px solid var(--border-light); border-radius: 10px; box-shadow: 0 10px 32px rgba(0,0,0,0.22); }
+#e11-mode-emploi .mode-emploi-visuels { position: relative; width: fit-content; justify-self: center; min-width: 0; }
+#e11-mode-emploi .zoom-familles { position: absolute; z-index: 2; right: -4%; top: 34%; width: 104%; max-width: none; height: auto; transform: rotate(-1deg); background: #fff; border: 1px solid var(--border-light); border-radius: 10px; box-shadow: 0 10px 32px rgba(0,0,0,0.22); }
 
 
 /* Kickers en majuscules : un cran plus gras pour la projection (S75). */
@@ -1449,8 +1419,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .persona-tag, .phase-tag, .pepite-tag, .contraintes-methode .cm-donc span:last-child, .chaines .chaines-tete { font-weight: 600; }
 
 /* Écran 16 : les affiches de communication sur la base, à droite du texte (S76). */
-#e17-affiches-base .texte-et-photos { grid-template-columns: 0.85fr 1.15fr; }
-#e17-affiches-base .vis-a-vis .photo-posee { height: min(64vh, 690px); width: auto; max-width: none; min-width: 0; }
+#e14-affiches-base .texte-et-photos { grid-template-columns: 0.85fr 1.15fr; }
+#e14-affiches-base .vis-a-vis .photo-posee { height: min(64vh, 690px); width: auto; max-width: none; min-width: 0; }
 
 /* Un paragraphe suivi d'une liste : un interligne entre les deux, partout (S77). */
 .corps + .liste { margin-top: clamp(12px, 2.2vh, 28px); }
@@ -1460,41 +1430,61 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .pepites-kicker { max-width: 1200px; width: 100%; margin: clamp(14px, 2.6vh, 32px) auto clamp(14px, 2.4vh, 28px); }
 .pepites-kicker strong { color: var(--navy-700); }
 
-/* Écran 15 : deux cycles divergence puis convergence, chaque geste dit par le concret d'Anacoluthe (S79).
-   Inspiration graphique : losange ouvert, flèches qui s'écartent, nuage d'idées, flèche qui resserre.
-   Le SVG est à l'échelle 1 à 1920 : ses textes restent au-dessus de --t-petit. */
-.cycles-dc { width: 100%; max-width: 1660px; margin-top: clamp(16px, 3vh, 36px); }
-.cycles-dc svg { display: block; width: 100%; height: auto; overflow: visible; }
-.cycles-dc .dc-contour { fill: none; stroke: var(--navy-700); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-.cycles-dc .dc-diverge { stroke: var(--amber-700); stroke-width: 9; stroke-linecap: round; }
-.cycles-dc .dc-pointe { fill: var(--amber-700); }
-.cycles-dc .dc-idee { fill: var(--amber-100); stroke: var(--navy-700); stroke-width: 2; }
-.cycles-dc .dc-converge { fill: var(--navy-100); }
-.cycles-dc .dc-lien { stroke: var(--navy-700); stroke-width: 3; }
-.cycles-dc .dc-boucle { fill: none; stroke: var(--navy-700); stroke-width: 3; stroke-dasharray: 10 9; }
-.cycles-dc .dc-pointe-boucle { fill: var(--navy-700); }
-.cycles-dc .dc-pivot rect { fill: #fff; stroke: var(--navy-700); stroke-width: 2; }
-.cycles-dc .dc-pivot text { font-family: var(--font-titre); font-weight: 800; font-size: 26px; fill: var(--navy-700); text-anchor: middle; }
-.dc-concret { display: grid; grid-template-columns: 400fr 400fr 60fr 400fr 400fr; margin-top: clamp(10px, 2vh, 24px); }
-.dc-concret p { margin: 0; padding: 0 clamp(10px, 1.2vw, 22px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
-.dc-concret p strong { font-family: var(--font-titre); font-weight: 800; }
-.dc-concret .dc-geste { display: block; margin-bottom: 0.3em; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; }
-.dc-concret .dc-div { color: var(--amber-texte); }
-.dc-concret .dc-conv { color: var(--navy-700); }
+/* ══ Après l'oral blanc n°2 (S84 et suivantes) ══════════════════════════ */
 
-/* Écran 18 : les quatre face-à-face avec les moniteurices, une carte chacun (S81). */
-.faf-cartes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 32px); max-width: 1664px; margin-top: clamp(36px, 6vh, 72px); }
-.faf-carte { position: relative; display: flex; flex-direction: column; gap: 0.55em; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(28px, 4.6vh, 54px) clamp(14px, 1.4vw, 26px) clamp(16px, 2.6vh, 30px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.35; color: var(--navy-700); }
-.faf-carte strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
-.faf-carte .faf-quand { font-family: var(--font-legende); color: var(--text-muted); }
-.faf-carte b, .faf-pour b { display: block; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; color: var(--acte-texte); }
-.faf-a-completer { font-family: var(--font-legende); color: var(--amber-texte); }
-/* Écran 19 : avec les stagiaires, deux photos du kit en usage. */
-#e19-stagiaires .texte-et-photos { grid-template-columns: 0.9fr 1.1fr; }
-#e19-stagiaires .vis-a-vis .photo-posee { height: min(52vh, 560px); width: auto; max-width: 48%; object-fit: cover; }
-.faf-pour { margin-top: clamp(18px, 3.4vh, 40px); }
-.faf-pour b { display: inline; margin-right: 0.4em; }
+/* Écran 2 : trois sources, chacune avec ce qu'elle a apporté, le constat en chute (S85, S97). */
+#e02-commande .trois-voies { max-width: 1500px; }
+#e02-commande .trois-voies h3 { min-height: 2.6em; font-size: var(--t-petit); line-height: 1.3; color: var(--text-muted); margin: 0 0 0.5em; }
+#e02-commande .trois-voies p { margin-top: 0.5em; font-size: var(--t-corps); line-height: 1.3; color: var(--navy-700); }
+#e02-commande .corps.appui { margin-top: clamp(18px, 3.4vh, 40px); }
 
-/* Écran 20 : avec les encadrants, deux cartes (S81). */
-.faf-cartes.faf-deux { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1200px; }
-#e20-encadrants .faf-cartes { margin-top: clamp(40px, 6.4vh, 76px); }
+/* Écran 9 : quatre phases en cartes reliées, l'enjeu de chacune en couleur d'acte (S87). */
+.phases-enjeux { list-style: none; padding: 0; margin: clamp(30px, 5vh, 60px) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px; max-width: 1664px; counter-reset: none; }
+.phases-enjeux li { position: relative; display: flex; flex-direction: column; gap: 0.35em; background: #fff; border: 1px solid var(--teal-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(16px, 1.4vw, 26px) clamp(18px, 2.8vh, 32px); }
+.phases-enjeux li:not(:last-child)::after { content: '→'; position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--teal-texte); }
+.pe-num { position: absolute; top: 0; left: clamp(16px, 1.4vw, 26px); transform: translateY(-50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--teal-700); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
+.pe-nom { min-height: 2.4em; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--navy-700); line-height: 1.2; }
+.pe-date { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }
+.pe-enjeu { margin-top: 0.9em; padding-top: 0.8em; border-top: 1px solid var(--teal-100); font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.1); color: var(--teal-texte); line-height: 1.2; }
+.pe-pour { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
+
+/* Écran 10 : transition, le public en légende courte sous chaque produit (S88). */
+#e10-produit .trois-voies p { font-size: var(--t-liste); }
+
+/* Écran 12 : un cycle de co-conception en cinq étapes, puis retour au début (S89).
+   Le SVG de la boucle suit la grille des cartes : 5 colonnes de 300 et 4 gouttières de 40 = 1660. */
+.cycle-cc { width: 100%; max-width: 1660px; margin-top: clamp(30px, 5vh, 60px); }
+.cycle-cc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px; }
+.cycle-cc li { position: relative; display: flex; flex-direction: column; gap: 0.35em; background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(14px, 1.2vw, 24px) clamp(18px, 2.8vh, 32px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
+.cycle-cc li strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
+.cycle-cc li:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--acte-texte); }
+.cc-num { position: absolute; top: 0; left: clamp(14px, 1.2vw, 24px); transform: translateY(-50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--acte-encre); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
+.cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
+.cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
+.cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }
+.cc-boucle .cc-pill { fill: #fff; stroke: var(--acte-encre); stroke-width: 2; }
+.cc-boucle text { font-family: var(--font-titre); font-weight: 800; font-size: 28px; fill: var(--acte-texte); text-anchor: middle; }
+
+/* Écran 17 : le quanti des stagiaires à gauche, le quali des moniteurices à droite (S91). */
+.constats.retours { max-width: 1664px; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.retours .source { margin: 0.2em 0 0; font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }
+.retours .item { margin: 0.8em 0 0.4em; }
+.retours .quali { margin: 0.8em 0 0.6em; font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; color: var(--navy-700); }
+.retours .quali strong { font-family: var(--font-titre); font-weight: 800; color: var(--teal-texte); }
+.retours blockquote { margin: 0.6em 0 0; padding-left: 0.8em; border-left: 3px solid var(--teal-100); font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
+.retours cite { display: block; margin-top: 0.2em; font-family: var(--font-legende); font-style: normal; color: var(--text-muted); }
+
+/* Écran 18 : insuffisances et continuités, deux colonnes de même dessin (S92). */
+.ic-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.4vw, 48px); max-width: 1664px; margin-top: clamp(14px, 2.6vh, 32px); }
+.ic-col { background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(14px, 2.4vh, 28px) clamp(18px, 1.8vw, 32px); }
+.ic-continuites { border-color: var(--teal-100); }
+.ic-col .ecart-kicker { margin: 0; }
+.ic-insuffisances .ecart-kicker { color: var(--brick-700); }
+.ic-continuites .ecart-kicker { color: var(--teal-texte); }
+.ic-col .ecart { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(10px, 2vh, 24px); text-align: left; }
+.ic-col .ecart .chiffre { font-size: clamp(34px, 6.4vh, 88px); }
+.ic-col .ecart .quoi { font-size: var(--t-liste); }
+.ic-col .liste { margin-top: clamp(14px, 2.6vh, 30px); }
+
+/* Écran 17 : outiller le brief, un interligne avant la liste (S96). */
+#e17-brief .liste { margin-top: clamp(10px, 2vh, 24px); }

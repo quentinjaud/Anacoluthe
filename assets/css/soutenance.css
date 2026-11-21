@@ -149,7 +149,7 @@ body {
   font-family: var(--font-titre);
   font-weight: 800;
   font-size: var(--t-titre);
-  line-height: 1.15;
+  line-height: 1.22;   /* 1,15 avant S110 */
   color: var(--bleu-glenans);
   margin: 0 0 clamp(12px, 2.6vh, 34px);
 }

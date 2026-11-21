@@ -1451,10 +1451,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 10 : transition, le public en légende courte sous chaque produit (S88). */
 #e10-produit .trois-voies p { font-size: var(--t-liste); }
 
-/* Écran 12 : un cycle de co-conception en cinq étapes, puis retour au début (S89).
-   Le SVG de la boucle suit la grille des cartes : 5 colonnes de 300 et 4 gouttières de 40 = 1660. */
+/* Écran 12 : un cycle de co-conception en quatre étapes, puis retour au début (S89).
+   Le SVG de la boucle suit la grille des cartes : 4 colonnes de 385 et 3 gouttières de 40 = 1660 (S108). */
 .cycle-cc { width: 100%; max-width: 1660px; margin-top: clamp(30px, 5vh, 60px); }
-.cycle-cc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px; }
+.cycle-cc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
 .cycle-cc li { position: relative; display: flex; flex-direction: column; gap: 0.35em; background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(14px, 1.2vw, 24px) clamp(18px, 2.8vh, 32px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
 .cycle-cc li strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
 .cycle-cc li:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--acte-texte); }

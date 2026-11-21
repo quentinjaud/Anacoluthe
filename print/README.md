@@ -22,6 +22,7 @@ Ce dossier contient les PDFs générés automatiquement pour l'impression des ca
 │   ├── livret-joker.pdf
 │   ├── livret-affiches.pdf  (affiches A4)
 │   ├── livret-memos.pdf     (mémos d'affiches en A6)
+│   ├── livret-jury.pdf      (démo jury : M1, M2, J1, J4, hors kit)
 │   └── kit-complet.pdf
 └── README.md
 ```
@@ -67,6 +68,7 @@ Chaque feuille A4 donne 4 cartes A6 (105 × 148 mm) avec le bon verso au dos.
 | `livret-joker.pdf` | J1-J4 (4 cartes) | 1 |
 | `livret-affiches.pdf` | A1-A4 affiches A4 | 2 |
 | `livret-memos.pdf` | A1-A4 mémos d'affiches (4 cartes A6) | 1 |
+| `livret-jury.pdf` | M1, M2, J1, J4 (démo jury, hors kit) | 1 |
 | `kit-complet.pdf` | Tous | 7 |
 
 ## Développement local

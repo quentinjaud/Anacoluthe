@@ -2,7 +2,7 @@
  * ASSEMBLEUR - Assemble les PDFs A6 en livrets A4 (4-UP)
  * 
  * Usage: node scripts/assemble-booklets.js [target]
- *   target: 'all' | 'roles' | 'moments' | 'joker' | 'memos' | 'affiches'
+ *   target: 'all' | 'roles' | 'moments' | 'joker' | 'memos' | 'affiches' | 'm1x4' | 'm2x4' | 'jury'
  *
  * Input: /print/cartes/{id}.pdf (2 pages : recto + verso)
  *        /print/affiches/{id}.pdf (pour le livret affiches, format A4)
@@ -67,6 +67,11 @@ const CONFIG = {
     m2x4: {
       cards: ['M2_accords-equipage', 'M2_accords-equipage', 'M2_accords-equipage', 'M2_accords-equipage'],
       title: 'M2 Accords équipage x4',
+      skipInKit: true  // livret spécial, hors kit complet
+    },
+    jury: {
+      cards: ['M1_accueil-presentations', 'M2_accords-equipage', 'J1_conflit-desaccord', 'J4_demande_retour_mono'],
+      title: 'Démo jury (M1, M2, J1, J4)',
       skipInKit: true  // livret spécial, hors kit complet
     },
     affiches: {

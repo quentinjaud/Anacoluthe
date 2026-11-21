@@ -1462,8 +1462,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
 .cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
 .cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }
-.cc-boucle .cc-pill { fill: #fff; stroke: var(--acte-encre); stroke-width: 2; }
-.cc-boucle text { font-family: var(--font-titre); font-weight: 800; font-size: 28px; fill: var(--acte-texte); text-anchor: middle; }
 
 /* Écran 17 : le quanti des stagiaires à gauche, le quali des moniteurices à droite (S91). */
 .constats.retours { max-width: 1664px; grid-template-columns: 1fr 1fr; align-items: stretch; }

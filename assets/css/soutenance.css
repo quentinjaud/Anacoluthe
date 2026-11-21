@@ -1321,7 +1321,13 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e06-publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
 #e06-publics .publics { max-width: 1664px; }
 #e06-publics .public-bloc { flex: 1 1 0; min-width: 0; }
-#e06-publics .public-lien span:last-child, #e06-publics .public-qui { letter-spacing: 0.04em; }
+/* Écran 6 (S95) : un emoji à cheval par public, sous-titres en texte courant, liens allégés, besoin en gras. */
+#e06-publics .public-bloc { position: relative; padding-top: clamp(30px, 5vh, 58px); }
+#e06-publics .public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-petit); font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text-muted); margin-bottom: 0.7em; }
+#e06-publics .public-bloc p strong { color: var(--navy-700); font-weight: 700; }
+#e06-publics .public-lien { gap: 0; }
+#e06-publics .public-fleche { font-size: calc(var(--t-corps) * 2.4); }
+#e06-publics .public-lien span:last-child { max-width: 8em; font-size: var(--t-petit); font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--teal-texte); }
 
 /* Deux personas. */
 .personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2.4vw, 40px); max-width: 1400px; }

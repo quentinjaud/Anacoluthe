@@ -149,7 +149,7 @@ body {
   font-family: var(--font-titre);
   font-weight: 800;
   font-size: var(--t-titre);
-  line-height: 1.22;   /* 1,15 avant S110 */
+  line-height: 1.22;   /* 1,15 avant S95 */
   color: var(--bleu-glenans);
   margin: 0 0 clamp(12px, 2.6vh, 34px);
 }
@@ -1432,7 +1432,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* ══ Après l'oral blanc n°2 (S84 et suivantes) ══════════════════════════ */
 
-/* Écran 2 : trois sources, chacune avec ce qu'elle a apporté, le constat en chute (S85, S97). */
+/* Écran 2 : trois sources, la source au-dessus de l'image, ce qu'elle a apporté dessous (S85, S95). */
 #e02-commande .trois-voies { max-width: 1500px; }
 #e02-commande .trois-voies h3 { min-height: 2.6em; font-size: var(--t-petit); line-height: 1.3; color: var(--text-muted); margin: 0 0 0.5em; }
 #e02-commande .trois-voies p { margin-top: 0.5em; font-size: var(--t-corps); line-height: 1.3; color: var(--navy-700); }
@@ -1452,7 +1452,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e10-produit .trois-voies p { font-size: var(--t-liste); }
 
 /* Écran 12 : un cycle de co-conception en quatre étapes, puis retour au début (S89).
-   Le SVG de la boucle suit la grille des cartes : 4 colonnes de 385 et 3 gouttières de 40 = 1660 (S108). */
+   Le SVG de la boucle suit la grille des cartes : 4 colonnes de 385 et 3 gouttières de 40 = 1660 (S95). */
 .cycle-cc { width: 100%; max-width: 1660px; margin-top: clamp(30px, 5vh, 60px); }
 .cycle-cc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
 .cycle-cc li { position: relative; display: flex; flex-direction: column; gap: 0.35em; background: #fff; border: 1px solid var(--brick-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(14px, 1.2vw, 24px) clamp(18px, 2.8vh, 32px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }

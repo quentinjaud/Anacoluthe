@@ -116,7 +116,7 @@
   </div>
 </section>
 
-<!-- 3. LA PROBLÉMATIQUE (S112, S124) : la question au centre, entourée des trois éléments
+<!-- 3. LA PROBLÉMATIQUE (S112, S124, S125) : la question au centre, entourée des trois éléments
      qui la contextualisent. Chacun pointe vers le fragment qu'il éclaire : les moniteurices
      pas outillées vers « les moyens d'animer », le contexte adverse vers « tensions »,
      l'extrait des statuts vers « opportunités d'apprentissage ». Flèches tracées en JS. -->
@@ -125,17 +125,16 @@
   <div class="pb-scene">
     <div class="pb-note pb-outils" data-cible="pb-moyens">
       <span class="pb-emoji" aria-hidden="true">🧰</span>
-      <strong>Les moniteurices ne sont pas outillées</strong>
+      <span class="pb-texte"><strong>Les moniteurices ne sont pas outillées</strong></span>
     </div>
-    <p class="question pb-question">Comment donner aux <strong>moniteurices</strong><br>
-    <strong id="pb-moyens">les moyens d'animer le <span class="nowrap">vivre-ensemble</span></strong><br>
-    dans un contexte qui génère autant de <strong id="pb-tensions">tensions</strong><br>
-    que <strong id="pb-opportunites">d'opportunités d'apprentissage</strong>&nbsp;?</p>
     <div class="pb-note pb-contexte" data-cible="pb-tensions">
       <span class="pb-emoji" aria-hidden="true">🌊</span>
-      <strong>Un contexte adverse</strong>
-      <span>isolé, confiné, extrême</span>
+      <span class="pb-texte"><strong>Un contexte adverse</strong><span>isolé, confiné, extrême</span></span>
     </div>
+    <p class="question pb-question">Comment donner aux <strong>moniteurices</strong><br>
+    <strong id="pb-moyens">les moyens d'animer le vivre-ensemble</strong><br>
+    dans un contexte qui génère autant de <strong id="pb-tensions">tensions</strong><br>
+    que <strong id="pb-opportunites">d'opportunités d'apprentissage</strong>&nbsp;?</p>
     <figure class="pb-note pb-statuts" data-cible="pb-opportunites">
       <blockquote>«&nbsp;Créer, entre les hommes et les femmes de tous les pays, <mark>des liens par la mer</mark>&nbsp;»</blockquote>
       <figcaption>Statuts des Glénans, buts de l'association</figcaption>
@@ -756,52 +755,44 @@
 </script>
 
 <script>
-/* Écran 3 (S124) : chaque note pointe vers le fragment de la question qu'elle éclaire.
-   Les notes latérales s'alignent sur la ligne de leur fragment, puis les flèches se tracent.
+/* Écran 3 (S124, S125) : chaque note pointe vers le fragment de la question qu'elle éclaire.
+   Les deux notes du haut descendent par les marges, à gauche vers le début de la ligne 2,
+   à droite vers la fin de la ligne 3 ; l'extrait des statuts remonte vers la ligne 4.
    Recalcul au chargement des polices, des emojis et au redimensionnement. */
 (function () {
   var sec = document.getElementById('e03-problematique');
   if (!sec) return;
   var svg = sec.querySelector('.pb-fleches');
   var NS = 'http://www.w3.org/2000/svg';
+  function pt(x, y) { return x.toFixed(1) + ',' + y.toFixed(1); }
   function tracer() {
-    var notes = sec.querySelectorAll('.pb-note');
-    Array.prototype.forEach.call(notes, function (n) { if (!n.classList.contains('pb-statuts')) n.style.transform = 'none'; });
     var rs = sec.getBoundingClientRect();
-    /* Aligner les notes latérales sur leur fragment. */
-    Array.prototype.forEach.call(notes, function (n) {
-      if (n.classList.contains('pb-statuts')) return;
-      var c = document.getElementById(n.getAttribute('data-cible'));
-      var rc = c.getClientRects()[0], rn = n.getBoundingClientRect();
-      n.style.transform = 'translateY(' + ((rc.top + rc.height / 2) - (rn.top + rn.height / 2)) + 'px)';
-    });
+    if (!rs.width) return;
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var defs = document.createElementNS(NS, 'defs');
     defs.innerHTML = '<marker id="pb-pointe" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>';
     svg.appendChild(defs);
     svg.setAttribute('viewBox', '0 0 ' + rs.width + ' ' + rs.height);
-    var g = 18;
-    Array.prototype.forEach.call(notes, function (n) {
-      var c = document.getElementById(n.getAttribute('data-cible'));
-      var rects = c.getClientRects();
-      var rn = n.getBoundingClientRect();
-      var d;
+    var g = 14, m = Math.max(40, rs.width * 0.04);
+    Array.prototype.forEach.call(sec.querySelectorAll('.pb-note'), function (n) {
+      var rects = document.getElementById(n.getAttribute('data-cible')).getClientRects();
+      var rn = n.getBoundingClientRect(), d, sx, sy, ex, ey;
       if (n.classList.contains('pb-outils')) {
         var r = rects[0];
-        var x1 = rn.right - rs.left + g, y1 = rn.top + rn.height / 2 - rs.top;
-        var x2 = r.left - rs.left - g, y2 = r.top + r.height / 2 - rs.top;
-        d = 'M' + x1 + ',' + y1 + ' L' + x2 + ',' + y2;
+        sx = rn.left - rs.left - g; sy = rn.top + rn.height / 2 - rs.top;
+        ex = r.left - rs.left - g; ey = r.top + r.height / 2 - rs.top;
+        d = 'M' + pt(sx, sy) + ' C' + pt(sx - m, sy) + ' ' + pt(ex - m, ey) + ' ' + pt(ex, ey);
       } else if (n.classList.contains('pb-contexte')) {
         var r = rects[rects.length - 1];
-        var x1 = rn.left - rs.left - g, y1 = rn.top + rn.height / 2 - rs.top;
-        var x2 = r.right - rs.left + g, y2 = r.top + r.height / 2 - rs.top;
-        d = 'M' + x1 + ',' + y1 + ' L' + x2 + ',' + y2;
+        sx = rn.right - rs.left + g; sy = rn.top + rn.height / 2 - rs.top;
+        ex = r.right - rs.left + g; ey = r.top + r.height / 2 - rs.top;
+        d = 'M' + pt(sx, sy) + ' C' + pt(sx + m, sy) + ' ' + pt(ex + m, ey) + ' ' + pt(ex, ey);
       } else {
         var r = rects[0];
-        var x1 = rn.left + rn.width / 2 - rs.left, y1 = rn.top - rs.top - g / 2;
-        var x2 = r.left + r.width / 2 - rs.left, y2 = r.bottom - rs.top + g / 2;
-        var my = (y1 + y2) / 2;
-        d = 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + my + ' ' + x2 + ',' + my + ' ' + x2 + ',' + y2;
+        ex = r.left + r.width / 2 - rs.left; ey = r.bottom - rs.top + g / 2;
+        sx = Math.min(Math.max(ex, rn.left - rs.left + 30), rn.right - rs.left - 30); sy = rn.top - rs.top - g / 2;
+        var my = (sy + ey) / 2;
+        d = 'M' + pt(sx, sy) + ' C' + pt(sx, my) + ' ' + pt(ex, my) + ' ' + pt(ex, ey);
       }
       var p = document.createElementNS(NS, 'path');
       p.setAttribute('d', d);

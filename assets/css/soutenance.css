@@ -1440,13 +1440,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* ══ Ouverture par l'histoire (S112) ══════════════════════════════════ */
 
-/* Écran 1 : deux intuitions, la source au-dessus de l'image, le signal dessous (S95, S112). */
 /* Écran 0 : le titre du dossier sous le sous-titre, à la place de l'ancienne question (S114). */
 #e00-anacoluthe .meta-titre { font-family: var(--font-corps); font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px); line-height: 1.32; color: var(--navy-700); margin: 0; }
-#e01-intuitions .deux-sources { grid-template-columns: repeat(2, 1fr); max-width: 1300px; gap: clamp(24px, 4vw, 80px); }
-#e01-intuitions .trois-voies h3 { font-size: var(--t-petit); line-height: 1.3; color: var(--text-muted); margin: 0 0 0.5em; }
-#e01-intuitions .trois-voies p { margin-top: 0.6em; font-size: var(--t-corps); font-style: normal; line-height: 1.3; color: var(--navy-700); }
-#e01-intuitions .trois-voies p strong { color: var(--bleu-glenans); }
 
 /* Écran 2 : l'appel à gauche avec les chiffres du diagnostic, la photo à droite. */
 #e02-diagnostic .diag { grid-template-columns: 1fr 1fr; max-width: 1600px; margin-top: clamp(10px, 2vh, 28px); }
@@ -1559,3 +1554,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e03-problematique .pb-fleches { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; pointer-events: none; overflow: visible; }
 #e03-problematique .pb-fleches path { fill: none; stroke: var(--acte-encre, #B4521E); stroke-width: 3; stroke-linecap: round; }
 #e03-problematique .pb-fleches marker path { fill: var(--acte-encre, #B4521E); stroke: none; }
+
+/* Écran 1 : deux signaux en grand, chacun avec sa source en petit au-dessus (S126). */
+#e01-intuitions .intuitions { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
+#e01-intuitions .intuition { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(40px, 6.4vh, 72px) clamp(24px, 2.4vw, 44px) clamp(28px, 4.6vh, 52px); }
+#e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 0.6em; }
+#e01-intuitions .intuition-signal { font-family: var(--font-corps); font-size: calc(var(--t-corps) * 1.35); line-height: 1.3; color: var(--navy-700); margin: 0; }
+#e01-intuitions .intuition-signal strong { color: var(--bleu-glenans); }

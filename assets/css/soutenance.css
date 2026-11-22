@@ -1186,14 +1186,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .vis-a-vis .photo-posee { width: auto; max-width: 48%; max-height: 62vh; object-fit: contain; background: #fff; }
 .vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg); }
 .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg); }
-#e18-ce-qui-reste .texte-et-photos { grid-template-columns: 1fr 1fr; }
-#e18-ce-qui-reste .vis-a-vis .photo-posee { height: min(48vh, 520px); width: auto; max-width: none; min-width: 0; flex-shrink: 1; }
 /* De la check-list d'avant à l'affiche du kit (S82) : la nouvelle chevauche l'ancienne,
    la flèche passe par-dessus les deux. */
-#e18-ce-qui-reste .vis-a-vis { position: relative; gap: 0; }
-#e18-ce-qui-reste .vav-avant { position: relative; z-index: 1; transform: rotate(-2deg); }
-#e18-ce-qui-reste .vav-apres { position: relative; z-index: 2; margin-left: -9%; margin-top: 6%; transform: rotate(1.5deg); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
-#e18-ce-qui-reste .vav-fleche { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .vav-fleche { flex: 0 0 auto; width: clamp(80px, 7vw, 136px); height: auto; overflow: visible; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
 .vav-fleche path { stroke: var(--acte-encre); stroke-width: 12; stroke-linecap: round; fill: none; }
 .vav-fleche .vav-pointe { fill: var(--acte-encre); stroke-linejoin: round; stroke-width: 6; }
@@ -1380,8 +1374,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Contenu encore à fournir : visible, à retirer avant l'oral. */
 .a-completer { font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--amber-texte); border: 2px dashed var(--amber-100); border-radius: 10px; padding: 0.6em 0.9em; margin: clamp(12px, 2.4vh, 28px) 0 0; }
-#e21-perspectives .citation { margin: 0; }
-#e21-perspectives .ecart-idees { margin-top: clamp(36px, 6vh, 64px); }
+#e20-perspectives .citation { margin: 0; }
+#e20-perspectives .ecart-idees { margin-top: clamp(36px, 6vh, 64px); }
 
 /* Écran « Ce que le projet a produit » : trois vignettes au même format. */
 #e11-produit .capture { aspect-ratio: 4 / 3; overflow: hidden; }
@@ -1515,11 +1509,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 17 : outiller le brief, un interligne avant la liste (S96). */
 
 /* Écran 20 : ce qu'on visait, ce qu'on a pu évaluer, par public (S116). */
-#e19-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
-#e19-evaluer .constat { padding-bottom: clamp(22px, 3.6vh, 44px); }
-#e19-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
-#e19-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
-#e19-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
-#e19-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
-#e19-evaluer .eval-hors { margin-top: clamp(28px, 4.6vh, 56px); color: var(--navy-700); }
-#e19-evaluer .eval-hors strong { font-family: var(--font-titre); font-weight: 800; color: var(--brick-700); }
+#e18-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
+#e18-evaluer .constat { padding-bottom: clamp(22px, 3.6vh, 44px); }
+#e18-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
+#e18-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
+#e18-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
+#e18-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
+#e18-evaluer .eval-hors { margin-top: clamp(28px, 4.6vh, 56px); color: var(--navy-700); }
+#e18-evaluer .eval-hors strong { font-family: var(--font-titre); font-weight: 800; color: var(--brick-700); }

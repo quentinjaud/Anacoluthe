@@ -1518,7 +1518,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Écran 19 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
 #e19-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
-#e19-plus-loin .piste { position: relative; display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
+#e19-plus-loin .piste { position: relative; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
 .piste-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 0.3em; }
 #e19-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
 #e19-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }

@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Support de soutenance BPJEPS voile habitable, UC1-UC2.">
 <link rel="icon" type="image/svg+xml" href="assets/images/logo-anacoluthe.svg">
-<!-- V3 après l'oral blanc n°2 (20/11/2026), 23 écrans depuis S112 (ouverture par l'histoire). Les decks des oraux
+<!-- V3 après l'oral blanc n°2 (20/11/2026), 23 écrans et une couverture (écran 0) depuis S112 et S114. Les decks des oraux
      blancs sont archivés dans archives/soutenance/soutenance-oral-blanc-1.html
      et soutenance-oral-blanc-2.html.
      Refonte : Dossier_UC12_anacoluthe/soutenance/CHECKLIST_ORAL_BLANC_2.md.
@@ -27,6 +27,7 @@
   <div class="fil-piste">
     <span class="fil-ligne" aria-hidden="true"><span class="fil-parcouru"></span></span>
     <div class="acte acte-1" role="group" aria-label="Acte 1 · Origines et problématique">
+      <a class="pastille" href="#e00-anacoluthe"><span aria-hidden="true">⚓</span><span class="bulle">Anacoluthe</span></a>
       <a class="pastille" href="#e01-intuitions"><span aria-hidden="true">💡</span><span class="bulle">Premières intuitions</span></a>
       <a class="pastille" href="#e02-diagnostic"><span aria-hidden="true">🔎</span><span class="bulle">Et si c'était le facteur humain ?</span></a>
       <a class="pastille" href="#e03-problematique"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
@@ -72,12 +73,21 @@
 
 <!-- ═══ ACTE 1 · ORIGINES ET PROBLÉMATIQUE ═══ -->
 
+<!-- 0. LA COUVERTURE (S114) : le nom, le sous-titre, et le titre du dossier.
+     Écran 0 : les écrans suivants gardent leur numéro, de 1 à 23. -->
+<section data-acte="1" class="ecran centree" id="e00-anacoluthe">
+  <h1 class="nom"><span class="accent-ambre">¿</span><span class="accent-teal">¡</span> Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
+  <p class="sous-titre">Soutenance UC1-UC2 · BPJEPS voile habitable</p>
+  <p class="meta-titre">de l'apprentissage accidentel<br>
+  à l'apprentissage structuré du <span class="nowrap">vivre-ensemble</span><br>
+  en stage de voile habitable</p>
+</section>
+
 <!-- 1. LES PREMIÈRES INTUITIONS (S112) : l'histoire d'abord, deux signaux, chacun
      avec sa source. Remplace l'ancienne ouverture par la question et « D'où vient
-     la commande ? ». Le nom du projet reste en en-tête. -->
+     la commande ? ». -->
 <section data-acte="1" class="ecran" id="e01-intuitions">
-  <p class="kicker entete-projet"><span class="accent-ambre">¿</span><span class="accent-teal">¡</span> Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span> · Soutenance UC1-UC2 · BPJEPS voile habitable</p>
-  <h1 class="titre">Premières <span class="highlight">intuitions</span></h1>
+  <h2 class="titre">Premières <span class="highlight">intuitions</span></h2>
   <div class="trois-voies trois-sources deux-sources">
     <div>
       <h3>Romain Gauvrit, responsable croisière</h3>
@@ -657,7 +667,9 @@
   var parcouru = document.querySelector('.fil-parcouru');
   var numero = document.querySelector('.numero');
   var numeroCourant = document.querySelector('.numero-courant');
-  if (numero) numero.querySelector('.numero-total').textContent = '/ ' + ecrans.length;
+  /* Écran 0 (S114) : la couverture ne compte pas, les numéros vont de 1 à 23. */
+  var decalage = ecrans[0] && ecrans[0].id.indexOf('e00-') === 0 ? 1 : 0;
+  if (numero) numero.querySelector('.numero-total').textContent = '/ ' + (ecrans.length - decalage);
   /* Chaque pill reçoit une fois son inclinaison, entre -2° et +2° :
      tirée au chargement, elle reste la même si on revient sur l'écran. */
   pastilles.forEach(function (p) {
@@ -714,7 +726,7 @@
     });
     majLigne();
     if (numeroCourant) {
-      numeroCourant.textContent = i + 1;
+      numeroCourant.textContent = i + 1 - decalage;
       numero.setAttribute('data-acte', acteCourant ? acteCourant.className.replace(/.*acte-(\d).*/, '$1') : '1');
     }
     /* Le fil se recale pour que la pastille courante reste au centre,
@@ -744,7 +756,7 @@
     }
     if (k === 'Enter' && saisie) {
       e.preventDefault();
-      aller(parseInt(saisie, 10) - 1);
+      aller(parseInt(saisie, 10) - 1 + decalage);
       saisie = '';
       return;
     }

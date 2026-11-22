@@ -1444,8 +1444,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* ══ Ouverture par l'histoire (S112) ══════════════════════════════════ */
 
-/* Écran 1 : le nom du projet en en-tête, puis deux intuitions, la source au-dessus de l'image, le signal dessous (S95, S112). */
-#e01-intuitions .entete-projet { font-family: var(--font-titre); font-weight: 700; letter-spacing: 0.06em; margin-bottom: clamp(10px, 2vh, 24px); }
+/* Écran 1 : deux intuitions, la source au-dessus de l'image, le signal dessous (S95, S112). */
+/* Écran 0 : le titre du dossier sous le sous-titre, à la place de l'ancienne question (S114). */
+#e00-anacoluthe .meta-titre { font-family: var(--font-corps); font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px); line-height: 1.32; color: var(--navy-700); margin: 0; }
 #e01-intuitions .deux-sources { grid-template-columns: repeat(2, 1fr); max-width: 1300px; gap: clamp(24px, 4vw, 80px); }
 #e01-intuitions .trois-voies h3 { font-size: var(--t-petit); line-height: 1.3; color: var(--text-muted); margin: 0 0 0.5em; }
 #e01-intuitions .trois-voies p { margin-top: 0.6em; font-size: var(--t-corps); font-style: normal; line-height: 1.3; color: var(--navy-700); }

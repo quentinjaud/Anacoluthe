@@ -1325,6 +1325,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e07-publics .public-bloc { position: relative; padding-top: clamp(30px, 5vh, 58px); }
 #e07-publics .public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-petit); font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text-muted); margin-bottom: 0.7em; }
 #e07-publics .public-bloc p strong { color: var(--navy-700); font-weight: 700; }
+/* Les moniteurices au centre, mises en valeur (S113) : bloc plus large, bordure teal épaisse, ombre. */
+#e07-publics .public-central { flex-grow: 1.25; border: 3px solid var(--teal-700); box-shadow: 0 8px 26px rgba(0,0,0,0.12); padding-bottom: clamp(22px, 3.6vh, 44px); }
+#e07-publics .public-central h3 { font-size: calc(var(--t-liste) * 1.2); color: var(--teal-texte); }
+#e07-publics .public-central p:not(.public-qui) { font-size: calc(var(--t-corps) * 1.1); }
 #e07-publics .public-lien { gap: 0; }
 #e07-publics .public-fleche { font-size: calc(var(--t-corps) * 2.4); }
 #e07-publics .public-lien span:last-child { max-width: 8em; font-size: var(--t-petit); font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--teal-texte); }

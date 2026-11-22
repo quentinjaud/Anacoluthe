@@ -116,19 +116,32 @@
   </div>
 </section>
 
-<!-- 3. LA PROBLÉMATIQUE (S112) : trois constats du diagnostic, puis la question.
-     Les constats viennent de P1.2 (enjeux pédagogiques identifiés). -->
+<!-- 3. LA PROBLÉMATIQUE (S112, S124) : la question au centre, entourée des trois éléments
+     qui la contextualisent. Chacun pointe vers le fragment qu'il éclaire : les moniteurices
+     pas outillées vers « les moyens d'animer », le contexte adverse vers « tensions »,
+     l'extrait des statuts vers « opportunités d'apprentissage ». Flèches tracées en JS. -->
 <section data-acte="1" class="ecran" id="e03-problematique">
-  <h2 class="titre">Ce que disent les <span class="highlight">moniteurices</span></h2>
-  <div class="ecart-idees constats-diag">
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🏝️</span><strong>La solitude</strong><span>face aux enjeux humains de l'embarqué</span></div>
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🌊</span><strong>Un contexte adverse</strong><span>isolé, confiné, extrême</span></div>
-    <div class="idee"><span class="emoji-cheval" aria-hidden="true">🧰</span><strong>Pas d'outils pour animer le <span class="nowrap">vivre-ensemble</span></strong></div>
+  <h2 class="sr-only">La question</h2>
+  <div class="pb-scene">
+    <div class="pb-note pb-outils" data-cible="pb-moyens">
+      <span class="pb-emoji" aria-hidden="true">🧰</span>
+      <strong>Les moniteurices ne sont pas outillées</strong>
+    </div>
+    <p class="question pb-question">Comment donner aux <strong>moniteurices</strong><br>
+    <strong id="pb-moyens">les moyens d'animer le <span class="nowrap">vivre-ensemble</span></strong><br>
+    dans un contexte qui génère autant de <strong id="pb-tensions">tensions</strong><br>
+    que <strong id="pb-opportunites">d'opportunités d'apprentissage</strong>&nbsp;?</p>
+    <div class="pb-note pb-contexte" data-cible="pb-tensions">
+      <span class="pb-emoji" aria-hidden="true">🌊</span>
+      <strong>Un contexte adverse</strong>
+      <span>isolé, confiné, extrême</span>
+    </div>
+    <figure class="pb-note pb-statuts" data-cible="pb-opportunites">
+      <blockquote>«&nbsp;Créer, entre les hommes et les femmes de tous les pays, <mark>des liens par la mer</mark>&nbsp;»</blockquote>
+      <figcaption>Statuts des Glénans, buts de l'association</figcaption>
+    </figure>
   </div>
-  <p class="question question-paf">Comment donner aux <strong>moniteurices</strong><br>
-  les moyens <strong>d'animer le <span class="nowrap">vivre-ensemble</span></strong><br>
-  dans un contexte qui génère autant de <strong>tensions</strong><br>
-  que <strong>d'opportunités d'apprentissage</strong>&nbsp;?</p>
+  <svg class="pb-fleches" aria-hidden="true"></svg>
 </section>
 
 
@@ -739,6 +752,67 @@
     setTimeout(function () { ancreSuit = true; majAncre(courant()); }, 300);
   });
   surveiller();
+})();
+</script>
+
+<script>
+/* Écran 3 (S124) : chaque note pointe vers le fragment de la question qu'elle éclaire.
+   Les notes latérales s'alignent sur la ligne de leur fragment, puis les flèches se tracent.
+   Recalcul au chargement des polices, des emojis et au redimensionnement. */
+(function () {
+  var sec = document.getElementById('e03-problematique');
+  if (!sec) return;
+  var svg = sec.querySelector('.pb-fleches');
+  var NS = 'http://www.w3.org/2000/svg';
+  function tracer() {
+    var notes = sec.querySelectorAll('.pb-note');
+    Array.prototype.forEach.call(notes, function (n) { if (!n.classList.contains('pb-statuts')) n.style.transform = 'none'; });
+    var rs = sec.getBoundingClientRect();
+    /* Aligner les notes latérales sur leur fragment. */
+    Array.prototype.forEach.call(notes, function (n) {
+      if (n.classList.contains('pb-statuts')) return;
+      var c = document.getElementById(n.getAttribute('data-cible'));
+      var rc = c.getClientRects()[0], rn = n.getBoundingClientRect();
+      n.style.transform = 'translateY(' + ((rc.top + rc.height / 2) - (rn.top + rn.height / 2)) + 'px)';
+    });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var defs = document.createElementNS(NS, 'defs');
+    defs.innerHTML = '<marker id="pb-pointe" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>';
+    svg.appendChild(defs);
+    svg.setAttribute('viewBox', '0 0 ' + rs.width + ' ' + rs.height);
+    var g = 18;
+    Array.prototype.forEach.call(notes, function (n) {
+      var c = document.getElementById(n.getAttribute('data-cible'));
+      var rects = c.getClientRects();
+      var rn = n.getBoundingClientRect();
+      var d;
+      if (n.classList.contains('pb-outils')) {
+        var r = rects[0];
+        var x1 = rn.right - rs.left + g, y1 = rn.top + rn.height / 2 - rs.top;
+        var x2 = r.left - rs.left - g, y2 = r.top + r.height / 2 - rs.top;
+        d = 'M' + x1 + ',' + y1 + ' L' + x2 + ',' + y2;
+      } else if (n.classList.contains('pb-contexte')) {
+        var r = rects[rects.length - 1];
+        var x1 = rn.left - rs.left - g, y1 = rn.top + rn.height / 2 - rs.top;
+        var x2 = r.right - rs.left + g, y2 = r.top + r.height / 2 - rs.top;
+        d = 'M' + x1 + ',' + y1 + ' L' + x2 + ',' + y2;
+      } else {
+        var r = rects[0];
+        var x1 = rn.left + rn.width / 2 - rs.left, y1 = rn.top - rs.top - g / 2;
+        var x2 = r.left + r.width / 2 - rs.left, y2 = r.bottom - rs.top + g / 2;
+        var my = (y1 + y2) / 2;
+        d = 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + my + ' ' + x2 + ',' + my + ' ' + x2 + ',' + y2;
+      }
+      var p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d);
+      p.setAttribute('marker-end', 'url(#pb-pointe)');
+      svg.appendChild(p);
+    });
+  }
+  window.addEventListener('load', function () { tracer(); setTimeout(tracer, 600); setTimeout(tracer, 2000); });
+  window.addEventListener('resize', tracer);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(tracer);
+  tracer();
 })();
 </script>
 

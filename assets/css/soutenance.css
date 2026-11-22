@@ -1456,10 +1456,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e02-diagnostic .diag-quand { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: clamp(16px, 3vh, 36px) 0 0; }
 #e02-diagnostic .capture img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
 
-/* Écran 3 : trois constats en cartes, puis la question, qui tombe en conclusion. */
-#e03-problematique .constats-diag { max-width: none; width: 100%; margin-top: clamp(26px, 4.4vh, 52px); }
-#e03-problematique .idee { border-color: var(--amber-100); }
-#e03-problematique .question-paf { width: fit-content; max-width: 1600px; margin: clamp(36px, 6vh, 80px) auto 0; text-align: center; padding: clamp(18px, 3vh, 36px) clamp(20px, 2.4vw, 44px); background: #fff; border-radius: 12px; font-size: clamp(20px, min(calc(var(--t-question) * 0.8), 2.6vw), 56px); }
 
 
 /* Écran 9 : quatre phases en cartes reliées, l'enjeu de chacune en couleur d'acte (S87). */
@@ -1540,3 +1536,25 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e20-bilan .lecons-courtes strong { font-family: var(--font-titre); font-weight: 800; }
 #e20-bilan .bilan-ensuite { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; color: var(--teal-texte); font-weight: 700; margin: clamp(18px, 3.2vh, 38px) 0 0; padding-top: clamp(14px, 2.4vh, 28px); border-top: 1px solid var(--amber-100); }
 #e20-bilan .bilan-ensuite span { color: var(--text-muted); font-weight: 600; font-family: var(--font-titre); }
+
+/* Titre masqué : présent pour les lecteurs d'écran, invisible à la projection. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Écran 3 : la question au centre, trois notes autour, chacune fléchée vers son fragment (S124). */
+#e03-problematique { align-items: center; }
+#e03-problematique .pb-scene { display: grid; grid-template-columns: 260px auto 260px; grid-template-areas: "outils question contexte" ". statuts ."; justify-content: center; column-gap: clamp(60px, 4.7vw, 96px); row-gap: clamp(70px, 10vh, 120px); width: 100%; max-width: none; align-items: start; }
+#e03-problematique .pb-question { grid-area: question; font-size: clamp(20px, min(calc(var(--t-question) * 0.7), 2.3vw), 50px); line-height: 1.4; margin: 0; }
+#e03-problematique .pb-question strong { color: var(--bleu-glenans); }
+#e03-problematique .pb-note { position: relative; display: flex; flex-direction: column; gap: 0.25em; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(14px, 2.4vh, 26px) clamp(16px, 1.4vw, 26px); }
+#e03-problematique .pb-outils { grid-area: outils; }
+#e03-problematique .pb-contexte { grid-area: contexte; }
+#e03-problematique .pb-statuts { grid-area: statuts; justify-self: center; max-width: 900px; margin: 0; text-align: center; }
+#e03-problematique .pb-emoji { font-size: clamp(26px, 4vh, 46px); line-height: 1; }
+#e03-problematique .pb-note strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
+#e03-problematique .pb-note > span:not(.pb-emoji) { font-family: var(--font-corps); font-size: var(--t-petit); color: var(--text-muted); }
+#e03-problematique .pb-statuts blockquote { margin: 0; font-family: var(--font-corps); font-style: italic; font-size: var(--t-corps); line-height: 1.4; color: var(--navy-700); }
+#e03-problematique .pb-statuts mark { background: var(--teal-100); color: var(--navy-700); padding: 0 0.15em; border-radius: 3px; }
+#e03-problematique .pb-statuts figcaption { margin-top: 0.5em; font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }
+#e03-problematique .pb-fleches { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; pointer-events: none; overflow: visible; }
+#e03-problematique .pb-fleches path { fill: none; stroke: var(--acte-encre, #B4521E); stroke-width: 3; stroke-linecap: round; }
+#e03-problematique .pb-fleches marker path { fill: var(--acte-encre, #B4521E); stroke: none; }

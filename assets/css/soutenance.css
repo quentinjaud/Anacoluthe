@@ -1360,6 +1360,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .intentions { margin-top: clamp(8px, 1.6vh, 20px); }
 .intentions li { margin-bottom: clamp(6px, 1.2vh, 14px); }
 .texte-et-photo .ecart-kicker { margin-top: clamp(14px, 2.8vh, 32px); }
+/* Écrans 15 et 16 : sans ligne de format, la place verticale sert à aérer les blocs. */
+#e16-coconception .ecart-kicker, #e17-vendredi .ecart-kicker { margin-top: clamp(40px, 8vh, 88px); }
+#e16-coconception .intentions, #e17-vendredi .intentions { margin-top: clamp(16px, 3.2vh, 36px); }
+#e16-coconception .intentions li, #e17-vendredi .intentions li { margin-bottom: clamp(12px, 2.2vh, 26px); }
 
 /* Pépites du kit : un bloc bordé à l'accent de l'acte. */
 .pepite { margin-top: clamp(14px, 2.8vh, 32px); padding: 0.2em 0 0.2em 1em; border-left: 4px solid var(--acte-encre, var(--teal-700)); display: flex; flex-direction: column; gap: 0.25em; }

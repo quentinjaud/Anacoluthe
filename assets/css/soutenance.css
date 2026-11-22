@@ -1461,9 +1461,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e02-diagnostic .capture img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
 
 /* Écran 3 : trois constats en cartes, puis la question, qui tombe en conclusion. */
-#e03-problematique .constats-diag { max-width: 1600px; margin-top: clamp(26px, 4.4vh, 52px); }
+#e03-problematique .constats-diag { max-width: none; width: 100%; margin-top: clamp(26px, 4.4vh, 52px); }
 #e03-problematique .idee { border-color: var(--amber-100); }
-#e03-problematique .question-paf { width: fit-content; max-width: 1600px; margin-top: clamp(36px, 6vh, 80px); padding: clamp(18px, 3vh, 36px) clamp(20px, 2.4vw, 44px); background: #fff; border-left: 6px solid var(--acte-encre, #F04839); border-radius: 12px; font-size: clamp(20px, min(calc(var(--t-question) * 0.8), 2.6vw), 56px); }
+#e03-problematique .question-paf { width: fit-content; max-width: 1600px; margin: clamp(36px, 6vh, 80px) auto 0; text-align: center; padding: clamp(18px, 3vh, 36px) clamp(20px, 2.4vw, 44px); background: #fff; border-radius: 12px; font-size: clamp(20px, min(calc(var(--t-question) * 0.8), 2.6vw), 56px); }
 
 
 /* Écran 9 : quatre phases en cartes reliées, l'enjeu de chacune en couleur d'acte (S87). */

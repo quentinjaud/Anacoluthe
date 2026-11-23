@@ -1746,3 +1746,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e15-affiches-base .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(3%); }
 #e15-affiches-base .texte-et-photos { margin-top: clamp(30px, 5vh, 60px); }
 #e15-affiches-base .vis-a-vis .photo-posee { height: min(60vh, 650px); }
+/* Écran 17 : les deux versions de l'affiche A3 empilées en vrac, la version à annoter
+   dessous, décalée vers le haut (S138). */
+#e17-vendredi .pile-affiches { position: relative; width: 100%; aspect-ratio: 1.42 / 1.25; justify-self: center; }
+#e17-vendredi .pile-affiches .photo-posee { position: absolute; width: 88%; height: auto; background: #fff; border: 4px solid #fff; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+#e17-vendredi .pa-dessous { top: 0; left: 10%; transform: rotate(3deg); }
+#e17-vendredi .pa-dessus { bottom: 0; left: 0; transform: rotate(-1.8deg); z-index: 2; }

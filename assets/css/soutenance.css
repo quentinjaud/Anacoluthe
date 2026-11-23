@@ -1449,6 +1449,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 0 : le titre du dossier sous le sous-titre, à la place de l'ancienne question (S114). */
 #e00-anacoluthe .meta-titre { font-family: var(--font-corps); font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px); line-height: 1.32; color: var(--navy-700); margin: 0; }
 #e00-anacoluthe .meta-titre strong { font-weight: 700; }
+#e00-anacoluthe .logo-glenans { display: block; height: clamp(80px, 13vh, 150px); width: auto; margin: clamp(24px, 4.5vh, 56px) auto 0; }
 
 /* Écran 2 : l'appel à gauche avec les chiffres du diagnostic, la photo à droite. */
 #e02-diagnostic .diag { grid-template-columns: 1fr 1fr; max-width: 1600px; margin-top: clamp(10px, 2vh, 28px); }

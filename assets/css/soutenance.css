@@ -1393,7 +1393,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
 .pp-bulle { justify-content: center; align-items: center; text-align: center; }
 /* Capacités : trois cartes, les stagiaires au bout de la chaîne en ambre. */
-#e08-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; }
+#e08-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; align-items: center; }
+/* Hauteur des blocs ajustée au contenu, comme l'écran 7 (S137). */
+#e08-capacites .liste li:last-child { margin-bottom: 0; }
 #e08-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
 /* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
 .phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }

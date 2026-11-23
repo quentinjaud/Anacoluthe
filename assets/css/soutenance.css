@@ -1515,39 +1515,39 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 17 : outiller le brief, un interligne avant la liste (S96). */
 
 /* Écran 20 : ce qu'on visait, ce qu'on a pu évaluer, par public (S116). */
-#e18-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
-#e18-evaluer .constat { padding-bottom: clamp(22px, 3.6vh, 44px); }
-#e18-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
-#e18-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
-#e18-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
-#e18-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
+#e19-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
+#e19-evaluer .constat { padding-bottom: clamp(22px, 3.6vh, 44px); }
+#e19-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
+#e19-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
+#e19-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
+#e19-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
 
-/* Écran 19 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
-#e19-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
-#e19-plus-loin .piste { position: relative; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
+/* Écran 20 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
+#e20-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
+#e20-plus-loin .piste { position: relative; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
 .piste-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 0.3em; }
-#e19-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
-#e19-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }
-#e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); }
+#e20-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
+#e20-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }
+#e20-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); }
 /* Kickers en ambre (S137) : distincts du titre navy et des pistes teal. */
-#e19-plus-loin .piste-kicker { color: var(--amber-texte); }
-#e19-plus-loin .piste > * { min-width: 0; }
-#e19-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
-#e19-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0; }
-#e19-plus-loin .piste-liste li { position: relative; padding-left: 0.9em; margin-top: 0.25em; }
-#e19-plus-loin .piste-liste li:first-child { margin-top: 0; }
-#e19-plus-loin .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--teal-texte); }
+#e20-plus-loin .piste-kicker { color: var(--amber-texte); }
+#e20-plus-loin .piste > * { min-width: 0; }
+#e20-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
+#e20-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0; }
+#e20-plus-loin .piste-liste li { position: relative; padding-left: 0.9em; margin-top: 0.25em; }
+#e20-plus-loin .piste-liste li:first-child { margin-top: 0; }
+#e20-plus-loin .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--teal-texte); }
 
-/* Écran 20 : bilan en deux colonnes, la structure puis moi (S119). */
-#e20-bilan .bilan-deux { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
-#e20-bilan .bilan-col { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 34px) clamp(20px, 3.2vh, 38px); }
-#e20-bilan .bilan-cap { font-size: var(--t-petit); color: var(--text-muted); margin: 0.2em 0 0; }
-#e20-bilan .liste { margin-top: clamp(14px, 2.6vh, 30px); }
-#e20-bilan .liste li { margin-bottom: 0.5em; }
-#e20-bilan .liste strong { color: var(--navy-700); }
-#e20-bilan .lecons-courtes strong { font-family: var(--font-titre); font-weight: 800; }
-#e20-bilan .bilan-ensuite { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; color: var(--teal-texte); font-weight: 700; margin: clamp(18px, 3.2vh, 38px) 0 0; padding-top: clamp(14px, 2.4vh, 28px); border-top: 1px solid var(--amber-100); }
-#e20-bilan .bilan-ensuite span { color: var(--text-muted); font-weight: 600; font-family: var(--font-titre); }
+/* Écran 21 : bilan en deux colonnes, la structure puis moi (S119). */
+#e21-bilan .bilan-deux { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
+#e21-bilan .bilan-col { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 34px) clamp(20px, 3.2vh, 38px); }
+#e21-bilan .bilan-cap { font-size: var(--t-petit); color: var(--text-muted); margin: 0.2em 0 0; }
+#e21-bilan .liste { margin-top: clamp(14px, 2.6vh, 30px); }
+#e21-bilan .liste li { margin-bottom: 0.5em; }
+#e21-bilan .liste strong { color: var(--navy-700); }
+#e21-bilan .lecons-courtes strong { font-family: var(--font-titre); font-weight: 800; }
+#e21-bilan .bilan-ensuite { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; color: var(--teal-texte); font-weight: 700; margin: clamp(18px, 3.2vh, 38px) 0 0; padding-top: clamp(14px, 2.4vh, 28px); border-top: 1px solid var(--amber-100); }
+#e21-bilan .bilan-ensuite span { color: var(--text-muted); font-weight: 600; font-family: var(--font-titre); }
 
 /* Titre masqué : présent pour les lecteurs d'écran, invisible à la projection. */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -1615,3 +1615,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e09-equipe .eq-haut::after { left: 50%; top: 100%; width: 3px; height: var(--eq-gy); transform: translateX(-50%); }
 #e09-equipe .eq-gauche::after { left: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
 #e09-equipe .eq-droite::after { right: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
+
+/* Écran 18 : les moments d'animation avec les référents de l'activité, deux cartes (S81, S138).
+   Reprise de l'écran 20 de l'oral blanc n°2. */
+#e18-referents .faf-cartes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 32px); width: 100%; max-width: 1200px; margin-top: clamp(40px, 6.4vh, 76px); }
+#e18-referents .faf-carte { position: relative; display: flex; flex-direction: column; gap: 0.55em; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(28px, 4.6vh, 54px) clamp(14px, 1.4vw, 26px) clamp(16px, 2.6vh, 30px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.35; color: var(--navy-700); }
+#e18-referents .faf-carte strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
+#e18-referents .faf-carte .faf-quand { font-family: var(--font-legende); color: var(--text-muted); }
+#e18-referents .faf-carte b { display: block; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; color: var(--acte-texte); }

@@ -1448,7 +1448,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e02-diagnostic .diag { grid-template-columns: 1fr 1fr; max-width: 1600px; margin-top: clamp(10px, 2vh, 28px); }
 #e02-diagnostic .diag-appel { font-size: calc(var(--t-corps) * 1.15); line-height: 1.3; color: var(--navy-700); }
 #e02-diagnostic .diag-appel strong { color: var(--bleu-glenans); }
-#e02-diagnostic .diag-chiffres { grid-template-columns: repeat(2, auto); justify-content: start; gap: clamp(30px, 4vw, 80px); text-align: left; margin-top: clamp(24px, 4.5vh, 56px); }
+#e02-diagnostic .diag-chiffres { grid-template-columns: repeat(3, auto); justify-content: start; gap: clamp(30px, 4vw, 80px); text-align: left; margin-top: clamp(24px, 4.5vh, 56px); }
+#e02-diagnostic .diag-puis { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-chiffre) * 0.6); line-height: 1; color: var(--text-muted); align-self: start; padding-top: 0.35em; }
 #e02-diagnostic .diag-quand { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: clamp(16px, 3vh, 36px) 0 0; }
 #e02-diagnostic .capture img { aspect-ratio: 3 / 2; object-position: 50% 50%; }
 

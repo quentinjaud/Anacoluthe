@@ -1510,6 +1510,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .cycle-cc li strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
 .cycle-cc li:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--acte-texte); }
 .cc-num { position: absolute; top: 0; left: clamp(14px, 1.2vw, 24px); transform: translateY(-50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--acte-encre); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
+/* Écran 13 : un emoji par étape du cycle (S138), distincts de ceux des phases. */
+.cc-emoji { font-size: clamp(30px, 4.6vh, 54px); line-height: 1; margin-bottom: 0.15em; }
+.cc-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
 .cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
 .cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
 .cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }

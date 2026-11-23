@@ -1524,6 +1524,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e13-conception .cycle-cc li:nth-child(2) { border-color: #17BF63; }
 #e13-conception .cycle-cc li:nth-child(3) { border-color: #226699; }
 #e13-conception .cycle-cc li:nth-child(4) { border-color: #FFCC4D; }
+/* Titres des étapes dans la même teinte, assombrie pour un contraste d'au moins 7:1 sur blanc. */
+#e13-conception .cycle-cc li:nth-child(1) strong { color: #A41B2C; }
+#e13-conception .cycle-cc li:nth-child(2) strong { color: #0B5F31; }
+#e13-conception .cycle-cc li:nth-child(3) strong { color: #1D5884; }
+#e13-conception .cycle-cc li:nth-child(4) strong { color: #6C4D00; }
 .cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
 .cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
 .cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }

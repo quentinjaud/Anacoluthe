@@ -1396,6 +1396,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e08-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; align-items: center; }
 /* Hauteur des blocs ajustée au contenu, comme l'écran 7 (S137). */
 #e08-capacites .liste li:last-child { margin-bottom: 0; }
+#e08-capacites .persona h3 { margin-bottom: clamp(8px, 1.6vh, 20px); }
 #e08-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
 /* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
 .phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }

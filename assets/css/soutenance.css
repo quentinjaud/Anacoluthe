@@ -1518,7 +1518,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e13-conception .cc-num { left: 50%; transform: translate(-50%, -50%); }
 /* Écran 13 : un liseré par étape, dans l'accent de son emoji (S138) :
    rouge des ciseaux, vert du tube, violet de la silhouette, orange du crayon. */
-#e13-conception .cycle-cc li { border-width: 3px; }
+#e13-conception .cycle-cc li { border-width: 1.5px; }
 #e13-conception .cycle-cc li:nth-child(1) { border-color: #DD2E44; }
 #e13-conception .cycle-cc li:nth-child(2) { border-color: #77B255; }
 #e13-conception .cycle-cc li:nth-child(3) { border-color: #8E5BC4; }

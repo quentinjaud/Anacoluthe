@@ -764,7 +764,7 @@ body {
 .logo-pied {
   position: fixed;
   right: clamp(10px, 1.6vw, 28px);
-  bottom: calc(max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom)) + clamp(15px, 1.35vw, 24px) * 1.7 + clamp(8px, 1.2vh, 16px));
+  bottom: calc(max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom)) + clamp(15px, 1.35vw, 24px) * 1.7 + clamp(8px, 1.2vh, 16px) + 8px);
   z-index: 61;
   height: clamp(22px, 3.2vh, 40px);
   aspect-ratio: 122 / 22;

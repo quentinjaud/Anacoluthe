@@ -1736,3 +1736,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e15-affiches-base .vis-a-vis { gap: 0; }
 #e15-affiches-base .vis-a-vis .photo-posee:nth-child(2) { margin-left: -9%; position: relative; z-index: 2; box-shadow: -6px 6px 22px rgba(0,0,0,0.16); }
 #e15-affiches-base .vis-a-vis .photo-posee:nth-child(1) { box-shadow: 0 6px 22px rgba(0,0,0,0.14); }
+/* Écran 12 : recto et verso rapprochés, le verso chevauche le recto, une ombre sur chacun (S138). */
+#e12-mode-emploi .vis-a-vis { gap: 0; }
+#e12-mode-emploi .vis-a-vis .photo-posee:nth-child(1) { box-shadow: 0 6px 22px rgba(0,0,0,0.14); }
+#e12-mode-emploi .vis-a-vis .photo-posee:nth-child(2) { margin-left: -9%; position: relative; z-index: 2; box-shadow: -6px 6px 22px rgba(0,0,0,0.16); }

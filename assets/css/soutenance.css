@@ -1616,7 +1616,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e03-problematique .pb-texte { display: flex; flex-direction: column; }
 #e03-problematique .pb-note strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); }
 #e03-problematique .pb-texte > span { font-family: var(--font-corps); color: var(--text-muted); }
-#e03-problematique .pb-statuts { grid-area: statuts; justify-self: center; flex-direction: column; gap: 0.2em; margin: 0; text-align: center; }
+#e03-problematique .pb-statuts { grid-area: statuts; justify-self: center; flex-direction: row; align-items: center; margin: 0; text-align: center; }
+#e03-problematique .pb-statuts-texte { display: flex; flex-direction: column; gap: 0.2em; }
 #e03-problematique .pb-statuts blockquote { margin: 0; font-family: var(--font-corps); font-style: italic; color: var(--navy-700); }
 #e03-problematique .pb-statuts mark { background: var(--teal-100); color: var(--navy-700); padding: 0 0.15em; border-radius: 3px; }
 #e03-problematique .pb-statuts figcaption { font-family: var(--font-legende); color: var(--text-muted); }

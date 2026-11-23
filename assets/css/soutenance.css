@@ -1513,6 +1513,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 13 : un emoji par étape du cycle (S138), distincts de ceux des phases. */
 .cc-emoji { font-size: clamp(30px, 4.6vh, 54px); line-height: 1; margin-bottom: 0.15em; }
 .cc-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
+/* Écran 13 : contenu des blocs centré (S138). */
+#e13-conception .cycle-cc li { align-items: center; text-align: center; }
+#e13-conception .cc-num { left: 50%; transform: translate(-50%, -50%); }
 .cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
 .cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
 .cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }

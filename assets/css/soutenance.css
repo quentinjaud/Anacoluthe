@@ -1728,4 +1728,4 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .volume-chiffre strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.6); line-height: 1; color: var(--teal-texte); }
 .volume-qui { margin: 0; font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); }
 #e03-problematique .pb-question { text-align: center; }
-#e00-anacoluthe .sous-titre { color: var(--teal-texte); }
+#e00-anacoluthe .sous-titre { color: var(--bleu-glenans); }

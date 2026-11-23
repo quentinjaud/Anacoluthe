@@ -1715,4 +1715,4 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 19 : la taille des étiquettes suit aussi la largeur de la fenêtre, pour tenir à deux par ligne
    dans une fenêtre plus étroite que 16:9. En 1920 × 1080, elle reste à --t-petit (S138). */
 #e19-evaluer .eval-criteres { gap: 0.35em 0.4em; }
-#e19-evaluer .eval-criteres li { font-size: min(var(--t-petit), 1.3vw); padding: 0.18em 0.65em; }
+#e19-evaluer .eval-criteres li { font-size: min(var(--t-petit), 1.37vw); padding: 0.18em 0.65em; }

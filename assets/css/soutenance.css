@@ -1682,4 +1682,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
    en étiquette claire, texte dans l'accent foncé de l'acte (7:1), liseré dans l'accent (S138). */
 #e04-referentiels .public-bloc { position: relative; }
 #e04-referentiels .public-bloc h3 { position: absolute; z-index: 5; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-1.5deg); width: max-content; max-width: 92%; margin: 0; padding: 0.35em 0.8em; background: #fff; color: var(--acte-texte); border: 1px solid var(--acte-encre); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); font-size: calc(var(--t-corps) * 1.2); line-height: 1.2; text-align: center; }
+#e04-referentiels .public-bloc:nth-child(1) h3 { transform: translate(-50%, -50%) rotate(-2.5deg); }
+#e04-referentiels .public-bloc:nth-child(2) h3 { transform: translate(-50%, -50%) rotate(1.8deg); }
 #e04-referentiels .public-bloc h3 .ref-doc { display: block; font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: 0.78em; margin-top: 0.15em; }

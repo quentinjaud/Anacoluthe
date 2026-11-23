@@ -1643,6 +1643,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e18-referents .ref-phases > li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.6em; text-align: center; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(16px, 1.4vw, 26px) clamp(24px, 3.8vh, 44px); }
 #e18-referents .ref-num { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--navy-700); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
 #e18-referents .ref-phases strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.2); color: var(--navy-700); line-height: 1.15; min-height: 2.3em; display: flex; align-items: center; justify-content: center; }
+#e18-referents .ref-emoji { font-size: clamp(30px, 4.6vh, 54px); line-height: 1; margin-top: -0.1em; }
+#e18-referents .ref-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
 /* Hiérarchie (S138) : l'enjeu en titre, un filet, puis les interactions en liste plus petite. */
 #e18-referents .ref-phases ul { list-style: none; width: 100%; padding: clamp(14px, 2.4vh, 28px) 0 0; margin: 0.2em 0 0; border-top: 1px solid var(--navy-100); display: flex; flex-direction: column; gap: 0.55em; text-align: left; font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.35; color: var(--text-muted); }
 #e18-referents .ref-phases ul li { position: relative; padding-left: 0.95em; }

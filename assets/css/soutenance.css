@@ -1493,6 +1493,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 10 (S137) : contenu centré, interlignes aérés. */
 #e10-phases .phases-enjeux li { text-align: center; gap: 0.6em; padding-bottom: clamp(26px, 4vh, 46px); }
 #e10-phases .pe-num { left: 50%; transform: translate(-50%, -50%); }
+/* Un emoji par phase, les mêmes qu'à l'écran 18 (S138). */
+#e10-phases .pe-emoji { font-size: clamp(30px, 4.6vh, 54px); line-height: 1; }
+#e10-phases .pe-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
 #e10-phases .pe-nom { line-height: 1.3; min-height: 2.6em; display: flex; align-items: center; justify-content: center; }
 #e10-phases .pe-enjeu { line-height: 1.3; margin-top: 0.6em; padding-top: 1em; }
 

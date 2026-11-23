@@ -1722,7 +1722,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e16-coconception .photo-portrait { transform: rotate(2deg); }
 #e17-vendredi .photo-portrait { transform: rotate(-1.8deg); }
 /* Écrans 16 et 17 : le volume du public formé, en tuile teal comme les résultats de l'écran 19 (S138). */
-.volume-bloc { display: inline-flex; flex-direction: column; gap: 0.3em; margin-top: clamp(20px, 3.4vh, 40px); padding: clamp(12px, 2vh, 22px) clamp(18px, 1.8vw, 30px); background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 12px; }
+.volume-bloc { position: relative; display: inline-flex; flex-direction: column; gap: 0.3em; margin-top: clamp(34px, 5.4vh, 60px); padding: clamp(26px, 4vh, 44px) clamp(18px, 1.8vw, 30px) clamp(12px, 2vh, 22px); background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 12px; }
 .volume-chiffre { display: flex; align-items: baseline; gap: 0.4em; margin: 0; font-family: var(--font-corps); font-size: var(--t-liste); color: var(--navy-700); }
 .volume-chiffre strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.6); line-height: 1; color: var(--teal-texte); }
 .volume-qui { margin: 0; font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); }

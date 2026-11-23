@@ -1313,7 +1313,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .public-lien span:last-child { max-width: 9em; font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); line-height: 1.3; }
 .public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-texte); margin-bottom: 0.6em; }
 #e07-publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
-#e07-publics .publics { max-width: 1664px; }
+#e07-publics .publics { max-width: 1664px; align-items: center; }
+/* Contenu centré, hauteur des blocs ajustée au contenu (S137). */
+#e07-publics .public-bloc { text-align: center; padding-bottom: clamp(26px, 4.4vh, 52px); }
+#e07-publics .public-bloc .emoji-cheval { left: 50%; transform: translate(-50%, -50%); }
 #e07-publics .public-bloc { flex: 1 1 0; min-width: 0; }
 /* Écran 6 (S95) : un emoji à cheval par public, sous-titres en texte courant, liens allégés, besoin en gras. */
 #e07-publics .public-bloc { position: relative; padding-top: clamp(30px, 5vh, 58px); }

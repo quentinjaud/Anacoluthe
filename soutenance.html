@@ -65,6 +65,10 @@
      fil s'efface. Taper le numéro puis Entrée y ramène. -->
 <div class="numero" aria-live="polite"><span class="numero-courant">1</span><span class="numero-total">/ 23</span></div>
 
+<!-- Le logo des Glénans en bas à droite, au-dessus du numéro, dans l'accent
+     de l'acte. Absent de l'écran 0, qui porte le logo complet. -->
+<div class="logo-pied" role="img" aria-label="Les Glénans"></div>
+
 <main>
 
 
@@ -656,6 +660,7 @@
   var parcouru = document.querySelector('.fil-parcouru');
   var numero = document.querySelector('.numero');
   var numeroCourant = document.querySelector('.numero-courant');
+  var logoPied = document.querySelector('.logo-pied');
   /* Écran 0 (S114) : la couverture ne compte pas, les numéros vont de 1 à 23. */
   var decalage = ecrans[0] && ecrans[0].id.indexOf('e00-') === 0 ? 1 : 0;
   if (numero) numero.querySelector('.numero-total').textContent = '/ ' + (ecrans.length - decalage);
@@ -717,6 +722,10 @@
     if (numeroCourant) {
       numeroCourant.textContent = i + 1 - decalage;
       numero.setAttribute('data-acte', acteCourant ? acteCourant.className.replace(/.*acte-(\d).*/, '$1') : '1');
+    }
+    if (logoPied) {
+      logoPied.setAttribute('data-acte', acteCourant ? acteCourant.className.replace(/.*acte-(\d).*/, '$1') : '1');
+      logoPied.classList.toggle('cache', i < decalage);
     }
     /* Le fil se recale pour que la pastille courante reste au centre,
        sans faire défiler la page : on agit sur le scrollLeft de la piste. */

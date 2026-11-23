@@ -1313,7 +1313,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .public-lien span:last-child { max-width: 9em; font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); line-height: 1.3; }
 .public-bloc .public-qui { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-texte); margin-bottom: 0.6em; }
 #e07-publics .corps.appui { margin-top: clamp(18px, 3.6vh, 44px); }
-#e07-publics .publics { max-width: 1664px; }
+#e07-publics .publics { max-width: 1664px; align-items: center; }
+/* Contenu centré, hauteur des blocs ajustée au contenu (S137). */
+#e07-publics .public-bloc { text-align: center; padding-bottom: clamp(26px, 4.4vh, 52px); }
+#e07-publics .public-bloc .emoji-cheval { left: 50%; transform: translate(-50%, -50%); }
 #e07-publics .public-bloc { flex: 1 1 0; min-width: 0; }
 /* Écran 6 (S95) : un emoji à cheval par public, sous-titres en texte courant, liens allégés, besoin en gras. */
 #e07-publics .public-bloc { position: relative; padding-top: clamp(30px, 5vh, 58px); }
@@ -1390,7 +1393,10 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Parties prenantes : texte centré dans les bulles, à l'horizontale et à la verticale. */
 .pp-bulle { justify-content: center; align-items: center; text-align: center; }
 /* Capacités : trois cartes, les stagiaires au bout de la chaîne en ambre. */
-#e08-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; }
+#e08-capacites .personas { grid-template-columns: repeat(3, 1fr); max-width: 1660px; align-items: center; }
+/* Hauteur des blocs ajustée au contenu, comme l'écran 7 (S137). */
+#e08-capacites .liste li:last-child { margin-bottom: 0; }
+#e08-capacites .persona h3 { margin-bottom: clamp(8px, 1.6vh, 20px); }
 #e08-capacites .persona-stagiaires { background: var(--amber-50); border-color: var(--amber-100); }
 /* Pourquoi cet ordre : même tracé que les quatre phases, la raison de chacune en corps lisible. */
 .phases-blocs.pourquoi div span { font-size: var(--t-liste); color: var(--navy-700); line-height: 1.35; }
@@ -1442,12 +1448,14 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Écran 0 : le titre du dossier sous le sous-titre, à la place de l'ancienne question (S114). */
 #e00-anacoluthe .meta-titre { font-family: var(--font-corps); font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px); line-height: 1.32; color: var(--navy-700); margin: 0; }
+#e00-anacoluthe .meta-titre strong { font-weight: 700; }
 
 /* Écran 2 : l'appel à gauche avec les chiffres du diagnostic, la photo à droite. */
 #e02-diagnostic .diag { grid-template-columns: 1fr 1fr; max-width: 1600px; margin-top: clamp(10px, 2vh, 28px); }
 #e02-diagnostic .diag-appel { font-size: calc(var(--t-corps) * 1.15); line-height: 1.3; color: var(--navy-700); }
 #e02-diagnostic .diag-appel strong { color: var(--bleu-glenans); }
-#e02-diagnostic .diag-chiffres { grid-template-columns: repeat(2, auto); justify-content: start; gap: clamp(30px, 4vw, 80px); text-align: left; margin-top: clamp(24px, 4.5vh, 56px); }
+#e02-diagnostic .diag-chiffres { grid-template-columns: repeat(3, auto); justify-content: start; gap: clamp(30px, 4vw, 80px); text-align: left; margin-top: clamp(24px, 4.5vh, 56px); }
+#e02-diagnostic .diag-puis { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-chiffre) * 0.6); line-height: 1; color: var(--text-muted); align-self: start; padding-top: 0.35em; }
 #e02-diagnostic .diag-quand { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: clamp(16px, 3vh, 36px) 0 0; }
 #e02-diagnostic .capture img { aspect-ratio: 3 / 2; object-position: 50% 50%; }
 
@@ -1462,6 +1470,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .pe-date { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); }
 .pe-enjeu { margin-top: 0.9em; padding-top: 0.8em; border-top: 1px solid var(--teal-100); font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.1); color: var(--teal-texte); line-height: 1.2; }
 .pe-pour { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); }
+/* Écran 10 (S137) : contenu centré, interlignes aérés. */
+#e10-phases .phases-enjeux li { text-align: center; gap: 0.6em; padding-bottom: clamp(26px, 4vh, 46px); }
+#e10-phases .pe-num { left: 50%; transform: translate(-50%, -50%); }
+#e10-phases .pe-nom { line-height: 1.3; min-height: 2.6em; display: flex; align-items: center; justify-content: center; }
+#e10-phases .pe-enjeu { line-height: 1.3; margin-top: 0.6em; padding-top: 1em; }
 
 /* Écran 10 : transition, le public en légende courte sous chaque produit (S88). */
 #e11-produit .trois-voies p { font-size: var(--t-liste); }
@@ -1508,8 +1521,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e18-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
 #e18-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
 #e18-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
-#e18-evaluer .eval-hors { margin-top: clamp(28px, 4.6vh, 56px); color: var(--navy-700); }
-#e18-evaluer .eval-hors strong { font-family: var(--font-titre); font-weight: 800; color: var(--brick-700); }
 
 /* Écran 19 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
 #e19-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
@@ -1517,9 +1528,15 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .piste-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 0.3em; }
 #e19-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
 #e19-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }
-#e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); color: var(--teal-texte); }
+#e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); }
+/* Kickers en ambre (S137) : distincts du titre navy et des pistes teal. */
+#e19-plus-loin .piste-kicker { color: var(--amber-texte); }
 #e19-plus-loin .piste > * { min-width: 0; }
 #e19-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
+#e19-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0; }
+#e19-plus-loin .piste-liste li { position: relative; padding-left: 0.9em; margin-top: 0.25em; }
+#e19-plus-loin .piste-liste li:first-child { margin-top: 0; }
+#e19-plus-loin .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--teal-texte); }
 
 /* Écran 20 : bilan en deux colonnes, la structure puis moi (S119). */
 #e20-bilan .bilan-deux { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
@@ -1556,11 +1573,15 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e03-problematique .pb-fleches marker path { fill: var(--acte-encre, #B4521E); stroke: none; }
 
 /* Écran 1 : deux signaux en grand, chacun avec sa source en petit au-dessus (S126). */
-#e01-intuitions .intuitions { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
+#e01-intuitions .intuitions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
 #e01-intuitions .intuition { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(40px, 6.4vh, 72px) clamp(24px, 2.4vw, 44px) clamp(28px, 4.6vh, 52px); }
 #e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 0.6em; }
 #e01-intuitions .intuition-signal { font-family: var(--font-corps); font-size: calc(var(--t-corps) * 1.35); line-height: 1.3; color: var(--navy-700); margin: 0; }
 #e01-intuitions .intuition-signal strong { color: var(--bleu-glenans); }
+#e01-intuitions .intuition-photo { display: flex; flex-direction: column; }
+#e01-intuitions .photo-legendee { position: relative; margin: 0; border-radius: 8px; overflow: hidden; }
+#e01-intuitions .photo-legendee img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 55%; }
+#e01-intuitions .photo-legendee figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.2em 0.9em 0.8em; background: linear-gradient(to top, rgba(15, 30, 50, 0.92) 0%, rgba(15, 30, 50, 0.85) 55%, rgba(15, 30, 50, 0) 100%); color: #fff; font-family: var(--font-corps); font-weight: 400; font-size: var(--t-liste); line-height: 1.3; }
 
 /* Écran 5 : le fonctionnement de la base en trois points, sous les photos (S132). */
 #e05-terrain .ligne-terrain { margin-bottom: clamp(36px, 6vh, 72px); }
@@ -1575,3 +1596,22 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e06-contraintes .methode { position: relative; display: flex; flex-direction: column; gap: 0.6em; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(34px, 5.6vh, 64px) clamp(20px, 2vw, 36px) clamp(24px, 4vh, 44px); }
 #e06-contraintes .methode strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.1); line-height: 1.25; color: var(--navy-700); }
 #e06-contraintes .methode span:not(.emoji-cheval) { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; color: var(--text-muted); }
+
+/* Écran 9 : l'équipe schématisée par rôle principal (S137). Moi au centre, trois groupes
+   reliés : au-dessus, en haut ; à gauche ; à droite. Les traits sont des pseudo-éléments. */
+#e09-equipe .eq-schema { --eq-gx: clamp(40px, 4vw, 80px); --eq-gy: clamp(36px, 6vh, 72px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: var(--eq-gx); row-gap: var(--eq-gy); width: 100%; max-width: 1600px; margin-top: clamp(24px, 4.4vh, 56px); align-items: stretch; }
+#e09-equipe .eq-bloc { position: relative; background: #fff; border: 1px solid var(--teal-100); border-radius: 16px; padding: clamp(30px, 4.8vh, 56px) clamp(18px, 1.8vw, 34px); text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 0.35em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+#e09-equipe .eq-haut { grid-column: 2; grid-row: 1; align-self: end; }
+#e09-equipe .eq-gauche { grid-column: 1; grid-row: 2; }
+#e09-equipe .eq-moi { grid-column: 2; grid-row: 2; border: 3px solid var(--teal-700); box-shadow: 0 8px 26px rgba(0,0,0,0.12); background: var(--amber-50); }
+#e09-equipe .eq-droite { grid-column: 3; grid-row: 2; }
+#e09-equipe .eq-role { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); margin: 0 0 clamp(10px, 2vh, 24px); line-height: 1.25; }
+#e09-equipe .eq-bloc .emoji-cheval { left: 50%; transform: translate(-50%, -50%); }
+#e09-equipe .eq-qui { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.1); color: var(--navy-700); line-height: 1.25; margin: 0; }
+#e09-equipe .eq-moi .eq-qui { font-size: calc(var(--t-liste) * 1.25); }
+#e09-equipe .eq-haut::after,
+#e09-equipe .eq-gauche::after,
+#e09-equipe .eq-droite::after { content: ""; position: absolute; background: var(--teal-700); }
+#e09-equipe .eq-haut::after { left: 50%; top: 100%; width: 3px; height: var(--eq-gy); transform: translateX(-50%); }
+#e09-equipe .eq-gauche::after { left: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
+#e09-equipe .eq-droite::after { right: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }

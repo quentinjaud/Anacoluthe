@@ -28,7 +28,7 @@
     <span class="fil-ligne" aria-hidden="true"><span class="fil-parcouru"></span></span>
     <div class="acte acte-1" role="group" aria-label="Acte 1 · Origines et problématique">
       <a class="pastille" href="#e00-anacoluthe"><span aria-hidden="true">⚓</span><span class="bulle">Anacoluthe</span></a>
-      <a class="pastille" href="#e01-intuitions"><span aria-hidden="true">💡</span><span class="bulle">Premières intuitions</span></a>
+      <a class="pastille" href="#e01-intuitions"><span aria-hidden="true">💡</span><span class="bulle">Premières interrogations</span></a>
       <a class="pastille" href="#e02-diagnostic"><span aria-hidden="true">🔎</span><span class="bulle">Demandons aux moniteurices</span></a>
       <a class="pastille" href="#e03-problematique"><span aria-hidden="true">❓</span><span class="bulle">La question</span></a>
       <a class="pastille" href="#e04-referentiels"><span aria-hidden="true">📋</span><span class="bulle">Les référentiels</span></a>
@@ -70,22 +70,32 @@
 
 <!-- ═══ ACTE 1 · ORIGINES ET PROBLÉMATIQUE ═══ -->
 
-<!-- 0. LA COUVERTURE (S114) : le nom, le sous-titre, et le titre du dossier.
+<!-- 0. LA COUVERTURE (S114, S137) : le nom, le sous-titre, et le titre du dossier,
+     sur quatre lignes, les mots porteurs en gras.
      Écran 0 : les écrans suivants gardent leur numéro, de 1 à 23. -->
 <section data-acte="1" class="ecran centree" id="e00-anacoluthe">
   <h1 class="nom"><span class="accent-ambre">¿</span><span class="accent-teal">¡</span> Anacoluthe <span class="accent-brick">!</span><span class="accent-navy">?</span></h1>
   <p class="sous-titre">Soutenance UC1-UC2 · BPJEPS voile habitable</p>
-  <p class="meta-titre">de l'apprentissage accidentel<br>
-  à l'apprentissage structuré du <span class="nowrap">vivre-ensemble</span><br>
-  en stage de voile habitable</p>
+  <p class="meta-titre">de l'apprentissage <strong>accidentel</strong><br>
+  à l'apprentissage <strong>structuré</strong><br>
+  du <strong class="nowrap">vivre-ensemble</strong><br>
+  en stage de <strong>voile habitable</strong></p>
 </section>
 
-<!-- 1. LES PREMIÈRES INTUITIONS (S112, S126) : l'histoire d'abord, deux signaux, chacun
-     avec sa source. Les visuels (organigramme, photo des rapports de mer) sortent :
-     ils prenaient la place sans porter le message. -->
+<!-- 1. LES PREMIÈRES INTERROGATIONS ET PREMIERS CONSTATS (S112, S126, S137) :
+     l'histoire d'abord. Mes encadrements bénévoles en premier bloc, photo carrée,
+     puis les deux signaux, chacun avec sa source. Pas d'organigramme (S126). -->
 <section data-acte="1" class="ecran" id="e01-intuitions">
-  <h2 class="titre">Premières <span class="highlight">intuitions</span></h2>
+  <h2 class="titre">Premières <span class="highlight">interrogations</span> et premiers <span class="highlight">constats</span></h2>
   <div class="intuitions">
+    <div class="intuition intuition-photo">
+      <span class="emoji-cheval" aria-hidden="true">⛵</span>
+      <p class="intuition-source">Mes encadrements bénévoles</p>
+      <figure class="photo-legendee">
+        <img src="assets/images/soutenance/photo-encadrement-benevole.webp" alt="Au coucher du soleil, sous voiles, un équipage en gilets assis dans le cockpit d'un croiseur ; un moniteur debout montre un nœud, un autre l'écoute assis sur le banc">
+        <figcaption>L'humain est au cœur des problématiques de l'embarqué</figcaption>
+      </figure>
+    </div>
     <div class="intuition">
       <span class="emoji-cheval" aria-hidden="true">📉</span>
       <p class="intuition-source">Romain Gauvrit, responsable croisière</p>
@@ -108,7 +118,8 @@
       <p class="corps diag-appel">«&nbsp;Qu'est-ce qui te fait choisir<br>entre un stage <strong>sur base</strong><br>et un stage <strong class="nowrap">en embarqué</strong>&nbsp;?&nbsp;»</p>
       <div class="ecart diag-chiffres">
         <div><div class="chiffre">14</div><div class="quoi">entretiens</div></div>
-        <div><div class="chiffre">3</div><div class="quoi">ateliers</div></div>
+        <div class="diag-puis" aria-label="puis">→</div>
+        <div><div class="chiffre">3</div><div class="quoi">ateliers diag'-prototypage</div></div>
       </div>
     </div>
     <div class="capture photo-diag"><img src="assets/images/soutenance/photo-moniteurices-salle.webp" alt="Une douzaine de moniteurices autour d'une table rouge couverte de fiches, dans une salle de la base ; au fond, deux animatrices montrent un gilet devant un tableau blanc"></div>
@@ -263,8 +274,8 @@
       <h3>La moniteurice expérimentée</h3>
       <ul class="liste">
         <li>animer les moments clefs pour faire coopérer l'équipage</li>
-        <li>guider l'équipage pour qu'il régule lui-même une tension</li>
         <li>questionner sa posture d'animation</li>
+        <li>guider l'équipage pour qu'il régule lui-même une tension</li>
       </ul>
     </div>
     <div class="persona persona-stagiaires">
@@ -272,24 +283,40 @@
       <h3>Lae stagiaire</h3>
       <ul class="liste">
         <li>tenir un rôle dans l'organisation collective</li>
-        <li>dire une tension tôt et la régler ensemble</li>
+        <li>nommer une tension et la réguler ensemble</li>
         <li>questionner sa posture relationnelle</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- PARTIES PRENANTES (S41) : une bulle par partie prenante, ses actions pour le projet.
-     Liste fermée par QJ le 19/11. Domaines des intervenants, pas leurs noms. -->
+<!-- 9. L'ÉQUIPE (S41, S137) : schéma par rôle principal. Moi au centre, j'anime l'équipe ;
+     au-dessus, ceux qui supervisent ; à gauche, ceux qui testent et co-conçoivent ;
+     à droite, les intervenants thématiques et leurs actions spécifiques. Le détail se dit. -->
 <section data-acte="2" class="ecran" id="e09-equipe">
   <h2 class="titre">Une <span class="highlight">équipe</span> pour y arriver</h2>
-  <div class="pp-bulles">
-    <div class="pp-bulle pp-moi"><strong>Moi, porteur du projet</strong><span>j'anime la co-conception et les formations</span></div>
-    <div class="pp-bulle"><strong>Les responsables croisière</strong><span>Romain et Pierre, RTQ&nbsp;: valident des choix structurants, modifient leurs outils</span></div>
-    <div class="pp-bulle"><strong>Le chef de base</strong><span>valide ce qui engage des moyens&nbsp;: impression, intervenants, équipement des bateaux</span></div>
-    <div class="pp-bulle"><strong>Les moniteurices testeurs</strong><span>co-conçoivent, testent en stage, orientent chaque version</span></div>
-    <div class="pp-bulle"><strong>Les stagiaires</strong><span>co-conçoivent, vivent le kit en stage, répondent au questionnaire</span></div>
-    <div class="pp-bulle"><strong>Six intervenants thématiques</strong><span>graphisme, pédagogie de la coopération, psychologie, game design, développement web</span></div>
+  <div class="eq-schema">
+    <div class="eq-bloc eq-haut">
+      <span class="emoji-cheval" aria-hidden="true">🧭</span>
+      <p class="eq-role">supervisent</p>
+      <p class="eq-qui">Les responsables croisière</p>
+      <p class="eq-qui">Le chef de base</p>
+    </div>
+    <div class="eq-bloc eq-gauche">
+      <span class="emoji-cheval" aria-hidden="true">🧪</span>
+      <p class="eq-role">testent et <span class="nowrap">co-conçoivent</span></p>
+      <p class="eq-qui">Les moniteurices testeurs</p>
+      <p class="eq-qui">Les stagiaires</p>
+    </div>
+    <div class="eq-bloc eq-moi">
+      <p class="eq-role">anime l'équipe</p>
+      <p class="eq-qui">Moi, porteur du projet</p>
+    </div>
+    <div class="eq-bloc eq-droite">
+      <span class="emoji-cheval" aria-hidden="true">🛠️</span>
+      <p class="eq-role">actions spécifiques</p>
+      <p class="eq-qui">Six intervenants thématiques</p>
+    </div>
   </div>
 </section>
 
@@ -299,13 +326,13 @@
 <section data-acte="2" class="ecran" id="e10-phases">
   <h2 class="titre">Quatre <span class="highlight">phases</span>, un enjeu chacune</h2>
   <ol class="phases-enjeux">
-    <li><span class="pe-num">1</span><span class="pe-nom">Diagnostic et cadrage</span><span class="pe-date">janvier à mars 2025</span>
+    <li><span class="pe-num">1</span><span class="pe-nom">Diagnostic et cadrage</span><span class="pe-date">début de saison 2025</span>
       <strong class="pe-enjeu">Comprendre le terrain</strong></li>
-    <li><span class="pe-num">2</span><span class="pe-nom">Conception itérative</span><span class="pe-date">avril à décembre 2025</span>
+    <li><span class="pe-num">2</span><span class="pe-nom">Conception itérative</span><span class="pe-date">saison 2025</span>
       <strong class="pe-enjeu">Prototyper rapidement</strong></li>
-    <li><span class="pe-num">3</span><span class="pe-nom">Déploiement et formation</span><span class="pe-date">mars à octobre 2026</span>
+    <li><span class="pe-num">3</span><span class="pe-nom">Déploiement et formation</span><span class="pe-date">saison 2026</span>
       <strong class="pe-enjeu">Déployer dans les contraintes</strong></li>
-    <li><span class="pe-num">4</span><span class="pe-nom">Évaluation et capitalisation</span><span class="pe-date">juin à octobre 2026</span>
+    <li><span class="pe-num">4</span><span class="pe-nom">Évaluation et capitalisation</span><span class="pe-date">fin de saison 2026</span>
       <strong class="pe-enjeu">Évaluer pour évoluer</strong></li>
   </ol>
 </section>
@@ -521,7 +548,6 @@
       <p class="eval-pu">l'usage qu'elles décrivent, d'un stage à l'autre</p>
     </div>
   </div>
-  <p class="corps appui eval-hors"><strong>Hors de portée&nbsp;:</strong> l'effet propre du dispositif.</p>
 </section>
 
 <!-- 19. CE QUI A MARCHÉ, ET COMMENT ALLER PLUS LOIN (S119) : remplace « Insuffisances et
@@ -535,21 +561,38 @@
       <p class="piste-kicker">Ça a marché</p>
       <strong>Le kit circule sans moi</strong>
       <p class="piste-kicker piste-kicker-loin">Pour aller plus loin</p>
-      <span class="piste-loin">l'inscrire dans l'outillage de l'association&nbsp;: stages P, FPI2, relais du CEB</span>
+      <div class="piste-loin">
+        <ul class="piste-liste">
+          <li>dans les contenus de démarrage de toutes les bases</li>
+          <li>dans l'inventaire de tous les bateaux</li>
+          <li>dans la documentation du CEB</li>
+        </ul>
+      </div>
     </div>
     <div class="piste">
       <span class="emoji-cheval" aria-hidden="true">🎓</span>
       <p class="piste-kicker">Ça a marché</p>
       <strong>La formation fait l'appropriation</strong>
       <p class="piste-kicker piste-kicker-loin">Pour aller plus loin</p>
-      <span class="piste-loin">former, en plus d'outiller&nbsp;: un temps de formation planifié, des contenus pour les responsables pédagogiques</span>
+      <div class="piste-loin">
+        <ul class="piste-liste">
+          <li>un temps de formation planifié</li>
+          <li>des contenus pour les responsables pédagogiques</li>
+        </ul>
+      </div>
     </div>
     <div class="piste">
       <span class="emoji-cheval" aria-hidden="true">💪</span>
       <p class="piste-kicker">Ça a marché</p>
-      <strong>Un projet porté à bout de bras</strong>
+      <strong>Un projet porté par un apprenti pendant ses encadrements</strong>
       <p class="piste-kicker piste-kicker-loin">Pour aller plus loin</p>
-      <span class="piste-loin">un relais nommé et mandaté, une maintenance du site</span>
+      <div class="piste-loin">
+        <ul class="piste-liste">
+          <li>un relais nommé et mandaté</li>
+          <li>une maintenance du site</li>
+          <li>une animateurice de la communauté des usager·es</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

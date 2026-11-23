@@ -1735,3 +1735,4 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 15 : les deux affiches rapprochées, la seconde chevauche la première (S138). */
 #e15-affiches-base .vis-a-vis { gap: 0; }
 #e15-affiches-base .vis-a-vis .photo-posee:nth-child(2) { margin-left: -9%; position: relative; z-index: 2; box-shadow: -6px 6px 22px rgba(0,0,0,0.16); }
+#e15-affiches-base .vis-a-vis .photo-posee:nth-child(1) { box-shadow: 0 6px 22px rgba(0,0,0,0.14); }

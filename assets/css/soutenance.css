@@ -1557,11 +1557,13 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e03-problematique .pb-fleches marker path { fill: var(--acte-encre, #B4521E); stroke: none; }
 
 /* Écran 1 : deux signaux en grand, chacun avec sa source en petit au-dessus (S126). */
-#e01-intuitions .intuitions { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
+#e01-intuitions .intuitions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
 #e01-intuitions .intuition { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(40px, 6.4vh, 72px) clamp(24px, 2.4vw, 44px) clamp(28px, 4.6vh, 52px); }
 #e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 0.6em; }
 #e01-intuitions .intuition-signal { font-family: var(--font-corps); font-size: calc(var(--t-corps) * 1.35); line-height: 1.3; color: var(--navy-700); margin: 0; }
 #e01-intuitions .intuition-signal strong { color: var(--bleu-glenans); }
+#e01-intuitions .intuition-photo { display: flex; flex-direction: column; }
+#e01-intuitions .intuition-photo img { display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: 50% 45%; border-radius: 8px; }
 
 /* Écran 5 : le fonctionnement de la base en trois points, sous les photos (S132). */
 #e05-terrain .ligne-terrain { margin-bottom: clamp(36px, 6vh, 72px); }

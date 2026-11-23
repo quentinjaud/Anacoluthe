@@ -1591,12 +1591,13 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 9 : l'équipe schématisée par rôle principal (S137). Moi au centre, trois groupes
    reliés : au-dessus, en haut ; à gauche ; à droite. Les traits sont des pseudo-éléments. */
 #e09-equipe .eq-schema { --eq-gx: clamp(40px, 4vw, 80px); --eq-gy: clamp(36px, 6vh, 72px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: var(--eq-gx); row-gap: var(--eq-gy); width: 100%; max-width: 1600px; margin-top: clamp(24px, 4.4vh, 56px); align-items: stretch; }
-#e09-equipe .eq-bloc { position: relative; background: #fff; border: 1px solid var(--teal-100); border-radius: 16px; padding: clamp(22px, 3.6vh, 44px) clamp(18px, 1.8vw, 34px); text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 0.35em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+#e09-equipe .eq-bloc { position: relative; background: #fff; border: 1px solid var(--teal-100); border-radius: 16px; padding: clamp(30px, 4.8vh, 56px) clamp(18px, 1.8vw, 34px); text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 0.35em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 #e09-equipe .eq-haut { grid-column: 2; grid-row: 1; align-self: end; }
 #e09-equipe .eq-gauche { grid-column: 1; grid-row: 2; }
 #e09-equipe .eq-moi { grid-column: 2; grid-row: 2; border: 3px solid var(--teal-700); box-shadow: 0 8px 26px rgba(0,0,0,0.12); background: var(--amber-50); }
 #e09-equipe .eq-droite { grid-column: 3; grid-row: 2; }
-#e09-equipe .eq-role { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); margin: 0 0 0.3em; line-height: 1.25; }
+#e09-equipe .eq-role { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); margin: 0 0 clamp(10px, 2vh, 24px); line-height: 1.25; }
+#e09-equipe .eq-bloc .emoji-cheval { left: 50%; transform: translate(-50%, -50%); }
 #e09-equipe .eq-qui { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.1); color: var(--navy-700); line-height: 1.25; margin: 0; }
 #e09-equipe .eq-moi .eq-qui { font-size: calc(var(--t-liste) * 1.25); }
 #e09-equipe .eq-haut::after,

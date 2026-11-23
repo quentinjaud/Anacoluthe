@@ -1616,10 +1616,11 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e09-equipe .eq-gauche::after { left: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
 #e09-equipe .eq-droite::after { right: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
 
-/* Écran 18 : les moments d'animation avec les référents de l'activité, deux cartes (S81, S138).
-   Reprise de l'écran 20 de l'oral blanc n°2. */
-#e18-referents .faf-cartes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 32px); width: 100%; max-width: 1200px; margin-top: clamp(40px, 6.4vh, 76px); }
-#e18-referents .faf-carte { position: relative; display: flex; flex-direction: column; gap: 0.55em; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(28px, 4.6vh, 54px) clamp(14px, 1.4vw, 26px) clamp(16px, 2.6vh, 30px); font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.35; color: var(--navy-700); }
-#e18-referents .faf-carte strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
-#e18-referents .faf-carte .faf-quand { font-family: var(--font-legende); color: var(--text-muted); }
-#e18-referents .faf-carte b { display: block; font-family: var(--font-legende); font-weight: 600; font-size: var(--t-kicker); letter-spacing: 0.06em; text-transform: uppercase; color: var(--acte-texte); }
+/* Écran 18 : les référents de l'activité, un public à chaque phase (S81, S138).
+   Une carte par phase, en écho à l'écran 10 : numéro à cheval, phase, interactions. */
+#e18-referents .ref-qui { max-width: 1500px; color: var(--text-muted); }
+#e18-referents .ref-phases { list-style: none; padding: 0; margin: clamp(40px, 6.4vh, 76px) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.2vw, 40px); width: 100%; max-width: 1664px; align-items: stretch; }
+#e18-referents .ref-phases > li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.6em; text-align: center; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(16px, 1.4vw, 26px) clamp(24px, 3.8vh, 44px); }
+#e18-referents .ref-num { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--navy-700); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
+#e18-referents .ref-phases strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.1); color: var(--navy-700); line-height: 1.2; }
+#e18-referents .ref-phases ul { list-style: none; padding: 0; margin: 0.2em 0 0; display: flex; flex-direction: column; gap: 0.7em; font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.3; color: var(--navy-700); }

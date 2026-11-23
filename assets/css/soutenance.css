@@ -1709,9 +1709,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 19 sans kickers (S138) : l'objectif en sous-titre italique, les étiquettes en dessous. */
 #e19-evaluer .eval-vise { font-style: italic; margin-top: 0.3em; }
 #e19-evaluer .eval-criteres { margin-top: clamp(16px, 2.8vh, 32px); }
-/* Écran 19 (S138) : étiquettes sur deux colonnes quelle que soit la largeur ; cartes et tuiles
-   sur deux rangées communes, pour rester alignées d'une colonne à l'autre. */
-#e19-evaluer .eval-criteres { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
-#e19-evaluer .eval-criteres li { text-align: center; }
+/* Écran 19 (S138) : cartes et tuiles sur deux rangées communes, pour rester alignées d'une colonne à l'autre. */
 #e19-evaluer .constats.evaluer { grid-template-rows: auto auto; grid-auto-flow: column; row-gap: clamp(36px, 5.4vh, 64px); }
 #e19-evaluer .eval-col { display: contents; }

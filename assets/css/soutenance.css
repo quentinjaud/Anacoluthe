@@ -1528,7 +1528,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .piste-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 0.3em; }
 #e19-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
 #e19-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }
-#e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); color: var(--teal-texte); }
+#e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); }
+/* Kickers en ambre (S137) : distincts du titre navy et des pistes teal. */
+#e19-plus-loin .piste-kicker { color: var(--amber-texte); }
 #e19-plus-loin .piste > * { min-width: 0; }
 #e19-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
 #e19-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0; }

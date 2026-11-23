@@ -1529,6 +1529,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e13-conception .cycle-cc li:nth-child(2) strong { color: #0B5F31; }
 #e13-conception .cycle-cc li:nth-child(3) strong { color: #1D5884; }
 #e13-conception .cycle-cc li:nth-child(4) strong { color: #6C4D00; }
+/* Sous-titres des étapes en serif italique, comme les sous-titres du site (S138). */
+#e13-conception .cycle-cc li > span:last-child { font-style: italic; }
 .cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
 .cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
 .cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }

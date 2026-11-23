@@ -1678,8 +1678,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e05-terrain .terrain-points span:not(.emoji-cheval) { font-style: italic; }
 #e06-contraintes .methode > span:not(.emoji-cheval) { font-style: italic; }
 
-/* Écran 4 : les deux titres plus gros, posés par-dessus le haut des extraits,
+/* Écran 4 : les deux titres plus gros, posés par-dessus le centre de chaque pile,
    en étiquette dans l'accent de l'acte, texte blanc (S138). */
 #e04-referentiels .public-bloc { position: relative; }
-#e04-referentiels .public-bloc h3 { position: relative; z-index: 5; display: inline-block; margin: 0 0 calc(-1 * clamp(18px, 3vh, 36px)) clamp(10px, 1vw, 20px); padding: 0.3em 0.7em; background: var(--acte-encre); color: #fff; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.18); font-size: calc(var(--t-corps) * 1.2); line-height: 1.2; transform: rotate(-1deg); }
+#e04-referentiels .public-bloc h3 { position: absolute; z-index: 5; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-1.5deg); width: max-content; max-width: 92%; margin: 0; padding: 0.35em 0.8em; background: var(--acte-encre); color: #fff; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); font-size: calc(var(--t-corps) * 1.2); line-height: 1.2; text-align: center; }
 #e04-referentiels .public-bloc h3 .ref-doc { display: block; font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: 0.78em; margin-top: 0.15em; }

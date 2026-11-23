@@ -1531,6 +1531,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); color: var(--teal-texte); }
 #e19-plus-loin .piste > * { min-width: 0; }
 #e19-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
+#e19-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0.4em 0 0; font-weight: 400; }
+#e19-plus-loin .piste-liste li { position: relative; padding-left: 0.9em; margin-top: 0.25em; }
+#e19-plus-loin .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--teal-texte); }
 
 /* Écran 20 : bilan en deux colonnes, la structure puis moi (S119). */
 #e20-bilan .bilan-deux { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }

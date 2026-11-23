@@ -852,6 +852,12 @@
 (function () {
   var sec = document.getElementById('e03-problematique');
   if (!sec) return;
+  /* Chaque note reçoit une légère inclinaison, tirée au chargement : 0,5 à 2°, 1° au plus pour l'extrait des statuts, plus large (S138). */
+  Array.prototype.forEach.call(sec.querySelectorAll('.pb-note'), function (n) {
+    var max = n.classList.contains('pb-statuts') ? 1 : 2;
+    var a = 0.5 + Math.random() * (max - 0.5);
+    n.style.transform = 'rotate(' + (Math.random() < 0.5 ? -a : a).toFixed(2) + 'deg)';
+  });
   var svg = sec.querySelector('.pb-fleches');
   var NS = 'http://www.w3.org/2000/svg';
   function pt(x, y) { return x.toFixed(1) + ',' + y.toFixed(1); }

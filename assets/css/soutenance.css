@@ -1560,11 +1560,19 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Écran 20 : ce qu'on visait, ce qu'on a pu évaluer, par public (S116). */
 #e19-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
-#e19-evaluer .constat { padding-bottom: clamp(22px, 3.6vh, 44px); }
+#e19-evaluer .constat { padding-bottom: clamp(18px, 3vh, 36px); }
 #e19-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
 #e19-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
 #e19-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
 #e19-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
+/* Le résultat sorti de la carte (S138) : une tuile teal (couleur de réussite) sous chaque carte,
+   le chiffre en grand, sa légende, puis la source en petit. */
+#e19-evaluer .eval-pu { min-height: 2.7em; }
+#e19-evaluer .eval-col { display: flex; flex-direction: column; gap: clamp(14px, 2.4vh, 28px); min-width: 0; }
+#e19-evaluer .eval-tuile { flex: 1; background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 12px; padding: clamp(16px, 2.6vh, 30px) clamp(18px, 1.8vw, 32px); display: flex; flex-direction: column; gap: 0.5em; }
+#e19-evaluer .eval-chiffre { display: flex; flex-direction: column; gap: 0.2em; margin: 0; font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.3; color: var(--navy-700); }
+#e19-evaluer .eval-chiffre strong { flex: none; font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.6); line-height: 1; color: var(--teal-texte); }
+#e19-evaluer .eval-source { margin: 0; font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--text-muted); }
 
 /* Écran 20 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
 #e20-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
@@ -1619,7 +1627,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 1 : deux signaux en grand, chacun avec sa source en petit au-dessus (S126). */
 #e01-intuitions .intuitions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
 #e01-intuitions .intuition { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(40px, 6.4vh, 72px) clamp(24px, 2.4vw, 44px) clamp(28px, 4.6vh, 52px); }
-#e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 0.6em; }
+#e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 clamp(16px, 2.8vh, 34px); }
 #e01-intuitions .intuition-signal { font-family: var(--font-corps); font-size: calc(var(--t-corps) * 1.35); line-height: 1.3; color: var(--navy-700); margin: 0; }
 #e01-intuitions .intuition-signal strong { color: var(--bleu-glenans); }
 #e01-intuitions .intuition-photo { display: flex; flex-direction: column; }
@@ -1681,7 +1689,16 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 4 : les deux titres plus gros, posés par-dessus le centre de chaque pile,
    en étiquette claire, texte dans l'accent foncé de l'acte (7:1), liseré dans l'accent (S138). */
 #e04-referentiels .public-bloc { position: relative; }
-#e04-referentiels .public-bloc h3 { position: absolute; z-index: 5; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-1.5deg); width: max-content; max-width: 92%; margin: 0; padding: 0.35em 0.8em; background: #fff; color: var(--acte-texte); border: 1px solid var(--acte-encre); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); font-size: calc(var(--t-corps) * 1.2); line-height: 1.2; text-align: center; }
+#e04-referentiels .public-bloc h3 { position: absolute; z-index: 5; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-1.5deg); width: max-content; max-width: 92%; margin: 0; padding: 0.35em 0.8em; background: #fff; color: var(--navy-700); border: 1px solid var(--acte-encre); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); font-size: calc(var(--t-corps) * 1.2); line-height: 1.2; text-align: center; }
 #e04-referentiels .public-bloc:nth-child(1) h3 { transform: translate(-50%, -50%) rotate(-2.5deg); }
 #e04-referentiels .public-bloc:nth-child(2) h3 { transform: translate(-50%, -50%) rotate(1.8deg); }
-#e04-referentiels .public-bloc h3 .ref-doc { display: block; font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: 0.78em; margin-top: 0.15em; }
+#e04-referentiels .public-bloc h3 .ref-doc { display: block; color: var(--acte-texte); font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: 0.78em; margin-top: 0.15em; }
+/* Écran 19 : hauteurs resserrées pour laisser place aux tuiles (S138). */
+#e19-evaluer .eval-kicker { margin-top: clamp(12px, 2vh, 24px); }
+#e19-evaluer .constats.evaluer { margin-top: clamp(22px, 3.6vh, 44px); }
+#e19-evaluer .eval-tuile { padding-top: clamp(12px, 2vh, 24px); padding-bottom: clamp(12px, 2vh, 24px); }
+/* Le chiffre à cheval sur le haut de la tuile, comme les emojis des cartes (S138). */
+#e19-evaluer .eval-tuile { position: relative; padding-top: clamp(30px, 4.4vh, 52px); }
+#e19-evaluer .eval-col { gap: clamp(36px, 5.4vh, 64px); }
+#e19-evaluer .eval-chiffre strong { position: absolute; top: 0; left: clamp(18px, 1.8vw, 32px); transform: translateY(-50%); }
+#e19-evaluer .eval-tuile { gap: clamp(12px, 2vh, 24px); }

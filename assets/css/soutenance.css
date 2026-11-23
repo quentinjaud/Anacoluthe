@@ -1716,3 +1716,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
    dans une fenêtre plus étroite que 16:9. En 1920 × 1080, elle reste à --t-petit (S138). */
 #e19-evaluer .eval-criteres { gap: 0.35em 0.4em; }
 #e19-evaluer .eval-criteres li { font-size: min(var(--t-petit), 1.37vw); padding: 0.18em 0.65em; }
+/* Écrans 16 et 17 : l'illustration posée comme les autres photos du deck (S138) :
+   cadre blanc, coins arrondis, ombre, légère rotation. */
+#e16-coconception .photo-portrait, #e17-vendredi .photo-portrait { background: #fff; border: 4px solid #fff; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+#e16-coconception .photo-portrait { transform: rotate(2deg); }
+#e17-vendredi .photo-portrait { transform: rotate(-1.8deg); }

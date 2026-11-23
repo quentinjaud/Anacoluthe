@@ -1744,3 +1744,5 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e12-mode-emploi .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(3%); }
 #e15-affiches-base .vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg) translateY(-3%); }
 #e15-affiches-base .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(3%); }
+#e15-affiches-base .texte-et-photos { margin-top: clamp(30px, 5vh, 60px); }
+#e15-affiches-base .vis-a-vis .photo-posee { height: min(60vh, 650px); }

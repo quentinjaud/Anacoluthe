@@ -1787,5 +1787,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e22-merci .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--amber-texte); }
 #e22-merci .merci-centre { display: flex; flex-direction: column; align-items: center; text-align: center; }
 #e22-merci .merci-logo { height: clamp(90px, 15vh, 170px); width: auto; }
-#e22-merci .merci-mot { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-nom); line-height: 1; color: var(--bleu-glenans); margin: clamp(6px, 1.2vh, 14px) 0 clamp(10px, 2vh, 24px); }
+#e22-merci .merci-mot { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-nom); line-height: 1; color: var(--bleu-glenans); margin: clamp(6px, 1.2vh, 14px) 0 clamp(6px, 1.2vh, 14px); }
 #e22-merci .merci-brise { display: block; width: 100%; height: auto; border: 6px solid #fff; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.18); transform: rotate(-1.5deg); }
+#e22-merci .merci-equipe { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); line-height: 1.4; color: var(--navy-700); margin: 0 0 clamp(14px, 2.6vh, 30px); }
+#e22-merci .merci-equipe-titre { display: block; font-family: var(--font-titre); font-style: normal; font-weight: 800; color: var(--teal-texte); }

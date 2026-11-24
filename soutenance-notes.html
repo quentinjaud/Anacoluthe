@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes · Soutenance</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- Vue présentateur du deck soutenance.html, sur le principe de reveal.js :
+     ouverte par la touche S depuis le deck, à placer sur l'écran de l'ordinateur.
+     Affiche le carton de l'écran courant, le suivant, et le chrono.
+     Cartons : assets/data/soutenance-cartons.md, lu au chargement (modifier, pousser, c'est en ligne).
+     Il faut un serveur (anacoluthe.org ou serveur local) : en file://, le navigateur refuse la lecture.
+     Le carton N va avec l'écran eNN ; les cartons au-delà du dernier écran s'ajoutent à celui-ci. -->
+<style>
+/* DA Anacoluthe (assets/css/soutenance.css) en fond clair, pour la lumière du jour.
+   Contraste : texte des notes en cours et chrono à 12:1 au moins sur blanc. */
+@font-face { font-family: 'Merriweather Sans'; src: url('assets/fonts/merriweather-sans.woff2') format('woff2'); font-weight: 400 800; font-display: swap; }
+:root {
+  --bleu-glenans: #0066AD; --navy-700: #1E3A5F; --navy-100: #C9D5E3;
+  --teal-700: #3d8b87; --teal-100: #c5e4e2; --teal-texte: #205652;
+  --amber-700: #c96a30; --amber-100: #ffe8d4; --amber-texte: #7D3C12;
+  --brick-100: #FFCDD2; --brick-texte: #8E1B1B;
+  --encre: #141A24;          /* texte des notes : 17:1 sur blanc */
+  --muted: #454F61;          /* 8,2:1 sur crème */
+  --trait: #D1D5DB; --bg-cream: #FFFDF9; --blanc: #FFFFFF;
+  /* Couleur de l'acte en cours, posée par data-acte sur body (comme le fil du deck). */
+  --acte-teinte: var(--amber-100); --acte-encre: var(--amber-700);
+}
+body[data-acte="2"] { --acte-teinte: var(--teal-100); --acte-encre: var(--teal-700); }
+body[data-acte="3"] { --acte-teinte: var(--brick-100); --acte-encre: #9B3C34; }
+body[data-acte="4"] { --acte-teinte: var(--navy-100); --acte-encre: var(--navy-700); }
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body { background: var(--bg-cream); color: var(--encre); font-family: 'Merriweather Sans', Arial, sans-serif;
+  display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+
+header { display: flex; align-items: center; gap: 24px; padding: 14px 24px; background: var(--blanc);
+  border-bottom: 6px solid var(--acte-teinte); }
+.chrono { font-variant-numeric: tabular-nums; font-size: 60px; font-weight: 800; line-height: 1; cursor: pointer;
+  color: var(--navy-700); padding: 4px 14px; border-radius: 12px; }
+.chrono.arret { color: var(--muted); }
+.chrono.alerte { color: var(--amber-texte); background: var(--amber-100); }
+.chrono.depasse { color: var(--blanc); background: var(--brick-texte); }
+.chrono-info { display: flex; flex-direction: column; gap: 4px; font-size: 18px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.reste { font-weight: 700; color: var(--encre); }
+.barre { flex: 1; height: 12px; background: #E9ECEF; border-radius: 6px; overflow: hidden; position: relative; }
+.barre span { position: absolute; inset: 0 auto 0 0; background: var(--teal-700); }
+.barre.alerte span { background: var(--amber-700); }
+.barre.depasse span { background: var(--brick-texte); }
+.boutons { display: flex; gap: 8px; }
+button { font-family: inherit; background: var(--blanc); color: var(--navy-700); border: 2px solid var(--navy-100); border-radius: 999px;
+  font-size: 16px; font-weight: 700; padding: 8px 16px; cursor: pointer; }
+button:hover { border-color: var(--navy-700); }
+.horloge { font-size: 24px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+main { display: grid; grid-template-columns: 1fr 34%; gap: 22px; padding: 20px 24px; min-height: 0; }
+.colonne { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.etiquette { font-size: 18px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em;
+  display: flex; align-items: center; gap: 10px; }
+.etiquette .pill { background: var(--acte-teinte); color: var(--encre); border-radius: 999px; padding: 2px 12px; letter-spacing: 0; }
+.etiquette strong { font-size: 22px; }
+.carton { background: var(--blanc); border: 1px solid var(--trait); border-radius: 14px; padding: 22px 28px;
+  overflow: hidden; flex: 1; min-height: 0; box-shadow: 0 2px 8px rgba(30, 58, 95, .08); }
+/* Pas de défilement pendant la présentation : la taille du texte s'ajuste au volume (ajuster()). */
+.cartons-courants { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 12px; font-size: 30px; }
+.cartons-courants .carton { flex: none; overflow: visible; }
+.cartons-courants .carton:last-child { flex: 1 0 auto; }
+.carton .tete { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+.carton .titre { font-weight: 800; color: var(--navy-700); }
+.carton .titre:not(:empty)::before { content: "/ "; color: var(--amber-700); }
+.carton .num { font-weight: 800; color: var(--muted); }
+.courant .carton { line-height: 1.35; color: var(--encre); padding: .7em .9em; }
+.courant .carton .tete { margin-bottom: .45em; }
+.courant .carton .titre { font-size: 1.12em; }
+.suivant .carton { font-size: 20px; line-height: 1.35; color: var(--muted); background: #FAFAF7; box-shadow: none; }
+.suivant .carton .titre { color: var(--muted); }
+.l { padding-left: calc(var(--i) * 1.2em); }
+.puce { padding-left: calc(var(--i) * 1.2em + 1em); text-indent: -1em; }
+.puce::before { content: attr(data-m); display: inline-block; width: 1em; text-indent: 0; color: var(--acte-encre); }
+.sp { height: .5em; }
+.suite { margin-top: .6em; text-align: right; font-weight: 800; color: var(--amber-texte); }
+.suite::before { content: "→ "; }
+strong { font-weight: 800; color: var(--navy-700); }
+.suivant strong { color: inherit; }
+.vide { color: var(--muted); font-style: italic; }
+.statut { font-size: 16px; font-weight: 700; color: var(--brick-texte); }
+.statut.ok { color: var(--teal-texte); }
+.aide { font-size: 15px; color: var(--muted); margin-top: auto; }
+kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--blanc); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="chrono arret" title="Clic ou P : démarrer / mettre en pause">00:00</div>
+  <div class="chrono-info">
+    <span class="reste">20:00 restantes</span>
+    <span class="ecran-temps">sur cet écran : 00:00</span>
+  </div>
+  <div class="barre"><span></span></div>
+  <div class="boutons">
+    <button type="button" class="b-pause">▶ Démarrer</button>
+    <button type="button" class="b-zero">↺ Remise à zéro</button>
+  </div>
+  <div class="horloge">--:--</div>
+</header>
+
+<main>
+  <section class="colonne courant">
+    <p class="etiquette"><span class="pill">Écran <strong class="e-num">-</strong> <span class="e-total"></span></span> <span class="e-titre"></span></p>
+    <div class="cartons-courants"></div>
+  </section>
+  <section class="colonne suivant">
+    <p class="etiquette">Ensuite · <span class="s-titre"></span></p>
+    <div class="carton carton-suivant"></div>
+    <p class="statut">Deck non connecté : ouvrir cette page avec la touche S depuis soutenance.html.</p>
+    <p class="aide"><kbd>→</kbd> <kbd>←</kbd> pilotent le deck · <kbd>P</kbd> chrono · <kbd>R</kbd> remise à zéro</p>
+  </section>
+</main>
+
+<script>
+(function () {
+  var DUREE = 20 * 60;   /* 20 minutes de présentation */
+  var ALERTE = 17 * 60;  /* passage en ambre */
+
+  /* ── Cartons : syntaxe décrite en tête de assets/data/soutenance-cartons.md ── */
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function inline(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|\s)_(.+?)_(?=\s|$)/g, '$1<em>$2</em>');
+  }
+  function parse(md) {
+    md = md.replace(/<!--[\s\S]*?-->/g, '');
+    return md.split(/^## /m).slice(1).map(function (bloc) {
+      var lignes = bloc.split('\n');
+      var tete = lignes.shift().split('|');
+      while (lignes.length && !lignes[lignes.length - 1].trim()) lignes.pop();
+      while (lignes.length && !lignes[0].trim()) lignes.shift();
+      var corps = lignes.map(function (l) {
+        if (!l.trim()) return '<div class="sp"></div>';
+        var i = l.match(/^ */)[0].length / 2, t = l.trim(), cls = 'l', m = '';
+        if (/^[-○] /.test(t)) { m = t[0] === '-' ? '•' : '○'; t = t.slice(2); cls = 'l puce'; }
+        else if (t.indexOf('>> ') === 0) { t = t.slice(3); cls = 'l suite'; }
+        return '<div class="' + cls + '" data-m="' + m + '" style="--i:' + i + '">' + inline(t) + '</div>';
+      }).join('');
+      return { num: parseInt(tete[0], 10), titre: (tete[1] || '').trim(), corps: corps };
+    });
+  }
+  var cartons = [];
+  function html(c) {
+    return '<div class="tete"><span class="titre">' + inline(c.titre) + '</span><span class="num">' + c.num + '</span></div>' + c.corps;
+  }
+  /* Carton N pour l'écran d'index N ; le dernier écran prend aussi les cartons qui suivent. */
+  function cartonsDe(index, dernier) {
+    return cartons.filter(function (c) { return dernier ? c.num >= index : c.num === index; });
+  }
+
+  var q = function (s) { return document.querySelector(s); };
+
+  /* La plus grande taille de texte (entre min et max, en px) qui tient sans déborder. */
+  function ajuster(el, max, min) {
+    var deborde = function () { return el.scrollHeight > el.clientHeight + 1; };
+    var bas = min, haut = max;
+    el.style.fontSize = max + 'px';
+    if (!deborde()) return;
+    while (haut - bas > 0.5) {
+      var m = (haut + bas) / 2;
+      el.style.fontSize = m + 'px';
+      if (deborde()) haut = m; else bas = m;
+    }
+    el.style.fontSize = bas + 'px';
+  }
+  function ajusterTout() {
+    ajuster(q('.cartons-courants'), 30, 14);
+    ajuster(q('.carton-suivant'), 20, 11);
+  }
+  window.addEventListener('resize', ajusterTout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajusterTout);
+  var etat = null, precedent = -1;
+
+  function afficher(e) {
+    var change = !etat || etat.index !== e.index;
+    etat = e;
+    document.body.setAttribute('data-acte', e.acte || '1');
+    q('.e-num').textContent = e.numero;
+    q('.e-total').textContent = '/ ' + e.total;
+    q('.e-titre').textContent = e.titre;
+    q('.s-titre').textContent = e.dernier ? 'fin' : e.suivant;
+    var cc = cartonsDe(e.index, e.dernier);
+    q('.cartons-courants').innerHTML = cc.length
+      ? cc.map(function (c) { return '<div class="carton">' + html(c) + '</div>'; }).join('')
+      : '<div class="carton vide">Pas de carton pour cet écran.</div>';
+    var cs = e.dernier ? [] : cartonsDe(e.index + 1, false);
+    q('.carton-suivant').innerHTML = cs.length ? html(cs[0]) : '<span class="vide">-</span>';
+    ajusterTout();
+    var st = q('.statut'); st.textContent = 'Deck connecté.'; st.classList.add('ok');
+    /* Le chrono part tout seul en quittant la couverture (écran 0 vers 1). */
+    if (!change) return;
+    if (precedent === 0 && e.index === 1 && !debut && !cumul) basculer();
+    precedent = e.index;
+    debutEcran = Date.now();
+  }
+
+  /* ── Chrono : conservé si la fenêtre est rechargée ── */
+  var debut = 0, cumul = 0, debutEcran = Date.now();
+  function lire() {
+    try { var s = JSON.parse(sessionStorage.getItem('chrono') || '{}'); debut = s.debut || 0; cumul = s.cumul || 0; } catch (e) {}
+  }
+  function garder() {
+    try { sessionStorage.setItem('chrono', JSON.stringify({ debut: debut, cumul: cumul })); } catch (e) {}
+  }
+  function ecoule() { return cumul + (debut ? (Date.now() - debut) / 1000 : 0); }
+  function basculer() {
+    if (debut) { cumul = ecoule(); debut = 0; } else { debut = Date.now(); }
+    garder(); tic();
+  }
+  function zero() { debut = 0; cumul = 0; garder(); tic(); }
+  function mmss(s) {
+    s = Math.max(0, Math.floor(s));
+    return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  }
+  function tic() {
+    var t = ecoule(), ch = q('.chrono'), b = q('.barre');
+    ch.textContent = mmss(t);
+    ch.classList.toggle('arret', !debut);
+    var niveau = t >= DUREE ? 'depasse' : t >= ALERTE ? 'alerte' : '';
+    ['alerte', 'depasse'].forEach(function (n) { ch.classList.toggle(n, n === niveau); b.classList.toggle(n, n === niveau); });
+    b.firstElementChild.style.width = Math.min(100, t / DUREE * 100) + '%';
+    q('.reste').textContent = t >= DUREE ? '+' + mmss(t - DUREE) + ' de dépassement' : mmss(DUREE - t) + ' restantes';
+    q('.ecran-temps').textContent = 'sur cet écran : ' + mmss((Date.now() - debutEcran) / 1000);
+    q('.b-pause').textContent = debut ? '⏸ Pause' : (cumul ? '▶ Reprendre' : '▶ Démarrer');
+    q('.horloge').textContent = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' });
+  }
+  lire(); tic(); setInterval(tic, 500);
+  q('.chrono').addEventListener('click', basculer);
+  q('.b-pause').addEventListener('click', basculer);
+  q('.b-zero').addEventListener('click', zero);
+
+  /* ── Liaison avec le deck ── */
+  function versDeck(msg) { if (window.opener && !window.opener.closed) window.opener.postMessage(msg, '*'); }
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.type === 'soutenance-etat') afficher(e.data);
+  });
+  versDeck({ type: 'soutenance-notes-pret' });
+
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ') { e.preventDefault(); versDeck({ type: 'soutenance-aller', pas: 1 }); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.preventDefault(); versDeck({ type: 'soutenance-aller', pas: -1 }); }
+    else if (k === 'Home') { versDeck({ type: 'soutenance-aller', index: 0 }); }
+    else if (k === 'p' || k === 'P') basculer();
+    else if (k === 'r' || k === 'R') zero();
+  });
+
+  /* Cartons lus sans cache : la dernière version poussée s'affiche au rechargement. */
+  fetch('assets/data/soutenance-cartons.md', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (md) { cartons = parse(md); if (etat) afficher(etat); })
+    .catch(function () {
+      q('.cartons-courants').innerHTML = '<div class="carton vide">Cartons introuvables : ouvrir le deck depuis anacoluthe.org ou un serveur local (en file://, le navigateur bloque la lecture du fichier).</div>';
+    });
+})();
+</script>
+</body>
+</html>

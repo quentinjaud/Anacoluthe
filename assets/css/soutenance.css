@@ -776,11 +776,9 @@ body {
 }
 .logo-pied.cache { opacity: 0; }
 
-/* En projection, le fil s'efface et le curseur disparaît : rien ne doit
-   rester à l'écran que le propos. Il revient au premier mouvement de souris. */
+/* En projection, le curseur disparaît. Le fil reste visible (S139) :
+   il situe le jury dans le déroulé. */
 body.projection { cursor: none; }
-body.projection .fil { opacity: 0; }
-body.projection .fil:hover { opacity: 1; }
 /* Le numéro reste en projection, plus discret : c'est lui que le jury cite. */
 body.projection .numero { opacity: 0.7; box-shadow: none; }
 

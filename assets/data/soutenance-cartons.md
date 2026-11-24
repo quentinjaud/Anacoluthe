@@ -15,6 +15,7 @@ Ce questionnement il a pris un nom : Anacoluthe
 
 ## 1 | 3 regards, un constat
 questions > métier de terrestre + saison de BSC 
+escadre démunis sur question humaine
 
 +
 
@@ -24,12 +25,13 @@ questions > métier de terrestre + saison de BSC
 
 rapports de mer > humain à l'origine des incidents
 
-## 2
-J'ai commencé l'enquête
+## 2 | Enquête
+Posé la question plus largement à celleux qui **encadrent**
+
+encadrements divers : BSC, occasionnels, habitués, ... 
 
 informelle et formelle
-  ↓
-auprès d'encadrants **DIVERS**
+ 
 
 ## 3 | Problématique tirée du diag
 ○ manque d'outils + formation

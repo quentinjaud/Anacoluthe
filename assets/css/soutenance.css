@@ -1662,7 +1662,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e09-equipe .eq-gauche { grid-column: 1; grid-row: 2; }
 #e09-equipe .eq-moi { grid-column: 2; grid-row: 2; border: 3px solid var(--teal-700); box-shadow: 0 8px 26px rgba(0,0,0,0.12); background: var(--amber-50); }
 #e09-equipe .eq-droite { grid-column: 3; grid-row: 2; }
-#e09-equipe .eq-role { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); margin: 0 0 clamp(10px, 2vh, 24px); line-height: 1.25; }
+#e09-equipe .eq-role { font-family: var(--font-legende); font-size: var(--t-kicker); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-texte); margin: clamp(10px, 2vh, 24px) 0 0; line-height: 1.25; }
 #e09-equipe .eq-bloc .emoji-cheval { left: 50%; transform: translate(-50%, -50%); }
 #e09-equipe .eq-qui { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.1); color: var(--navy-700); line-height: 1.25; margin: 0; }
 #e09-equipe .eq-moi .eq-qui { font-size: calc(var(--t-liste) * 1.25); }

@@ -846,16 +846,54 @@
     notes = window.open('soutenance-notes.html', 'soutenance-notes', 'width=1280,height=800');
   }
   /* Vue intégrée (mode répétition) : le carton de l'écran en cours dans un petit
-     bloc flottant, déplaçable par sa poignée, redimensionnable par son coin. */
-  var panneau = null;
+     bloc flottant, déplaçable par sa poignée, redimensionnable par son coin.
+     Dans l'artefact claude.ai, le carton est éditable (✎) : la version modifiée
+     est gardée dans la base de l'artefact (collection « cartons », un document
+     par numéro) et remplace celle du .md à l'affichage, jusqu'à report dans le repo. */
+  var panneau = null, cadreNotes = null, baseCartons = null, surcharges = {}, mdBrut = null;
+  function envoyerSurcharges() {
+    if (cadreNotes && cadreNotes.contentWindow) cadreNotes.contentWindow.postMessage({ type: 'soutenance-surcharges', cartons: surcharges }, '*');
+  }
+  function blocBrut(num) {
+    if (surcharges[num] != null) return surcharges[num];
+    if (!mdBrut) return '## ' + num + '\n';
+    var blocs = mdBrut.split(/^(?=## )/m);
+    for (var i = 0; i < blocs.length; i++) {
+      var m = blocs[i].match(/^## *(\d+)/);
+      if (m && parseInt(m[1], 10) === num) return blocs[i].replace(/\s+$/, '') + '\n';
+    }
+    return '## ' + num + '\n';
+  }
+  if (window.claude && typeof window.claude.use === 'function') {
+    window.claude.use('db').then(function (db) {
+      if (!db) return;
+      baseCartons = db;
+      db.collection('cartons').onSnapshot(function (snap) {
+        var m = {};
+        snap.docs.forEach(function (d) { var v = d.data(); if (v && typeof v.md === 'string') m[d.id] = v.md; });
+        surcharges = m; envoyerSurcharges();
+      }, function () {});
+      if (panneau) panneau.classList.add('editable');
+    }).catch(function () {});
+  }
+  fetch('assets/data/soutenance-cartons.md', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : null; })
+    .then(function (t) { mdBrut = t; }).catch(function () {});
+
   function basculerIntegre() {
-    if (panneau) { panneau.remove(); panneau = null; notes = null; return; }
+    if (panneau) { panneau.remove(); panneau = null; cadreNotes = null; notes = null; return; }
     panneau = document.createElement('aside');
-    panneau.className = 'repetition-panneau';
-    panneau.innerHTML = '<div class="repetition-poignee" title="Glisser pour déplacer · N pour fermer"></div><iframe src="soutenance-notes.html?integre=1" title="Carton de l\'écran en cours"></iframe>';
+    panneau.className = 'repetition-panneau' + (baseCartons ? ' editable' : '');
+    panneau.innerHTML = '<div class="repetition-poignee" title="Glisser pour déplacer · N pour fermer"><button type="button" class="repetition-editer" title="Modifier ce carton">✎</button></div>'
+      + '<iframe src="soutenance-notes.html?integre=1" title="Carton de l\'écran en cours"></iframe>'
+      + '<form class="repetition-edition" hidden><textarea spellcheck="true"></textarea>'
+      + '<div class="repetition-actions"><span class="repetition-etat"></span>'
+      + '<button type="button" data-a="original">Rétablir le .md</button><button type="button" data-a="annuler">Annuler</button><button type="submit">Enregistrer</button></div></form>';
     document.body.appendChild(panneau);
+    cadreNotes = panneau.querySelector('iframe');
+    cadreNotes.addEventListener('load', envoyerSurcharges);
     var poignee = panneau.firstChild, dx = 0, dy = 0;
     poignee.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('button')) return;
       var r = panneau.getBoundingClientRect(); dx = e.clientX - r.left; dy = e.clientY - r.top;
       poignee.setPointerCapture(e.pointerId); panneau.classList.add('glisse');
     });
@@ -866,6 +904,33 @@
       panneau.style.left = x + 'px'; panneau.style.top = y + 'px'; panneau.style.right = 'auto'; panneau.style.bottom = 'auto';
     });
     poignee.addEventListener('pointerup', function () { panneau.classList.remove('glisse'); });
+
+    var form = panneau.querySelector('.repetition-edition'), zone = form.querySelector('textarea'),
+        etatEd = form.querySelector('.repetition-etat'), numEd = 0;
+    function fermer() { form.hidden = true; panneau.classList.remove('edition'); }
+    panneau.querySelector('.repetition-editer').addEventListener('click', function () {
+      if (!baseCartons) return;
+      numEd = actif;
+      zone.value = blocBrut(numEd);
+      etatEd.textContent = 'Carton ' + numEd + (surcharges[numEd] != null ? ' (modifié)' : '');
+      form.hidden = false; panneau.classList.add('edition'); zone.focus();
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var texte = zone.value.replace(/\s+$/, '') + '\n';
+      if (!/^## *\d+/.test(texte)) texte = '## ' + numEd + '\n' + texte;
+      etatEd.textContent = 'Enregistrement…';
+      baseCartons.doc('cartons/' + numEd).set({ md: texte, maj: new Date().toISOString() })
+        .then(fermer, function () { etatEd.textContent = 'Échec : pas le droit d\'écrire ici ?'; });
+    });
+    form.addEventListener('click', function (e) {
+      var a = e.target.getAttribute && e.target.getAttribute('data-a');
+      if (a === 'annuler') fermer();
+      else if (a === 'original') {
+        etatEd.textContent = 'Retour au .md…';
+        baseCartons.doc('cartons/' + numEd).delete().then(fermer, function () { etatEd.textContent = 'Échec.'; });
+      }
+    });
   }
   window.addEventListener('message', function (e) {
     var d = e.data || {};
@@ -883,6 +948,8 @@
   document.addEventListener('keydown', function (e) {
     /* Lightbox ouverte : les touches lui appartiennent (flèches, Échap). */
     if (document.body.classList.contains('glightbox-open')) return;
+    /* Édition d'un carton en cours : les touches vont au champ de texte. */
+    if (e.target && e.target.closest && e.target.closest('textarea, input')) return;
     var k = e.key;
     if (/^[0-9]$/.test(k)) {
       saisie += k;

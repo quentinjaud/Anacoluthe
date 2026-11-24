@@ -1803,3 +1803,15 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .repetition-panneau.glisse .repetition-poignee { cursor: grabbing; }
 .repetition-panneau.glisse iframe { pointer-events: none; }
 .repetition-panneau iframe { display: block; flex: 1; width: 100%; border: 0; }
+/* Édition d'un carton dans l'artefact (base de l'artefact) : bouton ✎ dans la poignée. */
+.repetition-poignee { position: relative; height: 26px; }
+.repetition-editer { display: none; position: absolute; right: 6px; top: 2px; height: 22px; padding: 0 8px; border: 0; border-radius: 6px; background: #fff; color: var(--navy-700, #1E3A5F); font-size: 14px; cursor: pointer; }
+.repetition-panneau.editable .repetition-editer { display: block; }
+.repetition-panneau.edition iframe { display: none; }
+.repetition-edition { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.repetition-edition[hidden] { display: none; }
+.repetition-edition textarea { flex: 1; min-height: 0; resize: none; border: 0; padding: 10px 12px; font: 15px/1.45 ui-monospace, Menlo, Consolas, monospace; color: #1E3A5F; background: #FFFDF8; }
+.repetition-actions { display: flex; gap: 6px; align-items: center; padding: 6px 8px; background: #F3F1EC; }
+.repetition-actions button { font: 600 13px/1 sans-serif; padding: 6px 10px; border-radius: 999px; border: 1px solid #C9D2DC; background: #fff; color: #1E3A5F; cursor: pointer; }
+.repetition-actions button[type=submit] { background: #1E3A5F; color: #fff; border-color: #1E3A5F; }
+.repetition-etat { flex: 1; font: 13px sans-serif; color: #5A6676; }

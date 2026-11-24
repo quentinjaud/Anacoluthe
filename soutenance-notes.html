@@ -154,7 +154,16 @@ body.integre .carton { box-shadow: none; border: 0; border-radius: 0; }
       return { num: parseInt(tete[0], 10), titre: (tete[1] || '').trim(), corps: corps };
     });
   }
-  var cartons = [];
+  var cartons = [], brut = null, surcharges = {};
+  /* Cartons modifiés dans l'artefact (envoyés par le deck) : remplacent le bloc du même numéro. */
+  function recalculer() {
+    if (brut == null) return;
+    var md = brut.split(/^(?=## )/m).map(function (b) {
+      var m = b.match(/^## *(\d+)/);
+      return m && surcharges[m[1]] != null ? surcharges[m[1]].replace(/\s+$/, '') + '\n\n' : b;
+    }).join('');
+    cartons = parse(md); if (etat) afficher(etat);
+  }
   function html(c) {
     return '<div class="tete"><span class="titre">' + inline(c.titre) + '</span><span class="num">' + c.num + '</span></div>' + c.corps;
   }
@@ -250,6 +259,7 @@ body.integre .carton { box-shadow: none; border: 0; border-radius: 0; }
   function versDeck(msg) { if (deck && !deck.closed) deck.postMessage(msg, '*'); }
   window.addEventListener('message', function (e) {
     if (e.data && e.data.type === 'soutenance-etat') afficher(e.data);
+    else if (e.data && e.data.type === 'soutenance-surcharges') { surcharges = e.data.cartons || {}; recalculer(); }
   });
   versDeck({ type: 'soutenance-notes-pret' });
 
@@ -265,7 +275,7 @@ body.integre .carton { box-shadow: none; border: 0; border-radius: 0; }
   /* Cartons lus sans cache : la dernière version poussée s'affiche au rechargement. */
   fetch('assets/data/soutenance-cartons.md', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-    .then(function (md) { cartons = parse(md); if (etat) afficher(etat); })
+    .then(function (md) { brut = md; recalculer(); })
     .catch(function () {
       q('.cartons-courants').innerHTML = '<div class="carton vide">Cartons introuvables : ouvrir le deck depuis anacoluthe.org ou un serveur local (en file://, le navigateur bloque la lecture du fichier).</div>';
     });

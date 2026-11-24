@@ -7,142 +7,152 @@
 ## 0
 **BONJOUR**
 
-Quentin, Glénans Marseillan, saisons 2025 et 2026
+Quentin, Glénans Marseillan, BSC en 2024, puis alternant 2025-2026
 
-2 ans à me questionner sur comment passer de …
+3 ans à me questionner sur comment passer de …
 
 Ce questionnement il a pris un nom : Anacoluthe
 
 -- A L'ORIGINE DE CE QUESTIONNEMENT
 
-## 1 | 3 regards, un constat
+## 1 | 3 sources qui convergent
 - mon année d'encadrement bénévole 
   peu d'encadrants >  enthousiastes > embarqué
-  appréhension gérer humain
+  **appréhension** gérer humain
 
 - échanges avec Romain > évolutions récentes
-  baisse proportion bénévoles
+  **baisse** proportion bénévoles
 
-- rapports de mer > humain à l'origine des incidents
+- rapports de mer > humain à l'**origine** des incidents
+
+-- DEMANDER A CELLEUX QUI SONT SUR LE TERRAIN
 
 ## 2 | Enquête
 Posé la question plus largement à celleux qui **encadrent**
 
-encadrements divers : BSC, occasionnels, habitués, ... 
+encadrements **divers** : BSC, occasionnels, habitués, ... 
 
 informelle et formelle
- 
+
+-- PROBLEMATIQUE SUITE AU DIAG
 
 ## 3 | Problématique tirée du diag
-○ manque d'outils + formation
 
-○ contexte demande des apports spécifiques
+- créer des liens est une **attente** des monos bénevoles
+apprendre et partager
 
-○ statut des Glénans
+- contexte demande des apports **spécifiques**
+isolation, contraintes techniques, inconnus, ...
+
+- manque d'outils + formation **spécifiques** à cette question
 
 ## 4 | RÉFÉRENTIELS
 **FFVoile + CQP IV**
 
-ces compétences sont attendues
+ces compétences sont **attendues**
 
 mais pas grand-chose dans
 les contenus **FPI**, dans la doc **CEB**
 
 ## 5 | TERRAIN MARSEILLAN
-- une saison longue
-- un terrain facile en termes de nav
-- un planning (orga) tourné vers les bénévoles
-- une forte focalisation du travail des apprentis
+- une saison longue avec du **volume**
+
+- un planning (orga) tourné vers les **bénévoles**
+
+- une forte **focalisation** du travail des apprentis
   → encadrer +++
-  → superviser −
--- CONTRAINTES
+  → superviser autour
+
+-- GÉNÉRÉ DES CONTRAINTES
 
 ## 6 | CONTRAINTES → MÉTHODES
-- faire avec un planning très incertain et centré encadrement
-  ↳ conception itérative  **OIR**
+- faire avec un planning très **incertain** et centré encadrement
+  ↳ conception itérative
 
-- asso + diversité d'acteurs et d'expériences
+- **diversité d'acteurs** et d'expériences et **héritage** Glénans
   ↳ méthodes éduc pop
 
-- manque de temps et de compétences
-  ↳ intervenants thématiques
+- manque de **temps** et de **compétences**
+  ↳ intervenants thématiques extérieurs
+
 -- PUBLIC
 
 ## 7 | 3 PUBLICS
-**Monos** → apprendre à animer
+- **Monos** 
+se sentir capable, moins seul, moins surchargé
 
-↑ **encadrants**
-  ○ réduire les sollicitations
-  ○ encadrer cette animation
+- **encadrants**
+réduire les sollicitations urgentes
++ de place pour la montée en compétences
 
-↑ **stagiaires**
-  transposer à terre
-  apprendre à faire équipage
+-  **stagiaires**
+apprendre à faire équipage et vivre "dans le m^ bateau
+ramener ça à terre
+
+-- O
 
 ## 8 | OBJECTIFS PÉDA
 **débutants**
-  soutien et méthodes pour les fondamentaux
+réduire la charge cognitive "chef de bord" pour avoir du temps de "péda"
+prétexte : fluidifier l'orga collective > apprendre à coopérer
+petite expériences irréversibles de coopération
 
 **expérimentés**
-- gérer les cas **exceptionnels**
-- avoir des apports solides
-- questionner posture
+animer-faciliter des temps collectifs plutôt que les diriger
+questionner sa propre posture
 
-**STG** ↗
-  rôle sans stéréotypes de genre
-  dire une tension
-  questionner sa posture R̄
+**STG**
+monter en compétence sur l'orga collective avant le 4CDB
+sortir de ses habitudes terrestres : genre, classe, ...
+réfléchir à sa posture et à sa gestion des tensions
+
+-- PAS TOUT SEUL
 
 ## 9 | ÉQUIPE
-chef + respo ↘
+moi : animer la démarche collective
 
-monos et stagiaires testeurs ↙
+- **supervisé** et aidé à la stratégie : référents activité et chef de base
 
-        **MOI**
+- **aidé** par des intervenants extérieurs sur les compétences techniques
 
-intervenants thématiques ↑
+- **nourri** par les retours et les idées des monos et stagiaires des cycles coconception
+
+-- EN ÉQUIPE ON A TRAVERSE DIFFÉRENTES PHASES
 
 ## 10 | 4 ENJEUX
 **diag**
-○ bien comprendre
-○ vérifier le pb
-○ prototyper
-  ↓
+phase que je viens de vous présenter
+pas partir dans les solutions sans avoir compris le fond du problème, avec ceux qui **font**
+
 **conception**
-○ construire des outils **par** et **pour**
-○ acculturer par l'action
+construire des outils **par** et **pour**
+acculturer par le faire
 
 **déploiement**
-○ outils stables → diffusion possible
-○ besoin plus fin → formation ciblée + calendrier établi
+outils stables → diffusion possible
+besoin plus fin → formation ciblée et adaptée aux contraintes orga
 
 **éval**
-○ voir ce qui manque encore
-○ voir ce qui a bien marché
-○ voir ce qui peut être diffusé
+voir ce qui manque encore
+voir ce qui a bien marché
+voir ce qui peut être diffusé
+
+-- PROCESSUS > PRODUITS EN 2 SAISONS
 
 ## 11 | PRODUCTIONS
-**BAO** → dans les voiliers
+Faire l'objet de la suite de la présentation
+
+**BAO** 
+dans les voiliers à Marseillan
 
 **FORMATIONS**
-  ↗ sur créneaux préexistants
-  → adaptées à la diversité des publics
+sur créneaux préexistants
+adaptées à la diversité des publics
 
-**OUTILS**
-  on va voir ça en détails, c'est le sujet des parties qui suivent
+**OUTILS** référents
+pour diffuser les savoirs durablement
 
-## 12 | BAO AUTONOME
-vous l'avez vu dans le dossier
-
-**Affiches** ↗
-  cartes rôles
-  cartes moments
-  cartes joker
-
-**Mode d'emploi** ← 1er usage :
-  autonomie + mot dans le brief
-
-## 13 | CO-CONCEPTION
+## 12 | CO-CONCEPTION
 des cycles de CC
 qui ont assuré que ce qui était produit **servait**
 
@@ -153,9 +163,10 @@ test terrain
 retours
   ↓
 ateliers créatifs
-  ↺ proto
 
-## 14 | PÉPITES BAO
+-- EXEMPLES DE RESULTAT
+
+## 13 | PÉPITES BAO
 prendre des exemples besoin-outil
 
 **ROUTINES** → orga et soutien équipage
@@ -169,6 +180,14 @@ prendre des exemples besoin-outil
 
 **JOKER** : stagiaires
   des billes pour résoudre des trucs en autonomie avec soutien RTQ
+
+## 14 | BAO AUTONOME
+une des affiches à bord sert à expliquer ce qui est à bord
+
+dit ce qui est là et ce qui est en ligne, 
+à quoi peut servir chaque bout du kit
+
+vient en complément de la mention de la BAO dans les briefs de démarrage
 
 ## 15 | AFFICHES FAIRE-SAVOIR
 transition vers la formation

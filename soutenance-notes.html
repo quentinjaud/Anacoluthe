@@ -90,9 +90,17 @@ strong { font-weight: 800; color: var(--navy-700); }
 .statut.ok { color: var(--teal-texte); }
 .aide { font-size: 15px; color: var(--muted); margin-top: auto; }
 kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--blanc); }
+/* Vue intégrée dans le deck (?integre=1) : seulement le carton de l'écran en cours,
+   sans chrono, sans carton suivant. */
+body.integre { grid-template-rows: 1fr; background: transparent; }
+body.integre header, body.integre .suivant, body.integre .etiquette { display: none; }
+body.integre main { grid-template-columns: 1fr; padding: 0; }
+body.integre .cartons-courants { gap: 8px; }
+body.integre .carton { box-shadow: none; border: 0; border-radius: 0; }
 </style>
 </head>
 <body>
+<script>if (/[?&]integre=1/.test(location.search)) document.body.classList.add('integre');</script>
 
 <header>
   <div class="chrono arret" title="Clic ou P : démarrer / mettre en pause">00:00</div>
@@ -116,7 +124,7 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
   <section class="colonne suivant">
     <p class="etiquette">Ensuite · <span class="s-titre"></span></p>
     <div class="carton carton-suivant"></div>
-    <p class="statut">Deck non connecté : ouvrir cette page avec la touche S depuis soutenance.html.</p>
+    <p class="statut">Deck non connecté : ouvrir cette page avec la touche S (ou N, vue intégrée) depuis soutenance.html.</p>
     <p class="aide"><kbd>→</kbd> <kbd>←</kbd> pilotent le deck · <kbd>P</kbd> chrono · <kbd>R</kbd> remise à zéro</p>
   </section>
 </main>
@@ -149,7 +157,16 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
       return { num: parseInt(tete[0], 10), titre: (tete[1] || '').trim(), corps: corps };
     });
   }
-  var cartons = [];
+  var cartons = [], brut = null, surcharges = {};
+  /* Cartons modifiés dans l'artefact (envoyés par le deck) : remplacent le bloc du même numéro. */
+  function recalculer() {
+    if (brut == null) return;
+    var md = brut.split(/^(?=## )/m).map(function (b) {
+      var m = b.match(/^## *(\d+)/);
+      return m && surcharges[m[1]] != null ? surcharges[m[1]].replace(/\s+$/, '') + '\n\n' : b;
+    }).join('');
+    cartons = parse(md); if (etat) afficher(etat);
+  }
   function html(c) {
     return '<div class="tete"><span class="titre">' + inline(c.titre) + '</span><span class="num">' + c.num + '</span></div>' + c.corps;
   }
@@ -240,9 +257,12 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
   q('.b-zero').addEventListener('click', zero);
 
   /* ── Liaison avec le deck ── */
-  function versDeck(msg) { if (window.opener && !window.opener.closed) window.opener.postMessage(msg, '*'); }
+  /* Le deck est la fenêtre qui a ouvert celle-ci (touche S) ou la page qui la contient (vue intégrée). */
+  var deck = window.opener || (window.parent !== window ? window.parent : null);
+  function versDeck(msg) { if (deck && !deck.closed) deck.postMessage(msg, '*'); }
   window.addEventListener('message', function (e) {
     if (e.data && e.data.type === 'soutenance-etat') afficher(e.data);
+    else if (e.data && e.data.type === 'soutenance-surcharges') { surcharges = e.data.cartons || {}; recalculer(); }
   });
   versDeck({ type: 'soutenance-notes-pret' });
 
@@ -258,7 +278,7 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
   /* Cartons lus sans cache : la dernière version poussée s'affiche au rechargement. */
   fetch('assets/data/soutenance-cartons.md', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-    .then(function (md) { cartons = parse(md); if (etat) afficher(etat); })
+    .then(function (md) { brut = md; recalculer(); })
     .catch(function () {
       q('.cartons-courants').innerHTML = '<div class="carton vide">Cartons introuvables : ouvrir le deck depuis anacoluthe.org ou un serveur local (en file://, le navigateur bloque la lecture du fichier).</div>';
     });

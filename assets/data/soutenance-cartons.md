@@ -172,20 +172,20 @@ et y répond par le **vivre-ensemble**
 
 **ROUTINES** · plutôt débutantes
   besoin : alléger la charge cognitive « chef de bord »
-  ○ s'organiser ensemble, voir que c'est plus efficace qu'un chef omniscient
+  s'organiser ensemble, voir que c'est plus efficace qu'un chef omniscient
 
 **ACCORDS** · tous niveaux
   besoin : poser le cadre de la semaine
-  ○ un moment souvent imposé → un bon souvenir de décision collective
-  ○ méthodes d'éduc pop pour ce moment crucial
+  un moment souvent imposé → un bon souvenir de décision collective
+  méthodes d'éduc pop pour ce moment crucial
 
 **SECOND SOIGNEUX** · stagiaires curieux·ses
   besoin : expérimenter l'animation
-  ○ distribuer l'animation, un rôle à la même hauteur que le technique
+  distribuer l'animation, un rôle à la même hauteur que le technique
 
 **JOKER** · tous les équipages
   besoin : dénouer un trouble
-  ○ des billes pour résoudre en autonomie, RTQ en soutien
+  des billes pour résoudre en autonomie, RTQ en soutien
 
 -- COMMENT LA BOÎTE VIT À BORD
 
@@ -198,17 +198,18 @@ dit ce qui est là et ce qui est en ligne,
 vient en complément de la mention de la BAO dans les briefs de démarrage
 
 ## 15 | AFFICHES FAIRE-SAVOIR
-transition vers la formation
-  ↳ but du **kit** : cultiver l'expérience
-  mais manque la **connaissance**
-    ↓
+
+but de la BAO : enrichir l'expérience de vivre-ensemble
+mais manque la **connaissance**
+
 ○ diffuser du vocabulaire
-○ faire savoir le kit
+○ faire savoir la boite à outils
 ○ faire savoir les **formations**
--- FORMATIONS - FAFP
+
+-- PARTIE FORMATION
 
 ## 16 | Co-concevoir est un FAFP
-↳ **2025**
+**2025**
 
 expliquer un trouble et y chercher une solution, c'est de la formation
   ↓
@@ -216,42 +217,66 @@ débutants ou expérimentés
   ↓
 identification d'une situation et méthode de questionnement
 
+-- UNE FOIS LA BAO STABILISEE
+
 ## 17 | 2026 : former à l'animation
 2e saison, autre entrée :
 le **savoir** plutôt que l'expérience
 
-formation EP
-  ↓
-  ( arpenter
-  + co-dév d'une réponse
-  + construire du vocabulaire )
+formation en éducation populaire
+arpentage
+co-développement
+construire un vocabulaire commun
 
 **les xp aident les débutants**
 
-## 18 | RÉFÉRENTS
-- missions en interaction avec les monos
+-- ENFIN, AUTRE ALLIES
 
-- interactions que j'ai eues avec eux par phase
+## 18 | RÉFÉRENTS
+plein de moments d'interaction avec les monos
+donc public très important.
+
+utiliser l'opportunité de m'aider pour faire passer 
+du vocabulaire, 
+de la connaissance,
+des expériences d'animation
+
+à toutes les phases
+
+-- EVALUATION
 
 ## 19 | ÉVALUATIONS
-**stagiaires** ↑
-  compétences FFV et retour à terre
+**stagiaires**
+progression compétences FFV
+transposition à terre
+envie de **revenir**
 
-**monos** ↑
-- confiance
-- aisance en situation délicate
-- envie de revenir en embarqué
+**monos**
+confiance
+aisance en situation délicate
+envie de **revenir en embarqué**
+
+-- RETOURS SUR LE PROCESSUS ET PRECO
 
 ## 20 | Aller plus loin
-○ projet apprenti autour des **encadrements**
-  itération + intervenants extérieurs + opportunisme
 
-○ diffuser l'outil **plus largement**
+projet mené malgré l'occupation permanente en encadrement
+itération + intervenants extérieurs + opportunisme
 
-○ actions de formation à l'outil aux référents
-  ↳ formation aux moniteurices FPI et stages P
+kit qui circule et formations pour aider à l'acculturation
 
-## 21
+phase de production terminée
+maintenant on peut diffuser l'outil **plus largement**
+
+réintégrer les contenus dans le referentiel glénans
+des référents dans les bases formées à ces questions
+équiper les bateaux et les briefs
+continuer à cultiver des contenus à destination des moniteurs pour les FPI et un stage P ? 
+
+-- REVENIR A LA PROBLEMATIQUE
+
+## 21 - PROBLÉMATIQUE - RÉPONSES
+
 **moyens** :
 des outils visuels **ET**
 de la formation et de l'échange
@@ -265,11 +290,14 @@ on est toustes dans le même bateau
 
 ## 22 | MERCI
 **collectif**
+vraiment précieux d'avoir été aidé et le processus était vraiment intéressant 
 
 **adaptation**
-  ↗ face à face prend beaucoup de place
-  ↙ suivre les saisons
-    + adapter au terrain
-    + considérer les enjeux internes
+face à face prend beaucoup de place
+suivre les saisons
+considérer les enjeux internes
+et adapter au terrain
 
 **suite**
+
+-- FIN

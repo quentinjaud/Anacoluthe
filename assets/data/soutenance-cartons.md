@@ -148,18 +148,7 @@ moi : animer la démarche collective
 **OUTILS**
   on va voir ça en détails, c'est le sujet des parties qui suivent
 
-## 12 | BAO AUTONOME
-vous l'avez vu dans le dossier
-
-**Affiches** ↗
-  cartes rôles
-  cartes moments
-  cartes joker
-
-**Mode d'emploi** ← 1er usage :
-  autonomie + mot dans le brief
-
-## 13 | CO-CONCEPTION
+## 12 | CO-CONCEPTION
 des cycles de CC
 qui ont assuré que ce qui était produit **servait**
 
@@ -172,7 +161,7 @@ retours
 ateliers créatifs
   ↺ proto
 
-## 14 | PÉPITES BAO
+## 13 | PÉPITES BAO
 prendre des exemples besoin-outil
 
 **ROUTINES** → orga et soutien équipage
@@ -186,6 +175,17 @@ prendre des exemples besoin-outil
 
 **JOKER** : stagiaires
   des billes pour résoudre des trucs en autonomie avec soutien RTQ
+
+## 14 | BAO AUTONOME
+vous l'avez vu dans le dossier
+
+**Affiches** ↗
+  cartes rôles
+  cartes moments
+  cartes joker
+
+**Mode d'emploi** ← 1er usage :
+  autonomie + mot dans le brief
 
 ## 15 | AFFICHES FAIRE-SAVOIR
 transition vers la formation

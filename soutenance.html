@@ -753,6 +753,7 @@
       a.classList.toggle('passe', passe && a !== acteCourant);
     });
     majLigne();
+    envoyerEtat();
     if (numeroCourant) {
       numeroCourant.textContent = i + 1 - decalage;
       numero.setAttribute('data-acte', acteCourant ? acteCourant.className.replace(/.*acte-(\d).*/, '$1') : '1');
@@ -771,6 +772,36 @@
       piste.scrollTo({ left: Math.max(0, cible), behavior: 'smooth' });
     }
   }
+
+  /* Vue présentateur (principe de reveal.js) : S ouvre une fenêtre de notes
+     à glisser sur l'écran de l'ordinateur. Elle reçoit l'écran courant par
+     postMessage et renvoie les commandes de navigation. postMessage plutôt que
+     BroadcastChannel : fonctionne aussi en file://. */
+  var notes = null;
+  function etat() {
+    var p = pastilles[actif], s = pastilles[actif + 1];
+    var titre = function (x) { var b = x && x.querySelector('.bulle'); return b ? b.textContent : ''; };
+    return {
+      type: 'soutenance-etat', index: actif, id: ecrans[actif].id,
+      numero: actif - decalage + 1, total: ecrans.length - decalage,
+      titre: titre(p), suivant: titre(s), dernier: actif === ecrans.length - 1
+    };
+  }
+  function envoyerEtat() {
+    if (notes && !notes.closed) notes.postMessage(etat(), '*');
+  }
+  function ouvrirNotes() {
+    if (notes && !notes.closed) { notes.focus(); return; }
+    notes = window.open('soutenance-notes.html', 'soutenance-notes', 'width=1280,height=800');
+  }
+  window.addEventListener('message', function (e) {
+    var d = e.data || {};
+    if (d.type === 'soutenance-notes-pret') { notes = e.source; envoyerEtat(); }
+    else if (d.type === 'soutenance-aller') {
+      if (d.pas) aller(courant() + d.pas);
+      else if (typeof d.index === 'number') aller(d.index);
+    }
+  });
 
   /* Aller à un numéro : taper les chiffres puis Entrée. La saisie s'oublie
      après deux secondes sans frappe. */
@@ -800,6 +831,8 @@
       e.preventDefault(); aller(0);
     } else if (k === 'End') {
       e.preventDefault(); aller(ecrans.length - 1);
+    } else if (k === 's' || k === 'S') {
+      e.preventDefault(); ouvrirNotes();
     } else if (k === 'f' || k === 'F') {
       if (document.fullscreenElement) document.exitFullscreen();
       else document.documentElement.requestFullscreen();

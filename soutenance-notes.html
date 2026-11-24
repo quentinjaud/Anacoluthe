@@ -87,9 +87,20 @@ strong { font-weight: 800; color: var(--navy-700); }
 .statut.ok { color: var(--teal-texte); }
 .aide { font-size: 15px; color: var(--muted); margin-top: auto; }
 kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--blanc); }
+/* Vue intégrée dans le deck (?integre=1) : une colonne, en-tête compact. */
+body.integre header { flex-wrap: wrap; gap: 10px 16px; padding: 10px 16px; }
+body.integre .chrono { font-size: 40px; }
+body.integre .chrono-info { font-size: 15px; }
+body.integre .barre { flex-basis: 100%; order: 5; height: 8px; }
+body.integre .horloge { font-size: 18px; margin-left: auto; }
+body.integre button { font-size: 14px; padding: 6px 12px; }
+body.integre main { grid-template-columns: 1fr; grid-template-rows: 1fr auto; gap: 12px; padding: 12px 16px; }
+body.integre .suivant .carton { max-height: 22vh; font-size: 16px; }
+body.integre .aide { display: none; }
 </style>
 </head>
 <body>
+<script>if (/[?&]integre=1/.test(location.search)) document.body.classList.add('integre');</script>
 
 <header>
   <div class="chrono arret" title="Clic ou P : démarrer / mettre en pause">00:00</div>
@@ -113,7 +124,7 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
   <section class="colonne suivant">
     <p class="etiquette">Ensuite · <span class="s-titre"></span></p>
     <div class="carton carton-suivant"></div>
-    <p class="statut">Deck non connecté : ouvrir cette page avec la touche S depuis soutenance.html.</p>
+    <p class="statut">Deck non connecté : ouvrir cette page avec la touche S (ou N, vue intégrée) depuis soutenance.html.</p>
     <p class="aide"><kbd>→</kbd> <kbd>←</kbd> pilotent le deck · <kbd>P</kbd> chrono · <kbd>R</kbd> remise à zéro</p>
   </section>
 </main>
@@ -237,7 +248,9 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
   q('.b-zero').addEventListener('click', zero);
 
   /* ── Liaison avec le deck ── */
-  function versDeck(msg) { if (window.opener && !window.opener.closed) window.opener.postMessage(msg, '*'); }
+  /* Le deck est la fenêtre qui a ouvert celle-ci (touche S) ou la page qui la contient (vue intégrée). */
+  var deck = window.opener || (window.parent !== window ? window.parent : null);
+  function versDeck(msg) { if (deck && !deck.closed) deck.postMessage(msg, '*'); }
   window.addEventListener('message', function (e) {
     if (e.data && e.data.type === 'soutenance-etat') afficher(e.data);
   });

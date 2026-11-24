@@ -1795,3 +1795,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 
 /* Écran 1 : seconde ligne de la légende de la photo (S139). */
 #e01-intuitions .legende-suite { display: block; font-style: italic; font-weight: 400; margin-top: 0.35em; }
+
+/* Vue intégrée des cartons (mode répétition, touche N, ou S dans l'artefact) : panneau
+   posé à droite du deck, au-dessus du fil. Ombre plutôt que bordure gauche. */
+.repetition-panneau { position: fixed; top: 0; right: 0; bottom: 0; width: 38vw; z-index: 1000; background: var(--bg-cream, #FFF8F0); box-shadow: -8px 0 30px rgba(15, 30, 50, 0.22); }
+.repetition-panneau iframe { display: block; width: 100%; height: 100%; border: 0; }

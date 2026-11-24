@@ -837,9 +837,24 @@
   function envoyerEtat() {
     if (notes && !notes.closed) notes.postMessage(etat(), '*');
   }
+  /* Dans un cadre (artefact claude.ai), la page hôte interdit la fenêtre liée
+     (COOP) : S bascule alors sur la vue intégrée. N l'ouvre partout. */
+  var dansCadre = (function () { try { return window.self !== window.top; } catch (x) { return true; } })();
   function ouvrirNotes() {
-    if (notes && !notes.closed) { notes.focus(); return; }
+    if (dansCadre) { basculerIntegre(); return; }
+    if (notes && !notes.closed && !notes.frameElement) { notes.focus(); return; }
     notes = window.open('soutenance-notes.html', 'soutenance-notes', 'width=1280,height=800');
+  }
+  /* Vue intégrée (mode répétition) : les cartons dans un panneau à droite du
+     deck, même page, même liaison par postMessage. */
+  var panneau = null;
+  function basculerIntegre() {
+    if (panneau) { panneau.remove(); panneau = null; notes = null; document.body.classList.remove('repetition'); return; }
+    panneau = document.createElement('aside');
+    panneau.className = 'repetition-panneau';
+    panneau.innerHTML = '<iframe src="soutenance-notes.html?integre=1" title="Cartons de l\'oral"></iframe>';
+    document.body.appendChild(panneau);
+    document.body.classList.add('repetition');
   }
   window.addEventListener('message', function (e) {
     var d = e.data || {};
@@ -880,6 +895,8 @@
       e.preventDefault(); aller(ecrans.length - 1);
     } else if (k === 's' || k === 'S') {
       e.preventDefault(); ouvrirNotes();
+    } else if (k === 'n' || k === 'N') {
+      e.preventDefault(); basculerIntegre();
     } else if (k === 'f' || k === 'F') {
       if (document.fullscreenElement) document.exitFullscreen();
       else document.documentElement.requestFullscreen();

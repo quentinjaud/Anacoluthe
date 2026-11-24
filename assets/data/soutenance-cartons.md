@@ -2,6 +2,7 @@
 `Dans un carton : une ligne = une ligne. Ligne vide = espace.`
 `"- " ou "○ " en début de ligne = puce. **gras**, _italique_.`
 `">> " = transition vers le carton suivant, calée en bas à droite.`
+`"-- " en fin de carton = la phrase de transition avec l'écran suivant, en pied de carton.`
 `Indenter avec 2 espaces par niveau pour décaler une ligne.`
 
 ## 0

@@ -1819,3 +1819,13 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 14 : sans la phrase d introduction, de l air entre le titre et les cartes (S140). */
 #e13-boite .apercu-grid.pepites { margin-top: clamp(30px, 5vh, 60px); }
 #e13-boite .pepite-tag { text-align: center; margin-bottom: clamp(10px, 1.8vh, 20px); }
+
+/* Écran 14 : la semaine d'une moniteurice avec la boîte autonome, en quatre étapes reliées par un filet (S141). */
+#e14-mode-emploi .parcours-tete { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--acte-texte, var(--text-muted)); margin: 0 0 clamp(14px, 2.6vh, 30px); }
+#e14-mode-emploi .parcours { list-style: none; counter-reset: etape; padding: 0; margin: 0; position: relative; }
+#e14-mode-emploi .parcours::before { content: ""; position: absolute; left: 0.9em; top: 0.9em; bottom: 0.9em; width: 2px; background: var(--brick-100, #F3D3CF); }
+#e14-mode-emploi .parcours li { counter-increment: etape; position: relative; padding-left: 2.6em; margin-bottom: clamp(16px, 3vh, 34px); display: flex; flex-direction: column; font-size: var(--t-liste); line-height: 1.3; }
+#e14-mode-emploi .parcours li:last-child { margin-bottom: 0; }
+#e14-mode-emploi .parcours li::before { content: counter(etape); position: absolute; left: 0; top: 0; width: 1.8em; height: 1.8em; border-radius: 50%; background: var(--acte-encre, #9B3C34); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: 0.85em; display: grid; place-items: center; }
+#e14-mode-emploi .parcours strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); }
+#e14-mode-emploi .parcours span { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); margin-top: 0.15em; }

@@ -87,16 +87,13 @@ strong { font-weight: 800; color: var(--navy-700); }
 .statut.ok { color: var(--teal-texte); }
 .aide { font-size: 15px; color: var(--muted); margin-top: auto; }
 kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--blanc); }
-/* Vue intégrée dans le deck (?integre=1) : une colonne, en-tête compact. */
-body.integre header { flex-wrap: wrap; gap: 10px 16px; padding: 10px 16px; }
-body.integre .chrono { font-size: 40px; }
-body.integre .chrono-info { font-size: 15px; }
-body.integre .barre { flex-basis: 100%; order: 5; height: 8px; }
-body.integre .horloge { font-size: 18px; margin-left: auto; }
-body.integre button { font-size: 14px; padding: 6px 12px; }
-body.integre main { grid-template-columns: 1fr; grid-template-rows: 1fr auto; gap: 12px; padding: 12px 16px; }
-body.integre .suivant .carton { max-height: 22vh; font-size: 16px; }
-body.integre .aide { display: none; }
+/* Vue intégrée dans le deck (?integre=1) : seulement le carton de l'écran en cours,
+   sans chrono, sans carton suivant. */
+body.integre { grid-template-rows: 1fr; background: transparent; }
+body.integre header, body.integre .suivant, body.integre .etiquette { display: none; }
+body.integre main { grid-template-columns: 1fr; padding: 0; }
+body.integre .cartons-courants { gap: 8px; }
+body.integre .carton { box-shadow: none; border: 0; border-radius: 0; }
 </style>
 </head>
 <body>

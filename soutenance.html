@@ -845,16 +845,27 @@
     if (notes && !notes.closed && !notes.frameElement) { notes.focus(); return; }
     notes = window.open('soutenance-notes.html', 'soutenance-notes', 'width=1280,height=800');
   }
-  /* Vue intégrée (mode répétition) : les cartons dans un panneau à droite du
-     deck, même page, même liaison par postMessage. */
+  /* Vue intégrée (mode répétition) : le carton de l'écran en cours dans un petit
+     bloc flottant, déplaçable par sa poignée, redimensionnable par son coin. */
   var panneau = null;
   function basculerIntegre() {
-    if (panneau) { panneau.remove(); panneau = null; notes = null; document.body.classList.remove('repetition'); return; }
+    if (panneau) { panneau.remove(); panneau = null; notes = null; return; }
     panneau = document.createElement('aside');
     panneau.className = 'repetition-panneau';
-    panneau.innerHTML = '<iframe src="soutenance-notes.html?integre=1" title="Cartons de l\'oral"></iframe>';
+    panneau.innerHTML = '<div class="repetition-poignee" title="Glisser pour déplacer · N pour fermer"></div><iframe src="soutenance-notes.html?integre=1" title="Carton de l\'écran en cours"></iframe>';
     document.body.appendChild(panneau);
-    document.body.classList.add('repetition');
+    var poignee = panneau.firstChild, dx = 0, dy = 0;
+    poignee.addEventListener('pointerdown', function (e) {
+      var r = panneau.getBoundingClientRect(); dx = e.clientX - r.left; dy = e.clientY - r.top;
+      poignee.setPointerCapture(e.pointerId); panneau.classList.add('glisse');
+    });
+    poignee.addEventListener('pointermove', function (e) {
+      if (!panneau.classList.contains('glisse')) return;
+      var x = Math.min(Math.max(0, e.clientX - dx), window.innerWidth - 60);
+      var y = Math.min(Math.max(0, e.clientY - dy), window.innerHeight - 30);
+      panneau.style.left = x + 'px'; panneau.style.top = y + 'px'; panneau.style.right = 'auto'; panneau.style.bottom = 'auto';
+    });
+    poignee.addEventListener('pointerup', function () { panneau.classList.remove('glisse'); });
   }
   window.addEventListener('message', function (e) {
     var d = e.data || {};

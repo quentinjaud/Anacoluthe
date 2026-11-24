@@ -21,7 +21,8 @@ const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
  * CACHE_VERSION.
  */
 const DEV_NO_CACHE = true;
-const DEV_URLS = ['/soutenance.html', '/assets/css/soutenance.css', '/assets/js/soutenance-lightbox.js'];
+const DEV_URLS = ['/soutenance.html', '/assets/css/soutenance.css', '/assets/js/soutenance-lightbox.js',
+  '/soutenance-notes.html', '/assets/data/soutenance-cartons.md'];
 
 // Ressources essentielles à précacher
 const PRECACHE_URLS = [

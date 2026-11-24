@@ -1815,3 +1815,6 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .repetition-actions button { font: 600 13px/1 sans-serif; padding: 6px 10px; border-radius: 999px; border: 1px solid #C9D2DC; background: #fff; color: #1E3A5F; cursor: pointer; }
 .repetition-actions button[type=submit] { background: #1E3A5F; color: #fff; border-color: #1E3A5F; }
 .repetition-etat { flex: 1; font: 13px sans-serif; color: #5A6676; }
+
+/* Écran 14 : sans la phrase d introduction, de l air entre le titre et les cartes (S140). */
+#e14-boite .apercu-grid.pepites { margin-top: clamp(30px, 5vh, 60px); }

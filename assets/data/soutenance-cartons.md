@@ -167,19 +167,27 @@ ateliers créatifs
 -- EXEMPLES DE RESULTAT
 
 ## 13 | PÉPITES BAO
-prendre des exemples besoin-outil
+chaque item part d'un **besoin** de terrain
+et y répond par le **vivre-ensemble**
 
-**ROUTINES** → orga et soutien équipage
-  alléger la charge cognitive
+**ROUTINES** · plutôt débutantes
+  besoin : alléger la charge cognitive « chef de bord »
+  ○ s'organiser ensemble, voir que c'est plus efficace qu'un chef omniscient
 
-**ACCORDS** : déb ou xp
-  traiter ce moment crucial avec des méthodes d'EP
+**ACCORDS** · tous niveaux
+  besoin : poser le cadre de la semaine
+  ○ un moment souvent imposé → un bon souvenir de décision collective
+  ○ méthodes d'éduc pop pour ce moment crucial
 
-**SECOND S.** : expérimentés
-  utiliser ce moment pour distribuer l'animation
+**SECOND SOIGNEUX** · stagiaires curieux·ses
+  besoin : expérimenter l'animation
+  ○ distribuer l'animation, un rôle à la même hauteur que le technique
 
-**JOKER** : stagiaires
-  des billes pour résoudre des trucs en autonomie avec soutien RTQ
+**JOKER** · tous les équipages
+  besoin : dénouer un trouble
+  ○ des billes pour résoudre en autonomie, RTQ en soutien
+
+-- COMMENT LA BOÎTE VIT À BORD
 
 ## 14 | BAO AUTONOME
 une des affiches à bord sert à expliquer ce qui est à bord

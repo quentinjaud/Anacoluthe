@@ -1,33 +1,28 @@
-<!--
-Cartons de l'oral, affichés dans la vue présentateur du deck (soutenance.html, touche S).
-Modifier ce fichier puis pousser suffit : soutenance-notes.html le lit en ligne.
-Le carton N s'affiche avec l'écran eNN ; les cartons au-delà du dernier écran s'ajoutent à celui-ci.
-
-Un carton = un bloc qui commence par "## <numéro>" (suivi éventuellement de " | <titre>").
-Dans un carton : une ligne = une ligne. Ligne vide = espace.
-"- " ou "○ " en début de ligne = puce. **gras**, _italique_.
-">> " = transition vers le carton suivant, calée en bas à droite.
-Indenter avec 2 espaces par niveau pour décaler une ligne.
--->
+`Un carton = un bloc qui commence par "## <numéro>" (suivi éventuellement de " | <titre>").`
+`Dans un carton : une ligne = une ligne. Ligne vide = espace.`
+`"- " ou "○ " en début de ligne = puce. **gras**, _italique_.`
+`">> " = transition vers le carton suivant, calée en bas à droite.`
+`Indenter avec 2 espaces par niveau pour décaler une ligne.`
 
 ## 0
 **BONJOUR**
 
-présenter l'initiative A°
-  ↳ comment passer de …
+Quentin, Glénans Marseillan, saisons 2025 et 2026
 
-## 1 | interrogations
-encadrements ← humain + métiers d'avant
+2 ans à me questionner sur comment passer de …
 
-+
+Ce questionnement il a pris un nom : Anacoluthe
 
-échanges avec Romain
-  ↖ ⊖ bénévoles
+## 1 | 3 regards, un constat
+questions > métier de terrestre + saison de BSC 
 
 +
 
-rapports de mer
-  ↖ ⊕ humain dans les rapports
+échanges avec Romain > évolutions récentes
+
++
+
+rapports de mer > humain à l'origine des incidents
 
 ## 2
 J'ai commencé l'enquête

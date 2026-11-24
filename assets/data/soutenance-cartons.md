@@ -7,100 +7,117 @@
 ## 0
 **BONJOUR**
 
-Quentin, Glénans Marseillan, saisons 2025 et 2026
+Quentin, Glénans Marseillan, BSC en 2024, puis alternant 2025-2026
 
-2 ans à me questionner sur comment passer de …
+3 ans à me questionner sur comment passer de …
 
 Ce questionnement il a pris un nom : Anacoluthe
 
 -- A L'ORIGINE DE CE QUESTIONNEMENT
 
-## 1 | 3 regards, un constat
+## 1 | 3 sources qui convergent
 - mon année d'encadrement bénévole 
   peu d'encadrants >  enthousiastes > embarqué
-  appréhension gérer humain
+  **appréhension** gérer humain
 
 - échanges avec Romain > évolutions récentes
-  baisse proportion bénévoles
+  **baisse** proportion bénévoles
 
-- rapports de mer > humain à l'origine des incidents
+- rapports de mer > humain à l'**origine** des incidents
+
+-- DEMANDER A CELLEUX QUI SONT SUR LE TERRAIN
 
 ## 2 | Enquête
 Posé la question plus largement à celleux qui **encadrent**
 
-encadrements divers : BSC, occasionnels, habitués, ... 
+encadrements **divers** : BSC, occasionnels, habitués, ... 
 
 informelle et formelle
- 
+
+-- PROBLEMATIQUE SUITE AU DIAG
 
 ## 3 | Problématique tirée du diag
-○ manque d'outils + formation
 
-○ contexte demande des apports spécifiques
+- créer des liens est une **attente** des monos bénevoles
+apprendre et partager
 
-○ statut des Glénans
+- contexte demande des apports **spécifiques**
+isolation, contraintes techniques, inconnus, ...
+
+- manque d'outils + formation **spécifiques** à cette question
 
 ## 4 | RÉFÉRENTIELS
 **FFVoile + CQP IV**
 
-ces compétences sont attendues
+ces compétences sont **attendues**
 
 mais pas grand-chose dans
 les contenus **FPI**, dans la doc **CEB**
 
 ## 5 | TERRAIN MARSEILLAN
-- une saison longue
-- un terrain facile en termes de nav
-- un planning (orga) tourné vers les bénévoles
-- une forte focalisation du travail des apprentis
+- une saison longue avec du **volume**
+
+- un planning (orga) tourné vers les **bénévoles**
+
+- une forte **focalisation** du travail des apprentis
   → encadrer +++
-  → superviser −
--- CONTRAINTES
+  → superviser autour
+
+-- GÉNÉRÉ DES CONTRAINTES
 
 ## 6 | CONTRAINTES → MÉTHODES
-- faire avec un planning très incertain et centré encadrement
-  ↳ conception itérative  **OIR**
+- faire avec un planning très **incertain** et centré encadrement
+  ↳ conception itérative
 
-- asso + diversité d'acteurs et d'expériences
+- **diversité d'acteurs** et d'expériences et **héritage** Glénans
   ↳ méthodes éduc pop
 
-- manque de temps et de compétences
-  ↳ intervenants thématiques
+- manque de **temps** et de **compétences**
+  ↳ intervenants thématiques extérieurs
+
 -- PUBLIC
 
 ## 7 | 3 PUBLICS
-**Monos** → apprendre à animer
+- **Monos** 
+se sentir capable, moins seul, moins surchargé
 
-↑ **encadrants**
-  ○ réduire les sollicitations
-  ○ encadrer cette animation
+- **encadrants**
+réduire les sollicitations urgentes
++ de place pour la montée en compétences
 
-↑ **stagiaires**
-  transposer à terre
-  apprendre à faire équipage
+-  **stagiaires**
+apprendre à faire équipage et vivre "dans le m^ bateau
+ramener ça à terre
+
+-- O
 
 ## 8 | OBJECTIFS PÉDA
 **débutants**
-  soutien et méthodes pour les fondamentaux
+réduire la charge cognitive "chef de bord" pour avoir du temps de "péda"
+prétexte : fluidifier l'orga collective > apprendre à coopérer
+petite expériences irréversibles de coopération
 
 **expérimentés**
-- gérer les cas **exceptionnels**
-- avoir des apports solides
-- questionner posture
+animer-faciliter des temps collectifs plutôt que les diriger
+questionner sa propre posture
 
-**STG** ↗
-  rôle sans stéréotypes de genre
-  dire une tension
-  questionner sa posture R̄
+**STG**
+monter en compétence sur l'orga collective avant le 4CDB
+sortir de ses habitudes terrestres : genre, classe, ...
+réfléchir à sa posture et à sa gestion des tensions
+
+-- PAS TOUT SEUL
 
 ## 9 | ÉQUIPE
-chef + respo ↘
+moi : animer la démarche collective
 
-monos et stagiaires testeurs ↙
+- **supervisé** et aidé à la stratégie : référents activité et chef de base
 
-        **MOI**
+- **aidé** par des intervenants extérieurs sur les compétences techniques
 
-intervenants thématiques ↑
+- **nourri** par les retours et les idées des monos et stagiaires des cycles coconception
+
+-- EN ÉQUIPE ON A TRAVERSE DIFFÉRENTES PHASES
 
 ## 10 | 4 ENJEUX
 **diag**

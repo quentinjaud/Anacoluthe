@@ -1831,3 +1831,5 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e14-mode-emploi .parcours span { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); margin-top: 0.15em; }
 #e13-boite .pepite-pourquoi { display: block; font-family: var(--font-corps); font-style: italic; font-weight: 400; font-size: var(--t-petit); color: var(--text-muted); margin-top: 0.2em; }
 #e13-boite .pepite-pour { margin-top: clamp(30px, 5vh, 56px); }
+#e13-boite .pepite-pour { text-align: center; }
+#e13-boite .pepite-sep { display: block; width: 2.4em; height: 2px; margin: 0.45em auto; background: var(--acte-encre, #9B3C34); opacity: 0.45; border-radius: 1px; }

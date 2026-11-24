@@ -78,8 +78,6 @@ main { display: grid; grid-template-columns: 1fr 34%; gap: 22px; padding: 20px 2
 .puce { padding-left: calc(var(--i) * 1.2em + 1em); text-indent: -1em; }
 .puce::before { content: attr(data-m); display: inline-block; width: 1em; text-indent: 0; color: var(--acte-encre); }
 .sp { height: .5em; }
-.suite { margin-top: .6em; text-align: right; font-weight: 800; color: var(--amber-texte); }
-.suite::before { content: "→ "; }
 /* "-- " : la phrase qui fait la transition avec l'écran suivant, en pied de carton. */
 .carton { display: flex; flex-direction: column; }
 .transition { margin-top: auto; padding-top: .45em; border-top: 2px solid var(--acte-teinte);
@@ -145,7 +143,6 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
         if (!l.trim()) return '<div class="sp"></div>';
         var i = l.match(/^ */)[0].length / 2, t = l.trim(), cls = 'l', m = '';
         if (/^[-○] /.test(t)) { m = t[0] === '-' ? '•' : '○'; t = t.slice(2); cls = 'l puce'; }
-        else if (t.indexOf('>> ') === 0) { t = t.slice(3); cls = 'l suite'; }
         else if (t.indexOf('-- ') === 0) { t = t.slice(3); cls = 'l transition'; }
         return '<div class="' + cls + '" data-m="' + m + '" style="--i:' + i + '">' + inline(t) + '</div>';
       }).join('');

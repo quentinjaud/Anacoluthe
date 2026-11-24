@@ -1,7 +1,6 @@
 `Un carton = un bloc qui commence par "## <numéro>" (suivi éventuellement de " | <titre>").`
 `Dans un carton : une ligne = une ligne. Ligne vide = espace.`
 `"- " ou "○ " en début de ligne = puce. **gras**, _italique_.`
-`">> " = transition vers le carton suivant, calée en bas à droite.`
 `"-- " en fin de carton = la phrase de transition avec l'écran suivant, en pied de carton.`
 `Indenter avec 2 espaces par niveau pour décaler une ligne.`
 
@@ -56,7 +55,7 @@ les contenus **FPI**, dans la doc **CEB**
 - une forte focalisation du travail des apprentis
   → encadrer +++
   → superviser −
->> CONTRAINTES
+-- CONTRAINTES
 
 ## 6 | CONTRAINTES → MÉTHODES
 - faire avec un planning très incertain et centré encadrement
@@ -67,7 +66,7 @@ les contenus **FPI**, dans la doc **CEB**
 
 - manque de temps et de compétences
   ↳ intervenants thématiques
->> PUBLIC
+-- PUBLIC
 
 ## 7 | 3 PUBLICS
 **Monos** → apprendre à animer
@@ -179,7 +178,7 @@ transition vers la formation
 ○ diffuser du vocabulaire
 ○ faire savoir le kit
 ○ faire savoir les **formations**
->> FORMATIONS - FAFP
+-- FORMATIONS - FAFP
 
 ## 16 | Co-concevoir est un FAFP
 ↳ **2025**

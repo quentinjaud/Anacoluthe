@@ -911,13 +911,17 @@
     panneau.querySelector('.repetition-editer').addEventListener('click', function () {
       if (!baseCartons) return;
       numEd = actif;
-      zone.value = blocBrut(numEd);
+      /* Pas encore de phrase de transition : une ligne « -- ... » à compléter. */
+      var brutEd = blocBrut(numEd).replace(/\s+$/, '');
+      if (!/^ *-- /m.test(brutEd)) brutEd += '\n\n-- ...';
+      zone.value = brutEd + '\n';
       etatEd.textContent = 'Carton ' + numEd + (surcharges[numEd] != null ? ' (modifié)' : '');
       form.hidden = false; panneau.classList.add('edition'); zone.focus();
     });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var texte = zone.value.replace(/\s+$/, '') + '\n';
+      /* La ligne « -- ... » laissée telle quelle n'est pas gardée. */
+      var texte = zone.value.replace(/^ *-- *(\.\.\.|…) *$/m, '').replace(/\s+$/, '') + '\n';
       if (!/^## *\d+/.test(texte)) texte = '## ' + numEd + '\n' + texte;
       etatEd.textContent = 'Enregistrement…';
       baseCartons.doc('cartons/' + numEd).set({ md: texte, maj: new Date().toISOString() })

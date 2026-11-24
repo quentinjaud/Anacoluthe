@@ -8,8 +8,8 @@
 <!-- Vue présentateur du deck soutenance.html, sur le principe de reveal.js :
      ouverte par la touche S depuis le deck, à placer sur l'écran de l'ordinateur.
      Affiche le carton de l'écran courant, le suivant, et le chrono.
-     Cartons : assets/data/soutenance-cartons.js, généré depuis
-     Dossier_UC12_anacoluthe/soutenance/cartons/cartons-oral.md (node build-cartons.js --notes-seul).
+     Cartons : assets/data/soutenance-cartons.md, lu au chargement (modifier, pousser, c'est en ligne).
+     Il faut un serveur (anacoluthe.org ou serveur local) : en file://, le navigateur refuse la lecture.
      Le carton N va avec l'écran eNN ; les cartons au-delà du dernier écran s'ajoutent à celui-ci. -->
 <style>
 :root {
@@ -94,13 +94,12 @@ kbd { border: 1px solid var(--trait); border-radius: 4px; padding: 0 5px; }
   </section>
 </main>
 
-<script src="assets/data/soutenance-cartons.js"></script>
 <script>
 (function () {
   var DUREE = 20 * 60;   /* 20 minutes de présentation */
   var ALERTE = 17 * 60;  /* passage en ambre */
 
-  /* ── Cartons : même syntaxe que build-cartons.js ── */
+  /* ── Cartons : syntaxe décrite en tête de assets/data/soutenance-cartons.md ── */
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function inline(s) {
     return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -123,7 +122,7 @@ kbd { border: 1px solid var(--trait); border-radius: 4px; padding: 0 5px; }
       return { num: parseInt(tete[0], 10), titre: (tete[1] || '').trim(), corps: corps };
     });
   }
-  var cartons = window.CARTONS_MD ? parse(window.CARTONS_MD) : [];
+  var cartons = [];
   function html(c) {
     return '<div class="tete"><span class="titre">' + inline(c.titre) + '</span><span class="num">' + c.num + '</span></div>' + c.corps;
   }
@@ -136,6 +135,7 @@ kbd { border: 1px solid var(--trait); border-radius: 4px; padding: 0 5px; }
   var etat = null, precedent = -1;
 
   function afficher(e) {
+    var change = !etat || etat.index !== e.index;
     etat = e;
     q('.e-num').textContent = e.numero;
     q('.e-total').textContent = '/ ' + e.total;
@@ -149,6 +149,7 @@ kbd { border: 1px solid var(--trait); border-radius: 4px; padding: 0 5px; }
     q('.carton-suivant').innerHTML = cs.length ? html(cs[0]) : '<span class="vide">-</span>';
     var st = q('.statut'); st.textContent = 'Deck connecté.'; st.classList.add('ok');
     /* Le chrono part tout seul en quittant la couverture (écran 0 vers 1). */
+    if (!change) return;
     if (precedent === 0 && e.index === 1 && !debut && !cumul) basculer();
     precedent = e.index;
     debutEcran = Date.now();
@@ -205,7 +206,13 @@ kbd { border: 1px solid var(--trait); border-radius: 4px; padding: 0 5px; }
     else if (k === 'r' || k === 'R') zero();
   });
 
-  if (!cartons.length) q('.cartons-courants').innerHTML = '<div class="carton vide">Cartons introuvables (assets/data/soutenance-cartons.js).</div>';
+  /* Cartons lus sans cache : la dernière version poussée s'affiche au rechargement. */
+  fetch('assets/data/soutenance-cartons.md', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (md) { cartons = parse(md); if (etat) afficher(etat); })
+    .catch(function () {
+      q('.cartons-courants').innerHTML = '<div class="carton vide">Cartons introuvables : ouvrir le deck depuis anacoluthe.org ou un serveur local (en file://, le navigateur bloque la lecture du fichier).</div>';
+    });
 })();
 </script>
 </body>

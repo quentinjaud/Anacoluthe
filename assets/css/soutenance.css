@@ -764,7 +764,7 @@ body {
 .logo-pied {
   position: fixed;
   right: clamp(10px, 1.6vw, 28px);
-  bottom: calc(max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom)) + clamp(15px, 1.35vw, 24px) * 1.7 + clamp(8px, 1.2vh, 16px));
+  bottom: calc(max(clamp(8px, 1.1vh, 14px), env(safe-area-inset-bottom)) + clamp(15px, 1.35vw, 24px) * 1.7 + clamp(8px, 1.2vh, 16px) + 8px);
   z-index: 61;
   height: clamp(22px, 3.2vh, 40px);
   aspect-ratio: 122 / 22;
@@ -1468,7 +1468,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 0 : le titre du dossier sous le sous-titre, à la place de l'ancienne question (S114). */
 #e00-anacoluthe .meta-titre { font-family: var(--font-corps); font-size: clamp(20px, min(var(--t-question), 3.1vw), 68px); line-height: 1.32; color: var(--navy-700); margin: 0; }
 #e00-anacoluthe .meta-titre strong { font-weight: 700; }
-#e00-anacoluthe .logo-glenans { display: block; height: clamp(80px, 13vh, 150px); width: auto; margin: clamp(24px, 4.5vh, 56px) auto 0; }
+#e00-anacoluthe .logo-glenans { display: block; height: clamp(100px, 16vh, 190px); width: auto; margin: 0 auto clamp(20px, 3.6vh, 44px); }
+#e00-anacoluthe .nom { margin-top: clamp(26px, 4.8vh, 60px); margin-bottom: 0; }
 
 /* Écran 2 : l'appel à gauche avec les chiffres du diagnostic, la photo à droite. */
 #e02-diagnostic .diag { grid-template-columns: 1fr 1fr; max-width: 1600px; margin-top: clamp(10px, 2vh, 28px); }
@@ -1493,6 +1494,9 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 10 (S137) : contenu centré, interlignes aérés. */
 #e10-phases .phases-enjeux li { text-align: center; gap: 0.6em; padding-bottom: clamp(26px, 4vh, 46px); }
 #e10-phases .pe-num { left: 50%; transform: translate(-50%, -50%); }
+/* Un emoji par phase, les mêmes qu'à l'écran 18 (S138), au-dessus de l'enjeu. */
+#e10-phases .pe-emoji { display: block; font-size: clamp(30px, 4.6vh, 54px); line-height: 1; margin-bottom: 0.25em; }
+#e10-phases .pe-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
 #e10-phases .pe-nom { line-height: 1.3; min-height: 2.6em; display: flex; align-items: center; justify-content: center; }
 #e10-phases .pe-enjeu { line-height: 1.3; margin-top: 0.6em; padding-top: 1em; }
 
@@ -1507,6 +1511,27 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 .cycle-cc li strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.2; }
 .cycle-cc li:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); color: var(--acte-texte); }
 .cc-num { position: absolute; top: 0; left: clamp(14px, 1.2vw, 24px); transform: translateY(-50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--acte-encre); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
+/* Écran 13 : un emoji par étape du cycle (S138), distincts de ceux des phases. */
+.cc-emoji { font-size: clamp(30px, 4.6vh, 54px); line-height: 1; margin-bottom: 0.15em; }
+.cc-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
+/* Écran 13 : contenu des blocs centré (S138). */
+#e13-conception .cycle-cc li { align-items: center; text-align: center; }
+#e13-conception .cc-num { left: 50%; transform: translate(-50%, -50%); }
+/* Écran 13 : un liseré par étape, dans l'accent de son emoji Twemoji (S138) :
+   rouge des ciseaux, vert du tube, bleu de la silhouette, jaune du crayon
+   (couleurs relevées dans les SVG de jdecked/twemoji). */
+#e13-conception .cycle-cc li { border-width: 1.5px; }
+#e13-conception .cycle-cc li:nth-child(1) { border-color: #DD2E44; }
+#e13-conception .cycle-cc li:nth-child(2) { border-color: #17BF63; }
+#e13-conception .cycle-cc li:nth-child(3) { border-color: #226699; }
+#e13-conception .cycle-cc li:nth-child(4) { border-color: #FFCC4D; }
+/* Titres des étapes dans la même teinte, assombrie pour un contraste d'au moins 7:1 sur blanc. */
+#e13-conception .cycle-cc li:nth-child(1) strong { color: #A41B2C; }
+#e13-conception .cycle-cc li:nth-child(2) strong { color: #0B5F31; }
+#e13-conception .cycle-cc li:nth-child(3) strong { color: #1D5884; }
+#e13-conception .cycle-cc li:nth-child(4) strong { color: #6C4D00; }
+/* Sous-titres des étapes en serif italique, comme les sous-titres du site (S138). */
+#e13-conception .cycle-cc li > span:last-child { font-style: italic; }
 .cc-boucle { display: block; width: 100%; height: auto; overflow: visible; }
 .cc-boucle path { fill: none; stroke: var(--acte-encre); stroke-width: 4; stroke-dasharray: 12 10; }
 .cc-boucle .cc-pointe { fill: var(--acte-encre); stroke: none; }
@@ -1535,39 +1560,50 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 17 : outiller le brief, un interligne avant la liste (S96). */
 
 /* Écran 20 : ce qu'on visait, ce qu'on a pu évaluer, par public (S116). */
-#e18-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
-#e18-evaluer .constat { padding-bottom: clamp(22px, 3.6vh, 44px); }
-#e18-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
-#e18-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
-#e18-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
-#e18-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
+#e19-evaluer .constats.evaluer { max-width: 1664px; width: 100%; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 5vh, 60px); }
+#e19-evaluer .constat { padding-bottom: clamp(18px, 3vh, 36px); }
+#e19-evaluer .constat h3 { font-size: calc(var(--t-liste) * 1.1); }
+#e19-evaluer .eval-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: clamp(18px, 3vh, 36px) 0 0.25em; }
+#e19-evaluer .eval-vise { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; color: var(--navy-700); margin: 0; }
+#e19-evaluer .eval-pu { font-family: var(--font-corps); font-size: var(--t-corps); line-height: 1.35; font-weight: 700; color: var(--teal-texte); margin: 0; }
+/* Le résultat sorti de la carte (S138) : une tuile teal (couleur de réussite) sous chaque carte,
+   le chiffre en grand, sa légende, puis la source en petit. */
+#e19-evaluer .eval-col { display: flex; flex-direction: column; gap: clamp(14px, 2.4vh, 28px); min-width: 0; }
+#e19-evaluer .eval-tuile { flex: 1; background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 12px; padding: clamp(16px, 2.6vh, 30px) clamp(18px, 1.8vw, 32px); display: flex; flex-direction: column; gap: 0.5em; }
+#e19-evaluer .eval-chiffre { display: flex; flex-direction: column; gap: 0.2em; margin: 0; font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.3; color: var(--navy-700); }
+#e19-evaluer .eval-chiffre strong { flex: none; font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.6); line-height: 1; color: var(--teal-texte); }
+#e19-evaluer .eval-source { margin: 0; font-family: var(--font-legende); font-size: var(--t-petit); font-style: italic; color: var(--text-muted); }
 
-/* Écran 19 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
-#e19-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
-#e19-plus-loin .piste { position: relative; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
+/* Écran 20 : trois cartes, une réussite puis une piste pour aller plus loin (S119). */
+#e20-plus-loin .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
+#e20-plus-loin .piste { position: relative; display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
 .piste-kicker { font-family: var(--font-titre); font-size: var(--t-kicker); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 0.3em; }
-#e19-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
-#e19-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }
-#e19-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); }
+#e20-plus-loin .piste strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
+#e20-plus-loin .piste-detail { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.4; color: var(--text-muted); margin-top: 0.3em; }
+#e20-plus-loin .piste-kicker-loin { align-self: end; padding-top: clamp(22px, 3.6vh, 42px); }
 /* Kickers en ambre (S137) : distincts du titre navy et des pistes teal. */
-#e19-plus-loin .piste-kicker { color: var(--amber-texte); }
-#e19-plus-loin .piste > * { min-width: 0; }
-#e19-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
-#e19-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0; }
-#e19-plus-loin .piste-liste li { position: relative; padding-left: 0.9em; margin-top: 0.25em; }
-#e19-plus-loin .piste-liste li:first-child { margin-top: 0; }
-#e19-plus-loin .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--teal-texte); }
+#e20-plus-loin .piste-kicker { color: var(--amber-texte); }
+#e20-plus-loin .piste > * { min-width: 0; }
+#e20-plus-loin .piste-loin { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; font-weight: 700; color: var(--teal-texte); }
+#e20-plus-loin .piste-liste { list-style: none; padding: 0; margin: 0; }
+#e20-plus-loin .piste-liste li { position: relative; padding-left: 0.9em; margin-top: 0.25em; }
+#e20-plus-loin .piste-liste li:first-child { margin-top: 0; }
+#e20-plus-loin .piste-liste li::before { content: '•'; position: absolute; left: 0; color: var(--teal-texte); }
 
-/* Écran 20 : bilan en deux colonnes, la structure puis moi (S119). */
-#e20-bilan .bilan-deux { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 56px); width: 100%; max-width: 1664px; margin-top: clamp(34px, 5.6vh, 66px); align-items: stretch; }
-#e20-bilan .bilan-col { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 34px) clamp(20px, 3.2vh, 38px); }
-#e20-bilan .bilan-cap { font-size: var(--t-petit); color: var(--text-muted); margin: 0.2em 0 0; }
-#e20-bilan .liste { margin-top: clamp(14px, 2.6vh, 30px); }
-#e20-bilan .liste li { margin-bottom: 0.5em; }
-#e20-bilan .liste strong { color: var(--navy-700); }
-#e20-bilan .lecons-courtes strong { font-family: var(--font-titre); font-weight: 800; }
-#e20-bilan .bilan-ensuite { font-family: var(--font-corps); font-size: var(--t-liste); line-height: 1.35; color: var(--teal-texte); font-weight: 700; margin: clamp(18px, 3.2vh, 38px) 0 0; padding-top: clamp(14px, 2.4vh, 28px); border-top: 1px solid var(--amber-100); }
-#e20-bilan .bilan-ensuite span { color: var(--text-muted); font-weight: 600; font-family: var(--font-titre); }
+/* Écran 21 : ce que je retiens (S138). Retour à la question, trois choses à faire
+   autrement en cartes, la voile comme terrain d'éducation populaire. */
+#e21-bilan .retour-question { text-align: center; max-width: 1500px; margin-top: clamp(26px, 4.4vh, 52px); }
+#e21-bilan .rq-question { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); margin: 0; }
+#e21-bilan .rq-reponse { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-corps); line-height: 1.3; color: var(--navy-700); margin: 0.35em 0 0; }
+#e21-bilan .autrement-kicker { color: var(--amber-texte); text-align: center; margin-top: clamp(30px, 5vh, 60px); }
+#e21-bilan .autrement { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 44px); width: 100%; max-width: 1664px; margin: clamp(26px, 4.4vh, 52px) 0 0; }
+#e21-bilan .autrement li { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(30px, 5vh, 56px) clamp(18px, 1.8vw, 32px) clamp(20px, 3.2vh, 38px); }
+#e21-bilan .autrement strong { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); line-height: 1.25; color: var(--navy-700); }
+#e21-bilan .autrement-pourquoi { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); line-height: 1.35; color: var(--text-muted); margin-top: 0.4em; }
+#e21-bilan .educpop { text-align: center; margin-top: clamp(30px, 5vh, 60px); padding-top: clamp(18px, 3vh, 34px); border-top: 1px solid var(--amber-100); width: 100%; max-width: 1300px; align-self: center; margin-inline: auto; }
+#e21-bilan .educpop-titre { font-family: var(--font-titre); font-weight: 800; font-size: var(--t-corps); color: var(--teal-texte); margin: 0; }
+#e21-bilan .educpop-mots { font-family: var(--font-corps); font-weight: 700; font-size: var(--t-liste); color: var(--navy-700); margin: 0.3em 0 0; }
+#e21-bilan .educpop-cap { font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); margin: 0.5em 0 0; }
 
 /* Titre masqué : présent pour les lecteurs d'écran, invisible à la projection. */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -1584,7 +1620,8 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e03-problematique .pb-texte { display: flex; flex-direction: column; }
 #e03-problematique .pb-note strong { font-family: var(--font-titre); font-weight: 800; color: var(--navy-700); }
 #e03-problematique .pb-texte > span { font-family: var(--font-corps); color: var(--text-muted); }
-#e03-problematique .pb-statuts { grid-area: statuts; justify-self: center; flex-direction: column; gap: 0.2em; margin: 0; text-align: center; }
+#e03-problematique .pb-statuts { grid-area: statuts; justify-self: center; flex-direction: row; align-items: center; margin: 0; text-align: center; }
+#e03-problematique .pb-statuts-texte { display: flex; flex-direction: column; gap: 0.2em; }
 #e03-problematique .pb-statuts blockquote { margin: 0; font-family: var(--font-corps); font-style: italic; color: var(--navy-700); }
 #e03-problematique .pb-statuts mark { background: var(--teal-100); color: var(--navy-700); padding: 0 0.15em; border-radius: 3px; }
 #e03-problematique .pb-statuts figcaption { font-family: var(--font-legende); color: var(--text-muted); }
@@ -1595,7 +1632,7 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 /* Écran 1 : deux signaux en grand, chacun avec sa source en petit au-dessus (S126). */
 #e01-intuitions .intuitions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.4vw, 64px); width: 100%; max-width: 1664px; margin-top: clamp(40px, 7vh, 84px); align-items: stretch; }
 #e01-intuitions .intuition { position: relative; background: #fff; border: 1px solid var(--amber-100); border-radius: 12px; padding: clamp(40px, 6.4vh, 72px) clamp(24px, 2.4vw, 44px) clamp(28px, 4.6vh, 52px); }
-#e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 0.6em; }
+#e01-intuitions .intuition-source { font-family: var(--font-legende); font-size: var(--t-petit); color: var(--text-muted); margin: 0 0 clamp(16px, 2.8vh, 34px); }
 #e01-intuitions .intuition-signal { font-family: var(--font-corps); font-size: calc(var(--t-corps) * 1.35); line-height: 1.3; color: var(--navy-700); margin: 0; }
 #e01-intuitions .intuition-signal strong { color: var(--bleu-glenans); }
 #e01-intuitions .intuition-photo { display: flex; flex-direction: column; }
@@ -1635,3 +1672,94 @@ img.emoji { height: 1em; width: 1em; margin: 0 0.05em 0 0.1em; vertical-align: -
 #e09-equipe .eq-haut::after { left: 50%; top: 100%; width: 3px; height: var(--eq-gy); transform: translateX(-50%); }
 #e09-equipe .eq-gauche::after { left: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
 #e09-equipe .eq-droite::after { right: 100%; top: 50%; height: 3px; width: var(--eq-gx); transform: translateY(-50%); }
+
+/* Écran 18 : les référents de l'activité, un public à chaque phase (S81, S138).
+   Une carte par phase, en écho à l'écran 10 : numéro à cheval, phase, interactions. */
+#e18-referents .ref-qui { max-width: 1500px; color: var(--text-muted); }
+#e18-referents .ref-phases { list-style: none; padding: 0; margin: clamp(40px, 6.4vh, 76px) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.2vw, 40px); width: 100%; max-width: 1664px; align-items: stretch; }
+#e18-referents .ref-phases > li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.6em; text-align: center; background: #fff; border: 1px solid var(--navy-100); border-radius: 12px; padding: clamp(36px, 5.6vh, 64px) clamp(16px, 1.4vw, 26px) clamp(24px, 3.8vh, 44px); }
+#e18-referents .ref-num { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center; background: var(--navy-700); color: #fff; font-family: var(--font-titre); font-weight: 800; font-size: var(--t-liste); }
+#e18-referents .ref-phases strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-liste) * 1.2); color: var(--navy-700); line-height: 1.15; min-height: 2.3em; display: flex; align-items: center; justify-content: center; }
+#e18-referents .ref-emoji { font-size: clamp(30px, 4.6vh, 54px); line-height: 1; margin-top: -0.1em; }
+#e18-referents .ref-emoji img.emoji { height: 1em; width: 1em; vertical-align: middle; }
+/* Hiérarchie (S138) : l'enjeu en titre, un filet, puis les interactions en liste plus petite. */
+#e18-referents .ref-phases ul { list-style: none; width: 100%; padding: clamp(14px, 2.4vh, 28px) 0 0; margin: 0.2em 0 0; border-top: 1px solid var(--navy-100); display: flex; flex-direction: column; gap: 0.55em; text-align: left; font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.35; color: var(--text-muted); }
+#e18-referents .ref-phases ul li { position: relative; padding-left: 0.95em; }
+#e18-referents .ref-phases ul li::before { content: '•'; position: absolute; left: 0; color: var(--navy-700); font-weight: 700; }
+
+/* Écrans 5 et 6 : la ligne sous chaque titre en serif italique, comme les sous-titres du site (S138). */
+#e05-terrain .terrain-points span:not(.emoji-cheval) { font-style: italic; }
+#e06-contraintes .methode > span:not(.emoji-cheval) { font-style: italic; }
+
+/* Écran 4 : les deux titres plus gros, posés par-dessus le centre de chaque pile,
+   en étiquette claire, texte dans l'accent foncé de l'acte (7:1), liseré dans l'accent (S138). */
+#e04-referentiels .public-bloc { position: relative; }
+#e04-referentiels .public-bloc h3 { position: absolute; z-index: 5; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-1.5deg); width: max-content; max-width: 92%; margin: 0; padding: 0.35em 0.8em; background: #fff; color: var(--navy-700); border: 1px solid var(--acte-encre); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); font-size: calc(var(--t-corps) * 1.2); line-height: 1.2; text-align: center; }
+#e04-referentiels .public-bloc:nth-child(1) h3 { transform: translate(-50%, -50%) rotate(-2.5deg); }
+#e04-referentiels .public-bloc:nth-child(2) h3 { transform: translate(-50%, -50%) rotate(1.8deg); }
+#e04-referentiels .public-bloc h3 .ref-doc { display: block; color: var(--acte-texte); font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: 0.78em; margin-top: 0.15em; }
+/* Écran 19 : hauteurs resserrées pour laisser place aux tuiles (S138). */
+#e19-evaluer .eval-kicker { margin-top: clamp(12px, 2vh, 24px); }
+#e19-evaluer .constats.evaluer { margin-top: clamp(22px, 3.6vh, 44px); }
+#e19-evaluer .eval-tuile { padding-top: clamp(12px, 2vh, 24px); padding-bottom: clamp(12px, 2vh, 24px); }
+/* Le chiffre à cheval sur le haut de la tuile, comme les emojis des cartes (S138). */
+#e19-evaluer .eval-tuile { position: relative; padding-top: clamp(30px, 4.4vh, 52px); }
+#e19-evaluer .eval-col { gap: clamp(36px, 5.4vh, 64px); }
+#e19-evaluer .eval-chiffre strong { position: absolute; top: 0; left: clamp(18px, 1.8vw, 32px); transform: translateY(-50%); }
+#e19-evaluer .eval-tuile { gap: clamp(12px, 2vh, 24px); }
+/* Écran 19 : ce qui a été évalué, en étiquettes de critères (S138). */
+#e19-evaluer .eval-criteres { list-style: none; margin: 0.3em 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4em 0.5em; }
+#e19-evaluer .eval-criteres li { font-family: var(--font-corps); font-size: var(--t-petit); line-height: 1.25; color: var(--teal-texte); background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 999px; padding: 0.2em 0.75em; }
+#e19-evaluer .constats.evaluer { align-items: stretch; }
+#e19-evaluer .constat { flex: 1; }
+/* Écran 19 sans kickers (S138) : l'objectif en sous-titre italique, les étiquettes en dessous. */
+#e19-evaluer .eval-vise { font-style: italic; margin-top: 0.3em; }
+#e19-evaluer .eval-criteres { margin-top: clamp(16px, 2.8vh, 32px); }
+/* Écran 19 (S138) : cartes et tuiles sur deux rangées communes, pour rester alignées d'une colonne à l'autre. */
+#e19-evaluer .constats.evaluer { grid-template-rows: auto auto; grid-auto-flow: column; row-gap: clamp(36px, 5.4vh, 64px); }
+#e19-evaluer .eval-col { display: contents; }
+/* Écran 19 : la taille des étiquettes suit aussi la largeur de la fenêtre, pour tenir à deux par ligne
+   dans une fenêtre plus étroite que 16:9. En 1920 × 1080, elle reste à --t-petit (S138). */
+#e19-evaluer .eval-criteres { gap: 0.35em 0.4em; }
+#e19-evaluer .eval-criteres li { font-size: min(var(--t-petit), 1.37vw); padding: 0.18em 0.65em; }
+/* Écrans 16 et 17 : l'illustration posée comme les autres photos du deck (S138) :
+   cadre blanc, coins arrondis, ombre, légère rotation. */
+#e16-coconception .photo-portrait, #e17-vendredi .photo-portrait { background: #fff; border: 4px solid #fff; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+#e16-coconception .photo-portrait { transform: rotate(2deg); }
+#e17-vendredi .photo-portrait { transform: rotate(-1.8deg); }
+/* Écrans 16 et 17 : le volume du public formé, en tuile teal comme les résultats de l'écran 19 (S138). */
+.volume-bloc { position: relative; display: inline-flex; flex-direction: column; gap: 0.3em; margin-top: clamp(34px, 5.4vh, 60px); padding: clamp(26px, 4vh, 44px) clamp(18px, 1.8vw, 30px) clamp(12px, 2vh, 22px); background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 12px; }
+.volume-chiffre { display: flex; align-items: baseline; gap: 0.4em; margin: 0; font-family: var(--font-corps); font-size: var(--t-liste); color: var(--navy-700); }
+.volume-chiffre strong { font-family: var(--font-titre); font-weight: 800; font-size: calc(var(--t-corps) * 1.6); line-height: 1; color: var(--teal-texte); }
+.volume-qui { margin: 0; font-family: var(--font-corps); font-style: italic; font-size: var(--t-petit); color: var(--text-muted); }
+#e03-problematique .pb-question { text-align: center; }
+#e00-anacoluthe .sous-titre { color: var(--bleu-glenans); }
+/* Écran 7 : les besoins de chaque public en serif italique (S138). */
+#e07-publics .public-bloc p { font-style: italic; }
+/* Écran 15 : les deux affiches rapprochées, la seconde chevauche la première (S138). */
+#e15-affiches-base .vis-a-vis { gap: 0; }
+#e15-affiches-base .vis-a-vis .photo-posee:nth-child(2) { margin-left: -9%; position: relative; z-index: 2; box-shadow: -6px 6px 22px rgba(0,0,0,0.16); }
+#e15-affiches-base .vis-a-vis .photo-posee:nth-child(1) { box-shadow: 0 6px 22px rgba(0,0,0,0.14); }
+/* Écran 12 : recto et verso rapprochés, le verso chevauche le recto, une ombre sur chacun (S138). */
+#e12-mode-emploi .vis-a-vis { gap: 0; }
+#e12-mode-emploi .vis-a-vis .photo-posee:nth-child(1) { box-shadow: 0 6px 22px rgba(0,0,0,0.14); }
+#e12-mode-emploi .vis-a-vis .photo-posee:nth-child(2) { margin-left: -9%; position: relative; z-index: 2; box-shadow: -6px 6px 22px rgba(0,0,0,0.16); }
+#e12-mode-emploi .vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg) translateY(-3%); }
+#e12-mode-emploi .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(3%); }
+#e15-affiches-base .vis-a-vis .photo-posee:nth-child(1) { transform: rotate(-2deg) translateY(-3%); }
+#e15-affiches-base .vis-a-vis .photo-posee:nth-child(2) { transform: rotate(1.5deg) translateY(3%); }
+#e15-affiches-base .texte-et-photos { margin-top: clamp(30px, 5vh, 60px); }
+#e15-affiches-base .vis-a-vis .photo-posee { height: min(60vh, 650px); }
+/* Écran 17 : les deux versions de l'affiche A3 empilées en vrac, la version à annoter
+   dessous, décalée vers le haut (S138). */
+#e17-vendredi .pile-affiches { position: relative; width: 100%; aspect-ratio: 1.42 / 1.25; justify-self: center; }
+#e17-vendredi .pile-affiches .photo-posee { position: absolute; width: 88%; height: auto; background: #fff; border: 4px solid #fff; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+#e17-vendredi .pa-dessous { top: 0; left: 10%; transform: rotate(3deg); }
+#e17-vendredi .pa-dessus { bottom: 0; left: 0; transform: rotate(-1.8deg); z-index: 2; }
+#e17-vendredi .pile-affiches { aspect-ratio: 1.42 / 1.12; }
+#e17-vendredi .pa-dessous { left: 7%; }
+/* Écran 20 sans kickers (S138) : un filet sépare la réussite des pistes. */
+#e20-plus-loin .piste-loin { align-self: start; margin-top: clamp(18px, 3vh, 34px); padding-top: clamp(14px, 2.4vh, 26px); border-top: 1px solid var(--amber-100); }
+
+/* Écran 20 : les chiffres d'acquis sous le titre de la première carte (S138). */
+#e20-plus-loin .piste-chiffres { display: block; font-family: var(--font-corps); font-weight: 400; font-style: italic; font-size: var(--t-petit); color: var(--text-muted); margin-top: 0.4em; }

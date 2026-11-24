@@ -121,32 +121,36 @@ moi : animer la démarche collective
 
 ## 10 | 4 ENJEUX
 **diag**
-○ bien comprendre
-○ vérifier le pb
-○ prototyper
-  ↓
+phase que je viens de vous présenter
+pas partir dans les solutions sans avoir compris le fond du problème, avec ceux qui **font**
+
 **conception**
-○ construire des outils **par** et **pour**
-○ acculturer par l'action
+construire des outils **par** et **pour**
+acculturer par le faire
 
 **déploiement**
-○ outils stables → diffusion possible
-○ besoin plus fin → formation ciblée + calendrier établi
+outils stables → diffusion possible
+besoin plus fin → formation ciblée et adaptée aux contraintes orga
 
 **éval**
-○ voir ce qui manque encore
-○ voir ce qui a bien marché
-○ voir ce qui peut être diffusé
+voir ce qui manque encore
+voir ce qui a bien marché
+voir ce qui peut être diffusé
+
+-- PROCESSUS > PRODUITS EN 2 SAISONS
 
 ## 11 | PRODUCTIONS
-**BAO** → dans les voiliers
+Faire l'objet de la suite de la présentation
+
+**BAO** 
+dans les voiliers à Marseillan
 
 **FORMATIONS**
-  ↗ sur créneaux préexistants
-  → adaptées à la diversité des publics
+sur créneaux préexistants
+adaptées à la diversité des publics
 
-**OUTILS**
-  on va voir ça en détails, c'est le sujet des parties qui suivent
+**OUTILS** référents
+pour diffuser les savoirs durablement
 
 ## 12 | CO-CONCEPTION
 des cycles de CC
@@ -159,7 +163,8 @@ test terrain
 retours
   ↓
 ateliers créatifs
-  ↺ proto
+
+-- EXEMPLES DE RESULTAT
 
 ## 13 | PÉPITES BAO
 prendre des exemples besoin-outil
@@ -177,15 +182,12 @@ prendre des exemples besoin-outil
   des billes pour résoudre des trucs en autonomie avec soutien RTQ
 
 ## 14 | BAO AUTONOME
-vous l'avez vu dans le dossier
+une des affiches à bord sert à expliquer ce qui est à bord
 
-**Affiches** ↗
-  cartes rôles
-  cartes moments
-  cartes joker
+dit ce qui est là et ce qui est en ligne, 
+à quoi peut servir chaque bout du kit
 
-**Mode d'emploi** ← 1er usage :
-  autonomie + mot dans le brief
+vient en complément de la mention de la BAO dans les briefs de démarrage
 
 ## 15 | AFFICHES FAIRE-SAVOIR
 transition vers la formation

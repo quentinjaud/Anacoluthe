@@ -56,7 +56,7 @@
     <div class="acte acte-5" role="group" aria-label="Acte 5 · Bilans">
       <a class="pastille" href="#e19-evaluer"><span aria-hidden="true">📊</span><span class="bulle">Ce qu'on a évalué</span></a>
       <a class="pastille" href="#e20-plus-loin"><span aria-hidden="true">🗺️</span><span class="bulle">Aller plus loin</span></a>
-      <a class="pastille" href="#e21-bilan"><span aria-hidden="true">🪢</span><span class="bulle">Bilan</span></a>
+      <a class="pastille" href="#e21-bilan"><span aria-hidden="true">🪢</span><span class="bulle">Retour à la question</span></a>
     </div>
   </div>
 </nav>
@@ -645,28 +645,31 @@
   </div>
 </section>
 
-<!-- 21. CE QUE JE RETIENS (S119, S138) : refondu après l'oral blanc 3.
-     En haut, retour à la question de l'écran 3 et la réponse (P5 §5.3). Au milieu,
-     ce que je ferais autrement (P5 §5.1), des faits plutôt que des maximes ; les
-     leçons se disent à l'oral. En bas, la voile comme terrain d'éducation populaire,
-     en écho au cap 2035 (P5 §5.4). Les chiffres d'acquis passent à l'écran 20. -->
+<!-- 21. RETOUR À LA QUESTION (S119, S138, S139) : l'écran 3 revient, même question, mêmes
+     trois notes fléchées vers les mêmes fragments ; chaque note dit, en méta, ce que
+     j'en retiens. Le jury voit la boucle se fermer. Ce que je ferais autrement et le
+     cap 2035 passent à l'oral. -->
 <section data-acte="5" class="ecran" id="e21-bilan">
-  <h2 class="titre">Ce que je <span class="highlight">retiens</span></h2>
-  <div class="retour-question">
-    <p class="rq-question">Comment donner aux moniteurices les moyens d'animer le vivre-ensemble&nbsp;?</p>
-    <p class="rq-reponse">En outillant l'espace laissé vide entre les référentiels et l'improvisation quotidienne</p>
+  <h2 class="sr-only">Retour à la question</h2>
+  <div class="pb-scene">
+    <div class="pb-note pb-outils" data-cible="pb-moyens-r">
+      <span class="pb-emoji" aria-hidden="true">🧰</span>
+      <span class="pb-texte"><strong>Des outils qui ont besoin d'humains</strong><span>pour y former et y sensibiliser</span></span>
+    </div>
+    <div class="pb-note pb-contexte" data-cible="pb-tensions-r">
+      <span class="pb-emoji" aria-hidden="true">🌊</span>
+      <span class="pb-texte"><strong>Le cœur du problème</strong><span>le plus délicat à aborder, le plus transformateur</span></span>
+    </div>
+    <p class="question pb-question">Comment donner aux <strong>moniteurices</strong><br>
+    <strong id="pb-moyens-r">les moyens d'animer le vivre-ensemble</strong><br>
+    dans un contexte qui génère autant de <strong id="pb-tensions-r">tensions</strong><br>
+    que <strong id="pb-opportunites-r">d'opportunités d'apprentissage</strong>&nbsp;?</p>
+    <div class="pb-note pb-statuts" data-cible="pb-opportunites-r">
+      <span class="pb-emoji" aria-hidden="true">⛵</span>
+      <span class="pb-texte"><strong>L'embarqué, un outil d'éducation populaire</strong><span>pour les stagiaires comme pour les moniteurices</span></span>
+    </div>
   </div>
-  <p class="piste-kicker autrement-kicker">Ce que je ferais autrement</p>
-  <ul class="autrement">
-    <li><span class="emoji-cheval" aria-hidden="true">🧮</span><strong>Chiffrer le temps de formation dès la conception</strong><span class="autrement-pourquoi">son coût est apparu pendant le déploiement</span></li>
-    <li><span class="emoji-cheval" aria-hidden="true">🤝</span><strong>Identifier un relais avant la&nbsp;V5</strong><span class="autrement-pourquoi">plutôt que parier sur une adhésion naturelle</span></li>
-    <li><span class="emoji-cheval" aria-hidden="true">☕</span><strong>L'informel avant le mail avec les salariés</strong><span class="autrement-pourquoi">comprendre leurs contraintes avant de demander</span></li>
-  </ul>
-  <div class="educpop">
-    <p class="educpop-titre">⛵ La voile, un terrain d'éducation populaire</p>
-    <p class="educpop-mots">autonomie · interdépendance · partage des responsabilités</p>
-    <p class="educpop-cap">Cap 2035 des Glénans&nbsp;: «&nbsp;un lieu d'expérimentation de nouveaux possibles&nbsp;»</p>
-  </div>
+  <svg class="pb-fleches" aria-hidden="true"></svg>
 </section>
 
 </main>
@@ -848,8 +851,8 @@
    Les deux notes du haut descendent par les marges, à gauche vers le début de la ligne 2,
    à droite vers la fin de la ligne 3 ; l'extrait des statuts remonte vers la ligne 4.
    Recalcul au chargement des polices, des emojis et au redimensionnement. */
-(function () {
-  var sec = document.getElementById('e03-problematique');
+['e03-problematique', 'e21-bilan'].forEach(function (idSec) {
+  var sec = document.getElementById(idSec);
   if (!sec) return;
   /* Chaque note reçoit une légère inclinaison, tirée au chargement : 0,5 à 2°, 1° au plus pour l'extrait des statuts, plus large (S138). */
   Array.prototype.forEach.call(sec.querySelectorAll('.pb-note'), function (n) {
@@ -865,7 +868,7 @@
     if (!rs.width) return;
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var defs = document.createElementNS(NS, 'defs');
-    defs.innerHTML = '<marker id="pb-pointe" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>';
+    defs.innerHTML = '<marker id="pb-pointe-' + idSec + '" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>';
     svg.appendChild(defs);
     svg.setAttribute('viewBox', '0 0 ' + rs.width + ' ' + rs.height);
     var g = 14, m = Math.max(40, rs.width * 0.04);
@@ -891,7 +894,7 @@
       }
       var p = document.createElementNS(NS, 'path');
       p.setAttribute('d', d);
-      p.setAttribute('marker-end', 'url(#pb-pointe)');
+      p.setAttribute('marker-end', 'url(#pb-pointe-' + idSec + ')');
       svg.appendChild(p);
     });
   }
@@ -899,7 +902,7 @@
   window.addEventListener('resize', tracer);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(tracer);
   tracer();
-})();
+});
 </script>
 
 </body>

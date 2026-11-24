@@ -783,7 +783,8 @@
     return {
       type: 'soutenance-etat', index: actif, id: ecrans[actif].id,
       numero: actif - decalage + 1, total: ecrans.length - decalage,
-      titre: titre(p), suivant: titre(s), dernier: actif === ecrans.length - 1
+      titre: titre(p), suivant: titre(s), dernier: actif === ecrans.length - 1,
+      acte: ecrans[actif].getAttribute('data-acte') || '1'
     };
   }
   function envoyerEtat() {

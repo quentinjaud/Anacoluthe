@@ -60,16 +60,18 @@ main { display: grid; grid-template-columns: 1fr 34%; gap: 22px; padding: 20px 2
 .etiquette .pill { background: var(--acte-teinte); color: var(--encre); border-radius: 999px; padding: 2px 12px; letter-spacing: 0; }
 .etiquette strong { font-size: 22px; }
 .carton { background: var(--blanc); border: 1px solid var(--trait); border-radius: 14px; padding: 22px 28px;
-  overflow: auto; flex: 1; min-height: 0; box-shadow: 0 2px 8px rgba(30, 58, 95, .08); }
-.cartons-courants { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 12px; }
+  overflow: hidden; flex: 1; min-height: 0; box-shadow: 0 2px 8px rgba(30, 58, 95, .08); }
+/* Pas de défilement pendant la présentation : la taille du texte s'ajuste au volume (ajuster()). */
+.cartons-courants { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 12px; font-size: 30px; }
 .cartons-courants .carton { flex: none; overflow: visible; }
-.cartons-courants .carton:only-child { flex: 1; }
+.cartons-courants .carton:last-child { flex: 1 0 auto; }
 .carton .tete { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 14px; }
 .carton .titre { font-weight: 800; color: var(--navy-700); }
 .carton .titre:not(:empty)::before { content: "/ "; color: var(--amber-700); }
 .carton .num { font-weight: 800; color: var(--muted); }
-.courant .carton { font-size: 30px; line-height: 1.4; color: var(--encre); }
-.courant .carton .titre { font-size: 34px; }
+.courant .carton { line-height: 1.35; color: var(--encre); padding: .7em .9em; }
+.courant .carton .tete { margin-bottom: .45em; }
+.courant .carton .titre { font-size: 1.12em; }
 .suivant .carton { font-size: 20px; line-height: 1.35; color: var(--muted); background: #FAFAF7; box-shadow: none; }
 .suivant .carton .titre { color: var(--muted); }
 .l { padding-left: calc(var(--i) * 1.2em); }
@@ -154,6 +156,26 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
   }
 
   var q = function (s) { return document.querySelector(s); };
+
+  /* La plus grande taille de texte (entre min et max, en px) qui tient sans déborder. */
+  function ajuster(el, max, min) {
+    var deborde = function () { return el.scrollHeight > el.clientHeight + 1; };
+    var bas = min, haut = max;
+    el.style.fontSize = max + 'px';
+    if (!deborde()) return;
+    while (haut - bas > 0.5) {
+      var m = (haut + bas) / 2;
+      el.style.fontSize = m + 'px';
+      if (deborde()) haut = m; else bas = m;
+    }
+    el.style.fontSize = bas + 'px';
+  }
+  function ajusterTout() {
+    ajuster(q('.cartons-courants'), 30, 14);
+    ajuster(q('.carton-suivant'), 20, 11);
+  }
+  window.addEventListener('resize', ajusterTout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajusterTout);
   var etat = null, precedent = -1;
 
   function afficher(e) {
@@ -170,6 +192,7 @@ kbd { font-family: inherit; border: 1px solid var(--trait); border-bottom-width:
       : '<div class="carton vide">Pas de carton pour cet écran.</div>';
     var cs = e.dernier ? [] : cartonsDe(e.index + 1, false);
     q('.carton-suivant').innerHTML = cs.length ? html(cs[0]) : '<span class="vide">-</span>';
+    ajusterTout();
     var st = q('.statut'); st.textContent = 'Deck connecté.'; st.classList.add('ok');
     /* Le chrono part tout seul en quittant la couverture (écran 0 vers 1). */
     if (!change) return;

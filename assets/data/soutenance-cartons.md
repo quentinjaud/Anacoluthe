@@ -13,17 +13,17 @@ Quentin, Glénans Marseillan, saisons 2025 et 2026
 
 Ce questionnement il a pris un nom : Anacoluthe
 
+-- A L'ORIGINE DE CE QUESTIONNEMENT
+
 ## 1 | 3 regards, un constat
-questions > métier de terrestre + saison de BSC 
-escadre démunis sur question humaine
+- mon année d'encadrement bénévole 
+  peu d'encadrants >  enthousiastes > embarqué
+  appréhension gérer humain
 
-+
+- échanges avec Romain > évolutions récentes
+  baisse proportion bénévoles
 
-échanges avec Romain > évolutions récentes
-
-+
-
-rapports de mer > humain à l'origine des incidents
+- rapports de mer > humain à l'origine des incidents
 
 ## 2 | Enquête
 Posé la question plus largement à celleux qui **encadrent**

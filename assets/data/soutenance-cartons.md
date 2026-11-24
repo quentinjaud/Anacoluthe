@@ -1,7 +1,7 @@
 `Un carton = un bloc qui commence par "## <numéro>" (suivi éventuellement de " | <titre>").`
 `Dans un carton : une ligne = une ligne. Ligne vide = espace.`
 `"- " ou "○ " en début de ligne = puce. **gras**, _italique_.`
-`">> " = transition vers le carton suivant, calée en bas à droite.`
+`"-- " en fin de carton = la phrase de transition avec l'écran suivant, en pied de carton.`
 `Indenter avec 2 espaces par niveau pour décaler une ligne.`
 
 ## 0
@@ -13,17 +13,17 @@ Quentin, Glénans Marseillan, saisons 2025 et 2026
 
 Ce questionnement il a pris un nom : Anacoluthe
 
+-- A L'ORIGINE DE CE QUESTIONNEMENT
+
 ## 1 | 3 regards, un constat
-questions > métier de terrestre + saison de BSC 
-escadre démunis sur question humaine
+- mon année d'encadrement bénévole 
+  peu d'encadrants >  enthousiastes > embarqué
+  appréhension gérer humain
 
-+
+- échanges avec Romain > évolutions récentes
+  baisse proportion bénévoles
 
-échanges avec Romain > évolutions récentes
-
-+
-
-rapports de mer > humain à l'origine des incidents
+- rapports de mer > humain à l'origine des incidents
 
 ## 2 | Enquête
 Posé la question plus largement à celleux qui **encadrent**
@@ -55,7 +55,7 @@ les contenus **FPI**, dans la doc **CEB**
 - une forte focalisation du travail des apprentis
   → encadrer +++
   → superviser −
->> CONTRAINTES
+-- CONTRAINTES
 
 ## 6 | CONTRAINTES → MÉTHODES
 - faire avec un planning très incertain et centré encadrement
@@ -66,7 +66,7 @@ les contenus **FPI**, dans la doc **CEB**
 
 - manque de temps et de compétences
   ↳ intervenants thématiques
->> PUBLIC
+-- PUBLIC
 
 ## 7 | 3 PUBLICS
 **Monos** → apprendre à animer
@@ -178,7 +178,7 @@ transition vers la formation
 ○ diffuser du vocabulaire
 ○ faire savoir le kit
 ○ faire savoir les **formations**
->> FORMATIONS - FAFP
+-- FORMATIONS - FAFP
 
 ## 16 | Co-concevoir est un FAFP
 ↳ **2025**

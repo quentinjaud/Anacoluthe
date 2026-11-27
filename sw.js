@@ -5,7 +5,7 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.6.0';
+const CACHE_VERSION = '1.7.0';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
 
 /**
@@ -20,7 +20,7 @@ const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
  * remettre les URL commentées dans PRECACHE_URLS, et incrémenter
  * CACHE_VERSION.
  */
-const DEV_NO_CACHE = true;
+const DEV_NO_CACHE = false;
 const DEV_URLS = ['/soutenance.html', '/assets/css/soutenance.css', '/assets/js/soutenance-lightbox.js',
   '/soutenance-notes.html', '/assets/data/soutenance-cartons.md'];
 
@@ -33,11 +33,14 @@ const PRECACHE_URLS = [
   '/afficheur-cartes.html',
   '/fil-semaine.html',
   '/ensavoirplus.html',
-  // '/soutenance.html',   // hors cache pendant les iterations (voir DEV_NO_CACHE)
+  '/soutenance.html',
+  '/soutenance-notes.html',
   
   // CSS
   '/assets/css/style.css',
-  // '/assets/css/soutenance.css',   // hors cache pendant les iterations
+  '/assets/css/soutenance.css',
+  '/assets/css/apercu-cartes.css',
+  '/assets/css/vendor/glightbox.min.css',
   '/assets/css/cards.css',
   '/assets/css/cards-print.css',
   '/assets/css/fil-semaine.css',
@@ -52,24 +55,59 @@ const PRECACHE_URLS = [
   '/assets/js/external-links.js',
   '/assets/js/scroll-spy.js',
   '/assets/js/vendor/marked.min.js',
-  // '/assets/js/soutenance-lightbox.js',   // hors cache pendant les iterations
-  // '/assets/js/vendor/glightbox.min.js',   // lightbox de la soutenance, a precacher avec elle
-  // '/assets/css/vendor/glightbox.min.css',
+  '/assets/js/soutenance-lightbox.js',
+  '/assets/js/vendor/glightbox.min.js',
+  '/assets/js/twemoji-init.js',
   
   // Data
   '/assets/data/cards-index.json',
+  '/assets/data/soutenance-cartons.md',
   
-  // Polices embarquees pour la page de soutenance : servies par le reseau
-  // pendant les iterations, a remettre dans le precache pour le hors-ligne.
-  // '/assets/fonts/merriweather.woff2',
-  // '/assets/fonts/merriweather-sans.woff2',
-  // '/assets/fonts/atkinson.woff2',
+  // Polices embarquees pour la page de soutenance
+  '/assets/fonts/merriweather.woff2',
+  '/assets/fonts/merriweather-sans.woff2',
+  '/assets/fonts/atkinson.woff2',
 
   // Images
   '/assets/images/logo-anacoluthe.svg',
   '/assets/images/icon-192.png',
   '/assets/images/icon-512.png',
   '/assets/images/affiche-tableau-equipage.png',
+
+  // Images de la soutenance
+  '/assets/images/logo-glenans.svg',
+  '/assets/images/affiche-A1-routines.png',
+  '/assets/images/soutenance/affiche-a4-recto.webp',
+  '/assets/images/soutenance/affiche-a4-verso-familles.webp',
+  '/assets/images/soutenance/affiche-a4-verso.webp',
+  '/assets/images/soutenance/affiche-com-haddock.webp',
+  '/assets/images/soutenance/affiche-com-promo.webp',
+  '/assets/images/soutenance/affiche-phases-a3-notes.webp',
+  '/assets/images/soutenance/affiche-phases-a3.png',
+  '/assets/images/soutenance/equipe-marseillan.webp',
+  '/assets/images/soutenance/joker-demande-retour-recto.webp',
+  '/assets/images/soutenance/joker-demande-retour-verso.webp',
+  '/assets/images/soutenance/jolie-brise.webp',
+  '/assets/images/soutenance/moment-accords-recto.webp',
+  '/assets/images/soutenance/moment-accords-verso.webp',
+  '/assets/images/soutenance/photo-atelier-baton.webp',
+  '/assets/images/soutenance/photo-chenal-croiseurs.webp',
+  '/assets/images/soutenance/photo-encadrement-benevole.webp',
+  '/assets/images/soutenance/photo-formation-table.webp',
+  '/assets/images/soutenance/photo-kit-v5.webp',
+  '/assets/images/soutenance/photo-moniteurices-salle.webp',
+  '/assets/images/soutenance/photo-phare-marseillan.webp',
+  '/assets/images/soutenance/photo-quai-base.webp',
+  '/assets/images/soutenance/photo-spi-glenans.webp',
+  '/assets/images/soutenance/pile-diaporama-depart.webp',
+  '/assets/images/soutenance/referentiels/cqp-rncp-discours-attitude.png',
+  '/assets/images/soutenance/referentiels/cqp-rncp-integrite.png',
+  '/assets/images/soutenance/referentiels/cqp-rncp-qualite-relationnelle.png',
+  '/assets/images/soutenance/referentiels/ffvoile-ligne-niveau1.png',
+  '/assets/images/soutenance/referentiels/ffvoile-lignes-niveau5.png',
+  '/assets/images/soutenance/referentiels/ffvoile-tableau-organisation.webp',
+  '/assets/images/soutenance/role-second-soigneux-recto.webp',
+  '/assets/images/soutenance/role-second-soigneux-verso.webp',
   
   // Cartes Rôles
   '/sources/cartes/roles/R1_bosco.md',
@@ -189,8 +227,11 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // soutenance-notes.html?integre=1 (vue integree du deck) : meme fichier en cache
+  const ignoreSearch = url.pathname === '/soutenance-notes.html';
+
   event.respondWith(
-    caches.match(event.request)
+    caches.match(event.request, { ignoreSearch })
       .then((cachedResponse) => {
         if (cachedResponse) {
           // Ressource en cache trouvée

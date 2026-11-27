@@ -728,8 +728,15 @@
 
 </main>
 
-<!-- Emojis : Twemoji depuis le CDN, comme le site (S18). Sans réseau, les emojis natifs restent. -->
-<script src="assets/js/twemoji-init.js" defer></script>
+<!-- Emojis : Twemoji embarqué (script figé en 15.1.0 et SVG des seuls emojis du deck,
+     assets/images/twemoji/), pour l'oral hors réseau (S144). Un emoji ajouté au deck
+     sans son SVG retombe sur l'emoji natif : ajouter le fichier et le précacher (sw.js). -->
+<script src="assets/js/vendor/twemoji.min.js"></script>
+<script>
+window.addEventListener('load', function () {
+  twemoji.parse(document.body, { callback: function (icon) { return 'assets/images/twemoji/' + icon + '.svg'; } });
+});
+</script>
 <!-- Hors-ligne : la PWA du site précache le deck, ses images, polices et cartons (sw.js) -->
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');</script>
 <!-- Lightbox : clic sur une image pour l'agrandir (GLightbox, embarqué) -->

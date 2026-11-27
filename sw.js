@@ -5,7 +5,7 @@
  * Incrémenter CACHE_VERSION pour forcer une mise à jour
  */
 
-const CACHE_VERSION = '1.7.0';
+const CACHE_VERSION = '1.7.1';
 const CACHE_NAME = `anacoluthe-v${CACHE_VERSION}`;
 
 /**
@@ -57,7 +57,7 @@ const PRECACHE_URLS = [
   '/assets/js/vendor/marked.min.js',
   '/assets/js/soutenance-lightbox.js',
   '/assets/js/vendor/glightbox.min.js',
-  '/assets/js/twemoji-init.js',
+  '/assets/js/vendor/twemoji.min.js',
   
   // Data
   '/assets/data/cards-index.json',
@@ -73,6 +73,53 @@ const PRECACHE_URLS = [
   '/assets/images/icon-192.png',
   '/assets/images/icon-512.png',
   '/assets/images/affiche-tableau-equipage.png',
+
+  // Emojis du deck (Twemoji embarque)
+  '/assets/images/twemoji/1f30a.svg',
+  '/assets/images/twemoji/1f331.svg',
+  '/assets/images/twemoji/1f381.svg',
+  '/assets/images/twemoji/1f393.svg',
+  '/assets/images/twemoji/1f3af.svg',
+  '/assets/images/twemoji/1f465.svg',
+  '/assets/images/twemoji/1f4a1.svg',
+  '/assets/images/twemoji/1f4aa.svg',
+  '/assets/images/twemoji/1f4ac.svg',
+  '/assets/images/twemoji/1f4c4.svg',
+  '/assets/images/twemoji/1f4c6.svg',
+  '/assets/images/twemoji/1f4c8.svg',
+  '/assets/images/twemoji/1f4c9.svg',
+  '/assets/images/twemoji/1f4ca.svg',
+  '/assets/images/twemoji/1f4cb.svg',
+  '/assets/images/twemoji/1f4dc.svg',
+  '/assets/images/twemoji/1f4e2.svg',
+  '/assets/images/twemoji/1f4e3.svg',
+  '/assets/images/twemoji/1f4e6.svg',
+  '/assets/images/twemoji/1f501.svg',
+  '/assets/images/twemoji/1f502.svg',
+  '/assets/images/twemoji/1f50e.svg',
+  '/assets/images/twemoji/1f52d.svg',
+  '/assets/images/twemoji/1f5e3.svg',
+  '/assets/images/twemoji/1f5fa.svg',
+  '/assets/images/twemoji/1f64b.svg',
+  '/assets/images/twemoji/1f64f.svg',
+  '/assets/images/twemoji/1f6df.svg',
+  '/assets/images/twemoji/1f6e0.svg',
+  '/assets/images/twemoji/1f6e4.svg',
+  '/assets/images/twemoji/1f91d.svg',
+  '/assets/images/twemoji/1f932.svg',
+  '/assets/images/twemoji/1f9d1-200d-1f393.svg',
+  '/assets/images/twemoji/1f9d1-200d-1f3eb.svg',
+  '/assets/images/twemoji/1f9ea.svg',
+  '/assets/images/twemoji/1f9ed.svg',
+  '/assets/images/twemoji/1f9f0.svg',
+  '/assets/images/twemoji/1f9f1.svg',
+  '/assets/images/twemoji/1faa2.svg',
+  '/assets/images/twemoji/2693.svg',
+  '/assets/images/twemoji/26f5.svg',
+  '/assets/images/twemoji/2702.svg',
+  '/assets/images/twemoji/270f.svg',
+  '/assets/images/twemoji/2753.svg',
+  '/assets/images/twemoji/3030.svg',
 
   // Images de la soutenance
   '/assets/images/logo-glenans.svg',

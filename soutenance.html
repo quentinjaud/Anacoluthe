@@ -730,6 +730,8 @@
 
 <!-- Emojis : Twemoji depuis le CDN, comme le site (S18). Sans réseau, les emojis natifs restent. -->
 <script src="assets/js/twemoji-init.js" defer></script>
+<!-- Hors-ligne : la PWA du site précache le deck, ses images, polices et cartons (sw.js) -->
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');</script>
 <!-- Lightbox : clic sur une image pour l'agrandir (GLightbox, embarqué) -->
 <script src="assets/js/vendor/glightbox.min.js"></script>
 <script src="assets/js/soutenance-lightbox.js"></script>
